@@ -359,7 +359,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/pruebas/214_Grover_lab.md" target="_blank"
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/pruebas/214_Grover_lab.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,23 +407,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/docs/pruebas/214_Grover_lab.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/docs/pruebas/214_Grover_lab.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -433,7 +416,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -533,49 +516,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><span class="math notranslate nohighlight">\(\newcommand{\V}{{\cal V}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\C}{{\mathbb C}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\R}{{\mathbb R}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\tr}{{\rm tr}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\ketbra}[2]{{|#1\rangle\langle #2|}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\braket}[2]{{\langle #1|#2\rangle}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\ket}[1]{{|#1\rangle}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\braa}[1]{{\langle #1|}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Hil}{{\mathcal H}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\Lin}{\rm L}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\O}{{\mathcal O}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\ees}{\end{equation*}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\bes}{\begin{equation*}}\)</span>
-<span class="math notranslate nohighlight">\(\newcommand{\i}{{\color{blue} i}}\)</span></p>
+  <blockquote>
+<div><p>Jan 30, 2024 | 1336 words | 7 min read</p>
+</div></blockquote>
 <figure class="align-center">
-<img alt="../../_images/myThumbnail.png" src="../../_images/myThumbnail.png" />
+<a class="reference internal image-reference" href="../../_images/myThumbnail.png"><img alt="../../_images/myThumbnail.png" src="../../_images/myThumbnail.png" style="width: 1000px;" /></a>
 </figure>
 <section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-grover">
 <h1>Algoritmo de Grover<a class="headerlink" href="#algoritmo-de-grover" title="Permalink to this heading">#</a></h1>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-Python</label><div class="sd-tab-content docutils">
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">return</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-2">
-Java</label><div class="sd-tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span></p>
+<ul class="simple">
+<li><p><span class="xref myst">Una aguja en un pajar</span></p></li>
+<li><p><span class="xref myst">Una aguja en un pajar 2</span></p></li>
+<li><p><span class="xref myst">Más agujas en un pajar</span></p></li>
+<li><p><span class="xref myst">Contaje cuántico</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> ../macro_tQ.py
@@ -587,14 +547,17 @@ Java</label><div class="sd-tab-content docutils">
 <table width="100%">
     <td style="font-size:550%px;font-family:Helvetica;text-align:left;background-color:rgba(0,0,900, 0.3);">
 <b> Una aguja en un pajar 2 </b>
-</table><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+</table>   <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Definición/Teorema/Lema</strong>: <em>subtitulo del Teorema/lema/definición</em></p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Plantilla de Teorema, Lema o definición.</p>
-<p class="sd-card-text">Debe de quedar una de las tres palabras del título: Definición, Teorema o Lema</p>
-<p class="sd-card-text">La demostración/prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<br>
+Plantilla de Teorema, Lema o definición.
+<br> 
+Debe de quedar una de las tres palabras del título: Definición, Teorema o Lema
+<br>   
+La demostración/prueba/... es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Demostración/Prueba/…<div class="sd-summary-down docutils">
@@ -609,9 +572,12 @@ Demostración/Prueba/…<div class="sd-summary-down docutils">
 <p>Mas texto</p>
 <div class="note admonition">
 <p class="admonition-title">Nota (Subtitulo de la nota) </p>
-<p>Plantilla de Nota</p>
-<p>El titulo debe de ser Nota</p>
-<p>La demostración/prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<br>     
+Plantilla de Nota
+<br>    
+El titulo debe de ser Nota
+<br> 
+La demostración/prueba/... es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Demostración/Prueba/…<div class="sd-summary-down docutils">
@@ -624,9 +590,13 @@ Demostración/Prueba/…<div class="sd-summary-down docutils">
 </details></div>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio/Ejemplo (Subtitulo del ejercicio/ejemplo) </p>
-<p>Plantilla de Ejercicios y Ejemplos</p>
-<p>Debe de quedar una de las dos palabras del título: Ejercicio o Ejemplo</p>
-<p>La solución/pista/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<br>        
+Plantilla de Ejercicios y Ejemplos
+<br>     
+Debe de quedar una de las dos palabras del título: Ejercicio o Ejemplo
+<br> 
+La solución/pista/... es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)
+<br> 
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Solución/Pista/…<div class="sd-summary-down docutils">
@@ -645,11 +615,13 @@ Solución/Pista/…<div class="sd-summary-down docutils">
 <p class="sd-card-text"><strong>Lema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
-<div class="math notranslate nohighlight">
-\[
+<br>    
+El cúbit $\ket{u}$  <i> más general</i> se puede representar, en la base computacional $\{\ket{0},\ket{1}\}$, usando dos números reales (ángulos) $\theta\in [0,\pi)$ y $\varphi\in [0,2\pi)$   
+<br>
+<br>
+$$
 |u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
-\]</div>
+$$
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Demostración<div class="sd-summary-down docutils">
@@ -686,11 +658,13 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 <p class="sd-card-text"><strong>Teorema</strong>: <em>subtitulo del teorema</em></p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
-<div class="math notranslate nohighlight">
-\[
+<br>    
+El cúbit $\ket{u}$  <i> más general</i> se puede representar, en la base computacional $\{\ket{0},\ket{1}\}$, usando dos números reales (ángulos) $\theta\in [0,\pi)$ y $\varphi\in [0,2\pi)$   
+<br>
+<br>
+$$
 |u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
-\]</div>
+$$
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Demostración<div class="sd-summary-down docutils">
@@ -727,11 +701,13 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 <p class="sd-card-text"><strong>Definición</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
-<div class="math notranslate nohighlight">
-\[
+<br>    
+El cúbit $\ket{u}$  <i> más general</i> se puede representar, en la base computacional $\{\ket{0},\ket{1}\}$, usando dos números reales (ángulos) $\theta\in [0,\pi)$ y $\varphi\in [0,2\pi)$   
+<br>
+<br>
+$$
 |u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
-\]</div>
+$$
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Demostración<div class="sd-summary-down docutils">
@@ -801,25 +777,81 @@ Solución<div class="sd-summary-down docutils">
 <p class="sd-card-text"><strong>Lema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
+<br>
+Sea $\ket{\psi}$ un vector <i>preparable</i> en la forma  $\ket{\psi} = V\ket{0}$. El reflector paralelo a $\ket{\psi}$ es
+<br>
+<br>
+$$
 R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
-\]</div>
+$$
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_Qiskit_code_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Qiskit&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">ZGate</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+
+<span class="k">def</span> <span class="nf">R0</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    
+            
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span> 
+    <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ZGate</span><span class="p">()</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ctrl_state</span><span class="o">=</span> <span class="mi">0</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">qcR0</span> <span class="o">=</span>  <span class="n">qc</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span>
+    <span class="n">qcR0</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;R0&#39;</span>
+    <span class="k">return</span> <span class="n">qcR0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_Qibo_code_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Qibo&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">ZGate</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+
+<span class="k">def</span> <span class="nf">R0</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Qibo Code&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola mundo
+</pre></div>
+</div>
 </div>
 </div>
 <p>El algoritmos de Grover permite efectuar esta tarea en un número de pasos que crece como   <span class="math notranslate nohighlight">\({\cal O}(\sqrt{N})\)</span>.</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/Grover1.png"><img alt="../../_images/Grover1.png" src="../../_images/Grover1.png" style="width: 10%;" /></a>
+<a class="reference internal image-reference" href="../../_images/Grover1.png"><img alt="../../_images/Grover1.png" src="../../_images/Grover1.png" style="width: 1000px;" /></a>
 </figure>
 <p>La estrategia se basa en iterar una serie de operaciones que amplifiquen la amplitud de obtener el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span>.</p>
 <p>Geométricamente, cada <em>iteración de Grover</em> es una composición de dos <span class="xref myst"><em>reflectores</em></span> <span class="math notranslate nohighlight">\(~
 \fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
 ~\)</span>, donde</p>
 <p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
-<ul class="simple">
-<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
-</ul>
+<br>
+-  **el marcador**, $R_w$, produce una reflexión en la dirección *paralela* a  $\ket{w}$
 <div class="math notranslate nohighlight">
 \[
 R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
@@ -835,9 +867,8 @@ R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\f
 \fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
 ~\)</span>, donde</p>
 <p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
-<ul class="simple">
-<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
-</ul>
+<br>
+-  **el marcador**, $R_w$, produce una reflexión en la dirección *paralela* a  $\ket{w}$
 <div class="math notranslate nohighlight">
 \[
 R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
@@ -850,31 +881,34 @@ R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\f
 \fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
 ~\)</span>, donde</p>
 <p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
-<ul class="simple">
-<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
-</ul>
+<br>
+-  **el marcador**, $R_w$, produce una reflexión en la dirección *paralela* a  $\ket{w}$
 <div class="math notranslate nohighlight">
 \[
 R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
 \]</div>
 <center> 
 <img src="./figuras/Grover2.png" width='50%' style='margin:automatic'/>
-</center><p>Referenciamos la <span class="xref myst">figura</span></p>
+</center>
+<p>Referenciamos la <span class="xref myst">figura</span></p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p><span class="math notranslate nohighlight">\(\bullet\)</span>
-El marcador es la parte del algoritmo que <i>conoce</i> la solución.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Podemos formalizar el &lt;i&gt;marcador&lt;/i&gt; como la &lt;i&gt;consulta al oráculo&lt;/i&gt; $O_f$ asociado a una función que  &lt;i&gt;reconoce&lt;/i&gt; la solución cuando la ve
-</pre></div>
-</div>
-<div class="amsmath math notranslate nohighlight" id="equation-b1dd7ef8-8807-4824-8059-ab1e63271055">
-<span class="eqno">(45)<a class="headerlink" href="#equation-b1dd7ef8-8807-4824-8059-ab1e63271055" title="Permalink to this equation">#</a></span>\[\begin{equation}
+El marcador es la parte del algoritmo que <i>conoce</i> la solución.
+<br>
+Podemos formalizar el <i>marcador</i> como la <i>consulta al oráculo</i> <span class="math notranslate nohighlight">\(O_f\)</span> asociado a una función que  <i>reconoce</i> la solución cuando la ve
+<br>
+<br></p>
+<div class="amsmath math notranslate nohighlight" id="equation-a3ece14a-cc88-418b-ae1c-27c7fb96861d">
+<span class="eqno">(45)<a class="headerlink" href="#equation-a3ece14a-cc88-418b-ae1c-27c7fb96861d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_w(x) = \left\{ \begin{array}{lcc}
              1 &amp;   \hbox{si}  &amp; x = w \\
               0 &amp;  \hbox{si} &amp; x \neq w \end{array}
    \right..
 \end{equation}\]</div>
-<p><span class="math notranslate nohighlight">\(\bullet\)</span>  Al igual que cuando buscas una aguja en un pajar, saber cómo es una aguja no te ayuda a encontrarla,  si te encuentras con ella, reconocerla es una operacion de coste unidad.</p>
+<p><span class="math notranslate nohighlight">\(\bullet\)</span>  Al igual que cuando buscas una aguja en un pajar, saber cómo es una aguja no te ayuda a encontrarla,  si te encuentras con ella, reconocerla es una operacion de coste unidad.
+<br>
+<br></p>
 <p><span class="math notranslate nohighlight">\(\bullet\)</span> La implementación de esta función es trivial porque sólo contiene un <i>min-term</i> <span class="math notranslate nohighlight">\(f_w(x=w)=1\)</span>. Podemos
 implementar esta función como un <i>oráculo de fase</i>, preparando la ancilla en el estado <span class="math notranslate nohighlight">\(\ket{-}\)</span>
 $<span class="math notranslate nohighlight">\(
@@ -909,8 +943,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e53a510-f226-4494-9385-c53a76710594">
-<span class="eqno">(46)<a class="headerlink" href="#equation-3e53a510-f226-4494-9385-c53a76710594" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e96b6fbf-c289-41c8-89d7-56866ff92baf">
+<span class="eqno">(46)<a class="headerlink" href="#equation-e96b6fbf-c289-41c8-89d7-56866ff92baf" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -979,8 +1013,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-341aa404-63ba-403e-9fd5-1ca8a26b52e3">
-<span class="eqno">(47)<a class="headerlink" href="#equation-341aa404-63ba-403e-9fd5-1ca8a26b52e3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-299d586e-19c3-466e-a4db-24611da0be7a">
+<span class="eqno">(47)<a class="headerlink" href="#equation-299d586e-19c3-466e-a4db-24611da0be7a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -1046,11 +1080,13 @@ G^k = \begin{bmatrix}
 <p class="sd-card-text"><strong>Lema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
+<br>
+Sea $\ket{\psi}$ un vector <i>preparable</i> en la forma  $\ket{\psi} = V\ket{0}$. El reflector paralelo a $\ket{\psi}$ es
+<br>
+<br>
+$$
 R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
-\]</div>
+$$
 </div>
 </div>
 <p>De modo que sólo necesitamos un circuito para el reflector  <span class="math notranslate nohighlight">\(~R_0 = I- 2\ket{0}\bra{0}~\)</span> <em>paralelo</em> al estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>.</p>
@@ -1063,12 +1099,17 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 <p style="text-align: center;"> <p style="text-align: left ;color: navy;">  
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">El siguiente circuito  implementa la acción del  <i>reflector</i> <span class="math notranslate nohighlight">\(R_0\)</span> paralelo al estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[~~R_0 ~=~ I- 2\ket{0}\bra{0} ~=~ \sum_{x\neq 0}\ket{x}\bra{x}-\ket{0}\bra{0}\]</div>
+<br>
+El siguiente circuito  implementa la acción del  <i>reflector</i> $R_0$ paralelo al estado $\ket{0}$ es
+<br>
+<br>
+$$~~R_0 ~=~ I- 2\ket{0}\bra{0} ~=~ \sum_{x\neq 0}\ket{x}\bra{x}-\ket{0}\bra{0}$$    
+<br>
+<br>
 <center> 
 <img src="./figuras/Reflection0.png" width='20%' style='margin:automatic'/>
 </center>
+<br>
 <p class="sd-card-text">donde la cadena <span class="math notranslate nohighlight">\(XZX\)</span> puede situarse en cualquier cúbit, no necesariamente el último.</p>
 </div>
 </div>
@@ -1100,10 +1141,11 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 \]</div>
 <div class="note admonition">
 <p class="admonition-title">Notar</p>
-<p>¡no sabemos implementar  <span class="math notranslate nohighlight">\(-R_s\)</span>! <span class="math notranslate nohighlight">\(~\)</span>, sólo <span class="math notranslate nohighlight">\(R_s\)</span>. De modo que lo más cercano a la iteración de Grover que podemos conseguir es
-<span class="math notranslate nohighlight">\(
+<br>
+¡no sabemos implementar  $-R_s$! $~$, sólo $R_s$. De modo que lo más cercano a la iteración de Grover que podemos conseguir es
+$
 \Rightarrow  R_s R_w = - G 
-\)</span></p>
+$
 <p>El signo menos, en apariencia es una fase global y no debería afectar a las probabilidades finales que son sus módulos al cuadrado.</p>
 <p>De modo que, de momento, lo vamos a ignorar, pero mantenemos una nota de atención sobre este hecho.</p>
 </div>
@@ -1161,17 +1203,22 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 <p class="sd-card-text"><strong>Teorema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">el valor entero de <span class="math notranslate nohighlight">\(k\in{\mathbb Z}\)</span> que maximiza la probabilidad <span class="math notranslate nohighlight">\(P_k = \sin^2((2k+1)\theta)\)</span> de medir la solución <span class="math notranslate nohighlight">\(w\)</span>  es la parte entera</p>
-<div class="math notranslate nohighlight">
-\[
+<br>
+el valor entero de $k\in{\mathbb Z}$ que maximiza la probabilidad $P_k = \sin^2((2k+1)\theta)$ de medir la solución $w$  es la parte entera 
+<br>
+<br>    
+$$
 k_{op} = \left[ \frac{\pi}{4\theta} \right]
-\]</div>
-<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\theta = \arcsin \sqrt{\frac{1}{N}}\)</span>.</p>
-<p class="sd-card-text">Se cumple en este caso que:</p>
-<div class="math notranslate nohighlight">
-\[
+$$
+<br>
+ donde $\theta = \arcsin \sqrt{\frac{1}{N}}$.
+<br>
+Se cumple en este caso que:
+<br>
+<br>
+$$
 1 - \frac{1}{N} \leq P_{k_{op}} \leq 1\, .
-\]</div>
+$$
 </div>
 </div>
 <div class="tip admonition">
@@ -1190,11 +1237,12 @@ el vector inicial tiene un ángulo muy pequeño.</p>
 <p class="sd-card-text"><strong>Teorema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">máximamente a la solución crece como</p>
-<div class="math notranslate nohighlight">
-\[
+<p class="sd-card-text">máximamente a la solución crece como
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
 k_{op} \approx \frac{\pi}{4}\sqrt{N}
-\]</div>
+\)</span>$</p>
 </div>
 </div>
 <p>Esto supone un crecimiento <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N})\)</span> en lugar de <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span> que es lo que esperaríamos clásicamente.</p>
@@ -1202,11 +1250,11 @@ k_{op} \approx \frac{\pi}{4}\sqrt{N}
 <table width="100%">
     <td style="font-size:250%px;font-family:Helvetica;text-align:left;background-color:rgba(0,0,900, 0.3);">
 <b> Varias agujas en un pajar </b>
-</table><p>Un usuario podría tener más de una línea telefónica contratada. En ese caso, <em>varios</em> números de teléfono servirán para dar con <em>un sólo</em> nombre.</p>
+</table>   <p>Un usuario podría tener más de una línea telefónica contratada. En ese caso, <em>varios</em> números de teléfono servirán para dar con <em>un sólo</em> nombre.</p>
 <p>Supondremos ahora que la búsqueda en la base de datos admite <span class="math notranslate nohighlight">\(M\)</span> resultados satisfactorios distintos <span class="math notranslate nohighlight">\(w_1,....,w_M\)</span>.</p>
 <p>El vector inicial se puede descomponer en suma de sus componentes <em>a lo largo</em> de <span class="math notranslate nohighlight">\({\cal B}\)</span> y de <span class="math notranslate nohighlight">\({\cal B}_\perp\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6d99f09-0a50-4e23-9f20-34d5a1dc88b2">
-<span class="eqno">(48)<a class="headerlink" href="#equation-c6d99f09-0a50-4e23-9f20-34d5a1dc88b2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-6f4c0d9a-77ea-4f71-bebc-69741453a4ea">
+<span class="eqno">(48)<a class="headerlink" href="#equation-6f4c0d9a-77ea-4f71-bebc-69741453a4ea" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{s} = \frac{1}{\sqrt{N}} \sum_{x\in \Hil} \ket{x} 
 &amp;=&amp;  \frac{1}{\sqrt{N}} \sum_{x\in {\cal B}} \ket{x}
  +  \frac{1}{\sqrt{N}} \sum_{x\in {\cal B}_\perp} \ket{x}
@@ -1218,17 +1266,21 @@ k_{op} \approx \frac{\pi}{4}\sqrt{N}
 <p class="sd-card-text"><strong>Teorema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">el valor entero de <span class="math notranslate nohighlight">\(k\in{\mathbb Z}\)</span> que maximiza la probabilidad <span class="math notranslate nohighlight">\(P_k = \sin^2 ((2k+1)\theta)\)</span> de medir la solución <span class="math notranslate nohighlight">\(w\)</span>  es la parte entera de <span class="math notranslate nohighlight">\(\pi/4\theta\)</span></p>
-<div class="math notranslate nohighlight">
-\[
+<br>
+<br>
+el valor entero de $k\in{\mathbb Z}$ que maximiza la probabilidad $P_k = \sin^2 ((2k+1)\theta)$ de medir la solución $w$  es la parte entera de $\pi/4\theta$
+<br>
+<br>    
+$$
 k_{op} = \left[ \frac{\pi}{4\theta} \right]
-\]</div>
-<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\theta = \arcsin \sqrt{\frac{M}{N}}.~\)</span>
-En este caso, la probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
+$$
+<br>
+ donde $\theta = \arcsin \sqrt{\frac{M}{N}}.~$
+En este caso, la probabilidad de medir el estado $\ket{w}$ es
+<br>
+$$
 1 - \frac{M}{N} \leq P_{k_{op}} \leq 1 \, .
-\]</div>
+$$
 </div>
 </div>
 <p>en el límite <span class="math notranslate nohighlight">\(N\to \infty\)</span> el coste computacional crece aun como la raíz cuadrada</p>
@@ -1237,11 +1289,12 @@ En este caso, la probabilidad de medir el estado <span class="math notranslate n
 <p class="sd-card-text"><strong>Teorema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">máximamente a alguna de las soluciones <span class="math notranslate nohighlight">\(w_i\)</span>, crece como</p>
-<div class="math notranslate nohighlight">
-\[
+<p class="sd-card-text">máximamente a alguna de las soluciones <span class="math notranslate nohighlight">\(w_i\)</span>, crece como
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
 k_{op} \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
-\]</div>
+\)</span>$</p>
 </div>
 </div>
 <p>Vemos que el número de iteraciones que hay que realizar es menor. A cambio sólo obtendremos una solución <span class="math notranslate nohighlight">\(w_i\)</span> después de cada ejecución.</p>
@@ -1319,7 +1372,7 @@ k_{op} \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">qcGrover</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k_op</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">qcGrover</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">G</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">w_array</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>
@@ -1335,7 +1388,7 @@ k_{op} \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
 <table width="100%">
     <td style="font-size:250%px;font-family:Helvetica;text-align:left;background-color:rgba(0,0,900, 0.3);">
 <b> Contaje cuántico </b>
-</table><p>En el algoritmos de Grover es crucial saber cuántas iteracions <span class="math notranslate nohighlight">\(k\)</span> del operador <span class="math notranslate nohighlight">\(G\)</span> hay que realizar.</p>
+</table>   <p>En el algoritmos de Grover es crucial saber cuántas iteracions <span class="math notranslate nohighlight">\(k\)</span> del operador <span class="math notranslate nohighlight">\(G\)</span> hay que realizar.</p>
 <p>En el caso de múltiples soluciones, esto depende de <span class="math notranslate nohighlight">\(M\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(M\)</span> es desconocido de antemano, por lo que el algoritmo ve <em>comprometida su eficiencia</em>.</p>
 <p>En esta sección vamos a explicar <strong>cómo deducir</strong> <span class="math notranslate nohighlight">\(M\)</span> como paso previo, invocando el algoritmo de Estimación de Fase Cuántica.</p>
@@ -1370,11 +1423,13 @@ G =
 <p class="sd-card-text"><strong>Lema</strong>:</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
+<br>
+Sea $\ket{\psi}$ un vector <i>preparable</i> en la forma  $\ket{\psi} = V\ket{0}$. El reflector paralelo a $\ket{\psi}$ es
+<br>
+<br>
+$$
 R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
-\]</div>
+$$
 </div>
 </div>
 <div class="tip admonition">

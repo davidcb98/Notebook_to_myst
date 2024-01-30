@@ -827,8 +827,8 @@ Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.2489377432210
 <p>El <em>problema</em> esencial para medir un valor esperado <span class="math notranslate nohighlight">\(\bra{\psi} A \ket{\psi}\)</span> es que, en general,  <span class="math notranslate nohighlight">\(A\)</span> <strong>no es un operador unitario</strong>. Por tanto no se puede incluir como parte de un circuito</p>
 <p>Si pudiésemos expresar  como una combinación de operadores unitarios, <span class="math notranslate nohighlight">\(A = \sum_i c_i U_i\)</span>, entonces sí podríamos calcular cadar valor esperado <span class="math notranslate nohighlight">\(\langle U_i\rangle\)</span> mediante un circuito y, finalmente, componer el resultado <span class="math notranslate nohighlight">\(\langle A\rangle = \sum_i c_i \langle U_i\rangle\)</span></p>
 <p>Una base  la constituyen las <em>cadenas de Pauli</em>,  <span class="math notranslate nohighlight">\(U = \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}\)</span> que nos, a la vez, hermíticas y unitarias, y permiten expandir cualquier operador hermítico</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cff15c01-780f-465c-a3ea-bc65e16ac942">
-<span class="eqno">(55)<a class="headerlink" href="#equation-cff15c01-780f-465c-a3ea-bc65e16ac942" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8eef5d7c-860d-49fb-b053-31092b1bbe87">
+<span class="eqno">(55)<a class="headerlink" href="#equation-8eef5d7c-860d-49fb-b053-31092b1bbe87" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \, \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\sigma_i = (I,X,Y,Z)\)</span></p>
@@ -931,8 +931,8 @@ a_{i_1\ldots i_n} =\frac{1}{2^n} \tr (A \,  \sigma_{i_1}\otimes \ldots  \otimes\
 Z\otimes Z\otimes Z \ket{i_2 i_1 i_0} = Z\ket{i_2}\otimes Z\ket{i_1}\otimes Z\ket{i_0} = (-1)^{i_2+i_1+i_0}\ket{i_2 i_1 i_0}
 \]</div>
 <p>entonces el valor esperado  de este operador es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4141d985-a1df-4adb-99b4-b6e1a47e4a97">
-<span class="eqno">(56)<a class="headerlink" href="#equation-4141d985-a1df-4adb-99b4-b6e1a47e4a97" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-5fa33e7f-a546-4b08-b021-8fbef9b9328b">
+<span class="eqno">(56)<a class="headerlink" href="#equation-5fa33e7f-a546-4b08-b021-8fbef9b9328b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle Z\otimes Z\otimes Z\rangle_\Psi &amp;=&amp;
 \bra{\Psi} Z\otimes Z\otimes Z \ket{\Psi} \\ 
 &amp;=&amp; \sum_{i_2,i_1,i_0=0,1}\bra{\Psi} Z\otimes Z\otimes Z \ket{i_2 i_1 i_0}\braket{i_2 i_1 i_0}{\Psi}  \rule{0mm}{10mm}  \\
@@ -1141,8 +1141,8 @@ $$
 \ket{0}\ket{\psi} ~\to ~ \ket{\Psi} = \frac{1}{2} \left[\rule{0mm}{3mm} |0\rangle \otimes (1 + U) |\psi\rangle +  |1\rangle \otimes (1 - U) |\psi\rangle \right] \label{hadam}
 \]</div>
 <p>Si medimos el cúbit ancilla, obtendremos como resultados <span class="math notranslate nohighlight">\(\{0,1\}\)</span> con probabilidades</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ddba08b-6856-4865-9813-2a3d5f5be0de">
-<span class="eqno">(57)<a class="headerlink" href="#equation-5ddba08b-6856-4865-9813-2a3d5f5be0de" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+<div class="amsmath math notranslate nohighlight" id="equation-916edbb4-23fa-498c-8efb-e5df9d6c03b1">
+<span class="eqno">(57)<a class="headerlink" href="#equation-916edbb4-23fa-498c-8efb-e5df9d6c03b1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
  p_{0}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 + U) \ket{\psi}  \right\vert^{2} = 
  \frac{1}{4}\bra{\psi}(1 + U^\dagger) (1 + U) \ket{\psi} =\frac{1}{2}(1+\operatorname{Re}\langle \psi|U|\psi\rangle) \nonumber\\
  p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=

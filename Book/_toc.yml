@@ -20,7 +20,7 @@ parts:
     sections:
     - file: docs/00_Formalismo/02_Fundamentos_MC.md
 
-  - file: docs/pruebas/214_Grover_lab.md
+  - file: docs/pruebas/214_Grover_lab
   - file: docs/QML/1_Introduction_lab
   - file: docs/QML/2_Feature_encoding_lab
 
