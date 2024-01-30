@@ -99,6 +99,33 @@ my_replace(f_data, i_line_first_line[0], 'source": [\n'+
 
 
 ################################################################################
+## Indice
+
+command_i_line_index_start = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
+i_line_index_start = grep_file_index(command_i_line_index_start)
+
+if len(i_line_index_start) == 1:
+    i_line_index_start = i_line_index_start[0]
+    i_line_index_end = i_line_index_start
+
+    found = False
+    while not found:
+        if f_data[i_line_index_end] == '   ]\n':
+            found = True
+        i_line_index_end += 1
+    i_line_index_end -= 2
+
+    my_replace(f_data, i_line_index_start, ':::{contents}\\n",\n'+
+                                        '    ":local:\\n",\n'
+                                        '    ":depth: 1\\n",\n'
+                                        '    ":::\\n",\n')
+    for i in range(i_line_index_start+1, i_line_index_end):
+        my_replace(f_data, i, '",\n')
+    my_replace(f_data, i_line_index_end, '"\n')
+
+
+
+################################################################################
 ###### Guardamos los cambios en un nuevo fichero
 
 out_file = file_name[:-6]+'_lab.ipynb'
