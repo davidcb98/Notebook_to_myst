@@ -1,0 +1,864 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.9. Funciones de Operadores &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Operadores_06';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.10. Matrices de Pauli" href="01_Operadores_07.html" />
+    <link rel="prev" title="1.7. Traza de un operador" href="01_Operadores_05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="01_formalismo_matematico.html">1. Formalismo Matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_Numeros_Complejos.html">1.1. Números Complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Vectores.html">1.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_01.html">1.3. Operadores y Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_02.html">1.4. El Espacio Vectorial  <span class="math notranslate nohighlight">\(\Lin(\Hil)\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_03.html">1.5. Clases de Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_04.html">1.6. Autovalores y autovectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_05.html">1.7. Traza de un operador</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Funciones de Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_07.html">1.10. Matrices de Pauli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Tensores.html">1.11. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Probabilidades.html">1.12. 1.5 Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Fundamentos_MC_intro.html">2. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Fundamentos_MC.html">2.1. Elementos de Mecánica Cuántica</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html">3. Circuitos multicúbits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/121_Multicubits.html">3.1. Multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/122_El_Arte_de_Medir_II.html">3.2. El arte de medir multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/123_Entrelazamiento.html">3.3. Entrelazamiento en acción</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/130_circuitos_mas_cosas.html">4. Circuitos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/131_Elementos_Basicos.html">4.1. Conjugación</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/132_CompClasica.html">4.7. Construcción de funciones binarias. Los min-términos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/00_Formalismo/01_Operadores_06.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/00_Formalismo/01_Operadores_06.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/00_Formalismo/01_Operadores_06.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/00_Formalismo/01_Operadores_06.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funciones de Operadores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-analiticas-de-operadores">1.9.1. Funciones analíticas de operadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exponenciacion-de-un-operador">1.9.2. La exponenciación de un operador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">1.9.3. Funciones  generales</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <hr class="docutils" />
+<p>license: CC-BY-4.0
+github: <a class="github reference external" href="https://github.com/jamasole/Curso-TalentQ-Jupyterlab">jamasole/Curso-TalentQ-Jupyterlab</a>
+subject: Curso
+venue: Quantum Spain
+authors:</p>
+<ul class="simple">
+<li><p>name: Javier Mas
+email: <a class="reference external" href="mailto:javier&#46;mas&#37;&#52;&#48;usc&#46;es">javier<span>&#46;</span>mas<span>&#64;</span>usc<span>&#46;</span>es</a>
+corresponding: true
+orcid: 0000-0001-7008-2126
+affiliations:</p>
+<ul>
+<li><p>IGFAE-USC</p></li>
+</ul>
+</li>
+<li><p>name: David Castaño
+email: <a class="reference external" href="mailto:david&#46;castano&#37;&#52;&#48;uma&#46;es">david<span>&#46;</span>castano<span>&#64;</span>uma<span>&#46;</span>es</a>
+corresponding: true
+orcid: 0000-0001-7008-2126
+affiliations:</p>
+<ul>
+<li><p>UMA
+math:<br />
+‘\i’: ‘{i}’
+‘\bes’: ‘\begin{equation*}’
+‘\ees’: ‘\end{equation*}’
+‘\O’: ‘{\mathcal O}’
+‘\Lin’: ‘\rm L’
+‘\Hil’: ‘{\mathcal H}’
+‘\braa’: ‘{\langle #1|}’
+‘\ket’: ‘{|#1\rangle}’
+‘\braket’: ‘{\langle #1|#2\rangle}’
+‘\ketbra’: ‘{|#1\rangle\langle #2|}’
+‘\tr’: ‘{\rm tr}’
+‘\R’: ‘{\mathbb R}’
+‘\C’: ‘{\mathbb C}’
+‘\V’: ‘{V}’</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<figure class="align-center">
+<img alt="../../_images/myThumbnail.png" src="../../_images/myThumbnail.png" />
+</figure>
+<section id="funciones-de-operadores">
+<h1><span class="section-number">1.9. </span>Funciones de Operadores<a class="headerlink" href="#funciones-de-operadores" title="Permalink to this heading">#</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#funciones-analiticas-de-operadores" id="id1">Funciones analíticas de operadores</a></p></li>
+<li><p><a class="reference internal" href="#la-exponenciacion-de-un-operador" id="id2">La exponenciación de un operador</a></p></li>
+<li><p><a class="reference internal" href="#funciones-generales" id="id3">Funciones  generales</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span><span class="n">Markdown</span><span class="p">,</span><span class="n">Latex</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="funciones-analiticas-de-operadores">
+<h2><a class="toc-backref" href="#id1"><span class="section-number">1.9.1. </span>Funciones analíticas de operadores</a><a class="headerlink" href="#funciones-analiticas-de-operadores" title="Permalink to this heading">#</a></h2>
+<p>Estamos acostumbrados a escribir funciones <em>de una variable real o compleja</em>. Por ejemplo <span class="math notranslate nohighlight">\(f(x)= x^2\)</span>, ó, <span class="math notranslate nohighlight">\( f(z) = e^z\)</span>.</p>
+<p>Querríamos dar sentido a una función <em>de un operador</em>
+<span class="math notranslate nohighlight">\(
+A \to f(A)
+\)</span></p>
+<p>En el caso de que <span class="math notranslate nohighlight">\(f(z)\)</span> sea una función analítica expresable como una serie de Taylor en torno a <span class="math notranslate nohighlight">\(x=0\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+f(z) = \sum_{n=0}^\infty \frac{1}{n!} f^{(n)}(0)\,  z^n
+\]</div>
+<p>tomaremos como <strong>definición</strong> la <em>misma serie</em> cambiando el argumento <span class="math notranslate nohighlight">\(x\to A\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+f(A) = \sum_{n=0}^\infty \frac{1}{n!} f^{(n)}(0)\,  A^n
+\]</div>
+<p><b>Notar:</b>
+<span class="math notranslate nohighlight">\(~\)</span> de la misma forma que, para funciones analíticas <span class="math notranslate nohighlight">\(f(z)^* = f(z^*)\)</span>, también la definición anterior asegura que
+<span class="math notranslate nohighlight">\(f(A)^\dagger = f(A^\dagger)\)</span></p>
+</section>
+<section id="la-exponenciacion-de-un-operador">
+<h2><a class="toc-backref" href="#id2"><span class="section-number">1.9.2. </span>La exponenciación de un operador</a><a class="headerlink" href="#la-exponenciacion-de-un-operador" title="Permalink to this heading">#</a></h2>
+<p>Sea <span class="math notranslate nohighlight">\(A\in \Lin(\Hil)\)</span>, definimos la exponencial <span class="math notranslate nohighlight">\(e^A\)</span> mediante la serie de Taylor usual</p>
+<div class="math notranslate nohighlight">
+\[
+\exp(A) = e^A \equiv  I + A + \frac{1}{2} A^2 + \frac{1}{3!} A^3 + ...
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39; para exponenciar matrices es recomendable la función expm de la libreria scipy.linalg&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">expm</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_power</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">],[</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">]])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">expm</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="mi">5</span><span class="p">)))</span>
+
+<span class="s1">&#39; podemos comparar con la serie de Taylor a tercer orden&#39;</span>
+<span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="o">+</span> <span class="n">matrix_power</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="mf">2.</span><span class="o">*</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1.21231 + 0.03374 i &amp; 0.32278 + 0.07788 i  \\
+ 0.01783 + 0.20924 i &amp; 0.88062 - 0.14876 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1.21233 + 0.03367 i &amp; 0.3225 + 0.0775 i  \\
+ 0.018 + 0.209 i &amp; 0.88083 - 0.14833 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+</div>
+</div>
+<p>Una propiedad importante de la función exponencial es  <span class="math notranslate nohighlight">\(e^xe^y = e^{x+y}\)</span>. La propiedad análoga para operadores <em>sólo es cierta cuando conmutan entre sí</em>.  Para el caso genérico tenemos dos opciones</p>
+<p><strong>Teorema de Baker-Campbel-Haussdorf</strong></p>
+<blockquote>
+<div><p><b> Teorema: </b>
+<br>
+Sean <span class="math notranslate nohighlight">\(A,B\subset{\rm L}(\Hil)\)</span> dos operadores lineales genéricos. Entonces
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+e^A e^B = e^{\left({A+B + \frac{1}{2}[A,B] + \frac{1}{12}[A,[A,B]]+ \frac{1}{12}[B,[B,A]] + ...}\right)}
+\)</span>$</p>
+</div></blockquote>
+<p>Vemos que</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> conmutan,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[A,B]=0 ~\Leftrightarrow ~e^A e^B = e^{A+B}\]</div>
+<ul class="simple">
+<li><p>Si el conmutador de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>  es un c-número</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[A,B]= c I  ~\Leftrightarrow ~  e^A e^B = e^{A+B + \frac{c}{2}}\]</div>
+<ul class="simple">
+<li><p>El inverso de <span class="math notranslate nohighlight">\(e^A\)</span> es <span class="math notranslate nohighlight">\(e^{-A}\)</span>.<span class="math notranslate nohighlight">\(~\)</span> Efectivamente, como</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[A,A]=0 \Rightarrow e^A e^{-A} = e^{A-A} = e^0 = I\]</div>
+<p><strong>Teorema de Lie-Suzuki-Trotter</strong></p>
+<blockquote>
+<div><p><b> Teorema: </b>
+<br>
+Sean <span class="math notranslate nohighlight">\(A,B\subset{\rm L}(\Hil)\)</span> dos operadores lineales genéricos. Entonces
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+e^{A+B} = \lim_{n\to\infty} \left(e^{{A/n}} e^{B/n}\right)^n
+\)</span>$</p>
+</div></blockquote>
+<p>Esta segunda opción es de uso muy frecuente en el contexto de la <em>simulación cuántica</em>.</p>
+<p><strong>Relación entre operadores hermíticos y unitarios</strong></p>
+<blockquote>
+<div><p><strong>Teorema:</strong> todo operador unitario <span class="math notranslate nohighlight">\(U\)</span> se puede expresar como la exponencial imaginaria de un operador hermítico <span class="math notranslate nohighlight">\(H\)</span>
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+U = e^{i H}
+\)</span>$</p>
+</div></blockquote>
+<p>Efectivamente,</p>
+<div class="math notranslate nohighlight">
+\[U^\dagger = \left(e^{i H}\right)^\dagger = e^{-i H^\dagger} = e^{-i H}=U^{-1}\]</div>
+<p>por tanto, <span class="math notranslate nohighlight">\(U\)</span> es unitario si y sólo si <span class="math notranslate nohighlight">\(H\)</span> es hermítico.
+<br>
+<br></p>
+<details>
+<summary><p > >>$~$ <i>Detalles:</i> </p></summary>
+\begin{eqnarray}
+U^\dagger &=& \left( e^{iH}\right)^\dagger = \left( 1+ iH + \frac{1}{2}(i H)^2 + ...\right)^\dagger \\
+&=& 1 - iH^\dagger  + \frac{1}{2}(-i)^2 (H^2)^\dagger + ... \\
+&=& 1 - iH +\frac{1}{2} H^2 - ... \\
+&=& e^{-iH}\\ \rule{0mm}{6mm}
+&=& U^{-1}
+\end{eqnarray}
+</details></section>
+<section id="funciones-generales">
+<h2><a class="toc-backref" href="#id3"><span class="section-number">1.9.3. </span>Funciones  generales</a><a class="headerlink" href="#funciones-generales" title="Permalink to this heading">#</a></h2>
+<p>No siempre <span class="math notranslate nohighlight">\(f(z)\)</span> admite una expansión en serie de Taylor. Por ejemplo <span class="math notranslate nohighlight">\(f(z) = \exp(1/z)\)</span> en torno a <span class="math notranslate nohighlight">\(z=0\)</span> no es analítica.</p>
+<p>En estos casos, el operador <span class="math notranslate nohighlight">\(f(A)\)</span> existe, pero para construirlo es necesario recurrir a la <em>forma diagonalizada</em></p>
+<blockquote>
+<div><p><b> Teorema: </b> <span class="math notranslate nohighlight">\(~\)</span>   Sea <span class="math notranslate nohighlight">\(A\)</span> un operador diagonalizable, y sea <span class="math notranslate nohighlight">\(A= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i}\)</span> su representación espectral.
+<br>
+Entonces el operador <span class="math notranslate nohighlight">\(f(A)\)</span> tiene la representación espectral siguiente
+<br><br />
+$<span class="math notranslate nohighlight">\(
+f(A) = \sum_i f(\lambda_i) \ket{\lambda_i}\bra{\lambda_i}
+\)</span>$</p>
+</div></blockquote>
+<p>En particular, la matriz asociada a <span class="math notranslate nohighlight">\(f(A)\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{\lambda_i}\}\)</span> que diagonaliza <span class="math notranslate nohighlight">\(A^{(D)}_{ij}\)</span>
+es la diagonal de los elementos <span class="math notranslate nohighlight">\(f(\lambda_i)\)</span> de los autovalores</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(A^{(D)}_{ij}) = \begin{bmatrix} f(\lambda_1)&amp; &amp;  &amp; \\ &amp; f(\lambda_2) &amp; &amp;  \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; f(\lambda_n)
+\end{bmatrix}
+\end{split}\]</div>
+<blockquote>
+<div><p><b>Ejemplo 1:</b><br />
+$<span class="math notranslate nohighlight">\(f(A) = e^{1/A} = \sum_i e^{1/\lambda_i} \ket{\lambda_i}\bra{\lambda_i}\)</span>$</p>
+</div></blockquote>
+<blockquote>
+<div><p><b>Ejemplo 2:</b></p>
+</div></blockquote>
+<div class="amsmath math notranslate nohighlight" id="equation-bdb86391-0aa9-4daa-b126-5289d7a1ce8a">
+<span class="eqno">(1.22)<a class="headerlink" href="#equation-bdb86391-0aa9-4daa-b126-5289d7a1ce8a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+f(A) = {\rm tr}(A \log A) &amp;=&amp; {\rm tr}\left[\left(\sum_j \lambda_j \ket{\lambda_j}\bra{\lambda_j}\right)\left(\sum_k\log \lambda_k \ket{\lambda_k}\bra{\lambda_k}\right)\right] ~=~  {\rm tr}\left[\sum_k \lambda_k \log\lambda_k \ket{\lambda_k}\bra{\lambda_k} \right] \\ \rule{0mm}{20mm}
+&amp;=&amp; {\rm tr} \begin{bmatrix} \lambda_1 \log \lambda_1&amp; &amp;  &amp; \\ &amp;\lambda_2 \log \lambda_2 &amp; &amp;  \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; \lambda_n \log \lambda_n
+\end{bmatrix}
+ ~= ~ \sum_k \lambda_k \log \lambda_k \rule{0mm}{8mm}
+\end{eqnarray}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/00_Formalismo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Operadores_05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.7. </span>Traza de un operador</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_Operadores_07.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.10. </span>Matrices de Pauli</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-analiticas-de-operadores">1.9.1. Funciones analíticas de operadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exponenciacion-de-un-operador">1.9.2. La exponenciación de un operador</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">1.9.3. Funciones  generales</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1364 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cúbits &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/111_Cubits';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00_Formalismo/01_formalismo_matematico.html">Formalismo Matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Numeros_Complejos.html">Números Complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Vectores.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Operadores_01.html">Operadores I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Operadores_02.html">Operadores II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Tensores.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Probabilidades.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC_intro.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_lab.html">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="120_Circuitos_multiq%C3%BAbit.html">Circuitos multicúbits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="121_Multicubits.html">Multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="122_El_Arte_de_Medir_II.html">El arte de medir multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="123_Entrelazamiento.html">Entrelazamiento en acción</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="130_circuitos_mas_cosas.html">Circuitos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="131_Elementos_Basicos.html">Conjugación</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="132_CompClasica.html">Construcción de funciones binarias. Los min-términos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/01_Circuitos/111_Cubits.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/01_Circuitos/111_Cubits.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/01_Circuitos/111_Cubits.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/01_Circuitos/111_Cubits.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cúbits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-base-computacional">Definición, base computacional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases">Bases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esfera-de-bloch">Esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-cuantico">Registro cuántico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotaciones-en-la-esfera-de-bloch">Rotaciones en la esfera de Bloch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotaciones-x-y-y-z">Rotaciones X, Y y Z</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrizacion-de-euler">Parametrización de Euler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puertas-simples">Puertas Simples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-de-fase">Puerta de fase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puertas-discretas">Puertas Discretas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-un-operador-en-puertas-simples">Descomposición de un operador en puertas simples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuitos-cuanticos">Circuitos Cuánticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-un-circuito">Matriz de un circuito</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cubits">
+<h1>Cúbits<a class="headerlink" href="#cubits" title="Permalink to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\tr}{{\rm tr}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\V}{{\cal V}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
+<ul class="simple">
+<li><p><span class="xref myst">Definición, base computacional</span></p></li>
+<li><p><span class="xref myst">Esfera de Bloch</span></p></li>
+<li><p><span class="xref myst">Registro cuántico</span></p></li>
+<li><p><span class="xref myst">Rotaciones en la esfera de Bloch</span></p></li>
+<li><p><span class="xref myst">Puertas simples</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span><span class="n">Markdown</span><span class="p">,</span><span class="n">Latex</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="definicion-base-computacional">
+<h2>Definición, base computacional<a class="headerlink" href="#definicion-base-computacional" title="Permalink to this heading">#</a></h2>
+<p>Un <em>bit</em> es una variable  real <span class="math notranslate nohighlight">\(a\)</span> que puede tomar valores en <span class="math notranslate nohighlight">\( {\mathbb Z}_2= \{0, 1\}\)</span>.</p>
+<div class="alert alert-block alert-info",text-align:center>
+<p style="text-align: left ;color: navy;">  
+    <b> Definición</b>: un cúbit es un <i>espacio de Hilbert</i> complejo de dimensión dos, $~\ket{v}~\in~\Hil \sim {\mathbb C}^2$ 
+</p></div><ul class="simple">
+<li><p>Cualquier sistema  cuyo estado instantáneo se pueda describir mediante un vector <span class="math notranslate nohighlight">\(\ket{v}\in {\mathbb C}^2\)</span> puede albergar físicamente un <em>cúbit</em>.
+<br>
+<br></p></li>
+<li><p>A efectos prácticos,  se trata de sistemas que pueden estar y conmutar entre dos niveles de energía bien definidos de manera controlada.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Un <em>cútrit</em> es un espacio de Hilbert de dimensión <span class="math notranslate nohighlight">\(3\)</span>, un <em>cúdit</em> de dimensión <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+</ul>
+<section id="bases">
+<h3>Bases<a class="headerlink" href="#bases" title="Permalink to this heading">#</a></h3>
+<p><strong>Base computacional</strong></p>
+<p>Para representar vectores de estado  <span class="math notranslate nohighlight">\(\ket{u}\in \Hil\)</span> necesitamos una <em>base</em>  formada por dos vectores ortonormales.</p>
+<p>La base que usaremos   <span class="math notranslate nohighlight">\(B=\{\ket{0},\ket{1}\}\)</span> y se denomina <em>base computacional</em>.</p>
+<p>La base computacional es <em>ortonormal</em></p>
+<div class="math notranslate nohighlight">
+\[
+\braket{0}{0} = \braket{1}{1} = 1 ~~~~~~~~~~\braket{0}{1} = \braket{1}{0} = 0
+\]</div>
+<p>La base computacional también recibe el nombre de base Z.</p>
+<ul>
+<li><p>Base <span class="math notranslate nohighlight">\(Z\)</span> (base computacional)
+$<span class="math notranslate nohighlight">\(
+  \begin{array}{rclcl}
+  \ket{0}_Z ~~\equiv ~~\ket{0} &amp;\sim&amp; \begin{bmatrix}  1\\ 0\end{bmatrix} \\
+  \ket{1}_Z ~~\equiv~~\ket{1} &amp;\sim&amp;  \begin{bmatrix}  0\\ 1\end{bmatrix}
+  \end{array}
+  \)</span>$</p>
+<p>El nombre indica que esta base  la forman autoestados del operador</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Z= \sigma_z = \begin{bmatrix} 1&amp; 0 \\ 0 &amp; -1 \end{bmatrix}\end{split}\]</div>
+<p>con autovalores <span class="math notranslate nohighlight">\(\pm 1\)</span>.</p>
+</li>
+</ul>
+<p>Hay infinitas bases ortonormales para <span class="math notranslate nohighlight">\({\mathbb C}^2\)</span>. Otras dos muy utilizadas son las bases <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span></p>
+<ul class="simple">
+<li><p>Base <span class="math notranslate nohighlight">\(X\)</span>
+$<span class="math notranslate nohighlight">\(
+  \begin{array}{rclcl}
+  \ket{0}_X ~~\equiv ~~\ket{+} &amp;=&amp; \frac{1}{\sqrt{2}}(|0\rangle+|1\rangle) &amp;=  &amp; \frac{1}{\sqrt{2}}\begin{bmatrix}
+  1\\ 1\end{bmatrix} \\
+  \ket{1}_X ~~\equiv~~\ket{-} &amp;=&amp;  \frac{1}{\sqrt{2}}(|0\rangle-|1\rangle) &amp;=&amp; \frac{1}{\sqrt{2}}\begin{bmatrix}
+  1\\ -1\end{bmatrix}
+  \end{array}
+  \)</span>$
+<br></p></li>
+<li><p>Esta base la forman autovectores del operador <span class="math notranslate nohighlight">\(X= \sigma_x = \begin{bmatrix} 0&amp; 1 \\ 1 &amp; 0 \end{bmatrix}\)</span> con autovalores <span class="math notranslate nohighlight">\(\pm 1\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Base <span class="math notranslate nohighlight">\(Y\)</span>
+$<span class="math notranslate nohighlight">\(
+  \begin{array}{rclcl}
+  \ket{0}_Y ~~\equiv ~~\ket{+i} &amp;=&amp; \frac{1}{\sqrt{2}}(|0\rangle+i |1\rangle) &amp;=  &amp; \frac{1}{\sqrt{2}}\begin{bmatrix}
+ 1\\ i \end{bmatrix} \\
+  \ket{1}_Y ~~\equiv~~\ket{-i} &amp;=&amp;  \frac{1}{\sqrt{2}}(|0\rangle-i |1\rangle) &amp;=&amp; \frac{1}{\sqrt{2}}\begin{bmatrix}
+   1 \\-i \end{bmatrix}
+  \end{array}
+\)</span><span class="math notranslate nohighlight">\(
+&lt;br&gt;
+Esta base la forman autoestados del operador \)</span>Y=\sigma_y =  \begin{bmatrix} 0&amp; -i \ i &amp; 0 \end{bmatrix}<span class="math notranslate nohighlight">\( con autovalores \)</span>\pm 1$.</p></li>
+</ul>
+<div class="alert alert-block alert-success">
+<b>Ejercicio:</b> 
+Escribe las matrices $u_{ij}$ de cambio de la base $Z\to X$
+<div class="math notranslate nohighlight">
+\[
+\ket{j}_X = \sum_j u_{ij}\ket{i}_Z
+\]</div>
+<p>Haz lo mismo para  <span class="math notranslate nohighlight">\(Z\to Y\)</span> y <span class="math notranslate nohighlight">\(X\to Y\)</span>.</p>
+</div></section>
+<section id="esfera-de-bloch">
+<h3>Esfera de Bloch<a class="headerlink" href="#esfera-de-bloch" title="Permalink to this heading">#</a></h3>
+<p>En un <em>bit clásico</em> sólo podemos almacenar un valor 0 ó 1.</p>
+<p>¿Cuánta información puede almacenar un <em>cúbit</em>?</p>
+<p>Un cúbit general será de la forma <span class="math notranslate nohighlight">\(\ket{u} = a\ket{0} + b\ket{1}\)</span> donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son dos números complejos, es decir cuatro números reales.</p>
+<p>Sin embargo, están sometidos a la ligadura <span class="math notranslate nohighlight">\(|a|^2+|b|^2=1\)</span>, lo que nos deja  tres grados de libertad reales.</p>
+<p>Pero uno de ellos es una fase global que no tiene significado.</p>
+<p>Por tanto el <em>número de grados de libertad (reales) en un cúbit es 2.</em></p>
+<div class="alert alert-block alert-info">
+<p style="text-align:left ;color: navy;">  
+<b> Lema </b>:
+<br>    
+El cúbit $\ket{u}$  <i> más general</i> se puede representar, en la base computacional $\{\ket{0},\ket{1}\}$, usando dos números reales (ángulos) $\theta\in [0,\pi)$ y $\varphi\in [0,2\pi)$   
+<br>
+<br>
+$$
+|u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
+$$
+</p>
+</div>  <details>
+<summary><p style="text-align:left"> >> <i>Demostración</i> </p></summary>
+<p>Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
+&amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
+&amp;=&amp; e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
+&amp;\sim &amp; \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
+\end{array}
+\end{split}\]</div>
+<p>donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
+<p>Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>.
+Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que
+$<span class="math notranslate nohighlight">\(
+a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
+\)</span><span class="math notranslate nohighlight">\(
+Por su parte, de los números \)</span>b_1, b_2<span class="math notranslate nohighlight">\( sólo la diferencia
+\)</span><span class="math notranslate nohighlight">\(
+\varphi = b_1-b_2
+\)</span><span class="math notranslate nohighlight">\(
+es relevante para especificar \)</span>\ket{u}$.</p>
+</details><p>En componentes en la base <span class="math notranslate nohighlight">\(Z\)</span> escribimos equivalentemente
+$$
+|u\rangle ~\sim ~~</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0e62efcb-2353-433a-a62b-e4c6a3768d46">
+<span class="eqno">()<a class="headerlink" href="#equation-0e62efcb-2353-433a-a62b-e4c6a3768d46" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\displaystyle\frac{\theta}{2} \\  e^{i\varphi} \sin \displaystyle\frac{\theta}{2} \end{bmatrix}\]</div>
+<p>$$</p>
+<p>El rango de <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span> permite interpretar estos números reales como <em>ángulos sobre la esfera unidad</em>. Dicho de otro modo, podemos representar  cada estado de un cúbit como un <em>punto</em> sobre una esfera de radio unidad: la <em>esfera de Bloch</em>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> el ángulo <em>azimutal</em> se mide desde el eje <span class="math notranslate nohighlight">\(Z\)</span>. De modo que <span class="math notranslate nohighlight">\(\theta=\pi/2\)</span> es el <em>ecuador
+de la esfera de Bloch</em>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi\in [0,2\pi)\)</span> el ángulo <em>polar</em>  en torno al eje <span class="math notranslate nohighlight">\(Z\)</span>, medido a partir del plano <span class="math notranslate nohighlight">\(XZ\)</span>
+<br></p></li>
+</ul>
+<div>
+<img src="images/BlochSphere.png" width="25%" style="margin:auto"/>
+</div>
+<br>
+<p><strong>Vectores en la Esfera de Bloch: visualizaciones</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://javafxpert.github.io/grok-bloch/?fbclid=IwAR1lWfCug1lfTXxXenaJxnsdJh2g3he6lBJmjnjL_Jus0gOHR9u3UuaT7qs">Visualizador java</a></p></li>
+<li><p>La clase <a href=https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html>statevector</a> en <em>qiskit</em> cuenta con un <em>visualizador</em> de la esfera de Bloch. La clase  acepta una lista de dos números complejos como componentes de un vector.
+<br>
+<br>
+Lamentablemente no avisa si este vector está normalizado o no. Por eso, incluimos una función que genera el vector normalizado a partir de los ángulos <span class="math notranslate nohighlight">\(\theta\)</span> y <span class="math notranslate nohighlight">\(\phi\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+<span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_bloch_multivector</span><span class="p">,</span> <span class="n">array_to_latex</span>  
+
+<span class="c1"># Ejemplo de vector de estado |+&gt; </span>
+<span class="n">e_mas</span> <span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="n">j</span><span class="p">])</span>
+
+
+<span class="n">Statevector</span><span class="p">(</span><span class="n">e_mas</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\frac{\sqrt{2}}{2} |0\rangle+\frac{\sqrt{2} i}{2} |1\rangle\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Statevector</span><span class="p">(</span><span class="n">e_mas</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;Bloch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2dc0a782ece40e2fa5ed642e2cbf7a4a7daf60f48c968135c9f30eed1123f423.png" src="../../_images/2dc0a782ece40e2fa5ed642e2cbf7a4a7daf60f48c968135c9f30eed1123f423.png" />
+</div>
+</div>
+<p>Esta rutina introduce dos ángulos <span class="math notranslate nohighlight">\(\theta\in(0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\phi\in(0,2\pi)\)</span> y devuelve el vector de Bloch</p>
+<div class="math notranslate nohighlight">
+\[
+|u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="mf">1.9</span>
+<span class="n">phi</span>   <span class="o">=</span> <span class="mf">0.8</span>
+
+<span class="n">uket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">),(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">array_to_latex</span><span class="p">(</span><span class="n">uket</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span> <span class="s1">&#39;\ket</span><span class="si">{u}</span><span class="s1"> = &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+\ket{u} = 
+\begin{bmatrix}
+0.5816830895  \\
+ 0.5667120397 + 0.5835085668 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Statevector</span><span class="p">(</span><span class="n">uket</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[0.5816830895 |0\rangle+(0.5667120397 + 0.5835085668 i) |1\rangle\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Statevector</span><span class="p">(</span><span class="n">uket</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;Bloch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b08479fb7f044fbe39a7d83058949c702baab44535417837c761037cf8ed0a7d.png" src="../../_images/b08479fb7f044fbe39a7d83058949c702baab44535417837c761037cf8ed0a7d.png" />
+</div>
+</div>
+<p><strong>Base Z</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (0,0) \Rightarrow  \ket{0}_Z = \ket{0}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (\pi,\phi)  \Rightarrow  e^{i\phi}\ket{1}_Z = \ket{1}\)</span></p></li>
+</ul>
+<div>
+<img src="images/BlochSphere.png"  width="30%" style="margin:auto"/>
+</div>
+<p><strong>Base X</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (\pi/2,0)  ~\Rightarrow~  \frac{1}{\sqrt{2}}\big(|0\rangle+|1\rangle \big) =\ket{0}_X \equiv |+\rangle\)</span>
+<br></p></li>
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (\pi/2,\pi) ~\Rightarrow~  \frac{1}{\sqrt{2}}\big(|0\rangle-|1\rangle \big)=\ket{1}_X \equiv |-\rangle\)</span></p></li>
+</ul>
+<div>
+<img src="images/BlochSphere.png"  width="30%" style="margin:auto"/>
+</div>
+<p><strong>Base Y</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (\pi/2,\pi/2) ~\Rightarrow ~|u\rangle =\frac{1}{\sqrt{2}}\big(|0\rangle+i|1\rangle\big) =\ket{0}_Y \equiv  |+i\rangle\)</span>
+<br></p></li>
+<li><p><span class="math notranslate nohighlight">\((\theta,\phi) = (\pi/2,3\pi/2) ~\Rightarrow ~|u\rangle = \frac{1}{\sqrt{2}}\big(|0\rangle-i|1\rangle\big) = \ket{1}_Y \equiv  |-i\rangle\)</span></p></li>
+</ul>
+<div>
+<img src="images/BlochSphere.png"  width="30%" style="margin:auto"/>
+</div>
+</section>
+</section>
+<section id="registro-cuantico">
+<h2>Registro cuántico<a class="headerlink" href="#registro-cuantico" title="Permalink to this heading">#</a></h2>
+<p>Un <strong>registro cuántico</strong> contiene la <em>evolución temporal</em> de un cúbit.</p>
+<br>
+<div>
+<img   src="images/q_register.png"   width="30%" style="margin:auto"/>
+</div>
+<br><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;en qiskit podemos inicializar un registro cuántico en un estado |q&gt; arbitrario usando el método initialize()&#39;</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+
+<span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;qname&#39;</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="mf">1.9</span>
+<span class="n">phi</span>   <span class="o">=</span> <span class="mf">0.8</span>
+
+<span class="n">ket</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">),(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">ket</span><span class="p">,</span><span class="n">qr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7d5f15aea5d2db7a7f75969cab75783ef6d4e8ecc3076f9db7ea7344d0dd32fb.png" src="../../_images/7d5f15aea5d2db7a7f75969cab75783ef6d4e8ecc3076f9db7ea7344d0dd32fb.png" />
+</div>
+</div>
+<p>Un registro cuántico puede llevar una superposición lineal <span class="math notranslate nohighlight">\(\ket{\psi} = a\ket{0} + b\ket{1}\)</span></p>
+<p>Un registro clásico solo puede valer <span class="math notranslate nohighlight">\(0~\)</span> ó <span class="math notranslate nohighlight">\(~1\)</span></p>
+</section>
+<section id="rotaciones-en-la-esfera-de-bloch">
+<h2>Rotaciones en la esfera de Bloch<a class="headerlink" href="#rotaciones-en-la-esfera-de-bloch" title="Permalink to this heading">#</a></h2>
+<p>Un operador unitario conserva la norma y, por tanto, lleva un vector a otro de la misma esfera de Bloch</p>
+<p>Esta operación  se puede <em>visualizar</em> como una rotación de un cierto ángulo <span class="math notranslate nohighlight">\(\alpha\)</span>, en torno a algún eje <span class="math notranslate nohighlight">\(\hat{\bf n}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \ket{u} = R_{\hat\bn}\ket{v}\]</div>
+<div>
+<img src="images/BlochSphere2.png"  width="30%" style="margin:auto"/>
+</div>
+<div class="alert alert-block alert-info",text-align:center>
+<p style="text-align: left ;color: navy;">  
+<b> Teorema</b>:
+<br>
+    El operador que efectúa una <i>rotación de ángulo</i>  $\alpha\in [0,2\pi)$ en torno al <i>eje que marca un vector unitario</i>  $\hat{\bf n} = (n_x, n_y,n_z)$ es el siguiente
+<br> 
+<br>    
+\begin{eqnarray}
+R_{\hat{\bf n}}(\alpha)~ = ~\exp\left( -i\frac{\alpha}{2} \hat{\bf n}\cdot \boldsymbol{\sigma} \right) ~=~ 
+\cos \frac{\alpha}{2} I - i \sin\frac{\alpha}{2} \hat{\bf n}\cdot\boldsymbol{\sigma} 
+\end{eqnarray}
+</p>    
+</div>    <p>donde <span class="math notranslate nohighlight">\(\boldsymbol{\sigma} = (\sigma_x, \sigma_y, \sigma_z)\)</span> son las matrices de Pauli
+$<span class="math notranslate nohighlight">\(
+\sigma_x = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}~~,~~
+\sigma_y = \begin{bmatrix} 0 &amp; -i \\ i &amp; 0 \end{bmatrix}~~,~~
+\sigma_z = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}~~.~~
+\)</span>$</p>
+<div class="alert alert-block alert-danger",text-align:center>
+<b> Nota</b>:
+    el sentido de la rotación que produce $R_{\hat{\bf n}}(\alpha)$ en torno al eje $\hat{\bf n}$, viene dado por la <i>regla de la mano derecha</i> o, también, <i>anti-horario</i>. 
+</div><p>Haciendo la suma explícitamente podemos escribir la matriz unitaria
+<br></p>
+<div class="amsmath math notranslate nohighlight" id="equation-266c9c9c-9221-4a66-9d6a-dd6f0855488b">
+<span class="eqno">()<a class="headerlink" href="#equation-266c9c9c-9221-4a66-9d6a-dd6f0855488b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+R_{\hat{\bf n}}(\alpha)~  ~=~ 
+ \begin{bmatrix} \cos \displaystyle\frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2} &amp;\displaystyle (-in_x- n_y)\sin\frac{\alpha}{2} \\ \displaystyle
+(-in_x + n_y) \sin\frac{\alpha}{2} &amp; \displaystyle \cos \frac{\alpha}{2} + i n_z\sin\frac{\alpha}{2} \end{bmatrix}
+\end{eqnarray}\]</div>
+<section id="rotaciones-x-y-y-z">
+<h3>Rotaciones X, Y y Z<a class="headerlink" href="#rotaciones-x-y-y-z" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Asociado a rotaciones en torno a los ejes <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span> de un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> encontramos las tres puertas siguientes</p></li>
+</ul>
+<br>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\hat{\bf z} = (0,0,1) ~~\Rightarrow ~~ R_{\hat {\bf z}}(\alpha) &amp;=&amp;  \begin{bmatrix} e^{-i\alpha/2}  &amp; 0 \\ 0 &amp; e^{i\alpha/2}  \end{bmatrix}  ~,~\nonumber\\
+\rule{0mm}{14mm}
+\hat{\bf y} = (0,1,0) ~~\Rightarrow ~~ R_{\hat {\bf y}}(\alpha) &amp;=&amp;  \begin{bmatrix} \cos \alpha/2  &amp; -\sin \alpha/2 \\   \sin\alpha/2 &amp; \cos\alpha/2 \end{bmatrix}  \nonumber \\
+\rule{0mm}{14mm}
+\hat{\bf x} = (1,0,0) ~~\Rightarrow ~~ R_{\hat {\bf x}}(\alpha)  &amp;=&amp;  \begin{bmatrix} \cos\alpha/2  &amp;- i\sin\alpha/2 \\   -i\sin\alpha/2&amp; \cos\alpha/2 \end{bmatrix} \, .\nonumber
+\end{array}
+\end{split}\]</div>
+<br>
+</section>
+<section id="parametrizacion-de-euler">
+<h3>Parametrización de Euler<a class="headerlink" href="#parametrizacion-de-euler" title="Permalink to this heading">#</a></h3>
+<p>Necesitamos <em>3 parámetros</em> para especificar una rotación general.
+En <span class="math notranslate nohighlight">\(R_{\hat{\bf n}}(\theta)\)</span> un parámetro es <span class="math notranslate nohighlight">\(\theta\)</span> y otros dos entran  en <span class="math notranslate nohighlight">\(\hat{\bf n}\)</span> con
+<span class="math notranslate nohighlight">\(  |\hat{\bf n}|=1\)</span>.</p>
+<p>La <em>parametrización de Euler</em> consiste en una <em>composición de tres rotaciones</em> sucesivas en torno a los ejes <span class="math notranslate nohighlight">\(z\)</span>, después  <span class="math notranslate nohighlight">\(y\)</span> y  finalmente <span class="math notranslate nohighlight">\(z\)</span> de nuevo:</p>
+<p>Multiplicando las matrices asociadas, y extrayendo una fase global, definimos</p>
+<div class="math notranslate nohighlight">
+\[
+ R_z(\phi)R_y(\theta)R_z(\varphi) = e^{-\frac{i}{2}(\phi + \varphi)}U(\theta,\phi,\varphi)  
+\]</div>
+<p>Los <em>ángulos de Euler</em> son <span class="math notranslate nohighlight">\(\theta,\phi \)</span> y <span class="math notranslate nohighlight">\(\varphi\)</span>, y una rotación general se podrá representar en la forma</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U(\theta,\phi,\varphi)=\begin{bmatrix}   \cos \displaystyle\frac{\theta}{2}  &amp; - e^{i\varphi} \sin\displaystyle\frac{\theta}{2}  \\ 
+\rule{0mm}{4mm} e^{i\phi} \sin \displaystyle\frac{\theta}{2} &amp;e^{i(\varphi+\phi)} \cos \displaystyle\frac{\theta}{2} \end{bmatrix}
+\end{split}\]</div>
+<br><p>Es evidente que la acción de este operador sobre la base  <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>
+una base alineada con el eje <span class="math notranslate nohighlight">\((\theta,\phi)\)</span>
+<br></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U(\theta,\phi,\varphi)\begin{bmatrix} 1\\0\end{bmatrix} = \begin{bmatrix} \cos\displaystyle\frac{\theta}{2}\\ e^{i\phi} \sin \displaystyle \frac{\theta}{2} \end{bmatrix} ~~~~~~,~~~~~~~
+U(\theta,\phi,\varphi)\begin{bmatrix} 0\\1\end{bmatrix} = \begin{bmatrix} -e^{i\varphi}\sin\displaystyle\frac{\theta}{2}\\ e^{i(\varphi + \phi)} \cos \displaystyle \frac{\theta}{2} \end{bmatrix} 
+\end{split}\]</div>
+<br>
+</section>
+</section>
+<section id="puertas-simples">
+<h2>Puertas Simples<a class="headerlink" href="#puertas-simples" title="Permalink to this heading">#</a></h2>
+<p>Por puertas simples entendemos un conjunto de <em>operadores unitarios</em> que se utilizan con frecuencia en la computación cuántica. Vamos a ver las puertas simples sobre 1 cúbit</p>
+<section id="puerta-de-fase">
+<h3>Puerta de fase<a class="headerlink" href="#puerta-de-fase" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P_\alpha = P(\alpha)\)</span> con <span class="math notranslate nohighlight">\(\alpha \in [0,2\pi)\)</span>
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+P(\alpha)= \begin{bmatrix}
+1 &amp; 0 \\ 0 &amp; e^{i\alpha} 
+\end{bmatrix}  =  \ketbra{0}{0} + e^{i\alpha}\ketbra{1}{1}
+\)</span><span class="math notranslate nohighlight">\(
+&lt;br&gt;
+es unitaria para todo \)</span>\alpha<span class="math notranslate nohighlight">\( como se comprueba fácilmente. 
+Aplicada a un estado de cúbit genérico 
+&lt;br&gt;
+&lt;br&gt;
+\)</span>$
+P(\alpha) \ket{u} =  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix}</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-a104b756-977f-4acc-86e5-8dac17642b7c">
+<span class="eqno">()<a class="headerlink" href="#equation-a104b756-977f-4acc-86e5-8dac17642b7c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
+<p>\end{bmatrix}= \ket{v}
+$$
+<br></p>
+<p>El efecto de este operador es rotar cualquier cúbit en torno al eje Z un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span>. Comprobamos que está relacionada con <span class="math notranslate nohighlight">\(R_z(\alpha)\)</span>
+<br>
+<br>
+$$
+P(\alpha) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix} =</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ba00f884-3bf9-436c-83de-c9eaa069810f">
+<span class="eqno">()<a class="headerlink" href="#equation-ba00f884-3bf9-436c-83de-c9eaa069810f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-87397d59-d8c7-49d2-9bcf-dd10cc181f6c">
+<span class="eqno">()<a class="headerlink" href="#equation-87397d59-d8c7-49d2-9bcf-dd10cc181f6c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<p>$<span class="math notranslate nohighlight">\(
+&lt;br&gt;
+&lt;br&gt;
+La fase global es trivial. Por tanto los dos operadores \)</span>P(\alpha)<span class="math notranslate nohighlight">\( y \)</span>R_Z(\alpha)$ son equivalentes y producen el mismo efecto sobre la esfera de Bloch.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_\alpha = K(\alpha)\)</span>
+<br>
+<br>
+realmente es una fase trivial, pero a veces se utiliza
+$<span class="math notranslate nohighlight">\(
+K(\alpha)= e^{i\alpha} \begin{bmatrix}
+1 &amp; 0 \\ 0 &amp; 1 
+\end{bmatrix} =  e^{i\alpha}\left(\rule{0mm}{4mm} \ketbra{0}{0} + \ketbra{1}{1} \right) = e^{i\alpha} I 
+\)</span>$</p></li>
+</ul>
+</section>
+<section id="puertas-discretas">
+<h3>Puertas Discretas<a class="headerlink" href="#puertas-discretas" title="Permalink to this heading">#</a></h3>
+<p>Hay una serie de rotaciones discretas que forman un conjunto de puertas elementales de gran utilidad
+<br></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X,Y,Z\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+i R_{\hat{\bf x}}(\pi) &amp;=&amp;   \begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}   ~= ~ X  \\
+\\
+i R_{\hat{\bf y}}(\pi) &amp;=&amp;  \begin{bmatrix}0&amp;-i\\i&amp;0\end{bmatrix}    ~= ~ Y \\
+\\
+i R_{\hat{\bf z}}(\pi) &amp;=&amp;   \begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatrix} ~= ~ Z 
+\end{eqnarray}
+\end{split}\]</div>
+<br>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S,T\)</span></p></li>
+</ul>
+<p>Cualquier potencia  de un operador unitario <span class="math notranslate nohighlight">\(U\)</span> es otro operador unitario <span class="math notranslate nohighlight">\(U^\alpha\)</span></p>
+<p>Así obtenemos
+<br>
+<br></p>
+<div class="amsmath math notranslate nohighlight" id="equation-9eada947-8050-42b6-b9c2-527f6f6d160f">
+<span class="eqno">()<a class="headerlink" href="#equation-9eada947-8050-42b6-b9c2-527f6f6d160f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+S = Z^{1/2} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;i\end{bmatrix}=\begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/2}\end{bmatrix}  \\
+&amp;&amp; \\
+T  = Z^{1/4} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix} 
+\end{eqnarray}\]</div>
+<br>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H\)</span></p></li>
+</ul>
+<p>La puerta de Hadamard, <span class="math notranslate nohighlight">\(H\)</span>, es la primera puerta <em>genuinamente cuántica</em> en el sentido de que lleva un estado de la base a una superposición coherente
+<br></p>
+<div class="amsmath math notranslate nohighlight" id="equation-991dad59-c862-4fd8-b072-5d5a13c17056">
+<span class="eqno">()<a class="headerlink" href="#equation-991dad59-c862-4fd8-b072-5d5a13c17056" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+H \ket{0} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} + \ket{1}\right) =\ket{+}   \\
+H \ket{1} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} - \ket{1}\right) =\ket{-} 
+\end{eqnarray}\]</div>
+<p>Podemos escribir este operador en la base canónica <span class="math notranslate nohighlight">\(H = H_{ij}\ketbra{i}{j}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-80adb52e-0a39-47e4-b9c9-d93e49f10a61">
+<span class="eqno">()<a class="headerlink" href="#equation-80adb52e-0a39-47e4-b9c9-d93e49f10a61" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+H &amp;=&amp;  \ket{+}\bra{0} +  \ket{-}\bra{1} \\
+&amp;=&amp; \frac{1}{\sqrt{2}}(\ketbra{0}{0} + \ketbra{1}{0} + \ketbra{0}{1} - \ketbra{1}{1})
+\end{eqnarray}\]</div>
+<p>La representación matricial   de <span class="math notranslate nohighlight">\(H\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H  =  \frac{1}{\sqrt{2}} \begin{bmatrix} 1&amp; 1 \\ 1 &amp; -1 \end{bmatrix}  
+\end{split}\]</div>
+<br>
+<div class="alert alert-block alert-success">
+<b>Ejercicio:</b> 
+<br>
+Comprueba que $H  = i R_{\hat{\bf n}}(\pi)$ con
+$\hat{\bf n} = \frac{1}{\sqrt{2}} (\hat{\bf x} + \hat{\bf z})$ un eje diagonal en el plano $(x,z)$
+</div><div class="alert alert-block alert-danger",text-align:center>
+<b> Nota</b>:
+    en cálculos posteriores encontraremos muy útil la siguiente representación de la acción de $H$
+<div class="math notranslate nohighlight">
+\[
+H \ket{x} =\frac{1}{\sqrt{2}} \sum_{y=0,1} (-1)^{ x  y} \ket{y}
+\]</div>
+</div><p>Como cualquier puerta, la acción de <span class="math notranslate nohighlight">\(H\)</span> puede visualizarse como una rotación en la esfera de Bloch <span class="math notranslate nohighlight">\(H\)</span> de <span class="math notranslate nohighlight">\(\pi\)</span> radianes en torno a un eje diagonal situado a 45<span class="math notranslate nohighlight">\(^\circ\)</span> entre el eje <span class="math notranslate nohighlight">\(x\)</span>
+y el eje <span class="math notranslate nohighlight">\(y\)</span>. Esta rotación permuta los ejes <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(z\)</span> y cambia de sentido el eje <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\hat{\bf n} = \frac{1}{\sqrt{2}}(1,0,1) ~~~~~ \Rightarrow ~~~~~ R_{\hat{\bf n}}(\pi) &amp;=&amp;-i\frac{1}{\sqrt{2}} \begin{bmatrix} 1  &amp; 1 \\ 1 &amp; -1  \end{bmatrix} =-i H \sim H\nonumber\\
+\end{array}
+\end{split}\]</div>
+<p>Como toda rotación de <span class="math notranslate nohighlight">\(\alpha = \pi/2\)</span>, una segunda aplicación da lugar a la identidad</p>
+<div class="math notranslate nohighlight">
+\[
+H^2 = I
+\]</div>
+</section>
+<section id="descomposicion-de-un-operador-en-puertas-simples">
+<h3>Descomposición de un operador en puertas simples<a class="headerlink" href="#descomposicion-de-un-operador-en-puertas-simples" title="Permalink to this heading">#</a></h3>
+<p>Una noción muy práctica en computación cuántica es la descomposición de una puerta en producto de otras más simples.</p>
+<p>Para el caso de <span class="math notranslate nohighlight">\(H\)</span>, un poco de visión espacial muestra que su acción equivale a la composición de</p>
+<ul class="simple">
+<li><p>una  rotación de <span class="math notranslate nohighlight">\(\pi/2\)</span> radianes sobre el eje <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+<li><p>seguida de una rotación de  <span class="math notranslate nohighlight">\(\pi\)</span> radianes en torno al eje <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+</ul>
+<p>Lo demostramos algebraicamente (despreciando fases globales)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ R_x(\pi)R_{y}\left(\frac{\pi}{2}\right) = \begin{bmatrix}0&amp;-i\\-i&amp;0\end{bmatrix} \begin{bmatrix}\cos\pi/4&amp; -\sin\pi/4 \\ \sin\pi/4 &amp; \cos\pi/4 \end{bmatrix} = \frac{1}{\sqrt{2}} \begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix} \begin{bmatrix}1 &amp; -1 \\ 1 &amp; 1 \end{bmatrix}  = \frac{-i}{\sqrt{2}} \begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} =-i H \sim H
+\end{split}\]</div>
+<div class="alert alert-block alert-success">
+<b>Ejercicio:</b> 
+Encontrar los valores de los  ángulos $\theta,\phi,\varphi$ que  verifican las siguientes idendidades
+<div class="math notranslate nohighlight">
+\[
+ U(\theta,\phi,\varphi) = H ~~~~,~~~~  U(\theta,\phi,\varphi) = SH
+ \]</div>
+</div></section>
+</section>
+<section id="circuitos-cuanticos">
+<h2>Circuitos Cuánticos<a class="headerlink" href="#circuitos-cuanticos" title="Permalink to this heading">#</a></h2>
+<p>La aplicación de una <em>puerta</em>
+<br>
+$<span class="math notranslate nohighlight">\(
+\ket{\psi} \to  U(\theta,\phi,\varphi)\ket{\psi}
+\)</span>$
+<br></p>
+<p>se representa mediante un cuadrado que contiene los datos del operador asociado
+<br>
+<br></p>
+<div>
+<img src="images/puerta_simple.png" width="30%" style="margin:auto"/>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">Aer</span><span class="p">,</span> <span class="n">execute</span><span class="p">,</span> <span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+
+
+
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#qc.u(theta,phi,varphi,0) </span>
+<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">))</span>
+
+
+<span class="n">Statevector</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;Bloch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c2aa56d383951806e597fba616a19e66aa7f167e96fc888b1b0debaf2e36eddd.png" src="../../_images/c2aa56d383951806e597fba616a19e66aa7f167e96fc888b1b0debaf2e36eddd.png" />
+<img alt="../../_images/cbf789977b77d67e6bdfde7ac21a5eff5bf2b73f84f999081f3568b3c7a209cd.png" src="../../_images/cbf789977b77d67e6bdfde7ac21a5eff5bf2b73f84f999081f3568b3c7a209cd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the state vector</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger",text-align:center>
+<b> Nota</b>: 
+<ul class="simple">
+<li><p>La concatenación de puertas se corresponde con la <i>composición de operadores</i>, es decir, con la <i>multiplicación de las matrices</i> asociadas.</p></li>
+<li><p>El orden en que aparecen en el canal cuántico es, por tanto, el inverso.</p></li>
+</ul>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">Aer</span><span class="p">,</span> <span class="n">execute</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+
+<span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span>
+
+<span class="c1">#qc.x(1)</span>
+<span class="c1">#qc.y(0)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#qc.z(0)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#qc.t(0)</span>
+
+<span class="c1"># qc.u(theta,phi,lambda,quantum register)  https://qiskit.org/documentation/stubs/qiskit.circuit.library.UGate.html</span>
+<span class="c1">#qc.u(np.pi/4,np.pi/2,0,0)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">))</span>
+
+<span class="n">Statevector</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;Bloch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8f187552ae2fc90e5bd73d5d2746fa3c3a4212ecb01bd431d511c109b5fcda96.png" src="../../_images/8f187552ae2fc90e5bd73d5d2746fa3c3a4212ecb01bd431d511c109b5fcda96.png" />
+<img alt="../../_images/6a0dfcc825a8f00f87e02c84acbcf6e5eaffa085d14559ea5d2a15ef3283029b.png" src="../../_images/6a0dfcc825a8f00f87e02c84acbcf6e5eaffa085d14559ea5d2a15ef3283029b.png" />
+</div>
+</div>
+<section id="matriz-de-un-circuito">
+<h3>Matriz de un circuito<a class="headerlink" href="#matriz-de-un-circuito" title="Permalink to this heading">#</a></h3>
+<p>Todo circuito se corresponde con un operador unitario que se obtiene componiendo todos los operadores que figuran en el. Por ejemplo, el circuito anterior representa el operador unitario <span class="math notranslate nohighlight">\(U\)</span> al que le corresponde la matriz obtenida por multiplicación
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+U = T H ~~~\to ~~~ U_{ij} = \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1&amp; 1 \\ 1 &amp; -1 \end{bmatrix}  = 
+\frac{1}{\sqrt{2}} \begin{bmatrix} 1&amp; 1 \\ e^{i\pi/4} &amp; -e^{i\pi/4} \end{bmatrix} 
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Circuit matrix representation</span>
+<span class="n">U_simulator</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;unitary_simulator&#39;</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">U_simulator</span><span class="p">)</span>
+
+<span class="n">U_matrix</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_unitary</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">U_matrix</span><span class="p">)</span>
+
+<span class="s1">&#39;this looks very ugly, let us use latex&#39;</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+<span class="n">array_to_latex</span><span class="p">(</span><span class="n">U_matrix</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">text{Unitary matrix = }</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Operator([[7.07106781e-01+0.00000000e+00j, 7.07106781e-01+8.65956056e-17j,
+           0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j],
+          [4.32978028e-17+7.07106781e-01j, 4.32978028e-17-7.07106781e-01j,
+           0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j],
+          [0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j,
+           7.07106781e-01+0.00000000e+00j, 7.07106781e-01+8.65956056e-17j],
+          [0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j,
+           4.32978028e-17+7.07106781e-01j, 4.32978028e-17-7.07106781e-01j]],
+         input_dims=(2, 2), output_dims=(2, 2))
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\text{Unitary matrix = }\\\begin{split}\begin{bmatrix}
+\frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2} &amp; 0 &amp; 0  \\
+ \frac{\sqrt{2} i}{2} &amp; - \frac{\sqrt{2} i}{2} &amp; 0 &amp; 0  \\
+ 0 &amp; 0 &amp; \frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}  \\
+ 0 &amp; 0 &amp; \frac{\sqrt{2} i}{2} &amp; - \frac{\sqrt{2} i}{2}  \\
+ \end{bmatrix}
+\end{split}\end{aligned}\end{align} \]</div>
+</div>
+</div>
+<p>El resultado de la aplicación sobre el vector <span class="math notranslate nohighlight">\(\ket{0}\)</span> será</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{1}{\sqrt{2}} \begin{bmatrix} 1&amp; 1 \\ e^{i\pi/4} &amp; -e^{i\pi/4} \end{bmatrix} \begin{bmatrix}1 \\ 0 \end{bmatrix}
+ = \frac{1}{\sqrt{2}} \begin{bmatrix} 1  \\ e^{i\pi/4}  \end{bmatrix} 
+\end{split}\]</div>
+<br><p>Podemos anticipar el resultado:</p>
+<ul class="simple">
+<li><p>el operador <span class="math notranslate nohighlight">\(H\)</span>
+lleva el vector <span class="math notranslate nohighlight">\(\ket{0}\)</span> sobre el eje <span class="math notranslate nohighlight">\(z\)</span> al vector <span class="math notranslate nohighlight">\(\ket{+}\)</span> que se halla sobre el eje <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>posterioremente, <span class="math notranslate nohighlight">\(T\)</span> es una rotación de ángulo <span class="math notranslate nohighlight">\(\pi/4\)</span> en torno al eje <span class="math notranslate nohighlight">\(z\)</span> que moverá el vector <span class="math notranslate nohighlight">\(\ket{+}\)</span> sobre el plano ecuatorial. Veamos el resultado</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">Statevector</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;Bloch&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fabf95403d5be1be6e4727e299dac2a4f9f6649edb23a5746dc2126b8a95eb02.png" src="../../_images/fabf95403d5be1be6e4727e299dac2a4f9f6649edb23a5746dc2126b8a95eb02.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/01_Circuitos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-base-computacional">Definición, base computacional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases">Bases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esfera-de-bloch">Esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registro-cuantico">Registro cuántico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotaciones-en-la-esfera-de-bloch">Rotaciones en la esfera de Bloch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotaciones-x-y-y-z">Rotaciones X, Y y Z</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrizacion-de-euler">Parametrización de Euler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puertas-simples">Puertas Simples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-de-fase">Puerta de fase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puertas-discretas">Puertas Discretas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-un-operador-en-puertas-simples">Descomposición de un operador en puertas simples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuitos-cuanticos">Circuitos Cuánticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-un-circuito">Matriz de un circuito</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

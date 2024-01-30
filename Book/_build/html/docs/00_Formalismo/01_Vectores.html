@@ -1,0 +1,1275 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vectores &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Vectores';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operadores I" href="01_Operadores_01.html" />
+    <link rel="prev" title="Números Complejos" href="01_Numeros_Complejos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="01_formalismo_matematico.html">Formalismo Matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_Numeros_Complejos.html">Números Complejos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_01.html">Operadores I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_02.html">Operadores II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Tensores.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Probabilidades.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02_Fundamentos_MC_intro.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_lab.html">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html">Circuitos multicúbits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/121_Multicubits.html">Multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/122_El_Arte_de_Medir_II.html">El arte de medir multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/123_Entrelazamiento.html">Entrelazamiento en acción</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/130_circuitos_mas_cosas.html">Circuitos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/131_Elementos_Basicos.html">Conjugación</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/132_CompClasica.html">Construcción de funciones binarias. Los min-términos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/00_Formalismo/01_Vectores.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/00_Formalismo/01_Vectores.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/00_Formalismo/01_Vectores.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/00_Formalismo/01_Vectores.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/docs/00_Formalismo/01_Vectores.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Vectores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-vectorial">Espacio Vectorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores-definicion-intrinseca">Vectores: definición intrínseca</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subespacios-vectoriales">Subespacios Vectoriales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacios-de-hilbert">Espacios de Hilbert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacion-adjunta">Conjugación adjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-escalar">Producto Escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma">Norma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distancia">Distancia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-ortonormales">Bases ortonormales</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\newcommand{\V}{{V}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\C}{{\mathbb C}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{{\mathbb R}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tr}{{\rm tr}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ketbra}[2]{{| #1\rangle  \langle #2|}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\braket}[2]{{\langle #1|#2\rangle}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ket}[1]{{|#1\rangle}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\bra}[1]{{\langle #1|}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\Hil}{{\mathcal H}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\Lin}{\rm L}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\O}{{\mathcal O}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ees}{\end{equation*}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\bes}{\begin{equation*}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\i}{{i}}\)</span></p>
+<figure class="align-center">
+<img alt="../../_images/myThumbnail.png" src="../../_images/myThumbnail.png" />
+</figure>
+<section class="tex2jax_ignore mathjax_ignore" id="vectores">
+<h1>Vectores<a class="headerlink" href="#vectores" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span><span class="n">Markdown</span><span class="p">,</span><span class="n">Latex</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+<span class="kn">import</span> <span class="nn">copy</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="espacio-vectorial">
+<h2>Espacio Vectorial<a class="headerlink" href="#espacio-vectorial" title="Permalink to this heading">#</a></h2>
+<p>Comenzaremos definiendo los vectores de una forma operativa, y después haremos hincapié en su carácter abstracto.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Vector</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La forma operacional de definir  un <em>vector de dimensión</em> <span class="math notranslate nohighlight">\(N\)</span> consiste en lista (columna) de <span class="math notranslate nohighlight">\(N\)</span> números complejos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+|u\rangle = \begin{pmatrix} {u_1}\\ {u_2}\\ \vdots \\ {u_N} 
+\end{pmatrix}
+\end{split}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>El símbolo <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <em>representa</em> al vector y se denomina <strong>ket</strong> en la <em>notación de Dirac</em>. Se trata simplemente de una notación alternativa a la usual, donde un vector se representa en la forma <span class="math notranslate nohighlight">\({\bf u}\)</span> o también <span class="math notranslate nohighlight">\(\vec u\)</span></p></li>
+<li><p>Los números complejos <span class="math notranslate nohighlight">\(u_i \in {\mathbb C}\)</span> con <span class="math notranslate nohighlight">\(\, i=1,...,N\)</span> se denominan <strong>componentes</strong> del vector <span class="math notranslate nohighlight">\(\ket{u}\)</span></p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Espacio Vectorial</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La colección de <i>todos los posibles vectores</i> de <span class="math notranslate nohighlight">\(N\)</span> componentes,  con las  propiedades de suma y multiplicación forman un <b>espacio vectorial</b>, <span class="math notranslate nohighlight">\(\V\)</span> de dimension compleja <span class="math notranslate nohighlight">\(N\)</span></p>
+</div>
+</div>
+<p>es decir,  en un espacio vectorial  tenemos dos operaciones posibles:</p>
+<ul class="simple">
+<li><p>sumar dos vectores</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ |u\rangle + \ket{v}~ =~\, 
+\begin{pmatrix} {u_1}+v_1\\ {u_2}+v_2\\ \vdots \\ {u_N}+v_n \end{pmatrix} ~= ~\ket{w}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>multiplicar un vector por número complejo <span class="math notranslate nohighlight">\(\lambda\in {\mathbb C}\)</span>
+<br></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \lambda|u\rangle ~ =~   \begin{pmatrix} {\lambda u_1}\\ {\lambda u_2}\\ \vdots \\ {\lambda u_N} \end{pmatrix} ~\equiv~\ket{\lambda u}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39; qiskit tiene un visualizador de matrices bastante nítido&#39;</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+
+<span class="n">uket</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1.</span><span class="n">j</span><span class="p">],[</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="mf">1.</span><span class="n">j</span><span class="p">]])</span>
+ 
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">uket</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 + i  \\
+ 2 - 3 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>todo vector de <span class="math notranslate nohighlight">\(V\)</span> se denota mediante el símbolo <span class="math notranslate nohighlight">\(\ket{v}\)</span> menos uno, el <strong>elemento neutro</strong> que se escribe como <span class="math notranslate nohighlight">\(0\)</span>.
+<br>
+<br></p></li>
+<li><p>La existencia de un <strong>elemento opuesto</strong> y de un elemento neutro son dos propiedades importantes en un espacio vectorial</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-dd22db2f-e80f-4c36-b154-a2082d719426">
+<span class="eqno">(4)<a class="headerlink" href="#equation-dd22db2f-e80f-4c36-b154-a2082d719426" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\ket{v} + 0 &amp;=&amp; \ket{v} \nonumber\\
+\ket{v} + \ket{\hbox{-}v} &amp;=&amp; \ket{v}-\ket{v} = 0 \nonumber\\
+\end{eqnarray}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La <b>dimensión</b> es igual al número de cantidades (<i>grados de libertad</i>) que debemos fijar para especificar un vector.
+Pero <span class="math notranslate nohighlight">\(N\)</span> números complejos equivalen a <span class="math notranslate nohighlight">\(2N\)</span> números reales.</p>
+<p>Entonces, podemos decir que:  la <i>dimensión compleja</i> de un espacio vectorial complejo  <span class="math notranslate nohighlight">\(\V\)</span> es <span class="math notranslate nohighlight">\(N\)</span>, o que su <i>dimensión real</i> es <span class="math notranslate nohighlight">\(2N\)</span>
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+{\rm dim}_{\mathbb C} \V = N ~~~~\Longleftrightarrow ~~~   {\rm dim}_{\mathbb R} \V = 2N 
+\)</span>$</p>
+</div>
+<section id="base">
+<h3>Base<a class="headerlink" href="#base" title="Permalink to this heading">#</a></h3>
+<p>Es evidente que el vector <span class="math notranslate nohighlight">\(\ket{v}\)</span> definido anteriormente se puede expandir de la siguiente manera
+<br></p>
+<br>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ket{u} ~=~ \begin{pmatrix} {u_1} \\ {u_2} \\{u_3}\\ \vdots 
+\\ \,{u_{N-1}}\, \\ {u_{N}} \end{pmatrix}~= =~ {u_1} \begin{pmatrix} 1 \\ 0 \\ 0\\ \vdots 
+\\ 0 \\ 0 \end{pmatrix} \,+\,{u_2} \begin{pmatrix} 0 \\ 1 \\ 0\\ \vdots \\ 0 \\ 0 \end{pmatrix}~+~ ... ~+ ~
+{u_{N-1}} \begin{pmatrix} 0 \\ 0 \\ 0\\\vdots 
+\\ 1 \\ 0 \end{pmatrix}+ 
+\,{u_N}\,  \begin{pmatrix} 0 \\ 0 \\0\\ \vdots 
+\\ 0 \\ 1 \end{pmatrix}
+\end{split}\]</div>
+<br><p>Esta notación se vuelve inmanejable cuando <span class="math notranslate nohighlight">\(N\)</span> se hace muy grande. Sin embargo, la notación de Dirac equivalente es muy concisa. Definamos la siguiente colección  <span class="math notranslate nohighlight">\(\{ e_i\}\)</span> de vectores</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+|1\rangle \sim \begin{pmatrix} 1 \\ 0 \\ 0\\ \vdots 
+\\ 0 \\ 0 \end{pmatrix}~~~~
+~~~|2\rangle \sim \begin{pmatrix} 0 \\ 1 \\ 0\\ \vdots 
+\\ 0 \\ 0 \end{pmatrix}~~~~~~~~~
+\cdots ~~~~~~~~
+~~|{N-1}\rangle \sim \begin{pmatrix} 0 \\ 0 \\ 0\\\vdots 
+\\ 1 \\ 0 \end{pmatrix}~~~~
+~~|N\rangle \sim \begin{pmatrix} 0 \\ 0 \\0\\ \vdots 
+\\ 0 \\ 1 \end{pmatrix}
+\end{split}\]</div>
+<p>Entonces simplemente</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{u} ~=~ {u_1} |1 \rangle + {u_2} | 2\rangle +... + {u_{ N}}|{ N}\rangle~=~ \sum_{i=1}^N {u_ i} |i\rangle 
+\]</div>
+<p>Lo único que hemos hecho es representar el vector <span class="math notranslate nohighlight">\(\ket{u}\)</span> en una base. Vamos a formalizar esto.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Base</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">En un espacio vectorial <span class="math notranslate nohighlight">\(V\)</span> de dimensión <span class="math notranslate nohighlight">\(N\)</span> una <b>base</b> es una colección <span class="math notranslate nohighlight">\(\{\ket{e_1},...,\ket{e_N}\}\)</span> de <span class="math notranslate nohighlight">\(N\)</span> vectores  <i>linealmente independientes</i></p>
+</div>
+</div>
+<p>Cualquier vector <span class="math notranslate nohighlight">\(\ket{v}\in V\)</span> que no sea el elemento neutro <span class="math notranslate nohighlight">\(\ket{v}\neq 0\)</span>,  se puede expresar como una <i>combinación lineal</i> de  los vectores de una base</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{v} = \sum_{i=1}^N v_i \ket{e_i} ~=~ v_1\ket{e_1} \,+\, v_2\ket{e_2}\, +\, ...\, +\, v_N \ket{e_N}
+\]</div>
+<p>Los coeficientes <span class="math notranslate nohighlight">\(v_i\)</span> son las <strong>componentes</strong> de <span class="math notranslate nohighlight">\(\ket{v}\)</span> <strong>en la base dada</strong> <span class="math notranslate nohighlight">\( \{ \ket{e_i} \}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Los símbolos <span class="math notranslate nohighlight">\(e_i\)</span> son <em>cualquier coleccón de etiquetan</em> que sirva para distinguir entre los <span class="math notranslate nohighlight">\(N\)</span> estados de la base. En el ejemplo anterior hemos tomado <span class="math notranslate nohighlight">\(e_i  = i \in (1,...,N)\)</span>.</p>
+<p>Por ejemplo, con <span class="math notranslate nohighlight">\(N=4\)</span> podríamos usar también notación binaria</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{e_0} = \ket{0} = \ket{00}~~~~~~,~~~~~~\ket{e_1} = \ket{1} = \ket{01}~~~~~~,~~~~~~\ket{e_2} = \ket{2} = \ket{10}~~~~~~,~~~~~~\ket{e_3} = \ket{3} = \ket{11}
+\]</div>
+</div>
+<p>Podemos usar la clase <strong>Statevector</strong> de <em>qiskit</em> para tener una expansión en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}=\ket{b(i)}\}\)</span>, donde <span class="math notranslate nohighlight">\(b(i)\)</span> es la representación binaria del índice <span class="math notranslate nohighlight">\(i\)</span>. Por ejemplo <span class="math notranslate nohighlight">\(b(3) = 11\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+<span class="n">uket</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">],</span> <span class="p">[</span> <span class="mf">2.</span><span class="o">-</span><span class="mf">3.</span><span class="n">j</span><span class="p">],[</span> <span class="mf">2.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">],[</span><span class="o">-</span><span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">uket</span><span class="p">))</span>
+
+<span class="n">Statevector</span><span class="p">(</span><span class="n">uket</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 + i  \\
+ 2 - 3 i  \\
+ 2 + 2 i  \\
+ -1 - i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[(1 + i) |00\rangle+(2 - 3 i) |01\rangle+(2 + 2 i) |10\rangle+(-1 - i) |11\rangle\]</div>
+</div>
+</div>
+</section>
+<section id="vectores-definicion-intrinseca">
+<h3>Vectores: definición intrínseca<a class="headerlink" href="#vectores-definicion-intrinseca" title="Permalink to this heading">#</a></h3>
+<p>La definición de vector que hemos introducido antes está asociada a una base concreta, en la cuál, los números <span class="math notranslate nohighlight">\(v_i\)</span> representan <em>las componentes</em> de dicho vector en esa base.</p>
+<p>Sin embargo un vector es un objeto abstracto, que admite <u>una representación distinta en cada base</u>. Para ellos debemos comenzar por hablar de las distintas bases.</p>
+<p><strong>Cambio de base</strong></p>
+<p>En un espacio vectorial de dimensión finita <span class="math notranslate nohighlight">\(N\)</span>, existen <em>infinitas</em> bases  .
+Todas ellas sirven para representar un vector arbitrario.</p>
+<p>Consideremos dos bases
+<span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{\tilde e_j}\}\)</span> donde <span class="math notranslate nohighlight">\( i,j = 1,...,N\)</span>.
+Por ser bases, <u>un vector cualquier admitirá una representación</u> en cada una de ellas
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(~~\ket{v}  = \sum_{i} \color{blue}{v_i} \color{blue}{\ket{e_i}} = \sum_j \color{red}{\tilde v_j} \color{magenta}{\ket{\tilde e_j}}\)</span>$</p>
+<figure class="align-center" id="fig-target">
+<a class="reference internal image-reference" href="../../_images/Descomp_ortogonal.png"><img alt="map to buried treasure" src="../../_images/Descomp_ortogonal.png" style="width: 234.49999999999997px; height: 237.99999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">This is the caption of the figure (a simple paragraph).</span><a class="headerlink" href="#fig-target" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Las listas de componentes  <span class="math notranslate nohighlight">\(v_i\)</span> y <span class="math notranslate nohighlight">\(\tilde v_i\)</span> contienen <em>la misma información</em>, puesto que representan al mismo vector <span class="math notranslate nohighlight">\(\ket{v}\)</span>, cada una en una base</p>
+<p>Por tanto: debe ser posible entonces encontrar la <em>traducción</em> de una lista de valores a la otra.</p>
+<p>Es evidente que este traductor debe <em>depender</em> de la relación que guardan ambas bases <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{\tilde e_i}\}\)</span>  entre sí</p>
+<p>Por ser bases, cualquier <em>elemento</em> (vector) <u>de una</u> se puede expresar como una <em>combinación lineal de elementos</em>  <u>de la otra</u>. Por ejemplo</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{\tilde e_j} = \sum_{i=1}^N C_{ i j} \ket{e_i} ~~~~~~~j=1,..., N
+\]</div>
+<p>Los coefficientes  <span class="math notranslate nohighlight">\(C_{ i j}\in {\mathbb C}\)</span> constituyen la <strong>matriz de cambio de base</strong></p>
+<p>Notar que de los subíndices de <span class="math notranslate nohighlight">\(C_{ij}\)</span></p>
+<ul class="simple">
+<li><p>el índice <span class="math notranslate nohighlight">\(i\)</span> está sumado con los elementos de la base</p></li>
+<li><p>el índice <span class="math notranslate nohighlight">\(j\)</span> es una etiqueta que recuerda que estamos expandiendo el vector <span class="math notranslate nohighlight">\(\ket{\tilde e_j}\)</span></p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Sea la matriz de coeficientes es</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C_{ij} = \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix} =  \begin{pmatrix} C_{11} &amp; C_{12} \\ C_{21} &amp; C_{22} \end{pmatrix}\, ,
+\end{split}\]</div>
+<p>Entonces la expresión <span class="math notranslate nohighlight">\(\ket{\tilde e_j} = \sum_{i=1}^N C_{ i j} \ket{e_i}\)</span> en este caso relaciona las dos bases en la forma siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-01dcaea5-7ad0-4833-be68-6a3eae88311f">
+<span class="eqno">(5)<a class="headerlink" href="#equation-01dcaea5-7ad0-4833-be68-6a3eae88311f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\ket{\tilde e_1} &amp;=&amp; C_{11}\ket{e_1}  + C_{21}\ket{e_2}  =  \ket{e_1} + i\ket{e_2}\nonumber\\ \rule{0mm}{8mm}
+\ket{\tilde e_2} &amp;=&amp; C_{12}\ket{e_1}  + C_{22}\ket{e_2}=\ket{e_1} - i\ket{e_2} \nonumber
+\end{eqnarray}\]</div>
+<p>El cambio de base, se puede escribir como una multiplicación de matrices colocando los vectores en una fila</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\big(\ket{\tilde e_1},\ket{\tilde e_2}\big) = \big(\ket{e_1},\ket{e_2}\big) \, \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix} = \big(\ket{e_1} + i\ket{e_2}, \ket{e_1}-i\ket{e_2} \big)
+\end{split}\]</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La forma en que están sumados los índices</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{\tilde e_j} = \sum_{\color{blue}{i=1}}^{\color{blue}{N}} C_{ \color{blue}{i} j} \ket{e_{\color{blue}{i}}}
+\]</div>
+<p>Esto hace que, si queremos escribir esta ecuación en notación matricial,  debamos poner los vectores en una fila</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} \ket{\tilde e_1} &amp; \cdots &amp; \ket{\tilde e_N} \end{pmatrix} = 
+\begin{pmatrix} \ket{ e_{\color{blue}{1}}} &amp; \cdots &amp; \ket{e_ {\color{blue}{N}}}\end{pmatrix}
+\begin{pmatrix} C_{\color{blue}{1}1} &amp; \cdots &amp; C_{\color{blue}{1}N} \\ \vdots &amp; \ddots &amp; \vdots \\ C_{\color{blue}{N}1} &amp; \cdots &amp; C_{\color{blue}{N}N} \end{pmatrix}
+\end{split}\]</div>
+</div>
+<p>Ahora podemos obtener el <em>diccionario</em> entre componentes <span class="math notranslate nohighlight">\(v_i\)</span> y <span class="math notranslate nohighlight">\(\tilde v_i\)</span>, a partir de la  matriz de cambio de base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5e080ff9-f19b-45bf-bd2d-7ffbdd9d7264">
+<span class="eqno">(6)<a class="headerlink" href="#equation-5e080ff9-f19b-45bf-bd2d-7ffbdd9d7264" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\ket{v}  ~= ~ \sum_{i} v_i \ket{e_i} &amp;~=~ \sum_j \tilde v_j \ket{\tilde e_j} \nonumber\\
+&amp;~=~  \sum_j \tilde v_j \left( \sum_{i} C_{ij} \ket{e_i}\right) \nonumber \\
+&amp;~=~  \sum_{j}\sum_{i} \tilde v_j   C_{ij} \ket{e_i} \nonumber \\
+&amp;~=~ \sum_i \left( \sum_j C_{ij} \tilde v_j \right) \ket{e_i}  \nonumber \\
+\end{eqnarray}\]</div>
+<p>Comparando obtenemos la relación de coeficientes</p>
+<div class="math notranslate nohighlight">
+\[
+v_i = \sum_{j} C_{i\color{black}{j}} \tilde v_{\color{black}{j}}
+\]</div>
+<p>Esta expresión devuelve las componentes  <span class="math notranslate nohighlight">\(v_i\)</span> de un vector <span class="math notranslate nohighlight">\(\ket{v}\)</span> en la base <span class="math notranslate nohighlight">\(\{ \ket{e_i}\}\)</span> suponiendo que son conocidas las <span class="math notranslate nohighlight">\(\tilde v_i\)</span> en la base <span class="math notranslate nohighlight">\(\{ \ket{\tilde e_i} \}\)</span></p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<ol class="arabic simple">
+<li><p>La forma en que están sumados los índices hace que, en notación matricial esta operación se represente como sigue</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} v_1\\ \vdots \\ v_n\end{pmatrix} = 
+\begin{pmatrix} C_{11} &amp; \cdots &amp; C_{1n} \\ \vdots &amp; \ddots &amp; \vdots \\ C_{n1} &amp; \cdots &amp; C_{nn} \end{pmatrix}
+\begin{pmatrix} \tilde v_1\\ \vdots \\ \tilde v_n\end{pmatrix}
+\end{split}\]</div>
+<br>    
+<ol class="arabic simple" start="2">
+<li><p>La misma matriz <span class="math notranslate nohighlight">\(C\)</span>, que lleva <span class="math notranslate nohighlight">\(\ket{e_i} \to \ket{\tilde e_i}\)</span>, lleva <span class="math notranslate nohighlight">\(\tilde v_j \to v_j\)</span></p></li>
+</ol>
+</div>
+<p>Un vector es un objeto abstracto, un elemento de un espacio vectorial. La definición que dimos al principio es fácil de entender, pero conlleva la elección implícita de una base. En cada base un vector se representa con un conjunto de componentes diferentes</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Vamos a hacer un test de consistencia con vectores que conocemos en ambas bases.
+Escojamos por ejemplo <span class="math notranslate nohighlight">\(\ket{v} = \ket{\tilde e_1}\)</span>. Las componentes <span class="math notranslate nohighlight">\(\tilde v_i\)</span> de este vector en la base <span class="math notranslate nohighlight">\(\{\ket{\tilde e_i}\}\)</span> son claramente <span class="math notranslate nohighlight">\(\tilde v_i = \begin{pmatrix}1\\0\end{pmatrix}\)</span>. Entonces podemos obtener las componentes <span class="math notranslate nohighlight">\(v_i\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> siguiendo la regla encontrada</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ket{\tilde e_1} \sim  \begin{pmatrix} \tilde v_1\\ \tilde v_2\end{pmatrix} = \begin{pmatrix} 1\\ 0 \end{pmatrix} ~\hbox{en la base} \{\ket{\tilde e_i}\}~~~~\Longrightarrow ~~~~\ket{\tilde e_1} \sim  \begin{pmatrix} v_1\\v_2\end{pmatrix} = \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix}\begin{pmatrix} 1\\ 0 \end{pmatrix} = \begin{pmatrix} 1\\ i \end{pmatrix}~\hbox{en la base} \{\ket{e_i}\}
+\end{split}\]</div>
+<p>y, análogamente, escogiendo <span class="math notranslate nohighlight">\(\ket{v} = \ket{\tilde e_2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ket{\tilde e_2} \sim  \begin{pmatrix} \tilde v_1\\ \tilde v_2\end{pmatrix} = \begin{pmatrix} 0\\ 1 \end{pmatrix} ~\hbox{en la base} \{\ket{\tilde e_i}\}~~~~\Longrightarrow ~~~~ \ket{\tilde e_2} \sim \begin{pmatrix} v_1\\v_2\end{pmatrix} = \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix}\begin{pmatrix} 0\\ 1 \end{pmatrix} = \begin{pmatrix} 1\\ -i \end{pmatrix} ~\hbox{en la base} \{\ket{e_i}\}
+\end{split}\]</div>
+</div>
+<p>Si queremos obtener las componentes <span class="math notranslate nohighlight">\(\tilde v_i\)</span> a partir de las <span class="math notranslate nohighlight">\(v_i\)</span>, tenemos que invertir la matriz</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde v_i = \sum_{j} C^{-1}_{i\color{black}{j}} v_{\color{black}{j}}
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo (continuación)</p>
+<p>Continuando con el ejemplo anterior, invertir la matriz da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C^{-1}_{ij} = \frac{1}{2}\begin{pmatrix} 1 &amp;- i\\  1 &amp; i \end{pmatrix}
+\end{split}\]</div>
+<p>lo cual nos permite encontrar las componentes de <span class="math notranslate nohighlight">\(\ket{e_1}\)</span> en la base <span class="math notranslate nohighlight">\(\ket{\tilde e_i}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ket{e_1} = \ket{v} = \begin{pmatrix} \tilde v_1\\\tilde v_2\end{pmatrix} = \frac{1}{2}\begin{pmatrix} 1 &amp;- i\\  1 &amp; i \end{pmatrix}\begin{pmatrix} 1\\ 0 \end{pmatrix} = \frac{1}{2}\begin{pmatrix} 1\\ 1 \end{pmatrix}~~~~\hbox{en la base} \{\ket{\tilde e_i}\}
+\end{split}\]</div>
+<p>y también</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\ket{e_2} = \ket{v} = \begin{pmatrix} \tilde v_1\\\tilde v_2\end{pmatrix} = \frac{1}{2}\begin{pmatrix} 1 &amp;- i\\  1 &amp; i \end{pmatrix}\begin{pmatrix} 0\\ 1 \end{pmatrix} = \frac{1}{2}\begin{pmatrix} -i\\ i \end{pmatrix}~~~~\hbox{en la base} \{\ket{\tilde e_i}\}
+\end{split}\]</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Considera las bases ortonormales <span class="math notranslate nohighlight">\(\{\ket{e_i}\} = \{\ket{0},\ket{1}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{\tilde e_i}\} =\{\ket{+},\ket{-}\}\)</span> donde <span class="math notranslate nohighlight">\(\ket{\pm} = \frac{1}{\sqrt{2}}(\ket{0} \pm \ket{1})\)</span>.</p>
+<p>Las componentes del vector <span class="math notranslate nohighlight">\(\ket{u} \sim \begin{pmatrix}3\\1\end{pmatrix}\)</span> están escritas en la primera base.</p>
+<p>Halla las componentes de <span class="math notranslate nohighlight">\(\ket{u}\)</span> en la segunda.</p>
+</div>
+</section>
+<section id="subespacios-vectoriales">
+<h3>Subespacios Vectoriales<a class="headerlink" href="#subespacios-vectoriales" title="Permalink to this heading">#</a></h3>
+<p>Seal <span class="math notranslate nohighlight">\(B = \{\ket{e_i}\}_{i=1,...,N}\)</span> la base  de un espacio vectorial <span class="math notranslate nohighlight">\(V\)</span>. Cualquier subconjunto de elementos de dicha base, <span class="math notranslate nohighlight">\(\bar B\subset B\)</span>, genera un <em>subespacio vectorial</em> <span class="math notranslate nohighlight">\(\bar V \subset V\)</span></p>
+<p><strong>Suma Directa</strong></p>
+<p>Por ejemplo, podemos dividir <span class="math notranslate nohighlight">\(B\)</span> en dos subconjuntos complementarios</p>
+<div class="math notranslate nohighlight">
+\[B_1 =  \{\ket{e_i}\}_{i=1,...,N_1}~~~~~~~,~~~~~~~~~  B_2 =  \{\ket{e_i}\}_{i={N_1}+1,...,N}\]</div>
+<p>de forma que <span class="math notranslate nohighlight">\(B = B_1 \cup B_2\)</span></p>
+<p>Cada subconjunto será base de un subespacio vectorial <span class="math notranslate nohighlight">\(B_1 \to V_1\)</span> y <span class="math notranslate nohighlight">\(B_2\to V_2\)</span> de forma que el espacio original será la <strong>suma directa</strong> de ambos</p>
+<div class="math notranslate nohighlight">
+\[
+V  = V_1  + V_2
+\]</div>
+<p>Cualquier vector <span class="math notranslate nohighlight">\(\ket{u}\in V\)</span> se escribirá en la forma <span class="math notranslate nohighlight">\(\ket{v} = \ket{v_1} + \ket{v_2}\)</span> de vectores pertenecientes a cada subespacio.</p>
+<p>Por construcción, la dimensión de una suma directa es la suma de las dimensiones <span class="math notranslate nohighlight">\(\hbox{dim}\, V = \hbox{dim}\, V_1 + \hbox{dim}\, V_2\)</span></p>
+</section>
+</section>
+<section id="espacios-de-hilbert">
+<h2>Espacios de Hilbert<a class="headerlink" href="#espacios-de-hilbert" title="Permalink to this heading">#</a></h2>
+<section id="conjugacion-adjunta">
+<h3>Conjugación adjunta<a class="headerlink" href="#conjugacion-adjunta" title="Permalink to this heading">#</a></h3>
+<p>La operación <em>conjugación adjunta</em>,  <span class="math notranslate nohighlight">\(\dagger\)</span>, es una <em>extensión</em> de la <em>conjugación compleja</em> de <span class="math notranslate nohighlight">\({\mathbb C}\)</span> a todos los elementos  de <span class="math notranslate nohighlight">\(\Hil\)</span></p>
+<p>Asociado a cada <em>ket</em> <span class="math notranslate nohighlight">\(\ket{u}\)</span>, definimos un vector <strong>adjunto</strong>, o <em>bra</em> <span class="math notranslate nohighlight">\(\bra{u}\equiv\left(\ket{u}\right)^\dagger\)</span>,  que representamos mediante un vector fila con las componentes conjugadas complejas.<br />
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+\dagger \,: \quad\,|u\rangle = \begin{pmatrix} {u_1}\\ {u_2}\\ \vdots \\ {u_N} 
+\end{pmatrix} ~~~~~{\rightarrow}~~~~~~ \left(\ket{u}\right)^\dagger \equiv \bra{u} =\begin{pmatrix} {u_1^*} &amp; {u_2^*} &amp; \cdots &amp; {u_N^*}
+\end{pmatrix}
+\)</span>$</p>
+<hr /><p>Consistentemente encontramos para el producto de un vector por un número complejo <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\dagger \,:\quad\,  \lambda\ket{u}=\ket{\lambda u} ~~~~~{\rightarrow}~~~~~~ \left(\lambda\ket{u}\right)^\dagger=\lambda^*\bra{u} = \bra{u}\lambda^* = \bra{\lambda u}
+\]</div>
+<p>ya que el producto de un vector por un número es conmutativo.</p>
+<p>Al igual que la conjugación compleja, la conjugación adjunta es una <em>involución</em>: su aplicación sucesiva devuelve el vector original</p>
+<div class="math notranslate nohighlight">
+\[
+(\ket{u}^\dagger)^\dagger =\bra{u}^\dagger =  \ket{u}
+\]</div>
+<p>es decir, <span class="math notranslate nohighlight">\(\dagger^2 = I\)</span>, el operador identidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;definamos un array&#39;</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">])</span>
+
+<span class="s1">&#39;ket es un vector columna&#39;</span>
+<span class="n">uket</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">uket</span><span class="p">))</span>
+
+<span class="s1">&#39;el bra asociado será una fila formada por las componentes conjugadas complejas&#39;</span>
+<span class="n">ubra</span><span class="o">=</span><span class="n">uket</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">ubra</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 + i  \\
+ 2 - 3 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 - i &amp; 2 + 3 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Espacio de Hilbert</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un <i> espacio de Hilbert</i>,  <span class="math notranslate nohighlight">\({\Hil}\)</span>, es un espacio vectorial
+dotado de una operación interna   denominada <i>producto escalar</i>.</p>
+</div>
+</div>
+</section>
+<section id="producto-escalar">
+<h3>Producto Escalar<a class="headerlink" href="#producto-escalar" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Producto escalar</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El producto escalar de dos vectores <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> es un <i>número complejo</i>
+<span class="math notranslate nohighlight">\(a\in{\mathbb C}\)</span> que denotamos <i>braket</i></p>
+<div class="math notranslate nohighlight">
+\[
+a \equiv \braket{u}{v} 
+\]</div>
+<p class="sd-card-text">si verifica las propiedades siguientes linealidad: <span class="math notranslate nohighlight">\(\to \bra{u}\big(\ket{v}+\ket{w}\big) = \braket{u}{v} + \braket{u}{w}\)</span> hermiticidad: <span class="math notranslate nohighlight">\(\to \braket{v}{u} = \braket{u}{v}^*\)</span> positividad: <span class="math notranslate nohighlight">\(\braket{u}{u} &gt;0\)</span> para todo ket <span class="math notranslate nohighlight">\(\ket{u}\neq 0\)</span> no-degeneración: <span class="math notranslate nohighlight">\(~\)</span> si  <span class="math notranslate nohighlight">\(\braket{u}{v} = 0\)</span> para todo <span class="math notranslate nohighlight">\(\bra{u}\)</span>, entonces necesariamente <span class="math notranslate nohighlight">\(\ket{v}=0\)</span></p>
+</div>
+</div>
+<p>Combinando ambas propiedades, el producto escalar también es lineal en el primer argumento</p>
+<div class="math notranslate nohighlight">
+\[(\bra{u}+\bra{w})\ket{v} = \braket{u}{v} + \braket{w}{v}\]</div>
+<p>Notar que la propiedad de hermiticidad es precisamente la extensión de la conjugación compleja de la que hablábamos al definir la aplicación <em>adjunta</em></p>
+<div class="math notranslate nohighlight">
+\[
+\braket{u}{v}^* = \braket{u}{v}^\dagger  = \braket{v}{u}
+\]</div>
+<p>Hemos usado que <span class="math notranslate nohighlight">\(\bra{u}^\dagger = \ket{u}\)</span> y  <span class="math notranslate nohighlight">\(\ket{v}^\dagger = \bra{v}\)</span> pero le hemos añadido una regla más:
+<u><em>al tomar el mapa adjunto es necesario invertir el orden de los elementos</em></u></p>
+<p>De no haber seguido esta regla, habríamos obtenido un resultado <strong>erróneo</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\braket{u}{v}^\dagger \to \ket{u}\bra{v} 
+ \]</div>
+<p>que no es ni siguiera un número complejo.</p>
+</section>
+<section id="norma">
+<span id="norm"></span><h3>Norma<a class="headerlink" href="#norma" title="Permalink to this heading">#</a></h3>
+<p>Una <strong>norma</strong> es un una función real <span class="math notranslate nohighlight">\(\|\cdot\| : \Lin(\Hil) \to {\mathbb R}\)</span> con las siguientes propiedades</p>
+<ul class="simple">
+<li><p>ser definida positiva <span class="math notranslate nohighlight">\(\|A\|\geq 0\)</span> con <span class="math notranslate nohighlight">\(\| A\| = 0 \Leftrightarrow A= 0\)</span>
+<br></p></li>
+<li><p>homogeneidad <span class="math notranslate nohighlight">\(\|\lambda A\| = |\lambda| \|A\|\)</span>
+<br></p></li>
+<li><p>triangle inequality. <span class="math notranslate nohighlight">\(\|A+B\| \leq \| A\| + \|B\|\)</span></p></li>
+</ul>
+<p>Un espacio de Hilbert es, automáticamente un espacio normado.
+La positividad  del producto escalar de un vector por sí mismo  permite definir su <em>norma</em>.</p>
+<div class="math notranslate nohighlight">
+\[
+\|\ket{v}\| = \sqrt{\braket{v}{v}} 
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>En contraste con la definición de producto escalar en espacios vectoriales reales, en el caso complejo se hace necesario conjugar el <i>bra</i>, para  que la <i>norma</i> de un vector sea siempre real y positiva. Esta es la idea detrás de la definición de la <i>conjugación adjunta</i>.</p></li>
+<li><p>El único vector que tiene norma nula en un espacio de Hilbert es el elemento neutro</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\braket{v}{v} = 0 ~~~ \Leftrightarrow ~~~\ket{v} = 0
+\]</div>
+</div>
+</section>
+<section id="distancia">
+<h3>Distancia<a class="headerlink" href="#distancia" title="Permalink to this heading">#</a></h3>
+<p>Dados dos elementos <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> de <span class="math notranslate nohighlight">\(\Hil\)</span>, podemos definir la <em>distancia</em> entre ellos como la <em>norma de su diferencia</em>
+<br></p>
+<div class="math notranslate nohighlight">
+\[
+d(\rule{0mm}{5mm}\ket{v},\ket{w}) = \| \ket{v}-\ket{w}\|
+\]</div>
+<p>En particular</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d(\ket{v}, \ket{w}) = d(\ket{w}, \ket{v})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d(\ket{v}, \ket{v}) = 0\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="bases-ortonormales">
+<h2>Bases ortonormales<a class="headerlink" href="#bases-ortonormales" title="Permalink to this heading">#</a></h2>
+<p>Hasta ahora, a los vectores de una base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> sólo se les ha pedido que sean <span class="math notranslate nohighlight">\(N\)</span> vectores <em>linealmente independientes</em>, donde <span class="math notranslate nohighlight">\(N\)</span> es la dimensión del espacio vectorial <span class="math notranslate nohighlight">\(\V\)</span>:</p>
+<p>En un espacio de Hilbert <span class="math notranslate nohighlight">\(\Hil\)</span> tiene sentido calcular el producto escalar de dos elementos de una base.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>: <em>Base ortonormal</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Una base ortornormal se caracteriza por la siguiente lista de productos escalares</p>
+<div class="math notranslate nohighlight">
+\[
+\braket{e_i}{e_j} = \delta_{ij}
+\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Por un lado, dos elementos distintos de la base son ortogonales <span class="math notranslate nohighlight">\(\braket{e_1}{e_2} = 0\)</span>.
+<br></p></li>
+<li><p>Por otro, todos están normalizados  <span class="math notranslate nohighlight">\( \| e_i \| = \sqrt{\braket{e_1}{e_1}} = \sqrt{1} = 1\)</span>.</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Teorema</strong>: <em>de Gram-Schmidt</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dada una base general <span class="math notranslate nohighlight">\(\{\braket{f_i}{f_j}\neq \delta_{ij}\}\)</span> de vectores no ortonormales, existe una procedimiento iterativo (de <a href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram-Schmidt</a> ) para construir, a partir de ella, una nueva base ortonormal <span class="math notranslate nohighlight">\(\{\braket{e_i}{e_j}\}=\delta_{ij}\)</span></p>
+</div>
+</div>
+<p>Dado un vector  <span class="math notranslate nohighlight">\(\ket{v} = \sum_{i=1}^N v_i \ket{e_i}\)</span> escrito en una base ortonormal, la <em>componente</em> <span class="math notranslate nohighlight">\(v_i\)</span> se extrae mediante la <em>proyección ortogonal</em>
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+v_i =\braket{e_i}{v}
+\)</span>$</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Verifica esta expresión</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solución<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight" id="equation-701bf4df-345f-4177-b72e-9cc3c4e80423">
+<span class="eqno">(7)<a class="headerlink" href="#equation-701bf4df-345f-4177-b72e-9cc3c4e80423" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\braket{e_k}{v} &amp;=&amp;  \bra{e_k}\left(\sum_{j=1}^N v_j\ket{e_j}\right) \nonumber\\
+                &amp;=&amp;  \sum_{j=1}^N  v_j\braket{e_k}{e_j}  \nonumber\\
+                &amp;=&amp;  \sum_{j=1}^N  v_j\delta_{kj} = v_k
+\end{eqnarray}\]</div>
+</div>
+</details></div>
+<p>En una base
+ortonormal, calcular el valor de un <em>producto escalar</em> <span class="math notranslate nohighlight">\(a=\braket{u}{v}\)</span> es muy simple</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4ea5ad77-290b-4716-815c-7f88847a7150">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4ea5ad77-290b-4716-815c-7f88847a7150" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+a = 
+\braket{u}{v}&amp;=&amp; \left(\sum_{i}u_i^*\bra{e_i}\right)\left(\sum_{j}v_j\ket{e_j} \right) = 
+\sum_{ij} u_i^* v_j  \braket{e_i}{e_j}
+=
+\sum_{ij} u_i^* v_j \delta_{ij} 
+\\
+&amp;=&amp;\sum_{i} u_i^* v_i =
+  \begin{pmatrix}
+{u_1^*} &amp; {u_2^*} &amp; \cdots &amp; {u_N^*}
+\end{pmatrix}\begin{pmatrix} {v_1}\\ {v_2}\\ \vdots \\ {v_N} 
+\end{pmatrix}
+\end{eqnarray}\]</div>
+<br><div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La expresión de la izquierda  <span class="math notranslate nohighlight">\(a = \braket{u}{v}\)</span> <b>no hace referencia a ninguna base</b>. Por tanto, el resultado <span class="math notranslate nohighlight">\(\sum_{i=1}^n{ u_i^* v_i} \)</span> debe ser independiente de la base que utilizamos para representar estos vectores mediante sus componentes <span class="math notranslate nohighlight">\(u_i\)</span> y <span class="math notranslate nohighlight">\(v_i\)</span>.</p>
+<p>Subrayamos la importancia de esto: <span class="math notranslate nohighlight">\(\braket{u}{v}\)</span> puede ser calculado en la base más conveniente.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<ul class="simple">
+<li><p>Escribe una función <i>braket</i><span class="math notranslate nohighlight">\((u,v)\)</span> que calcule y devuelva la el producto escalar <span class="math notranslate nohighlight">\(\braket{u}{v}\)</span>, y, con ella, una función <span class="math notranslate nohighlight">\(norm(u)\)</span> que calcule la norma <span class="math notranslate nohighlight">\(\| \ket{u}\|\)</span>.
+Verifica que <span class="math notranslate nohighlight">\(\| \ket{u}\| = \sqrt{\braket{u}{u}}\)</span> coincide con el resultado que da la función <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>.</p></li>
+<li><p>Escribe una función <i>random<span class="math notranslate nohighlight">\(\_\)</span>ket</i><span class="math notranslate nohighlight">\((d)\)</span> que genere un vector normalizado  <span class="math notranslate nohighlight">\(\ket{v}\in\Hil\)</span> de dimensión <span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">braket</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/00_Formalismo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Numeros_Complejos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Números Complejos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_Operadores_01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operadores I</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-vectorial">Espacio Vectorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores-definicion-intrinseca">Vectores: definición intrínseca</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subespacios-vectoriales">Subespacios Vectoriales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacios-de-hilbert">Espacios de Hilbert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacion-adjunta">Conjugación adjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-escalar">Producto Escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma">Norma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distancia">Distancia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-ortonormales">Bases ortonormales</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

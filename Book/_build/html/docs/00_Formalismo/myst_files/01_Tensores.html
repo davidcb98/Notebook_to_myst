@@ -1,0 +1,1377 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tensores &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/myst_files/01_Tensores';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Probabilidades" href="01_Probabilidades.html" />
+    <link rel="prev" title="Operadores II" href="01_Operadores_02.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../01_formalismo_matematico.html">Formalismo Matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_Numeros_Complejos.html">Números Complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Vectores.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_01.html">Operadores I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Operadores_02.html">Operadores II</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Probabilidades.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_Fundamentos_MC_intro.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html">Circuitos multicúbits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01_Circuitos/121_Multicubits.html">Multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_Circuitos/122_El_Arte_de_Medir_II.html">El arte de medir multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_Circuitos/123_Entrelazamiento.html">Entrelazamiento en acción</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01_Circuitos/130_circuitos_mas_cosas.html">Circuitos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01_Circuitos/131_Elementos_Basicos.html">Conjugación</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../01_Circuitos/132_CompClasica.html">Construcción de funciones binarias. Los min-términos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/00_Formalismo/myst_files/01_Tensores.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/00_Formalismo/myst_files/01_Tensores.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/00_Formalismo/myst_files/01_Tensores.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/00_Formalismo/myst_files/01_Tensores.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../../_sources/docs/00_Formalismo/myst_files/01_Tensores.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tensores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">Producto Tensorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">Base y Dimensión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">Indexación equivalente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">Producto de Kronecker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">Factorización y Entrelazamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizabilidad">Criterio de factorizabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">Descomposición de Schmidt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">Producto Tensorial Múltiple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-hil-otimes-n">Base de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado-general">Estado entrelazado general</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">Estado factorizable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estados-producto-de-matrices-mps">Estados producto de matrices <em>(MPS)</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-de-tensores">Redes de tensores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-sobre-hil-otimes-n">Operadores sobre  <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">Producto tensorial de operadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices">Producto de Kronecker de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">Generación de entrelazamiento</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <figure class="align-center">
+<img alt="docs/00_Formalismo/thumbnails/myThumbnail.png" src="docs/00_Formalismo/thumbnails/myThumbnail.png" />
+</figure>
+<section class="tex2jax_ignore mathjax_ignore" id="tensores">
+<h1>Tensores<a class="headerlink" href="#tensores" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> ../macro_tQ.py
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span><span class="n">Markdown</span><span class="p">,</span><span class="n">Latex</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">array_to_latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="producto-tensorial">
+<h2>Producto Tensorial<a class="headerlink" href="#producto-tensorial" title="Permalink to this heading">#</a></h2>
+<p>En física clásica a cada <em>grado de libertad</em> se le asocia una variable real o compleja. En Mecánica Cuántica, se le asocia un vector en un espacio de Hilbert.</p>
+<p>Los sistemas físicos, en general, tienen más de un grado de libertad. En física clásica les asociamos funciones multi-variable. En Mecánica Cuántica la estructura matemática adecuada es el <strong>producto tensorial</strong> de espacios vectoriales.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sean <span class="math notranslate nohighlight">\(\Hil_1\)</span> y <span class="math notranslate nohighlight">\(\Hil_2\)</span> dos espacios de Hilbert.  Dados dos vectores <span class="math notranslate nohighlight">\(\ket{u}_1\in \Hil_1\)</span> y  <span class="math notranslate nohighlight">\(\ket{v}_2\in \Hil_2\)</span>, denominamos <i>producto tensorial</i> al par ordenado</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{uv} ~\equiv \ket{u}_1\otimes \ket{v}_2
+\]</div>
+</div>
+</div>
+<p>Como si se tratara de un producto ordinario, el producto tensorial satisface la <strong>propiedad distributiva</strong>
+<br>
+<br></p>
+<div class="amsmath math notranslate nohighlight" id="equation-6a8ed3d3-49e2-419a-bb3b-af0fd8f36d6b">
+<span class="eqno">(28)<a class="headerlink" href="#equation-6a8ed3d3-49e2-419a-bb3b-af0fd8f36d6b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\big(\ket{u}+\ket{v}\big)\otimes \big(\ket{y}+\ket{z}\big) ~&amp;= ~~
+\ket{u}\otimes\ket{y} ~+~ \ket{u}\otimes\ket{z} ~+~ \ket{v}\otimes\ket{y} ~+~~
+ \ket{v}\otimes\ket{z} \\
+ \rule{0mm}{8mm}
+ &amp;= ~~ \ket{uy} + \ket{uz} + \ket{vy} + \ket{vz}
+\end{eqnarray}\]</div>
+<p>Este cálculo tan inocente esconde un hecho crucial: los elementos <span class="math notranslate nohighlight">\(\big(\ket{u}+\ket{v}\big)\otimes \big(\ket{y}+\ket{z}\big)\)</span> y <span class="math notranslate nohighlight">\(\big(\ket{u}\otimes\ket{y}+ \ket{u}\otimes\ket{z}\big)\)</span> son <u>diferentes</u>.</p>
+<p>Es por esto que, para dotar de estructura de espacio vectorial al conjunto de productos tensoriales <u>de forma consistente con la distributividad</u>,  debamos incluir todas las posibles combinaciones como elementos independientes</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sean <span class="math notranslate nohighlight">\(V_1\)</span> y <span class="math notranslate nohighlight">\(V_2\)</span> dos espacios vectorieles. El  <b>espacio producto tensorial</b>  <span class="math notranslate nohighlight">\(V = V_1 \otimes V_2\)</span> está formado por  <u>todas las combinaciones lineales</u> posibles de   <u>pares ordenados</u></p>
+<div class="math notranslate nohighlight">
+\[
+\ket{s}= a\ket{u}_1\otimes\ket{u}_2 ~+~ b \ket{v}_1\otimes\ket{v}_2 ~+ ~...
+\]</div>
+<p class="sd-card-text">donde  <span class="math notranslate nohighlight">\(\ket{u}_1,\ket{v}_1,...\in V_1\, ~\)</span> y <span class="math notranslate nohighlight">\(~\, \ket{u}_2,\ket{v}_2,...\in V_2~\)</span>,
+y <span class="math notranslate nohighlight">\(~a,b,... \in {\mathbb C}\)</span> son coeficientes complejos.</p>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>Prescindiremos del subíndice <span class="math notranslate nohighlight">\(\ket{u}_1\otimes \ket{y}_2=\ket{u}\otimes \ket{y} \equiv \ket{uy}\)</span> que estará implícito en el orden.
+<br></p></li>
+<li><p>Para computación cuántica con <i>cúbits (cúdits)</i>, el valor relevante es <span class="math notranslate nohighlight">\(d=2\,(d\geq 3)\)</span>.
+<br></p></li>
+<li><p>En adelante supondremos que los espacios vectoriales <span class="math notranslate nohighlight">\(V_{1,2} = \Hil_{1,2}\)</span> son espacios de Hilbert</p></li>
+</ul>
+</div>
+<section id="base-y-dimension">
+<h3>Base y Dimensión<a class="headerlink" href="#base-y-dimension" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sea <span class="math notranslate nohighlight">\(\ket{i_1}\)</span> una base de <span class="math notranslate nohighlight">\(\Hil_1\)</span> y <span class="math notranslate nohighlight">\(\ket{i_2}\)</span> una base de <span class="math notranslate nohighlight">\(\Hil_2\)</span>. Entonces, una base de <span class="math notranslate nohighlight">\(\Hil_1\otimes \Hil_2\)</span> se obtiene
+a partir de <em>todos</em> los emparejamientos
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+\ket{i_1 i_2} = \ket{i_1}\otimes \ket{i_2}~~~~~~~~~~~~~~~~~~ 
+\)</span><span class="math notranslate nohighlight">\(
+&lt;br&gt;
+con
+\)</span>
+i_1=0…d_1-1<span class="math notranslate nohighlight">\( y \)</span>i_2=0,…,d_2-1
+$</p></li>
+</ul>
+<ul class="simple">
+<li><p>El número parejas posibles es <span class="math notranslate nohighlight">\(d_1d_2\)</span>, que coincide con la <strong>dimensión</strong> de <span class="math notranslate nohighlight">\(\Hil_1\otimes \Hil_2\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Vemos que las etiquetas de los vectores de la base forman un <em>bi-índice</em> <span class="math notranslate nohighlight">\(\to i_1 i_2\)</span> que asume <span class="math notranslate nohighlight">\(d_1 d_2\)</span> parejas de valores distintos</p></li>
+</ul>
+<ul class="simple">
+<li><p>Un <em>vector</em> se escribirá igualmente usando <span class="math notranslate nohighlight">\(d_1 d_2\)</span> <i>componentes</i> complejas <span class="math notranslate nohighlight">\(w_{i_1 i_2}\)</span>, etiquetadas mediante un bi-índice en lugar de un índice
+<br>
+<br></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-bec0528b-db39-4b4e-8d68-98ce53a3f913">
+<span class="eqno">(29)<a class="headerlink" href="#equation-bec0528b-db39-4b4e-8d68-98ce53a3f913" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\ket{\omega} &amp; ~= ~&amp; 
+w_{00}\ket{00} + w_{01}\ket{01} + ... + w_{10}\ket{10} + ...\ldots + w_{d_1 d_2}\ket{d_1 d_2} \nonumber\\
+\rule{0mm}{10mm}
+&amp;~=~&amp; \sum_{i_1=0}^{d_1-1}\sum_{i_2=0}^{d_2-1} w_{i_1i_2} \ket{i_1 i_2} 
+\end{eqnarray}\]</div>
+</section>
+<section id="indexacion-equivalente">
+<h3>Indexación equivalente<a class="headerlink" href="#indexacion-equivalente" title="Permalink to this heading">#</a></h3>
+<p>Podemos etiquetar las componentes (o los elementos de la base) con índices, en lugar de bi-índices</p>
+<p>Para ello basta con definir un mapa  entre dos bi-índices <span class="math notranslate nohighlight">\(i_1,i_2\)</span> y un índice <span class="math notranslate nohighlight">\(a\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\ket{w} ~= ~ \sum_{i_1=0}^{d_1-1}\sum_{i_2=0}^{d_2-1} w_{i_1 i_2} \ket{i_1 i_2} ~=~ \sum_{a=0}^{d_1d_2-1} w_{a} \ket{a}
+\]</div>
+<br>
+donde hemos querido resaltar que las componente y  los vectores son los mismos, etiquetados de forma diferente.<p>En el caso genera el mapa es
+<br></p>
+<div class="math notranslate nohighlight">
+\[
+i_1 i_2 ~~\to ~~ a = d_2*i_1 + i_2  
+\]</div>
+<br>
+Claramente $a = 0,...,d_1d_2-1$</section>
+<section id="producto-de-kronecker">
+<h3>Producto de Kronecker<a class="headerlink" href="#producto-de-kronecker" title="Permalink to this heading">#</a></h3>
+<p>Como sabemos, cualquier vector admite, en una base, una representación como un vector columna con sus coeficientes como entradas.</p>
+<br>
+<br>
+$$
+\ket{w} ~= ~ \sum_{i,j=1}^2 w_{ij} \ket{e_{ij}}\sim~ \begin{pmatrix}w_{11}\\ w_{12}\\ w_{21} \\ w_{22}  \end{pmatrix}  ~  
+$$<p>La matriz columna asociada <span class="math notranslate nohighlight">\(\ket{uv}= \ket{u}\otimes \ket{v}\)</span> se forma a partir de las matrices columna de <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> mediante el denominado <em>producto de Kronecker</em> o, también <em>producto tensorial</em>.
+<br>
+<br></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \ket{uv} = \ket{u}\otimes \ket{v} ~\sim~ 
+\begin{pmatrix}u_1\\ u_2 \end{pmatrix}\otimes \begin{pmatrix}v_1\\ v_2 \end{pmatrix} ~\equiv ~
+\begin{pmatrix}u_1 \begin{pmatrix}v_1\\ v_2 \end{pmatrix} \\ u_2 \begin{pmatrix}v_1\\ v_2 \end{pmatrix}  \end{pmatrix}
+~=~\begin{pmatrix}u_1v_1\\ u_1v_2 \\ u_2 v_1 \\ u_2 v_2  \end{pmatrix}
+\end{split}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Con dos vectores <span class="math notranslate nohighlight">\(\ket{u} = \sum_i u_i \ket{e_i}\)</span> y <span class="math notranslate nohighlight">\(\ket{v} = \sum_i v_i \ket{e_i} \in \Hil\)</span>, hay dos objetos muy parecidos que podemos formar</p>
+<ol class="arabic simple">
+<li><p>un operador <span class="math notranslate nohighlight">\(\Omega = \ketbra{u}{v} = \sum_{ij}u_i v^*_j\ketbra{e_i}{e_j} \in \Lin(\Hil)\)</span>.<br />
+<br></p></li>
+<li><p>un vector <span class="math notranslate nohighlight">\(\ket{\omega} = \ket{u}\otimes \ket{v} = \sum_{ij} u_i v_j \ket{e_i} \ket{e_j} \in \Hil\otimes \Hil\)</span>.</p></li>
+</ol>
+<p>Nota la conjugación compleja relativa entre las dos matrices de componentes <span class="math notranslate nohighlight">\(\Omega_{ij} = u^*_i v_j\)</span> y <span class="math notranslate nohighlight">\(\omega_{ij} =  u_i v_j\)</span>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Escribe una función  <i>kronecker(u,v)</i> que tome dos kets (como vectores columna)  y devuelva su producto de Kronecker. Verifica el resultado con la funcion <span class="math notranslate nohighlight">\(kron\)</span> de numpy.</p>
+</div>
+</section>
+</section>
+<section id="factorizacion-y-entrelazamiento">
+<h2>Factorización y Entrelazamiento<a class="headerlink" href="#factorizacion-y-entrelazamiento" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong> <em>(Vector entrelazado)</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Decimos que, un vector <span class="math notranslate nohighlight">\(\ket{w}\in \Hil\otimes\Hil\)</span> es <b>factorizable</b> cuando es posible encontrar vectores <span class="math notranslate nohighlight">\(\ket{u},\ket{v}\in \Hil\)</span> tales que <span class="math notranslate nohighlight">\( \ket{w} = \ket{u}\otimes\ket{v}\)</span>.</p>
+<p class="sd-card-text">Cuando esto no sea posible, decimos que  <span class="math notranslate nohighlight">\(\ket{w}\)</span> es un vector <b>entrelazado</b>.</p>
+</div>
+</div>
+<p>Ya hemos visto que, dada una base <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> de <span class="math notranslate nohighlight">\(\Hil\)</span>, el vector más general que pertenece al espacio producto admite una descomposición</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{w} = \sum_{i,j=1}^d w_{ij}\ket{e_{i}}\otimes \ket{e_j} = w_{11}\ket{e_1}\otimes\ket{e_1} + w_{12}\ket{e_1}\otimes\ket{e_2} + ...\, .
+\]</div>
+<p>Podría ocurrir que en otra base <span class="math notranslate nohighlight">\(\ket{w} = \tilde w_{11} \ket{f_1}\otimes\ket{f_1}\)</span> sólo tuviese un término y fuese factorizable.</p>
+<p>Discernir si un vector es factorizable o entrelazado no es algo que se pueda hacer a primera vista.</p>
+<section id="criterio-de-factorizabilidad">
+<h3>Criterio de factorizabilidad<a class="headerlink" href="#criterio-de-factorizabilidad" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Criterio de factorización</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El estado es <span class="math notranslate nohighlight">\(\ket{w}\)</span> es factorizable si y sólo si las componentes <span class="math notranslate nohighlight">\(w_{ij}\)</span> son factorizables en la forma <span class="math notranslate nohighlight">\(w_{ij} = u_i v_j~\)</span> con <span class="math notranslate nohighlight">\(i=1,...,d_1\)</span> y <span class="math notranslate nohighlight">\(j = 1,...,d_2\)</span>.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[
+\ket{w}= \sum_{i,j=1}^d w_{ij} \ket{e_{ij}}  = \sum_{i,j} u_{i}v_j \ket{e_i}\otimes \ket{e_j}= \sum_{i,j} u_{i} \ket{e_i}\otimes v_j\ket{e_j}  ~ =~ \sum_i u_i\ket{e_i} \otimes \sum_j v_j\ket{e_j} ~=~   \ket{u}\otimes \ket{v}
+\]</div>
+<p class="sd-card-text">identidad que se puede leer en ambos sentidos</p>
+</div>
+</details><ul class="simple">
+<li><p>El carácter entrelazado de un vector es <i>genérico</i>, mientras que el carácter factorizable es <i>accidental</i>.
+<br></p></li>
+<li><p>Esto se sigue de un sencillo contaje:</p>
+<ul>
+<li><p>como función de <span class="math notranslate nohighlight">\(d\)</span>,  <span class="math notranslate nohighlight">\(\{w_{ij}\}\)</span> forma un conjunto de <span class="math notranslate nohighlight">\(d_1d_2\)</span> parámetros complejos (grados de libertad).</p></li>
+<li><p>Sin embargo en <span class="math notranslate nohighlight">\(\{u_i v_j\}\)</span> sólo hay <span class="math notranslate nohighlight">\(d_1 + d_2\)</span> números independientes. Es evidente que <span class="math notranslate nohighlight">\(d_1 d_2 \gg d_1 + d_2\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>En el caso  <span class="math notranslate nohighlight">\(d_1 = d_2 =2\)</span>  la condición de <em>factorizabilidad</em> <span class="math notranslate nohighlight">\(~\Rightarrow ~w_{ij} = u_i v_j\)</span> es <i>equivalente</i> a verificar
+la anulación del  determinante de la matriz <span class="math notranslate nohighlight">\(2\times 2\)</span> formada por las componentes
+<br></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\det w_{ij} =  w_{11}w_{22}- w_{12}w_{21} = u_1v_1u_2v_2-u_1v_2u_2v_1=0\]</div>
+<br>
+<ul class="simple">
+<li><p>En el caso general <span class="math notranslate nohighlight">\(d_1, d_2 \geq 2\)</span> la busqueda de un criterio para detectar si <span class="math notranslate nohighlight">\(w_{ij}\)</span> es factorizable o entrelazado pasa por la descomposición de Schmidt.</p></li>
+</ul>
+</section>
+<section id="descomposicion-de-schmidt">
+<h3>Descomposición de Schmidt<a class="headerlink" href="#descomposicion-de-schmidt" title="Permalink to this heading">#</a></h3>
+<p>Supongamos que, en sendas bases arbitrarias <span class="math notranslate nohighlight">\(\{\ket{e_{1,i}},~ i=1,...,d_1\}\)</span>  de <span class="math notranslate nohighlight">\(\Hil_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{e_{2,a}},~a=1,...,d_2\}\)</span>  de <span class="math notranslate nohighlight">\(\Hil_2\)</span> nuestro vector se escribe</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{w} = \sum_{i=1}^{d_1}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
+\]</div>
+<p>Los valores de las <em>componentes</em> <span class="math notranslate nohighlight">\(w_{ia}\)</span> <strong>dependen de las bases escogida</strong>. En <em>otras</em> base <span class="math notranslate nohighlight">\(\ket{ \tilde e_{1,i}}\otimes\ket{\tilde e_{2,a}}\)</span> encontraremos <em>otras</em> componentes <span class="math notranslate nohighlight">\(\tilde w_{ia}\)</span> para el <em>mismo</em> vector
+<br></p>
+<p>Si existe una base en la que <span class="math notranslate nohighlight">\(\tilde w_{ia}=0\)</span> para todos los <span class="math notranslate nohighlight">\(i,a\)</span> menos para uno (por ejemplo <span class="math notranslate nohighlight">\(\tilde w_{11}\neq 0\)</span>), entonces
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(\ket{w}= \tilde w_{11}\ket{\tilde e_{1,1}}\otimes \ket{\tilde e_{2,1}}\)</span><span class="math notranslate nohighlight">\( 
+&lt;br&gt;
+y, secretamente, el vector \)</span>\ket{w}$ era factorizable.</p>
+<p>El siguiente teorema nos permite averiguar <strong>cuánto nos podemos acercar a esta situación</strong></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Teorema</strong> <em>(de Schmidt)</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Para cada vector <span class="math notranslate nohighlight">\(\ket{w}\in \Hil_1\otimes \Hil_2\)</span>, existen sendas  bases  <span class="math notranslate nohighlight">\(\ket{f_{1,i}}\)</span>  de <span class="math notranslate nohighlight">\(\Hil_1\)</span> y  <span class="math notranslate nohighlight">\(\ket{f_{2,a}}\)</span>  de <span class="math notranslate nohighlight">\(\Hil_2\)</span>, tales que, podemos expresar</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{w} = \sum_{i=1}^r s_i \ket{f_{1,i}}\otimes\ket{f_{2,i}} \, ,
+\]</div>
+<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(s_i&gt;0\)</span>, y la suma   involucra el <i>mínimo número</i>, <span class="math notranslate nohighlight">\(r\)</span>, de términos.</p>
+</div>
+</div>
+<p>El número <span class="math notranslate nohighlight">\(1\leq r\leq {\rm min}(d_1,d_2)\)</span> se denomina <b>rango</b> de <span class="math notranslate nohighlight">\(w\)</span> y  es la información relevante  porque</p>
+<ul class="simple">
+<li><p>cuando <span class="math notranslate nohighlight">\(r=1\)</span> el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span> será <em>factorizable</em>.
+<br>
+<br></p></li>
+<li><p>si <span class="math notranslate nohighlight">\(r\geq 2\)</span> el estado será <em>entrelazado</em>.</p></li>
+</ul>
+<p>La <em>demostración del Teorema de Schmidt</em> es interesante porque nos da un <strong>método constructivo</strong> para encontrar la descomposición.</p>
+<p>Supongamos que nuestro vector se escribe</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{w} = \sum_{i=1}^{d_2}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
+\]</div>
+<p>La matriz de coeficientes <span class="math notranslate nohighlight">\(w_{ia}\)</span> tiene  dimension <span class="math notranslate nohighlight">\(d_1\times d_2\)</span>.
+Asumiremos <span class="math notranslate nohighlight">\(d_1 \geq d_2\)</span> sin pérdida de generalidad</p>
+<p>El <strong>teorema SVD</strong> de descomposición en valores singulares, nos garantiza que podemos expresar dicha matriz en la forma siguiente
+<br></p>
+<div class="math notranslate nohighlight">
+\[
+w = U\Sigma V^\dagger ~~~\Rightarrow ~~~~w_{ia} = \sum_{j=1}^{d_1}\sum_{b=1}^{d_2} U_{ij}\Sigma_{jb}V_{ab}^*
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son unitarias <span class="math notranslate nohighlight">\((d_1\times d_1)\)</span> y <span class="math notranslate nohighlight">\((d_2\times d_2)\)</span> respectivamente, mientras que <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Sigma_{jb} = 
+\overbrace{\left.
+\begin{bmatrix}
+s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &amp; &amp; &amp; &amp; &amp; \vdots  \\  &amp; &amp; s_r &amp; &amp; &amp; &amp;  \\
+   &amp; &amp;  &amp; 0  &amp; &amp;  &amp;    \\ &amp; &amp; &amp; &amp; &amp; \ddots &amp;  \\  0 &amp; &amp;\cdots  &amp; &amp; &amp; &amp; 0  \\ \vdots &amp; &amp;&amp;&amp;&amp; &amp; \vdots \\ 0 &amp; &amp; \cdots &amp; &amp; &amp; &amp; 0
+\end{bmatrix}   \right\}  }^{\displaystyle d_2} \, d_1 ~~~~~~\Rightarrow ~~~~~ \Sigma_{jb} = s_j\delta_{jb}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Los números <span class="math notranslate nohighlight">\(s_1,...,s_r &gt;0\)</span> son los autovalores de la matriz <span class="math notranslate nohighlight">\(w^\dagger w\)</span>  y se denominan <i>valores principales </i>  de la matriz <span class="math notranslate nohighlight">\(w_{ij}\)</span></p></li>
+</ul>
+<p>Esto quiere decir que podemos escribir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f293ad4-a2b3-43f5-86ad-18d7ff5f4f48">
+<span class="eqno">(30)<a class="headerlink" href="#equation-9f293ad4-a2b3-43f5-86ad-18d7ff5f4f48" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\ket{w} &amp;=&amp; \sum_{i=1}^{d_1}\sum_{a=1}^{d_2}\left( \sum_{j=1}^{d_1}\sum_{b=1}^{d_2} U_{ij}\Sigma_{jb}V_{ab}^* \right)\ket{e_{1,i}}\otimes \ket{e_{2,a}}
+\\  \rule{0mm}{10mm}
+&amp;=&amp; \sum_{j=1}^{d_1}\sum_{b=1}^{d_2}\Sigma_{jb}\left( \sum_{i=1}^{d_1} U_{ij}\ket{e_{1,i}} \right)\otimes  \left( \sum_{a=1}^{d_2} V_{ab}^* \ket{e_{2,a}}\right)
+\\   \rule{0mm}{10mm}
+&amp;=&amp; \sum_{j=1}^{d_1}\sum_{b=1}^{d_2}s_j\delta_{jb} \ket{f_{1,j}}\otimes \ket{f_{2,b}}\\   \rule{0mm}{10mm}
+&amp;=&amp; \sum_{j=1}^r s_j \ket{f_{1,j}}\otimes \ket{f_{2,j}}
+\end{eqnarray}\]</div>
+<p>Por tanto, podemos saber si un <em>estado bipartito</em> es entrelazado calculando la descomposición en valores singulares de su matriz de coeficientes en cualquier base.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos el caso genérico </span>
+
+<span class="n">d1</span><span class="o">=</span><span class="mi">4</span> <span class="c1"># Dimensión de H1</span>
+<span class="n">d2</span><span class="o">=</span><span class="mi">3</span> <span class="c1"># Dimensión de H2</span>
+
+<span class="s1">&#39; generate a random complex matrix &#39;</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="n">d2</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="n">d2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span>  <span class="c1"># coeficientes w_{ia} de un estado genérico</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+<span class="s1">&#39; perform the SVD decomposition&#39;</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;principal values s_i = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Schmidt number is r =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+0.4605359553 - 2.2396920515 i &amp; 1.1278685452 - 0.4552186975 i &amp; -0.3952198124 - 0.7334380702 i  \\
+ 0.7985883257 + 1.1263727656 i &amp; -0.9995091679 - 0.4377373638 i &amp; 0.1700297341 - 0.7836641282 i  \\
+ -1.3426267296 - 0.0592307924 i &amp; -1.3056927975 + 1.0470692475 i &amp; 0.3086829559 + 1.3258998865 i  \\
+ 0.2036515268 - 0.1902804088 i &amp; 0.31550967 + 0.6963756198 i &amp; 0.3803025087 - 0.9259341805 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>principal values s_i =  [3.597 2.289 1.043]
+The Schmidt number is r = 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Corre la celda anterior muchas veces y mira si consigues encontrar algún caso en que <span class="math notranslate nohighlight">\(r&lt;{\rm min}(d_1,d_2)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos ahora el caso particular de un estado factorizable</span>
+
+<span class="n">d1</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">d2</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="s1">&#39; create two random vectors &#39;</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">tQ</span><span class="o">.</span><span class="n">random_ket</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">tQ</span><span class="o">.</span><span class="n">random_ket</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+<span class="s1">&#39; SVG decomposition &#39;</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;principal values s_i = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Schmidt number is p =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+-0.0708808897 - 0.1282993095 i &amp; -0.1450552367 + 0.4778748925 i &amp; -0.0948407133 - 0.4662177357 i  \\
+ 0.0091242082 + 0.0091349029 i &amp; 0.0006433188 - 0.0439850841 i &amp; 0.0193805245 + 0.0371569898 i  \\
+ -0.000747385 - 0.0817727314 i &amp; -0.1979776963 + 0.1960471352 i &amp; 0.0771482611 - 0.2539739137 i  \\
+ 0.0280276414 - 0.0363219289 i &amp; -0.155295989 + 0.0178041789 i &amp; 0.1220966856 - 0.0852519574 i  \\
+ 0.0976939143 + 0.0567451143 i &amp; -0.0934205662 - 0.373422213 i &amp; 0.2474128253 + 0.2706722231 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>principal values s_i =  [1. 0. 0.]
+The Schmidt number is p = 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos correr la celda anterior varias veces comprobar que nunca obtendremos <span class="math notranslate nohighlight">\(r&gt;1\)</span></p>
+</section>
+</section>
+<section id="producto-tensorial-multiple">
+<h2>Producto Tensorial Múltiple<a class="headerlink" href="#producto-tensorial-multiple" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El producto tensorial se puede generalizar a más de un factor.</p></li>
+</ul>
+<ul class="simple">
+<li><p>El espacio <span class="math notranslate nohighlight">\( \Hil_1\otimes \Hil_2 ... \otimes \Hil_n\)</span> formado por todas las <em>n-tuplas</em> ordenadas de vectores
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(\ket{u} = \ket{u_1u_2...u_n} \equiv\ket{u_1}\otimes\ket{u_2}\otimes ...\otimes \ket{u_n}\)</span><span class="math notranslate nohighlight">\( 
+&lt;br&gt;
+donde \)</span>\ket{u_i}\in
+\Hil_i<span class="math notranslate nohighlight">\( y sus combinaciones lineales \)</span>{ a\ket{u}+ b\ket{v} + …}$.</p></li>
+</ul>
+<br>
+<br>
+<ul class="simple">
+<li><p>Salvo mención expresa, asumiremos que todos los <span class="math notranslate nohighlight">\(\Hil_j=\Hil\)</span> son iguales y de dimension <span class="math notranslate nohighlight">\(d\)</span>. En el contexto de la computación cuántica usual con cúbits <span class="math notranslate nohighlight">\(\Rightarrow \, d=2\)</span></p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Escribe una función  <i>kronecker(<span class="math notranslate nohighlight">\(u_1,u_2,...,u_n\)</span>)</i> que tome n kets (como vectores columna)  y devuelva su producto de Kronecker múltiple.</p>
+</div>
+<section id="base-de-hil-otimes-n">
+<h3>Base de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span><a class="headerlink" href="#base-de-hil-otimes-n" title="Permalink to this heading">#</a></h3>
+<p>Una base de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span> se obtiene a partir de cadenas</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{i_1 i_2.... i_n} = 
+\ket{i_1}\ket{i_2}  ... \ket{i_n}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(i_1,..,i_n=0,...,d-1\)</span>.</p>
+<p>El número de posibles cadenas es <span class="math notranslate nohighlight">\(d^n\)</span> que  es la dimensión de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+{\rm dim}_{\mathbb C} \Hil^{\otimes n} = d^n
+\]</div>
+<p>Podemos cambiar de etiqueta</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{i_1...i_n} \to \ket{a}
+\]</div>
+<p>con</p>
+<div class="math notranslate nohighlight">
+\[
+a = i_n + d i_{n-1} + d^2 i_{n-2} \, +...+ \,  d^{n-1} i_1
+\]</div>
+<p>Claramente <span class="math notranslate nohighlight">\(a ~\in ~(0,d^n-1)\)</span>.</p>
+<p>Si cada base <span class="math notranslate nohighlight">\(\{\ket{i}\}\)</span> es ortonormal, tendremos que la <em>base producto</em> también lo será
+<br></p>
+<div class="math notranslate nohighlight">
+\[
+\braket{i_1 i_2... i_n}{j_1j_2...j_n} = \delta_{i_1j_1}\delta_{i_2j_2}...\delta_{i_nj_n} ~~~~\leftrightarrow ~~~~
+\braket{a}{b} = \delta_{ab}
+\]</div>
+</section>
+<section id="estado-entrelazado-general">
+<h3>Estado entrelazado general<a class="headerlink" href="#estado-entrelazado-general" title="Permalink to this heading">#</a></h3>
+<p>Un <em>vector general</em> admitirá una expansión en esta base mediante <span class="math notranslate nohighlight">\(d^n\)</span> <em>componentes complejas</em>
+<span class="math notranslate nohighlight">\(u_{i_1 i_2...i_n}\)</span> en la forma</p>
+<div class="math notranslate nohighlight">
+\[
+\ket{u} ~~=~ \sum_{i_1,...,i_n=0}^{d-1} u_{i_1i_2...i_n} \ket{i_1i_2...i_n} ~~=~
+ \sum_{a=0}^{d^n-1} u_a\ket{a}\, .
+\]</div>
+<p>Podemos obtener cualquier componente compleja proyectando sobre el elemento correspondiente de la base</p>
+<div class="math notranslate nohighlight">
+\[
+u_{i_1i_2...i_n} = \braket{i_1 i_2... i_n}{u}~~~~~~\leftrightarrow~~~~~~~~u_a = \braket{a}{u}
+\]</div>
+<p>Decimos que <span class="math notranslate nohighlight">\(u_{i_1i_2...i_n}\)</span> forman las componentes de un <em>tensor de rango</em> <span class="math notranslate nohighlight">\(n\)</span>
+<br>
+<br>
+Un estado genérico depende de un conjunto de <span class="math notranslate nohighlight">\(d*d...*d = d^n\)</span> componentes independiente <span class="math notranslate nohighlight">\(u_{i_1i_2...i_n}\)</span>.</p>
+<p>Ya hemos visto los casos de rango <span class="math notranslate nohighlight">\(n=1\)</span> <i>(vector)</i> y <span class="math notranslate nohighlight">\(n=2\)</span> <i>(operador)</i></p>
+</section>
+<section id="estado-factorizable">
+<h3>Estado factorizable<a class="headerlink" href="#estado-factorizable" title="Permalink to this heading">#</a></h3>
+<p>Al igual que antes, <em>sólo en casos muy particulares</em>, un vector de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span> se podrá escribir en forma factorizada
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+\ket{w} = \ket{v_1}\ket{v_2}\ldots\ket{v_n} \equiv \ket{v_1 v_2 \ldots v_n}
+\)</span>$</p>
+<p>Escribiendo <span class="math notranslate nohighlight">\(\ket{v_k} = \sum_{i_k=1}^d v_{i_k}\ket{i_k}\)</span> vemos que un <em>vector factorizable</em> admite una expansión general en la que los coeficientes son factorizables</p>
+<div class="math notranslate nohighlight">
+\[
+v_{i_1i_2...i_n}  = v_{i_1} v_{i_2}.... v_{i_n}
+\]</div>
+<p>El conjunto de coefficientes
+está parametrizado por <span class="math notranslate nohighlight">\(d +d + ...d = nd\)</span> cantidades <span class="math notranslate nohighlight">\(v_{i_k}, \, i_k=1,...,d, \, k=1,...,n\)</span>.</p>
+</section>
+<section id="estados-producto-de-matrices-mps">
+<h3>Estados producto de matrices <em>(MPS)</em><a class="headerlink" href="#estados-producto-de-matrices-mps" title="Permalink to this heading">#</a></h3>
+<p>En medio de los dos casos extremos anteriores encontramos la posibilidad de que las componentes del tensor se puedan escribir como productos de matrices.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un estado <span class="math notranslate nohighlight">\(\ket{v}\)</span> es un <b>MPS</b> <i>(estado producto de matrices)</i> si sus componentes en cualquier base pueden escribirse como la traza total de un producto de matrices</p>
+<div class="math notranslate nohighlight">
+\[
+v_{i_1 i_2 i_3... i_n} =\tr ( A^{(1)}_{i_1}\cdot A^{(2)}_{i_2}\cdot A^{(3)}_{i_3} \cdots A^{(n)}_{i_n} )
+\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A^{(a)}_i\)</span> con <span class="math notranslate nohighlight">\(a=1,...,n\)</span> y <span class="math notranslate nohighlight">\(i=1,...,d\)</span> es un conjunto  de <span class="math notranslate nohighlight">\(nd\)</span> matrices de dimensión <span class="math notranslate nohighlight">\(D\times D\)</span>, con <span class="math notranslate nohighlight">\(D\)</span> la  <em>(dimensión local de enlace)</em>, el número de parámetros independientes es <span class="math notranslate nohighlight">\(ndD^2\)</span>.
+<br>
+<br>
+Los MPS tienen entrelazamiento no nulo, que crece con <span class="math notranslate nohighlight">\(D\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A^{(a)}_i = A_i\)</span> para todo <span class="math notranslate nohighlight">\(a=1,..,n\)</span> decimos que el MPS formado es <em>invariante traslacional</em></p></li>
+</ul>
+<p>Por ejemplo, con <span class="math notranslate nohighlight">\(n=4\)</span>, <span class="math notranslate nohighlight">\(\ket{v} =  v_{i_1i_2i_3i_4} \ket{e_{i_1i_2i_3i_4} }\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+v_{i_1i_2i_3i_4} =  \sum_{\alpha\beta\gamma\mu = 1}^DA_{i_1}^{\mu \alpha}A_{i_2}^{\alpha\beta}A_{i_3}^{\beta\gamma}A_{i_4}^{\gamma\mu}
+\]</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="docs/00_Formalismo/myst_files/figuras/XTN4.png"><img alt="map to buried treasure" src="docs/00_Formalismo/myst_files/figuras/XTN4.png" /></a>
+</figure>
+</section>
+<section id="redes-de-tensores">
+<h3>Redes de tensores<a class="headerlink" href="#redes-de-tensores" title="Permalink to this heading">#</a></h3>
+<p>Si queremos aumentar el entrelazamiento del estado podemos, además de aumentar <span class="math notranslate nohighlight">\(D\)</span>, recurrir a contracciones de índices de tensores de mayor rango</p>
+<div class="math notranslate nohighlight">
+\[
+v_{i_1i_2i_3i_4} = \sum_{\alpha\beta\gamma\mu\delta = 1}^D A_{i_1}^{\mu \alpha\delta}A_{i_2}^{\alpha\beta}A_{i_3}^{\beta\delta\gamma}A_{i_4}^{\gamma\mu}
+\]</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="docs/00_Formalismo/myst_files/figuras/XTensNet.png"><img alt="map to buried treasure" src="docs/00_Formalismo/myst_files/figuras/XTensNet.png" /></a>
+</figure>
+<p>Los estados MPS, y los estados TN  para una dimensión de enlace local <span class="math notranslate nohighlight">\(D\)</span> finita, no son suficientemente expresivos para capturar el máximo entrelazamiento posible en un estado.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="docs/00_Formalismo/myst_files/figuras/XTN_complete.png"><img alt="map to buried treasure" src="docs/00_Formalismo/myst_files/figuras/XTN_complete.png" /></a>
+</figure>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(nd \ll d^n\)</span>. El crecimiento exponencial del número de estados entrelazados es el ingrediente crucial para la computación cuántica. Observar que <span class="math notranslate nohighlight">\(d^n\)</span> es el <i>número de enteros</i> alcanzables por <span class="math notranslate nohighlight">\(n\)</span> bits. Pero en computación cuántica es el <i>número de dimensiones</i> en la que podemos poner <span class="math notranslate nohighlight">\(d^n\)</span> amplitudes complejas.<br />
+<br></p></li>
+<li><p>No existe un criterio general para saber si un estado es, a priori, factorizable o entrelazado.
+<br></p></li>
+<li><p>Además, hay formas de caracterizar matemáticamente el nivel de entrelazamiento (<em>entanglement witnesses, entanglement monotones</em> etc.) desde nulo (estado factorizable) hasta maximal.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="operadores-sobre-hil-otimes-n">
+<h2>Operadores sobre  <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span><a class="headerlink" href="#operadores-sobre-hil-otimes-n" title="Permalink to this heading">#</a></h2>
+<p>El espacio <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span> admite, como cualquier espacio vectorial, la acción de <em>operadores lineales</em> <span class="math notranslate nohighlight">\(A: \Hil^{\otimes n} \to \Hil^{\otimes n}\)</span> donde</p>
+<div class="math notranslate nohighlight">
+\[
+A:\ket{u} \to \ket{v} \equiv A\ket{u}
+\]</div>
+<p>El conjunto de todos los operadores lineales forman el espacio vectorial <span class="math notranslate nohighlight">\(\Lin(\Hil^{\otimes n})\)</span>.</p>
+<section id="matrices">
+<h3>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A cada operador, <span class="math notranslate nohighlight">\(A\)</span>, le podemos asociadar una <em>matriz</em>, una vez elijamos nuestra base  <span class="math notranslate nohighlight">\(\{ \ket{i_1 i_2... i_n}\}\)</span> donde, <span class="math notranslate nohighlight">\(i_k = 1,...,d\)</span>.
+<br>
+<br></p></li>
+<li><p>Los <em>elementos de matriz</em> ahora vendrán etiquetados por dos <em>multi-índices</em></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+A_{i_1...i_n, \, j_1...j_n} = \bra{i_1...i_n}A\ket{j_1...j_n}  ~~~~~\leftrightarrow ~~~~~~ A_{ab}= \bra{a}A\ket{b}
+\]</div>
+<ul class="simple">
+<li><p>Con la matriz, el operador se reconstruye en la base canónica de productos externos</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-c21e1af0-cfb0-45dc-85b2-a8f16acdc5a5">
+<span class="eqno">(31)<a class="headerlink" href="#equation-c21e1af0-cfb0-45dc-85b2-a8f16acdc5a5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+ A &amp;~~=~&amp; 
+ \sum_{i_1,...,i_n,\, j_1,...,j_n=0}^{d-1} A_{i_1...i_n, \, j_1...j_n} \ket{i_1...i_n}\bra{j_1...j_n}
+ ~~~~=~~~~
+  \sum_{a,b=a}^{d^{N}-1} A_{ab} \ket{a}\bra{b}
+\end{eqnarray}\]</div>
+<ul class="simple">
+<li><p>En <span class="math notranslate nohighlight">\(A_{i_1...i_n,\,j_1...j_n} = A_{ab}\)</span> hay <span class="math notranslate nohighlight">\(d^n\times d^n = d^{2n}\)</span> grados de libertad. Esta sería la dimensión del espacio  <span class="math notranslate nohighlight">\(\Lin(\Hil^{\otimes n})\)</span>.
+<br></p></li>
+</ul>
+</section>
+<section id="producto-tensorial-de-operadores">
+<h3>Producto tensorial de operadores<a class="headerlink" href="#producto-tensorial-de-operadores" title="Permalink to this heading">#</a></h3>
+<p>En <span class="math notranslate nohighlight">\(\Lin(\Hil^{\otimes n})\)</span> hay un análogo de los vectores factorizables de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span>: los <em>operadores factorizables</em>.</p>
+<p>Supongamos que existen <span class="math notranslate nohighlight">\(n\)</span> operadores lineales <span class="math notranslate nohighlight">\(A^{(a)}\, ,\, a=1,...,n\)</span> definidos sobre cada espacio factor <span class="math notranslate nohighlight">\(\Hil\)</span>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La acción del producto tensorial de operadores  <span class="math notranslate nohighlight">\(A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span> sobre un vector <span class="math notranslate nohighlight">\(\ket{v} = \ket{v}_1\otimes ...\otimes \ket{v_n}\in \Hil~\)</span>   factoriza</p>
+<div class="math notranslate nohighlight">
+\[
+A\ket{v} = A^{(1)}\ket{v_1}\otimes ... \otimes A^{(n)} \ket{v_n}\, .
+\]</div>
+</div>
+</div>
+<p>La acción sobre vectores generales se sigue imponiento linealidad</p>
+<div class="math notranslate nohighlight">
+\[
+A(\ket{v} + \ket{w}) = A\ket{v} + A\ket{w}\, .
+\]</div>
+<ul class="simple">
+<li><p>El adjunto de un producto tensorial de operadores es el producto de los adjuntos (no se permuta el orden)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+A^\dagger = A^{(1)\dagger} \otimes ... \otimes A^{(n)\dagger}
+\]</div>
+<ul class="simple">
+<li><p>El producto tensorial de operadores hermíticos es hermítico</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ A^{(a)\dagger} = A^{(a)} ~~\Longrightarrow A^{\dagger} = A \]</div>
+<ul class="simple">
+<li><p>El producto tensorial de operadores unitarios, es unitario</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ A^{(a)\dagger} = A^{(a)\, -1} \,  ~~\Longrightarrow ~~A^{\dagger} = A^{-1} \]</div>
+</section>
+<section id="producto-de-kronecker-de-matrices">
+<h3>Producto de Kronecker de matrices<a class="headerlink" href="#producto-de-kronecker-de-matrices" title="Permalink to this heading">#</a></h3>
+<p>¿Cómo será la matriz <span class="math notranslate nohighlight">\(A_{i_1...i_n, \, j_1...j_n}\)</span> de un operador factorizable, <span class="math notranslate nohighlight">\( A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span>, en términos de las matrices  <span class="math notranslate nohighlight">\( A^{(a)}_{ij}\)</span> de sus factores?</p>
+<p>Vamos a tomar  <span class="math notranslate nohighlight">\(n=2\)</span> por simplicidad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2bdba191-fd23-41e1-8851-cb9f78112df2">
+<span class="eqno">(32)<a class="headerlink" href="#equation-2bdba191-fd23-41e1-8851-cb9f78112df2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+A = A^{(1)}\otimes  A^{(2)} &amp;=&amp;\left( \sum_{i_1i_2}A^{(1)}_{i_1 j_1} \ket{i_1}\bra{j_1}\right)\left( \sum_{i_2j_2}A^{(2)}_{i_2 j_2} \ket{i_2}\bra{j_2}\right)\\
+&amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A^{(1)}_{i_1 j_1}A^{(2)}_{i_2 j_2}\ket{i_1 i_2}\bra{j_1j_2} \\
+&amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A_{i_1i_2,\, j_1j_2}\ket{i_1 i_2}\bra{j_1j_2}
+\end{eqnarray}\]</div>
+<p>Vemos que la matriz asociada a <span class="math notranslate nohighlight">\(A\)</span> se obtiene  a partir de las matrices de <span class="math notranslate nohighlight">\(A^{(a)}\)</span> mediante el  <em>producto exterior de las matrices</em>, o <em>producto de Kronecker</em>.</p>
+<div class="math notranslate nohighlight">
+\[
+  A_{i_1i_2,\,j_1j_2} = A^{(1)}_{i_1j_1}A^{(2)}_{i_2 j_2} 
+\]</div>
+<ul class="simple">
+<li><p>El método para de <strong>representar</strong> matricialmente el producto de Kronecker de dos matrices <span class="math notranslate nohighlight">\(A\otimes B\)</span> es sencillo. Supongamos que <span class="math notranslate nohighlight">\(d=2\)</span> y tenemos un operador producto <span class="math notranslate nohighlight">\(A\otimes B\)</span>. Entonces su matriz</p></li>
+</ul>
+<br>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(A\otimes B)_{ab} = \begin{pmatrix} A_{00}B &amp; A_{01}B \\ A_{10}B &amp; A_{11}B \end{pmatrix} = \begin{pmatrix} A_{00}B_{00} &amp; A_{00}B_{01} &amp; A_{01}B_{00} &amp; A_{01}B_{01} \\
+                A_{00}B_{10} &amp; A_{00}B_{11} &amp; A_{01}B_{10} &amp; A_{01}B_{11} \\
+                A_{10}B_{00} &amp; A_{10}B_{01} &amp; A_{11}B_{00} &amp; A_{11}B_{01} \\
+                A_{10}B_{10} &amp; A_{10}B_{11} &amp; A_{11}B_{10} &amp; A_{11}B_{11} \end{pmatrix}.
+\end{split}\]</div>
+<ul class="simple">
+<li><p>El producto de Kronecker verifica las siguientes propiedades para dos matrices <span class="math notranslate nohighlight">\(A\)</span>  y <span class="math notranslate nohighlight">\(B\)</span> de dimensiones <span class="math notranslate nohighlight">\(d_A\)</span> y <span class="math notranslate nohighlight">\(d_B\)</span>.
+<br>
+<br></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-d94bc693-01d6-4e94-b439-9093af672937">
+<span class="eqno">(33)<a class="headerlink" href="#equation-d94bc693-01d6-4e94-b439-9093af672937" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+(A\otimes B)(C\otimes D) &amp;=&amp; (AC)\otimes (BD) \nonumber\\ \rule{0mm}{6mm}
+\tr(A\otimes B) &amp;=&amp; (\tr A)(\tr B) \nonumber\\ \rule{0mm}{6mm}
+A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
+(A\otimes B)^\dagger &amp;=&amp; A^\dagger\otimes B^\dagger \nonumber\\ \rule{0mm}{6mm}
+(A\otimes B)^{-1} &amp;=&amp; A^{-1} \otimes B^{-1} \nonumber\\ \rule{0mm}{6mm}
+\det (A\otimes B) &amp;=&amp; (\det A)^{d_B}(\det B)^{d_A}
+\end{eqnarray}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(AC\)</span> significa el producto de matrices <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(C\)</span></p>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<ol class="arabic simple">
+<li><p>Demuestra estos resultados</p></li>
+<li><p>Rescribe la función <span class="math notranslate nohighlight">\(kronecker\)</span>  para que acepte  dos matrices <span class="math notranslate nohighlight">\(A\)</span>  y <span class="math notranslate nohighlight">\(B\)</span> de dimensiones <span class="math notranslate nohighlight">\(d_A\)</span> y <span class="math notranslate nohighlight">\(d_B\)</span> y devuelva su producto de Kronecker <span class="math notranslate nohighlight">\(A\otimes B\)</span>. Verifica el resultado con la funcion kron de numpy.   Verifica las propiedades anteriores.</p></li>
+</ol>
+</div>
+<p>La generalización a todo <span class="math notranslate nohighlight">\(n\)</span> es obvia. El producto de Kronecker de <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\( A^{(a)}_{i_aj_a}\)</span> asociadas a operadores <span class="math notranslate nohighlight">\(A^{(a)}\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[
+ A_{i_1...i_n,\,j_1...j_n} = A^{(1)}_{i_1j_1}...A^{(n)}_{i_n j_n} 
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Calcula <span class="math notranslate nohighlight">\(\sigma_1\otimes \sigma_2\otimes \sigma_3\)</span></p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Observar que en un operador general, la matriz <span class="math notranslate nohighlight">\( A_{i_1...i_n,\,j_1...j_n}\)</span> tiene <span class="math notranslate nohighlight">\(d^n\times d^n = d^{2n}\)</span> entradas independientes.</p>
+<p>Sin embargo
+en un producto de Kronecker <span class="math notranslate nohighlight">\(A^{(1)}_{i_1j_1}...A^{(n)}_{i_n j_n}\)</span> sólo hay <span class="math notranslate nohighlight">\(nd^2\)</span>.</p>
+<p>Por tanto, los <em>operadores factorizables</em> forman un subconjunto muy pequeño dentro del conjunto de los operadores generales.</p>
+</div>
+</section>
+<section id="generacion-de-entrelazamiento">
+<h3>Generación de entrelazamiento<a class="headerlink" href="#generacion-de-entrelazamiento" title="Permalink to this heading">#</a></h3>
+<p>Supongamos que <span class="math notranslate nohighlight">\(\ket{u} = \ket{u_1}\otimes\ket{u_2}\)</span> es factorizable.</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A=A_1\otimes A_2\)</span> es un operador factorizable entonces</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\ket{v} = A\ket{u} = A_1\ket{u_1}\otimes A_2\ket{u_2} = \ket{v_1}\otimes \ket{v_2}
+\]</div>
+<p>también es factorizable.</p>
+<ul class="simple">
+<li><p>Inversamente, la <em>acción de un operador no factorizable</em> <span class="math notranslate nohighlight">\(A\neq A_1\otimes A_2\)</span> genera estados entrelazados</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\ket{v} = A\ket{u}  \neq \ket{v_1}\otimes \ket{v_2}
+\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/00_Formalismo/myst_files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Operadores_02.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Operadores II</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_Probabilidades.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probabilidades</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">Producto Tensorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">Base y Dimensión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">Indexación equivalente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">Producto de Kronecker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">Factorización y Entrelazamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizabilidad">Criterio de factorizabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">Descomposición de Schmidt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">Producto Tensorial Múltiple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-hil-otimes-n">Base de <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado-general">Estado entrelazado general</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">Estado factorizable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estados-producto-de-matrices-mps">Estados producto de matrices <em>(MPS)</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-de-tensores">Redes de tensores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-sobre-hil-otimes-n">Operadores sobre  <span class="math notranslate nohighlight">\(\Hil^{\otimes n}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">Producto tensorial de operadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices">Producto de Kronecker de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">Generación de entrelazamiento</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
