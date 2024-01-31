@@ -129,9 +129,6 @@ pattern_code = '_code_cell\'\'\''
 command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
 i_pattern_code = grep_file_index(command_i_pattern_code)
 
-for i in i_pattern_code:
-    print(f_data[i])
-
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
 
