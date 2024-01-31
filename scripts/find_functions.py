@@ -282,3 +282,36 @@ def find_figures(f_data, i_Lines_start):
     datos_list_list = [path_fig_list, align_fig_list, width_fig_list, caption_fig_list, label_fig_list]
         
     return index_list_list, datos_list_list
+
+
+def find_cell(f_data, i_line_pattern):
+
+    i_line_start_cell    = i_line_pattern
+    i_line_end_cell      = i_line_pattern
+    i_line_start_content = 0
+
+    found = False
+    while not found:         
+                    
+        if f_data[i_line_start_cell] == '   "source": [\n' and i_line_start_content == 0:
+            i_line_start_content = i_line_start_cell + 1
+        elif '   "cell_type":' in f_data[i_line_start_cell]:
+            found = True
+
+        i_line_start_cell -= 1
+    i_line_pattern += 1
+
+    
+
+    found = False
+    while not found:
+        if f_data[i_line_end_cell] == '   "source": [\n' and i_line_start_content == 0:
+            i_line_start_content = i_line_end_cell + 1
+        
+        elif f_data[i_line_end_cell] == '   ]\n':
+            found = True
+        
+        i_line_end_cell += 1
+    i_line_end_cell -= 2
+
+    return i_line_start_cell, i_line_start_content, i_line_end_cell

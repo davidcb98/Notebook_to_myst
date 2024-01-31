@@ -7,6 +7,7 @@ import re
 
 from find_functions import find_div_boxes
 from find_functions import find_figures
+from find_functions import find_cell
 
 from build_functions import my_replace
 from build_functions import build_admonition_box
@@ -101,10 +102,13 @@ my_replace(f_data, i_line_first_line[0], 'source": [\n'+
 ################################################################################
 ## Indice
 
-command_i_line_index_start = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
-i_line_index_start = grep_file_index(command_i_line_index_start)
+command_i_line_index_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
+i_line_index_pattern = grep_file_index(command_i_line_index_pattern)
 
-if len(i_line_index_start) == 1:
+if len(i_line_index_pattern) == 1:
+    i_line_start_index_cell, i_line_index_start, i_line_index_end = find_cell(f_data, i_line_index_pattern[0])
+
+    '''
     i_line_index_start = i_line_index_start[0]
     i_line_index_end = i_line_index_start
 
@@ -114,7 +118,7 @@ if len(i_line_index_start) == 1:
             found = True
         i_line_index_end += 1
     i_line_index_end -= 2
-
+    '''
     my_replace(f_data, i_line_index_start, ':::{contents}\\n",\n'+
                                         '    ":local:\\n",\n'
                                         '    ":depth: 1\\n",\n'
@@ -122,6 +126,7 @@ if len(i_line_index_start) == 1:
     for i in range(i_line_index_start+1, i_line_index_end):
         my_replace(f_data, i, '",\n')
     my_replace(f_data, i_line_index_end, '"\n')
+
 
 
 
