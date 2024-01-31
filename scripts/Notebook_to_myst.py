@@ -18,11 +18,11 @@ def grep_file_index(grep_command):
     
     out_grep_command = bash(grep_command, shell=True).decode("utf-8")
 
-    index_Lines = []
+    index_list = []
     for line in out_grep_command.splitlines():
-        index_Lines.append(int(line)-1)
+        index_list.append(int(line)-1)
     
-    return index_Lines
+    return index_list
 
 
 
@@ -33,13 +33,13 @@ print("Input File  = ", file_name)
 
 
 # Sacamalos el numero de linea del inicio de todos los cuadros con "<div class=.... alert alert-block alert...>"
-command_i_Lines_start_alert   = 'grep -n "<div class=" '+file_name+' | grep "alert alert-block alert" |  cut -d":" -f1'
-i_Lines_start_alert = grep_file_index(command_i_Lines_start_alert)
+command_i_start_alert_list   = 'grep -n "<div class=" '+file_name+' | grep "alert alert-block alert" |  cut -d":" -f1'
+i_start_alert_list = grep_file_index(command_i_start_alert_list)
 
 
 # Sacamalos el numero de linea del inicio de las <figure>
-command_i_Lines_start_figure = 'grep -n "<figure>" ' + file_name + ' |  cut -d":" -f1'
-i_Lines_start_figure = grep_file_index(command_i_Lines_start_figure)
+command_i_start_figure_list = 'grep -n "<figure>" ' + file_name + ' |  cut -d":" -f1'
+i_start_figure_list = grep_file_index(command_i_start_figure_list)
 
 
 # Leemos el archivo linea a linea y modificamos los cuadros
@@ -55,7 +55,7 @@ with open(file_name, 'r') as f:
 ############################################################################
 # Usando el número de linea donde empiezan los cuadros, sacamos todas las lineas
 # importantes de los cuadros
-index_list_list, titles_list_list = find_div_boxes(f_data, i_Lines_start_alert)
+index_list_list, titles_list_list = find_div_boxes(f_data, i_start_alert_list)
 
 ############################################################################
 # Comenzamos a sustituir los cuadros (empezando por el final)
@@ -83,7 +83,7 @@ for i in reversed(range(len(index_list_list[0]))):
 
 ############################################################################
 # Usando el número de linea donde empiezan las figuras, sacamos todas las lineas importantes          
-index_fig_list_list, datos_list_list = find_figures(f_data, i_Lines_start_figure)
+index_fig_list_list, datos_list_list = find_figures(f_data, i_start_figure_list)
 
 ############################################################################
 # Comenzamos a sustituir las figuras (empezando por el final)
@@ -92,9 +92,9 @@ for i in reversed(range(len(index_fig_list_list[0]))):
 
 
 # Añadimos el tiempo de lectura en la primera linea:
-command_i_line_first_line = 'grep -n "\\"source\\": \\[" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
-i_line_first_line = grep_file_index(command_i_line_first_line)
-my_replace(f_data, i_line_first_line[0], 'source": [\n'+
+command_i_first_line = 'grep -n "\\"source\\": \\[" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
+i_first_line = grep_file_index(command_i_first_line)
+my_replace(f_data, i_first_line[0], 'source": [\n'+
                                          '    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
                                          '    "\\n",\n'    )
 
@@ -102,33 +102,35 @@ my_replace(f_data, i_line_first_line[0], 'source": [\n'+
 ################################################################################
 ## Indice
 
-command_i_line_index_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
-i_line_index_pattern = grep_file_index(command_i_line_index_pattern)
+command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
+i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
 
-if len(i_line_index_pattern) == 1:
-    i_line_start_index_cell, i_line_index_start, i_line_index_end = find_cell(f_data, i_line_index_pattern[0])
+if len(i_ToC_pattern) == 1:
+    i_start_ToC_cell, i_ToC_start, i_ToC_end = find_cell(f_data, i_ToC_pattern[0])
 
-    '''
-    i_line_index_start = i_line_index_start[0]
-    i_line_index_end = i_line_index_start
-
-    found = False
-    while not found:
-        if f_data[i_line_index_end] == '   ]\n':
-            found = True
-        i_line_index_end += 1
-    i_line_index_end -= 2
-    '''
-    my_replace(f_data, i_line_index_start, ':::{contents}\\n",\n'+
+    my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
                                         '    ":local:\\n",\n'
                                         '    ":depth: 1\\n",\n'
                                         '    ":::\\n",\n')
-    for i in range(i_line_index_start+1, i_line_index_end):
+    for i in range(i_ToC_start+1, i_ToC_end):
         my_replace(f_data, i, '",\n')
-    my_replace(f_data, i_line_index_end, '"\n')
+    my_replace(f_data, i_ToC_end, '"\n')
 
 
+################################################################################
+## Inicio de todas las celdas
 
+command_i_start_all_cells = 'grep -n "   \"cell_type\":" '+ file_name + ' |  cut -d":" -f1 '
+i_start_all_cells = grep_file_index(command_i_start_all_cells)
+
+################################################################################
+## Buscamos las celdas de código con el tag
+pattern_code = '_code_cell\'\'\''
+command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
+i_pattern_code = grep_file_index(command_i_pattern_code)
+
+for i in i_pattern_code:
+    print(f_data[i])
 
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
@@ -150,10 +152,10 @@ bash(clean_br_command, shell=True).decode("utf-8")
 ################################################################################
 ### Creamos un nuevo fichero {out_file}_clean con las tres celdas de título
 
-number_line_head = str(int(bash('grep -n "^  }," Firts_cells.ipynb |  cut -d":" -f1 | head -n 3 | tail -n 1' , 
+number_head = str(int(bash('grep -n "^  }," Firts_cells.ipynb |  cut -d":" -f1 | head -n 3 | tail -n 1' , 
                                 shell=True).decode("utf-8")))
 
-bash('head -n ' +number_line_head+' Firts_cells.ipynb ' +' > ' + out_file + '_clean' , 
+bash('head -n ' +number_head+' Firts_cells.ipynb ' +' > ' + out_file + '_clean' , 
      shell=True).decode("utf-8")
 
 ################################################################################
@@ -206,11 +208,11 @@ bash('mv ' +  out_file + '_clean ' + out_file, shell=True).decode("utf-8")
 # Tenemos que hacerlo despues de haber reemplazado los cuadros, por eso lo 
 # hacemos sobre el archivo de salida
 
-command_i_Lines_start_details   = 'grep -n "<details><summary>" '+out_file + ' |  cut -d":" -f1'
-command_i_Lines_end_details   = 'grep -n "</details>" '+ out_file + ' |  cut -d":" -f1'
+command_i_start_details_list = 'grep -n "<details><summary>" '+out_file + ' |  cut -d":" -f1'
+command_i_end_details_list   = 'grep -n "</details>" '+ out_file + ' |  cut -d":" -f1'
 
-i_Lines_start_details = grep_file_index(command_i_Lines_start_details)
-i_Lines_end_details = grep_file_index(command_i_Lines_end_details)
+i_start_details_list = grep_file_index(command_i_start_details_list)
+i_end_details_list = grep_file_index(command_i_end_details_list)
 
 
 ################################################################################
@@ -225,13 +227,13 @@ with open(out_file, 'r') as f:
         f_data.append(line)
     
 
-    for i in i_Lines_start_details:
+    for i in i_start_details_list:
         title_details = re.search(r'<i>(.*?)</i>', f_data[i]).group(1)
         my_replace(f_data, i, ':::{dropdown} '+title_details+'\\n",\n')
     
     
     
-    for i in i_Lines_end_details:
+    for i in i_end_details_list:
         
         if f_data[i+1] == "   ]\n":
             my_replace(f_data, i, ':::'+'\\n"\n')
