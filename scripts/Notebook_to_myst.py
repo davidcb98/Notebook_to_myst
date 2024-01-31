@@ -120,14 +120,31 @@ if len(i_ToC_pattern) == 1:
 ################################################################################
 ## Inicio de todas las celdas
 
-command_i_start_all_cells = 'grep -n "   \"cell_type\":" '+ file_name + ' |  cut -d":" -f1 '
+command_i_start_all_cells = 'grep -n "   \\"cell_type\\":" '+ file_name + ' |  cut -d":" -f1 '
 i_start_all_cells = grep_file_index(command_i_start_all_cells)
 
 ################################################################################
 ## Buscamos las celdas de código con el tag
 pattern_code = '_code_cell\'\'\''
 command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
-i_pattern_code = grep_file_index(command_i_pattern_code)
+i_pattern_code_list = grep_file_index(command_i_pattern_code)
+
+num_cells_pattern_code = []
+num_cell = 0
+
+for i_pattern_code in i_pattern_code_list:
+    found = False
+    while not found:
+        if i_pattern_code > i_start_all_cells[-1]:
+            num_cells_pattern_code.append(len(i_start_all_cells)-1)
+            found = True
+        elif i_pattern_code < i_start_all_cells[num_cell]:
+            num_cells_pattern_code.append(num_cell-1)
+            found = True
+        num_cell +=1
+    num_cell -=1
+
+print(num_cells_pattern_code)
 
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
