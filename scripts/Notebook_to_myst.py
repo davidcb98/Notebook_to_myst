@@ -15,6 +15,8 @@ from build_functions import build_admonition_box
 from build_functions import build_card_box
 from build_functions import build_figure
 from build_functions import build_tabset
+from build_functions import create_mask
+from build_functions import number_cells
 
 def grep_file_index(grep_command):
     
@@ -132,33 +134,13 @@ command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d"
 i_pattern_code_list = grep_file_index(command_i_pattern_code)
 
 # Vemos a que celdas corresponden 
-num_cells_pattern_code = []
-num_cell = 0
-
-for i_pattern_code in i_pattern_code_list:
-    found = False
-    while not found:
-        if i_pattern_code > i_start_all_cells[-1]:
-            num_cells_pattern_code.append(len(i_start_all_cells)-1)
-            found = True
-        elif i_pattern_code < i_start_all_cells[num_cell]:
-            num_cells_pattern_code.append(num_cell-1)
-            found = True
-        num_cell +=1
-    num_cell -=1
+num_cells_pattern_code = number_cells(i_pattern_code_list, i_start_all_cells)
 
 # Sacamos unas mascaras que nos dan las celdas CONSECUTIVAS
-masks_list = []
-mask = np.zeros([len(num_cells_pattern_code)], dtype = bool)
-mask[0] = 1
-for i in range(1,len(num_cells_pattern_code)):
-    if num_cells_pattern_code[i] == num_cells_pattern_code[i-1]+1:
-        mask[i] = 1
-    else:
-        masks_list.append(mask)
-        mask = np.zeros([len(num_cells_pattern_code)], dtype = bool)
-        mask[i] = 1
-masks_list.append(mask)
+masks_list = create_mask(f_data, num_cells_pattern_code, i_pattern_code_list)
+
+
+
 
 # Usamos las mascaras y i_pattern_code_list para sacar los datos de las celdas
 for mask in masks_list:
@@ -221,6 +203,7 @@ with open(out_file, 'w') as f_out:
 clean_br_command = "sed -i 's/<br>//g' " + out_file
 bash(clean_br_command, shell=True).decode("utf-8")
 
+'''
 ################################################################################
 ### Creamos un nuevo fichero {out_file}_clean con las tres celdas de título
 
@@ -268,7 +251,7 @@ bash('tail -n +' + number + ' ' + out_file  +' >> ' + out_file + '_clean', shell
 ### Renombramos para quitar el _clean
 bash('mv ' +  out_file + '_clean ' + out_file, shell=True).decode("utf-8")
 
-
+'''
 
 
 
