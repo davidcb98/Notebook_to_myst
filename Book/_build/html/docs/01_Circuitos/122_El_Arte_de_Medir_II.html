@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/122_El_Arte_de_Medir_II';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Entrelazamiento en acción" href="123_Entrelazamiento.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -538,10 +550,10 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\boldn}{{\bf n}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\tr}{{\rm tr}}\)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Medidas de estados multicúbit</span></p></li>
-<li><p><span class="xref myst">Medidas en bases generales</span></p></li>
-<li><p><span class="xref myst">Valores esperados</span></p></li>
-<li><p><span class="xref myst">Medidas de Hadamard</span></p></li>
+<li><p><a class="reference internal" href="#medmult"><span class="xref myst">Medidas de estados multicúbit</span></a></p></li>
+<li><p><a class="reference internal" href="#basegen"><span class="xref myst">Medidas en bases generales</span></a></p></li>
+<li><p><a class="reference internal" href="#valesp"><span class="xref myst">Valores esperados</span></a></p></li>
+<li><p><a class="reference internal" href="#medHad"><span class="xref myst">Medidas de Hadamard</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -827,8 +839,8 @@ Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.2489377432210
 <p>El <em>problema</em> esencial para medir un valor esperado <span class="math notranslate nohighlight">\(\bra{\psi} A \ket{\psi}\)</span> es que, en general,  <span class="math notranslate nohighlight">\(A\)</span> <strong>no es un operador unitario</strong>. Por tanto no se puede incluir como parte de un circuito</p>
 <p>Si pudiésemos expresar  como una combinación de operadores unitarios, <span class="math notranslate nohighlight">\(A = \sum_i c_i U_i\)</span>, entonces sí podríamos calcular cadar valor esperado <span class="math notranslate nohighlight">\(\langle U_i\rangle\)</span> mediante un circuito y, finalmente, componer el resultado <span class="math notranslate nohighlight">\(\langle A\rangle = \sum_i c_i \langle U_i\rangle\)</span></p>
 <p>Una base  la constituyen las <em>cadenas de Pauli</em>,  <span class="math notranslate nohighlight">\(U = \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}\)</span> que nos, a la vez, hermíticas y unitarias, y permiten expandir cualquier operador hermítico</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8eef5d7c-860d-49fb-b053-31092b1bbe87">
-<span class="eqno">(55)<a class="headerlink" href="#equation-8eef5d7c-860d-49fb-b053-31092b1bbe87" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e291cc27-b5a5-47b4-8cf6-858b5a4be7c8">
+<span class="eqno">(55)<a class="headerlink" href="#equation-e291cc27-b5a5-47b4-8cf6-858b5a4be7c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \, \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\sigma_i = (I,X,Y,Z)\)</span></p>
@@ -931,8 +943,8 @@ a_{i_1\ldots i_n} =\frac{1}{2^n} \tr (A \,  \sigma_{i_1}\otimes \ldots  \otimes\
 Z\otimes Z\otimes Z \ket{i_2 i_1 i_0} = Z\ket{i_2}\otimes Z\ket{i_1}\otimes Z\ket{i_0} = (-1)^{i_2+i_1+i_0}\ket{i_2 i_1 i_0}
 \]</div>
 <p>entonces el valor esperado  de este operador es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fa33e7f-a546-4b08-b021-8fbef9b9328b">
-<span class="eqno">(56)<a class="headerlink" href="#equation-5fa33e7f-a546-4b08-b021-8fbef9b9328b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-f6a0e9a2-aed4-41fa-baad-7843b3f17260">
+<span class="eqno">(56)<a class="headerlink" href="#equation-f6a0e9a2-aed4-41fa-baad-7843b3f17260" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle Z\otimes Z\otimes Z\rangle_\Psi &amp;=&amp;
 \bra{\Psi} Z\otimes Z\otimes Z \ket{\Psi} \\ 
 &amp;=&amp; \sum_{i_2,i_1,i_0=0,1}\bra{\Psi} Z\otimes Z\otimes Z \ket{i_2 i_1 i_0}\braket{i_2 i_1 i_0}{\Psi}  \rule{0mm}{10mm}  \\
@@ -1141,8 +1153,8 @@ $$
 \ket{0}\ket{\psi} ~\to ~ \ket{\Psi} = \frac{1}{2} \left[\rule{0mm}{3mm} |0\rangle \otimes (1 + U) |\psi\rangle +  |1\rangle \otimes (1 - U) |\psi\rangle \right] \label{hadam}
 \]</div>
 <p>Si medimos el cúbit ancilla, obtendremos como resultados <span class="math notranslate nohighlight">\(\{0,1\}\)</span> con probabilidades</p>
-<div class="amsmath math notranslate nohighlight" id="equation-916edbb4-23fa-498c-8efb-e5df9d6c03b1">
-<span class="eqno">(57)<a class="headerlink" href="#equation-916edbb4-23fa-498c-8efb-e5df9d6c03b1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+<div class="amsmath math notranslate nohighlight" id="equation-6af82524-a50f-4af6-b39b-ee38a78933a5">
+<span class="eqno">(57)<a class="headerlink" href="#equation-6af82524-a50f-4af6-b39b-ee38a78933a5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
  p_{0}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 + U) \ket{\psi}  \right\vert^{2} = 
  \frac{1}{4}\bra{\psi}(1 + U^\dagger) (1 + U) \ket{\psi} =\frac{1}{2}(1+\operatorname{Re}\langle \psi|U|\psi\rangle) \nonumber\\
  p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=
@@ -1382,7 +1394,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

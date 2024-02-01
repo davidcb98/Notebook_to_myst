@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import numpy as np
+import re
+
 def my_replace(f_data, i_line, new_text):
 
     #print("------> ", new_text)
@@ -10,6 +13,46 @@ def my_replace(f_data, i_line, new_text):
     # Realizar la sustitución
     f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text 
         #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):] 
+
+
+def number_cells(i_pattern_code_list, i_start_all_cells):
+
+    num_cells_pattern_code = []
+    num_cell = 0
+
+    for i_pattern_code in i_pattern_code_list:
+        found = False
+        while not found:
+            if i_pattern_code > i_start_all_cells[-1]:
+                num_cells_pattern_code.append(len(i_start_all_cells)-1)
+                found = True
+            elif i_pattern_code < i_start_all_cells[num_cell]:
+                num_cells_pattern_code.append(num_cell-1)
+                found = True
+            num_cell +=1
+        num_cell -=1
+
+    return num_cells_pattern_code
+
+
+def create_mask(f_data, num_cells_pattern, i_pattern_list):
+
+    masks_list = []
+    mask = np.zeros([len(num_cells_pattern)], dtype = bool)
+    mask[0] = 1
+    first_pattern = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_list[0]]).group(1)
+    for i in range(1,len(num_cells_pattern)):
+        pattern = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_list[i]]).group(1)
+        if num_cells_pattern[i] == num_cells_pattern[i-1]+1 and first_pattern != pattern:
+            mask[i] = 1
+        else:
+            masks_list.append(mask)
+            mask = np.zeros([len(num_cells_pattern)], dtype = bool)
+            mask[i] = 1
+            first_pattern = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_list[i]]).group(1)
+    masks_list.append(mask)
+    return masks_list
+
 
 
 
@@ -183,3 +226,37 @@ def build_figure(i, f_data, index_fig_list_list, datos_list_list):
     my_replace(f_data, i_start, '::::{figure} '+ path_fig +'\\n",\n' )
 
 
+
+def build_tabset(f_data, i_start_next_cell, name_code_list ,content_list):
+
+    def build_tab_item(f_data, i_start_next_cell, name_code, content):
+        f_data[i_start_next_cell] = \
+            '    "```\\n",\n' + \
+            '    "::::\\n",\n' + \
+            f_data[i_start_next_cell]
+        
+        for line in reversed(content):
+            f_data[i_start_next_cell] = line + f_data[i_start_next_cell]
+        
+        f_data[i_start_next_cell] = \
+            '    "::::{tab-item} '+name_code+'\\n",\n' + \
+            '    "```python\\n",\n' + \
+            f_data[i_start_next_cell]
+    
+
+    f_data[i_start_next_cell] = '    ":::::\\n"\n' + '   ]\n' + '  },\n' + f_data[i_start_next_cell] 
+
+    for i in reversed(range(len(name_code_list))):
+        content   = content_list[i]
+        name_code = name_code_list[i]
+        
+        content[-1] = content[-1][:-2]+'\\n",\n'
+
+        build_tab_item(f_data, i_start_next_cell, name_code, content)
+    
+    f_data[i_start_next_cell] = \
+        '  {\n' + \
+        '   "cell_type": "markdown",\n' + \
+        '   "metadata": {},\n' + \
+        '   "source": [\n' + \
+        '    ":::::{tab-set}\\n",\n' + f_data[i_start_next_cell]
