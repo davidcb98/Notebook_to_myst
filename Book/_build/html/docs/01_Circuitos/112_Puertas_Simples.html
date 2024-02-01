@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/112_Puertas_Simples';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -535,8 +547,8 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\V}{{\cal V}} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Rotaciones en la esfera de Bloch</span></p></li>
-<li><p><span class="xref myst">Puertas simples</span></p></li>
+<li><p><a class="reference internal" href="#rotesf"><span class="xref myst">Rotaciones en la esfera de Bloch</span></a></p></li>
+<li><p><a class="reference internal" href="#puertsimp"><span class="xref myst">Puertas simples</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,8 +625,8 @@ $<span class="math notranslate nohighlight">\(
 </div><p>Haciendo la suma explícitamente podemos escribir la matriz unitaria
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6cf9b2e-a33e-47b5-8acb-308754982ebb">
-<span class="eqno">()<a class="headerlink" href="#equation-a6cf9b2e-a33e-47b5-8acb-308754982ebb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-f909fc38-bace-4104-a799-79b80d613297">
+<span class="eqno">()<a class="headerlink" href="#equation-f909fc38-bace-4104-a799-79b80d613297" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 R_{\hat{\bf n}}(\alpha)~  ~=~ 
  \begin{bmatrix} \cos \displaystyle\frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2} &amp;\displaystyle (-in_x- n_y)\sin\frac{\alpha}{2} \\ \displaystyle
 (-in_x + ny) \sin\frac{\alpha}{2} &amp; \displaystyle \cos \frac{\alpha}{2} + i n_z\sin\frac{\alpha}{2} \end{bmatrix}
@@ -686,8 +698,8 @@ Aplicada a un estado de cúbit genérico
 \)</span>$
 P(\alpha) \ket{u} =  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix}</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-e59ff336-92f6-42e3-97d4-fcd1196b3233">
-<span class="eqno">()<a class="headerlink" href="#equation-e59ff336-92f6-42e3-97d4-fcd1196b3233" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-7ae81053-fbcf-4d47-a938-6edcbdaf952f">
+<span class="eqno">()<a class="headerlink" href="#equation-7ae81053-fbcf-4d47-a938-6edcbdaf952f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
 <p>\end{bmatrix}= \ket{v}
 $$
 <br></p>
@@ -696,10 +708,10 @@ $$
 <br>
 $$
 P(\alpha) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix} =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ae96721-c41d-4e2a-ab10-594b9e824edc">
-<span class="eqno">()<a class="headerlink" href="#equation-7ae96721-c41d-4e2a-ab10-594b9e824edc" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0a46bb6c-d50b-4ced-8284-1d01e47eb192">
-<span class="eqno">()<a class="headerlink" href="#equation-0a46bb6c-d50b-4ced-8284-1d01e47eb192" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-37b2f03c-9cd0-4734-8ef4-f5a2004126f7">
+<span class="eqno">()<a class="headerlink" href="#equation-37b2f03c-9cd0-4734-8ef4-f5a2004126f7" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8eb194d3-8b55-40e7-8b60-72655c7a35ea">
+<span class="eqno">()<a class="headerlink" href="#equation-8eb194d3-8b55-40e7-8b60-72655c7a35ea" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
 <p>$<span class="math notranslate nohighlight">\(
 &lt;br&gt;
 &lt;br&gt;
@@ -727,8 +739,8 @@ La computación clásica se basa en la descomposición de algoritmos complejos e
 <br>
 $$</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-dad2293d-f4e9-46f5-ac6e-c8469439df6b">
-<span class="eqno">()<a class="headerlink" href="#equation-dad2293d-f4e9-46f5-ac6e-c8469439df6b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c0e2a902-805e-415f-93b0-22b652101593">
+<span class="eqno">()<a class="headerlink" href="#equation-c0e2a902-805e-415f-93b0-22b652101593" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 X &amp;=&amp;   \begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix} = \sigma_x = \ketbra{1}{0} + \ketbra{0}{1}~~~, ~~~ \\
 Y &amp;=&amp;  \begin{bmatrix}0&amp;-i\\i&amp;0\end{bmatrix}= \sigma_y  =  i \ketbra{1}{0} - i \ketbra{0}{1}~~~, ~~~ \\
 Z &amp;=&amp;   \begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatrix}= \sigma_z = \ketbra{0}{0} - \ketbra{1}{1}  ~~~~, ~~~
@@ -761,8 +773,8 @@ H \ket{0} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} + \ket{1}\right) =\ke
 H \ket{1} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} - \ket{1}\right) =\ket{-} 
 \]</div>
 <p>Podemos escribir este operador en la base canónica <span class="math notranslate nohighlight">\(H = H_{ij}\ketbra{i}{j}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c9f52c9-cea3-422c-b0af-befccf798ff0">
-<span class="eqno">()<a class="headerlink" href="#equation-7c9f52c9-cea3-422c-b0af-befccf798ff0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-0b8125d8-e71b-430b-ba2f-2cdba8fefdbd">
+<span class="eqno">()<a class="headerlink" href="#equation-0b8125d8-e71b-430b-ba2f-2cdba8fefdbd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H &amp;=&amp;  \ket{+}\bra{0} +  \ket{-}\bra{1} \\
 &amp;=&amp; \frac{1}{\sqrt{2}}(\ketbra{0}{0} + \ketbra{1}{0} + \ketbra{0}{1} - \ketbra{1}{1})
 \end{eqnarray}\]</div>
@@ -1085,7 +1097,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

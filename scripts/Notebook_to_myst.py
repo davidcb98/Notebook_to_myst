@@ -4,6 +4,7 @@ from subprocess import check_output as bash
 
 import sys
 import re
+import numpy as np
 
 from find_functions import find_div_boxes
 from find_functions import find_figures
@@ -13,6 +14,7 @@ from build_functions import my_replace
 from build_functions import build_admonition_box
 from build_functions import build_card_box
 from build_functions import build_figure
+from build_functions import build_tabset
 
 def grep_file_index(grep_command):
     
@@ -106,7 +108,7 @@ command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 
 i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
 
 if len(i_ToC_pattern) == 1:
-    i_start_ToC_cell, i_ToC_start, i_ToC_end = find_cell(f_data, i_ToC_pattern[0])
+    i_start_ToC_cell, i_ToC_start, i_ToC_end, _, _ = find_cell(f_data, i_ToC_pattern[0])
 
     my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
                                         '    ":local:\\n",\n'
@@ -129,6 +131,7 @@ pattern_code = '_code_cell\'\'\''
 command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
 i_pattern_code_list = grep_file_index(command_i_pattern_code)
 
+# Vemos a que celdas corresponden 
 num_cells_pattern_code = []
 num_cell = 0
 
@@ -144,7 +147,62 @@ for i_pattern_code in i_pattern_code_list:
         num_cell +=1
     num_cell -=1
 
-print(num_cells_pattern_code)
+# Sacamos unas mascaras que nos dan las celdas CONSECUTIVAS
+masks_list = []
+mask = np.zeros([len(num_cells_pattern_code)], dtype = bool)
+mask[0] = 1
+for i in range(1,len(num_cells_pattern_code)):
+    if num_cells_pattern_code[i] == num_cells_pattern_code[i-1]+1:
+        mask[i] = 1
+    else:
+        masks_list.append(mask)
+        mask = np.zeros([len(num_cells_pattern_code)], dtype = bool)
+        mask[i] = 1
+masks_list.append(mask)
+
+# Usamos las mascaras y i_pattern_code_list para sacar los datos de las celdas
+for mask in masks_list:
+    i_start_cell_list    = []
+    i_start_content_list = []
+    i_end_cell_list      = []
+    
+    name_code_list  = []
+    content_list    = []
+    full_cell_list  = []
+
+    k = 0
+    for i_pattern_code in np.array(i_pattern_code_list)[mask]:
+        i_start_cell, i_start_content, i_end_cell, content, full_cell = find_cell(f_data, i_pattern_code)
+
+        name_code = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_code]).group(1).split('_')[0]
+        
+        for i in range(len(content)):
+            if content[i] == f_data[i_pattern_code]:
+                content[i] ='    "",\n'
+
+        if k == 0:
+            f_data[i_start_content-2] = f_data[i_start_content-2] + '   "metadata": {\n    "tags": [\n     "remove_input"\n    ]\n   },\n'
+            
+            # Si una de las celdas del bloque es la última, hay que quitar una coma
+            if np.array(i_pattern_code_list)[mask][-1] > i_start_all_cells[-1]:  
+                f_data[i_end_cell+2] = '  }\n'
+        else:
+            for i in range(i_start_cell,i_end_cell+3):
+                f_data[i] = ''
+            
+            #Si es la última celda, hay que quitar la coma de la úlitma linea
+        
+
+
+        i_start_cell_list.append(i_start_cell)
+        i_start_content_list.append(i_start_content)
+        i_end_cell_list.append(i_end_cell)
+        name_code_list.append(name_code)
+        content_list.append(content)
+
+        k+=1
+    
+    build_tabset(f_data, i_start_cell_list[0], name_code_list ,content_list)
 
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
@@ -156,7 +214,7 @@ with open(out_file, 'w') as f_out:
         f_out.write(f_data[k])
 
 
-'''
+
 ################################################################################
 ###### Eliminamos los </br>
 
@@ -210,7 +268,7 @@ bash('tail -n +' + number + ' ' + out_file  +' >> ' + out_file + '_clean', shell
 ### Renombramos para quitar el _clean
 bash('mv ' +  out_file + '_clean ' + out_file, shell=True).decode("utf-8")
 
-'''
+
 
 
 

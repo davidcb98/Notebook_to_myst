@@ -314,4 +314,12 @@ def find_cell(f_data, i_pattern):
         i_end_cell += 1
     i_end_cell -= 2
 
-    return i_start_cell, i_start_content, i_end_cell
+    content = []
+    for i in range(i_start_content, i_end_cell+1):
+        content.append(f_data[i])
+
+    full_cell = []
+    for i in range(i_start_cell,i_end_cell+3):
+        full_cell.append(f_data[i])
+
+    return i_start_cell, i_start_content, i_end_cell, content, full_cell

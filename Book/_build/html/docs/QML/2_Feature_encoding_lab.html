@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/QML/2_Feature_encoding_lab';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Circuitos multicúbits" href="../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -562,7 +574,7 @@ document.write(`
 </figure>
 <section class="tex2jax_ignore mathjax_ignore" id="qml-quantum-machine-learning">
 <h1>QML (Quantum Machine Learning)<a class="headerlink" href="#qml-quantum-machine-learning" title="Permalink to this heading">#</a></h1>
-<p>Consulta la notación que se ha utilizado durante todo el documento en el siguiente <span class="xref myst">enlace</span>.</p>
+<p>Consulta la notación que se ha utilizado durante todo el documento en el siguiente <a class="reference internal" href="#notacion"><span class="xref myst">enlace</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -598,7 +610,7 @@ document.write(`
 <p><a id='IntroFeatureEncoding'></a></p>
 <section id="introduccion">
 <h2>2.1. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h2>
-<p>El proceso de <em><strong>feature encoding</strong></em> se encarga de codificar datos clásicos en estados cuánticos. El problema de codificar datos clásicos en estados cuánticos es esencial en todas las disciplinas que estudian sacar ventaja de las propiedades cuánticas para problemas clásicos, como la comunicación, criptografía o la computación cuántica. Este notebook se centra en las técnicas de <em>feature encoding</em> básicas para QML. Se empieza con un conjunto de datos <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> Conjunto que se quiere codificar en un estado <span class="math notranslate nohighlight">\(\ket{\psi_x}\)</span> con el que trabajar, para ello se construye un circuito parametrizado que generará una unitaria <span class="math notranslate nohighlight">\(\mathcal{U}(\mathbf{x})\)</span> tal que <span class="math notranslate nohighlight">\(\ket{\psi_x}=\mathcal{U}(\mathbf{x})\ket{0}\)</span>. Dependiendo del tipo de <em>feature encoding</em> que se utilice, la unitaria <span class="math notranslate nohighlight">\(\mathcal{U}(x)\)</span> tendrá diferentes características. Se trata de un proceso crucial para el diseño y aplicación de los algoritmos, ya que influye en su capacidad computacional y en su eficiencia <span class="xref myst">[1]</span><span class="xref myst">[2]</span><span class="xref myst">[3]</span><span class="xref myst">[4]</span>.</p>
+<p>El proceso de <em><strong>feature encoding</strong></em> se encarga de codificar datos clásicos en estados cuánticos. El problema de codificar datos clásicos en estados cuánticos es esencial en todas las disciplinas que estudian sacar ventaja de las propiedades cuánticas para problemas clásicos, como la comunicación, criptografía o la computación cuántica. Este notebook se centra en las técnicas de <em>feature encoding</em> básicas para QML. Se empieza con un conjunto de datos <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> Conjunto que se quiere codificar en un estado <span class="math notranslate nohighlight">\(\ket{\psi_x}\)</span> con el que trabajar, para ello se construye un circuito parametrizado que generará una unitaria <span class="math notranslate nohighlight">\(\mathcal{U}(\mathbf{x})\)</span> tal que <span class="math notranslate nohighlight">\(\ket{\psi_x}=\mathcal{U}(\mathbf{x})\ket{0}\)</span>. Dependiendo del tipo de <em>feature encoding</em> que se utilice, la unitaria <span class="math notranslate nohighlight">\(\mathcal{U}(x)\)</span> tendrá diferentes características. Se trata de un proceso crucial para el diseño y aplicación de los algoritmos, ya que influye en su capacidad computacional y en su eficiencia <a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[1]</span></a><a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[2]</span></a><a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[3]</span></a><a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[4]</span></a>.</p>
 <p>Se define un conjunto de datos de entrada <span class="math notranslate nohighlight">\(D\)</span> de dimensión <span class="math notranslate nohighlight">\(M\)</span> x <span class="math notranslate nohighlight">\(N\)</span>, es decir, se cuenta con un dataset con M instancias y N variables. Este <em>dataset</em> se puede expresar como <span class="math notranslate nohighlight">\(D = \{\mathbf{x}_{(1)}, ..., \mathbf{x}_{(m)}, ..., \mathbf{x}_{(M)}\}\)</span> donde cada <span class="math notranslate nohighlight">\(\mathbf{x}_{(m)}\)</span> es un vector de dimensión N.</p>
 <p>Hay multiples técnicas de <em><strong>feature encoding</strong></em>, algunas se detallan a continuación. Como ejemplo intentaremos codificar el vector <span class="math notranslate nohighlight">\(x=(0,1,2,3)\)</span> de diferentes maneras en nuestro circuito.</p>
 <p><a id='TiposFeatureEncoding'></a></p>
@@ -724,7 +736,7 @@ utilizando esta técnica obtendremos:</p>
 </div>
 </div>
 </div>
-<p>La función de pennylane <em>Amplitude Embedding</em> utiliza el método desarollado en <span class="xref myst">[4]</span> para codificar un vector arbitrario en las amplitudes de un estado cuántico con el mínimo número de <em>gates</em> (puertas cuánticas). Para una documentación más extensa de cómo aplicar este método se puede consultar <span class="xref myst">[5]</span>.</p>
+<p>La función de pennylane <em>Amplitude Embedding</em> utiliza el método desarollado en <a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[4]</span></a> para codificar un vector arbitrario en las amplitudes de un estado cuántico con el mínimo número de <em>gates</em> (puertas cuánticas). Para una documentación más extensa de cómo aplicar este método se puede consultar <a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[5]</span></a>.</p>
 <p><a id='angleEncoding'></a></p>
 </section>
 <section id="angle-encoding">
@@ -885,7 +897,7 @@ $<span class="math notranslate nohighlight">\(
 <li><p>Es el método que presenta mayor dificultad a la hora de entrenar la red neuronal y tiene tendencias a presentar barren plateaus (gradientes que tienden a cero).</p></li>
 </ul>
 <p>El resto de métodos basados en codificar en las amplitudes del vector cuántico no presentan los inconvenientes enumerados anteriormente y son los métodos preferidos para desarollar algoritmos en la era del NISQ (<em>Noisy intermediate-scale quantum</em>). Aún así, presentan el inconveniente que hay que escoger sabiamente cómo introducir la no-linealidad necesaria para cada problema. La forma más genérica es utilizar <em>Amplitude encoding</em> y aplicar una función <span class="math notranslate nohighlight">\(f(x)\)</span> a tus datos para obtener correlaciones entre ellos y así poder resolver problemas no-lineales. Este método, que es a primera vista sencillo, presenta el problema que la amplitud del circuito puede ser muy grande dependiendo de <span class="math notranslate nohighlight">\(f(x)\)</span> y además, escoger <span class="math notranslate nohighlight">\(f(x)\)</span> puede ser un proceso muy arbitrario. Por otra parte, otros métodos de codificación más sencillos pueden proporcionar directamente los elementos de no linealidad necesarios para resolver el problema.</p>
-<p>Escoger el método de <em>feature encoding</em> es un proceso crucial para un VQC (<em>Variational Quantum Circuit</em>) pero, como se ha visto, no es una ciéncia exacta, por lo que se deben probar distintas técnicas y escoger la que mejor se ajusta al problema en particular. Para finalizar, existen otras técnicas más sofisticadas para introducir datos clásicos en un circuito variacional, una de ellas es conocido como <em>data re-uploading</em> <span class="xref myst">[7]</span>.</p>
+<p>Escoger el método de <em>feature encoding</em> es un proceso crucial para un VQC (<em>Variational Quantum Circuit</em>) pero, como se ha visto, no es una ciéncia exacta, por lo que se deben probar distintas técnicas y escoger la que mejor se ajusta al problema en particular. Para finalizar, existen otras técnicas más sofisticadas para introducir datos clásicos en un circuito variacional, una de ellas es conocido como <em>data re-uploading</em> <a class="reference internal" href="1_Introduction_lab.html#referencias"><span class="std std-ref">[7]</span></a>.</p>
 <p><a id='notacion'></a></p>
 <div class="note admonition">
 <p class="admonition-title">ANEXO NOTACIÓN</p>
@@ -1012,7 +1024,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

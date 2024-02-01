@@ -183,3 +183,37 @@ def build_figure(i, f_data, index_fig_list_list, datos_list_list):
     my_replace(f_data, i_start, '::::{figure} '+ path_fig +'\\n",\n' )
 
 
+
+def build_tabset(f_data, i_start_next_cell, name_code_list ,content_list):
+
+    def build_tab_item(f_data, i_start_next_cell, name_code, content):
+        f_data[i_start_next_cell] = \
+            '    ":::\\n",\n' + \
+            '    "::::\\n",\n' + \
+            f_data[i_start_next_cell]
+        
+        for line in reversed(content):
+            f_data[i_start_next_cell] = line + f_data[i_start_next_cell]
+        
+        f_data[i_start_next_cell] = \
+            '    "::::{tab-item}'+name_code+'\\n",\n' + \
+            '    ":::python\\n",\n' + \
+            f_data[i_start_next_cell]
+    
+
+    f_data[i_start_next_cell] = '    ":::::\\n"\n' + '   ]\n' + '  },\n' + f_data[i_start_next_cell] 
+
+    for i in reversed(range(len(name_code_list))):
+        content   = content_list[i]
+        name_code = name_code_list[i]
+        
+        content[-1] = content[-1][:-1]+',\n'
+
+        build_tab_item(f_data, i_start_next_cell, name_code, content)
+    
+    f_data[i_start_next_cell] = \
+        '  {\n' + \
+        '   "cell_type": "markdown",\n' + \
+        '   "metadata": {},\n' + \
+        '   "source": [\n' + \
+        '    ":::::{tab-set}\\n",\n' + f_data[i_start_next_cell]
