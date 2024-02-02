@@ -101,6 +101,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"07ecc29052694a31822475f21c6cb3b3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": "0px 0px 10px 0px", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5e0ae0202ae4496cae5d7440a43c14d7": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "030ce0faef34487ab9704fbf613be899": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_07ecc29052694a31822475f21c6cb3b3", "placeholder": "\u200b", "style": "IPY_MODEL_5e0ae0202ae4496cae5d7440a43c14d7", "tabbable": null, "tooltip": null, "value": "<p style='font-family: IBM Plex Sans, Arial, Helvetica, sans-serif; font-size: 20px; font-weight: medium;'>Circuit Properties</p>"}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pruebas/214_Grover_lab';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -512,12 +515,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#una-aguja-en-un-pajar-2">Una aguja en un pajar 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#una-aguja-en-un-pajar">Una aguja en un pajar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1">Sección 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-seccion">Otra sección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud">Amplificación de amplitud</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-circuito-de-grover">El circuito de Grover</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadro-mal-escrito">Cuadro mal escrito !!!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-rotacion-optima">La rotación óptima</a></li>
 </ul>
             </nav>
         </div>
@@ -530,11 +531,27 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Feb 01, 2024 | 1614 words | 8 min read</p>
+<div><p>Feb 02, 2024 | 978 words | 5 min read</p>
 </div></blockquote>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/myThumbnail.png"><img alt="../../_images/myThumbnail.png" src="../../_images/myThumbnail.png" style="width: 1000px;" /></a>
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 1000px;" /></a>
 </figure>
+<p>Created: 2022/10/30</p>
+<center>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+</center>
+<p>License: <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.</p>
+<p>Internal Reviewers:</p>
+<ul class="simple">
+<li><p>Andrés Gómez Tato (<a class="reference external" href="http://www.cesga.es">CESGA</a>)</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
+<li><p>…</p></li>
+</ul>
 <p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
@@ -545,12 +562,10 @@ document.write(`
 <h1>Algoritmo de Grover<a class="headerlink" href="#algoritmo-de-grover" title="Permalink to this heading">#</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#una-aguja-en-un-pajar-2" id="id1">Una aguja en un pajar 2</a></p></li>
-<li><p><a class="reference internal" href="#una-aguja-en-un-pajar" id="id2">Una aguja en un pajar</a></p></li>
+<li><p><a class="reference internal" href="#seccion-1" id="id1">Sección 1</a></p></li>
+<li><p><a class="reference internal" href="#otra-seccion" id="id2">Otra sección</a></p></li>
 <li><p><a class="reference internal" href="#amplificacion-de-amplitud" id="id3">Amplificación de amplitud</a></p></li>
-<li><p><a class="reference internal" href="#el-circuito-de-grover" id="id4">El circuito de Grover</a></p></li>
-<li><p><a class="reference internal" href="#cuadro-mal-escrito" id="id5">Cuadro mal escrito !!!</a></p></li>
-<li><p><a class="reference internal" href="#la-rotacion-optima" id="id6">La rotación óptima</a></p></li>
+<li><p><a class="reference internal" href="#cuadro-mal-escrito" id="id4">Cuadro mal escrito !!!</a></p></li>
 </ul>
 </div>
 <div class="cell docutils container">
@@ -561,8 +576,8 @@ document.write(`
 </div>
 </div>
 <p><a id='aguja'></a></p>
-<section id="una-aguja-en-un-pajar-2">
-<h2><a class="toc-backref" href="#id1">Una aguja en un pajar 2</a><a class="headerlink" href="#una-aguja-en-un-pajar-2" title="Permalink to this heading">#</a></h2>
+<section id="seccion-1">
+<h2><a class="toc-backref" href="#id1">Sección 1</a><a class="headerlink" href="#seccion-1" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Definición/Teorema/Lema</strong>: <em>subtitulo del Teorema/lema/definición</em></p>
@@ -615,8 +630,8 @@ Solución/Pista/…<div class="sd-summary-down docutils">
 </details></div>
 <p><a id='aguja_2'></a></p>
 </section>
-<section id="una-aguja-en-un-pajar">
-<h2><a class="toc-backref" href="#id2">Una aguja en un pajar</a><a class="headerlink" href="#una-aguja-en-un-pajar" title="Permalink to this heading">#</a></h2>
+<section id="otra-seccion">
+<h2><a class="toc-backref" href="#id2">Otra sección</a><a class="headerlink" href="#otra-seccion" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Lema</strong>:</p>
@@ -789,6 +804,8 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">gates</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hamiltonians</span>
 </pre></div>
 </div>
 </div>
@@ -797,8 +814,7 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 Qiskit</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
-
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">qc1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">qc1</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">qc1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;iqp&quot;</span><span class="p">)</span>
@@ -808,7 +824,7 @@ Qiskit</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 Qibo</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">gates</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hamiltonians</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">circuit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
@@ -862,7 +878,6 @@ Qibo</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>El algoritmos de Grover permite efectuar esta tarea en un número de pasos que crece como   <span class="math notranslate nohighlight">\({\cal O}(\sqrt{N})\)</span>.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/Grover1.png"><img alt="../../_images/Grover1.png" src="../../_images/Grover1.png" style="width: 1000px;" /></a>
 </figure>
@@ -926,18 +941,6 @@ R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\f
 </section>
 <section id="amplificacion-de-amplitud">
 <h2><a class="toc-backref" href="#id3">Amplificación de amplitud</a><a class="headerlink" href="#amplificacion-de-amplitud" title="Permalink to this heading">#</a></h2>
-<p>La estrategia se basa en iterar una serie de operaciones que amplifiquen la amplitud de obtener el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span>.</p>
-<p>Geométricamente, cada <em>iteración de Grover</em> es una composición de dos <span class="xref myst"><em>reflectores</em></span> <span class="math notranslate nohighlight">\(~
-\fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
-~\)</span>, donde</p>
-<p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
-<ul class="simple">
-<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
-\]</div>
 <center> 
 <img src="./figuras/Grover2.png" width='50%' style='margin:automatic'/>
 </center>
@@ -949,8 +952,8 @@ El marcador es la parte del algoritmo que <i>conoce</i> la solución.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Podemos formalizar el &lt;i&gt;marcador&lt;/i&gt; como la &lt;i&gt;consulta al oráculo&lt;/i&gt; $O_f$ asociado a una función que  &lt;i&gt;reconoce&lt;/i&gt; la solución cuando la ve
 </pre></div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-ff58fc50-b8e8-4f1d-81ae-6de38867cb7c">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ff58fc50-b8e8-4f1d-81ae-6de38867cb7c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ea8c4c0b-e41c-4fa5-9193-974790e7a32f">
+<span class="eqno">(45)<a class="headerlink" href="#equation-ea8c4c0b-e41c-4fa5-9193-974790e7a32f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_w(x) = \left\{ \begin{array}{lcc}
              1 &amp;   \hbox{si}  &amp; x = w \\
               0 &amp;  \hbox{si} &amp; x \neq w \end{array}
@@ -969,12 +972,6 @@ O_f \ket{x}\ket{-} = (-1)^{f_w(x)}\ket{x}\ket{-} ~= ~ \left\{ \begin{array}{lcc}
 </b>
 </div>
 <ul class="simple">
-<li><p>el vector resultante sufre una rotación de ángulo <span class="math notranslate nohighlight">\(2\theta\)</span> en el  plano <span class="math notranslate nohighlight">\(\{\ket{w},\ket{s'}\}\)</span>.</p></li>
-</ul>
-<ul class="simple">
-<li><p>la amplitud del estado <span class="math notranslate nohighlight">\(\ket{w}\)</span> aumenta a expensas de las amplitudes de los demás estados.</p></li>
-</ul>
-<ul class="simple">
 <li><p>este hecho no depende de cómo sea <span class="math notranslate nohighlight">\(\ket{s}\)</span>, por tanto: es cierto <em>para cada iteración</em> <span class="math notranslate nohighlight">\(G\)</span> de Grover.</p></li>
 </ul>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -991,8 +988,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c6fde2a-5931-4d9a-bbfd-6b30b8e1616c">
-<span class="eqno">(46)<a class="headerlink" href="#equation-4c6fde2a-5931-4d9a-bbfd-6b30b8e1616c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-98192ec9-2a48-4144-8b94-6c4b33a35964">
+<span class="eqno">(46)<a class="headerlink" href="#equation-98192ec9-2a48-4144-8b94-6c4b33a35964" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -1061,8 +1058,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f34e7676-8581-4adf-9f32-105cb4f27109">
-<span class="eqno">(47)<a class="headerlink" href="#equation-f34e7676-8581-4adf-9f32-105cb4f27109" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9cf5edf3-80a9-417d-af26-2f5be89df1b0">
+<span class="eqno">(47)<a class="headerlink" href="#equation-9cf5edf3-80a9-417d-af26-2f5be89df1b0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -1119,26 +1116,8 @@ G^k = \begin{bmatrix}
 </div>
 </details><p>mas texto</p>
 </section>
-<section id="el-circuito-de-grover">
-<h2><a class="toc-backref" href="#id4">El circuito de Grover</a><a class="headerlink" href="#el-circuito-de-grover" title="Permalink to this heading">#</a></h2>
-<p>La tarea ahora es crear sendos circuitos implementen las reflexiones <span class="math notranslate nohighlight">\(R_w\)</span> y <span class="math notranslate nohighlight">\(R_s\)</span>.</p>
-<p>Comenzaremos repasando la prescripción general para programar estos operadores.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Lema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
-R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
-\]</div>
-</div>
-</div>
-<p>De modo que sólo necesitamos un circuito para el reflector  <span class="math notranslate nohighlight">\(~R_0 = I- 2\ket{0}\bra{0}~\)</span> <em>paralelo</em> al estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>.</p>
-</section>
 <section id="cuadro-mal-escrito">
-<h2><a class="toc-backref" href="#id5">Cuadro mal escrito !!!</a><a class="headerlink" href="#cuadro-mal-escrito" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4">Cuadro mal escrito !!!</a><a class="headerlink" href="#cuadro-mal-escrito" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Lema</strong>:</p>
@@ -1173,13 +1152,6 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 </div>
 </div>
 </div>
-<p>Comenzando por <span class="math notranslate nohighlight">\(R_w\)</span>, se trata de  un operador que depende del vector desconocido <span class="math notranslate nohighlight">\(w\)</span>. Por tanto esa etiqueta debe figurar como un argumento oculto de la función que sirva para construir el operador <span class="math notranslate nohighlight">\(V(w)\ket{0} = \ket{w}\)</span>.</p>
-<p>Simplemente es necesario añadir un operador <span class="math notranslate nohighlight">\(X\)</span> por cada <span class="math notranslate nohighlight">\(1\)</span> que haya en la versión binaria de <span class="math notranslate nohighlight">\(w\)</span>.</p>
-<p>Con estos dos ingredientes ya podríamos fabricar el operador de Grover.</p>
-<div class="math notranslate nohighlight">
-\[
- G = D \, O = -R_s  R_w
-\]</div>
 <div class="note admonition">
 <p class="admonition-title">Notar</p>
 <p>¡no sabemos implementar  <span class="math notranslate nohighlight">\(-R_s\)</span>! <span class="math notranslate nohighlight">\(~\)</span>, sólo <span class="math notranslate nohighlight">\(R_s\)</span>. De modo que lo más cercano a la iteración de Grover que podemos conseguir es
@@ -1189,290 +1161,6 @@ R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm}
 <p>El signo menos, en apariencia es una fase global y no debería afectar a las probabilidades finales que son sus módulos al cuadrado.</p>
 <p>De modo que, de momento, lo vamos a ignorar, pero mantenemos una nota de atención sobre este hecho.</p>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/Grover5.png"><img alt="../../_images/Grover5.png" src="../../_images/Grover5.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="la-rotacion-optima">
-<h2><a class="toc-backref" href="#id6">La rotación óptima</a><a class="headerlink" href="#la-rotacion-optima" title="Permalink to this heading">#</a></h2>
-<p>La iteración del circuito de Grover conduce a una sucesión de vectores</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-G^k\ket{s} = \begin{bmatrix} \sin 2k\theta &amp; \cos 2k \theta \\ - \cos 2k\theta &amp; \sin 2k\theta \end{bmatrix} \begin{bmatrix}\sin\theta \\ \cos\theta \end{bmatrix} = \begin{bmatrix}\sin(2k+1)\theta  \\
-\cos(2k+1)\theta \end{bmatrix}
-\end{split}\]</div>
-<p>que giran <em>sin salirse</em> del plano <span class="math notranslate nohighlight">\((\ket{w},\ket{s'})\)</span></p>
-<div class="tip admonition">
-<p class="admonition-title">Ejercicio</p>
-<p>prueba esta igualdad</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Solución<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{rcl}
-\ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
-&amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
-&amp;=&amp; e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
-&amp;\sim &amp; \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
-\end{array}
-\end{split}\]</div>
-<p class="sd-card-text">donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
-<p class="sd-card-text">Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>.
-Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que
-$<span class="math notranslate nohighlight">\(
-a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
-\)</span><span class="math notranslate nohighlight">\(
-Por su parte, de los números \)</span>b_1, b_2<span class="math notranslate nohighlight">\( sólo la diferencia
-\)</span><span class="math notranslate nohighlight">\(
-\varphi = b_1-b_2
-\)</span><span class="math notranslate nohighlight">\(
-es relevante para especificar \)</span>\ket{u}$.</p>
-</div>
-</details></div>
-<ul class="simple">
-<li><p>Pero es un número entero <span class="math notranslate nohighlight">\( \Rightarrow \)</span> el siguiente teorema da la <strong>solución óptima</strong></p></li>
-</ul>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Teorema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">el valor entero de <span class="math notranslate nohighlight">\(k\in{\mathbb Z}\)</span> que maximiza la probabilidad <span class="math notranslate nohighlight">\(P_k = \sin^2((2k+1)\theta)\)</span> de medir la solución <span class="math notranslate nohighlight">\(w\)</span>  es la parte entera</p>
-<div class="math notranslate nohighlight">
-\[
-k_{op} = \left[ \frac{\pi}{4\theta} \right]
-\]</div>
-<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\theta = \arcsin \sqrt{\frac{1}{N}}\)</span>.</p>
-<p class="sd-card-text">Se cumple en este caso que:</p>
-<div class="math notranslate nohighlight">
-\[
-1 - \frac{1}{N} \leq P_{k_{op}} \leq 1\, .
-\]</div>
-</div>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Ejercicio</p>
-<p>ejecuta el algoritmo de Grover variando el número <i>it</i> de iteraciones de Grover y verifica que el valor de <span class="math notranslate nohighlight">\(k\)</span> óptimo es el enunciado en el teorema.</p>
-</div>
-<p>Cuando <span class="math notranslate nohighlight">\(N\to \infty\)</span>, es decir, cuando nuestra base de datos es muy grande
-el vector inicial tiene un ángulo muy pequeño.</p>
-<div class="math notranslate nohighlight">
-\[
-\theta = \arcsin \frac{1}{\sqrt{N}} \to \frac{1}{\sqrt{N}} - ....
-\]</div>
-<p>a orden más bajo en serie de potencias de <span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span></p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Teorema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">máximamente a la solución crece como</p>
-<div class="math notranslate nohighlight">
-\[
-k_{op} \approx \frac{\pi}{4}\sqrt{N}
-\]</div>
-</div>
-</div>
-<p>Esto supone un crecimiento <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N})\)</span> en lugar de <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span> que es lo que esperaríamos clásicamente.</p>
-<p><a id='agujas'></a></p>
-<table width="100%">
-    <td style="font-size:250%px;font-family:Helvetica;text-align:left;background-color:rgba(0,0,900, 0.3);">
-<b> Varias agujas en un pajar </b>
-</table>   <p>Un usuario podría tener más de una línea telefónica contratada. En ese caso, <em>varios</em> números de teléfono servirán para dar con <em>un sólo</em> nombre.</p>
-<p>Supondremos ahora que la búsqueda en la base de datos admite <span class="math notranslate nohighlight">\(M\)</span> resultados satisfactorios distintos <span class="math notranslate nohighlight">\(w_1,....,w_M\)</span>.</p>
-<p>El vector inicial se puede descomponer en suma de sus componentes <em>a lo largo</em> de <span class="math notranslate nohighlight">\({\cal B}\)</span> y de <span class="math notranslate nohighlight">\({\cal B}_\perp\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-8859bfcb-09fb-471a-b477-90112d61cb2f">
-<span class="eqno">(48)<a class="headerlink" href="#equation-8859bfcb-09fb-471a-b477-90112d61cb2f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
-\ket{s} = \frac{1}{\sqrt{N}} \sum_{x\in \Hil} \ket{x} 
-&amp;=&amp;  \frac{1}{\sqrt{N}} \sum_{x\in {\cal B}} \ket{x}
- +  \frac{1}{\sqrt{N}} \sum_{x\in {\cal B}_\perp} \ket{x}
-\\ \rule{0mm}{12mm}
-&amp;=&amp;\sqrt{\frac{M}{N}}\ket{w} + \sqrt{\frac{N-M}{N}}\ket{s^\prime}.
-\end{eqnarray}\]</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Teorema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">el valor entero de <span class="math notranslate nohighlight">\(k\in{\mathbb Z}\)</span> que maximiza la probabilidad <span class="math notranslate nohighlight">\(P_k = \sin^2 ((2k+1)\theta)\)</span> de medir la solución <span class="math notranslate nohighlight">\(w\)</span>  es la parte entera de <span class="math notranslate nohighlight">\(\pi/4\theta\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-k_{op} = \left[ \frac{\pi}{4\theta} \right]
-\]</div>
-<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\theta = \arcsin \sqrt{\frac{M}{N}}.~\)</span>
-En este caso, la probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
-1 - \frac{M}{N} \leq P_{k_{op}} \leq 1 \, .
-\]</div>
-</div>
-</div>
-<p>en el límite <span class="math notranslate nohighlight">\(N\to \infty\)</span> el coste computacional crece aun como la raíz cuadrada</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Teorema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">máximamente a alguna de las soluciones <span class="math notranslate nohighlight">\(w_i\)</span>, crece como</p>
-<div class="math notranslate nohighlight">
-\[
-k_{op} \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
-\]</div>
-</div>
-</div>
-<p>Vemos que el número de iteraciones que hay que realizar es menor. A cambio sólo obtendremos una solución <span class="math notranslate nohighlight">\(w_i\)</span> después de cada ejecución.</p>
-<p>el único operador que necesitamos modificar es <span class="math notranslate nohighlight">\(R_w\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Rw</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">w_array</span><span class="p">):</span> <span class="c1">#w_array es una lista de enteros w_i en S_n  </span>
-            
-    <span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span> 
-    
-    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">w_array</span><span class="p">:</span>
-        <span class="n">wstring</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">wi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">wstring</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">wi</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
-                <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">qr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">qc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">R0</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>        
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">wi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">wstring</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">wi</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
-                <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">qr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">qcRw</span> <span class="o">=</span>  <span class="n">qc</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span>
-    <span class="n">qcRw</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Rw&#39;</span>
-    <span class="k">return</span> <span class="n">qcRw</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ahora podemos correr el mismo circuito con esta modificación</p>
-<p>Primero debemos calcular el valor óptimo de iteraciones <span class="math notranslate nohighlight">\(k_{op} = [\pi/(4 \arcsin \sqrt{M/N})]\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dimensión de la base de datos</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">4</span>
-<span class="c1"># lista de soluciones ocultas</span>
-<span class="n">w_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
-
-<span class="c1"># valor de k óptimo</span>
-<span class="n">k_op</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w_array</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span><span class="p">))))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;k_op =&#39;</span><span class="p">,</span><span class="n">k_op</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k_op = 1
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ahora construimos el circuito de Grover con <span class="math notranslate nohighlight">\(k_{op}\)</span> iteraciones.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pasamos las soluciones a cadenas binarias de n entradas</span>
-<span class="n">wstring</span> <span class="o">=</span> <span class="p">[</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">w_array</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w_i =&#39;</span><span class="p">,</span><span class="n">wstring</span><span class="p">)</span>
-
-<span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">cr</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">qcGrover</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
-<span class="n">qcGrover</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span>
-<span class="n">qcGrover</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k_op</span><span class="p">):</span>
-    <span class="n">qcGrover</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">G</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">w_array</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>
-
-<span class="n">qcGrover</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
-
-<span class="n">qcGrover</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
-<span class="n">qcGrover</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_i = [&#39;0001&#39;, &#39;0011&#39;, &#39;0110&#39;, &#39;0111&#39;, &#39;1111&#39;]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">qcGrover</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k_op</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">qcGrover</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">G</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">w_array</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">qcGrover</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">qcGrover</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;G&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p><a id='contcuan'></a></p>
-<table width="100%">
-    <td style="font-size:250%px;font-family:Helvetica;text-align:left;background-color:rgba(0,0,900, 0.3);">
-<b> Contaje cuántico </b>
-</table>   <p>En el algoritmos de Grover es crucial saber cuántas iteracions <span class="math notranslate nohighlight">\(k\)</span> del operador <span class="math notranslate nohighlight">\(G\)</span> hay que realizar.</p>
-<p>En el caso de múltiples soluciones, esto depende de <span class="math notranslate nohighlight">\(M\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(M\)</span> es desconocido de antemano, por lo que el algoritmo ve <em>comprometida su eficiencia</em>.</p>
-<p>En esta sección vamos a explicar <strong>cómo deducir</strong> <span class="math notranslate nohighlight">\(M\)</span> como paso previo, invocando el algoritmo de Estimación de Fase Cuántica.</p>
-<p>Ya hemos visto que, en la base <span class="math notranslate nohighlight">\(\{|\omega\rangle, |s'\rangle\}\)</span>, podemos escribir la iteración de Grover como la matriz de rotación</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-G =
-\begin{bmatrix}
-\cos2\theta &amp; \sin2\theta\\
--\sin2\theta &amp; \cos2\theta
-\end{bmatrix},
-\end{split}\]</div>
-<p>donde</p>
-<div class="math notranslate nohighlight">
-\[
-\theta = \arcsin M/N 
-\]</div>
-<p>Conocer el valor de <span class="math notranslate nohighlight">\(\theta\)</span> nos permitiría tener acceso al valor de $<span class="math notranslate nohighlight">\( M  = N\sin\theta 
-\)</span>$</p>
-<p>Los  autovalores  y autoestados  de este operador son los siguientes</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- \left(e^{+ 2i\theta}, \begin{bmatrix}- i \\1 \end{bmatrix}\right)~~~~,~~~~ \left( e^{- 2i\theta}, \begin{bmatrix}+ i \\1 \end{bmatrix} \right)
-\end{split}\]</div>
-<p>que están pidiendo <em>a gritos</em> el algoritmo QPE, de estimación cuántica de fase.</p>
-<div class="tip admonition">
-<p class="admonition-title">Ejercicio</p>
-<p>prueba este resultado</p>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><strong>Lema</strong>:</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[
-R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
-\]</div>
-</div>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Ejercicio</p>
-<p>Prueba esta igualdad</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Solución<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
-<p class="sd-card-text">TEXTO</p>
-</div>
-</details></div>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-6">
@@ -1500,7 +1188,22 @@ Qibo</label><div class="sd-tab-content docutils">
 <img alt="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" src="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" />
 </div>
 </div>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qiskit.tools.jupyter</span>
+<span class="o">%</span><span class="k">qiskit_version_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Version Information</h3><table><tr><th>Software</th><th>Version</th></tr><tr><td><code>qiskit</code></td><td>0.45.2</td></tr><tr><th colspan='2'>System information</th></tr><tr><td>Python version</td><td>3.11.7</td></tr><tr><td>Python compiler</td><td>GCC 11.2.0</td></tr><tr><td>Python build</td><td>main, Dec 15 2023 18:12:31</td></tr><tr><td>OS</td><td>Linux</td></tr><tr><td>CPUs</td><td>12</td></tr><tr><td>Memory (Gb)</td><td>62.610992431640625</td></tr><tr><td colspan='2'>Fri Feb 02 15:48:18 2024 CET</td></tr></table></div></div>
+</div>
+<p>This work has been financially supported by the Ministry of Economic Affairs and Digital Transformation of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2025 Agenda.</p>
+<center>
+<div style="text-align:center">
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2022/11/LOGOS-GOB_QS.png" width="1000px" />
+</div>
+</center></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1567,12 +1270,10 @@ Qibo</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#una-aguja-en-un-pajar-2">Una aguja en un pajar 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#una-aguja-en-un-pajar">Una aguja en un pajar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1">Sección 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-seccion">Otra sección</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud">Amplificación de amplitud</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-circuito-de-grover">El circuito de Grover</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadro-mal-escrito">Cuadro mal escrito !!!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-rotacion-optima">La rotación óptima</a></li>
 </ul>
   </nav></div>
 
