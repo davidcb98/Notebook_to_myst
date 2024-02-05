@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_lab.html">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_myst.html">Algoritmo de Grover</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
 
@@ -681,8 +681,8 @@ y,  equivalentemente, intercambiando $X \leftrightarrow Z$.
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-6a55ee00-55a0-4c9e-9d4f-8e307dfbf32b">
-<span class="eqno">(59)<a class="headerlink" href="#equation-6a55ee00-55a0-4c9e-9d4f-8e307dfbf32b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-53ce1f71-be71-47f4-87de-2358e0c2d002">
+<span class="eqno">(59)<a class="headerlink" href="#equation-53ce1f71-be71-47f4-87de-2358e0c2d002" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 HXH = Z ~~~~~&amp;&amp;~~ ~~~
 HZH = X \nonumber
 \end{eqnarray}\]</div>
@@ -694,8 +694,8 @@ que son fáciles de visualizar recordando que  $H$ es una rotación de 180$^\cir
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-38af19e3-a613-4919-a016-efd1b53c9879">
-<span class="eqno">(60)<a class="headerlink" href="#equation-38af19e3-a613-4919-a016-efd1b53c9879" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-42426f95-9d42-4d1e-a35f-68e0159abcb5">
+<span class="eqno">(60)<a class="headerlink" href="#equation-42426f95-9d42-4d1e-a35f-68e0159abcb5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S X S^\dagger  = Y~~~~~&amp;&amp;~~~ ~~~
 S Y S^\dagger = -X  ~~~~~~~~ S Z S^\dagger = Z\nonumber\\
 \end{eqnarray}\]</div>
@@ -717,8 +717,8 @@ también  son fáciles de visualizar recordando que
 La conjugación de una exponencial se exponencia
 <br><br>
 </table>
-<div class="amsmath math notranslate nohighlight" id="equation-0b63e84e-71b4-444c-a074-c04757124b6c">
-<span class="eqno">(61)<a class="headerlink" href="#equation-0b63e84e-71b4-444c-a074-c04757124b6c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-489496d3-60e4-4efc-b503-5eb949851672">
+<span class="eqno">(61)<a class="headerlink" href="#equation-489496d3-60e4-4efc-b503-5eb949851672" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U e^{\alpha A} U^\dagger &amp;=&amp;  U \left(1 + \alpha A  + \frac{1}{2} \alpha^2 A^2 + ... \right) U^\dagger \\ \rule{0mm}{8mm}
 &amp;=&amp; 1 + \alpha UAU^\dagger + \frac{1}{2}\alpha^2 UAU^\dagger U AU^\dagger + ... \\ \rule{0mm}{8mm}
 &amp;=&amp; e^{ \alpha UAU^\dagger} 
@@ -740,8 +740,8 @@ $$
 <br>
 </table>
 <p>Por ejemplo:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25998f97-c0d7-4574-ac2d-3fa419a71861">
-<span class="eqno">(62)<a class="headerlink" href="#equation-25998f97-c0d7-4574-ac2d-3fa419a71861" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-2f92f0c8-d437-4c4e-b07e-b26f0cdb68f7">
+<span class="eqno">(62)<a class="headerlink" href="#equation-2f92f0c8-d437-4c4e-b07e-b26f0cdb68f7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H R_z(\theta) H &amp;=&amp; e^{-i \theta/2 HZH} =  e^{-i (\theta/2) X}. \\ \rule{0mm}{8mm}
 &amp;=&amp; R_x(\theta)
 \end{eqnarray}\]</div>
@@ -919,8 +919,8 @@ X Y = i Z ~~~~~ Y Z = i X ~~~~~ ZX = iY
 <p>e igualmente para <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span></p>
 </p></div>
 <p>Esta definición se extiende a puertas multi-cúbits. Un operador de Clifford será aquel que conjuga una cadena de Pauli para dar otra cadena de Pauli. Por ejemplo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aab74540-f102-4411-97e5-96b2367a95c3">
-<span class="eqno">(63)<a class="headerlink" href="#equation-aab74540-f102-4411-97e5-96b2367a95c3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-224d7d6a-bb1e-4bba-830d-01c1f3bde02d">
+<span class="eqno">(63)<a class="headerlink" href="#equation-224d7d6a-bb1e-4bba-830d-01c1f3bde02d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (XXH) \, (YZX) \,  (XXH)^\dagger &amp;=&amp; XXH \otimes YZX \otimes XXH \\ \rule{0mm}{10mm}
 &amp;=&amp; XYX \otimes  XZX \otimes HXH \\ \rule{0mm}{10mm}
 &amp;=&amp; (-Y)\otimes (-Z) \otimes Z \\ \rule{0mm}{10mm} &amp;=&amp; YZZ
@@ -1041,8 +1041,8 @@ C = R_z\left( \frac{\beta-\alpha}{2}\right)\end{array}
 <ul class="simple">
 <li><p>En circuitos superconductores</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-8edf7cb0-da5b-4085-b934-7b300d58122a">
-<span class="eqno">(64)<a class="headerlink" href="#equation-8edf7cb0-da5b-4085-b934-7b300d58122a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-debc6f0b-662a-4ee0-9528-9b127af43875">
+<span class="eqno">(64)<a class="headerlink" href="#equation-debc6f0b-662a-4ee0-9528-9b127af43875" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \hbox{Shor basis}~~
  ~&amp;:&amp; ~~ \{ H, T, \hbox{CNOT}\}  \nonumber \\ \rule{0mm}{5mm}
 \hbox{NCT}~ ~&amp;:&amp; ~~ \{ X,\hbox{CNOT}, \hbox{Toffoli}\}   \nonumber

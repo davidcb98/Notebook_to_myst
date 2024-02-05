@@ -3,16 +3,8 @@
 import numpy as np
 import re
 
-def my_replace(f_data, i_line, new_text):
-
-    #print("------> ", new_text)
-
-    # Encontrar la posición de la primera comilla doble
-    index_firts_quote = f_data[i_line].find('"')
-
-    # Realizar la sustitución
-    f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text 
-        #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):] 
+from finds_and_others import grep_file_index
+from finds_and_others import my_replace
 
 
 def number_cells(i_pattern_code_list, i_start_all_cells):
@@ -54,6 +46,9 @@ def create_mask(f_data, num_cells_pattern, i_pattern_list):
     return masks_list
 
 
+def delete_cell(f_data, i_start_cell, i_end_cell):
+    for i in range(i_start_cell,i_end_cell+3):
+                f_data[i] = ''
 
 
 def build_admonition_box(i, f_data, index_list_list, titles_list_list, Class):
@@ -260,3 +255,22 @@ def build_tabset(f_data, i_start_next_cell, name_code_list ,content_list):
         '   "metadata": {},\n' + \
         '   "source": [\n' + \
         '    ":::::{tab-set}\\n",\n' + f_data[i_start_next_cell]
+    
+
+def bluid_references(f_data, pattern_ref, file_name, out_ref):
+    pattern_ref_grep = '\](#'+pattern_ref
+    command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+    i_pattern_ref_list = grep_file_index(command_i_pattern_ref)
+
+    if out_ref == '{cite}' :
+        # Tenemos que tener cuidado con el doble [[ ]] y con que lo que aparezca ahi dentro no importa
+        for i_pattern_ref in i_pattern_ref_list:
+            f_data[i_pattern_ref] =re.sub(r'\[\[(\d+)\]\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
+
+            #f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`\1 <'+pattern_ref+r'\2>`', f_data[i_pattern_ref])
+
+            
+    else:
+        for i_pattern_ref in i_pattern_ref_list:
+            f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`\1 <'+pattern_ref+r'\2>`', f_data[i_pattern_ref])
+            #f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#(\w+)\)', out_ref+r'`\1 <\2>`', f_data[i_pattern_ref])

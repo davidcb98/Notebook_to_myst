@@ -56,7 +56,7 @@ launch_buttons:
 
 # LaTeX settings
 bibtex_bibfiles:
-   - _bibliography/references.bib
+   - docs/Bibliografia.bib
 
 # sphinx:
 #  config:
