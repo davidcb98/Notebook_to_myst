@@ -98,24 +98,6 @@ my_replace(f_data, i_first_line[0], 'source": [\n'+
 
 
 ################################################################################
-## Indice
-
-command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
-i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
-
-if len(i_ToC_pattern) == 1:
-    i_start_ToC_cell, i_ToC_start, i_ToC_end, _, _ = find_cell(f_data, i_ToC_pattern[0])
-
-    my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
-                                        '    ":local:\\n",\n'
-                                        '    ":depth: 1\\n",\n'
-                                        '    ":::\\n",\n')
-    for i in range(i_ToC_start+1, i_ToC_end):
-        my_replace(f_data, i, '",\n')
-    my_replace(f_data, i_ToC_end, '"\n')
-
-
-################################################################################
 ## Inicio de todas las celdas
 
 command_i_start_all_cells = 'grep -n "   \\"cell_type\\":" '+ file_name + ' |  cut -d":" -f1 '
@@ -210,6 +192,26 @@ i_pattern_a_sec_list = grep_file_index(command_i_pattern_a_sec)
 
 for i_pattern_a_sec in i_pattern_a_sec_list:
     f_data[i_pattern_a_sec] = '    "('+f_data[i_pattern_a_sec].split('\'')[1]+')= \\n",\n'
+
+
+
+################################################################################
+## Indice
+
+command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
+i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
+
+if len(i_ToC_pattern) == 1:
+    i_start_ToC_cell, i_ToC_start, i_ToC_end, _, _ = find_cell(f_data, i_ToC_pattern[0])
+
+    my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
+                                        '    ":local:\\n",\n'
+                                        '    ":depth: 1\\n",\n'
+                                        '    ":::\\n",\n')
+    for i in range(i_ToC_start+1, i_ToC_end):
+        my_replace(f_data, i, '",\n')
+    my_replace(f_data, i_ToC_end, '"\n')
+
 
 
 ################################################################################
