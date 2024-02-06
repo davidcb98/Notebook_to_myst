@@ -184,14 +184,32 @@ for mask in masks_list:
 
 ################################################################################
 ## Arreglamos las referencias a las figuras
+##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
 
 bluid_references(f_data, 'fig_', file_name, '{ref}')
 
 
 ################################################################################
 ## Arreglamos las referencias bibliograficas
+##   [[...]](#bib_...)  --->  {cite}`bib_...` o {numref}`sec_...`
 
 bluid_references(f_data, 'bib_', file_name, '{cite}')
+
+################################################################################
+## Arreglamos las referencias a secciones
+##    [...](path#sec_...) ---> {ref}`sec_...` o {numref}`sec_...`
+    
+bluid_references(f_data, 'sec_', file_name, '{ref}')
+
+################################################################################
+## Arreglamos las label de las secciones
+##  <d id='sec_...'></a>  ---> (sec_...)=
+
+command_i_pattern_a_sec = 'grep -n "<a id="  '+ file_name + ' | grep "sec_" |  cut -d":" -f1 '
+i_pattern_a_sec_list = grep_file_index(command_i_pattern_a_sec)
+
+for i_pattern_a_sec in i_pattern_a_sec_list:
+    f_data[i_pattern_a_sec] = '    "('+f_data[i_pattern_a_sec].split('\'')[1]+')= \\n",\n'
 
 
 ################################################################################
