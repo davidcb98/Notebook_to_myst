@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_lab.html">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_myst.html">Algoritmo de Grover</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
 
@@ -698,8 +698,8 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 </details><p>En componentes en la base <span class="math notranslate nohighlight">\(Z\)</span> escribimos equivalentemente
 $$
 |u\rangle ~\sim ~~</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e2d13a4-b666-48a6-ac95-4bd0975a5ce2">
-<span class="eqno">()<a class="headerlink" href="#equation-5e2d13a4-b666-48a6-ac95-4bd0975a5ce2" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\displaystyle\frac{\theta}{2} \\  e^{i\varphi} \sin \displaystyle\frac{\theta}{2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9f8e8a7b-9261-4c11-87ce-6158d01f065c">
+<span class="eqno">()<a class="headerlink" href="#equation-9f8e8a7b-9261-4c11-87ce-6158d01f065c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\displaystyle\frac{\theta}{2} \\  e^{i\varphi} \sin \displaystyle\frac{\theta}{2} \end{bmatrix}\]</div>
 <p>$$</p>
 <p>El rango de <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span> permite interpretar estos números reales como <em>ángulos sobre la esfera unidad</em>. Dicho de otro modo, podemos representar  cada estado de un cúbit como un <em>punto</em> sobre una esfera de radio unidad: la <em>esfera de Bloch</em>.</p>
 <ul class="simple">
@@ -888,8 +888,8 @@ $<span class="math notranslate nohighlight">\(
     el sentido de la rotación que produce $R_{\hat{\bf n}}(\alpha)$ en torno al eje $\hat{\bf n}$, viene dado por la <i>regla de la mano derecha</i> o, también, <i>anti-horario</i>. 
 </div><p>Haciendo la suma explícitamente podemos escribir la matriz unitaria
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2216b4a9-1b3b-4855-bdce-9ac9b08aafd5">
-<span class="eqno">()<a class="headerlink" href="#equation-2216b4a9-1b3b-4855-bdce-9ac9b08aafd5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-798a145e-52dc-4289-ba02-e769e7403bb6">
+<span class="eqno">()<a class="headerlink" href="#equation-798a145e-52dc-4289-ba02-e769e7403bb6" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 R_{\hat{\bf n}}(\alpha)~  ~=~ 
  \begin{bmatrix} \cos \displaystyle\frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2} &amp;\displaystyle (-in_x- n_y)\sin\frac{\alpha}{2} \\ \displaystyle
 (-in_x + n_y) \sin\frac{\alpha}{2} &amp; \displaystyle \cos \frac{\alpha}{2} + i n_z\sin\frac{\alpha}{2} \end{bmatrix}
@@ -962,8 +962,8 @@ Aplicada a un estado de cúbit genérico
 \)</span>$
 P(\alpha) \ket{u} =  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix}</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-4c9237f4-dc2b-4611-a305-db5cc9ad595d">
-<span class="eqno">()<a class="headerlink" href="#equation-4c9237f4-dc2b-4611-a305-db5cc9ad595d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-74840464-7e70-477a-8597-0e4d54a4b70d">
+<span class="eqno">()<a class="headerlink" href="#equation-74840464-7e70-477a-8597-0e4d54a4b70d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
 <p>\end{bmatrix}= \ket{v}
 $$
 <br></p>
@@ -972,10 +972,10 @@ $$
 <br>
 $$
 P(\alpha) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix} =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6212274b-91be-45b2-bef1-b71a61e7036a">
-<span class="eqno">()<a class="headerlink" href="#equation-6212274b-91be-45b2-bef1-b71a61e7036a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-db569593-9b2e-4cc3-8d95-014300567841">
-<span class="eqno">()<a class="headerlink" href="#equation-db569593-9b2e-4cc3-8d95-014300567841" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-44ab1b43-0c7e-48c6-a850-5ced1e1f0cda">
+<span class="eqno">()<a class="headerlink" href="#equation-44ab1b43-0c7e-48c6-a850-5ced1e1f0cda" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-2127e8c7-2852-4817-956b-446e0722309f">
+<span class="eqno">()<a class="headerlink" href="#equation-2127e8c7-2852-4817-956b-446e0722309f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
 <p>$<span class="math notranslate nohighlight">\(
 &lt;br&gt;
 &lt;br&gt;
@@ -1017,8 +1017,8 @@ i R_{\hat{\bf z}}(\pi) &amp;=&amp;   \begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatri
 <p>Así obtenemos
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee992231-4eed-469f-a6b1-f91e67f756b6">
-<span class="eqno">()<a class="headerlink" href="#equation-ee992231-4eed-469f-a6b1-f91e67f756b6" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-75f2a39a-d0b9-489a-a16b-7297fc42ae03">
+<span class="eqno">()<a class="headerlink" href="#equation-75f2a39a-d0b9-489a-a16b-7297fc42ae03" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S = Z^{1/2} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;i\end{bmatrix}=\begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/2}\end{bmatrix}  \\
 &amp;&amp; \\
 T  = Z^{1/4} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix} 
@@ -1029,14 +1029,14 @@ T  = Z^{1/4} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix}
 </ul>
 <p>La puerta de Hadamard, <span class="math notranslate nohighlight">\(H\)</span>, es la primera puerta <em>genuinamente cuántica</em> en el sentido de que lleva un estado de la base a una superposición coherente
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d24111d4-3bc9-4995-a28c-53d68097fbaf">
-<span class="eqno">()<a class="headerlink" href="#equation-d24111d4-3bc9-4995-a28c-53d68097fbaf" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-16bb8629-97d0-49d1-abdd-3c5e64e8e715">
+<span class="eqno">()<a class="headerlink" href="#equation-16bb8629-97d0-49d1-abdd-3c5e64e8e715" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H \ket{0} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} + \ket{1}\right) =\ket{+}   \\
 H \ket{1} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} - \ket{1}\right) =\ket{-} 
 \end{eqnarray}\]</div>
 <p>Podemos escribir este operador en la base canónica <span class="math notranslate nohighlight">\(H = H_{ij}\ketbra{i}{j}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-dc1fb8b3-d1f7-4e33-9c8a-40e30e205840">
-<span class="eqno">()<a class="headerlink" href="#equation-dc1fb8b3-d1f7-4e33-9c8a-40e30e205840" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9af5bafc-698a-4e07-9ee2-b4bb7dbd5d49">
+<span class="eqno">()<a class="headerlink" href="#equation-9af5bafc-698a-4e07-9ee2-b4bb7dbd5d49" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H &amp;=&amp;  \ket{+}\bra{0} +  \ket{-}\bra{1} \\
 &amp;=&amp; \frac{1}{\sqrt{2}}(\ketbra{0}{0} + \ketbra{1}{0} + \ketbra{0}{1} - \ketbra{1}{1})
 \end{eqnarray}\]</div>

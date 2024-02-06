@@ -1,0 +1,1355 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Algoritmo de Grover &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"030ce0faef34487ab9704fbf613be899": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_07ecc29052694a31822475f21c6cb3b3", "placeholder": "\u200b", "style": "IPY_MODEL_5e0ae0202ae4496cae5d7440a43c14d7", "tabbable": null, "tooltip": null, "value": "<p style='font-family: IBM Plex Sans, Arial, Helvetica, sans-serif; font-size: 20px; font-weight: medium;'>Circuit Properties</p>"}}, "07ecc29052694a31822475f21c6cb3b3": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": "0px 0px 10px 0px", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5e0ae0202ae4496cae5d7440a43c14d7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pruebas/214_Grover_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="QML (Quantum Machine Learning)" href="../QML/1_Introduction_lab.html" />
+    <link rel="prev" title="Elementos de Mecánica Cuántica" href="../00_Formalismo/02_Fundamentos_MC.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00_Formalismo/01_formalismo_matematico.html">Formalismo Matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Numeros_Complejos.html">Números Complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Vectores.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Operadores_01.html">Operadores I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Operadores_02.html">Operadores II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Tensores.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/01_Probabilidades.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC_intro.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../00_Formalismo/02_Fundamentos_MC.html">Elementos de Mecánica Cuántica</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html">Circuitos multicúbits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/121_Multicubits.html">Multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/122_El_Arte_de_Medir_II.html">El arte de medir multi-cúbits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/123_Entrelazamiento.html">Entrelazamiento en acción</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_Circuitos/130_circuitos_mas_cosas.html">Circuitos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/131_Elementos_Basicos.html">Conjugación</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_Circuitos/132_CompClasica.html">Construcción de funciones binarias. Los min-términos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/pruebas/214_Grover_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/pruebas/214_Grover_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/pruebas/214_Grover_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/pruebas/214_Grover_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Algoritmo de Grover</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1">Sección 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-seccion">Otra sección</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud">Amplificación de amplitud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadro-mal-escrito">Cuadro mal escrito !!!</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Feb 06, 2024 | 1042 words | 5 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 1000px;" /></a>
+</figure>
+<p>Created: 2022/10/30</p>
+<center>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<img aling="left" alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+</center>
+<p>License: <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.</p>
+<p>Internal Reviewers:</p>
+<ul class="simple">
+<li><p>Andrés Gómez Tato (<a class="reference external" href="http://www.cesga.es">CESGA</a>)</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>David Castaño (<a class="reference external" href="https://www.scbi.uma.es/site/">Scbi-UMA</a>)</p></li>
+<li><p>…</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-grover">
+<h1>Algoritmo de Grover<a class="headerlink" href="#algoritmo-de-grover" title="Permalink to this heading">#</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#seccion-1" id="id6">Sección 1</a></p></li>
+<li><p><a class="reference internal" href="#otra-seccion" id="id7">Otra sección</a></p></li>
+<li><p><a class="reference internal" href="#amplificacion-de-amplitud" id="id8">Amplificación de amplitud</a></p></li>
+<li><p><a class="reference internal" href="#cuadro-mal-escrito" id="id9">Cuadro mal escrito !!!</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> ../macro_tQ.py
+</pre></div>
+</div>
+</div>
+</div>
+<section id="seccion-1">
+<span id="sec-seccion-1"></span><h2><a class="toc-backref" href="#id6">Sección 1</a><a class="headerlink" href="#seccion-1" title="Permalink to this heading">#</a></h2>
+<p>Referencia a la seción <a class="reference internal" href="../01_Circuitos/121_Multicubits.html#sec-multiqubit-entrelazamiento"><span class="std std-ref">Entrelazamiento</span></a> de <a class="reference internal" href="../01_Circuitos/121_Multicubits.html"><span class="std std-doc">multiqubits</span></a>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición/Teorema/Lema</strong>: <em>subtitulo del Teorema/lema/definición</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Plantilla de Teorema, Lema o definición.</p>
+<p class="sd-card-text">Debe de quedar una de las tres palabras del título: Definición, Teorema o Lema</p>
+<p class="sd-card-text">La demostración/prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración/Prueba/…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">TEXTO AQUÍ</p>
+</div>
+</details></div>
+</div>
+<p>Mas texto</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (Subtitulo de la nota)</p>
+<p>Plantilla de Nota</p>
+<p>El titulo debe de ser Nota</p>
+<p>La demostración/prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración/Prueba/…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">TEXTO AQUÍ</p>
+</div>
+</details></div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio/Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
+<p>Plantilla de Ejercicios y Ejemplos</p>
+<p>Debe de quedar una de las dos palabras del título: Ejercicio o Ejemplo</p>
+<p>La solución/pista/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solución/Pista/…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">TEXTO AQUÍ</p>
+</div>
+</details></div>
+<p><a id='aguja_2'></a></p>
+</section>
+<section id="otra-seccion">
+<h2><a class="toc-backref" href="#id7">Otra sección</a><a class="headerlink" href="#otra-seccion" title="Permalink to this heading">#</a></h2>
+<p>Vamos a poner una enumeración:</p>
+<ul class="simple">
+<li><p>Primera identación <br >
+Veamos si respeta la indentación</p></li>
+<li><p>Segunda identación</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+x^2 
+\]</div>
+<p>Veamos si respeta la indentación</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Lema</strong>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+|u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
+&amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
+&amp;=&amp; e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
+&amp;\sim &amp; \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
+<p class="sd-card-text">Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>.
+Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que
+$<span class="math notranslate nohighlight">\(
+a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
+\)</span><span class="math notranslate nohighlight">\(
+Por su parte, de los números \)</span>b_1, b_2<span class="math notranslate nohighlight">\( sólo la diferencia
+\)</span><span class="math notranslate nohighlight">\(
+\varphi = b_1-b_2
+\)</span><span class="math notranslate nohighlight">\(
+es relevante para especificar \)</span>\ket{u}$.</p>
+</div>
+</details></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Teorema</strong>: <em>subtitulo del teorema</em></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+|u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
+&amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
+&amp;=&amp; e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
+&amp;\sim &amp; \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
+<p class="sd-card-text">Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>.
+Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que
+$<span class="math notranslate nohighlight">\(
+a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
+\)</span><span class="math notranslate nohighlight">\(
+Por su parte, de los números \)</span>b_1, b_2<span class="math notranslate nohighlight">\( sólo la diferencia
+\)</span><span class="math notranslate nohighlight">\(
+\varphi = b_1-b_2
+\)</span><span class="math notranslate nohighlight">\(
+es relevante para especificar \)</span>\ket{u}$.</p>
+</div>
+</details></div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Definición</strong>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El cúbit <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i> más general</i> se puede representar, en la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+|u\rangle = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\phi}\sin{\frac{\theta}{2}}\,|1\rangle 
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}
+\ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
+&amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
+&amp;=&amp; e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
+&amp;\sim &amp; \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
+<p class="sd-card-text">Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>.
+Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que
+$<span class="math notranslate nohighlight">\(
+a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
+\)</span><span class="math notranslate nohighlight">\(
+Por su parte, de los números \)</span>b_1, b_2<span class="math notranslate nohighlight">\( sólo la diferencia
+\)</span><span class="math notranslate nohighlight">\(
+\varphi = b_1-b_2
+\)</span><span class="math notranslate nohighlight">\(
+es relevante para especificar \)</span>\ket{u}$.</p>
+</div>
+</details></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>el ángulo disminuye con el tamaño <span class="math notranslate nohighlight">\(N\)</span> de la base de datos. Este ángulo es la amplitud de probabilidad de encontrar la solución <span class="math notranslate nohighlight">\(w\)</span> después de una medida de <span class="math notranslate nohighlight">\(\ket{s}\)</span>.</p></li>
+<li><p>Para <span class="math notranslate nohighlight">\(N\to \infty\)</span> tenemos que <span class="math notranslate nohighlight">\(\theta \sim 1/\sqrt{N}\)</span></p></li>
+</ul>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Subtitulo de la nota)</p>
+<ul class="simple">
+<li><p>el ángulo disminuye con el tamaño <span class="math notranslate nohighlight">\(N\)</span> de la base de datos. Este ángulo es la amplitud de probabilidad de encontrar la solución <span class="math notranslate nohighlight">\(w\)</span> después de una medida de <span class="math notranslate nohighlight">\(\ket{s}\)</span>.</p></li>
+<li><p>Para <span class="math notranslate nohighlight">\(N\to \infty\)</span> tenemos que <span class="math notranslate nohighlight">\(\theta \sim 1/\sqrt{N}\)</span></p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Prueba esta igualdad</p>
+</div>
+<p>Mas texto</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>prueba esta igualdad</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Solución<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para las componentes complejas</p>
+<p class="sd-card-text">TEXTO</p>
+</div>
+</details></div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Lema</strong>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> un vector <i>preparable</i> en la forma  <span class="math notranslate nohighlight">\(\ket{\psi} = V\ket{0}\)</span>. El reflector paralelo a <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[
+R_\psi = I - 2\ket{\psi}\bra{\psi} = V \left( I - 2\ket{0}\bra{0}\rule{0mm}{6mm} \right) V^\dagger = V R_0 V^\dagger
+\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">gates</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hamiltonians</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Qiskit</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">qc1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc1</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;iqp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Qibo</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/9c53e9dfb047ba0aef97b5d664cdef46b4c2e93c8eb07ef2c12bc5b432253816.png" src="../../_images/9c53e9dfb047ba0aef97b5d664cdef46b4c2e93c8eb07ef2c12bc5b432253816.png" />
+</div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+Qiskit</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+
+<span class="n">qc1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc1</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;iqp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+Qibo</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">gates</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hamiltonians</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/db7d721cc867838ea6e38d753bde3dcd47c51f6f9947c397dcfdd8a63d335bba.png" src="../../_images/db7d721cc867838ea6e38d753bde3dcd47c51f6f9947c397dcfdd8a63d335bba.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola mundo
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-center" id="fig-ref-1">
+<a class="reference internal image-reference" href="../../_images/Grover1.png"><img alt="../../_images/Grover1.png" src="../../_images/Grover1.png" style="width: 1000px;" /></a>
+</figure>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+Qiskit</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qc2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;iqp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+Qibo</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" src="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" />
+</div>
+</div>
+<p>La estrategia se basa en iterar una serie de operaciones que amplifiquen la amplitud de obtener el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span>.</p>
+<p>Geométricamente, cada <em>iteración de Grover</em> es una composición de dos <span class="xref myst"><em>reflectores</em></span> <span class="math notranslate nohighlight">\(~
+\fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
+~\)</span>, donde</p>
+<p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
+<ul class="simple">
+<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
+\]</div>
+<figure class="align-center" id="fig-ref-3">
+<a class="reference internal image-reference" href="../../_images/Grover1.png"><img alt="../../_images/Grover1.png" src="../../_images/Grover1.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Pie de foto de la figura</span><a class="headerlink" href="#fig-ref-3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La estrategia se basa en iterar una serie de operaciones que amplifiquen la amplitud de obtener el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span>.</p>
+<p>Geométricamente, cada <em>iteración de Grover</em> es una composición de dos <span class="xref myst"><em>reflectores</em></span> <span class="math notranslate nohighlight">\(~
+\fbox{\)</span>G = R_{s_\perp} R_w<span class="math notranslate nohighlight">\(}
+~\)</span>, donde</p>
+<p><span class="math notranslate nohighlight">\(\boxed{G = R_{s_\perp} R_w}\)</span></p>
+<ul class="simple">
+<li><p><strong>el marcador</strong>, <span class="math notranslate nohighlight">\(R_w\)</span>, produce una reflexión en la dirección <em>paralela</em> a  <span class="math notranslate nohighlight">\(\ket{w}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+R_w\ket{s} ~=~ \left( I - 2\ket{w}\bra{w}\rule{0mm}{8mm}\right)\ket{s} ~ = ~ -\frac{1}{\sqrt{N}} \ket{w} + \sqrt{\frac{N-1}{N}} \ket{s^\prime}
+\]</div>
+</section>
+<section id="amplificacion-de-amplitud">
+<h2><a class="toc-backref" href="#id8">Amplificación de amplitud</a><a class="headerlink" href="#amplificacion-de-amplitud" title="Permalink to this heading">#</a></h2>
+<figure class="align-center" id="fig-ref-2">
+<a class="reference internal image-reference" href="../../_images/Grover2.png"><img alt="../../_images/Grover2.png" src="../../_images/Grover2.png" style="width: 500px;" /></a>
+</figure>
+<p>Referenciamos la <a class="reference internal" href="#fig-ref-1"><span class="std std-ref">figura</span></a> en medio de una línea</p>
+<p>Referenciamos la otra <a class="reference internal" href="#fig-ref-2"><span class="std std-ref">figura</span></a> en medio de una línea</p>
+<p>Ponemos dos referencias a figuras en la misma línea: esta <a class="reference internal" href="#fig-ref-1"><span class="std std-ref">figura</span></a> y esta <a class="reference internal" href="#fig-ref-2"><span class="std std-ref">figura</span></a>. Añadimos incluso una tercera referencia a una <a class="reference internal" href="#fig-ref-3"><span class="std std-ref">tercera figura</span></a>. Referenciamos a la <a class="reference internal" href="#sec-seccion-1"><span class="std std-ref">Sección 1</span></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p><span class="math notranslate nohighlight">\(\bullet\)</span>
+El marcador es la parte del algoritmo que <i>conoce</i> la solución.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Podemos formalizar el &lt;i&gt;marcador&lt;/i&gt; como la &lt;i&gt;consulta al oráculo&lt;/i&gt; $O_f$ asociado a una función que  &lt;i&gt;reconoce&lt;/i&gt; la solución cuando la ve
+</pre></div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1835c373-e8df-474b-8390-ad0c3c83bd53">
+<span class="eqno">(45)<a class="headerlink" href="#equation-1835c373-e8df-474b-8390-ad0c3c83bd53" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f_w(x) = \left\{ \begin{array}{lcc}
+             1 &amp;   \hbox{si}  &amp; x = w \\
+              0 &amp;  \hbox{si} &amp; x \neq w \end{array}
+   \right..
+\end{equation}\]</div>
+<p><span class="math notranslate nohighlight">\(\bullet\)</span>  Al igual que cuando buscas una aguja en un pajar, saber cómo es una aguja no te ayuda a encontrarla,  si te encuentras con ella, reconocerla es una operacion de coste unidad.</p>
+<p><span class="math notranslate nohighlight">\(\bullet\)</span> La implementación de esta función es trivial porque sólo contiene un <i>min-term</i> <span class="math notranslate nohighlight">\(f_w(x=w)=1\)</span>. Podemos
+implementar esta función como un <i>oráculo de fase</i>, preparando la ancilla en el estado <span class="math notranslate nohighlight">\(\ket{-}\)</span>
+$<span class="math notranslate nohighlight">\(
+O_f \ket{x}\ket{-} = (-1)^{f_w(x)}\ket{x}\ket{-} ~= ~ \left\{ \begin{array}{lcc}
+             -\ket{x}\ket{-} &amp;   \hbox{si}  &amp; x = w \\ \rule{0mm}{6mm}
+              \, ~~\ket{x}\ket{-} &amp;  \hbox{si} &amp; x \neq w \end{array}
+   \right..
+\)</span>$</p>
+<p>En resumen cada reflexión <span class="math notranslate nohighlight">\(U_w\)</span> es equivalente a una consulta al oráculo.</p>
+</b>
+</div>
+<ul class="simple">
+<li><p>este hecho no depende de cómo sea <span class="math notranslate nohighlight">\(\ket{s}\)</span>, por tanto: es cierto <em>para cada iteración</em> <span class="math notranslate nohighlight">\(G\)</span> de Grover.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">La demostración consiste en relacionar los vectores resultantes de aplicar el operador de Grover <span class="math notranslate nohighlight">\(k\)</span>  y <span class="math notranslate nohighlight">\(k-1\)</span> veces
+En general tendremos que</p>
+<div class="math notranslate nohighlight">
+\[
+G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
+\]</div>
+<p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bf8dc3e6-a936-41f3-9244-8a57fe7c3854">
+<span class="eqno">(46)<a class="headerlink" href="#equation-bf8dc3e6-a936-41f3-9244-8a57fe7c3854" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
+&amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
+&amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
+&amp;=&amp; \left(a_{k-1}\ket{w} - b_{k-1}\ket{s^\prime}\right) + 2\ket{s} \left(-a_{k-1}\braket{s}{w}+b_{k-1}\braket{s}{s^\prime}\right) \\
+&amp;=&amp; a_{k-1}\ket{w} - b_{k-1}\ket{s^\prime} + 2\left(\frac{1}{\sqrt{N}}\ket{w} + \sqrt{\frac{N-1}{N}}\ket{s^\prime}\right) \left(-a_{k-1}\frac{1}{\sqrt{N}}+b_{k-1}\sqrt{\frac{N-1}{N}}\right) \\
+&amp;=&amp;\left(a_{k-1} - \frac{2}{N} a_{k-1} + 2\frac{\sqrt{N-1}}{N}\right)\ket{w} + \left(b_{k-1} - 2\frac{\sqrt{N-1}}{N}a_{k-1} + 2\frac{N-1}{N}b_{k-1}\right)\ket{s^\prime}.
+\end{eqnarray}\]</div>
+<p class="sd-card-text">Agrupando términos, esta ecuación se puede escribir en forma matricial como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+a_k\\
+b_k
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{N-2}{N} &amp; 2\frac{\sqrt{N-1}}{N}\\
+-2\frac{\sqrt{N-1}}{N} &amp; \frac{N-2}{N}
+\end{bmatrix}
+\begin{bmatrix}
+a_{k-1}\\
+b_{k-1}
+\end{bmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Es sencillo ver que esta matriz tiene determinante unidad, es decir, ha de ser una matriz de rotación</p>
+<div class="math notranslate nohighlight">
+\[\text{det}(G)=\frac{\left(N-2\right)^2}{N^2} + 4\frac{N-1}{N^2} = \frac{N^2 - 4N + 4}{N^2} + \frac{4N-4}{N^2} = 1\]</div>
+<p class="sd-card-text">Recordando</p>
+<div class="math notranslate nohighlight">
+\[\sin{\theta} = \frac{1}{\sqrt{N}}~~~\Rightarrow ~~~\cos{\theta} = \sqrt{\frac{N-1}{N}} \]</div>
+<div class="math notranslate nohighlight">
+\[\cos^2{\theta} - \sin^2{\theta} = \frac{N-2}{N} = \cos{2\theta}\]</div>
+<div class="math notranslate nohighlight">
+\[2\sin{\theta}\cos{\theta} =2\frac{\sqrt{N-2}}{N}= \sin{2\theta}\]</div>
+<p class="sd-card-text">se llega a</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}G=\begin{bmatrix}
+\cos{2\theta} &amp; \sin{2\theta}\\
+-\sin{2\theta} &amp; \cos{2\theta}
+\end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text">Esta es una matriz de rotación que gira un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span> en sentido antihorario. Es elementar comprobar que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+G^2  = \begin{bmatrix}
+\cos{4\theta} &amp; \sin{4\theta}\\
+-\sin{4\theta} &amp; \cos{4\theta} 
+\end{bmatrix}
+\hspace{1cm}... \hspace{1cm}
+G^k = \begin{bmatrix}
+\cos{2k\theta} &amp; \sin{2k\theta}\\
+-\sin{2k\theta} &amp; \cos{2k\theta}
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">La demostración consiste en relacionar los vectores resultantes de aplicar el operador de Grover <span class="math notranslate nohighlight">\(k\)</span>  y <span class="math notranslate nohighlight">\(k-1\)</span> veces
+En general tendremos que</p>
+<div class="math notranslate nohighlight">
+\[
+G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
+\]</div>
+<p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6c2b99cc-3abb-4782-abe7-2a3ad97c99ff">
+<span class="eqno">(47)<a class="headerlink" href="#equation-6c2b99cc-3abb-4782-abe7-2a3ad97c99ff" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
+&amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
+&amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
+&amp;=&amp; \left(a_{k-1}\ket{w} - b_{k-1}\ket{s^\prime}\right) + 2\ket{s} \left(-a_{k-1}\braket{s}{w}+b_{k-1}\braket{s}{s^\prime}\right) \\
+&amp;=&amp; a_{k-1}\ket{w} - b_{k-1}\ket{s^\prime} + 2\left(\frac{1}{\sqrt{N}}\ket{w} + \sqrt{\frac{N-1}{N}}\ket{s^\prime}\right) \left(-a_{k-1}\frac{1}{\sqrt{N}}+b_{k-1}\sqrt{\frac{N-1}{N}}\right) \\
+&amp;=&amp;\left(a_{k-1} - \frac{2}{N} a_{k-1} + 2\frac{\sqrt{N-1}}{N}\right)\ket{w} + \left(b_{k-1} - 2\frac{\sqrt{N-1}}{N}a_{k-1} + 2\frac{N-1}{N}b_{k-1}\right)\ket{s^\prime}.
+\end{eqnarray}\]</div>
+<p class="sd-card-text">Agrupando términos, esta ecuación se puede escribir en forma matricial como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+a_k\\
+b_k
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{N-2}{N} &amp; 2\frac{\sqrt{N-1}}{N}\\
+-2\frac{\sqrt{N-1}}{N} &amp; \frac{N-2}{N}
+\end{bmatrix}
+\begin{bmatrix}
+a_{k-1}\\
+b_{k-1}
+\end{bmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Es sencillo ver que esta matriz tiene determinante unidad, es decir, ha de ser una matriz de rotación</p>
+<div class="math notranslate nohighlight">
+\[\text{det}(G)=\frac{\left(N-2\right)^2}{N^2} + 4\frac{N-1}{N^2} = \frac{N^2 - 4N + 4}{N^2} + \frac{4N-4}{N^2} = 1\]</div>
+<p class="sd-card-text">Recordando</p>
+<div class="math notranslate nohighlight">
+\[\sin{\theta} = \frac{1}{\sqrt{N}}~~~\Rightarrow ~~~\cos{\theta} = \sqrt{\frac{N-1}{N}} \]</div>
+<div class="math notranslate nohighlight">
+\[\cos^2{\theta} - \sin^2{\theta} = \frac{N-2}{N} = \cos{2\theta}\]</div>
+<div class="math notranslate nohighlight">
+\[2\sin{\theta}\cos{\theta} =2\frac{\sqrt{N-2}}{N}= \sin{2\theta}\]</div>
+<p class="sd-card-text">se llega a</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}G=\begin{bmatrix}
+\cos{2\theta} &amp; \sin{2\theta}\\
+-\sin{2\theta} &amp; \cos{2\theta}
+\end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text">Esta es una matriz de rotación que gira un ángulo <span class="math notranslate nohighlight">\(2\theta\)</span> en sentido antihorario. Es elementar comprobar que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+G^2  = \begin{bmatrix}
+\cos{4\theta} &amp; \sin{4\theta}\\
+-\sin{4\theta} &amp; \cos{4\theta} 
+\end{bmatrix}
+\hspace{1cm}... \hspace{1cm}
+G^k = \begin{bmatrix}
+\cos{2k\theta} &amp; \sin{2k\theta}\\
+-\sin{2k\theta} &amp; \cos{2k\theta}
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><p>mas texto</p>
+</section>
+<section id="cuadro-mal-escrito">
+<h2><a class="toc-backref" href="#id9">Cuadro mal escrito !!!</a><a class="headerlink" href="#cuadro-mal-escrito" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Lema</strong>:</p>
+<p style="text-align: center;"> <p style="text-align: left ;color: navy;">  
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El siguiente circuito  implementa la acción del  <i>reflector</i> <span class="math notranslate nohighlight">\(R_0\)</span> paralelo al estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[~~R_0 ~=~ I- 2\ket{0}\bra{0} ~=~ \sum_{x\neq 0}\ket{x}\bra{x}-\ket{0}\bra{0}\]</div>
+<center> 
+<img src="./figuras/Reflection0.png" width='20%' style='margin:automatic'/>
+</center>
+<p class="sd-card-text">donde la cadena <span class="math notranslate nohighlight">\(XZX\)</span> puede situarse en cualquier cúbit, no necesariamente el último.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">ZGate</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+
+<span class="k">def</span> <span class="nf">R0</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    
+            
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">)</span> 
+    <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ZGate</span><span class="p">()</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ctrl_state</span><span class="o">=</span> <span class="mi">0</span><span class="p">),</span><span class="n">qr</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">qcR0</span> <span class="o">=</span>  <span class="n">qc</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span>
+    <span class="n">qcR0</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;R0&#39;</span>
+    <span class="k">return</span> <span class="n">qcR0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Notar</p>
+<p>¡no sabemos implementar  <span class="math notranslate nohighlight">\(-R_s\)</span>! <span class="math notranslate nohighlight">\(~\)</span>, sólo <span class="math notranslate nohighlight">\(R_s\)</span>. De modo que lo más cercano a la iteración de Grover que podemos conseguir es
+<span class="math notranslate nohighlight">\(
+\Rightarrow  R_s R_w = - G 
+\)</span></p>
+<p>El signo menos, en apariencia es una fase global y no debería afectar a las probabilidades finales que son sus módulos al cuadrado.</p>
+<p>De modo que, de momento, lo vamos a ignorar, pero mantenemos una nota de atención sobre este hecho.</p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-6">
+Qiskit</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qc2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;iqp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-7">
+Qibo</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">callbacks</span><span class="p">,</span> <span class="n">gates</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">hamiltonians</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Circuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gates</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" src="../../_images/70f631ccb2be38f1a77ba436cb0870b93fdbb1d7bdebb40ac540eaf0d5176cad.png" />
+</div>
+</div>
+<p>Referenciamos a la bibliografía <span id="id1">[<a class="reference internal" href="#id4" title="Stephane Beauregard. Circuit for shor's algorithm using 2n+3 qubits. 2003. arXiv:quant-ph/0205095.">1</a>]</span> y <span id="id2">[<a class="reference internal" href="#id5" title="Qiskit. Quantum fourier transform (textbook qiskit). URL: https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb.">2</a>]</span></p>
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Stephane Beauregard. Circuit for shor's algorithm using 2n+3 qubits. 2003. <a class="reference external" href="https://arxiv.org/abs/quant-ph/0205095">arXiv:quant-ph/0205095</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Qiskit. Quantum fourier transform (textbook qiskit). URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb">Qiskit/textbook</a>.</p>
+</dd>
+</dl>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qiskit.tools.jupyter</span>
+<span class="o">%</span><span class="k">qiskit_version_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h3>Version Information</h3><table><tr><th>Software</th><th>Version</th></tr><tr><td><code>qiskit</code></td><td>0.45.2</td></tr><tr><th colspan='2'>System information</th></tr><tr><td>Python version</td><td>3.11.7</td></tr><tr><td>Python compiler</td><td>GCC 11.2.0</td></tr><tr><td>Python build</td><td>main, Dec 15 2023 18:12:31</td></tr><tr><td>OS</td><td>Linux</td></tr><tr><td>CPUs</td><td>12</td></tr><tr><td>Memory (Gb)</td><td>62.610992431640625</td></tr><tr><td colspan='2'>Fri Feb 02 15:48:18 2024 CET</td></tr></table></div></div>
+</div>
+<p>This work has been financially supported by the Ministry of Economic Affairs and Digital Transformation of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2025 Agenda.</p>
+<center>
+<div style="text-align:center">
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2022/11/LOGOS-GOB_QS.png" width="1000px" />
+</div>
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/pruebas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../00_Formalismo/02_Fundamentos_MC.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Elementos de Mecánica Cuántica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../QML/1_Introduction_lab.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">QML (Quantum Machine Learning)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seccion-1">Sección 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otra-seccion">Otra sección</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud">Amplificación de amplitud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cuadro-mal-escrito">Cuadro mal escrito !!!</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

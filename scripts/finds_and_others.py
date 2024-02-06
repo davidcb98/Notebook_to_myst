@@ -7,6 +7,17 @@ import sys
 import re
 
 
+def my_replace(f_data, i_line, new_text):
+
+    #print("------> ", new_text)
+
+    # Encontrar la posición de la primera comilla doble
+    index_firts_quote = f_data[i_line].find('"')
+
+    # Realizar la sustitución
+    f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text 
+        #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):] 
+    
 
 def remove_capital_accents(string):
     # Normalizar y eliminar acentos
@@ -18,11 +29,15 @@ def remove_capital_accents(string):
     return final_string
 
 
+def grep_file_index(grep_command):
+    
+    out_grep_command = bash(grep_command, shell=True).decode("utf-8")
 
-
-
-
-
+    index_list = []
+    for line in out_grep_command.splitlines():
+        index_list.append(int(line)-1)
+    
+    return index_list
 
 
 def find_div_boxes(f_data, i_start_list):
@@ -287,7 +302,7 @@ def find_figures(f_data, i_start_list):
 def find_cell(f_data, i_pattern):
 
     i_start_cell    = i_pattern
-    i_end_cell      = i_pattern
+    i_end_content      = i_pattern
     i_start_content = 0
 
     found = False
@@ -305,21 +320,21 @@ def find_cell(f_data, i_pattern):
 
     found = False
     while not found:
-        if f_data[i_end_cell] == '   "source": [\n' and i_start_content == 0:
-            i_start_content = i_end_cell + 1
+        if f_data[i_end_content] == '   "source": [\n' and i_start_content == 0:
+            i_start_content = i_end_content + 1
         
-        elif f_data[i_end_cell] == '   ]\n':
+        elif f_data[i_end_content] == '   ]\n':
             found = True
         
-        i_end_cell += 1
-    i_end_cell -= 2
+        i_end_content += 1
+    i_end_content -= 2
 
     content = []
-    for i in range(i_start_content, i_end_cell+1):
+    for i in range(i_start_content, i_end_content+1):
         content.append(f_data[i])
 
     full_cell = []
-    for i in range(i_start_cell,i_end_cell+3):
+    for i in range(i_start_cell,i_end_content+3):
         full_cell.append(f_data[i])
 
-    return i_start_cell, i_start_content, i_end_cell, content, full_cell
+    return i_start_cell, i_start_content, i_end_content, content, full_cell

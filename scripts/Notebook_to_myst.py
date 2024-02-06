@@ -6,27 +6,21 @@ import sys
 import re
 import numpy as np
 
-from find_functions import find_div_boxes
-from find_functions import find_figures
-from find_functions import find_cell
+from finds_and_others import grep_file_index
+from finds_and_others import my_replace
 
-from build_functions import my_replace
+from finds_and_others import find_div_boxes
+from finds_and_others import find_figures
+from finds_and_others import find_cell
+
 from build_functions import build_admonition_box
 from build_functions import build_card_box
 from build_functions import build_figure
 from build_functions import build_tabset
 from build_functions import create_mask
 from build_functions import number_cells
-
-def grep_file_index(grep_command):
-    
-    out_grep_command = bash(grep_command, shell=True).decode("utf-8")
-
-    index_list = []
-    for line in out_grep_command.splitlines():
-        index_list.append(int(line)-1)
-    
-    return index_list
+from build_functions import delete_cell
+from build_functions import bluid_references
 
 
 
@@ -104,31 +98,13 @@ my_replace(f_data, i_first_line[0], 'source": [\n'+
 
 
 ################################################################################
-## Indice
-
-command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
-i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
-
-if len(i_ToC_pattern) == 1:
-    i_start_ToC_cell, i_ToC_start, i_ToC_end, _, _ = find_cell(f_data, i_ToC_pattern[0])
-
-    my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
-                                        '    ":local:\\n",\n'
-                                        '    ":depth: 1\\n",\n'
-                                        '    ":::\\n",\n')
-    for i in range(i_ToC_start+1, i_ToC_end):
-        my_replace(f_data, i, '",\n')
-    my_replace(f_data, i_ToC_end, '"\n')
-
-
-################################################################################
 ## Inicio de todas las celdas
 
 command_i_start_all_cells = 'grep -n "   \\"cell_type\\":" '+ file_name + ' |  cut -d":" -f1 '
 i_start_all_cells = grep_file_index(command_i_start_all_cells)
 
 ################################################################################
-## Buscamos las celdas de código con el tag
+## Buscamos las celdas de código con nuestro patron _code_cell'''
 pattern_code = '_code_cell\'\'\''
 command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
 i_pattern_code_list = grep_file_index(command_i_pattern_code)
@@ -146,7 +122,7 @@ masks_list = create_mask(f_data, num_cells_pattern_code, i_pattern_code_list)
 for mask in masks_list:
     i_start_cell_list    = []
     i_start_content_list = []
-    i_end_cell_list      = []
+    i_end_content_list      = []
     
     name_code_list  = []
     content_list    = []
@@ -154,7 +130,7 @@ for mask in masks_list:
 
     k = 0
     for i_pattern_code in np.array(i_pattern_code_list)[mask]:
-        i_start_cell, i_start_content, i_end_cell, content, full_cell = find_cell(f_data, i_pattern_code)
+        i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_code)
 
         name_code = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_code]).group(1).split('_')[0]
         
@@ -167,18 +143,16 @@ for mask in masks_list:
             
             # Si una de las celdas del bloque es la última, hay que quitar una coma
             if np.array(i_pattern_code_list)[mask][-1] > i_start_all_cells[-1]:  
-                f_data[i_end_cell+2] = '  }\n'
+                f_data[i_end_content+2] = '  }\n'
         else:
-            for i in range(i_start_cell,i_end_cell+3):
-                f_data[i] = ''
-            
-            #Si es la última celda, hay que quitar la coma de la úlitma linea
-        
+            delete_cell(f_data, i_start_cell, i_end_content)
+            #for i in range(i_start_cell,i_end_content+3):
+            #    f_data[i] = ''      
 
 
         i_start_cell_list.append(i_start_cell)
         i_start_content_list.append(i_start_content)
-        i_end_cell_list.append(i_end_cell)
+        i_end_content_list.append(i_end_content)
         name_code_list.append(name_code)
         content_list.append(content)
 
@@ -186,10 +160,81 @@ for mask in masks_list:
     
     build_tabset(f_data, i_start_cell_list[0], name_code_list ,content_list)
 
+
+
+
+
+################################################################################
+## Arreglamos las referencias a las figuras
+##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
+
+bluid_references(f_data, 'fig_', file_name, '{ref}')
+
+
+################################################################################
+## Arreglamos las referencias bibliograficas
+##   [[...]](#bib_...)  --->  {cite}`bib_...` o {numref}`sec_...`
+
+bluid_references(f_data, 'bib_', file_name, '{cite}')
+
+################################################################################
+## Arreglamos las referencias a secciones
+##    [...](path#sec_...) ---> {ref}`sec_...` o {numref}`sec_...`
+    
+bluid_references(f_data, 'sec_', file_name, '{ref}')
+
+################################################################################
+## Arreglamos las label de las secciones
+##  <d id='sec_...'></a>  ---> (sec_...)=
+
+command_i_pattern_a_sec = 'grep -n "<a id="  '+ file_name + ' | grep "sec_" |  cut -d":" -f1 '
+i_pattern_a_sec_list = grep_file_index(command_i_pattern_a_sec)
+
+for i_pattern_a_sec in i_pattern_a_sec_list:
+    f_data[i_pattern_a_sec] = '    "('+f_data[i_pattern_a_sec].split('\'')[1]+')= \\n",\n'
+
+
+
+################################################################################
+## Indice
+
+command_i_ToC_pattern = 'grep -n "## Índice" '+ file_name + ' |  cut -d":" -f1 | head -n 1'
+i_ToC_pattern = grep_file_index(command_i_ToC_pattern)
+
+if len(i_ToC_pattern) == 1:
+    i_start_ToC_cell, i_ToC_start, i_ToC_end, _, _ = find_cell(f_data, i_ToC_pattern[0])
+
+    my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
+                                        '    ":local:\\n",\n'
+                                        '    ":depth: 1\\n",\n'
+                                        '    ":::\\n",\n')
+    for i in range(i_ToC_start+1, i_ToC_end):
+        my_replace(f_data, i, '",\n')
+    my_replace(f_data, i_ToC_end, '"\n')
+
+
+
+################################################################################
+## Bibliografia
+
+pattern_ref_bib = '## Bibliograf'
+command_i_pattern_ref_bib = 'grep -n "'+pattern_ref_bib+'" '+ file_name + ' |  cut -d":" -f1 '
+i_pattern_ref_bib = grep_file_index(command_i_pattern_ref_bib)[0]
+
+i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_ref_bib)
+
+for i in range(i_start_content, i_end_content):
+    f_data[i] ='    "",\n'
+f_data[i_end_content] ='    ""\n'
+
+f_data[i_start_content] = '    "```{bibliography} \\n",\n' + \
+             '    ":style: plain\\n",\n' + \
+             '    "```",\n'
+
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
 
-out_file = file_name[:-6]+'_lab.ipynb'
+out_file = file_name[:-6]+'_myst.ipynb'
 
 with open(out_file, 'w') as f_out:
     for k in range(len(f_data)):

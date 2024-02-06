@@ -105,7 +105,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Algoritmo de Grover" href="../pruebas/214_Grover_lab.html" />
+    <link rel="next" title="Algoritmo de Grover" href="../pruebas/214_Grover_myst.html" />
     <link rel="prev" title="Fundamentos de Mecánica Cuántica" href="02_Fundamentos_MC_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Elementos de Mecánica Cuántica</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_lab.html">Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_myst.html">Algoritmo de Grover</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
 
@@ -677,8 +677,8 @@ p(\lambda_k)~ = ~|\braket{\lambda_k}{\psi}|^2
 <ul class="simple">
 <li><p>Cuando <span class="math notranslate nohighlight">\(\lambda_k\)</span> tiene degeneración <span class="math notranslate nohighlight">\(d_k\)</span>, la fórmula para <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> debe generalizarse:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-34d47b09-e467-40c2-94ac-61355cd3ed14">
-<span class="eqno">(38)<a class="headerlink" href="#equation-34d47b09-e467-40c2-94ac-61355cd3ed14" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-3df21722-60c9-4873-b0f2-5df1d46c96c1">
+<span class="eqno">(38)<a class="headerlink" href="#equation-3df21722-60c9-4873-b0f2-5df1d46c96c1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k)~ &amp;=&amp; ~ \sum_{a=1}^{d_k}|\braket{\lambda^a_k}{\psi}|^2 = \bra{\psi}\left(
  \sum_{a=1}^{d_k}\ketbra{\lambda^a_k}{\lambda^a_k}\right) \ket{\psi}\nonumber\\
 &amp;=&amp;  \bra{\psi}P_k\ket{\psi} \rule{0mm}{7mm}\\
@@ -761,8 +761,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <p>Rescribamos <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> en el caso de que sea <span class="math notranslate nohighlight">\(\lambda_k\)</span> sea un autovalor <span class="math notranslate nohighlight">\(d_k\)</span> veces degenerado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ff430fa-68ab-4e2a-988d-bc4d160f3964">
-<span class="eqno">(39)<a class="headerlink" href="#equation-1ff430fa-68ab-4e2a-988d-bc4d160f3964" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d20da43c-8697-4afb-9bb2-50c7980dd60c">
+<span class="eqno">(39)<a class="headerlink" href="#equation-d20da43c-8697-4afb-9bb2-50c7980dd60c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k) &amp;=&amp; \sum_{a=1}^{d_k} |\braket{\lambda^a_k}{\psi}|^2  = 
 \sum_{a=1}^{d_k} \braket{\psi}{\lambda^a_k}\braket{\lambda^a_k}{\psi} \nonumber\\
 &amp;=&amp;\bra{\psi} \left( \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}  \right) = \bra{\psi}P_k \ket{\psi} 
@@ -773,8 +773,8 @@ P_k = \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}
 \)</span>$
 es el proyector sobre el subespacio propio.</p>
 <p>Ahora podemos introducir este resultado en la expresión para el valor esperado de <span class="math notranslate nohighlight">\(A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-dcaeaa5f-982e-48cf-bd13-4bf153fa0212">
-<span class="eqno">(40)<a class="headerlink" href="#equation-dcaeaa5f-982e-48cf-bd13-4bf153fa0212" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-ba28c471-e30e-465f-b145-2c700da60517">
+<span class="eqno">(40)<a class="headerlink" href="#equation-ba28c471-e30e-465f-b145-2c700da60517" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle A\rangle_\psi &amp;= &amp;  \sum_k \lambda_k p(\lambda_k)
    =  \sum_k \lambda_k \bra{\psi}P_k\ket{\psi}  
 &amp;=&amp; \bra{\psi}\left(\sum_k \lambda_k P_k  \right) \ket{\psi} 
@@ -814,8 +814,8 @@ Demuestra que el valor esperado de un observable <span class="math notranslate n
 <p>La <em>varianza</em>  es la media de la desviación cuadrática de la variable aleatoria <span class="math notranslate nohighlight">\((\lambda,p(\lambda))\)</span> es decir
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c453102-187b-4a60-9acf-36e3b098aaaf">
-<span class="eqno">(41)<a class="headerlink" href="#equation-9c453102-187b-4a60-9acf-36e3b098aaaf" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-67e56aec-7acf-41d6-9125-1150eb518242">
+<span class="eqno">(41)<a class="headerlink" href="#equation-67e56aec-7acf-41d6-9125-1150eb518242" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 ~~\sigma ^2 &amp;=&amp; \overline{(\lambda_i-\bar\lambda_i)^2} = \overline{ \lambda^2 - 2\lambda\bar\lambda +\bar\lambda^2}
 \\
 &amp;=&amp;  \overline{\lambda^2} - \overline{\lambda}^2 \rule{0mm}{8mm}
@@ -962,8 +962,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-50f8ca17-ee43-43dc-bf6f-6fe460aa516b">
-<span class="eqno">(42)<a class="headerlink" href="#equation-50f8ca17-ee43-43dc-bf6f-6fe460aa516b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-df33dea2-ca68-4453-93f8-013dfbf6b6d8">
+<span class="eqno">(42)<a class="headerlink" href="#equation-df33dea2-ca68-4453-93f8-013dfbf6b6d8" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\|\ket{\psi}\|^2 = \frac{d}{dt}\braket{\psi(t)}{\psi(t)} &amp;=&amp; \left(\rule{0mm}{3mm}\frac{d}{dt}\bra{\psi(t)}\right)\ket{\psi(t)} + 
 \bra{\psi(t)}\left(\frac{d}{dt}\ket{\psi(t)} \right)\nonumber\\
 &amp;=&amp; \left(\bra{\psi(t)}\frac{i}{\hbar}H^\dagger\right)\ket{\psi(t)} + \bra{\psi(t)}\left(-\frac{i}{\hbar}H\ket{\psi(t)} \right) \nonumber\\
@@ -1016,8 +1016,8 @@ Desmostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Tomando la derivada temporal de la ecuación <span class="math notranslate nohighlight">\(\ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}\)</span>, que define <span class="math notranslate nohighlight">\(U(t,t_0)\)</span>, tenemos para cada miembro</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a500246c-302e-446d-9cd2-4d5364016d0f">
-<span class="eqno">(43)<a class="headerlink" href="#equation-a500246c-302e-446d-9cd2-4d5364016d0f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-717775f9-f9ce-4390-884a-b2f913497dac">
+<span class="eqno">(43)<a class="headerlink" href="#equation-717775f9-f9ce-4390-884a-b2f913497dac" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp; -\frac{i}{\hbar}  H(t)\ket{\psi(t)} = -\frac{i}{\hbar} H(t)U(t,t_0)\ket{\psi(t_0)}  \nonumber\\
 \frac{d}{dt}U(t,t_0)\ket{\psi(t_0)} &amp;~=~&amp; \left(\frac{d}{dt}U(t,t_0)\right)\ket{\psi(t_0)}
 \end{eqnarray}\]</div>
@@ -1046,8 +1046,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Basta con demostrar que se satisface la ecuación de evolución y la condición de contorno</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6faae52-f472-4751-9022-e3922cb9981f">
-<span class="eqno">(44)<a class="headerlink" href="#equation-b6faae52-f472-4751-9022-e3922cb9981f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c32ae9ec-052a-4bbe-a2d4-e9149f9a6d54">
+<span class="eqno">(44)<a class="headerlink" href="#equation-c32ae9ec-052a-4bbe-a2d4-e9149f9a6d54" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}U(t,t_0) &amp;=&amp; \frac{d}{dt} \exp\left({-\frac{i}{\hbar} (t-t_0)H}\right)
     \nonumber\\ \rule{0mm}{6mm}
    &amp;=&amp; \frac{d}{dt}\left( I +(t-t_0)\left(-\frac{i}{\hbar} H\right) + \frac{1}{2!} 
@@ -1266,7 +1266,7 @@ U(t,0)\ket{n} = e^{-\frac{i}{\hbar} t E_n} \ket{n}\, .
       </div>
     </a>
     <a class="right-next"
-       href="../pruebas/214_Grover_lab.html"
+       href="../pruebas/214_Grover_myst.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
