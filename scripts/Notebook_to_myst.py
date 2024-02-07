@@ -89,13 +89,41 @@ for i in reversed(range(len(index_fig_list_list[0]))):
     build_figure(i, f_data, index_fig_list_list, datos_list_list)
 
 
-# Añadimos el tiempo de lectura en la primera linea:
+# Añadimos el tiempo de lectura y la fecha en la primera linea. 
+# Para ello, primero cogemos la fecha del texto, eliminando la línea
+command_i_date = 'grep -n "Notebook_Date" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
+i_date = grep_file_index(command_i_date)
+
 command_i_first_line = 'grep -n "\\"source\\": \\[" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
 i_first_line = grep_file_index(command_i_first_line)
-my_replace(f_data, i_first_line[0], 'source": [\n'+
-                                         '    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
-                                         '    "\\n",\n'    )
 
+
+from datetime import datetime
+
+if len(i_date) > 0 :
+    i_date = i_date[0]
+    try: 
+        Notebook_Date = f_data[i_date].split(':')[-1].split('\\n')[0].replace(" ","")
+        Date_raw = datetime.strptime(Notebook_Date, "%Y/%m/%d")
+        Date_formated = Date_raw.strftime("%b %d, %Y")
+
+        f_data[i_date] = '    "\\n",\n'
+
+        my_replace(f_data, i_first_line[0], 'source": [\n'+
+                                         #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                         '    "> ' + Date_formated + ' | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                         '    "\\n",\n'    )
+    except:
+
+        print(f"\033[91m======\033[0m") 
+        print(f"\033[91mFormato erroneo en la fecha. Debe de ser:\033[0m")
+        print(f"\033[91m<a id='Notebook_Date'></a> Created: yyyy/mm/dd\033[0m")
+        print(f"\033[91m======\033[0m") 
+else:
+    my_replace(f_data, i_first_line[0], 'source": [\n'+
+                                         #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                         '    "> {sub-ref}`today` | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                         '    "\\n",\n'    )
 
 ################################################################################
 ## Inicio de todas las celdas
