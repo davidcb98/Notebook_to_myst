@@ -780,8 +780,8 @@ W =  H^{\otimes n} = H\otimes H \ldots \otimes H
 <p>La  acción  de <span class="math notranslate nohighlight">\(W\)</span> sobre el estado de referencia <span class="math notranslate nohighlight">\(\ket{00...0}\)</span> produce una superposición uniforme de todos los estados de la base.
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a81197b-7835-4882-b355-7f74a1c7ee13">
-<span class="eqno">(48)<a class="headerlink" href="#equation-7a81197b-7835-4882-b355-7f74a1c7ee13" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9d213191-1da9-4261-91e3-6178812bc12d">
+<span class="eqno">(48)<a class="headerlink" href="#equation-9d213191-1da9-4261-91e3-6178812bc12d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 W \ket{00...0} &amp;~=~&amp; H\ket{0}\otimes H\ket{0} \otimes ... \otimes H\ket{0} \\  \rule{0mm}{12mm}
 &amp;=&amp; \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\otimes \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\otimes ...\otimes \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\\ \rule{0mm}{10mm}
 &amp;=&amp; \frac{1}{2^{n/2}}\big(\ket{00...00} + \ket{00...01}+....+\ket{11...11} \big)
@@ -792,14 +792,14 @@ W \ket{00...0} &amp;~=~&amp; H\ket{0}\otimes H\ket{0} \otimes ... \otimes H\ket{
 H\ket{x} = \sum_{y=0,1}(-1)^{xy}\ket{y}
 \]</div>
 <p>Entonces, operando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ac883f2-3aa7-4826-8341-ca79e2bd9f70">
-<span class="eqno">(49)<a class="headerlink" href="#equation-8ac883f2-3aa7-4826-8341-ca79e2bd9f70" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e6910d4b-826f-4fb5-8ba5-96e8ab442363">
+<span class="eqno">(49)<a class="headerlink" href="#equation-e6910d4b-826f-4fb5-8ba5-96e8ab442363" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 W \ket{x} &amp;=&amp; H\ket{x_{n-1}}\otimes H\ket{x_{n-2}}\otimes \ldots \otimes H\ket{x_0} \\  \rule{0mm}{12mm}
 \rule{0mm}{10mm}
 &amp;=&amp; \sum_{y_{n-1}= \, 0,1} (-1)^{y_{n-1}x_{n-1}}\ket{y_{n-1}}\otimes \sum_{y_{n-2}=0,1} (-1)^{y_{n-2}x_{n-2}}\ket{y_{n-2}} \otimes \ldots \otimes  \sum_{y_{0}\, =\, 0,1} (-1)^{y_{0}x_{0}}\ket{y_{0}} 
 \end{eqnarray}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-10b5a264-2e78-4a1f-a99f-f322bc90e8f6">
-<span class="eqno">(50)<a class="headerlink" href="#equation-10b5a264-2e78-4a1f-a99f-f322bc90e8f6" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e07c15b3-2d34-4e26-98ae-b40837724246">
+<span class="eqno">(50)<a class="headerlink" href="#equation-e07c15b3-2d34-4e26-98ae-b40837724246" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 &amp;=&amp; \sum_{y_{n-1} y_{n-2}\ldots y_{0}=\, 0,1} (-1)^{x_{n-1} y_{n-1}+ \ldots + x_0 y_0} \ket{y_{n-1}\ldots y_0} \hspace{5.2cm}\\
 &amp;=&amp; \sum_{y \, =\, 0}^{2^n-1}(-1)^{x\cdot y} \ket{y} \rule{0mm}{10mm}
 \end{eqnarray}\]</div>
@@ -853,8 +853,8 @@ U_{\rm SWAP} =  \begin{bmatrix}
 <li><p>entra <span class="math notranslate nohighlight">\(\ket{1}\)</span>, sale <span class="math notranslate nohighlight">\(\ket{1}\)</span> y en el segundo cúbit (controlado) se aplica el operador <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
 </ul>
 <p>La <em>representación matricial</em> de <span class="math notranslate nohighlight">\(\cg{U}\)</span> es fácil de obtener como suma de  <em>productos de Kronecker</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1c60df0-0704-41eb-8ea6-a177985278fd">
-<span class="eqno">(51)<a class="headerlink" href="#equation-f1c60df0-0704-41eb-8ea6-a177985278fd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8643bc62-b3f2-4e0f-b59b-a6a690fba089">
+<span class="eqno">(51)<a class="headerlink" href="#equation-8643bc62-b3f2-4e0f-b59b-a6a690fba089" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \cg{U} &amp;=&amp; \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 0 \end{bmatrix}\otimes  I +  \begin{bmatrix}0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \otimes U
 = \begin{bmatrix} 1\times I &amp; 0 \\ 0 &amp; 0 \end{bmatrix}  + 
 \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1\times U \end{bmatrix} \\
@@ -901,8 +901,8 @@ con $x,y = 0,1$.
 <p>En ese caso, el resultado de una acción controlada también conduce a una superposición, de forma tal que <strong>se genera entrelazamiento</strong></p>
 <p>Para verlo, hagamos actuar <span class="math notranslate nohighlight">\(\cg{U}\)</span> sobre un estado de la forma  <span class="math notranslate nohighlight">\(\ket{\phi} = (a\ket{0} + b\ket{1})\otimes \ket{U}\)</span>, que es <em>factorizable</em></p>
 <br>
-<div class="amsmath math notranslate nohighlight" id="equation-2f6ae93a-6889-4425-9231-f3c361b048c5">
-<span class="eqno">(52)<a class="headerlink" href="#equation-2f6ae93a-6889-4425-9231-f3c361b048c5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-99ab816d-6b7c-41ae-9cc1-a6c5e9417766">
+<span class="eqno">(52)<a class="headerlink" href="#equation-99ab816d-6b7c-41ae-9cc1-a6c5e9417766" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \cg{U}\,(a\ket{0} +b \ket{1})\otimes \ket{v} &amp;=&amp;
     \left(\ket{0}\bra{0}\otimes I + \ket{1}\bra{1}\otimes U\rule{0mm}{4mm}\right)(a\ket{0} +b \ket{1})\otimes \ket{v}  
   \\ \rule{0mm}{14mm}
@@ -1176,8 +1176,8 @@ U (\alpha\ket{\psi}+\beta\ket{\phi})\otimes \ket{0} =
 <br><p>Sin embargo, la linealidad de <span class="math notranslate nohighlight">\(U\)</span> nos permite seguir otro camino
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3016f9a4-31c8-42df-a264-21b8937fe75a">
-<span class="eqno">(53)<a class="headerlink" href="#equation-3016f9a4-31c8-42df-a264-21b8937fe75a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e763ef7f-86fa-409c-847e-f679fed1d6d3">
+<span class="eqno">(53)<a class="headerlink" href="#equation-e763ef7f-86fa-409c-847e-f679fed1d6d3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U(\alpha|\psi\rangle+\beta|\phi\rangle) \otimes|0\rangle &amp;=&amp; \alpha U|\psi\rangle \otimes|0\rangle+\beta U|\phi\rangle \otimes|0\rangle  \\ \rule{0mm}{12mm}
 &amp;=&amp;\alpha|\psi\rangle \otimes|\psi\rangle+\beta|\phi\rangle \otimes|\phi\rangle . \rule{0mm}{6mm}
 \end{eqnarray}\]</div>

@@ -77,6 +77,9 @@ for i in reversed(range(len(index_list_list[0]))):
 
     elif 'ejemplo' in title_lowercase:
         build_admonition_box(i, f_data, index_list_list, titles_list_list, Class = "tip")
+    
+    elif 'resumen' in title_lowercase:
+        build_admonition_box(i, f_data, index_list_list, titles_list_list, Class = "attention")
 
 
 ############################################################################
