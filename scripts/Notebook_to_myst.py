@@ -60,13 +60,19 @@ index_list_list, titles_list_list = find_div_boxes(f_data, i_start_alert_list)
 for i in reversed(range(len(index_list_list[0]))):
     title_lowercase = titles_list_list[2][i]        
 
-    if 'definicion' in title_lowercase:
+    if 'definicion' in title_lowercase or title_lowercase == '':
         build_card_box(i, f_data, index_list_list, titles_list_list)
 
     elif 'teorema' in title_lowercase:
         build_card_box(i, f_data, index_list_list, titles_list_list)
 
     elif 'lema' in title_lowercase:
+        build_card_box(i, f_data, index_list_list, titles_list_list)
+    
+    elif 'postulado' in title_lowercase:
+        build_card_box(i, f_data, index_list_list, titles_list_list)
+
+    elif 'axioma' in title_lowercase:
         build_card_box(i, f_data, index_list_list, titles_list_list)
 
     elif 'nota' in title_lowercase:
@@ -80,7 +86,14 @@ for i in reversed(range(len(index_list_list[0]))):
     
     elif 'resumen' in title_lowercase:
         build_admonition_box(i, f_data, index_list_list, titles_list_list, Class = "attention")
-
+    else:
+        print(f"\033[91m======\033[0m")
+        print(f"\033[91m    ",{f_data[index_list_list[0][i]]},"\033[0m")
+        print(f"\033[91m    ",{f_data[index_list_list[0][i]+1]}," \033[0m")
+        print(f"\033[91m    ",{f_data[index_list_list[0][i]+2]}," \033[0m")
+        print(f"\033[91m    ",{f_data[index_list_list[0][i]+3]}," \033[0m")
+        print(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \033[0m")
+        print(f"\033[91m======\033[0m")
 
 ############################################################################
 # Usando el número de linea donde empiezan las figuras, sacamos todas las lineas importantes          
@@ -140,56 +153,57 @@ pattern_code = '_code_cell\'\'\''
 command_i_pattern_code = 'grep -n "'+pattern_code+'" '+ file_name + ' |  cut -d":" -f1 '
 i_pattern_code_list = grep_file_index(command_i_pattern_code)
 
-# Vemos a que celdas corresponden 
-num_cells_pattern_code = number_cells(i_pattern_code_list, i_start_all_cells)
+if len(i_pattern_code_list) > 0: 
+    # Vemos a que celdas corresponden 
+    num_cells_pattern_code = number_cells(i_pattern_code_list, i_start_all_cells)
 
-# Sacamos unas mascaras que nos dan las celdas CONSECUTIVAS
-masks_list = create_mask(f_data, num_cells_pattern_code, i_pattern_code_list)
+    # Sacamos unas mascaras que nos dan las celdas CONSECUTIVAS
+    masks_list = create_mask(f_data, num_cells_pattern_code, i_pattern_code_list)
 
 
 
 
-# Usamos las mascaras y i_pattern_code_list para sacar los datos de las celdas
-for mask in masks_list:
-    i_start_cell_list    = []
-    i_start_content_list = []
-    i_end_content_list      = []
-    
-    name_code_list  = []
-    content_list    = []
-    full_cell_list  = []
-
-    k = 0
-    for i_pattern_code in np.array(i_pattern_code_list)[mask]:
-        i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_code)
-
-        name_code = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_code]).group(1).split('_')[0]
+    # Usamos las mascaras y i_pattern_code_list para sacar los datos de las celdas
+    for mask in masks_list:
+        i_start_cell_list    = []
+        i_start_content_list = []
+        i_end_content_list      = []
         
-        for i in range(len(content)):
-            if content[i] == f_data[i_pattern_code]:
-                content[i] ='    "",\n'
+        name_code_list  = []
+        content_list    = []
+        full_cell_list  = []
 
-        if k == 0:
-            f_data[i_start_content-2] = f_data[i_start_content-2] + '   "metadata": {\n    "tags": [\n     "remove_input"\n    ]\n   },\n'
+        k = 0
+        for i_pattern_code in np.array(i_pattern_code_list)[mask]:
+            i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_code)
+
+            name_code = re.search(r'\'\'\'(.*?)\'\'\'', f_data[i_pattern_code]).group(1).split('_')[0]
             
-            # Si una de las celdas del bloque es la última, hay que quitar una coma
-            if np.array(i_pattern_code_list)[mask][-1] > i_start_all_cells[-1]:  
-                f_data[i_end_content+2] = '  }\n'
-        else:
-            delete_cell(f_data, i_start_cell, i_end_content)
-            #for i in range(i_start_cell,i_end_content+3):
-            #    f_data[i] = ''      
+            for i in range(len(content)):
+                if content[i] == f_data[i_pattern_code]:
+                    content[i] ='    "",\n'
+
+            if k == 0:
+                f_data[i_start_content-2] = f_data[i_start_content-2] + '   "metadata": {\n    "tags": [\n     "remove_input"\n    ]\n   },\n'
+                
+                # Si una de las celdas del bloque es la última, hay que quitar una coma
+                if np.array(i_pattern_code_list)[mask][-1] > i_start_all_cells[-1]:  
+                    f_data[i_end_content+2] = '  }\n'
+            else:
+                delete_cell(f_data, i_start_cell, i_end_content)
+                #for i in range(i_start_cell,i_end_content+3):
+                #    f_data[i] = ''      
 
 
-        i_start_cell_list.append(i_start_cell)
-        i_start_content_list.append(i_start_content)
-        i_end_content_list.append(i_end_content)
-        name_code_list.append(name_code)
-        content_list.append(content)
+            i_start_cell_list.append(i_start_cell)
+            i_start_content_list.append(i_start_content)
+            i_end_content_list.append(i_end_content)
+            name_code_list.append(name_code)
+            content_list.append(content)
 
-        k+=1
-    
-    build_tabset(f_data, i_start_cell_list[0], name_code_list ,content_list)
+            k+=1
+        
+        build_tabset(f_data, i_start_cell_list[0], name_code_list ,content_list)
 
 
 
@@ -250,17 +264,20 @@ if len(i_ToC_pattern) == 1:
 
 pattern_ref_bib = '## Bibliograf'
 command_i_pattern_ref_bib = 'grep -n "'+pattern_ref_bib+'" '+ file_name + ' |  cut -d":" -f1 '
-i_pattern_ref_bib = grep_file_index(command_i_pattern_ref_bib)[0]
+i_pattern_ref_bib = grep_file_index(command_i_pattern_ref_bib)
 
-i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_ref_bib)
+if len(i_pattern_ref_bib) > 0:
+    i_pattern_ref_bib = i_pattern_ref_bib[0]
 
-for i in range(i_start_content, i_end_content):
-    f_data[i] ='    "",\n'
-f_data[i_end_content] ='    ""\n'
+    i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_ref_bib)
 
-f_data[i_start_content] = '    "```{bibliography} \\n",\n' + \
-             '    ":style: plain\\n",\n' + \
-             '    "```",\n'
+    for i in range(i_start_content, i_end_content):
+        f_data[i] ='    "",\n'
+    f_data[i_end_content] ='    ""\n'
+
+    f_data[i_start_content] = '    "```{bibliography} \\n",\n' + \
+                '    ":style: plain\\n",\n' + \
+                '    "```",\n'
 
 ################################################################################
 ###### Guardamos los cambios en un nuevo fichero
