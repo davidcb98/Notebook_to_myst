@@ -162,7 +162,10 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
         ######## <detail>
         my_replace(f_data, i_start_details, ':::{dropdown} '+ title_details+'\\n",\n')
 
-    my_replace(f_data, i_title, '^^^\\n",\n')
+    if title != "":
+        my_replace(f_data, i_title, '^^^\\n",\n')
+    else:
+        my_replace(f_data, i_title, '\\n",\n')
     
     if i_start_p > 0:
         ##############################
@@ -174,10 +177,13 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
     ##############################
     ######## TITLE and <div class...> o <div class...><p style...>
     
-    if subtitle == None:
-        my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: '+' \\n",\n')
+    if title != "":
+        if subtitle == None:
+            my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: '+' \\n",\n')
+        else:
+            my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
     else:
-        my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
+        my_replace(f_data, i_start, '::::{card} \\n",\n')
 
     #print("")
     #for i in range(i_end-i_start+1):

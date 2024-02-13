@@ -118,14 +118,16 @@ def find_div_boxes(f_data, i_start_list):
             #title = re.sub(r'<.*?>', '', title_no_clean.split(':')[0]).strip()   #  +'\\n",\n'
             #print(f_data[i_title])
             #print(i_title)
-            title = re.search(r'<b>(.*?)</b>', f_data[i_title]).group(1).replace(":","")
+            title = re.search(r'<b>(.*?)</b>', f_data[i_title]).group(1).replace(":","").rstrip().lstrip()
+            # .rstrip() elimina los espacios al final
+            # .lstrip() elimina los espacios al principio
             title_lowercase = remove_capital_accents(title).strip()
             
             ########################
             ######## SUB-TITLE 
 
             if "<i>" in f_data[i_title]:
-                subtitle = re.search(r'<i>(.*?)</i>', f_data[i_title]).group(1)
+                subtitle = re.search(r'<i>(.*?)</i>', f_data[i_title]).group(1).replace("(","").replace(")","").rstrip().lstrip()
                 if f_data[i_title].split('</i>')[1].replace(" ","") != '\\n",\n':
                     raise TextoEnLineaTitulo()
             else:
