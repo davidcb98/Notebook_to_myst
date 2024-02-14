@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,10 +49,9 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -91,6 +90,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,7 +102,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/123_Entrelazamiento';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Circuitos cuánticos" href="130_circuitos_mas_cosas.html" />
@@ -200,18 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -229,9 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_myst.html">Algoritmo de Grover</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../QML/4_QSVM_myst.html">4. Quantum Support Vector Machines (QSVM)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
 <ul class="current nav bd-sidenav">
@@ -543,19 +529,19 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#Bell"><span class="xref myst">Desigualdades de Bell</span></a></p>
+<li><p><span class="xref myst">Desigualdades de Bell</span></p>
 <ul>
-<li><p><a class="reference internal" href="#csch"><span class="xref myst"><em>Teorema CHSH</em></span></a></p></li>
+<li><p><span class="xref myst"><em>Teorema CHSH</em></span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#ghz"><span class="xref myst">El experimento GHZ</span></a></p></li>
-<li><p><a class="reference internal" href="#teleportacion"><span class="xref myst">Teleportación</span></a></p>
+<li><p><span class="xref myst">El experimento GHZ</span></p></li>
+<li><p><span class="xref myst">Teleportación</span></p>
 <ul>
-<li><p><a class="reference internal" href="#LOCC"><span class="xref myst">LOCC</span></a></p></li>
+<li><p><span class="xref myst">LOCC</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#superdense"><span class="xref myst">Codificación Superdensa</span></a></p></li>
-<li><p><a class="reference internal" href="#intercambent"><span class="xref myst">Intercambio de entrelazamiento</span></a></p></li>
+<li><p><span class="xref myst">Codificación Superdensa</span></p></li>
+<li><p><span class="xref myst">Intercambio de entrelazamiento</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -988,8 +974,8 @@ xxx  \ket{{\rm GHZ}} =   X \otimes X \otimes X \big(\frac{1}{\sqrt{2}}(\ket{000}
 </div><ul class="simple">
 <li><p>El estado inicial es</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-02f5d7d1-7d9c-4af5-ae59-184e0c423378">
-<span class="eqno">(57)<a class="headerlink" href="#equation-02f5d7d1-7d9c-4af5-ae59-184e0c423378" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-a0f0261f-df4b-44ff-8717-d0ec4f12d110">
+<span class="eqno">(57)<a class="headerlink" href="#equation-a0f0261f-df4b-44ff-8717-d0ec4f12d110" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{\phi} \ket{B_{00}} &amp;=&amp;  \ket{\phi}\otimes \frac{1}{\sqrt{2}}\left(\ket{0}\otimes \ket{0} + \ket{1}\otimes\ket{1}\rule{0mm}{4mm}\right)\, \\
 &amp;=&amp; \frac{1}{\sqrt{2}} (a \ket{000} + b\ket{100} + a\ket{011} + b\ket{111})
 \end{eqnarray}\]</div>
@@ -1001,8 +987,8 @@ Alice tiene acceso a los dos primeros qubits y Bob al tercero. <br>
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-b5cbd0c2-833b-442f-93bd-efc0927d51b1">
-<span class="eqno">(58)<a class="headerlink" href="#equation-b5cbd0c2-833b-442f-93bd-efc0927d51b1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-443c19ec-edc4-4a9e-8668-fcad99bd9e56">
+<span class="eqno">(58)<a class="headerlink" href="#equation-443c19ec-edc4-4a9e-8668-fcad99bd9e56" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
  (H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}} &amp; =&amp;  \frac{1}{2}
 \left[\rule{0mm}{3mm} \ket{00}(a\ket{0} + b\ket{1}) + \ket{01}(a\ket{1}+ b\ket{0}) \right. \nonumber\\
 \rule{0mm}{14mm}
@@ -1320,7 +1306,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>

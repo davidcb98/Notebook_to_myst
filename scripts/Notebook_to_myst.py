@@ -97,7 +97,7 @@ for i in reversed(range(len(index_list_list[0]))):
 
 ############################################################################
 # Usando el número de linea donde empiezan las figuras, sacamos todas las lineas importantes          
-index_fig_list_list, datos_list_list = find_figures(f_data, i_start_figure_list)
+index_fig_list_list, datos_list_list, number_ref_fig = find_figures(f_data, i_start_figure_list)
 
 ############################################################################
 # Comenzamos a sustituir las figuras (empezando por el final)
@@ -213,7 +213,7 @@ if len(i_pattern_code_list) > 0:
 ## Arreglamos las referencias a las figuras
 ##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
 
-bluid_references(f_data, 'fig_', file_name, '{ref}')
+bluid_references(f_data, 'fig_', file_name, number_ref_fig)
 
 
 ################################################################################
@@ -376,8 +376,22 @@ with open(out_file, 'r') as f:
     
 
     for i in i_start_details_list:
-        title_details = re.search(r'<i>(.*?)</i>', f_data[i]).group(1)
-        my_replace(f_data, i, ':::{dropdown} '+title_details+'\\n",\n')
+        try:
+            title_details = re.search(r'<i>(.*?)</i>', f_data[i]).group(1)
+            my_replace(f_data, i, ':::{dropdown} '+title_details+'\\n",\n')
+
+        except Exception as error :
+            print(f"\033[91m======\033[0m") 
+            print(f"\033[91m Error encontrando un details {i}. No tiene título\033[0m")
+            print(f"\033[91m    ",{f_data[i]},"\033[0m")
+            print(f"\033[91m    ",{f_data[i+1]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i+2]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i+3]}," \033[0m")
+            print("")
+            print(f"\033[91m    ",error," \033[0m")
+            print(f"\033[91m======\033[0m") 
+
+
     
     
     
