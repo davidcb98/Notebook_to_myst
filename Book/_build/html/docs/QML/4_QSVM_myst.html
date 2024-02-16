@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/QML/4_QSVM_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Circuitos multicúbits" href="../01_Circuitos/120_Circuitos_multiq%C3%BAbit.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -499,7 +511,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines-svm">4.1. Support Vector Machines (SVM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-de-vectores-de-soporte-cuantico-qsvc-en-sus-siglas-en-ingles">4.2. Clasificador de vectores de soporte cuántico (QSVC, en sus siglas en inglés)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-de-vectores-de-soporte-cuantico">4.2. Clasificador de vectores de soporte cuántico</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-qsvm-en-qibo">4.2.1. Ejemplo de QSVM en Qibo</a></li>
 </ul>
 </li>
@@ -515,7 +527,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Feb 14, 2024 | 6 min read</p>
+<div><p>Feb 15, 2024 | 6 min read</p>
 </div></blockquote>
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" class="align-left" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 1000px;" /></a>
 <p>Created: 2022/10/30</p>
@@ -532,27 +544,27 @@ document.write(`
 <li><p>Nahia Iriarte (<a class="reference external" href="https://www.nasertic.es/es">NASERTIC</a>)</p></li>
 <li><p>Carlos Luque (<a class="reference external" href="https://www.iac.es/">IAC</a>)</p></li>
 </ul>
-<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
-<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
-<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<p><span class="math notranslate nohighlight">\( \renewcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \renewcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \renewcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2|} \)</span>
-<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \renewcommand{\i}{{\color{blue} i}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\mathbb H}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\boldn}{{\bf n}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\tr}{{\rm tr}}\)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
-<p>Consulta la notación que se ha utilizado durante todo el documento en el siguiente <span class="xref myst">enlace</span>.</p>
+<p>Consulta la notación que se ha utilizado durante todo el documento en el siguiente <a class="reference internal" href="#notacion"><span class="xref myst">enlace</span></a>.</p>
 <section class="tex2jax_ignore mathjax_ignore" id="quantum-support-vector-machines-qsvm">
 <h1>4. Quantum Support Vector Machines (QSVM)<a class="headerlink" href="#quantum-support-vector-machines-qsvm" title="Permalink to this heading">#</a></h1>
 <p>En esta sección, se tratarán las <strong>máquinas de vectores de soporte o de soporte vectorial</strong> (en inglés <em>Support Vector Machines</em>, SVM) tanto en computación clásica como en computación cuántica. En este último caso, la solución es conocida como <strong>máquinas de vectores de soporte cuánticos</strong> (en su sigla en inglés <em>QSVM</em>). A su vez, se presentarán algunas implementaciones de ambas computaciones.</p>
 <p><a id='SVM'></a></p>
 <section id="support-vector-machines-svm">
 <h2>4.1. Support Vector Machines (SVM)<a class="headerlink" href="#support-vector-machines-svm" title="Permalink to this heading">#</a></h2>
-<p>Las máquinas de vectores de soporte o de soporte vectorial son un conjunto de modelos de aprendizaje supervisado propuesto por Vladimir Vapnik .atl en 1964 y posteriormente fueron mejorados en diferentes versiones  [<span class="xref myst">1</span>, <span class="xref myst">2</span>]. Los SVMs se pueden aplicar en procesos de clasificación, regresión y detección de valores atípicos (en inglés, <em>outliers</em>).</p>
-<p>En <em><strong>clasificación</strong></em>, es conocido como <strong>clasificador de vectores de soporte</strong> (<em>SVC</em>, en sus siglas en inglés). El SVC construye el hiperplano óptimo que maximiza la distancia entre dos categorías del conjunto de datos para una mejor predicción. Es decir, busca el hiperplano con la mayor distancia de separación entre las dos categorías del conjunto de datos. Esta característica lo diferencia de los modelos de perceptrón, que buscan el hiperplano que distingue las dos categorías del conjunto de datos. Intuitivamente, una buena separación se consigue mediante el hiperplano que tiene la mayor distancia al punto de datos de entrenamiento más cercano de cualquier categoría (llamado margen funcional), ya que, en general, cuanto mayor es el margen, menor es el error de generalización del clasificador [<span class="xref myst">7</span>].</p>
-<p>En la <a class="reference internal" href="#fig-qsvc"><span class="std std-numref">Fig. 4</span></a> se visualizan tres posibles hiperplanos para separar las dos clases/categorías del conjunto de datos, representadas por puntos negros y blancos. Los ejes <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span> corresponden a las características de cada instancia en el conjunto de datos. El hiperplano H1 no separa adecuadamente las clases del conjunto de datos; el hiperplano H2 las separa con un margen pequeño y, en cambio, el hiperplano H3 las distingue con la distancia óptima. En consecuencia, se genera la frontera de decisión adecuada u óptima para la predicción. En otras palabras, el SVM con el hiperplano H3 distinguirá con mayor probabilidad la clase a la que pertenece un nuevo punto.</p>
+<p>Las máquinas de vectores de soporte o de soporte vectorial son un conjunto de modelos de aprendizaje supervisado propuesto por Vladimir Vapnik .atl en 1964 y posteriormente fueron mejorados en diferentes versiones  <span id="id1">[<a class="reference internal" href="#id21" title="scikit-learn. Support vector machines. URL: https://scikit-learn.org/stable/modules/svm.html#.">9</a>]</span>, <span id="id2">[<a class="reference internal" href="#id16" title="C. Cortes and V. Vapnik. Support vector networks. Machine Learning, 20:273-297, 1995. doi:https://doi.org/10.1007/BF00994018.">3</a>]</span>. Los SVMs se pueden aplicar en procesos de clasificación, regresión y detección de valores atípicos (en inglés, <em>outliers</em>).</p>
+<p>En <em><strong>clasificación</strong></em>, es conocido como <strong>clasificador de vectores de soporte</strong> (<em>SVC</em>, en sus siglas en inglés). El SVC construye el hiperplano óptimo que maximiza la distancia entre dos categorías del conjunto de datos para una mejor predicción. Es decir, busca el hiperplano con la mayor distancia de separación entre las dos categorías del conjunto de datos. Esta característica lo diferencia de los modelos de perceptrón, que buscan el hiperplano que distingue las dos categorías del conjunto de datos. Intuitivamente, una buena separación se consigue mediante el hiperplano que tiene la mayor distancia al punto de datos de entrenamiento más cercano de cualquier categoría (llamado margen funcional), ya que, en general, cuanto mayor es el margen, menor es el error de generalización del clasificador <span id="id3">[<a class="reference internal" href="#id20" title="Trevor Hastie, Robert Tibshirani, and Jerome Friedman. The elements of statistical learning: data mining, inference and prediction. Springer, 2 edition, 2009. URL: http://www-stat.stanford.edu/~tibs/ElemStatLearn/.">5</a>]</span>.</p>
+<p>En la <a class="reference internal" href="#fig-svm"><span class="std std-numref">Fig. 3</span></a> se visualizan tres posibles hiperplanos para separar las dos clases/categorías del conjunto de datos, representadas por puntos negros y blancos. Los ejes <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span> corresponden a las características de cada instancia en el conjunto de datos. El hiperplano H1 no separa adecuadamente las clases del conjunto de datos; el hiperplano H2 las separa con un margen pequeño y, en cambio, el hiperplano H3 las distingue con la distancia óptima. En consecuencia, se genera la frontera de decisión adecuada u óptima para la predicción. En otras palabras, el SVM con el hiperplano H3 distinguirá con mayor probabilidad la clase a la que pertenece un nuevo punto.</p>
 <figure class="align-center" id="fig-svm">
-<a class="reference internal image-reference" href="../../_images/Svm_separating_hyperplanes.png"><img alt="../../_images/Svm_separating_hyperplanes.png" src="../../_images/Svm_separating_hyperplanes.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Svm_separating_hyperplanes.png"><img alt="../../_images/Svm_separating_hyperplanes.png" src="../../_images/Svm_separating_hyperplanes.png" style="width: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">SVM con distintos hiperplanos</span><a class="headerlink" href="#fig-svm" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -560,13 +572,13 @@ document.write(`
 <p>En general, un conjunto de datos no es linealmente separable y el SVC no encontraría un hiperplano óptimo. En estos casos, se aplica el método del kernel, que permite el mapeo de los datos a otro espacio de características con mayor dimensión, donde sería más sencillo encontrar el hiperplano óptimo. Para más detalle de los métodos kernel, visualice el notebook <span class="xref myst"><em>5_Kernel</em></span></p>
 <p><a id='QSVC'></a></p>
 </section>
-<section id="clasificador-de-vectores-de-soporte-cuantico-qsvc-en-sus-siglas-en-ingles">
-<h2>4.2. Clasificador de vectores de soporte cuántico (QSVC, en sus siglas en inglés)<a class="headerlink" href="#clasificador-de-vectores-de-soporte-cuantico-qsvc-en-sus-siglas-en-ingles" title="Permalink to this heading">#</a></h2>
-<p>El QSVC es la aplicación del SVC en computación cuántica, como se ilustra en la <a class="reference internal" href="#fig-qsvc"><span class="std std-numref">Fig. 4</span></a>. Aprovecha la capacidad del SVC para trabajar con métodos kernel, los cuales pueden calcularse de manera eficiente en computación cuántica. De esta manera, se beneficia de la alta dimensionalidad del espacio de Hilbert [<span class="xref myst">4</span>, <span class="xref myst">6</span>]. Para más detalles de los métodos kernel, visualice el notebook <span class="xref myst"><em>5_Kernel</em></span>.</p>
+<section id="clasificador-de-vectores-de-soporte-cuantico">
+<h2>4.2. Clasificador de vectores de soporte cuántico<a class="headerlink" href="#clasificador-de-vectores-de-soporte-cuantico" title="Permalink to this heading">#</a></h2>
+<p>El <strong>clasificador de vectores de soporte cuántico</strong> (<em>QSVC</em>, en sus siglas en inglés) es la aplicación del SVC en computación cuántica, como se ilustra en la <a class="reference internal" href="#fig-qsvc"><span class="std std-numref">Fig. 4</span></a>. Aprovecha la capacidad del SVC para trabajar con métodos kernel, los cuales pueden calcularse de manera eficiente en computación cuántica. De esta manera, se beneficia de la alta dimensionalidad del espacio de Hilbert <span id="id4">[<a class="reference internal" href="#id17" title="Vojtěch Havlíček, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. Supervised learning with quantum-enhanced feature spaces. Nature, 567(7747):209–212, March 2019. URL: http://dx.doi.org/10.1038/s41586-019-0980-2, doi:10.1038/s41586-019-0980-2.">6</a>]</span>, <span id="id5">[<a class="reference internal" href="#id15" title="Maria Schuld and Nathan Killoran. Quantum machine learning in feature hilbert spaces. Phys. Rev. Lett., 122:040504, Feb 2019. URL: https://link.aps.org/doi/10.1103/PhysRevLett.122.040504, doi:10.1103/PhysRevLett.122.040504.">8</a>]</span>. Para más detalles de los métodos kernel, visualice el notebook <span class="xref myst"><em>5_Kernel</em></span>.</p>
 <figure class="align-center" id="fig-qsvc">
-<a class="reference internal image-reference" href="../../_images/qsvm_kernel.jpg"><img alt="../../_images/qsvm_kernel.jpg" src="../../_images/qsvm_kernel.jpg" style="width: 1000px;" /></a>
+<a class="reference internal image-reference" href="../../_images/qsvm_kernel.jpg"><img alt="../../_images/qsvm_kernel.jpg" src="../../_images/qsvm_kernel.jpg" style="width: 898px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">qsvc</span><a class="headerlink" href="#fig-qsvc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Flujo de trabajo del QSVC</span><a class="headerlink" href="#fig-qsvc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>El QSVC corresponde en varios pasos como se visualiza en la  <a class="reference internal" href="#fig-qsvc"><span class="std std-numref">Fig. 4</span></a>:</p>
@@ -574,7 +586,7 @@ document.write(`
 <li><p>La generación de un kernel cuántico, <span class="math notranslate nohighlight">\(K\)</span>:</p>
 <ol class="arabic simple">
 <li><p>Mapeo de cada dato clásico, <span class="math notranslate nohighlight">\(\mathbf{x_{i}}\)</span>, en un estado cuántico <span class="math notranslate nohighlight">\(\vert \Phi{(\mathbf{x_{i}})} \rangle\)</span>. Esto se puede lograr con el circuito cuántico <span class="math notranslate nohighlight">\(\mathcal{U}_{\Phi{(\mathbf{x_{i}})}}\)</span>,  <span class="math notranslate nohighlight">\(\mathcal{U}_{\Phi{(\mathbf{x_{i}})}} \vert 0^{\otimes N} \rangle = \vert \Phi{(\mathbf{x_{i}})} \rangle\)</span>, donde el valor inicial de cada qubit es <span class="math notranslate nohighlight">\(\ket{0}\)</span> y <span class="math notranslate nohighlight">\(N\)</span> es el número de características o <em>qubits</em>.</p></li>
-<li><p>Obtención de la matriz del kernel, cada elemento de la matriz del kernel se calcula,  <span class="math notranslate nohighlight">\(K_{i,j} = |\braket{\Phi(\mathbf{x_{i}})|\Phi(\mathbf{x_{j}})}|^2 = |\braket{\mathcal{U}_{\Phi(\mathbf{x_{i}})}|\mathcal{U}_{\Phi(\mathbf{x_{j}})}}|^2 \)</span> donde <span class="math notranslate nohighlight">\(i,j = 0...M\)</span> y <span class="math notranslate nohighlight">\(M\)</span> es el número de vectores de características en el conjunto de datos. <span class="math notranslate nohighlight">\(K_{i,j}\)</span> se interpreta como una <em>medida de similitud</em> o <em>de distancia</em> entre <em>estados cuánticos</em>.</p></li>
+<li><p>Obtención de la matriz del kernel, cada elemento de la matriz del kernel se calcula,  <span class="math notranslate nohighlight">\(K_{i,j} = |\braket{\Phi(\mathbf{x_{i}})}{\Phi(\mathbf{x_{j}})}|^2 = |\bra{0^{\otimes N}} \mathcal{U}^\dagger_{ \Phi(\mathbf{x_{i}})} \mathcal{U}_{ \Phi{(\mathbf{x_{j}})}} \ket{0^{\otimes N}}|^2 \)</span> donde <span class="math notranslate nohighlight">\(i,j = 0...M\)</span> y <span class="math notranslate nohighlight">\(M\)</span> es el número de vectores de características en el conjunto de datos. <span class="math notranslate nohighlight">\(K_{i,j}\)</span> se interpreta como una <em>medida de similitud</em> o <em>de distancia</em> entre <em>estados cuánticos</em>.</p></li>
 </ol>
 </li>
 <li><p>Se aplica la matriz de kernel en el algoritmo de SVC clásico para entrenar y obtener la predicción.</p></li>
@@ -582,7 +594,7 @@ document.write(`
 <p><a id='EjemploQSVC'></a></p>
 <section id="ejemplo-de-qsvm-en-qibo">
 <h3>4.2.1. Ejemplo de QSVM en Qibo<a class="headerlink" href="#ejemplo-de-qsvm-en-qibo" title="Permalink to this heading">#</a></h3>
-<p>El ejemplo se basa en un tutorial de pennyline [<span class="xref myst">3</span>]. En este, se usará el SVM de la librería <em>scikit-learn</em>, <em>sklearn</em>. La interfaz permite proporcionar kernel adicional en dos formas:</p>
+<p>El ejemplo se basa en un tutorial de pennyline <span id="id6">[<a class="reference internal" href="#id22" title="Maria Schuld. Kernel-based training of quantum models with scikit-learn. URL: https://pennylane.ai/qml/demos/tutorial_kernel_based_training.html.">7</a>]</span>. En este, se usará el SVM de la librería <em>scikit-learn</em>, <em>sklearn</em>. La interfaz permite proporcionar kernel adicional en dos formas:</p>
 <ol class="arabic simple">
 <li><p>La función que calcula la matriz del kernel.</p>
 <ul class="simple">
@@ -595,7 +607,7 @@ document.write(`
 </ul>
 </li>
 </ol>
-<p>En el ejemplo, se aplicará la primera forma, facilitando la función que calcula la matriz del kernel. A su vez, el famoso conjunto de datos, <em>Iris</em>, [<span class="xref myst">7</span>]. Este conjunto de datos, que data de 1936, consta de 150 muestras de cuatro características cada una y da lugar a un problema de clasificación y se utilizará solo las primeras 100 muestras.</p>
+<p>En el ejemplo, se aplicará la primera forma, facilitando la función que calcula la matriz del kernel. A su vez, el famoso conjunto de datos, <em>Iris</em>, <span id="id7">[<a class="reference internal" href="#id18" title="R. A. Fisher. The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7(7):179-188, 1936.">4</a>]</span>. Este conjunto de datos, que data de 1936, consta de 150 muestras de cuatro características cada una y da lugar a un problema de clasificación y se utilizará solo las primeras 100 muestras.</p>
 <p>Se cargan las librerías necesarias:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -622,16 +634,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Librería cuántico (Qibo)</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">qibo</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">qibo</span> <span class="kn">import</span> <span class="n">gates</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">qibo.models</span> <span class="kn">import</span> <span class="n">Circuit</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;qibo&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Qibo 0.1.12.dev0|INFO|2024-02-15 15:25:18]: Using numpy backend on /CPU:0
 </pre></div>
 </div>
 </div>
@@ -666,9 +669,9 @@ document.write(`
 </div>
 </div>
 <p>La codificación de los datos clásicos a estados cuánticos se llevará a cabo mediante la codificación en ángulo, utilizando puertas de rotación. Para obtener más detalles sobre la codificación cuántica, consulte el notebook <span class="xref myst"><em>2_Feature enconding</em></span>. En el ejemplo, se aplica la puerta de rotación en el eje Y para codificar los datos clásicos en estados cuánticos. Esta puerta no introduce componentes imaginarias.</p>
-<p>Dado que cada vector de características consta de cuatro características, se necesitarán cuatro qubits para codificar los estados cuánticos, por lo tanto, <span class="math notranslate nohighlight">\(N = 4\)</span>.”</p>
-<p>Para estimar la distancia entre dos estados cuánticos, es decir, el producto escalar, se aplica el <strong>test invertido</strong> o <strong>quantum kernel estimation</strong> [<span class="xref myst">4</span>]. Para obtener más detalles sobre los kernels, consulte el notebook <span class="xref myst"><em>5_Kernel</em></span>. En el ejemplo, el circuito cuántico representa el cálculo de la distancia entre dos estados cuánticos como <span class="math notranslate nohighlight">\(K_{i,j} = |\braket{\Phi(\mathbf{x_{i}})|\Phi(\mathbf{x_{j}})}|^2 = |\bra{0^{\otimes N}} \mathcal{U}^\dagger_{ \Phi(\mathbf{x_{i}})} \mathcal{U}{ \Phi{(\mathbf{x{j}})}} \ket{0^{\otimes N}}|^2 \)</span>. El estado cuántico resultante <span class="math notranslate nohighlight">\(\ket{\phi}\)</span> se mide con respecto al estado computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span>, y el resultado es la probabilidad <span class="math notranslate nohighlight">\(|\langle {0^N}|\phi \rangle|^2\)</span> de observar la base computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span> del estado cuántico actual <span class="math notranslate nohighlight">\(\ket{\phi}\)</span>. Este cálculo se basa en las <strong>reglas de Born</strong> [<span class="xref myst">9</span>].</p>
-<p>Para obtener las probabilidades en la base computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span> en una computadora cuántica, el circuito cuántico debe ser ejecutado varias veces o shots. Según el artículo <em>Supervised learning with quantum-enhanced feature spaces</em> [<span class="xref myst">4</span>], el circuito debería ejecutarse 50000 veces. En el ejemplo, se usa 8000 por limitación del computador cuántico.</p>
+<p>Dado que cada vector de características consta de cuatro características, se necesitarán cuatro qubits para codificar los estados cuánticos, por lo tanto, <span class="math notranslate nohighlight">\(N = 4\)</span>.</p>
+<p>Para estimar la distancia entre dos estados cuánticos, es decir, el producto escalar, se aplica el <strong>test invertido</strong> o <strong>quantum kernel estimation</strong> <span id="id8">[<a class="reference internal" href="#id17" title="Vojtěch Havlíček, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. Supervised learning with quantum-enhanced feature spaces. Nature, 567(7747):209–212, March 2019. URL: http://dx.doi.org/10.1038/s41586-019-0980-2, doi:10.1038/s41586-019-0980-2.">6</a>]</span>. Para obtener más detalles sobre los kernels, consulte el notebook <span class="xref myst"><em>5_Kernel</em></span>. En el ejemplo, el circuito cuántico representa el cálculo de la distancia entre dos estados cuánticos como <span class="math notranslate nohighlight">\(K_{i,j} = |\braket{\Phi(\mathbf{x_{i}})}{\Phi(\mathbf{x_{j}})}|^2 = |\bra{0^{\otimes N}} \mathcal{U}^\dagger_{ \Phi(\mathbf{x_{i}})} \mathcal{U}_{ \Phi{(\mathbf{x_{j}})}} \ket{0^{\otimes N}}|^2 \)</span>. El estado cuántico resultante <span class="math notranslate nohighlight">\(\ket{\phi}\)</span> se mide con respecto al estado computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span>, y el resultado es la probabilidad <span class="math notranslate nohighlight">\(|\braket {0^{\otimes N}} {\phi}|^2\)</span> de observar la base computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span> del estado cuántico actual <span class="math notranslate nohighlight">\(\ket{\phi}\)</span>. Este cálculo se basa en las <strong>reglas de Born</strong> <span id="id9">[<a class="reference internal" href="#id23" title="Reglas de born. URL: https://publish.obsidian.md/myquantumwell/Quantum+Mechanics/Quantum+Measurement/Born+rule.">1</a>]</span>.</p>
+<p>Para obtener las probabilidades en la base computacional <span class="math notranslate nohighlight">\(\ket{0^{\otimes N}}\)</span> en una computadora cuántica, el circuito cuántico debe ser ejecutado varias veces o shots. Según el artículo <em>Supervised learning with quantum-enhanced feature spaces</em> <span id="id10">[<a class="reference internal" href="#id17" title="Vojtěch Havlíček, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. Supervised learning with quantum-enhanced feature spaces. Nature, 567(7747):209–212, March 2019. URL: http://dx.doi.org/10.1038/s41586-019-0980-2, doi:10.1038/s41586-019-0980-2.">6</a>]</span>, el circuito debería ejecutarse 50000 veces. En el ejemplo, se usa 8000 por limitación del computador cuántico.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kernel cuántico</span>
@@ -689,7 +692,6 @@ document.write(`
 
     <span class="c1"># ejecución del circuito n veces (n_shots)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">nshots</span><span class="o">=</span><span class="n">n_shots</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">probabilities</span><span class="p">())</span>
     <span class="c1"># Devuelve las probabilidades analíticas</span>
     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">probabilities</span><span class="p">()</span>
        
@@ -708,30 +710,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">kernel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-
-<span class="nn">Cell In[3], line 24,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x1, x2)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">probabilities</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># Se devuelve el probabilidad del base computacional &quot;0000&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">kernel</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="n">distancia_circuit</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nn">Cell In[3], line 9,</span> in <span class="ni">distancia_circuit</span><span class="nt">(x, y)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">n_shots</span> <span class="o">=</span> <span class="mi">8000</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Create an empty circuit</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Codificación cuántica en puertas RY </span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">):</span>
-
-<span class="ne">NameError</span>: name &#39;Circuit&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>Se define una función que calcula una matriz de kernel para los vectores de características en dos conjuntos de datos diferentes <span class="math notranslate nohighlight">\(A, B\)</span>. Si <span class="math notranslate nohighlight">\(A=B\)</span>, la matriz del kernel es conocida como la <strong>matriz de Gram</strong> [<span class="xref myst">8</span>].</p>
+<p>Se define una función que calcula una matriz de kernel para los vectores de características en dos conjuntos de datos diferentes <span class="math notranslate nohighlight">\(A, B\)</span>. Si <span class="math notranslate nohighlight">\(A=B\)</span>, la matriz del kernel es conocida como la <strong>matriz de Gram</strong> <span id="id11">[<a class="reference internal" href="#id19" title="Nils Barth. The gramian and k-volume in n-space: some classical results in linear algebra. Journal of Young Investigators, 1999.">2</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kernel_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
@@ -755,66 +739,6 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entrenando...
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">qsvm</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel_matrix</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entrenando...&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">qsvm</span> <span class="o">=</span> <span class="n">qsvm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/base.py:1351,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1344</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1346</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1347</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1348</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1349</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1350</span> <span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1351</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:250,</span> in <span class="ni">BaseLibSVM.fit</span><span class="nt">(self, X, y, sample_weight)</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[LibSVM]&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">250</span> <span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">solver_type</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span> <span class="c1"># see comment on the other call to np.iinfo in this file</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_fit_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:310,</span> in <span class="ni">BaseLibSVM._dense_fit</span><span class="nt">(self, X, y, sample_weight, solver_type, kernel, random_seed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="c1"># you must store a reference to X to compute the kernel in predict</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="c1"># TODO: add keyword copy to copy on demand</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__Xfit</span> <span class="o">=</span> <span class="n">X</span>
-<span class="ne">--&gt; </span><span class="mi">310</span>     <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>     <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;X.shape[0] should be equal to X.shape[1]&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:508,</span> in <span class="ni">BaseLibSVM._compute_kernel</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">504</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return the data transformed by a callable kernel&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">506</span>     <span class="c1"># in the case of precomputed kernel given as a function, we</span>
-<span class="g g-Whitespace">    </span><span class="mi">507</span>     <span class="c1"># have to compute explicitly the kernel matrix</span>
-<span class="ne">--&gt; </span><span class="mi">508</span>     <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__Xfit</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">509</span>     <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">kernel</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span>         <span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-
-<span class="nn">Cell In[5], line 2,</span> in <span class="ni">kernel_matrix</span><span class="nt">(A, B)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">kernel_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">kernel</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">B</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">A</span><span class="p">])</span>
-
-<span class="nn">Cell In[3], line 24,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x1, x2)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">probabilities</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># Se devuelve el probabilidad del base computacional &quot;0000&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">kernel</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="n">distancia_circuit</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nn">Cell In[3], line 9,</span> in <span class="ni">distancia_circuit</span><span class="nt">(x, y)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">n_shots</span> <span class="o">=</span> <span class="mi">8000</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Create an empty circuit</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Codificación cuántica en puertas RY </span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">):</span>
-
-<span class="ne">NameError</span>: name &#39;Circuit&#39; is not defined
-</pre></div>
-</div>
 </div>
 </div>
 <p>Se calcula la precisión en la clasificación con el conjunto de datos de test.</p>
@@ -832,47 +756,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Precisión con test...
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#test</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precisión con test...&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">qsvm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:814,</span> in <span class="ni">BaseSVC.predict</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">813</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">814</span>     <span class="n">y</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">815</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">))</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:429,</span> in <span class="ni">BaseLibSVM.predict</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span> <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Perform regression on samples in X.</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span><span class="sd">     For an one-class model, +1 (inlier) or -1 (outlier) is returned.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span><span class="sd">         The predicted values.</span>
-<span class="g g-Whitespace">    </span><span class="mi">428</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">429</span>     <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_for_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="n">predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sparse_predict</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sparse</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dense_predict</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="k">return</span> <span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.45.2/lib/python3.12/site-packages/sklearn/svm/_base.py:636,</span> in <span class="ni">BaseLibSVM._validate_for_predict</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span>             <span class="s2">&quot;X.shape[1] = </span><span class="si">%d</span><span class="s2"> should be equal to </span><span class="si">%d</span><span class="s2">, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span>             <span class="s2">&quot;the number of samples at training time&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span>             <span class="o">%</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_fit_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">634</span> <span class="c1"># Fixes https://nvd.nist.gov/vuln/detail/CVE-2020-28975</span>
-<span class="g g-Whitespace">    </span><span class="mi">635</span> <span class="c1"># Check that _n_support is consistent with support_vectors</span>
-<span class="ne">--&gt; </span><span class="mi">636</span> <span class="n">sv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">support_vectors_</span>
-<span class="g g-Whitespace">    </span><span class="mi">637</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sparse</span> <span class="ow">and</span> <span class="n">sv</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_support_</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">!=</span> <span class="n">sv</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">638</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">639</span>         <span class="sa">f</span><span class="s2">&quot;The internal representation of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> was altered&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span>     <span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;SVC&#39; object has no attribute &#39;support_vectors_&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -901,22 +785,43 @@ document.write(`
 </div>
 <p><a id='notacion'></a></p>
 <div class="note admonition">
-<p class="admonition-title">Nota (Anexo notación) </p>
+<p class="admonition-title">Nota (Anexo notación)</p>
 <p>Para que la comprensión de los notebooks sea mejor se ha unificado la notación utilizada en los mismos. Para diferenciar un vector de un valor único se hará uso de la negrita. De manera que <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> corresponde a un vector y <span class="math notranslate nohighlight">\(z\)</span> será una variable de una única componente.</p>
 <p>Si se quiere hacer referencia a dos vectores distintos pero que pertenecen al mismo <em>dataset</em> se utilizará un subíndice, es decir, <span class="math notranslate nohighlight">\(\mathbf{x_i}\)</span> hará referencia al i-ésimo vector del dataset. Si se quiere referenciar una característica concreta del vector se añadirá un nuevo subíndice, de manera que <span class="math notranslate nohighlight">\(\mathbf{x_{i_j}}\)</span> hará referencia a la j-ésima variable del i-ésimo vector.</p>
 </div>
-<div class="docutils container" id="id1">
+<div class="docutils container" id="id12">
 <dl class="citation">
-<dt class="label" id="id2"><span class="brackets">1</span></dt>
-<dd><p>Stephane Beauregard. Circuit for shor's algorithm using 2n+3 qubits. 2003. <a class="reference external" href="https://arxiv.org/abs/quant-ph/0205095">arXiv:quant-ph/0205095</a>.</p>
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id9">1</a></span></dt>
+<dd><p>Reglas de born. URL: <a class="reference external" href="https://publish.obsidian.md/myquantumwell/Quantum+Mechanics/Quantum+Measurement/Born+rule">https://publish.obsidian.md/myquantumwell/Quantum+Mechanics/Quantum+Measurement/Born+rule</a>.</p>
 </dd>
-<dt class="label" id="id3"><span class="brackets">2</span></dt>
-<dd><p>Qiskit. Quantum fourier transform (textbook qiskit). URL: <a class="github reference external" href="https://github.com/Qiskit/textbook/blob/main/notebooks/ch-algorithms/quantum-fourier-transform.ipynb">Qiskit/textbook</a>.</p>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id11">2</a></span></dt>
+<dd><p>Nils Barth. The gramian and k-volume in n-space: some classical results in linear algebra. <em>Journal of Young Investigators</em>, 1999.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id2">3</a></span></dt>
+<dd><p>C. Cortes and V. Vapnik. Support vector networks. <em>Machine Learning</em>, 20:273–297, 1995. <a class="reference external" href="https://doi.org/https://doi.org/10.1007/BF00994018">doi:https://doi.org/10.1007/BF00994018</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id7">4</a></span></dt>
+<dd><p>R. A. Fisher. The use of multiple measurements in taxonomic problems. <em>Annals of Eugenics</em>, 7(7):179–188, 1936.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id3">5</a></span></dt>
+<dd><p>Trevor Hastie, Robert Tibshirani, and Jerome Friedman. <em>The elements of statistical learning: data mining, inference and prediction</em>. Springer, 2 edition, 2009. URL: <a class="reference external" href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">http://www-stat.stanford.edu/~tibs/ElemStatLearn/</a>.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">6</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id8">2</a>,<a href="#id10">3</a>)</span></dt>
+<dd><p>Vojtěch Havlíček, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. Supervised learning with quantum-enhanced feature spaces. <em>Nature</em>, 567(7747):209–212, March 2019. URL: <a class="reference external" href="http://dx.doi.org/10.1038/s41586-019-0980-2">http://dx.doi.org/10.1038/s41586-019-0980-2</a>, <a class="reference external" href="https://doi.org/10.1038/s41586-019-0980-2">doi:10.1038/s41586-019-0980-2</a>.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id6">7</a></span></dt>
+<dd><p>Maria Schuld. Kernel-based training of quantum models with scikit-learn. URL: <a class="reference external" href="https://pennylane.ai/qml/demos/tutorial_kernel_based_training.html">https://pennylane.ai/qml/demos/tutorial_kernel_based_training.html</a>.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id5">8</a></span></dt>
+<dd><p>Maria Schuld and Nathan Killoran. Quantum machine learning in feature hilbert spaces. <em>Phys. Rev. Lett.</em>, 122:040504, Feb 2019. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.122.040504">https://link.aps.org/doi/10.1103/PhysRevLett.122.040504</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.122.040504">doi:10.1103/PhysRevLett.122.040504</a>.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id1">9</a></span></dt>
+<dd><p>scikit-learn. Support vector machines. URL: <a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html#">https://scikit-learn.org/stable/modules/svm.html#</a>.</p>
 </dd>
 </dl>
 </div>
-<p>This work has been financially supported by the Ministry of Economic Affairs and Digital Transformation of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2025 Agenda.</p>
-<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/LOGOS-GOB_QS.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/LOGOS-GOB_QS.png" class="align-left" src="https://quantumspain-project.es/wp-content/uploads/2022/11/LOGOS-GOB_QS.png" style="width: 1000px;" /></a>
+<p>This work has been financially supported by the Ministry for Digital Transformation and of Civil Service of the Spanish Government through the QUANTUM ENIA project call - Quantum Spain project, and by the European Union through the Recovery, Transformation and Resilience Plan - NextGenerationEU within the framework of the Digital Spain 2026 Agenda.</p>
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" class="align-left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" style="width: 1000px;" /></a>
 </section>
 </section>
 </section>
@@ -986,7 +891,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines-svm">4.1. Support Vector Machines (SVM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-de-vectores-de-soporte-cuantico-qsvc-en-sus-siglas-en-ingles">4.2. Clasificador de vectores de soporte cuántico (QSVC, en sus siglas en inglés)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-de-vectores-de-soporte-cuantico">4.2. Clasificador de vectores de soporte cuántico</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-qsvm-en-qibo">4.2.1. Ejemplo de QSVM en Qibo</a></li>
 </ul>
 </li>
@@ -1014,7 +919,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

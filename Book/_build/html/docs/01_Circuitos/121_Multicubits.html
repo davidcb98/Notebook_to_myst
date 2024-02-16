@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/121_Multicubits';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="El arte de medir multi-cúbits" href="122_El_Arte_de_Medir_II.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -536,15 +548,15 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\mathcal H}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Bases multi-cúbit</span></p></li>
-<li><p><span class="xref myst">Entrelazamiento</span></p>
+<li><p><a class="reference internal" href="#multicubit"><span class="xref myst">Bases multi-cúbit</span></a></p></li>
+<li><p><a class="reference internal" href="#entrelazamiento"><span class="xref myst">Entrelazamiento</span></a></p>
 <ul>
-<li><p><span class="xref myst">Base de Bell</span></p></li>
+<li><p><a class="reference internal" href="#base_bell"><span class="xref myst">Base de Bell</span></a></p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">Circuitos multi-cúbit</span></p></li>
-<li><p><span class="xref myst">Puertas multi-cúbits</span></p></li>
-<li><p><span class="xref myst">Teorema de no-clonación</span></p></li>
+<li><p><a class="reference internal" href="#circuitos"><span class="xref myst">Circuitos multi-cúbit</span></a></p></li>
+<li><p><a class="reference internal" href="#multioper"><span class="xref myst">Puertas multi-cúbits</span></a></p></li>
+<li><p><a class="reference internal" href="#nocloning"><span class="xref myst">Teorema de no-clonación</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -766,8 +778,8 @@ W =  H^{\otimes n} = H\otimes H \ldots \otimes H
 <p>La  acción  de <span class="math notranslate nohighlight">\(W\)</span> sobre el estado de referencia <span class="math notranslate nohighlight">\(\ket{00...0}\)</span> produce una superposición uniforme de todos los estados de la base.
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-06260bcd-4cf1-4d76-9734-73dc905de6ad">
-<span class="eqno">(48)<a class="headerlink" href="#equation-06260bcd-4cf1-4d76-9734-73dc905de6ad" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b8a86ec6-4195-484f-b1f3-474d84354cda">
+<span class="eqno">(48)<a class="headerlink" href="#equation-b8a86ec6-4195-484f-b1f3-474d84354cda" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 W \ket{00...0} &amp;~=~&amp; H\ket{0}\otimes H\ket{0} \otimes ... \otimes H\ket{0} \\  \rule{0mm}{12mm}
 &amp;=&amp; \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\otimes \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\otimes ...\otimes \frac{1}{\sqrt{2}}\big(\ket{0}+\ket{1}\big)\\ \rule{0mm}{10mm}
 &amp;=&amp; \frac{1}{2^{n/2}}\big(\ket{00...00} + \ket{00...01}+....+\ket{11...11} \big)
@@ -778,14 +790,14 @@ W \ket{00...0} &amp;~=~&amp; H\ket{0}\otimes H\ket{0} \otimes ... \otimes H\ket{
 H\ket{x} = \sum_{y=0,1}(-1)^{xy}\ket{y}
 \]</div>
 <p>Entonces, operando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8c65210-5e16-4770-a562-fdb578958b3f">
-<span class="eqno">(49)<a class="headerlink" href="#equation-c8c65210-5e16-4770-a562-fdb578958b3f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-650561d6-c3c4-498f-8747-0f891ad278ef">
+<span class="eqno">(49)<a class="headerlink" href="#equation-650561d6-c3c4-498f-8747-0f891ad278ef" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 W \ket{x} &amp;=&amp; H\ket{x_{n-1}}\otimes H\ket{x_{n-2}}\otimes \ldots \otimes H\ket{x_0} \\  \rule{0mm}{12mm}
 \rule{0mm}{10mm}
 &amp;=&amp; \sum_{y_{n-1}= \, 0,1} (-1)^{y_{n-1}x_{n-1}}\ket{y_{n-1}}\otimes \sum_{y_{n-2}=0,1} (-1)^{y_{n-2}x_{n-2}}\ket{y_{n-2}} \otimes \ldots \otimes  \sum_{y_{0}\, =\, 0,1} (-1)^{y_{0}x_{0}}\ket{y_{0}} 
 \end{eqnarray}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e55f62a2-72e7-4a28-a42d-1d3266a18c0b">
-<span class="eqno">(50)<a class="headerlink" href="#equation-e55f62a2-72e7-4a28-a42d-1d3266a18c0b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b34fd6c7-ff26-4812-a0db-a11b94986f34">
+<span class="eqno">(50)<a class="headerlink" href="#equation-b34fd6c7-ff26-4812-a0db-a11b94986f34" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 &amp;=&amp; \sum_{y_{n-1} y_{n-2}\ldots y_{0}=\, 0,1} (-1)^{x_{n-1} y_{n-1}+ \ldots + x_0 y_0} \ket{y_{n-1}\ldots y_0} \hspace{5.2cm}\\
 &amp;=&amp; \sum_{y \, =\, 0}^{2^n-1}(-1)^{x\cdot y} \ket{y} \rule{0mm}{10mm}
 \end{eqnarray}\]</div>
@@ -839,8 +851,8 @@ U_{\rm SWAP} =  \begin{bmatrix}
 <li><p>entra <span class="math notranslate nohighlight">\(\ket{1}\)</span>, sale <span class="math notranslate nohighlight">\(\ket{1}\)</span> y en el segundo cúbit (controlado) se aplica el operador <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
 </ul>
 <p>La <em>representación matricial</em> de <span class="math notranslate nohighlight">\(\cg{U}\)</span> es fácil de obtener como suma de  <em>productos de Kronecker</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6743aee-de61-40fe-8e5b-9e8392293f0d">
-<span class="eqno">(51)<a class="headerlink" href="#equation-c6743aee-de61-40fe-8e5b-9e8392293f0d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8c386c5a-db9d-4bff-87a8-c5feaed13fdd">
+<span class="eqno">(51)<a class="headerlink" href="#equation-8c386c5a-db9d-4bff-87a8-c5feaed13fdd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \cg{U} &amp;=&amp; \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 0 \end{bmatrix}\otimes  I +  \begin{bmatrix}0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \otimes U
 = \begin{bmatrix} 1\times I &amp; 0 \\ 0 &amp; 0 \end{bmatrix}  + 
 \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1\times U \end{bmatrix} \\
@@ -887,8 +899,8 @@ con $x,y = 0,1$.
 <p>En ese caso, el resultado de una acción controlada también conduce a una superposición, de forma tal que <strong>se genera entrelazamiento</strong></p>
 <p>Para verlo, hagamos actuar <span class="math notranslate nohighlight">\(\cg{U}\)</span> sobre un estado de la forma  <span class="math notranslate nohighlight">\(\ket{\phi} = (a\ket{0} + b\ket{1})\otimes \ket{U}\)</span>, que es <em>factorizable</em></p>
 <br>
-<div class="amsmath math notranslate nohighlight" id="equation-471cd89d-1bd5-447d-98ea-d4202ac340b7">
-<span class="eqno">(52)<a class="headerlink" href="#equation-471cd89d-1bd5-447d-98ea-d4202ac340b7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-43342ff3-2a16-4c0e-962e-5c7311c0d197">
+<span class="eqno">(52)<a class="headerlink" href="#equation-43342ff3-2a16-4c0e-962e-5c7311c0d197" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \cg{U}\,(a\ket{0} +b \ket{1})\otimes \ket{v} &amp;=&amp;
     \left(\ket{0}\bra{0}\otimes I + \ket{1}\bra{1}\otimes U\rule{0mm}{4mm}\right)(a\ket{0} +b \ket{1})\otimes \ket{v}  
   \\ \rule{0mm}{14mm}
@@ -944,7 +956,11 @@ con $x,y = 0,1$.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/646b531a9864a9b1d20b719617a7dda6c4318b6f3487f1d9481277a462a9b7a5.png" src="../../_images/646b531a9864a9b1d20b719617a7dda6c4318b6f3487f1d9481277a462a9b7a5.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/3525eed278ae38cc8b6182f4860dc71ac2493dec61db37901e926d3591d735cb.png" src="../../_images/3525eed278ae38cc8b6182f4860dc71ac2493dec61db37901e926d3591d735cb.png" />
 </div>
 </div>
 <p>ahora podemos pedir el operador unitario que reproduce el circuito anterior</p>
@@ -1063,7 +1079,11 @@ MCX = \ket{1100}  \bra{1100}\otimes X + (I-\ket{1100}\bra{1100}) \otimes I
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/76228ac3b442ee98084845c8733154cb8f81ce1d1ddb865682fc43b4b050d08a.png" src="../../_images/76228ac3b442ee98084845c8733154cb8f81ce1d1ddb865682fc43b4b050d08a.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/ace755a49b0576e7840bdfb9a7e2831af899f1ad488bf4e8b51ebbd407bedb2a.png" src="../../_images/ace755a49b0576e7840bdfb9a7e2831af899f1ad488bf4e8b51ebbd407bedb2a.png" />
 </div>
 </div>
 <p>En el convenio de qiskit, efectivamente, este operador es el que se corresponde con</p>
@@ -1115,7 +1135,7 @@ Concretamente
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/19f2c83adbcbea36f5e8ff5cb9e4017b5fa3ac1d7f26090b93e47be7912ce987.png" src="../../_images/19f2c83adbcbea36f5e8ff5cb9e4017b5fa3ac1d7f26090b93e47be7912ce987.png" />
+<img alt="../../_images/235a5c680565ca97a3613655cdaefd70017d2908c694c8c23b87abb49f780a8c.png" src="../../_images/235a5c680565ca97a3613655cdaefd70017d2908c694c8c23b87abb49f780a8c.png" />
 <div class="output text_latex math notranslate nohighlight">
 \[0.70711 |00\rangle+0.70711 |11\rangle\]</div>
 </div>
@@ -1128,7 +1148,7 @@ Concretamente
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2d54b54db55f6b56873b209162ce4ef7b5ee7472071393fc118f59ea00fdc6be.png" src="../../_images/2d54b54db55f6b56873b209162ce4ef7b5ee7472071393fc118f59ea00fdc6be.png" />
+<img alt="../../_images/bd241cd259839559240cc164d00774e343ee8114e2020984d21a10376a843038.png" src="../../_images/bd241cd259839559240cc164d00774e343ee8114e2020984d21a10376a843038.png" />
 </div>
 </div>
 </section>
@@ -1162,8 +1182,8 @@ U (\alpha\ket{\psi}+\beta\ket{\phi})\otimes \ket{0} =
 <br><p>Sin embargo, la linealidad de <span class="math notranslate nohighlight">\(U\)</span> nos permite seguir otro camino
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-04c8902d-499d-41a3-9b23-4744cd523de0">
-<span class="eqno">(53)<a class="headerlink" href="#equation-04c8902d-499d-41a3-9b23-4744cd523de0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-0aee0362-094e-45c8-a12f-a2b4a7c648e3">
+<span class="eqno">(53)<a class="headerlink" href="#equation-0aee0362-094e-45c8-a12f-a2b4a7c648e3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U(\alpha|\psi\rangle+\beta|\phi\rangle) \otimes|0\rangle &amp;=&amp; \alpha U|\psi\rangle \otimes|0\rangle+\beta U|\phi\rangle \otimes|0\rangle  \\ \rule{0mm}{12mm}
 &amp;=&amp;\alpha|\psi\rangle \otimes|\psi\rangle+\beta|\phi\rangle \otimes|\phi\rangle . \rule{0mm}{6mm}
 \end{eqnarray}\]</div>
@@ -1294,7 +1314,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

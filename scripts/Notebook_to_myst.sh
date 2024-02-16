@@ -21,7 +21,13 @@ rsync -r $Notebook_folder/* $Destination_folder/docs
 
 files=$(find $Destination_folder/docs -name "*.ipynb" | egrep -v $SKIP | grep -v "_myst.ipynb" )
 
-for i in $files; do  python Notebook_to_myst.py $i; done
+for i in $files; do
+    python Notebook_to_myst.py $i
+    error=$?
+    if ! [ $error == 0 ] ; then
+        exit
+    fi
+done
 
 part_folders=$(find $Destination_folder/docs -mindepth 1 -maxdepth 1 -type d -not -path '*/.*' | grep /Part_ |  sort)
 

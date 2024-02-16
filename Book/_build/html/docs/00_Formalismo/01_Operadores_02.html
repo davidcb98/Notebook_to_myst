@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Operadores_02';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Tensores" href="01_Tensores.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -584,20 +596,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;macro_tQ&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="autovalores-y-autovectores">
 <h2>Autovalores y autovectores<a class="headerlink" href="#autovalores-y-autovectores" title="Permalink to this heading">#</a></h2>
@@ -640,8 +638,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-095883bc-82da-416c-98bb-d1b5b437edc1">
-<span class="eqno">(19)<a class="headerlink" href="#equation-095883bc-82da-416c-98bb-d1b5b437edc1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-ada1c5d9-0928-44dd-b597-cb038b932b98">
+<span class="eqno">(19)<a class="headerlink" href="#equation-ada1c5d9-0928-44dd-b597-cb038b932b98" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (A_{diag})_{ij} &amp;\equiv&amp; \bra{\lambda_i}A\ket{\lambda_j} \\
 &amp;=&amp; \big(\sum_k\bra{e_k}U_{ki}^*\big)  A \sum_l\big( U_{lj}\ket{e_l}) \\
 &amp;=&amp; \sum_{k,l} U_{ki}^* \bra{e_k} A\ket{e_l}    U_{lj}\\
@@ -664,16 +662,15 @@ Demostración<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="s1">&#39; hallamos los autovalores y autovectores&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">eigvecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valprop = [1.+1.j 1.-1.j]
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+\frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}  \\
+ - \frac{\sqrt{2} i}{2} &amp; \frac{\sqrt{2} i}{2}  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -687,16 +684,14 @@ Demostración<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#m=0</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">eigvecs</span><span class="p">[:,</span> <span class="n">m</span><span class="p">])</span> <span class="o">-</span> <span class="n">eigvals</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">*</span> <span class="n">eigvecs</span><span class="p">[:,</span> <span class="n">m</span><span class="p">],</span><span class="n">prefix</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;A|\lambda_m \rangle -\lambda_m |\lambda_m\rangle =  &#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;array_to_latex&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+A|\lambda_m \rangle -\lambda_m |\lambda_m\rangle =  
+\begin{bmatrix}
+0  \\
+ 0  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -709,16 +704,14 @@ Demostración<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="s1">&#39; diagonalizamos A &#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">eigvecs</span><span class="p">);</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">getH</span><span class="p">(),</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">U</span><span class="p">)),</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;A_</span><span class="si">{diag}</span><span class="s1"> = U^\dagger A U = &#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+A_{diag} = U^\dagger A U = 
+\begin{bmatrix}
+1 + i &amp; 0  \\
+ 0 &amp; 1 - i  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 </section>
@@ -737,8 +730,8 @@ A\ket{\lambda^a} = \lambda \ket{\lambda^a}
 </div>
 </div>
 <p>Sea <span class="math notranslate nohighlight">\(\ket{u} = \sum_{a=1}^{d} c_a\ket{\lambda^a} \)</span> una combinación de dichos vectores propios, entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13f3d725-ea28-4cb8-a418-d7b380488dec">
-<span class="eqno">(20)<a class="headerlink" href="#equation-13f3d725-ea28-4cb8-a418-d7b380488dec" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-5f0002c7-78b4-4c42-af30-9e7775255095">
+<span class="eqno">(20)<a class="headerlink" href="#equation-5f0002c7-78b4-4c42-af30-9e7775255095" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 A \ket{u} 
 =  \sum_{a=1}^{d} c_a A\ket{\lambda^a}  =  \sum_{a=1}^{d} c_a \lambda\ket{\lambda^a}  =   \lambda \sum_{a=1}^{d} c_a \ket{\lambda^a}  =\lambda\ket{u}
 \end{eqnarray}\]</div>
@@ -759,8 +752,8 @@ P = \sum_{a=1}^{d} \ketbra{\lambda^a}{\lambda^a}
 <p class="admonition-title">Ejemplo</p>
 <p>Llamemos <span class="math notranslate nohighlight">\(R_z(\theta)\)</span> el operador que efectúa una rotación  en el plano  <span class="math notranslate nohighlight">\((x,y)\)</span> de ángulo <span class="math notranslate nohighlight">\(\theta\)</span>. Cuando <span class="math notranslate nohighlight">\(\theta = \pi\)</span> encontramos las siguiente acción sobre los tres elementos <span class="math notranslate nohighlight">\(\{\hat{\bf x},\hat{\bf y},\hat{\bf z}\}\)</span>
 de la base cartesiana</p>
-<div class="amsmath math notranslate nohighlight" id="equation-594782c4-47f8-41c3-9df0-4e4e7d5c694e">
-<span class="eqno">(21)<a class="headerlink" href="#equation-594782c4-47f8-41c3-9df0-4e4e7d5c694e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-72e66a36-6e9e-4c94-99e0-fb7951d73c0c">
+<span class="eqno">(21)<a class="headerlink" href="#equation-72e66a36-6e9e-4c94-99e0-fb7951d73c0c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 R_z(\pi)\hat{\bf x} &amp;=&amp;-\hat{\bf x}  \\ \rule{0mm}{6mm}
 R_z(\pi)\hat{\bf y} &amp;=&amp; -\hat{\bf y}  \\ \rule{0mm}{6mm}
 R_z(\pi)\hat{\bf z} &amp;=&amp; + \hat{\bf z}  
@@ -858,15 +851,12 @@ N = \sum_{k=1}^d \lambda_k   P_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 1  \\
+ -1 &amp; 1  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -888,17 +878,30 @@ N = \sum_{k=1}^d \lambda_k   P_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="s1">&#39; Realizamos la descomposición espectral&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">eigvecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">eigvec0</span> <span class="o">=</span> <span class="n">eigvecs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">P0</span> <span class="o">=</span> <span class="n">tQ</span><span class="o">.</span><span class="n">ket_bra</span><span class="p">(</span><span class="n">eigvec0</span><span class="p">,</span><span class="n">eigvec0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+P_0=
+\begin{bmatrix}
+\frac{1}{2} &amp; - \frac{i}{2}  \\
+ \frac{i}{2} &amp; \frac{1}{2}  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+P_1=
+\begin{bmatrix}
+\frac{1}{2} &amp; \frac{i}{2}  \\
+ - \frac{i}{2} &amp; \frac{1}{2}  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+P_0 + P_1=
+\begin{bmatrix}
+1 &amp; 0  \\
+ 0 &amp; 1  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -911,16 +914,12 @@ N = \sum_{k=1}^d \lambda_k   P_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="s1">&#39; verificamos el teorema de descomposición espectral &#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">A_descomp_espect</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">P0</span><span class="o">+</span><span class="n">eigvals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">P1</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">A_descomp_espect</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;eigvals&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1 &amp; 1  \\
+ -1 &amp; 1  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <p>La matriz <span class="math notranslate nohighlight">\(A_{ij}\)</span> que expresa <span class="math notranslate nohighlight">\(A\)</span> en la base <span class="math notranslate nohighlight">\(\ket{\lambda_i}\)</span> es diagonal</p>
@@ -1124,16 +1123,28 @@ B = \begin{bmatrix} \lambda^B_1 &amp; &amp; &amp;  \\ &amp; \lambda^B_2 &amp; &a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;Método para construir una matriz unitaria arbitraria usando la descomposición polar&#39;&#39;&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#u, s, vh = linalg.svd(A, full_matrices=False)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">u</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.233-0.j 0.75 -0.j 0.16 +0.j]
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+U=
+\begin{bmatrix}
+0.549316245 + 0.0255758253 i &amp; -0.0894877919 + 0.797676182 i &amp; 0.2059869156 - 0.1042668429 i  \\
+ 0.1790367981 + 0.769914811 i &amp; 0.5332841559 - 0.0013776133 i &amp; -0.2539618437 + 0.1621311256 i  \\
+ -0.2651291373 + 0.0498105357 i &amp; 0.2594970638 + 0.0630240341 i &amp; 0.8025207277 + 0.4602990091 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+U^\dagger U=
+\begin{bmatrix}
+1 &amp; 0 &amp; 0  \\
+ 0 &amp; 1 &amp; 0  \\
+ 0 &amp; 0 &amp; 1  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1.])
 </pre></div>
 </div>
 </div>
@@ -1197,14 +1208,16 @@ A = U\,\Sigma\, V^{\dagger} \, ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;A=&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;the shape of A is :&#39;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+A=
+\begin{bmatrix}
+-0.0004478578 - 0.9778106717 i &amp; -0.8342098764 - 0.0754694251 i  \\
+ 0.4004869287 + 0.9007701797 i &amp; -0.3512894723 + 0.7601280071 i  \\
+ 1.1604824749 - 0.4023495689 i &amp; 0.1762242514 - 0.271006992 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the shape of A is : (3, 2)
 </pre></div>
 </div>
 </div>
@@ -1234,12 +1247,14 @@ A = U\,\Sigma\, V^{\dagger} \, ,
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">U</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">Vadj</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">m</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Vadj</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)):</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">Sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;U=&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">Sigma</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;\Sigma=&#39;</span><span class="p">))</span>
 
-<span class="ne">NameError</span>: name &#39;la&#39; is not defined
+<span class="ne">NameError</span>: name &#39;s&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1254,16 +1269,17 @@ A = U\,\Sigma\, V^{\dagger} \, ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">(</span><span class="n">sig1</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span><span class="n">A</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">sig1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;H=&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;la&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.06095313 3.88284264]
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+H=
+\begin{bmatrix}
+-0.3977099392 &amp; -0.9175112012  \\
+ 0.8301989744 + 0.3906359777 i &amp; -0.3598630548 - 0.169327427 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1276,16 +1292,18 @@ A = U\,\Sigma\, V^{\dagger} \, ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">(</span><span class="n">sig2</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">sig2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">array_to_latex</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;U=&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;la&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.66453526e-15 1.06095313e+00 3.88284264e+00]
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+U=
+\begin{bmatrix}
+0.5215833234 &amp; -0.6435771776 &amp; 0.5601421723  \\
+ -0.332522535 + 0.2507221204 i &amp; -0.7261218693 + 0.1312414159 i &amp; -0.5246476143 - 0.0826727554 i  \\
+ -0.31379329 - 0.6753160667 i &amp; -0.2032679192 + 0.0036456954 i &amp; 0.0586471703 + 0.6330176558 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <p>No acaba de salir <span class="math notranslate nohighlight">\(U\)</span></p>
@@ -1322,8 +1340,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-69f3924d-4905-437a-9a15-88b7997e10be">
-<span class="eqno">(22)<a class="headerlink" href="#equation-69f3924d-4905-437a-9a15-88b7997e10be" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} Sean $\{\ket{i}\}$ y $\{\ket{\tilde i}\}$ dos bases cualesquiera. Entonces
+<div class="amsmath math notranslate nohighlight" id="equation-5d4daf70-dc48-4ca1-8a67-c398c2c6edbe">
+<span class="eqno">(22)<a class="headerlink" href="#equation-5d4daf70-dc48-4ca1-8a67-c398c2c6edbe" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} Sean $\{\ket{i}\}$ y $\{\ket{\tilde i}\}$ dos bases cualesquiera. Entonces
 {\rm tr} A  &amp;=&amp;\sum_i A_{ii} =\sum_{i} \bra{i}A\ket{i} =\sum_{i} \bra{i}A\left( \sum_j\ketbra{\tilde j}{\tilde j}\right)\ket{i}
 \nonumber\\
 &amp;=&amp; \sum_{ij}\bra{i}A\ket{\tilde j} \braket{\tilde j}{i} = \sum_{ij}\braket{\tilde j}{i}\bra{i}A\ket{\tilde j}  \nonumber\\
@@ -1369,8 +1387,8 @@ Prueba<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-a307c066-5efb-41a6-a28a-c30ce8f31722">
-<span class="eqno">(23)<a class="headerlink" href="#equation-a307c066-5efb-41a6-a28a-c30ce8f31722" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+<div class="amsmath math notranslate nohighlight" id="equation-076613f9-fdfb-40f0-8a58-3f9a5e9b9de3">
+<span class="eqno">(23)<a class="headerlink" href="#equation-076613f9-fdfb-40f0-8a58-3f9a5e9b9de3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
     {\rm tr}(ABC)&amp;=&amp;\sum_i (ABC)_{ii} =  \sum_{ijk} A_{ij}B_{jk}C_{ki}\\
     &amp;=&amp; \sum_{ijk} B_{jk}C_{ki}A_{ij} = \sum_j (BCA)_{jj}\\
     &amp;=&amp;  {\rm tr}(BCA)
@@ -1431,7 +1449,7 @@ Prueba<div class="sd-summary-down docutils">
 <section id="lin-hil-como-un-espacio-normado">
 <h3><span class="math notranslate nohighlight">\(\Lin(\Hil)\)</span> como un espacio normado<a class="headerlink" href="#lin-hil-como-un-espacio-normado" title="Permalink to this heading">#</a></h3>
 <p>Una <strong>norma</strong> definida sobre <span class="math notranslate nohighlight">\(\Lin(\Hil)  \)</span>es un una función real <span class="math notranslate nohighlight">\( A\to  \| A\| \in {\mathbb R}\)</span> con las propiedades
-que se han definido en una <span class="xref myst">sección anterior</span></p>
+que se han definido en una <a class="reference internal" href="01_Vectores.html#norm"><span class="std std-ref">sección anterior</span></a></p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Definción</strong> <em>(norma Shatten)</em></p>
@@ -1540,18 +1558,18 @@ f(A) = \sum_{n=0}^\infty \frac{1}{n!} f^{(n)}(0)\,  A^n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_power</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">],[</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">expm</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="mi">5</span><span class="p">)))</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="s1">&#39; podemos comparar con la serie de Taylor a tercer orden&#39;</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1.21231 + 0.03374 i &amp; 0.32278 + 0.07788 i  \\
+ 0.01783 + 0.20924 i &amp; 0.88062 - 0.14876 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+1.21233 + 0.03367 i &amp; 0.3225 + 0.0775 i  \\
+ 0.018 + 0.209 i &amp; 0.88083 - 0.14833 i  \\
+ \end{bmatrix}
+\end{split}\]</div>
 </div>
 </div>
 <p>Una propiedad importante de la función exponencial es  <span class="math notranslate nohighlight">\(e^xe^y = e^{x+y}\)</span>. La propiedad análoga para operadores <em>sólo es cierta cuando conmutan entre sí</em>.  Para el caso genérico tenemos dos opciones</p>
@@ -1622,8 +1640,8 @@ Detalles<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-3ae36ecc-72ac-4dc8-a832-0f9d85120089">
-<span class="eqno">(24)<a class="headerlink" href="#equation-3ae36ecc-72ac-4dc8-a832-0f9d85120089" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-047a1d0b-b2de-4d72-a5aa-802f6cef6e0f">
+<span class="eqno">(24)<a class="headerlink" href="#equation-047a1d0b-b2de-4d72-a5aa-802f6cef6e0f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U^\dagger &amp;=&amp; \left( e^{iH}\right)^\dagger = \left( 1+ iH + \frac{1}{2}(i H)^2 + ...\right)^\dagger \\
 &amp;=&amp; 1 - iH^\dagger  + \frac{1}{2}(-i)^2 (H^2)^\dagger + ... \\
 &amp;=&amp; 1 - iH +\frac{1}{2} H^2 - ... \\
@@ -1665,8 +1683,8 @@ f(A) = e^{1/A} = \sum_i e^{1/\lambda_i} \ket{\lambda_i}\bra{\lambda_i}
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-221b316e-07e0-4e15-b150-7cfa0b98d33d">
-<span class="eqno">(25)<a class="headerlink" href="#equation-221b316e-07e0-4e15-b150-7cfa0b98d33d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-198e5ae8-1154-4f4e-a6a5-3aafbcdd0c9e">
+<span class="eqno">(25)<a class="headerlink" href="#equation-198e5ae8-1154-4f4e-a6a5-3aafbcdd0c9e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 f(A) = {\rm tr}(A \log A) &amp;=&amp; {\rm tr}\left[\left(\sum_j \lambda_j \ket{\lambda_j}\bra{\lambda_j}\right)\left(\sum_k\log \lambda_k \ket{\lambda_k}\bra{\lambda_k}\right)\right] ~=~  {\rm tr}\left[\sum_k \lambda_k \log\lambda_k \ket{\lambda_k}\bra{\lambda_k} \right] \\ \rule{0mm}{20mm}
 &amp;=&amp; {\rm tr} \begin{bmatrix} \lambda_1 \log \lambda_1&amp; &amp;  &amp; \\ &amp;\lambda_2 \log \lambda_2 &amp; &amp;  \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; \lambda_n \log \lambda_n
 \end{bmatrix}
@@ -1709,8 +1727,8 @@ f(A) = {\rm tr}(A \log A) &amp;=&amp; {\rm tr}\left[\left(\sum_j \lambda_j \ket{
 <ul class="simple">
 <li><p>si multiplicamos dos matrices de Pauli <strong>diferentes</strong></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-d54ed9c3-1f70-44c1-ac76-aee22a392841">
-<span class="eqno">(26)<a class="headerlink" href="#equation-d54ed9c3-1f70-44c1-ac76-aee22a392841" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-be5e69ce-dd0f-4b51-abc4-a43fe6dc3fdb">
+<span class="eqno">(26)<a class="headerlink" href="#equation-be5e69ce-dd0f-4b51-abc4-a43fe6dc3fdb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \sigma_1\sigma_2 &amp;=&amp;  - \sigma_2\sigma_1 = i \sigma_3   \\
 \sigma_2\sigma_3 &amp;=&amp;  -\sigma_3\sigma_2  = -i \sigma_1  \\
 \sigma_3\sigma_1 &amp;=&amp; -\sigma_2\sigma_3 = -i \sigma_2   \\
@@ -1731,14 +1749,15 @@ f(A) = {\rm tr}(A \log A) &amp;=&amp; {\rm tr}\left[\left(\sum_j \lambda_j \ket{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">],[</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ True  True]
+ [ True  True]]
+[[ True  True]
+ [ True  True]]
+[[ True  True]
+ [ True  True]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;etc&#39;
 </pre></div>
 </div>
 </div>
@@ -1776,8 +1795,8 @@ en el sentido del producto escalar definido sobre <span class="math notranslate 
 <p>Las matrices hermíticas de dimensión 2<span class="math notranslate nohighlight">\(\times\)</span>2 tienen cuatro grados de libertad reales.</p>
 <p>Si añadimos la matriz identidad <span class="math notranslate nohighlight">\(~I = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}~
 \)</span>  el conjunto <span class="math notranslate nohighlight">\(\{I,\sigma_x,\sigma_y,\sigma_z\}\)</span> forma una <em>base</em> para el espacio de <em>matrices hermíticas</em> <span class="math notranslate nohighlight">\(2\times 2\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed052f25-da2a-4193-bae2-4e9fd682aa17">
-<span class="eqno">(27)<a class="headerlink" href="#equation-ed052f25-da2a-4193-bae2-4e9fd682aa17" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-7b81595a-8968-4b1a-b1d5-22967dd8cb4d">
+<span class="eqno">(27)<a class="headerlink" href="#equation-7b81595a-8968-4b1a-b1d5-22967dd8cb4d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 A &amp;=&amp; a_0 I + {\bf a} \cdot \boldsymbol{\sigma} \\  \rule{0mm}{10mm} &amp;=&amp;  a_0 I + a_1 \sigma_1 + a_2 \sigma_2 + a_3 \sigma_3 \\ \rule{0mm}{10mm}&amp;=&amp; 
 \begin{bmatrix}
 a_0 + a_3 &amp; a_1 - i a_2 \\ a_1 + i a_2 &amp; a_0 - a_3
@@ -1838,16 +1857,24 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a= 0.7516782023492741
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+0.6613253844 &amp; 0.682661608 &amp; 0.3108405779  \\
+ \end{bmatrix}
+\end{split}\]</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">expm</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="s1">&#39;generamos un vector aleatorio&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">avec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">avec</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">nvec</span> <span class="o">=</span> <span class="n">avec</span><span class="o">/</span><span class="n">a</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="s1">&#39;using the Euler-like formula&#39;</span>
+<span class="nn">     19 ndots= sum(list(nvec[i]*sigvec[i] for i</span> in <span class="ni">range</span><span class="nt">(3)))</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">e2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">s0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">nvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sigvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">nvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">sigvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">nvec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">sigvec</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="s1">&#39;verify&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">display</span><span class="p">(</span><span class="n">array_to_latex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;e1=&#39;</span><span class="p">))</span>
 
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<span class="ne">NameError</span>: name &#39;s0&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1981,7 +2008,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
