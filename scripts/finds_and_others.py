@@ -7,6 +7,13 @@ import sys
 import re
 
 
+class TextoEnLineaTitulo(Exception):
+
+    def __init__(self, message="Hay texto en la línea de título"):
+        self.message = message
+
+        super().__init__(self.message)
+
 def my_replace(f_data, i_line, new_text):
 
     #print("------> ", new_text)
@@ -56,124 +63,159 @@ def find_div_boxes(f_data, i_start_list):
 
     i_end_last_iteration = 0
     for i_start in i_start_list:
+        try: 
+            assert i_end_last_iteration < i_start, f"{i_end_last_iteration} < {i_start} The previous box ends after the begining of the next one"
 
-        assert i_end_last_iteration < i_start, f"{i_end_last_iteration} < {i_start} The previous box ends after the begining of the next one"
+            i_end           = i_start 
+            i_start_p       = 0
+            i_end_p         = 0
+            i_start_details = 0
+            i_end_details   = 0
+            i_title         = 0
+            
+            title_details   = None
+            subtitle        = None
+            title           = None
+            title_lowercase = None
+            subtitle        = None
+                    
+            found = False
+            while not found:
 
-        i_end           = i_start 
-        i_start_p       = 0
-        i_end_p         = 0
-        i_start_details = 0
-        i_end_details   = 0
-        i_title         = 0
-        
-        title_details   = None
-        subtitle        = None
-        title           = None
-        title_lowercase = None
-        subtitle        = None
+                if "<details><summary>" in f_data[i_end]:
+                    i_start_details = i_end
+                elif "</details>"       in f_data[i_end]:
+                    i_end_details   = i_end
+                elif "<p"               in f_data[i_end]:
+                    i_start_p       = i_end
+                elif "</p></div>"       in f_data[i_end]:
+                    i_end_p         = i_end
+                    found = True
+                elif "</p>"             in f_data[i_end]:
+                    i_end_p         = i_end
+                elif "<b>"              in f_data[i_end] and i_title == 0:
+                    i_title         = i_end
+                elif "</div>"           in f_data[i_end]:
+                    found = True
                 
-        found = False
-        while not found:
+                i_end += 1
+            i_end -= 1       
 
-            if "<details><summary>" in f_data[i_end]:
-                i_start_details = i_end
-            elif "</details>"       in f_data[i_end]:
-                i_end_details   = i_end
-            elif "<p"               in f_data[i_end]:
-                i_start_p       = i_end
-            elif "</p></div>"       in f_data[i_end]:
-                i_end_p         = i_end
-                found = True
-            elif "</p>"             in f_data[i_end]:
-                i_end_p         = i_end
-            elif "<b>"              in f_data[i_end] and i_title == 0:
-                i_title         = i_end
-            elif "</div>"           in f_data[i_end]:
-                found = True
+            i_end_last_iteration = i_end
+            ########################
+            ######## TITLE 
+
+            line_title   = f_data[i_title]
             
-            i_end += 1
-        i_end -= 1       
+            # Esta expresión es para borrar los espacios       
+            # title_no_clean_aux = e.sub(r'"(.*?)"', 
+            #                     lambda x: x.group(0).replace(' ', ''), line_title)
+            
 
-        i_end_last_iteration = i_end
-        ########################
-        ######## TITLE 
+            #title_no_clean = re.search(r'"([^"]*)"', line_title).group(1)
+            #title = re.sub(r'<.*?>', '', title_no_clean.split(':')[0]).strip()   #  +'\\n",\n'
 
-        line_title   = f_data[i_title]
-        
-        # Esta expresión es para borrar los espacios       
-        # title_no_clean_aux = e.sub(r'"(.*?)"', 
-        #                     lambda x: x.group(0).replace(' ', ''), line_title)
+            #print(f_data[i_title])
+            #print(i_title)
+            title = re.search(r'<b>(.*?)</b>', f_data[i_title]).group(1).replace(":","").rstrip().lstrip()
+            # .rstrip() elimina los espacios al final
+            # .lstrip() elimina los espacios al principio
+            title_lowercase = remove_capital_accents(title).strip()
+            
+            ########################
+            ######## SUB-TITLE 
 
-        title_no_clean = re.search(r'"([^"]*)"', line_title).group(1)
-        title = re.sub(r'<.*?>', '', title_no_clean.split(':')[0]).strip()   #  +'\\n",\n'
-        #print(f_data[i_title])
-        #print(i_title)
-        #title = re.search(r'<b>(.*?)</b>', f_data[i_title]).group(1)
-        title_lowercase = remove_capital_accents(title).strip()
-        
-        ########################
-        ######## SUB-TITLE 
+            if "<i>" in f_data[i_title]:
+                subtitle = re.search(r'<i>(.*?)</i>', f_data[i_title]).group(1).replace("(","").replace(")","").rstrip().lstrip()
+                if f_data[i_title].split('</i>')[1].replace(" ","") != '\\n",\n':
+                    raise TextoEnLineaTitulo()
+            else:
+                if f_data[i_title].split('</b>')[1].replace(" ","").replace(":","") != '\\n",\n':
+                    raise TextoEnLineaTitulo()
+            
 
-        if "<i>" in f_data[i_title]:
-            subtitle = re.search(r'<i>(.*?)</i>', f_data[i_title]).group(1)
-          
+            
+            ########################
+            ######## #prints y asserts
 
-        
-        ########################
-        ######## #prints y asserts
+            #assert i_start_p       <= i_end_p, f"Problems findins <p>, {i_start_p} and </p> {i_end_p}"
+            #assert i_start_details <= i_end_details, f"Problems findins <details>, {i_start_p} and </details> {i_end_p}"
+            
+            #print(i_start,             {f_data[i_start]})
 
-        #assert i_start_p       <= i_end_p, f"Problems findins <p>, {i_start_p} and </p> {i_end_p}"
-        #assert i_start_details <= i_end_details, f"Problems findins <details>, {i_start_p} and </details> {i_end_p}"
-        
-        #print(i_start,             {f_data[i_start]})
+            if i_start_p > 0:
+                assert i_start <= i_start_p < i_end, f"{i_start} <= {i_start_p} < {i_end}:  i_start <= i_start_p < i_end"
+                #if i_start < i_start_p:
+                    #print(i_start_p,   {f_data[i_start_p]})
+            
+            #print(i_title,  title, title_lowercase, subtitle)
+            
+            if i_start_details > 0:
+                assert i_start < i_start_details <= i_end, f"{i_start} < {i_start_details} <= {i_end}: i_start < i_start_details <= i_end"
 
-        if i_start_p > 0:
-            assert i_start <= i_start_p < i_end, f"{i_start} <= {i_start_p} < {i_end}"
-            #if i_start < i_start_p:
-                #print(i_start_p,   {f_data[i_start_p]})
-        
-        #print(i_title,  title, title_lowercase, subtitle)
-        
-        if i_start_details > 0:
-            assert i_start < i_start_details <= i_end, f"{i_start} < {i_start_details} <= {i_end}"
+                ###### Title details:
+                try:
+                    title_details = re.search(r'<i>(.*?)</i>', f_data[i_start_details]).group(1)
 
-            ###### Title details:
-            title_details = re.search(r'<i>(.*?)</i>', f_data[i_start_details]).group(1)
+                except Exception as error :
+                    print(f"\033[91m======\033[0m") 
+                    print(f"\033[91m Error encontrando un details {i_start_details}. No tiene título\033[0m")
+                    print(f"\033[91m    ",{f_data[i_start]},"\033[0m")
+                    print(f"\033[91m    ",{f_data[i_start+1]}," \033[0m")
+                    print(f"\033[91m    ",{f_data[i_start+2]}," \033[0m")
+                    print(f"\033[91m    ",{f_data[i_start+3]}," \033[0m")
+                    print("")
+                    print(f"\033[91m    ",error," \033[0m")
+                    print(f"\033[91m======\033[0m") 
 
-            #print(i_start_details, {f_data[i_start_details]})
+                #print(i_start_details, {f_data[i_start_details]})
+                #print("")
+                #print(i_start_details, {f_data[i_start_details]} , title_details)
+
+            if i_end_details > 0:
+                
+                assert i_start < i_start_details < i_end_details <= i_end, f"{i_start} < {i_start_details} < {i_end_details} <= {i_end}:  i_start < i_start_details < i_end_details <= i_end"
+                
+                #print(i_end_details,   {f_data[i_end_details]})
+            
+            if i_end_p > 0:
+                
+                assert i_start <= i_start_p < i_end_p <= i_end, f"{i_start} <= {i_start_p} < {i_end_p} <= {i_end}:  i_start <= i_start_p < i_end_p <= i_end"
+                
+                #if i_end > i_end_p:
+                    #print(i_end_p,   {f_data[i_end_p]})
+
             #print("")
-            #print(i_start_details, {f_data[i_start_details]} , title_details)
+            #print(i_end,               {f_data[i_end]})
+            #print("===============================================================")
+            
+            if not title == None:
 
-        if i_end_details > 0:
-            
-            assert i_start < i_start_details < i_end_details <= i_end, f"{i_start} < {i_start_details} < {i_end_details} <= {i_end}"
-            
-            #print(i_end_details,   {f_data[i_end_details]})
+                i_end_list.append(i_end) 
+                #i_start_list.append(i_start) 
+                i_start_p_list.append(i_start_p) 
+                i_end_p_list.append(i_end_p) 
+                i_start_details_list.append(i_start_details) 
+                i_end_details_list.append(i_end_details) 
+                i_title_list.append(i_title) 
+                title_details_list.append(title_details) 
+                title_list.append(title) 
+                title_lowercase_list.append(title_lowercase) 
+                subtitle_list.append(subtitle)
         
-        if i_end_p > 0:
-            
-            assert i_start <= i_start_p < i_end_p <= i_end, f"{i_start} <= {i_start_p} < {i_end_p} <= {i_end}"
-            
-            #if i_end > i_end_p:
-                #print(i_end_p,   {f_data[i_end_p]})
 
-        #print("")
-        #print(i_end,               {f_data[i_end]})
-        #print("===============================================================")
-        
-        if not title == None:
+        except Exception as error :
+            print(f"\033[91m======\033[0m") 
+            print(f"\033[91m Error encontrando un cuadro: linea {i_start}\033[0m")
+            print(f"\033[91m    ",{f_data[i_start]},"\033[0m")
+            print(f"\033[91m    ",{f_data[i_start+1]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i_start+2]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i_start+3]}," \033[0m")
+            print("")
+            print(f"\033[91m    ",error," \033[0m")
+            print(f"\033[91m======\033[0m") 
+            
 
-            i_end_list.append(i_end) 
-            #i_start_list.append(i_start) 
-            i_start_p_list.append(i_start_p) 
-            i_end_p_list.append(i_end_p) 
-            i_start_details_list.append(i_start_details) 
-            i_end_details_list.append(i_end_details) 
-            i_title_list.append(i_title) 
-            title_details_list.append(title_details) 
-            title_list.append(title) 
-            title_lowercase_list.append(title_lowercase) 
-            subtitle_list.append(subtitle)
     
     index_list_list = [i_start_list, 
                        i_end_list,
@@ -226,6 +268,7 @@ def find_figures(f_data, i_start_list):
         width_fig   = None
         caption_fig = None
         label_fig   = None
+        number_ref  = False
                 
         found = False
         while not found:
@@ -263,8 +306,14 @@ def find_figures(f_data, i_start_list):
                 align_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
             elif 'width='  in line_img_split[i]:
                 width_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
-        
-      
+            elif 'alt=' in line_img_split[i] and i_caption > 0:
+                number_ref = True
+                caption_fig = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','').replace("--"," ")
+
+        if i_caption > 0 and not 'alt=' in line_img:
+            number_ref=False
+            caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
+
         ########################
         ######## #prints y asserts
     
@@ -296,7 +345,7 @@ def find_figures(f_data, i_start_list):
 
     datos_list_list = [path_fig_list, align_fig_list, width_fig_list, caption_fig_list, label_fig_list]
         
-    return index_list_list, datos_list_list
+    return index_list_list, datos_list_list, number_ref
 
 
 def find_cell(f_data, i_pattern):

@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,10 +49,9 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -91,6 +90,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,7 +102,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Vectores';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Operadores I" href="01_Operadores_01.html" />
@@ -200,18 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -229,9 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../pruebas/214_Grover_myst.html">Algoritmo de Grover</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../QML/4_QSVM_myst.html">4. Quantum Support Vector Machines (QSVM)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
@@ -660,8 +646,8 @@ document.write(`
 <br></p></li>
 <li><p>La existencia de un <strong>elemento opuesto</strong> y de un elemento neutro son dos propiedades importantes en un espacio vectorial</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-df13deb2-32b7-4814-86b4-549708a6ef86">
-<span class="eqno">(4)<a class="headerlink" href="#equation-df13deb2-32b7-4814-86b4-549708a6ef86" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-6afc718d-81e3-4638-ac31-ce66d673d06d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-6afc718d-81e3-4638-ac31-ce66d673d06d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{v} + 0 &amp;=&amp; \ket{v} \nonumber\\
 \ket{v} + \ket{\hbox{-}v} &amp;=&amp; \ket{v}-\ket{v} = 0 \nonumber\\
 \end{eqnarray}\]</div>
@@ -800,8 +786,8 @@ $<span class="math notranslate nohighlight">\(~~\ket{v}  = \sum_{i} \color{blue}
 C_{ij} = \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix} =  \begin{pmatrix} C_{11} &amp; C_{12} \\ C_{21} &amp; C_{22} \end{pmatrix}\, ,
 \end{split}\]</div>
 <p>Entonces la expresión <span class="math notranslate nohighlight">\(\ket{\tilde e_j} = \sum_{i=1}^N C_{ i j} \ket{e_i}\)</span> en este caso relaciona las dos bases en la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-effe4ea9-5bc5-46a2-bb3d-ab1ecf10f9ec">
-<span class="eqno">(5)<a class="headerlink" href="#equation-effe4ea9-5bc5-46a2-bb3d-ab1ecf10f9ec" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d5400db7-dcf1-401d-ad45-a9832c25ccc9">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d5400db7-dcf1-401d-ad45-a9832c25ccc9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{\tilde e_1} &amp;=&amp; C_{11}\ket{e_1}  + C_{21}\ket{e_2}  =  \ket{e_1} + i\ket{e_2}\nonumber\\ \rule{0mm}{8mm}
 \ket{\tilde e_2} &amp;=&amp; C_{12}\ket{e_1}  + C_{22}\ket{e_2}=\ket{e_1} - i\ket{e_2} \nonumber
 \end{eqnarray}\]</div>
@@ -827,8 +813,8 @@ C_{ij} = \begin{pmatrix} 1 &amp; 1 \\ i &amp; -i \end{pmatrix} =  \begin{pmatrix
 \end{split}\]</div>
 </div>
 <p>Ahora podemos obtener el <em>diccionario</em> entre componentes <span class="math notranslate nohighlight">\(v_i\)</span> y <span class="math notranslate nohighlight">\(\tilde v_i\)</span>, a partir de la  matriz de cambio de base</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c56e33a-508a-4821-bc11-b46931aebae7">
-<span class="eqno">(6)<a class="headerlink" href="#equation-3c56e33a-508a-4821-bc11-b46931aebae7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b79e40bc-7c2d-42e8-9548-c2ae58e8719d">
+<span class="eqno">(6)<a class="headerlink" href="#equation-b79e40bc-7c2d-42e8-9548-c2ae58e8719d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{v}  ~= ~ \sum_{i} v_i \ket{e_i} &amp;~=~ \sum_j \tilde v_j \ket{\tilde e_j} \nonumber\\
 &amp;~=~  \sum_j \tilde v_j \left( \sum_{i} C_{ij} \ket{e_i}\right) \nonumber \\
 &amp;~=~  \sum_{j}\sum_{i} \tilde v_j   C_{ij} \ket{e_i} \nonumber \\
@@ -1104,8 +1090,8 @@ Solución<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-1c58be2c-15d9-4ea0-b639-9c34d69cd0e7">
-<span class="eqno">(7)<a class="headerlink" href="#equation-1c58be2c-15d9-4ea0-b639-9c34d69cd0e7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-a8dcb846-6e3e-43f0-85b0-f963601a0511">
+<span class="eqno">(7)<a class="headerlink" href="#equation-a8dcb846-6e3e-43f0-85b0-f963601a0511" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \braket{e_k}{v} &amp;=&amp;  \bra{e_k}\left(\sum_{j=1}^N v_j\ket{e_j}\right) \nonumber\\
                 &amp;=&amp;  \sum_{j=1}^N  v_j\braket{e_k}{e_j}  \nonumber\\
                 &amp;=&amp;  \sum_{j=1}^N  v_j\delta_{kj} = v_k
@@ -1114,8 +1100,8 @@ Solución<div class="sd-summary-down docutils">
 </details></div>
 <p>En una base
 ortonormal, calcular el valor de un <em>producto escalar</em> <span class="math notranslate nohighlight">\(a=\braket{u}{v}\)</span> es muy simple</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9082b689-4151-49df-b8d1-eaa6a2e77ef0">
-<span class="eqno">(8)<a class="headerlink" href="#equation-9082b689-4151-49df-b8d1-eaa6a2e77ef0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-0028f9b8-db7a-4bfe-8602-82d2ddd5dffc">
+<span class="eqno">(8)<a class="headerlink" href="#equation-0028f9b8-db7a-4bfe-8602-82d2ddd5dffc" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 a = 
 \braket{u}{v}&amp;=&amp; \left(\sum_{i}u_i^*\bra{e_i}\right)\left(\sum_{j}v_j\ket{e_j} \right) = 
 \sum_{ij} u_i^* v_j  \braket{e_i}{e_j}
@@ -1254,7 +1240,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>

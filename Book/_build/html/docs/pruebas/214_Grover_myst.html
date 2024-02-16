@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,10 +49,9 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -91,6 +90,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -105,10 +105,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pruebas/214_Grover_myst';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="QML (Quantum Machine Learning)" href="../QML/1_Introduction_lab.html" />
+    <link rel="next" title="4. Quantum Support Vector Machines (QSVM)" href="../QML/4_QSVM_myst.html" />
     <link rel="prev" title="Elementos de Mecánica Cuántica" href="../00_Formalismo/02_Fundamentos_MC.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -203,18 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -232,9 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Algoritmo de Grover</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/1_Introduction_lab.html">QML (Quantum Machine Learning)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../QML/2_Feature_encoding_lab.html">QML (Quantum Machine Learning)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../QML/4_QSVM_myst.html">4. Quantum Support Vector Machines (QSVM)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Circuitos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
@@ -576,7 +562,7 @@ document.write(`
 </div>
 <section id="seccion-1">
 <span id="sec-seccion-1"></span><h2><a class="toc-backref" href="#id6">Sección 1</a><a class="headerlink" href="#seccion-1" title="Permalink to this heading">#</a></h2>
-<p>Referencia a la seción <a class="reference internal" href="../01_Circuitos/121_Multicubits.html#sec-multiqubit-entrelazamiento"><span class="std std-ref">Entrelazamiento</span></a> de <a class="reference internal" href="../01_Circuitos/121_Multicubits.html"><span class="std std-doc">multiqubits</span></a>:</p>
+<p>Referencia a la seción <a class="reference internal" href="../01_Circuitos/121_Multicubits.html#sec-multiqubit-entrelazamiento"><span class="std std-ref">Entrelazamiento</span></a> de <a class="reference internal" href="../01_Circuitos/121_Multicubits.html"><span class="doc std std-doc">multiqubits</span></a>:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>Definición/Teorema/Lema</strong>: <em>subtitulo del Teorema/lema/definición</em></p>
@@ -598,7 +584,7 @@ Demostración/Prueba/…<div class="sd-summary-down docutils">
 </div>
 <p>Mas texto</p>
 <div class="note admonition">
-<p class="admonition-title">Nota (Subtitulo de la nota)</p>
+<p class="admonition-title">Nota (Subtitulo de la nota) </p>
 <p>Plantilla de Nota</p>
 <p>El titulo debe de ser Nota</p>
 <p>La demostración/prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
@@ -613,7 +599,7 @@ Demostración/Prueba/…<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="tip admonition">
-<p class="admonition-title">Ejercicio/Ejemplo (Subtitulo del ejercicio/ejemplo)</p>
+<p class="admonition-title">Ejercicio/Ejemplo (Subtitulo del ejercicio/ejemplo) </p>
 <p>Plantilla de Ejercicios y Ejemplos</p>
 <p>Debe de quedar una de las dos palabras del título: Ejercicio o Ejemplo</p>
 <p>La solución/pista/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
@@ -628,7 +614,7 @@ Solución/Pista/…<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="attention admonition">
-<p class="admonition-title">Resumen (Subtitulo del resumen)</p>
+<p class="admonition-title">Resumen (Subtitulo del resumen) </p>
 <p>Platilla del resumen</p>
 <p>Debe de estar en el título la palabra resumen</p>
 <p>La Desmostración/Prueba/… es opcional. Puede borrarse todo el texto de a continuación, dejando el div del final!!! (la última linea)</p>
@@ -788,7 +774,7 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 </ul>
 </div>
 <div class="note admonition">
-<p class="admonition-title">Nota (Subtitulo de la nota)</p>
+<p class="admonition-title">Nota (Subtitulo de la nota) </p>
 <ul class="simple">
 <li><p>el ángulo disminuye con el tamaño <span class="math notranslate nohighlight">\(N\)</span> de la base de datos. Este ángulo es la amplitud de probabilidad de encontrar la solución <span class="math notranslate nohighlight">\(w\)</span> después de una medida de <span class="math notranslate nohighlight">\(\ket{s}\)</span>.</p></li>
 <li><p>Para <span class="math notranslate nohighlight">\(N\to \infty\)</span> tenemos que <span class="math notranslate nohighlight">\(\theta \sim 1/\sqrt{N}\)</span></p></li>
@@ -979,8 +965,8 @@ El marcador es la parte del algoritmo que <i>conoce</i> la solución.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Podemos formalizar el &lt;i&gt;marcador&lt;/i&gt; como la &lt;i&gt;consulta al oráculo&lt;/i&gt; $O_f$ asociado a una función que  &lt;i&gt;reconoce&lt;/i&gt; la solución cuando la ve
 </pre></div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-ca966728-1549-4d7c-bc1e-cc90d3b0ef17">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ca966728-1549-4d7c-bc1e-cc90d3b0ef17" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8af3bf0d-22c9-469c-84a7-60e38361924d">
+<span class="eqno">(45)<a class="headerlink" href="#equation-8af3bf0d-22c9-469c-84a7-60e38361924d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_w(x) = \left\{ \begin{array}{lcc}
              1 &amp;   \hbox{si}  &amp; x = w \\
               0 &amp;  \hbox{si} &amp; x \neq w \end{array}
@@ -1015,8 +1001,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe414b4c-10e0-4568-b6b2-25aa1219c472">
-<span class="eqno">(46)<a class="headerlink" href="#equation-fe414b4c-10e0-4568-b6b2-25aa1219c472" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-223486a5-4ba1-467f-8fe8-95e6ab52f8f2">
+<span class="eqno">(46)<a class="headerlink" href="#equation-223486a5-4ba1-467f-8fe8-95e6ab52f8f2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -1085,8 +1071,8 @@ En general tendremos que</p>
 G^k\ket{s}  = a_k\ket{w} + b_k \ket{s^\prime}
 \]</div>
 <p class="sd-card-text">para ciertos coeficientes <span class="math notranslate nohighlight">\(a_k, b_k\)</span>. Ahora operamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20c74c82-a6d2-4f2d-bd24-4caadbb4f52c">
-<span class="eqno">(47)<a class="headerlink" href="#equation-20c74c82-a6d2-4f2d-bd24-4caadbb4f52c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-2dd82316-1f66-47a8-9ee5-084cd487e94f">
+<span class="eqno">(47)<a class="headerlink" href="#equation-2dd82316-1f66-47a8-9ee5-084cd487e94f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 G^k\ket{s} &amp; = &amp;a_k\ket{w} + b_k \ket{s^\prime} \\
 &amp;=&amp; -U_sU_w\left(a_{k-1}\ket{w} + b_{k-1} \ket{s^\prime}\right) \\
 &amp;=&amp; \left( 2 \ket{s}\bra{s} -I \right)\left(-a_{k-1}\ket{w} + b_{k-1}\ket{s^\prime}\right)\\
@@ -1284,11 +1270,11 @@ Qibo</label><div class="sd-tab-content docutils">
       </div>
     </a>
     <a class="right-next"
-       href="../QML/1_Introduction_lab.html"
+       href="../QML/4_QSVM_myst.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">QML (Quantum Machine Learning)</p>
+        <p class="prev-next-title">4. Quantum Support Vector Machines (QSVM)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1336,7 +1322,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
