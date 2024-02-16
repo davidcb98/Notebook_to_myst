@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/112_Puertas_Simples';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -533,8 +545,8 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\V}{{\cal V}} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Rotaciones en la esfera de Bloch</span></p></li>
-<li><p><span class="xref myst">Puertas simples</span></p></li>
+<li><p><a class="reference internal" href="#rotesf"><span class="xref myst">Rotaciones en la esfera de Bloch</span></a></p></li>
+<li><p><a class="reference internal" href="#puertsimp"><span class="xref myst">Puertas simples</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -545,12 +557,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:696,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">696</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/magics/execution.py:716,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">716</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/utils/path.py:90,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/utils/path.py:90,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
 <span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">return</span> <span class="n">py_name</span>
 <span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File `</span><span class="si">%r</span><span class="s2">` not found.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
 
@@ -562,18 +574,21 @@ document.write(`
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../macro_CURSO.py&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/interactiveshell.py:2369,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2367</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2368</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2369</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2370</span> <span class="k">return</span> <span class="n">result</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2456,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2454</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2455</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2456</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2458</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2460</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2461</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:707,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/magics/execution.py:727,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
 
 <span class="ne">Exception</span>: File `&#39;../macro_CURSO.py&#39;` not found.
 </pre></div>
@@ -611,8 +626,8 @@ $<span class="math notranslate nohighlight">\(
 </div><p>Haciendo la suma explícitamente podemos escribir la matriz unitaria
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ef16ac1-ecb4-47ed-92ff-c894a0bf1777">
-<span class="eqno">()<a class="headerlink" href="#equation-2ef16ac1-ecb4-47ed-92ff-c894a0bf1777" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d488959a-58d2-4604-84f3-2ab3a1b6d8b7">
+<span class="eqno">()<a class="headerlink" href="#equation-d488959a-58d2-4604-84f3-2ab3a1b6d8b7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 R_{\hat{\bf n}}(\alpha)~  ~=~ 
  \begin{bmatrix} \cos \displaystyle\frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2} &amp;\displaystyle (-in_x- n_y)\sin\frac{\alpha}{2} \\ \displaystyle
 (-in_x + ny) \sin\frac{\alpha}{2} &amp; \displaystyle \cos \frac{\alpha}{2} + i n_z\sin\frac{\alpha}{2} \end{bmatrix}
@@ -684,8 +699,8 @@ Aplicada a un estado de cúbit genérico
 \)</span>$
 P(\alpha) \ket{u} =  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix}</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-600aa142-1145-41c9-9a13-a272d41d347a">
-<span class="eqno">()<a class="headerlink" href="#equation-600aa142-1145-41c9-9a13-a272d41d347a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-20ce1668-22d2-47a2-8882-46bd3edda17d">
+<span class="eqno">()<a class="headerlink" href="#equation-20ce1668-22d2-47a2-8882-46bd3edda17d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
 <p>\end{bmatrix}= \ket{v}
 $$
 <br></p>
@@ -694,10 +709,10 @@ $$
 <br>
 $$
 P(\alpha) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix} =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-908cb2d1-dd9d-4f72-9b0b-d00eb08ef720">
-<span class="eqno">()<a class="headerlink" href="#equation-908cb2d1-dd9d-4f72-9b0b-d00eb08ef720" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-63847c32-cc36-4396-931d-51210db9cfee">
-<span class="eqno">()<a class="headerlink" href="#equation-63847c32-cc36-4396-931d-51210db9cfee" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0f9de9cc-36bf-40b3-8c25-7d87471a26a4">
+<span class="eqno">()<a class="headerlink" href="#equation-0f9de9cc-36bf-40b3-8c25-7d87471a26a4" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e6600f52-933a-4533-9908-3185db2aa6d5">
+<span class="eqno">()<a class="headerlink" href="#equation-e6600f52-933a-4533-9908-3185db2aa6d5" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
 <p>$<span class="math notranslate nohighlight">\(
 &lt;br&gt;
 &lt;br&gt;
@@ -725,8 +740,8 @@ La computación clásica se basa en la descomposición de algoritmos complejos e
 <br>
 $$</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-40f171af-ffd3-4b0d-8d72-8a48065f0e9d">
-<span class="eqno">()<a class="headerlink" href="#equation-40f171af-ffd3-4b0d-8d72-8a48065f0e9d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-04cc9030-be09-4409-a35e-e2c591bc59cd">
+<span class="eqno">()<a class="headerlink" href="#equation-04cc9030-be09-4409-a35e-e2c591bc59cd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 X &amp;=&amp;   \begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix} = \sigma_x = \ketbra{1}{0} + \ketbra{0}{1}~~~, ~~~ \\
 Y &amp;=&amp;  \begin{bmatrix}0&amp;-i\\i&amp;0\end{bmatrix}= \sigma_y  =  i \ketbra{1}{0} - i \ketbra{0}{1}~~~, ~~~ \\
 Z &amp;=&amp;   \begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatrix}= \sigma_z = \ketbra{0}{0} - \ketbra{1}{1}  ~~~~, ~~~
@@ -759,8 +774,8 @@ H \ket{0} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} + \ket{1}\right) =\ke
 H \ket{1} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} - \ket{1}\right) =\ket{-} 
 \]</div>
 <p>Podemos escribir este operador en la base canónica <span class="math notranslate nohighlight">\(H = H_{ij}\ketbra{i}{j}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-907da053-302a-4681-889e-ff9a39ef5118">
-<span class="eqno">()<a class="headerlink" href="#equation-907da053-302a-4681-889e-ff9a39ef5118" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-81e5ecfd-d81a-4426-8437-3030145160d9">
+<span class="eqno">()<a class="headerlink" href="#equation-81e5ecfd-d81a-4426-8437-3030145160d9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H &amp;=&amp;  \ket{+}\bra{0} +  \ket{-}\bra{1} \\
 &amp;=&amp; \frac{1}{\sqrt{2}}(\ketbra{0}{0} + \ketbra{1}{0} + \ketbra{0}{1} - \ketbra{1}{1})
 \end{eqnarray}\]</div>
@@ -845,7 +860,11 @@ Por ejemplo, la aplicación del operador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e062e3646300bf861285e3ea032abb0f91c44c8f6c4e28018540e6e2f18b7c8.png" src="../../_images/0e062e3646300bf861285e3ea032abb0f91c44c8f6c4e28018540e6e2f18b7c8.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/891aae12e33abf8499916d2410de3b59db34cff773a976bfa8388ff42c101319.png" src="../../_images/891aae12e33abf8499916d2410de3b59db34cff773a976bfa8388ff42c101319.png" />
 </div>
 </div>
 <section id="simulador-de-estado">
@@ -864,7 +883,7 @@ Por ejemplo, la aplicación del operador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3efcaaf5c0d3ea45fb92af46e423d909c75892a1d5e17398e2ab98f511d45479.png" src="../../_images/3efcaaf5c0d3ea45fb92af46e423d909c75892a1d5e17398e2ab98f511d45479.png" />
+<img alt="../../_images/be83767df0f441b2a98ce49b1b497b8f7a78ecb139f281b0cbc28c8fc2ec0330.png" src="../../_images/be83767df0f441b2a98ce49b1b497b8f7a78ecb139f281b0cbc28c8fc2ec0330.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -888,7 +907,7 @@ Por ejemplo, la aplicación del operador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3efcaaf5c0d3ea45fb92af46e423d909c75892a1d5e17398e2ab98f511d45479.png" src="../../_images/3efcaaf5c0d3ea45fb92af46e423d909c75892a1d5e17398e2ab98f511d45479.png" />
+<img alt="../../_images/be83767df0f441b2a98ce49b1b497b8f7a78ecb139f281b0cbc28c8fc2ec0330.png" src="../../_images/be83767df0f441b2a98ce49b1b497b8f7a78ecb139f281b0cbc28c8fc2ec0330.png" />
 </div>
 </div>
 <p>La concatenación de puertas se corresponde con la <em>composición de operadores</em>, es decir, con la <em>multiplicación de las matrices</em> asociadas.</p>
@@ -915,7 +934,11 @@ le corresponde un circuito en el que  $H$ está a la izquierda de $T$
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79a975df4e45b19929e4bcacb5cabed858d719c73f548e33cad9d6959cef7d1e.png" src="../../_images/79a975df4e45b19929e4bcacb5cabed858d719c73f548e33cad9d6959cef7d1e.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/b610db49e3c567313352b01d43190a933978da06db58341d9582091818157b7f.png" src="../../_images/b610db49e3c567313352b01d43190a933978da06db58341d9582091818157b7f.png" />
 </div>
 </div>
 </section>
@@ -945,7 +968,7 @@ U = T H ~~~\to ~~~ U_{ij} = \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Operator([[ 0.70710678+0.00000000e+00j,  0.70710678+8.65956056e-17j],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Operator([[ 0.70710678+0.00000000e+00j,  0.70710678-8.65956056e-17j],
           [ 0.5       +5.00000000e-01j, -0.5       -5.00000000e-01j]],
          input_dims=(2,), output_dims=(2,))
 </pre></div>
@@ -993,7 +1016,7 @@ lleva el vector <span class="math notranslate nohighlight">\(\ket{0}\)</span> so
             dims=(2,))
 </pre></div>
 </div>
-<img alt="../../_images/0584d92d4e0d1cf75e2e35330a5e7cd24400251a504e439b39990a05a0090311.png" src="../../_images/0584d92d4e0d1cf75e2e35330a5e7cd24400251a504e439b39990a05a0090311.png" />
+<img alt="../../_images/753902c81ddd82de4852cf949dd817c87a109972aa46689e0e0162a1571d2c68.png" src="../../_images/753902c81ddd82de4852cf949dd817c87a109972aa46689e0e0162a1571d2c68.png" />
 </div>
 </div>
 </section>
@@ -1083,7 +1106,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -277,6 +277,7 @@ if len(i_pattern_ref_bib) > 0:
 
     f_data[i_start_content] = '    "```{bibliography} \\n",\n' + \
                 '    ":style: plain\\n",\n' + \
+                '    ":filter: docname in docnames\\n",\n' + \
                 '    "```",\n'
 
 ################################################################################

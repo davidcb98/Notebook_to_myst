@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/122_El_Arte_de_Medir_II';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Entrelazamiento en acción" href="123_Entrelazamiento.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -536,10 +548,10 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\boldn}{{\bf n}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\tr}{{\rm tr}}\)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Medidas de estados multicúbit</span></p></li>
-<li><p><span class="xref myst">Medidas en bases generales</span></p></li>
-<li><p><span class="xref myst">Valores esperados</span></p></li>
-<li><p><span class="xref myst">Medidas de Hadamard</span></p></li>
+<li><p><a class="reference internal" href="#medmult"><span class="xref myst">Medidas de estados multicúbit</span></a></p></li>
+<li><p><a class="reference internal" href="#basegen"><span class="xref myst">Medidas en bases generales</span></a></p></li>
+<li><p><a class="reference internal" href="#valesp"><span class="xref myst">Valores esperados</span></a></p></li>
+<li><p><a class="reference internal" href="#medHad"><span class="xref myst">Medidas de Hadamard</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -614,7 +626,11 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/27ca768b36da2443be104aebacd1c6ef4c51de00c64ac623952a164b735910e7.png" src="../../_images/27ca768b36da2443be104aebacd1c6ef4c51de00c64ac623952a164b735910e7.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/f777b889f3fbfa0767dd2e7338ac2dc98e3b84a84bd2e12a36498842467befb5.png" src="../../_images/f777b889f3fbfa0767dd2e7338ac2dc98e3b84a84bd2e12a36498842467befb5.png" />
 </div>
 </div>
 <p>La manera de tener acceso a las amplitudes (tomografía del estado) es midiendo repetidas veces para reconstruir la función de probabilidad</p>
@@ -640,10 +656,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cuentas= {&#39;111&#39;: 6241, &#39;011&#39;: 6197, &#39;100&#39;: 6235, &#39;000&#39;: 6310, &#39;010&#39;: 24950, &#39;001&#39;: 25039, &#39;110&#39;: 25028}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cuentas= {&#39;111&#39;: 6134, &#39;011&#39;: 6287, &#39;000&#39;: 6378, &#39;010&#39;: 24839, &#39;001&#39;: 24931, &#39;110&#39;: 25067, &#39;100&#39;: 6364}
 </pre></div>
 </div>
-<img alt="../../_images/372a4582e8670f5f3043e1cf730b2c2d223d336e44d3cac983c2bfae0e1259ce.png" src="../../_images/372a4582e8670f5f3043e1cf730b2c2d223d336e44d3cac983c2bfae0e1259ce.png" />
+<img alt="../../_images/7cec87de03869332dd4c41d6fe6651cbe9118475a6be07248ba28a4d018e9b09.png" src="../../_images/7cec87de03869332dd4c41d6fe6651cbe9118475a6be07248ba28a4d018e9b09.png" />
 </div>
 </div>
 <p>Ahora podemos generar diccionarios con las probabilidades y la amplitudes de los distintos resultados, para obtener la tomografía del estado</p>
@@ -674,8 +690,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidades = {&#39;111&#39;: 0.06241, &#39;011&#39;: 0.06197, &#39;100&#39;: 0.06235, &#39;000&#39;: 0.0631, &#39;010&#39;: 0.2495, &#39;001&#39;: 0.25039, &#39;110&#39;: 0.25028}
-Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.24893774322107123, &#39;100&#39;: 0.24969981978367545, &#39;000&#39;: 0.2511971337416094, &#39;010&#39;: 0.4994997497496871, &#39;001&#39;: 0.5003898480185225, &#39;110&#39;: 0.5002799216438732}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilidades = {&#39;111&#39;: 0.06134, &#39;011&#39;: 0.06287, &#39;000&#39;: 0.06378, &#39;010&#39;: 0.24839, &#39;001&#39;: 0.24931, &#39;110&#39;: 0.25067, &#39;100&#39;: 0.06364}
+Amplitudes = {&#39;111&#39;: 0.24766913412857888, &#39;011&#39;: 0.25073890802984683, &#39;000&#39;: 0.2525470253239978, &#39;010&#39;: 0.4983873995196909, &#39;001&#39;: 0.49930952324184646, &#39;110&#39;: 0.5006695517005203, &#39;100&#39;: 0.25226969695149676}
 </pre></div>
 </div>
 </div>
@@ -740,7 +756,11 @@ Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.2489377432210
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e0aa51ab4c4b06acbba8bb35e913c965f292ae8ee944a93e18e19e1828d578de.png" src="../../_images/e0aa51ab4c4b06acbba8bb35e913c965f292ae8ee944a93e18e19e1828d578de.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/9f39dbc651ca034f22f05e6d214d428140d38832f54424125e8e3caab042b2c2.png" src="../../_images/9f39dbc651ca034f22f05e6d214d428140d38832f54424125e8e3caab042b2c2.png" />
 </div>
 </div>
 </section>
@@ -812,7 +832,7 @@ Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.2489377432210
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/84b9d456ddeb54a9e3b6b562c1b79c0f00ae90882dc5baf18003a6eabf314a00.png" src="../../_images/84b9d456ddeb54a9e3b6b562c1b79c0f00ae90882dc5baf18003a6eabf314a00.png" />
+<img alt="../../_images/609c9d649d194b407c3ea45c4f3913941e340d92045897ef503e4c9782e2c53e.png" src="../../_images/609c9d649d194b407c3ea45c4f3913941e340d92045897ef503e4c9782e2c53e.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;01&#39;: 1024}
 </pre></div>
 </div>
@@ -825,8 +845,8 @@ Amplitudes = {&#39;111&#39;: 0.24981993515330198, &#39;011&#39;: 0.2489377432210
 <p>El <em>problema</em> esencial para medir un valor esperado <span class="math notranslate nohighlight">\(\bra{\psi} A \ket{\psi}\)</span> es que, en general,  <span class="math notranslate nohighlight">\(A\)</span> <strong>no es un operador unitario</strong>. Por tanto no se puede incluir como parte de un circuito</p>
 <p>Si pudiésemos expresar  como una combinación de operadores unitarios, <span class="math notranslate nohighlight">\(A = \sum_i c_i U_i\)</span>, entonces sí podríamos calcular cadar valor esperado <span class="math notranslate nohighlight">\(\langle U_i\rangle\)</span> mediante un circuito y, finalmente, componer el resultado <span class="math notranslate nohighlight">\(\langle A\rangle = \sum_i c_i \langle U_i\rangle\)</span></p>
 <p>Una base  la constituyen las <em>cadenas de Pauli</em>,  <span class="math notranslate nohighlight">\(U = \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}\)</span> que nos, a la vez, hermíticas y unitarias, y permiten expandir cualquier operador hermítico</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bd55d4c-4f91-45e1-9666-45e8ba6ed83f">
-<span class="eqno">(54)<a class="headerlink" href="#equation-2bd55d4c-4f91-45e1-9666-45e8ba6ed83f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-985c2967-7e06-4db9-ad65-a272a9a8c360">
+<span class="eqno">(54)<a class="headerlink" href="#equation-985c2967-7e06-4db9-ad65-a272a9a8c360" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \, \sigma_{i_1}\otimes \ldots \otimes \sigma_{i_n}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\sigma_i = (I,X,Y,Z)\)</span></p>
@@ -883,7 +903,7 @@ a_{i_1\ldots i_n} =\frac{1}{2^n} \tr (A \,  \sigma_{i_1}\otimes \ldots  \otimes\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_{203} =  (-0.05939509108268766+0.13352588565436788j)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_{203} =  (-0.14824979921689796+0.05343611679010479j)
 </pre></div>
 </div>
 </div>
@@ -929,8 +949,8 @@ a_{i_1\ldots i_n} =\frac{1}{2^n} \tr (A \,  \sigma_{i_1}\otimes \ldots  \otimes\
 Z\otimes Z\otimes Z \ket{i_2 i_1 i_0} = Z\ket{i_2}\otimes Z\ket{i_1}\otimes Z\ket{i_0} = (-1)^{i_2+i_1+i_0}\ket{i_2 i_1 i_0}
 \]</div>
 <p>entonces el valor esperado  de este operador es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0783495-5786-420f-9f3e-1afe78735eb8">
-<span class="eqno">(55)<a class="headerlink" href="#equation-a0783495-5786-420f-9f3e-1afe78735eb8" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-16f5b70a-83c9-4a74-959b-a251b8817c11">
+<span class="eqno">(55)<a class="headerlink" href="#equation-16f5b70a-83c9-4a74-959b-a251b8817c11" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle Z\otimes Z\otimes Z\rangle_\Psi &amp;=&amp;
 \bra{\Psi} Z\otimes Z\otimes Z \ket{\Psi} \\ 
 &amp;=&amp; \sum_{i_2,i_1,i_0=0,1}\bra{\Psi} Z\otimes Z\otimes Z \ket{i_2 i_1 i_0}\braket{i_2 i_1 i_0}{\Psi}  \rule{0mm}{10mm}  \\
@@ -953,7 +973,7 @@ Z\otimes Z\otimes Z \ket{i_2 i_1 i_0} = Z\ket{i_2}\otimes Z\ket{i_1}\otimes Z\ke
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/decd7f57c46c50ac1133b5ab44cb5a1ad11b66b00b5a97a8e8675cfc060cad3e.png" src="../../_images/decd7f57c46c50ac1133b5ab44cb5a1ad11b66b00b5a97a8e8675cfc060cad3e.png" />
+<img alt="../../_images/eb26dd324266b1f11245cf746413ef7042e9644cc42797f5b76cc23b208a0e0b.png" src="../../_images/eb26dd324266b1f11245cf746413ef7042e9644cc42797f5b76cc23b208a0e0b.png" />
 </div>
 </div>
 <p>Ejecutamos el circuito un número de veces y obtenemos el diccionario de cuentas</p>
@@ -971,7 +991,7 @@ Z\otimes Z\otimes Z \ket{i_2 i_1 i_0} = Z\ket{i_2}\otimes Z\ket{i_1}\otimes Z\ke
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;100&#39;: 6236, &#39;111&#39;: 6229, &#39;011&#39;: 6153, &#39;001&#39;: 24978, &#39;110&#39;: 24811, &#39;000&#39;: 6191, &#39;010&#39;: 25402}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;100&#39;: 6189, &#39;001&#39;: 25043, &#39;011&#39;: 6223, &#39;111&#39;: 6282, &#39;110&#39;: 24830, &#39;000&#39;: 6413, &#39;010&#39;: 25020}
 </pre></div>
 </div>
 </div>
@@ -996,7 +1016,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ZZZ&gt; = -0.2569
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ZZZ&gt; = -0.25068
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1051,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma =  0.966437990768161
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma =  0.968070006559443
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1077,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99298f91bd7b4f9ced18d2122c036261b219d6f9c07373d17cebba579fcef7d3.png" src="../../_images/99298f91bd7b4f9ced18d2122c036261b219d6f9c07373d17cebba579fcef7d3.png" />
+<img alt="../../_images/2d1fb3af0ea2386a8ceb20ee99cf4ccf6013dd38ffa65d2f7dc7ac409c61e3e1.png" src="../../_images/2d1fb3af0ea2386a8ceb20ee99cf4ccf6013dd38ffa65d2f7dc7ac409c61e3e1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1074,8 +1094,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;101&#39;: 6343, &#39;110&#39;: 6207, &#39;010&#39;: 3131, &#39;000&#39;: 15625, &#39;100&#39;: 12552, &#39;111&#39;: 12477, &#39;011&#39;: 40547, &#39;001&#39;: 3118}
-&lt;ZXY&gt; = 0.37444
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;101&#39;: 6145, &#39;100&#39;: 12523, &#39;110&#39;: 6326, &#39;000&#39;: 15600, &#39;010&#39;: 3140, &#39;001&#39;: 3111, &#39;011&#39;: 40684, &#39;111&#39;: 12471}
+&lt;ZXY&gt; = 0.3751
 </pre></div>
 </div>
 </div>
@@ -1139,8 +1159,8 @@ $$
 \ket{0}\ket{\psi} ~\to ~ \ket{\Psi} = \frac{1}{2} \left[\rule{0mm}{3mm} |0\rangle \otimes (1 + U) |\psi\rangle +  |1\rangle \otimes (1 - U) |\psi\rangle \right] \label{hadam}
 \]</div>
 <p>Si medimos el cúbit ancilla, obtendremos como resultados <span class="math notranslate nohighlight">\(\{0,1\}\)</span> con probabilidades</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fca81ff-476e-4bf1-a228-c0cc2f44e18f">
-<span class="eqno">(56)<a class="headerlink" href="#equation-6fca81ff-476e-4bf1-a228-c0cc2f44e18f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+<div class="amsmath math notranslate nohighlight" id="equation-d054667b-cbec-4636-8209-c12c244a5c88">
+<span class="eqno">(56)<a class="headerlink" href="#equation-d054667b-cbec-4636-8209-c12c244a5c88" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
  p_{0}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 + U) \ket{\psi}  \right\vert^{2} = 
  \frac{1}{4}\bra{\psi}(1 + U^\dagger) (1 + U) \ket{\psi} =\frac{1}{2}(1+\operatorname{Re}\langle \psi|U|\psi\rangle) \nonumber\\
  p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=
@@ -1200,7 +1220,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/34d81100162ce20e91dcf6c6cbe290e97f639a2484c5b84c510ec309bd6d273e.png" src="../../_images/34d81100162ce20e91dcf6c6cbe290e97f639a2484c5b84c510ec309bd6d273e.png" />
+<img alt="../../_images/2c6c37070bfa9fcf0fde80514e89ee15f0bd858350313b5d39d45c52bebfb821.png" src="../../_images/2c6c37070bfa9fcf0fde80514e89ee15f0bd858350313b5d39d45c52bebfb821.png" />
 </div>
 </div>
 <p>Ejecutamos y obtenemos el valor esperado</p>
@@ -1218,10 +1238,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 499749, &#39;1&#39;: 500251}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;1&#39;: 499782, &#39;0&#39;: 500218}
 </pre></div>
 </div>
-<img alt="../../_images/f91fe4062b77b3a260d540f9060f43f5e2241cad6956e61290f8825ecefdb2cc.png" src="../../_images/f91fe4062b77b3a260d540f9060f43f5e2241cad6956e61290f8825ecefdb2cc.png" />
+<img alt="../../_images/42731be9a8ef1f9afc2f0f04c4ed1ec7fbab3b12ffe1234bf737c989f33691d8.png" src="../../_images/42731be9a8ef1f9afc2f0f04c4ed1ec7fbab3b12ffe1234bf737c989f33691d8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1380,7 +1400,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

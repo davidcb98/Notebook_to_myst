@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/02_Fundamentos_MC';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Algoritmo de Grover" href="../pruebas/214_Grover_myst.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -577,20 +589,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">macro_tQ</span> <span class="k">as</span> <span class="nn">tQ</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;macro_tQ&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="axiomas-de-la-mecanica-cuantica">
 <h2>Axiomas de la Mecánica Cuántica<a class="headerlink" href="#axiomas-de-la-mecanica-cuantica" title="Permalink to this heading">#</a></h2>
@@ -663,8 +661,8 @@ p(\lambda_k)~ = ~|\braket{\lambda_k}{\psi}|^2
 <ul class="simple">
 <li><p>Cuando <span class="math notranslate nohighlight">\(\lambda_k\)</span> tiene degeneración <span class="math notranslate nohighlight">\(d_k\)</span>, la fórmula para <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> debe generalizarse:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-085c8b2f-547d-4e5b-b695-21a7d93c4f20">
-<span class="eqno">(38)<a class="headerlink" href="#equation-085c8b2f-547d-4e5b-b695-21a7d93c4f20" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-718905bc-2f95-4780-b367-737125a2d648">
+<span class="eqno">(38)<a class="headerlink" href="#equation-718905bc-2f95-4780-b367-737125a2d648" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k)~ &amp;=&amp; ~ \sum_{a=1}^{d_k}|\braket{\lambda^a_k}{\psi}|^2 = \bra{\psi}\left(
  \sum_{a=1}^{d_k}\ketbra{\lambda^a_k}{\lambda^a_k}\right) \ket{\psi}\nonumber\\
 &amp;=&amp;  \bra{\psi}P_k\ket{\psi} \rule{0mm}{7mm}\\
@@ -747,8 +745,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <p>Rescribamos <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> en el caso de que sea <span class="math notranslate nohighlight">\(\lambda_k\)</span> sea un autovalor <span class="math notranslate nohighlight">\(d_k\)</span> veces degenerado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28ede74f-95b9-48bd-8434-df13d621ac15">
-<span class="eqno">(39)<a class="headerlink" href="#equation-28ede74f-95b9-48bd-8434-df13d621ac15" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b228dcc4-20c5-4d49-a995-94e2c6b3a059">
+<span class="eqno">(39)<a class="headerlink" href="#equation-b228dcc4-20c5-4d49-a995-94e2c6b3a059" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k) &amp;=&amp; \sum_{a=1}^{d_k} |\braket{\lambda^a_k}{\psi}|^2  = 
 \sum_{a=1}^{d_k} \braket{\psi}{\lambda^a_k}\braket{\lambda^a_k}{\psi} \nonumber\\
 &amp;=&amp;\bra{\psi} \left( \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}  \right) = \bra{\psi}P_k \ket{\psi} 
@@ -759,8 +757,8 @@ P_k = \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}
 \)</span>$
 es el proyector sobre el subespacio propio.</p>
 <p>Ahora podemos introducir este resultado en la expresión para el valor esperado de <span class="math notranslate nohighlight">\(A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-37a4167b-20b8-4a72-861f-ff333abf4da1">
-<span class="eqno">(40)<a class="headerlink" href="#equation-37a4167b-20b8-4a72-861f-ff333abf4da1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-274082e2-0aa0-425c-bb9f-c178ff0374d7">
+<span class="eqno">(40)<a class="headerlink" href="#equation-274082e2-0aa0-425c-bb9f-c178ff0374d7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle A\rangle_\psi &amp;= &amp;  \sum_k \lambda_k p(\lambda_k)
    =  \sum_k \lambda_k \bra{\psi}P_k\ket{\psi}  
 &amp;=&amp; \bra{\psi}\left(\sum_k \lambda_k P_k  \right) \ket{\psi} 
@@ -800,8 +798,8 @@ Demuestra que el valor esperado de un observable <span class="math notranslate n
 <p>La <em>varianza</em>  es la media de la desviación cuadrática de la variable aleatoria <span class="math notranslate nohighlight">\((\lambda,p(\lambda))\)</span> es decir
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-de34f3e1-1eda-4a56-9fec-815d14df6fd2">
-<span class="eqno">(41)<a class="headerlink" href="#equation-de34f3e1-1eda-4a56-9fec-815d14df6fd2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-839fafe4-386e-4715-ba38-936113291ced">
+<span class="eqno">(41)<a class="headerlink" href="#equation-839fafe4-386e-4715-ba38-936113291ced" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 ~~\sigma ^2 &amp;=&amp; \overline{(\lambda_i-\bar\lambda_i)^2} = \overline{ \lambda^2 - 2\lambda\bar\lambda +\bar\lambda^2}
 \\
 &amp;=&amp;  \overline{\lambda^2} - \overline{\lambda}^2 \rule{0mm}{8mm}
@@ -856,16 +854,7 @@ Efectivamente, evaluada en un estado propio <span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="s1">&#39; definamos una matriz hermítica &#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#np.random.seed(10) </span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">A</span> <span class="o">+=</span>  <span class="n">A</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">eigvecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.7214, -1.1165,  4.8645])
 </pre></div>
 </div>
 </div>
@@ -894,13 +883,21 @@ Efectivamente, evaluada en un estado propio <span class="math notranslate nohigh
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="s1">&#39;definamos un ket&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">vec1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># este es un autovector aleatorio</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">vec2</span> <span class="o">=</span> <span class="n">eigvecs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># este es el autovector de autovalor mínimo</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vec3</span> <span class="o">=</span> <span class="n">eigvecs</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>          <span class="c1"># éste es un autovector de autovalor máximo</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">norma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ket</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">ket</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">real</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">uket</span> <span class="o">=</span> <span class="n">ket</span><span class="o">/</span><span class="n">norma</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">vev</span><span class="p">,</span> <span class="n">sig</span> <span class="o">=</span> <span class="n">vev_sig</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">uket</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;A&gt;= &#39;</span><span class="p">,</span><span class="n">vev</span><span class="p">,</span> <span class="s1">&#39; sigma = &#39;</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<span class="nn">Cell In[2], line 6,</span> in <span class="ni">vev_sig</span><span class="nt">(A, ket)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">vev_sig</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ket</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">####</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># aquí tu código</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">###</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vev</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;vev&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -948,8 +945,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-c8c4ad28-40ef-4d1a-b986-b6294f23a295">
-<span class="eqno">(42)<a class="headerlink" href="#equation-c8c4ad28-40ef-4d1a-b986-b6294f23a295" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9ae43677-52c8-4268-ba12-518abd95d15e">
+<span class="eqno">(42)<a class="headerlink" href="#equation-9ae43677-52c8-4268-ba12-518abd95d15e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\|\ket{\psi}\|^2 = \frac{d}{dt}\braket{\psi(t)}{\psi(t)} &amp;=&amp; \left(\rule{0mm}{3mm}\frac{d}{dt}\bra{\psi(t)}\right)\ket{\psi(t)} + 
 \bra{\psi(t)}\left(\frac{d}{dt}\ket{\psi(t)} \right)\nonumber\\
 &amp;=&amp; \left(\bra{\psi(t)}\frac{i}{\hbar}H^\dagger\right)\ket{\psi(t)} + \bra{\psi(t)}\left(-\frac{i}{\hbar}H\ket{\psi(t)} \right) \nonumber\\
@@ -1002,8 +999,8 @@ Desmostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Tomando la derivada temporal de la ecuación <span class="math notranslate nohighlight">\(\ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}\)</span>, que define <span class="math notranslate nohighlight">\(U(t,t_0)\)</span>, tenemos para cada miembro</p>
-<div class="amsmath math notranslate nohighlight" id="equation-617f3f60-f1bf-43a8-960d-1038b34f26bb">
-<span class="eqno">(43)<a class="headerlink" href="#equation-617f3f60-f1bf-43a8-960d-1038b34f26bb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b2b9aa41-c7c0-461d-8c14-565743b0ec91">
+<span class="eqno">(43)<a class="headerlink" href="#equation-b2b9aa41-c7c0-461d-8c14-565743b0ec91" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp; -\frac{i}{\hbar}  H(t)\ket{\psi(t)} = -\frac{i}{\hbar} H(t)U(t,t_0)\ket{\psi(t_0)}  \nonumber\\
 \frac{d}{dt}U(t,t_0)\ket{\psi(t_0)} &amp;~=~&amp; \left(\frac{d}{dt}U(t,t_0)\right)\ket{\psi(t_0)}
 \end{eqnarray}\]</div>
@@ -1032,8 +1029,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Basta con demostrar que se satisface la ecuación de evolución y la condición de contorno</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa08d2b2-208c-467e-8ce6-913472466038">
-<span class="eqno">(44)<a class="headerlink" href="#equation-fa08d2b2-208c-467e-8ce6-913472466038" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-27f9192a-37ab-4f14-b827-33f2705fd332">
+<span class="eqno">(44)<a class="headerlink" href="#equation-27f9192a-37ab-4f14-b827-33f2705fd332" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}U(t,t_0) &amp;=&amp; \frac{d}{dt} \exp\left({-\frac{i}{\hbar} (t-t_0)H}\right)
     \nonumber\\ \rule{0mm}{6mm}
    &amp;=&amp; \frac{d}{dt}\left( I +(t-t_0)\left(-\frac{i}{\hbar} H\right) + \frac{1}{2!} 
@@ -1115,20 +1112,6 @@ U(t_0,t_0) =  \exp\left({-\frac{i}{\hbar} (t_0-t_0)H}\right)=\exp(0) = I
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">expm</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="s1">&#39; definamos un Hamiltoniano &#39;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asmatrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">H</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">A</span><span class="o">.</span><span class="n">getH</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Graficamos</p>
 <div class="cell docutils container">
@@ -1155,19 +1138,7 @@ U(t_0,t_0) =  \exp\left({-\frac{i}{\hbar} (t_0-t_0)H}\right)=\exp(0) = I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;p(0i)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">p00list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">p01list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;tlist&#39; is not defined
-</pre></div>
-</div>
-<img alt="../../_images/b9d0c2a138d117b9936b05203dd3adcc509a4748a30c0ba2d034d4a771de8aaa.png" src="../../_images/b9d0c2a138d117b9936b05203dd3adcc509a4748a30c0ba2d034d4a771de8aaa.png" />
+<img alt="../../_images/f1e8f58cb91e09884be198e6b16f09bc054fcdcbad04a24a8f9ec9f23be18f8d.png" src="../../_images/f1e8f58cb91e09884be198e6b16f09bc054fcdcbad04a24a8f9ec9f23be18f8d.png" />
 </div>
 </div>
 </section>
@@ -1317,7 +1288,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

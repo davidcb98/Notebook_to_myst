@@ -273,8 +273,8 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref):
         # Sustituimos las referencias de la forma    [[...]](#bib_...)  por  {cite}`bib_...` o {numref}`sec_...`
         # Tenemos que tener cuidado con el doble [[ ]] y con que lo que aparezca ahi dentro no importa
         for i_pattern_ref in i_pattern_ref_list:
-            f_data[i_pattern_ref] =re.sub(r'\[\[(\d+)\]\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
-
+            f_data[i_pattern_ref] = re.sub(r'\[\[(\d+)\]\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
+            #f_data[i_pattern_ref] = re.sub(r'\[(\d+)\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
             #f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`\1 <'+pattern_ref+r'\2>`', f_data[i_pattern_ref])
 
     elif pattern_ref == 'sec_':

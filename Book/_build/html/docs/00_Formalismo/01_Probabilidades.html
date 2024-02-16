@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Probabilidades';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Fundamentos de Mecánica Cuántica" href="02_Fundamentos_MC_intro.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -585,45 +597,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:696,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">696</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/utils/path.py:90,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">return</span> <span class="n">py_name</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File `</span><span class="si">%r</span><span class="s2">` not found.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-
-<span class="ne">OSError</span>: File `&#39;../macro_tQ.py&#39;` not found.
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../macro_tQ.py&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/interactiveshell.py:2369,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2367</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2368</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2369</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2370</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:707,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
-
-<span class="ne">Exception</span>: File `&#39;../macro_tQ.py&#39;` not found.
-</pre></div>
-</div>
-</div>
 </div>
 <section id="variables-aleatorias">
 <h2>Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Permalink to this heading">#</a></h2>
@@ -711,7 +684,7 @@ p(x) \in [0,1]~~~~~~~,~~~~~~~~\sum_{x\in X }p(x) = 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01e2bb13e5414f14fea0dcec1f0002ab07fc396d75bbca68c5235da8b33e8c2b.png" src="../../_images/01e2bb13e5414f14fea0dcec1f0002ab07fc396d75bbca68c5235da8b33e8c2b.png" />
+<img alt="../../_images/a12b2646afab44fd2eba62ab7fc01b36580e34035f972cf7bdfc083f6243dae5.png" src="../../_images/a12b2646afab44fd2eba62ab7fc01b36580e34035f972cf7bdfc083f6243dae5.png" />
 </div>
 </div>
 </section>
@@ -724,8 +697,8 @@ f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
 \]</div>
 <p>Experimentalmente sólo tenemos acceso a las frecuencias relativas <span class="math notranslate nohighlight">\(f_N(x_i)\)</span> para un <span class="math notranslate nohighlight">\(N\)</span> grande aunque finito.</p>
 <p>Igualmente, nuestro conocimiento de la  media <span class="math notranslate nohighlight">\(\overline X\)</span>  y la varianza <span class="math notranslate nohighlight">\(\sigma_X^2\)</span> siempre es aproximado, y se realiza a través de las medias y varianzas muestrales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f78ddf8e-6e4f-4ec2-8057-3c4bf4e62f97">
-<span class="eqno">(34)<a class="headerlink" href="#equation-f78ddf8e-6e4f-4ec2-8057-3c4bf4e62f97" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-0bc691a2-d7f0-4516-aa45-6df54f665ca1">
+<span class="eqno">(34)<a class="headerlink" href="#equation-0bc691a2-d7f0-4516-aa45-6df54f665ca1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \overline{A}_N = \sum_i x_i f_N(x_i)~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \overline{X}\\
 \sigma_{A_N}^2 = \sum_{i} (x_i - \overline{A}_N)^2 f_N(x_i) ~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \sigma_X^2
 \end{eqnarray}\]</div>
@@ -741,8 +714,8 @@ f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
 <li><p><em>fracaso</em> <span class="math notranslate nohighlight">\(\to x=0\)</span> con probabilidad <span class="math notranslate nohighlight">\(p(0) = 1-p\)</span></p></li>
 </ul>
 <p>Podemos calcular fácilmente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd181617-8658-40e1-89b6-84abcc0322dd">
-<span class="eqno">(35)<a class="headerlink" href="#equation-fd181617-8658-40e1-89b6-84abcc0322dd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-84c4dc10-0555-4833-bcc9-ce147325979c">
+<span class="eqno">(35)<a class="headerlink" href="#equation-84c4dc10-0555-4833-bcc9-ce147325979c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \overline X &amp;=&amp; \sum_i x_i p_i =1 \cdot p + 0\cdot (1-p) = p\\
 \sigma^2 &amp;=&amp; \sum_i (x-\overline X )^2p_i = (1-p)^2 p +(0-p)^2(1-p) = p(1-p)
 \end{eqnarray}\]</div>
@@ -762,8 +735,8 @@ p(x) = \begin{pmatrix}n\\ x\end{pmatrix} p^x (1-p)^{n-x}
 \end{split}\]</div>
 <p>donde el primer factor tiene en cuenta las posibles ordenaciones en que aparecen <span class="math notranslate nohighlight">\(x\)</span> éxitos en <span class="math notranslate nohighlight">\(n\)</span> intentos.</p>
 <p>Un cálculo un poco más largo permite ver que, ahora</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4111c393-10ce-4407-8433-f33035dd2126">
-<span class="eqno">(36)<a class="headerlink" href="#equation-4111c393-10ce-4407-8433-f33035dd2126" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c3742d4b-5ea2-4ab6-8d4b-89f381dfaadb">
+<span class="eqno">(36)<a class="headerlink" href="#equation-c3742d4b-5ea2-4ab6-8d4b-89f381dfaadb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \overline X &amp;=&amp;  np\\ \rule{0mm}{7mm}
 \sigma^2 &amp;=&amp; n p(1-p)
 \end{eqnarray}\]</div>
@@ -777,8 +750,8 @@ $<span class="math notranslate nohighlight">\(
 p(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp \left({-\frac{(x-\mu)^2}{2\sigma^2}}\right)
 \)</span>$</p>
 <p>Nos encontramos ante una variable aleatoria con un espacio muestral continuo <span class="math notranslate nohighlight">\(x\in (-\infty,+\infty)\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8fd10aac-f610-4d8c-80c1-4bafe9ea3099">
-<span class="eqno">(37)<a class="headerlink" href="#equation-8fd10aac-f610-4d8c-80c1-4bafe9ea3099" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-0ff24a2e-ec58-4d08-9dd4-8ac140878cb9">
+<span class="eqno">(37)<a class="headerlink" href="#equation-0ff24a2e-ec58-4d08-9dd4-8ac140878cb9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \overline{X} &amp;=&amp; \int_{-\infty}^{+\infty} xp(x) dx = \mu \\
 \overline{(x-\overline X)^2} &amp;=&amp; \int_{-\infty}^{+\infty} (x-\mu)^2 p(x)dx =\sigma^2
 \end{eqnarray}\]</div>
@@ -814,7 +787,7 @@ p(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp \left({-\frac{(x-\mu)^2}{2\sigma^2}}\rig
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/27127cacaafe02f60656da02bc4ab5e5f2e6bda4bdbb29e557e9d2b837da8dc4.png" src="../../_images/27127cacaafe02f60656da02bc4ab5e5f2e6bda4bdbb29e557e9d2b837da8dc4.png" />
+<img alt="../../_images/4874068b18d6d7481cd9f00c9de136c6c563e0b73b24bc30ee5943c56b9edff6.png" src="../../_images/4874068b18d6d7481cd9f00c9de136c6c563e0b73b24bc30ee5943c56b9edff6.png" />
 </div>
 </div>
 <p>En el límite de número de eventos <span class="math notranslate nohighlight">\(N\to \infty\)</span>, el histograma y la curva matemática confluyen.</p>
@@ -994,7 +967,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

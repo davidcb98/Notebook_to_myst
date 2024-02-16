@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/113_Espin';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -531,9 +543,9 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\mathcal H}} \)</span></p>
 <p><span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Experimento de Stern y Gerlach</span></p></li>
-<li><p><span class="xref myst">Preparando de un cúbit</span></p></li>
-<li><p><span class="xref myst">Manipulando un cúbit</span></p></li>
+<li><p><a class="reference internal" href="#sterngerlach"><span class="xref myst">Experimento de Stern y Gerlach</span></a></p></li>
+<li><p><a class="reference internal" href="#prepacubit"><span class="xref myst">Preparando de un cúbit</span></a></p></li>
+<li><p><a class="reference internal" href="#manipcubit"><span class="xref myst">Manipulando un cúbit</span></a></p></li>
 </ul>
 <p>El descubrimiento del espín fue una de los primeros fenómenos cuya descripción encontró acomodo en la nueva Mecánica Cuántica.</p>
 <p>Tanto es así que, el espín es un paradigma de <em>grado de libertad cuántizado</em>, y permite obtener intuición sobre los procesos de medida generales.</p>
@@ -921,8 +933,8 @@ U_{\boldsymbol{\omega}}(t,0) = \exp\left( -\frac{i}{\hbar} t H\right) = \exp\lef
 <img src="images/precession_tilted2.png" width="300"/>
 </div>
 <p>El resultado general es el siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-994901b7-fd08-4721-a9de-8b1cfac1d735">
-<span class="eqno">()<a class="headerlink" href="#equation-994901b7-fd08-4721-a9de-8b1cfac1d735" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-80484c5a-cdb8-4c0f-93fb-102ce9ecd6af">
+<span class="eqno">()<a class="headerlink" href="#equation-80484c5a-cdb8-4c0f-93fb-102ce9ecd6af" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U_{\boldsymbol{\omega}}(t,0) ~&amp;=&amp;~ \cos\left(\frac{t\omega}{2}\right) I + i \sin\left(\frac{t\omega}{2}\right) \, \frac{\boldsymbol{\omega}}{\omega}\cdot \boldsymbol{\sigma} \\
 &amp;&amp;\\
 &amp;=&amp; 
@@ -943,8 +955,8 @@ será</p>
 \end{split}\]</div>
 <p>La probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> o el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> en ese instante será
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f12f8ca-af5e-4023-b4d9-5c9a3defa004">
-<span class="eqno">()<a class="headerlink" href="#equation-1f12f8ca-af5e-4023-b4d9-5c9a3defa004" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-91e971c6-200d-4463-b0f4-05bfdd31cafc">
+<span class="eqno">()<a class="headerlink" href="#equation-91e971c6-200d-4463-b0f4-05bfdd31cafc" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p_0(t) &amp;=&amp; |\braket{0}{\psi(t)}|^2 =  \cos^2 \frac{t\omega}{2} + \frac{\omega_z^2}{\omega^2} \sin^2 \frac{t\omega}{2} \\ \rule{0mm}{8mm}
 p_1(t) &amp;=&amp;|\braket{1}{\psi(t)}|^2 =  \frac{\omega_x^2 + \omega_y^2}{\omega^2} \sin^2\frac{t\omega}{2}
 \end{eqnarray}\]</div>
@@ -987,7 +999,7 @@ p_1(t) &amp;=&amp;|\braket{1}{\psi(t)}|^2 =  \frac{\omega_x^2 + \omega_y^2}{\ome
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ffd630e924f70bcb7e971d380411f07fe26b00b735562dc0e74f94c3743d890b.png" src="../../_images/ffd630e924f70bcb7e971d380411f07fe26b00b735562dc0e74f94c3743d890b.png" />
+<img alt="../../_images/46ad30b9db2ab78a86a8127b22f341bd3354238854f692c6c40a28e60a5b0687.png" src="../../_images/46ad30b9db2ab78a86a8127b22f341bd3354238854f692c6c40a28e60a5b0687.png" />
 </div>
 </div>
 <p>Observamos que es imposible conseguir una probabilidad de transición <span class="math notranslate nohighlight">\(p_1(t) = 1\)</span> a menos que hagamos <span class="math notranslate nohighlight">\(\omega_z = 0\)</span>.</p>
@@ -1005,8 +1017,8 @@ U_z(t,0) = \begin{bmatrix} e^{it \omega/2} &amp; 0 \\ 0 &amp;e^{-it \omega/2}  \
 $$
 U_x(t,0) =</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-9b0fcde1-cfb4-4711-9147-8a95f6c2e43d">
-<span class="eqno">()<a class="headerlink" href="#equation-9b0fcde1-cfb4-4711-9147-8a95f6c2e43d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-2a49bdbe-fdcf-445e-9eb0-ec1942abbb75">
+<span class="eqno">()<a class="headerlink" href="#equation-2a49bdbe-fdcf-445e-9eb0-ec1942abbb75" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
  \cos \displaystyle\frac{t\omega}{2}  &amp;  i \sin\displaystyle\frac{t\omega}{2}  \\
  \rule{0mm}{8mm}
  i \sin\displaystyle\frac{t\omega}{2}  &amp; \cos\displaystyle\frac{t\omega}{2} 
@@ -1017,8 +1029,8 @@ U_x(t,0) =</p></li>
 &lt;br&gt;
 \end{aligned}\end{align} \]</div>
 <p>U_y(t,0) =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b0d7cd5-a817-42e9-98f2-2662af7f03ed">
-<span class="eqno">()<a class="headerlink" href="#equation-5b0d7cd5-a817-42e9-98f2-2662af7f03ed" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-8a5cc50e-b0ce-4e7e-88df-37816e049351">
+<span class="eqno">()<a class="headerlink" href="#equation-8a5cc50e-b0ce-4e7e-88df-37816e049351" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
  \cos \displaystyle\frac{t\omega}{2}  &amp;   \sin\displaystyle\frac{t\omega}{2}  \\
  \rule{0mm}{8mm}
   -\sin\displaystyle\frac{t\omega}{2}  &amp; \cos\displaystyle\frac{t\omega}{2} 
@@ -1035,8 +1047,8 @@ U_x(t,0) =</p></li>
 <p>Con él somos capaces de generar las puertas <span class="math notranslate nohighlight">\(X,Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span>, así como la puerta de Hadamard.
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-70ac413e-7d18-421b-ab47-8710f6b0c62b">
-<span class="eqno">()<a class="headerlink" href="#equation-70ac413e-7d18-421b-ab47-8710f6b0c62b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-eb166000-5be9-4060-a95e-edd260215fe3">
+<span class="eqno">()<a class="headerlink" href="#equation-eb166000-5be9-4060-a95e-edd260215fe3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 i \,U_{\hat{\bf z}}( \Delta t ,0) &amp;=&amp;  \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1  \end{bmatrix} =  Z  
 \nonumber\\ 
 &amp;&amp; \\
@@ -1143,7 +1155,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
