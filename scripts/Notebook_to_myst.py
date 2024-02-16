@@ -293,7 +293,7 @@ with open(out_file, 'w') as f_out:
 ################################################################################
 ###### Eliminamos los </br>
 
-clean_br_command = "sed -i 's/<br>//g' " + out_file
+clean_br_command = "sed -i'' 's/<br>//g' " + out_file
 bash(clean_br_command, shell=True).decode("utf-8")
 
 '''
