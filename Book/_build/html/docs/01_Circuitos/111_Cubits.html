@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/111_Cubits';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -542,11 +554,11 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\V}{{\cal V}} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Definición, base computacional</span></p></li>
-<li><p><span class="xref myst">Esfera de Bloch</span></p></li>
-<li><p><span class="xref myst">Registro cuántico</span></p></li>
-<li><p><span class="xref myst">Rotaciones en la esfera de Bloch</span></p></li>
-<li><p><span class="xref myst">Puertas simples</span></p></li>
+<li><p><a class="reference internal" href="#dirac"><span class="xref myst">Definición, base computacional</span></a></p></li>
+<li><p><a class="reference internal" href="#esfbloch"><span class="xref myst">Esfera de Bloch</span></a></p></li>
+<li><p><a class="reference internal" href="#circuitcubit"><span class="xref myst">Registro cuántico</span></a></p></li>
+<li><p><a class="reference internal" href="#rotesf"><span class="xref myst">Rotaciones en la esfera de Bloch</span></a></p></li>
+<li><p><a class="reference internal" href="#puertsimp"><span class="xref myst">Puertas simples</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -684,8 +696,8 @@ es relevante para especificar \)</span>\ket{u}$.</p>
 </details><p>En componentes en la base <span class="math notranslate nohighlight">\(Z\)</span> escribimos equivalentemente
 $$
 |u\rangle ~\sim ~~</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4899f203-9249-41ba-96c5-7a4759872946">
-<span class="eqno">()<a class="headerlink" href="#equation-4899f203-9249-41ba-96c5-7a4759872946" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\displaystyle\frac{\theta}{2} \\  e^{i\varphi} \sin \displaystyle\frac{\theta}{2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b113f275-1f69-451c-b1f0-6cc709ba9c7d">
+<span class="eqno">()<a class="headerlink" href="#equation-b113f275-1f69-451c-b1f0-6cc709ba9c7d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\displaystyle\frac{\theta}{2} \\  e^{i\varphi} \sin \displaystyle\frac{\theta}{2} \end{bmatrix}\]</div>
 <p>$$</p>
 <p>El rango de <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span> permite interpretar estos números reales como <em>ángulos sobre la esfera unidad</em>. Dicho de otro modo, podemos representar  cada estado de un cúbit como un <em>punto</em> sobre una esfera de radio unidad: la <em>esfera de Bloch</em>.</p>
 <ul class="simple">
@@ -731,7 +743,7 @@ Lamentablemente no avisa si este vector está normalizado o no. Por eso, incluim
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2dc0a782ece40e2fa5ed642e2cbf7a4a7daf60f48c968135c9f30eed1123f423.png" src="../../_images/2dc0a782ece40e2fa5ed642e2cbf7a4a7daf60f48c968135c9f30eed1123f423.png" />
+<img alt="../../_images/b701bdb788d2e9f875179a162c66ef378a2fb612380671e582f7e49afc5940f0.png" src="../../_images/b701bdb788d2e9f875179a162c66ef378a2fb612380671e582f7e49afc5940f0.png" />
 </div>
 </div>
 <p>Esta rutina introduce dos ángulos <span class="math notranslate nohighlight">\(\theta\in(0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\phi\in(0,2\pi)\)</span> y devuelve el vector de Bloch</p>
@@ -779,7 +791,7 @@ Lamentablemente no avisa si este vector está normalizado o no. Por eso, incluim
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b08479fb7f044fbe39a7d83058949c702baab44535417837c761037cf8ed0a7d.png" src="../../_images/b08479fb7f044fbe39a7d83058949c702baab44535417837c761037cf8ed0a7d.png" />
+<img alt="../../_images/d096e987c44d86829b0563acd61647061ece30f7c2082a7a8cb5033d5b2fe6ba.png" src="../../_images/d096e987c44d86829b0563acd61647061ece30f7c2082a7a8cb5033d5b2fe6ba.png" />
 </div>
 </div>
 <p><strong>Base Z</strong></p>
@@ -836,7 +848,11 @@ Lamentablemente no avisa si este vector está normalizado o no. Por eso, incluim
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d5f15aea5d2db7a7f75969cab75783ef6d4e8ecc3076f9db7ea7344d0dd32fb.png" src="../../_images/7d5f15aea5d2db7a7f75969cab75783ef6d4e8ecc3076f9db7ea7344d0dd32fb.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/c9492f857372f5ff808204c823318830a7295e76fbedafd36723013a81bfab40.png" src="../../_images/c9492f857372f5ff808204c823318830a7295e76fbedafd36723013a81bfab40.png" />
 </div>
 </div>
 <p>Un registro cuántico puede llevar una superposición lineal <span class="math notranslate nohighlight">\(\ket{\psi} = a\ket{0} + b\ket{1}\)</span></p>
@@ -874,8 +890,8 @@ $<span class="math notranslate nohighlight">\(
     el sentido de la rotación que produce $R_{\hat{\bf n}}(\alpha)$ en torno al eje $\hat{\bf n}$, viene dado por la <i>regla de la mano derecha</i> o, también, <i>anti-horario</i>. 
 </div><p>Haciendo la suma explícitamente podemos escribir la matriz unitaria
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b647a9f-9c52-44bb-8939-87645e84f42f">
-<span class="eqno">()<a class="headerlink" href="#equation-4b647a9f-9c52-44bb-8939-87645e84f42f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-1b9ccd71-b914-4196-bf54-1848716d832e">
+<span class="eqno">()<a class="headerlink" href="#equation-1b9ccd71-b914-4196-bf54-1848716d832e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 R_{\hat{\bf n}}(\alpha)~  ~=~ 
  \begin{bmatrix} \cos \displaystyle\frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2} &amp;\displaystyle (-in_x- n_y)\sin\frac{\alpha}{2} \\ \displaystyle
 (-in_x + n_y) \sin\frac{\alpha}{2} &amp; \displaystyle \cos \frac{\alpha}{2} + i n_z\sin\frac{\alpha}{2} \end{bmatrix}
@@ -948,8 +964,8 @@ Aplicada a un estado de cúbit genérico
 \)</span>$
 P(\alpha) \ket{u} =  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix}</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-35a09a7e-e517-4e60-bb2f-2f9a42fc5751">
-<span class="eqno">()<a class="headerlink" href="#equation-35a09a7e-e517-4e60-bb2f-2f9a42fc5751" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3116a770-551b-495a-b012-142358f10d69">
+<span class="eqno">()<a class="headerlink" href="#equation-3116a770-551b-495a-b012-142358f10d69" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} \cos\theta \\ \sin\theta e^{i\phi} \end{bmatrix}\]</div>
 <p>\end{bmatrix}= \ket{v}
 $$
 <br></p>
@@ -958,10 +974,10 @@ $$
 <br>
 $$
 P(\alpha) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; e^{i\alpha} \end{bmatrix} =</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e044a04e-cec8-43e1-bc2b-62e84659ad3e">
-<span class="eqno">()<a class="headerlink" href="#equation-e044a04e-cec8-43e1-bc2b-62e84659ad3e" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-81350955-f9dc-48e2-a575-a984163e094a">
-<span class="eqno">()<a class="headerlink" href="#equation-81350955-f9dc-48e2-a575-a984163e094a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-445442ce-89b5-4dc8-a1c0-19ff2c809a9b">
+<span class="eqno">()<a class="headerlink" href="#equation-445442ce-89b5-4dc8-a1c0-19ff2c809a9b" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-107d711d-1407-488d-8f38-4d51edb23c3a">
+<span class="eqno">()<a class="headerlink" href="#equation-107d711d-1407-488d-8f38-4d51edb23c3a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix} e^{-i\alpha/2} &amp; 0 \\ 0 &amp; e^{i\alpha/2} \end{bmatrix}\]</div>
 <p>$<span class="math notranslate nohighlight">\(
 &lt;br&gt;
 &lt;br&gt;
@@ -1003,8 +1019,8 @@ i R_{\hat{\bf z}}(\pi) &amp;=&amp;   \begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatri
 <p>Así obtenemos
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-39756113-0b36-4f75-9d87-fa1250ba9005">
-<span class="eqno">()<a class="headerlink" href="#equation-39756113-0b36-4f75-9d87-fa1250ba9005" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b6c265e8-49f4-4085-af7c-1f84df698953">
+<span class="eqno">()<a class="headerlink" href="#equation-b6c265e8-49f4-4085-af7c-1f84df698953" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S = Z^{1/2} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;i\end{bmatrix}=\begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/2}\end{bmatrix}  \\
 &amp;&amp; \\
 T  = Z^{1/4} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix} 
@@ -1015,14 +1031,14 @@ T  = Z^{1/4} &amp;=&amp;  \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix}
 </ul>
 <p>La puerta de Hadamard, <span class="math notranslate nohighlight">\(H\)</span>, es la primera puerta <em>genuinamente cuántica</em> en el sentido de que lleva un estado de la base a una superposición coherente
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1659820-bbb2-47f3-87c4-23bfa3a177c5">
-<span class="eqno">()<a class="headerlink" href="#equation-a1659820-bbb2-47f3-87c4-23bfa3a177c5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d1650a38-f61b-4186-be71-fb86d3117e26">
+<span class="eqno">()<a class="headerlink" href="#equation-d1650a38-f61b-4186-be71-fb86d3117e26" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H \ket{0} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} + \ket{1}\right) =\ket{+}   \\
 H \ket{1} &amp;=&amp; \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{0} - \ket{1}\right) =\ket{-} 
 \end{eqnarray}\]</div>
 <p>Podemos escribir este operador en la base canónica <span class="math notranslate nohighlight">\(H = H_{ij}\ketbra{i}{j}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc5997be-ae66-4a04-9402-1dabfcafe8dc">
-<span class="eqno">()<a class="headerlink" href="#equation-fc5997be-ae66-4a04-9402-1dabfcafe8dc" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-f87545c8-38f3-400e-b3f7-38962e782bf5">
+<span class="eqno">()<a class="headerlink" href="#equation-f87545c8-38f3-400e-b3f7-38962e782bf5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H &amp;=&amp;  \ket{+}\bra{0} +  \ket{-}\bra{1} \\
 &amp;=&amp; \frac{1}{\sqrt{2}}(\ketbra{0}{0} + \ketbra{1}{0} + \ketbra{0}{1} - \ketbra{1}{1})
 \end{eqnarray}\]</div>
@@ -1113,8 +1129,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2aa56d383951806e597fba616a19e66aa7f167e96fc888b1b0debaf2e36eddd.png" src="../../_images/c2aa56d383951806e597fba616a19e66aa7f167e96fc888b1b0debaf2e36eddd.png" />
-<img alt="../../_images/cbf789977b77d67e6bdfde7ac21a5eff5bf2b73f84f999081f3568b3c7a209cd.png" src="../../_images/cbf789977b77d67e6bdfde7ac21a5eff5bf2b73f84f999081f3568b3c7a209cd.png" />
+<img alt="../../_images/10cdb39cf7afbd420572c184184b4cb81bbe205e9200bc48f8690a8a05471b99.png" src="../../_images/10cdb39cf7afbd420572c184184b4cb81bbe205e9200bc48f8690a8a05471b99.png" />
+<img alt="../../_images/328847b1ac0c8f7c09a2682f5e8487d1c4859c1fac021f74be5d7ceca3ef0026.png" src="../../_images/328847b1ac0c8f7c09a2682f5e8487d1c4859c1fac021f74be5d7ceca3ef0026.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1154,8 +1170,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8f187552ae2fc90e5bd73d5d2746fa3c3a4212ecb01bd431d511c109b5fcda96.png" src="../../_images/8f187552ae2fc90e5bd73d5d2746fa3c3a4212ecb01bd431d511c109b5fcda96.png" />
-<img alt="../../_images/6a0dfcc825a8f00f87e02c84acbcf6e5eaffa085d14559ea5d2a15ef3283029b.png" src="../../_images/6a0dfcc825a8f00f87e02c84acbcf6e5eaffa085d14559ea5d2a15ef3283029b.png" />
+<img alt="../../_images/4b652d3707f237fc46e3b4ebd90ccd13dfa33ca2e36bbb398793f0109897bfa2.png" src="../../_images/4b652d3707f237fc46e3b4ebd90ccd13dfa33ca2e36bbb398793f0109897bfa2.png" />
+<img alt="../../_images/e818a4f280cbc9a76356c572e7862967b1ddf13540d918d630dfb543b85467de.png" src="../../_images/e818a4f280cbc9a76356c572e7862967b1ddf13540d918d630dfb543b85467de.png" />
 </div>
 </div>
 <section id="matriz-de-un-circuito">
@@ -1184,14 +1200,22 @@ U = T H ~~~\to ~~~ U_{ij} = \begin{bmatrix}1&amp;0\\0&amp;e^{i\pi/4}\end{bmatrix
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Operator([[7.07106781e-01+0.00000000e+00j, 7.07106781e-01+8.65956056e-17j,
-           0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j],
-          [4.32978028e-17+7.07106781e-01j, 4.32978028e-17-7.07106781e-01j,
-           0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j],
-          [0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j,
-           7.07106781e-01+0.00000000e+00j, 7.07106781e-01+8.65956056e-17j],
-          [0.00000000e+00+0.00000000e+00j, 0.00000000e+00+0.00000000e+00j,
-           4.32978028e-17+7.07106781e-01j, 4.32978028e-17-7.07106781e-01j]],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Operator([[ 7.07106781e-01+0.00000000e+00j,
+            7.07106781e-01-8.65956056e-17j,
+            0.00000000e+00+0.00000000e+00j,
+            0.00000000e+00+0.00000000e+00j],
+          [-0.00000000e+00+7.07106781e-01j,
+           -8.65956056e-17-7.07106781e-01j,
+           -0.00000000e+00+0.00000000e+00j,
+           -0.00000000e+00+0.00000000e+00j],
+          [ 0.00000000e+00+0.00000000e+00j,
+            0.00000000e+00+0.00000000e+00j,
+            7.07106781e-01+0.00000000e+00j,
+            7.07106781e-01-8.65956056e-17j],
+          [-0.00000000e+00+0.00000000e+00j,
+           -0.00000000e+00+0.00000000e+00j,
+           -0.00000000e+00+7.07106781e-01j,
+           -8.65956056e-17-7.07106781e-01j]],
          input_dims=(2, 2), output_dims=(2, 2))
 </pre></div>
 </div>
@@ -1231,7 +1255,7 @@ lleva el vector <span class="math notranslate nohighlight">\(\ket{0}\)</span> so
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fabf95403d5be1be6e4727e299dac2a4f9f6649edb23a5746dc2126b8a95eb02.png" src="../../_images/fabf95403d5be1be6e4727e299dac2a4f9f6649edb23a5746dc2126b8a95eb02.png" />
+<img alt="../../_images/fae92f7adc0650dbb260ac9f279dac585cf32f98c3a91ef752d81b63bc1ff9cd.png" src="../../_images/fae92f7adc0650dbb260ac9f279dac585cf32f98c3a91ef752d81b63bc1ff9cd.png" />
 </div>
 </div>
 </section>
@@ -1329,7 +1353,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

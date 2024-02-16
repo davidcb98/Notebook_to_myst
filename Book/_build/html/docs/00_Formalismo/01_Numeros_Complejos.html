@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Numeros_Complejos';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Vectores" href="01_Vectores.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -624,8 +636,8 @@ i^2 = -1
 <div class="math notranslate nohighlight">
 \[\frac{i}{i} = 1\]</div>
 <p>Observar que el <em>inverso multiplicativo</em>  <span class="math notranslate nohighlight">\(1/i\)</span> también es <span class="math notranslate nohighlight">\(-i\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-927c5331-e8ac-41fd-b946-1e003d24f647">
-<span class="eqno">(1)<a class="headerlink" href="#equation-927c5331-e8ac-41fd-b946-1e003d24f647" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-85bc5f8e-f800-4d15-84ee-488feea2f65b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-85bc5f8e-f800-4d15-84ee-488feea2f65b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{i}{i}  &amp;=&amp;   1 \nonumber\\
 i (-i) &amp;=&amp; - i^2  =  1
 \end{eqnarray}\]</div>
@@ -686,7 +698,7 @@ y &amp; \hbox{es la  parte imaginaria}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>z=x+iy= (-3+1j)
 </pre></div>
 </div>
-<img alt="../../_images/2224c1f56a5968733663fe82242cfd526037bbf94cd7c8d829c0d94b99e5c2ca.png" src="../../_images/2224c1f56a5968733663fe82242cfd526037bbf94cd7c8d829c0d94b99e5c2ca.png" />
+<img alt="../../_images/cc6c12bdcc51c6b0ee10a127385b04a19dccc57a560d7b2f682ce26ddf67d316.png" src="../../_images/cc6c12bdcc51c6b0ee10a127385b04a19dccc57a560d7b2f682ce26ddf67d316.png" />
 </div>
 </div>
 </section>
@@ -745,8 +757,8 @@ z = \rho e^{i\theta} = \rho e^{i(\theta + 2\pi)}
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
 <p>Usar la forma polar es útil en situaciones en las que aparecen productos y potencias del número <span class="math notranslate nohighlight">\(i\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d1976f1-7caa-4d9c-9077-f4acd2d6eade">
-<span class="eqno">(3)<a class="headerlink" href="#equation-4d1976f1-7caa-4d9c-9077-f4acd2d6eade" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-a894fff8-478f-48b0-9d5c-e4cfbb467624">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a894fff8-478f-48b0-9d5c-e4cfbb467624" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 i &amp;=&amp;  e^{i\pi/2} \\ \rule{0mm}{8mm}
 -1 &amp;=&amp; i^2 = e^{i\pi} \\ \rule{0mm}{8mm}
 i &amp;=&amp; e^{3i\pi/2} =e^{-i\pi/2} \\  \rule{0mm}{8mm}
@@ -854,7 +866,7 @@ z = x+i y ~~~~\leftrightarrow~~~~ z^* = x - i y \hspace{2cm}
 z*= (3-1j)
 </pre></div>
 </div>
-<img alt="../../_images/6b0fdfe9c32d4b7ed94212bb1d08f8b45aa455d5116f9b3a8502b093837703b8.png" src="../../_images/6b0fdfe9c32d4b7ed94212bb1d08f8b45aa455d5116f9b3a8502b093837703b8.png" />
+<img alt="../../_images/18d5a947ba149949b6eab6ccd0b8be4c9cf6de384232b67211848cdbc65d0bd2.png" src="../../_images/18d5a947ba149949b6eab6ccd0b8be4c9cf6de384232b67211848cdbc65d0bd2.png" />
 </div>
 </div>
 <p>En forma polar la <em>conjugación compleja</em> se obtiene <u><em>cambiando el signo</em></u> de la fase
@@ -879,7 +891,7 @@ z = \rho e^{i\theta} ~~\longrightarrow ~~z^* = \rho e^{-i\theta} = \rho \cos\the
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6b44083d950b2050687864c8f9f191a7d524e14b30193ad0ae1833f5966df82b.png" src="../../_images/6b44083d950b2050687864c8f9f191a7d524e14b30193ad0ae1833f5966df82b.png" />
+<img alt="../../_images/7b96dc991ad756de1b26d700f4b55afb3e8f1aeb76ef5cb165edb3b5fce5090e.png" src="../../_images/7b96dc991ad756de1b26d700f4b55afb3e8f1aeb76ef5cb165edb3b5fce5090e.png" />
 </div>
 </div>
 </section>
@@ -930,7 +942,7 @@ z1-z2= (-1+2j)
 ************************************
 </pre></div>
 </div>
-<img alt="../../_images/44003a62e1a0e48fd8dbd44297242eb0a929a4ac3374f8410251b855b15b95c8.png" src="../../_images/44003a62e1a0e48fd8dbd44297242eb0a929a4ac3374f8410251b855b15b95c8.png" />
+<img alt="../../_images/c2f818a81eb38f0eca639ca2af11ed13eb894bf388d6ac7d92cdd1250c37453a.png" src="../../_images/c2f818a81eb38f0eca639ca2af11ed13eb894bf388d6ac7d92cdd1250c37453a.png" />
 </div>
 </div>
 <p>En <em>forma polar</em>, la suma de dos números complejos no admite ninguna simplificación, y deben transformarse primeramente a forma cartesiana, para sumarse.</p>
@@ -966,7 +978,7 @@ z1-z2= (1.8679+2.0825j)
 ************************************
 </pre></div>
 </div>
-<img alt="../../_images/1e77a8ab2274ba898613d14b756a99d7788b560f20e63c8ac93ed2211527e2e8.png" src="../../_images/1e77a8ab2274ba898613d14b756a99d7788b560f20e63c8ac93ed2211527e2e8.png" />
+<img alt="../../_images/5f34de7bc2e7a797acca812bf92449a1cc26e7c67344b842adfba662eeccbb1d.png" src="../../_images/5f34de7bc2e7a797acca812bf92449a1cc26e7c67344b842adfba662eeccbb1d.png" />
 </div>
 </div>
 </section>
@@ -1112,10 +1124,10 @@ comprobación z1/z2= (1.08707+2.79612j)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.patches.Circle at 0x7fab5456c7c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.patches.Circle at 0x7f0996ed24d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c3bd79650827b39d5f2f6c6a2d8bc972e06a14eee671670d8eab6f14480666aa.png" src="../../_images/c3bd79650827b39d5f2f6c6a2d8bc972e06a14eee671670d8eab6f14480666aa.png" />
+<img alt="../../_images/f35cc90a75d02e5c3e0dea02f44f75e70b8fe89e063305942f97950494bfe958.png" src="../../_images/f35cc90a75d02e5c3e0dea02f44f75e70b8fe89e063305942f97950494bfe958.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1169,7 +1181,7 @@ comprobación z1/z2= (1.08707+2.79612j)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0j
 </pre></div>
 </div>
-<img alt="../../_images/c3bd79650827b39d5f2f6c6a2d8bc972e06a14eee671670d8eab6f14480666aa.png" src="../../_images/c3bd79650827b39d5f2f6c6a2d8bc972e06a14eee671670d8eab6f14480666aa.png" />
+<img alt="../../_images/f35cc90a75d02e5c3e0dea02f44f75e70b8fe89e063305942f97950494bfe958.png" src="../../_images/f35cc90a75d02e5c3e0dea02f44f75e70b8fe89e063305942f97950494bfe958.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1209,7 +1221,7 @@ comprobación z1/z2= (1.08707+2.79612j)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9-0j)
 </pre></div>
 </div>
-<img alt="../../_images/077980dc12ed8540b9be21cc27e58c204c506b5849cee1834b306aef3987b889.png" src="../../_images/077980dc12ed8540b9be21cc27e58c204c506b5849cee1834b306aef3987b889.png" />
+<img alt="../../_images/78f8f6c7bdad2987eb77ffed1e71530a1d57a8cba728408deae7ffdc3035e3e3.png" src="../../_images/78f8f6c7bdad2987eb77ffed1e71530a1d57a8cba728408deae7ffdc3035e3e3.png" />
 </div>
 </div>
 <p>Una manera de resumir todos los casos anteriores en una sola expresión involucra la función  <strong>Delta  de Kronecker</strong>: <span class="math notranslate nohighlight">\(\delta_{ij}\)</span></p>
@@ -1271,7 +1283,7 @@ comprobación z1/z2= (1.08707+2.79612j)
 |z1+z2|= 4.8645696489522345
 </pre></div>
 </div>
-<img alt="../../_images/facffe270ce94aa6d9d1e1c55194da5afd7e489e6a356c725571e0ebb61d3217.png" src="../../_images/facffe270ce94aa6d9d1e1c55194da5afd7e489e6a356c725571e0ebb61d3217.png" />
+<img alt="../../_images/f344b912e7ef590972d5f9efac25c89991c5eb4d6bf018f2366f87a9c6812ecd.png" src="../../_images/f344b912e7ef590972d5f9efac25c89991c5eb4d6bf018f2366f87a9c6812ecd.png" />
 </div>
 </div>
 </section>
@@ -1386,7 +1398,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

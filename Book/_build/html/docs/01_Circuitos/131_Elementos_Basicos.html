@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/131_Elementos_Basicos';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Construcción de funciones binarias. Los min-términos" href="132_CompClasica.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -537,12 +549,12 @@ Elementos Básicos
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:696,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">696</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/magics/execution.py:716,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>     <span class="n">fpath</span> <span class="o">=</span> <span class="n">arg_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">716</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">file_finder</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span> <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/utils/path.py:90,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/utils/path.py:90,</span> in <span class="ni">get_py_filename</span><span class="nt">(name)</span>
 <span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="k">return</span> <span class="n">py_name</span>
 <span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File `</span><span class="si">%r</span><span class="s2">` not found.&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
 
@@ -554,18 +566,21 @@ Elementos Básicos
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../macro_CURSO.py&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/interactiveshell.py:2369,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2367</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2368</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2369</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2370</span> <span class="k">return</span> <span class="n">result</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2456,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2454</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2455</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2456</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2458</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2460</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2461</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/IPython/core/magics/execution.py:707,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/IPython/core/magics/execution.py:727,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&#39;.*&#39;$&quot;</span><span class="p">,</span><span class="n">fpath</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;For Windows, use double quotes to wrap a filename: </span><span class="si">%r</span><span class="s1">un &quot;mypath</span><span class="se">\\</span><span class="s1">myfile.py&quot;&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span>     <span class="k">if</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="p">:</span>
 
 <span class="ne">Exception</span>: File `&#39;../macro_CURSO.py&#39;` not found.
 </pre></div>
@@ -573,13 +588,13 @@ Elementos Básicos
 </div>
 </div>
 <ol class="arabic simple">
-<li><p><span class="xref myst">Retroceso de fase</span></p></li>
-<li><p><span class="xref myst">Circuitos Equivalentes</span></p></li>
-<li><p><span class="xref myst">Operadores de Clifford</span></p></li>
-<li><p><span class="xref myst">Computación Cuántica Universal</span></p></li>
-<li><p><span class="xref myst">Medidas de calidad en circuitos</span></p></li>
-<li><p><span class="xref myst">Complejidad computacional</span></p></li>
-<li><p><span class="xref myst">Preparación de un estado inicial</span></p></li>
+<li><p><a class="reference internal" href="#retrofase"><span class="xref myst">Retroceso de fase</span></a></p></li>
+<li><p><a class="reference internal" href="#circuitequiv"><span class="xref myst">Circuitos Equivalentes</span></a></p></li>
+<li><p><a class="reference internal" href="#opcliff"><span class="xref myst">Operadores de Clifford</span></a></p></li>
+<li><p><a class="reference internal" href="#compuniv"><span class="xref myst">Computación Cuántica Universal</span></a></p></li>
+<li><p><a class="reference internal" href="#medcalcirc"><span class="xref myst">Medidas de calidad en circuitos</span></a></p></li>
+<li><p><a class="reference internal" href="#complejcirc"><span class="xref myst">Complejidad computacional</span></a></p></li>
+<li><p><a class="reference internal" href="#prepainit"><span class="xref myst">Preparación de un estado inicial</span></a></p></li>
 </ol>
 <p><em>Bibliografía:</em></p>
 <ul class="simple">
@@ -667,8 +682,8 @@ y,  equivalentemente, intercambiando $X \leftrightarrow Z$.
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-fc8c5fa7-880c-4214-8d9b-8e72879c016b">
-<span class="eqno">(59)<a class="headerlink" href="#equation-fc8c5fa7-880c-4214-8d9b-8e72879c016b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-6e296a89-f9c0-43b0-a11c-9c58357298cb">
+<span class="eqno">(59)<a class="headerlink" href="#equation-6e296a89-f9c0-43b0-a11c-9c58357298cb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 HXH = Z ~~~~~&amp;&amp;~~ ~~~
 HZH = X \nonumber
 \end{eqnarray}\]</div>
@@ -680,8 +695,8 @@ que son fáciles de visualizar recordando que  $H$ es una rotación de 180$^\cir
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-1c5acdfe-182d-4531-9e54-16037443ab3e">
-<span class="eqno">(60)<a class="headerlink" href="#equation-1c5acdfe-182d-4531-9e54-16037443ab3e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-5a587fd4-5da7-45e8-9354-e77e992189dd">
+<span class="eqno">(60)<a class="headerlink" href="#equation-5a587fd4-5da7-45e8-9354-e77e992189dd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S X S^\dagger  = Y~~~~~&amp;&amp;~~~ ~~~
 S Y S^\dagger = -X  ~~~~~~~~ S Z S^\dagger = Z\nonumber\\
 \end{eqnarray}\]</div>
@@ -703,8 +718,8 @@ también  son fáciles de visualizar recordando que
 La conjugación de una exponencial se exponencia
 <br><br>
 </table>
-<div class="amsmath math notranslate nohighlight" id="equation-18de26cc-bed5-4b28-9cb3-b61b18c51877">
-<span class="eqno">(61)<a class="headerlink" href="#equation-18de26cc-bed5-4b28-9cb3-b61b18c51877" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-19540917-1f02-4128-9b42-fd819176f763">
+<span class="eqno">(61)<a class="headerlink" href="#equation-19540917-1f02-4128-9b42-fd819176f763" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U e^{\alpha A} U^\dagger &amp;=&amp;  U \left(1 + \alpha A  + \frac{1}{2} \alpha^2 A^2 + ... \right) U^\dagger \\ \rule{0mm}{8mm}
 &amp;=&amp; 1 + \alpha UAU^\dagger + \frac{1}{2}\alpha^2 UAU^\dagger U AU^\dagger + ... \\ \rule{0mm}{8mm}
 &amp;=&amp; e^{ \alpha UAU^\dagger} 
@@ -726,8 +741,8 @@ $$
 <br>
 </table>
 <p>Por ejemplo:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96d98b50-2b1b-4f0b-b649-dd6b42d42ccd">
-<span class="eqno">(62)<a class="headerlink" href="#equation-96d98b50-2b1b-4f0b-b649-dd6b42d42ccd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-da2b7912-6567-4151-9de6-d0c72e177637">
+<span class="eqno">(62)<a class="headerlink" href="#equation-da2b7912-6567-4151-9de6-d0c72e177637" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H R_z(\theta) H &amp;=&amp; e^{-i \theta/2 HZH} =  e^{-i (\theta/2) X}. \\ \rule{0mm}{8mm}
 &amp;=&amp; R_x(\theta)
 \end{eqnarray}\]</div>
@@ -905,8 +920,8 @@ X Y = i Z ~~~~~ Y Z = i X ~~~~~ ZX = iY
 <p>e igualmente para <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span></p>
 </p></div>
 <p>Esta definición se extiende a puertas multi-cúbits. Un operador de Clifford será aquel que conjuga una cadena de Pauli para dar otra cadena de Pauli. Por ejemplo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66683296-3fec-4ad7-853d-e7a7319c8895">
-<span class="eqno">(63)<a class="headerlink" href="#equation-66683296-3fec-4ad7-853d-e7a7319c8895" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e974655e-5d3c-4711-a2d9-1b7e70ef6fd9">
+<span class="eqno">(63)<a class="headerlink" href="#equation-e974655e-5d3c-4711-a2d9-1b7e70ef6fd9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (XXH) \, (YZX) \,  (XXH)^\dagger &amp;=&amp; XXH \otimes YZX \otimes XXH \\ \rule{0mm}{10mm}
 &amp;=&amp; XYX \otimes  XZX \otimes HXH \\ \rule{0mm}{10mm}
 &amp;=&amp; (-Y)\otimes (-Z) \otimes Z \\ \rule{0mm}{10mm} &amp;=&amp; YZZ
@@ -1027,8 +1042,8 @@ C = R_z\left( \frac{\beta-\alpha}{2}\right)\end{array}
 <ul class="simple">
 <li><p>En circuitos superconductores</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-b62a5333-aa8a-4ee7-9f6f-9c5f9df31a0b">
-<span class="eqno">(64)<a class="headerlink" href="#equation-b62a5333-aa8a-4ee7-9f6f-9c5f9df31a0b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-ad8f193a-6df5-4105-9786-e636f08d56dc">
+<span class="eqno">(64)<a class="headerlink" href="#equation-ad8f193a-6df5-4105-9786-e636f08d56dc" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \hbox{Shor basis}~~
  ~&amp;:&amp; ~~ \{ H, T, \hbox{CNOT}\}  \nonumber \\ \rule{0mm}{5mm}
 \hbox{NCT}~ ~&amp;:&amp; ~~ \{ X,\hbox{CNOT}, \hbox{Toffoli}\}   \nonumber
@@ -1087,13 +1102,13 @@ donde la secuencia aproximante $R$ involucra   $\leq {\cal O}(\log^2(1/\epsilon)
 <ul class="simple">
 <li><p><strong>complejidad</strong>= es una medida estandarizada asociada al número de <em>puertas elementales</em> en las que puede descomponerse un circuito.</p></li>
 </ul>
-<p>Es un número a reducir. Sin embargo no es una medida inambigua ya que depende de la librería utilizada. Por ejemplo, si ésta es la NCT, entonces el coste del <span class="xref myst">circuito</span> es 1. Sin embargo, si la librería es la tomada por <span class="math notranslate nohighlight">\( \{ H, S, T, \hbox{CNOT}\} \)</span>
+<p>Es un número a reducir. Sin embargo no es una medida inambigua ya que depende de la librería utilizada. Por ejemplo, si ésta es la NCT, entonces el coste del <a class="reference internal" href="#Toffolidecomposition"><span class="xref myst">circuito</span></a> es 1. Sin embargo, si la librería es la tomada por <span class="math notranslate nohighlight">\( \{ H, S, T, \hbox{CNOT}\} \)</span>
 entonces el coste sube hasta 7. Por ello, a la hora de comparar circuitos es importante definirlos en la misma base.</p>
 <ul class="simple">
 <li><p><strong>profundidad</strong>= para evaluar la <em>profundidad</em>  es necesario agrupar todas las puertas  que se puedan realizar en paralelo en cortes temporales de duración <span class="math notranslate nohighlight">\(\Delta\)</span> (pulso).</p></li>
 </ul>
 <p>En particular puertas que actúen sobre registros diferentes no interferirán y se podrán paralelizar.
-Por ejemplo, el <span class="xref myst">circuito que descompone <span class="math notranslate nohighlight">\(U\)</span></span>   tiene un coste igual a 6, pero una profundidad igual a 5.</p>
+Por ejemplo, el <a class="reference internal" href="#CUdecomposition"><span class="xref myst">circuito que descompone <span class="math notranslate nohighlight">\(U\)</span></span></a>   tiene un coste igual a 6, pero una profundidad igual a 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">transpile</span><span class="p">,</span> <span class="n">Aer</span><span class="p">,</span> <span class="n">QuantumRegister</span>
@@ -1110,7 +1125,11 @@ Por ejemplo, el <span class="xref myst">circuito que descompone <span class="mat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1cc1214f345d0f1f86ea7770196349c6bf719bca62569dad685a6417d1c1231b.png" src="../../_images/1cc1214f345d0f1f86ea7770196349c6bf719bca62569dad685a6417d1c1231b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/f132ba8abbb3e4d6d36b08daf2d15562924bb2faecdcece4cfa7790cb478fc02.png" src="../../_images/f132ba8abbb3e4d6d36b08daf2d15562924bb2faecdcece4cfa7790cb478fc02.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1139,7 +1158,7 @@ profundidad= 4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12e68b641c2f9662ce878048b00741173ebaa488e253f5c957289d108317f80d.png" src="../../_images/12e68b641c2f9662ce878048b00741173ebaa488e253f5c957289d108317f80d.png" />
+<img alt="../../_images/a0b493616566862f5aab7f8163178b2b719de5aaf652b52dd845a5a6da121e4c.png" src="../../_images/a0b493616566862f5aab7f8163178b2b719de5aaf652b52dd845a5a6da121e4c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1170,30 +1189,38 @@ profundidad= 6
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_20968/3448746441.py:2: DeprecationWarning: The package qiskit.providers.ibmq is being deprecated. Please see https://ibm.biz/provider_migration_guide to get instructions on how to migrate to qiskit-ibm-provider (https://github.com/Qiskit/qiskit-ibm-provider) and qiskit-ibm-runtime (https://github.com/Qiskit/qiskit-ibm-runtime).
-  IBMQ.load_account()
-/tmp/ipykernel_20968/3448746441.py:2: DeprecationWarning: The qiskit.IBMQ entrypoint and the qiskit-ibmq-provider package (accessible from &#39;qiskit.providers.ibmq`) are deprecated and will be removed in a future release. Instead you should use the qiskit-ibm-provider package which is accessible from &#39;qiskit_ibm_provider&#39;. You can install it with &#39;pip install qiskit_ibm_provider&#39;. Just replace &#39;qiskit.IBMQ&#39; with &#39;qiskit_ibm_provider.IBMProvider&#39;
-  IBMQ.load_account()
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IBMQAccountCredentialsNotFound</span><span class="g g-Whitespace">            </span>Traceback (most recent call last)
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/__init__.py:169,</span> in <span class="ni">IBMQWrapper.__getattr__</span><span class="nt">(self, attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">169</span>     <span class="kn">from</span> <span class="nn">qiskit.providers</span> <span class="kn">import</span> <span class="n">ibmq</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="bp">self</span><span class="o">.</span><span class="n">ibmq</span> <span class="o">=</span> <span class="n">ibmq</span><span class="o">.</span><span class="n">IBMQ</span>
+
+<span class="ne">ImportError</span>: cannot import name &#39;ibmq&#39; from &#39;qiskit.providers&#39; (/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/providers/__init__.py)
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">MissingOptionalLibraryError</span><span class="g g-Whitespace">               </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">IBMQ</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">IBMQ</span><span class="o">.</span><span class="n">load_account</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">provider</span> <span class="o">=</span> <span class="n">IBMQ</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">hub</span><span class="o">=</span><span class="s1">&#39;ibm-q&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">provider</span><span class="o">.</span><span class="n">backends</span><span class="p">()</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/qiskit/providers/ibmq/ibmqfactory.py:167,</span> in <span class="ni">IBMQFactory.load_account</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span> <span class="n">credentials_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">stored_credentials</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">credentials_list</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">167</span>     <span class="k">raise</span> <span class="n">IBMQAccountCredentialsNotFound</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>         <span class="s1">&#39;No IBM Quantum Experience credentials found.&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">credentials_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="k">raise</span> <span class="n">IBMQAccountMultipleCredentialsFound</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="s1">&#39;Multiple IBM Quantum Experience credentials found. &#39;</span> <span class="o">+</span> <span class="n">UPDATE_ACCOUNT_TEXT</span><span class="p">)</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/__init__.py:183,</span> in <span class="ni">IBMQWrapper.__getattr__</span><span class="nt">(self, attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>             <span class="s2">&quot;The qiskit.IBMQ entrypoint and the qiskit-ibmq-provider package (&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>             <span class="s2">&quot;accessible from &#39;qiskit.providers.ibmq`) are deprecated and will be removed &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>             <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>     <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">183</span>         <span class="k">raise</span> <span class="n">MissingOptionalLibraryError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>             <span class="s2">&quot;qiskit-ibmq-provider&quot;</span><span class="p">,</span> <span class="s2">&quot;IBMQ provider&quot;</span><span class="p">,</span> <span class="s2">&quot;pip install qiskit-ibmq-provider&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>         <span class="p">)</span> <span class="kn">from</span> <span class="nn">ex</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ibmq</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
 
-<span class="ne">IBMQAccountCredentialsNotFound</span>: &#39;No IBM Quantum Experience credentials found.&#39;
+<span class="ne">MissingOptionalLibraryError</span>: &quot;The &#39;qiskit-ibmq-provider&#39; library is required to use &#39;IBMQ provider&#39;. You can install it with &#39;pip install qiskit-ibmq-provider&#39;.&quot;
 </pre></div>
 </div>
 </div>
@@ -1431,7 +1458,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

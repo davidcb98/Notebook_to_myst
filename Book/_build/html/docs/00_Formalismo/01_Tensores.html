@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/00_Formalismo/01_Tensores';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Probabilidades" href="01_Probabilidades.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="current nav bd-sidenav">
@@ -607,8 +619,8 @@ document.write(`
 <p>Como si se tratara de un producto ordinario, el producto tensorial satisface la <strong>propiedad distributiva</strong>
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-06848f2c-54d0-46bf-b13d-3dd0fa24c44c">
-<span class="eqno">(28)<a class="headerlink" href="#equation-06848f2c-54d0-46bf-b13d-3dd0fa24c44c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-f8ff0a38-ed7e-4c29-88f7-397743d7f251">
+<span class="eqno">(28)<a class="headerlink" href="#equation-f8ff0a38-ed7e-4c29-88f7-397743d7f251" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \big(\ket{u}+\ket{v}\big)\otimes \big(\ket{y}+\ket{z}\big) ~&amp;= ~~
 \ket{u}\otimes\ket{y} ~+~ \ket{u}\otimes\ket{z} ~+~ \ket{v}\otimes\ket{y} ~+~~
  \ket{v}\otimes\ket{z} \\
@@ -668,8 +680,8 @@ $</p></li>
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-11755bc2-458a-4ae2-95e9-dbee03b2070d">
-<span class="eqno">(29)<a class="headerlink" href="#equation-11755bc2-458a-4ae2-95e9-dbee03b2070d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8a7c03f5-d27a-4ce2-8134-e45c868b2fb4">
+<span class="eqno">(29)<a class="headerlink" href="#equation-8a7c03f5-d27a-4ce2-8134-e45c868b2fb4" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{\omega} &amp; ~= ~&amp; 
 w_{00}\ket{00} + w_{01}\ket{01} + ... + w_{10}\ket{10} + ...\ldots + w_{d_1 d_2}\ket{d_1 d_2} \nonumber\\
 \rule{0mm}{10mm}
@@ -853,8 +865,8 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 <li><p>Los números <span class="math notranslate nohighlight">\(s_1,...,s_r &gt;0\)</span> son los autovalores de la matriz <span class="math notranslate nohighlight">\(w^\dagger w\)</span>  y se denominan <i>valores principales </i>  de la matriz <span class="math notranslate nohighlight">\(w_{ij}\)</span></p></li>
 </ul>
 <p>Esto quiere decir que podemos escribir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf3bf501-8cf6-4fb7-a548-29e23bfab182">
-<span class="eqno">(30)<a class="headerlink" href="#equation-cf3bf501-8cf6-4fb7-a548-29e23bfab182" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b9d86308-d6f0-4c09-9b2e-a40738396ba4">
+<span class="eqno">(30)<a class="headerlink" href="#equation-b9d86308-d6f0-4c09-9b2e-a40738396ba4" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{w} &amp;=&amp; \sum_{i=1}^{d_1}\sum_{a=1}^{d_2}\left( \sum_{j=1}^{d_1}\sum_{b=1}^{d_2} U_{ij}\Sigma_{jb}V_{ab}^* \right)\ket{e_{1,i}}\otimes \ket{e_{2,a}}
 \\  \rule{0mm}{10mm}
 &amp;=&amp; \sum_{j=1}^{d_1}\sum_{b=1}^{d_2}\Sigma_{jb}\left( \sum_{i=1}^{d_1} U_{ij}\ket{e_{1,i}} \right)\otimes  \left( \sum_{a=1}^{d_2} V_{ab}^* \ket{e_{2,a}}\right)
@@ -887,13 +899,13 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
-0.4605359553 - 2.2396920515 i &amp; 1.1278685452 - 0.4552186975 i &amp; -0.3952198124 - 0.7334380702 i  \\
- 0.7985883257 + 1.1263727656 i &amp; -0.9995091679 - 0.4377373638 i &amp; 0.1700297341 - 0.7836641282 i  \\
- -1.3426267296 - 0.0592307924 i &amp; -1.3056927975 + 1.0470692475 i &amp; 0.3086829559 + 1.3258998865 i  \\
- 0.2036515268 - 0.1902804088 i &amp; 0.31550967 + 0.6963756198 i &amp; 0.3803025087 - 0.9259341805 i  \\
+-0.5321514494 + 0.7403517071 i &amp; -0.2535596377 - 0.7871560519 i &amp; -0.0675994554 + 3.2205812019 i  \\
+ -0.9358357438 + 0.603287647 i &amp; -0.4190591102 + 0.7075504936 i &amp; -0.1844608432 - 0.2697713604 i  \\
+ -1.0403621843 + 0.0538452408 i &amp; -0.2311452276 - 0.2825395599 i &amp; 0.0397101185 - 3.1048471075 i  \\
+ -0.0430922474 - 1.4217214125 i &amp; 1.1730734304 - 0.5333370178 i &amp; 0.3627511742 + 0.2984334501 i  \\
  \end{bmatrix}
 \end{split}\]</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>principal values s_i =  [3.597 2.289 1.043]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>principal values s_i =  [4.583 2.595 0.971]
 The Schmidt number is r = 3
 </pre></div>
 </div>
@@ -925,11 +937,11 @@ The Schmidt number is r = 3
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
--0.0708808897 - 0.1282993095 i &amp; -0.1450552367 + 0.4778748925 i &amp; -0.0948407133 - 0.4662177357 i  \\
- 0.0091242082 + 0.0091349029 i &amp; 0.0006433188 - 0.0439850841 i &amp; 0.0193805245 + 0.0371569898 i  \\
- -0.000747385 - 0.0817727314 i &amp; -0.1979776963 + 0.1960471352 i &amp; 0.0771482611 - 0.2539739137 i  \\
- 0.0280276414 - 0.0363219289 i &amp; -0.155295989 + 0.0178041789 i &amp; 0.1220966856 - 0.0852519574 i  \\
- 0.0976939143 + 0.0567451143 i &amp; -0.0934205662 - 0.373422213 i &amp; 0.2474128253 + 0.2706722231 i  \\
+0.0648809332 + 0.1356767779 i &amp; 0.1043632286 - 0.0925483932 i &amp; 0.0400364402 - 0.1392923381 i  \\
+ -0.3559563409 + 0.0290262468 i &amp; 0.116929252 + 0.3099196495 i &amp; 0.2751154556 + 0.2067991214 i  \\
+ -0.008339611 - 0.1712453058 i &amp; -0.1505364488 + 0.0512385499 i &amp; -0.1035416849 + 0.1287557568 i  \\
+ -0.1755291138 - 0.3038360597 i &amp; -0.2259784601 + 0.2342083241 i &amp; -0.0678676446 + 0.3312746704 i  \\
+ 0.2223632493 + 0.0801556721 i &amp; 0.0145816348 - 0.2187460201 i &amp; -0.108983827 - 0.2000244752 i  \\
  \end{bmatrix}
 \end{split}\]</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>principal values s_i =  [1. 0. 0.]
@@ -1115,8 +1127,8 @@ A_{i_1...i_n, \, j_1...j_n} = \bra{i_1...i_n}A\ket{j_1...j_n}  ~~~~~\leftrightar
 <ul class="simple">
 <li><p>Con la matriz, el operador se reconstruye en la base canónica de productos externos</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-9515d289-04ef-438c-a35a-66e3f5058933">
-<span class="eqno">(31)<a class="headerlink" href="#equation-9515d289-04ef-438c-a35a-66e3f5058933" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
+<div class="amsmath math notranslate nohighlight" id="equation-f7fb56b2-59fa-4543-a80c-dfe25346aea5">
+<span class="eqno">(31)<a class="headerlink" href="#equation-f7fb56b2-59fa-4543-a80c-dfe25346aea5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray} 
  A &amp;~~=~&amp; 
  \sum_{i_1,...,i_n,\, j_1,...,j_n=0}^{d-1} A_{i_1...i_n, \, j_1...j_n} \ket{i_1...i_n}\bra{j_1...j_n}
  ~~~~=~~~~
@@ -1170,8 +1182,8 @@ A^\dagger = A^{(1)\dagger} \otimes ... \otimes A^{(n)\dagger}
 <h3>Producto de Kronecker de matrices<a class="headerlink" href="#producto-de-kronecker-de-matrices" title="Permalink to this heading">#</a></h3>
 <p>¿Cómo será la matriz <span class="math notranslate nohighlight">\(A_{i_1...i_n, \, j_1...j_n}\)</span> de un operador factorizable, <span class="math notranslate nohighlight">\( A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span>, en términos de las matrices  <span class="math notranslate nohighlight">\( A^{(a)}_{ij}\)</span> de sus factores?</p>
 <p>Vamos a tomar  <span class="math notranslate nohighlight">\(n=2\)</span> por simplicidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e67f4d0a-8f4d-40e5-b544-f6a7fc0ad2fa">
-<span class="eqno">(32)<a class="headerlink" href="#equation-e67f4d0a-8f4d-40e5-b544-f6a7fc0ad2fa" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-1510ecec-2064-40d6-897b-b977b8b6419e">
+<span class="eqno">(32)<a class="headerlink" href="#equation-1510ecec-2064-40d6-897b-b977b8b6419e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 A = A^{(1)}\otimes  A^{(2)} &amp;=&amp;\left( \sum_{i_1i_2}A^{(1)}_{i_1 j_1} \ket{i_1}\bra{j_1}\right)\left( \sum_{i_2j_2}A^{(2)}_{i_2 j_2} \ket{i_2}\bra{j_2}\right)\\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A^{(1)}_{i_1 j_1}A^{(2)}_{i_2 j_2}\ket{i_1 i_2}\bra{j_1j_2} \\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A_{i_1i_2,\, j_1j_2}\ket{i_1 i_2}\bra{j_1j_2}
@@ -1197,8 +1209,8 @@ A = A^{(1)}\otimes  A^{(2)} &amp;=&amp;\left( \sum_{i_1i_2}A^{(1)}_{i_1 j_1} \ke
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-a4a99987-627f-46ec-919c-d8786b334ca4">
-<span class="eqno">(33)<a class="headerlink" href="#equation-a4a99987-627f-46ec-919c-d8786b334ca4" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-e95cf0fd-fa71-4609-9d0e-22a35914ead9">
+<span class="eqno">(33)<a class="headerlink" href="#equation-e95cf0fd-fa71-4609-9d0e-22a35914ead9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (A\otimes B)(C\otimes D) &amp;=&amp; (AC)\otimes (BD) \nonumber\\ \rule{0mm}{6mm}
 \tr(A\otimes B) &amp;=&amp; (\tr A)(\tr B) \nonumber\\ \rule{0mm}{6mm}
 A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
@@ -1367,7 +1379,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

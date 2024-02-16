@@ -30,14 +30,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -49,9 +49,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -90,7 +91,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -102,6 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/01_Circuitos/123_Entrelazamiento';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Circuitos cuánticos" href="130_circuitos_mas_cosas.html" />
@@ -199,7 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Las reglas del juego</span></p>
 <ul class="nav bd-sidenav">
@@ -529,19 +541,19 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bn}{{\bf n}} \)</span></p>
 <ul class="simple">
-<li><p><span class="xref myst">Desigualdades de Bell</span></p>
+<li><p><a class="reference internal" href="#Bell"><span class="xref myst">Desigualdades de Bell</span></a></p>
 <ul>
-<li><p><span class="xref myst"><em>Teorema CHSH</em></span></p></li>
+<li><p><a class="reference internal" href="#csch"><span class="xref myst"><em>Teorema CHSH</em></span></a></p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">El experimento GHZ</span></p></li>
-<li><p><span class="xref myst">Teleportación</span></p>
+<li><p><a class="reference internal" href="#ghz"><span class="xref myst">El experimento GHZ</span></a></p></li>
+<li><p><a class="reference internal" href="#teleportacion"><span class="xref myst">Teleportación</span></a></p>
 <ul>
-<li><p><span class="xref myst">LOCC</span></p></li>
+<li><p><a class="reference internal" href="#LOCC"><span class="xref myst">LOCC</span></a></p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">Codificación Superdensa</span></p></li>
-<li><p><span class="xref myst">Intercambio de entrelazamiento</span></p></li>
+<li><p><a class="reference internal" href="#superdense"><span class="xref myst">Codificación Superdensa</span></a></p></li>
+<li><p><a class="reference internal" href="#intercambent"><span class="xref myst">Intercambio de entrelazamiento</span></a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,7 +788,11 @@ R = |1 +  2 \cos\varphi  - \cos 2\varphi|\, .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a2b71bc81ce919a3b7118bc4bdbb99bcd06559d4733f2183035a0608db51ca74.png" src="../../_images/a2b71bc81ce919a3b7118bc4bdbb99bcd06559d4733f2183035a0608db51ca74.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/5a42e98394c4d52aae524385e733a799e27229d9fc9697ad0eb52e9635083e41.png" src="../../_images/5a42e98394c4d52aae524385e733a799e27229d9fc9697ad0eb52e9635083e41.png" />
 </div>
 </div>
 <p>Podemos graficarlo y compararlo con el valor analítico</p>
@@ -801,7 +817,7 @@ R = |1 +  2 \cos\varphi  - \cos 2\varphi|\, .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/836f5d9adc2dce5b60b94dcc8d9667fa257d186d744d14d59a30de308a3d9da2.png" src="../../_images/836f5d9adc2dce5b60b94dcc8d9667fa257d186d744d14d59a30de308a3d9da2.png" />
+<img alt="../../_images/1baf5c4858a99f8dbfee445e12c2f8ea8c35b86acbfb03ce5c45c625441cae28.png" src="../../_images/1baf5c4858a99f8dbfee445e12c2f8ea8c35b86acbfb03ce5c45c625441cae28.png" />
 </div>
 </div>
 <p>Prueba con otros estados de la base de Bell. Realiza este experimento en un ordenador real.</p>
@@ -896,7 +912,11 @@ xxx  \ket{{\rm GHZ}} =   X \otimes X \otimes X \big(\frac{1}{\sqrt{2}}(\ket{000}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33840328a03de802d37c8fc2446a352211917b4a4b45a651c01b51155e23dfc6.png" src="../../_images/33840328a03de802d37c8fc2446a352211917b4a4b45a651c01b51155e23dfc6.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/e4e59e681e882e8eae20b9cb558266ab203109b1a525857ab817566bd9c5ff99.png" src="../../_images/e4e59e681e882e8eae20b9cb558266ab203109b1a525857ab817566bd9c5ff99.png" />
 </div>
 </div>
 <p>Analicemos el valor medio de alguno de los operadores <span class="math notranslate nohighlight">\(YYX, YXY, XYY\)</span> ó <span class="math notranslate nohighlight">\(XXX\)</span></p>
@@ -949,7 +969,7 @@ xxx  \ket{{\rm GHZ}} =   X \otimes X \otimes X \big(\frac{1}{\sqrt{2}}(\ket{000}
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cuentas_GHZ</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qc_GHZ</span><span class="p">,</span><span class="n">M_backend</span><span class="p">,</span><span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">multibasis</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&gt; =&#39;</span><span class="p">,</span> <span class="n">mc_val_esp_sigma</span><span class="p">(</span><span class="n">cuentas_GHZ</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_env_0.44.0/lib/python3.10/site-packages/qiskit/result/result.py:289,</span> in <span class="ni">Result.get_counts</span><span class="nt">(self, experiment)</span>
+<span class="nn">File ~/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny/lib/python3.11/site-packages/qiskit/result/result.py:289,</span> in <span class="ni">Result.get_counts</span><span class="nt">(self, experiment)</span>
 <span class="g g-Whitespace">    </span><span class="mi">287</span>         <span class="n">dict_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">statevector</span><span class="o">.</span><span class="n">Statevector</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">.</span><span class="n">probabilities_dict</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
 <span class="g g-Whitespace">    </span><span class="mi">288</span>     <span class="k">else</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">289</span>         <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No counts for experiment &quot;</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
@@ -974,8 +994,8 @@ xxx  \ket{{\rm GHZ}} =   X \otimes X \otimes X \big(\frac{1}{\sqrt{2}}(\ket{000}
 </div><ul class="simple">
 <li><p>El estado inicial es</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-a0f0261f-df4b-44ff-8717-d0ec4f12d110">
-<span class="eqno">(57)<a class="headerlink" href="#equation-a0f0261f-df4b-44ff-8717-d0ec4f12d110" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-bbcef292-60db-4a5d-8fc1-26bbcd2d31d9">
+<span class="eqno">(57)<a class="headerlink" href="#equation-bbcef292-60db-4a5d-8fc1-26bbcd2d31d9" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{\phi} \ket{B_{00}} &amp;=&amp;  \ket{\phi}\otimes \frac{1}{\sqrt{2}}\left(\ket{0}\otimes \ket{0} + \ket{1}\otimes\ket{1}\rule{0mm}{4mm}\right)\, \\
 &amp;=&amp; \frac{1}{\sqrt{2}} (a \ket{000} + b\ket{100} + a\ket{011} + b\ket{111})
 \end{eqnarray}\]</div>
@@ -987,8 +1007,8 @@ Alice tiene acceso a los dos primeros qubits y Bob al tercero. <br>
 <br>
 <br></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-443c19ec-edc4-4a9e-8668-fcad99bd9e56">
-<span class="eqno">(58)<a class="headerlink" href="#equation-443c19ec-edc4-4a9e-8668-fcad99bd9e56" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-f384d201-9f18-4ff2-bae1-b46dc66b4493">
+<span class="eqno">(58)<a class="headerlink" href="#equation-f384d201-9f18-4ff2-bae1-b46dc66b4493" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
  (H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}} &amp; =&amp;  \frac{1}{2}
 \left[\rule{0mm}{3mm} \ket{00}(a\ket{0} + b\ket{1}) + \ket{01}(a\ket{1}+ b\ket{0}) \right. \nonumber\\
 \rule{0mm}{14mm}
@@ -1036,7 +1056,7 @@ Como resultado de esta operación, el cúbit de Bob es finalmente $\ket{\phi}$.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a1a834ccaf901b87d4469b31bd99bb3d766d61b969d2a03ea07d29f399d7c547.png" src="../../_images/a1a834ccaf901b87d4469b31bd99bb3d766d61b969d2a03ea07d29f399d7c547.png" />
+<img alt="../../_images/f4167481650744e348dba378b8a6fe28c71a86eaaa2dcd6f5fb7fd30c10297d5.png" src="../../_images/f4167481650744e348dba378b8a6fe28c71a86eaaa2dcd6f5fb7fd30c10297d5.png" />
 </div>
 </div>
 <p>Lo primero que haremos será incializar el circuito, dotado de tres cubits y dos canales clásicos en dos registros. Alice tendrá control sobre los dos primeros <span class="math notranslate nohighlight">\(q_0, q_1\)</span> y Bob sobre el tercero <span class="math notranslate nohighlight">\(q_2\)</span>.</p>
@@ -1085,7 +1105,7 @@ Como resultado de esta operación, el cúbit de Bob es finalmente $\ket{\phi}$.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cee13ce1feb98085ff49ddaa028d5a4517f34d2b07a0f6b3566394e87fe250a7.png" src="../../_images/cee13ce1feb98085ff49ddaa028d5a4517f34d2b07a0f6b3566394e87fe250a7.png" />
+<img alt="../../_images/2e4583bada703f71517c983524a43148ebb5ce44020158a803c2ebd4e110af2a.png" src="../../_images/2e4583bada703f71517c983524a43148ebb5ce44020158a803c2ebd4e110af2a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1098,7 +1118,7 @@ Como resultado de esta operación, el cúbit de Bob es finalmente $\ket{\phi}$.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/42836d7a63320bcf9ab240e133e040651ee90116aa696a838b7261dcc122a22b.png" src="../../_images/42836d7a63320bcf9ab240e133e040651ee90116aa696a838b7261dcc122a22b.png" />
+<img alt="../../_images/2f5c62bcb71b4b502d5f98132042202c78da1226c674cae82a376feff82255c5.png" src="../../_images/2f5c62bcb71b4b502d5f98132042202c78da1226c674cae82a376feff82255c5.png" />
 </div>
 </div>
 <p>Observa al ejecutar repetidas veces que los resultados de las medidas intermedias son aleatorios, pero el estado teleportado es siempre el correcto</p>
@@ -1306,7 +1326,7 @@ By Javier Mas Solé
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
