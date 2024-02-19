@@ -29,6 +29,21 @@ file_name = sys.argv[1:][0]
 print("===========================")
 print("Input File  = ", file_name)
 
+# Verificamos que haya tantos <div como </div
+command_start_div = 'grep "<div " ' + file_name + " | wc | awk '{print $1}'"
+command_end_div = 'grep "</div" ' + file_name + " | wc | awk '{print $1}'"
+
+num_start_div = int(bash(command_start_div, shell=True).decode("utf-8"))
+num_end_div = int(bash(command_end_div, shell=True).decode("utf-8"))
+
+if num_start_div != num_end_div:
+    print(f"\033[91m======\033[0m")
+    print("")
+    print(bash('egrep -n "<div |</div" ' + file_name, shell = True).decode("utf-8"))
+    print(f"\033[91m{num_start_div} == {num_end_div}. No hay tantos <div como </div.\033[0m")
+    print(f"\033[91mArchivo: {file_name}\033[0m")
+    print(f"\033[91m======\033[0m")
+    assert num_start_div == num_end_div
 
 # Sacamalos el numero de linea del inicio de todos los cuadros con "<div class=.... alert alert-block alert...>"
 command_i_start_alert_list   = 'grep -n "<div class=" '+file_name+' | grep "alert alert-block alert" |  cut -d":" -f1'
@@ -92,8 +107,10 @@ for i in reversed(range(len(index_list_list[0]))):
         print(f"\033[91m    ",{f_data[index_list_list[0][i]+1]}," \033[0m")
         print(f"\033[91m    ",{f_data[index_list_list[0][i]+2]}," \033[0m")
         print(f"\033[91m    ",{f_data[index_list_list[0][i]+3]}," \033[0m")
-        print(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \033[0m")
-        print(f"\033[91m======\033[0m")
+        #print(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \033[0m")
+        raise TypeError(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \n======\033[0m")
+        
+        
 
 ############################################################################
 # Usando el número de linea donde empiezan las figuras, sacamos todas las lineas importantes          

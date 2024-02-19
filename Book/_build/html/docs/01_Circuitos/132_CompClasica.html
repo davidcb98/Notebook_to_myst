@@ -725,13 +725,13 @@ R_y(\theta) = \begin{bmatrix} \cos\frac{\theta}{2} &amp; -\sin\frac{\theta}{2} \
 D(\gamma_i,\gamma_j ) = \begin{bmatrix} e^{i\gamma_i} &amp; 0 \\ 0 &amp; e^{i\gamma_j} \end{bmatrix} = K(\gamma_i) P(\gamma_j-\gamma_i)
 \)</span>$</p>
 <p>El estado en la barrera, será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-792703f7-dfdf-40f7-b986-bc9b1f5a7c75">
-<span class="eqno">(65)<a class="headerlink" href="#equation-792703f7-dfdf-40f7-b986-bc9b1f5a7c75" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b4975e76-c6ff-4e4d-a712-e1ca41076508">
+<span class="eqno">(65)<a class="headerlink" href="#equation-b4975e76-c6ff-4e4d-a712-e1ca41076508" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \ket{\psi_0}~~ &amp;=&amp;~~ \cos\theta_1 \ket{0}\otimes \big( \cos\theta_2 \ket{0} + \sin\theta_2\ket{1}\big) + \sin\theta_1\ket{1}\otimes \big(\cos\theta_3\ket{0} + \sin\theta_3\ket{1}\big) \nonumber\\&amp;=&amp; \cos\theta_1 \cos\theta_2 \ket{00} + \cos\theta_1\sin\theta_2\ket{01} + \sin\theta_1\cos\theta_3\ket{10} + \sin\theta_1\sin\theta_3\ket{11} \rule{0mm}{20mm}
 \end{eqnarray}\]</div>
 <p>de donde obtenemos cuatro ecuaciones para cuatro incógnitas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db1f1657-7636-48a8-9084-e8af78b34ac1">
-<span class="eqno">(66)<a class="headerlink" href="#equation-db1f1657-7636-48a8-9084-e8af78b34ac1" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-595341ec-e289-4495-a6d0-4d112f883afe">
+<span class="eqno">(66)<a class="headerlink" href="#equation-595341ec-e289-4495-a6d0-4d112f883afe" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 a_1 &amp;=&amp; \cos\theta_1 \cos\theta_2 \nonumber\\
 a_2 &amp;=&amp;  \cos\theta_1\sin\theta_2\nonumber\\
 a_3 &amp;=&amp;  \sin\theta_1\cos\theta_3\nonumber\\
@@ -812,8 +812,8 @@ f_i : \{0,1\}^n ~~\to ~~\{0,1\}
 <li><p>1 cúbit que guardará el resultado, <span class="math notranslate nohighlight">\(\ket{y} \in \mathbb{C}\)</span>.</p></li>
 </ul>
 <p>Sea <span class="math notranslate nohighlight">\(U_f\)</span> el siguiente operador</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6411ad7f-beea-4b37-8a08-8ba89ea8e004">
-<span class="eqno">(67)<a class="headerlink" href="#equation-6411ad7f-beea-4b37-8a08-8ba89ea8e004" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0dc615a-3f5a-4bc0-ba7c-116a26e42a91">
+<span class="eqno">(67)<a class="headerlink" href="#equation-c0dc615a-3f5a-4bc0-ba7c-116a26e42a91" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_f : \ket{x}\ket{y} \longrightarrow \ket{x} \ket{ y \oplus f(x) }
 \end{equation}\]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\oplus\)</span> indica suma módulo 2.</p>
@@ -1043,8 +1043,8 @@ Ver por ejemplo la solución del qiskit textbook:https://qiskit.org/textbook/ch-
 <h2>Funcion binaria lineal:<a class="headerlink" href="#funcion-binaria-lineal" title="Permalink to this heading">#</a></h2>
 <p>Dados dos n-tuplas binarias <span class="math notranslate nohighlight">\(x=(x_{n-1},\ldots,x_0)\)</span> y <span class="math notranslate nohighlight">\(a=(a_{n-1},\ldots,a_0)\)</span> definimos la <strong>función lineal</strong>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfe1bc15-4e67-4e9f-b2db-fc0ea61b98c4">
-<span class="eqno">(68)<a class="headerlink" href="#equation-cfe1bc15-4e67-4e9f-b2db-fc0ea61b98c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-555781d4-5d04-46f1-863b-af5af8416d9a">
+<span class="eqno">(68)<a class="headerlink" href="#equation-555781d4-5d04-46f1-863b-af5af8416d9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x;a) = a \cdot x = a_{n-1} x_{n-1} \oplus a_{n-2} x_{n-2} \oplus \cdots \oplus a_{0} x_{0}\; ,
 \end{equation}\]</div>
 <br>
@@ -1184,8 +1184,8 @@ U_f \ket{x}\otimes\ket{0} = \ket{x}\ket{f(x)}
 <p><em>Prueba:</em></p>
 <p>Por un lado sabemos que los <em>autovalores</em> deben ser <span class="math notranslate nohighlight">\(\pm 1\)</span> dado que <span class="math notranslate nohighlight">\(U_f^2 = I\)</span>.
 Veamos cada caso</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17150d7e-5c83-40ef-8cd1-ae6628596b89">
-<span class="eqno">(69)<a class="headerlink" href="#equation-17150d7e-5c83-40ef-8cd1-ae6628596b89" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-58f40641-2ecf-4f9a-a595-42cc3085c24b">
+<span class="eqno">(69)<a class="headerlink" href="#equation-58f40641-2ecf-4f9a-a595-42cc3085c24b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U_f\ket{x}\otimes \ket{+} &amp;=&amp; \ket{x}\otimes \frac{1}{\sqrt{2}}\left( \rule{0mm}{6mm}\ket{0\oplus f(x)}+\ket{1\oplus f(x)} \right) = \ket{x}\otimes \ket{+} \nonumber\\
 U_f\ket{x}\otimes \ket{-} &amp;=&amp; \ket{x}\otimes \frac{1}{\sqrt{2}}\left( \rule{0mm}{6mm} \ket{0\oplus f(x)}-\ket{1\oplus f(x)}\right) = (-1)^{f(x)} \ket{x}\otimes \ket{-}
 \end{eqnarray}\]</div>

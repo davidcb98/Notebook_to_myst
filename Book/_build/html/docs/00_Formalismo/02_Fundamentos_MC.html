@@ -661,8 +661,8 @@ p(\lambda_k)~ = ~|\braket{\lambda_k}{\psi}|^2
 <ul class="simple">
 <li><p>Cuando <span class="math notranslate nohighlight">\(\lambda_k\)</span> tiene degeneración <span class="math notranslate nohighlight">\(d_k\)</span>, la fórmula para <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> debe generalizarse:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-718905bc-2f95-4780-b367-737125a2d648">
-<span class="eqno">(38)<a class="headerlink" href="#equation-718905bc-2f95-4780-b367-737125a2d648" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-83d06f8c-7085-484d-8d07-211104593d5c">
+<span class="eqno">(38)<a class="headerlink" href="#equation-83d06f8c-7085-484d-8d07-211104593d5c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k)~ &amp;=&amp; ~ \sum_{a=1}^{d_k}|\braket{\lambda^a_k}{\psi}|^2 = \bra{\psi}\left(
  \sum_{a=1}^{d_k}\ketbra{\lambda^a_k}{\lambda^a_k}\right) \ket{\psi}\nonumber\\
 &amp;=&amp;  \bra{\psi}P_k\ket{\psi} \rule{0mm}{7mm}\\
@@ -745,8 +745,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <p>Rescribamos <span class="math notranslate nohighlight">\(p(\lambda_k)\)</span> en el caso de que sea <span class="math notranslate nohighlight">\(\lambda_k\)</span> sea un autovalor <span class="math notranslate nohighlight">\(d_k\)</span> veces degenerado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b228dcc4-20c5-4d49-a995-94e2c6b3a059">
-<span class="eqno">(39)<a class="headerlink" href="#equation-b228dcc4-20c5-4d49-a995-94e2c6b3a059" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c81e2017-ca3a-4d42-a22e-df7341326f2c">
+<span class="eqno">(39)<a class="headerlink" href="#equation-c81e2017-ca3a-4d42-a22e-df7341326f2c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p(\lambda_k) &amp;=&amp; \sum_{a=1}^{d_k} |\braket{\lambda^a_k}{\psi}|^2  = 
 \sum_{a=1}^{d_k} \braket{\psi}{\lambda^a_k}\braket{\lambda^a_k}{\psi} \nonumber\\
 &amp;=&amp;\bra{\psi} \left( \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}  \right) = \bra{\psi}P_k \ket{\psi} 
@@ -757,8 +757,8 @@ P_k = \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}
 \)</span>$
 es el proyector sobre el subespacio propio.</p>
 <p>Ahora podemos introducir este resultado en la expresión para el valor esperado de <span class="math notranslate nohighlight">\(A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-274082e2-0aa0-425c-bb9f-c178ff0374d7">
-<span class="eqno">(40)<a class="headerlink" href="#equation-274082e2-0aa0-425c-bb9f-c178ff0374d7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d71d6538-ae5b-431d-93e0-5f1f500605e8">
+<span class="eqno">(40)<a class="headerlink" href="#equation-d71d6538-ae5b-431d-93e0-5f1f500605e8" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle A\rangle_\psi &amp;= &amp;  \sum_k \lambda_k p(\lambda_k)
    =  \sum_k \lambda_k \bra{\psi}P_k\ket{\psi}  
 &amp;=&amp; \bra{\psi}\left(\sum_k \lambda_k P_k  \right) \ket{\psi} 
@@ -798,8 +798,8 @@ Demuestra que el valor esperado de un observable <span class="math notranslate n
 <p>La <em>varianza</em>  es la media de la desviación cuadrática de la variable aleatoria <span class="math notranslate nohighlight">\((\lambda,p(\lambda))\)</span> es decir
 <br>
 <br></p>
-<div class="amsmath math notranslate nohighlight" id="equation-839fafe4-386e-4715-ba38-936113291ced">
-<span class="eqno">(41)<a class="headerlink" href="#equation-839fafe4-386e-4715-ba38-936113291ced" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-be722bad-8bc8-449c-b501-0f55eaaa0ed6">
+<span class="eqno">(41)<a class="headerlink" href="#equation-be722bad-8bc8-449c-b501-0f55eaaa0ed6" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 ~~\sigma ^2 &amp;=&amp; \overline{(\lambda_i-\bar\lambda_i)^2} = \overline{ \lambda^2 - 2\lambda\bar\lambda +\bar\lambda^2}
 \\
 &amp;=&amp;  \overline{\lambda^2} - \overline{\lambda}^2 \rule{0mm}{8mm}
@@ -945,8 +945,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-9ae43677-52c8-4268-ba12-518abd95d15e">
-<span class="eqno">(42)<a class="headerlink" href="#equation-9ae43677-52c8-4268-ba12-518abd95d15e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-bc3faecb-fbf3-4356-aa7c-c75e06a8b500">
+<span class="eqno">(42)<a class="headerlink" href="#equation-bc3faecb-fbf3-4356-aa7c-c75e06a8b500" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\|\ket{\psi}\|^2 = \frac{d}{dt}\braket{\psi(t)}{\psi(t)} &amp;=&amp; \left(\rule{0mm}{3mm}\frac{d}{dt}\bra{\psi(t)}\right)\ket{\psi(t)} + 
 \bra{\psi(t)}\left(\frac{d}{dt}\ket{\psi(t)} \right)\nonumber\\
 &amp;=&amp; \left(\bra{\psi(t)}\frac{i}{\hbar}H^\dagger\right)\ket{\psi(t)} + \bra{\psi(t)}\left(-\frac{i}{\hbar}H\ket{\psi(t)} \right) \nonumber\\
@@ -999,8 +999,8 @@ Desmostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Tomando la derivada temporal de la ecuación <span class="math notranslate nohighlight">\(\ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}\)</span>, que define <span class="math notranslate nohighlight">\(U(t,t_0)\)</span>, tenemos para cada miembro</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2b9aa41-c7c0-461d-8c14-565743b0ec91">
-<span class="eqno">(43)<a class="headerlink" href="#equation-b2b9aa41-c7c0-461d-8c14-565743b0ec91" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d38e093c-e8ad-437e-9f6a-0bb2eb2d7663">
+<span class="eqno">(43)<a class="headerlink" href="#equation-d38e093c-e8ad-437e-9f6a-0bb2eb2d7663" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp; -\frac{i}{\hbar}  H(t)\ket{\psi(t)} = -\frac{i}{\hbar} H(t)U(t,t_0)\ket{\psi(t_0)}  \nonumber\\
 \frac{d}{dt}U(t,t_0)\ket{\psi(t_0)} &amp;~=~&amp; \left(\frac{d}{dt}U(t,t_0)\right)\ket{\psi(t_0)}
 \end{eqnarray}\]</div>
@@ -1029,8 +1029,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Basta con demostrar que se satisface la ecuación de evolución y la condición de contorno</p>
-<div class="amsmath math notranslate nohighlight" id="equation-27f9192a-37ab-4f14-b827-33f2705fd332">
-<span class="eqno">(44)<a class="headerlink" href="#equation-27f9192a-37ab-4f14-b827-33f2705fd332" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-6b5d022f-a6a5-4656-ab2c-9e91650e8840">
+<span class="eqno">(44)<a class="headerlink" href="#equation-6b5d022f-a6a5-4656-ab2c-9e91650e8840" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}U(t,t_0) &amp;=&amp; \frac{d}{dt} \exp\left({-\frac{i}{\hbar} (t-t_0)H}\right)
     \nonumber\\ \rule{0mm}{6mm}
    &amp;=&amp; \frac{d}{dt}\left( I +(t-t_0)\left(-\frac{i}{\hbar} H\right) + \frac{1}{2!} 
