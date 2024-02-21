@@ -75,9 +75,9 @@ def build_admonition_box(i, f_data, index_list_list, titles_list_list, Class):
 
     ### </div>    
     if f_data[i_end + 1] == "   ]\n":
-        my_replace(f_data, i_end, '::::'+'\\n"\n' )
+        my_replace(f_data, i_end, '::::::'+'\\n"\n' )
     else:
-        my_replace(f_data, i_end, '::::'+'\\n",\n' )
+        my_replace(f_data, i_end, '::::::'+'\\n",\n' )
 
     ### </p>
     if i_end_p > 0:
@@ -103,9 +103,9 @@ def build_admonition_box(i, f_data, index_list_list, titles_list_list, Class):
 
     #### <div class...> o <div class...><p style...>
     if subtitle == None:
-        my_replace(f_data, i_start, '::::{admonition} '+ title+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
+        my_replace(f_data, i_start, '::::::{admonition} '+ title+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
     else:
-        my_replace(f_data, i_start, '::::{admonition} '+ title + ' (' + subtitle + ') '+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
+        my_replace(f_data, i_start, '::::::{admonition} '+ title + ' (' + subtitle + ') '+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
 
     #print("")
     #for i in range(i_end-i_start+1):
@@ -139,9 +139,9 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
 
     ### </div>    
     if f_data[i_end + 1] == "   ]\n":
-        my_replace(f_data, i_end, '::::'+'\\n"\n' )
+        my_replace(f_data, i_end, '::::::'+'\\n"\n' )
     else:
-        my_replace(f_data, i_end, '::::'+'\\n",\n' )
+        my_replace(f_data, i_end, '::::::'+'\\n",\n' )
 
 
     if i_end_p > 0:
@@ -179,11 +179,11 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
     
     if title != "":
         if subtitle == None:
-            my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: '+' \\n",\n')
+            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "<b>'+title+'</b>: '+' \\n",\n')
         else:
-            my_replace(f_data, i_start, '::::{card} \\n",\n'+'    "<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
+            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
     else:
-        my_replace(f_data, i_start, '::::{card} \\n",\n')
+        my_replace(f_data, i_start, '::::::{card} \\n",\n')
 
     #print("")
     #for i in range(i_end-i_start+1):
