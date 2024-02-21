@@ -159,12 +159,12 @@ def find_div_boxes(f_data, i_start_list):
 
                 except Exception as error :
                     print(f"\033[91m======\033[0m") 
-                    print(f"\033[91m Error encontrando un details {i_start_details}. No tiene título\033[0m")
                     print(f"\033[91m    ",{f_data[i_start]},"\033[0m")
                     print(f"\033[91m    ",{f_data[i_start+1]}," \033[0m")
                     print(f"\033[91m    ",{f_data[i_start+2]}," \033[0m")
                     print(f"\033[91m    ",{f_data[i_start+3]}," \033[0m")
                     print("")
+                    print(f"\033[91m Error encontrando un details {i_start_details}. No tiene título\033[0m")
                     print(f"\033[91m    ",error," \033[0m")
                     print(f"\033[91m======\033[0m") 
 
