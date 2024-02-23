@@ -67,8 +67,8 @@ def find_div_boxes(f_data, i_start_list):
             assert i_end_last_iteration < i_start, f"{i_end_last_iteration} < {i_start} The previous box ends after the begining of the next one"
 
             i_end           = i_start 
-            i_start_p       = 0
-            i_end_p         = 0
+            i_start_p       = []
+            i_end_p         = []
             i_start_details = 0
             i_end_details   = 0
             i_title         = 0
@@ -87,12 +87,12 @@ def find_div_boxes(f_data, i_start_list):
                 elif "</details>"       in f_data[i_end]:
                     i_end_details   = i_end
                 elif "<p"               in f_data[i_end]:
-                    i_start_p       = i_end
+                    i_start_p.append(i_end)
                 elif "</p></div>"       in f_data[i_end]:
-                    i_end_p         = i_end
+                    i_end_p.append(i_end)
                     found = True
                 elif "</p>"             in f_data[i_end]:
-                    i_end_p         = i_end
+                    i_end_p.append(i_end)
                 elif "<b>"              in f_data[i_end] and i_title == 0:
                     i_title         = i_end
                 elif "</div>"           in f_data[i_end]:
@@ -105,7 +105,7 @@ def find_div_boxes(f_data, i_start_list):
             ########################
             ######## TITLE 
 
-            line_title   = f_data[i_title]
+            #line_title   = f_data[i_title]
             
             # Esta expresión es para borrar los espacios       
             # title_no_clean_aux = e.sub(r'"(.*?)"', 
@@ -142,11 +142,12 @@ def find_div_boxes(f_data, i_start_list):
             #assert i_start_details <= i_end_details, f"Problems findins <details>, {i_start_p} and </details> {i_end_p}"
             
             #print(i_start,             {f_data[i_start]})
-
-            if i_start_p > 0:
-                assert i_start <= i_start_p < i_end, f"{i_start} <= {i_start_p} < {i_end}:  i_start <= i_start_p < i_end"
-                #if i_start < i_start_p:
-                    #print(i_start_p,   {f_data[i_start_p]})
+            
+            if len(i_start_p)> 0:
+                for k in range(len(i_start_p)):
+                    assert i_start <= i_start_p[k] < i_end, f"{i_start} <= {i_start_p[k]} < {i_end}:  i_start <= i_start_p < i_end"
+                    #if i_start < i_start_p:
+                        #print(i_start_p,   {f_data[i_start_p]})
             
             #print(i_title,  title, title_lowercase, subtitle)
             
@@ -178,9 +179,9 @@ def find_div_boxes(f_data, i_start_list):
                 
                 #print(i_end_details,   {f_data[i_end_details]})
             
-            if i_end_p > 0:
-                
-                assert i_start <= i_start_p < i_end_p <= i_end, f"{i_start} <= {i_start_p} < {i_end_p} <= {i_end}:  i_start <= i_start_p < i_end_p <= i_end"
+            if len(i_end_p)> 0:
+                for k in range(len(i_end_p)):
+                    assert i_start <= i_start_p[k] < i_end_p[k] <= i_end, f"{i_start} <= {i_start_p[k]} < {i_end_p} <= {i_end}:  i_start <= i_start_p < i_end_p <= i_end"
                 
                 #if i_end > i_end_p:
                     #print(i_end_p,   {f_data[i_end_p]})
@@ -214,7 +215,7 @@ def find_div_boxes(f_data, i_start_list):
             print("")
             print(f"\033[91m    ",error," \033[0m")
             print(f"\033[91m======\033[0m") 
-            
+ 
 
     
     index_list_list = [i_start_list, 

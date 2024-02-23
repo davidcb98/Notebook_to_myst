@@ -48,7 +48,7 @@ for i in $part_folders; do
     for j in $path_chapters; do
         if [ -d $j ]; then
             echo "    sections:"
-            sections=$(find $j -mindepth 1 -maxdepth 1 -not -path '*/.*' | egrep "_myst.ipynb|_myst.md" | grep /Section_ | sort | sed 's/..\/Book\///g')
+            sections=$(find $j -mindepth 1 -maxdepth 1 -not -path '*/.*' | egrep "_myst.ipynb$|_myst.md$" | grep /Section_ | sort | sed 's/..\/Book\///g')
             for k in $sections; do
                 echo "    - file: " $k
             done
