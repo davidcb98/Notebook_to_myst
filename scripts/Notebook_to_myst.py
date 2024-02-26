@@ -50,11 +50,6 @@ command_i_start_alert_list   = 'grep -n "<div class=" '+file_name+' | grep "aler
 i_start_alert_list = grep_file_index(command_i_start_alert_list)
 
 
-# Sacamalos el numero de linea del inicio de las <figure>
-command_i_start_figure_list = 'grep -n "<figure>" ' + file_name + ' |  cut -d":" -f1'
-i_start_figure_list = grep_file_index(command_i_start_figure_list)
-
-
 # Leemos el archivo linea a linea y modificamos los cuadros
 with open(file_name, 'r') as f:
     #f_data = f.read()
@@ -116,50 +111,62 @@ for i in reversed(range(len(index_list_list[0]))):
         
 
 ############################################################################
+# Sacamalos el numero de linea del inicio de las <figure>
+command_i_start_figure_list = 'grep -n "<figure>" ' + file_name + ' |  cut -d":" -f1'
+i_start_figure_list = grep_file_index(command_i_start_figure_list)
+
 # Usando el número de linea donde empiezan las figuras, sacamos todas las lineas importantes          
-index_fig_list_list, datos_list_list, number_ref_fig = find_figures(f_data, i_start_figure_list)
+if len(i_start_figure_list) > 0:
+    index_fig_list_list, datos_list_list, number_ref_fig = find_figures(f_data, i_start_figure_list)
 
-############################################################################
-# Comenzamos a sustituir las figuras (empezando por el final)
-for i in reversed(range(len(index_fig_list_list[0]))):
-    build_figure(i, f_data, index_fig_list_list, datos_list_list)
-
-
-# Añadimos el tiempo de lectura y la fecha en la primera linea. 
-# Para ello, primero cogemos la fecha del texto, eliminando la línea
-command_i_date = 'grep -n "Notebook_Date" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
-i_date = grep_file_index(command_i_date)
-
-command_i_first_line = 'grep -n "\\"source\\": \\[" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
-i_first_line = grep_file_index(command_i_first_line)
+    ############################################################################
+    # Comenzamos a sustituir las figuras (empezando por el final)
+    for i in reversed(range(len(index_fig_list_list[0]))):
+        build_figure(i, f_data, index_fig_list_list, datos_list_list)
 
 
-from datetime import datetime
 
-if len(i_date) > 0 :
-    i_date = i_date[0]
-    try: 
-        Notebook_Date = f_data[i_date].split(':')[-1].split('\\n')[0].replace(" ","")
-        Date_raw = datetime.strptime(Notebook_Date, "%Y/%m/%d")
-        Date_formated = Date_raw.strftime("%b %d, %Y")
+    # Añadimos el tiempo de lectura y la fecha en la primera linea. 
+    # Para ello, primero cogemos la fecha del texto, eliminando la línea
+    command_i_date = 'grep -n "Notebook_Date" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
+    i_date = grep_file_index(command_i_date)
 
-        f_data[i_date] = '    "\\n",\n'
+    command_i_first_line = 'grep -n "\\"source\\": \\[" ' + file_name + ' |  cut -d":" -f1 | head -n 1'
+    i_first_line = grep_file_index(command_i_first_line)
 
+
+    from datetime import datetime
+
+    if len(i_date) > 0 :
+        i_date = i_date[0]
+        try: 
+            Notebook_Date = f_data[i_date].split(':')[-1].split('\\n')[0].replace(" ","")
+            Date_raw = datetime.strptime(Notebook_Date, "%Y/%m/%d")
+            Date_formated = Date_raw.strftime("%b %d, %Y")
+
+            f_data[i_date] = '    "\\n",\n'
+
+            my_replace(f_data, i_first_line[0], 'source": [\n'+
+                                            #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                            '    "> ' + Date_formated + ' | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                            '    "\\n",\n'    )
+        except:
+
+            print(f"\033[91m======\033[0m") 
+            print(f"\033[91mFormato erroneo en la fecha. Debe de ser:\033[0m")
+            print(f"\033[91m<a id='Notebook_Date'></a> Created: yyyy/mm/dd\033[0m")
+            print(f"\033[91m======\033[0m") 
+    else:
         my_replace(f_data, i_first_line[0], 'source": [\n'+
-                                         #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
-                                         '    "> ' + Date_formated + ' | {sub-ref}`wordcount-minutes` min read\\n",\n'
-                                         '    "\\n",\n'    )
-    except:
+                                            #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                            '    "> {sub-ref}`today` | {sub-ref}`wordcount-minutes` min read\\n",\n'
+                                            '    "\\n",\n'    )
 
-        print(f"\033[91m======\033[0m") 
-        print(f"\033[91mFormato erroneo en la fecha. Debe de ser:\033[0m")
-        print(f"\033[91m<a id='Notebook_Date'></a> Created: yyyy/mm/dd\033[0m")
-        print(f"\033[91m======\033[0m") 
-else:
-    my_replace(f_data, i_first_line[0], 'source": [\n'+
-                                         #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
-                                         '    "> {sub-ref}`today` | {sub-ref}`wordcount-minutes` min read\\n",\n'
-                                         '    "\\n",\n'    )
+    ################################################################################
+    ## Arreglamos las referencias a las figuras
+    ##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
+
+    bluid_references(f_data, 'fig_', file_name, number_ref_fig)
 
 ################################################################################
 ## Inicio de todas las celdas
@@ -229,11 +236,6 @@ if len(i_pattern_code_list) > 0:
 
 
 
-################################################################################
-## Arreglamos las referencias a las figuras
-##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
-
-bluid_references(f_data, 'fig_', file_name, number_ref_fig)
 
 
 ################################################################################

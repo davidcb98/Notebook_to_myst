@@ -14,6 +14,13 @@ class TextoEnLineaTitulo(Exception):
 
         super().__init__(self.message)
 
+class ErrorParametrosFig(Exception):
+
+    def __init__(self, message="Faltan parámetros en la figura"):
+        self.message = message
+
+        super().__init__(self.message)
+
 def my_replace(f_data, i_line, new_text):
 
     #print("------> ", new_text)
@@ -241,7 +248,7 @@ def find_div_boxes(f_data, i_start_list):
 
 def find_figures(f_data, i_start_list):
     i_end_list      = [] 
-    #i_start_list    = []
+    i_start_list_clean    = []
     i_label_a_list  = []
     i_img_list      = []
     i_caption_list  = []
@@ -257,88 +264,103 @@ def find_figures(f_data, i_start_list):
     i_end_last_iteration = 0
     for i_start in i_start_list:
 
-        assert i_end_last_iteration < i_start, f"{i_end_last_iteration} < {i_start} The previous figure ends after the begining of the next one"
+        try:
+            assert i_end_last_iteration < i_start, f"{i_end_last_iteration} < {i_start} The previous figure ends after the begining of the next one"
 
-        i_end     = i_start 
-        i_label_a = 0
-        i_img     = 0
-        i_caption = 0
-        
-        path_fig    = None
-        align_fig   = None
-        width_fig   = None
-        caption_fig = None
-        label_fig   = None
-        number_ref  = False
+            i_end     = i_start 
+            i_label_a = 0
+            i_img     = 0
+            i_caption = 0
+            
+            path_fig    = None
+            align_fig   = None
+            width_fig   = None
+            caption_fig = None
+            label_fig   = None
+            number_ref  = False
+                    
+            found = False
+            while not found:
+
+                if "<a id"           in f_data[i_end]:
+                    i_label_a   = i_end
+                    label_fig = f_data[i_label_a].split('>')[0].split('=')[1].replace("\'",'')
+
+                elif "<img"        in f_data[i_end]:
+                    i_img     = i_end
                 
-        found = False
-        while not found:
+                elif "<center>"    in f_data[i_end] and  "</center>"    in f_data[i_end]:
+                    i_caption = i_end
+                    caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
+                
+                elif "</figure>"   in f_data[i_end]:
+                    found = True
+                
+                i_end += 1
+            i_end -= 1       
 
-            if "<a id"           in f_data[i_end]:
-                i_label_a   = i_end
-                label_fig = f_data[i_label_a].split('>')[0].split('=')[1].replace("\'",'')
+            i_end_last_iteration = i_end
 
-            elif "<img"        in f_data[i_end]:
-                i_img     = i_end
+            ########################
+            ######## Path, align, scale
+
+            line_img   = f_data[i_img]
             
-            elif "<center>"    in f_data[i_end] and  "</center>"    in f_data[i_end]:
-                i_caption = i_end
+            line_img_split = line_img.split(' ')
+
+            for i in range(len(line_img_split)):
+                if 'src='      in line_img_split[i]:
+                    path_fig   = line_img_split[i].split('=')[1].replace('\\"','').replace("\\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
+                elif 'align='  in line_img_split[i]:
+                    align_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
+                elif 'width='  in line_img_split[i]:
+                    width_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
+                elif 'alt=' in line_img_split[i] and i_caption > 0:
+                    number_ref = True
+                    caption_fig = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','').replace("--"," ")
+
+            if i_caption > 0 and not 'alt=' in line_img:
+                number_ref=False
                 caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
-            
-            elif "</figure>"   in f_data[i_end]:
-                found = True
-            
-            i_end += 1
-        i_end -= 1       
 
-        i_end_last_iteration = i_end
-
-        ########################
-        ######## Path, align, scale
-
-        line_img   = f_data[i_img]
+            ########################
+            ######## #prints y asserts
         
-        line_img_split = line_img.split(' ')
+            if i_label_a > 0:
+                assert i_start <= i_label_a < i_end, f"{i_start} <= {i_label_a} < {i_end}"
 
-        for i in range(len(line_img_split)):
-            if 'src='      in line_img_split[i]:
-                path_fig   = line_img_split[i].split('=')[1].replace('\\"','').replace("\\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
-            elif 'align='  in line_img_split[i]:
-                align_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
-            elif 'width='  in line_img_split[i]:
-                width_fig  = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','')
-            elif 'alt=' in line_img_split[i] and i_caption > 0:
-                number_ref = True
-                caption_fig = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','').replace("--"," ")
+            if i_caption > 0:
+                assert i_start < i_caption <= i_end, f"{i_start} < {i_caption} <= {i_end}"
 
-        if i_caption > 0 and not 'alt=' in line_img:
-            number_ref=False
-            caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
+            if path_fig == None or align_fig == None or width_fig == None:
+                raise ErrorParametrosFig()
+            else:
+                i_end_list.append(i_end) 
+                i_start_list_clean.append(i_start) 
+                i_label_a_list.append(i_label_a)
+                i_img_list.append(i_img)
+                i_caption_list.append(i_caption)
 
-        ########################
-        ######## #prints y asserts
+                path_fig_list.append(path_fig)
+                align_fig_list.append(align_fig)
+                width_fig_list.append(width_fig)
+                caption_fig_list.append(caption_fig)
+                label_fig_list.append(label_fig)
     
-        if i_label_a > 0:
-            assert i_start <= i_label_a < i_end, f"{i_start} <= {i_label_a} < {i_end}"
+        except Exception as error:
+            print(f"\033[91m======\033[0m") 
+            print(f"\033[91m Error encontrando un cuadro: linea {i_start}\033[0m")
+            print(f"\033[91m    ",{f_data[i_start]},"\033[0m")
+            print(f"\033[91m    ",{f_data[i_start+1]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i_start+2]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i_start+3]}," \033[0m")
+            print(f"\033[91m    ",{f_data[i_start+4]}," \033[0m")
+            print("")
+            print(f"\033[91m    ",error," \033[0m")
+            print(f"\033[91m======\033[0m") 
 
-        if i_caption > 0:
-            assert i_start < i_caption <= i_end, f"{i_start} < {i_caption} <= {i_end}"
 
-        if not path_fig == None and not align_fig == None and not width_fig == None:
-
-            i_end_list.append(i_end) 
-            #i_start_list.append(i_start) 
-            i_label_a_list.append(i_label_a)
-            i_img_list.append(i_img)
-            i_caption_list.append(i_caption)
-
-            path_fig_list.append(path_fig)
-            align_fig_list.append(align_fig)
-            width_fig_list.append(width_fig)
-            caption_fig_list.append(caption_fig)
-            label_fig_list.append(label_fig)
-    
-    index_list_list = [i_start_list, 
+    index_list_list = [i_start_list_clean, 
                        i_end_list,
                        i_label_a_list, 
                        i_img_list, 
