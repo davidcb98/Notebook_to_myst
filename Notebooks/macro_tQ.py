@@ -5,18 +5,18 @@ import matplotlib.pyplot as plt
 from qiskit.tools.visualization import array_to_latex
 import copy 
 
-
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 
 
 ##############################################################################################################
 # Definimos funciones auxiliares para printear
 
 def MatrixToLatex(A):
-    a="\\begin{bmatrix}"
+    a="\\begin{bmatrix} "
     for i in range(A.shape[0]):
         for j in range(A.shape[1]):
             if ((j+1)%A.shape[1])==0:           
-                a=a+"{0:.2f}".format(A[i,j])
+                a=a+"{0:.2f} ".format(A[i,j])
             else:
                 a=a+"%s&"%"{0:.2f}".format(A[i,j])
         if ((i+1)%A.shape[0])!=0:
@@ -41,7 +41,9 @@ def factorial(n):
         return n*factorial(n-1)
   
 
-'''Para dibujar vectores '''
+'''
+Para dibujar vectores 
+'''
 
 def plot_2D_plane(right=1,up=1,left=-1,down=-1,fsize=(8,8)):
     hpoints, vpoints = [],[]
@@ -214,7 +216,6 @@ def bg(color, cell=None):
 def get_probs(counts): # frecuencias_dict es un diccionario con la estadística de resultados
    
     prob_dict=counts.copy() # vamos a modificar el diccionario "cuentas" con las probabilidades 
-#    amp_dict=counts.copy()  # y las amplitudes
     keys = list(counts.keys())
     values = list(counts.values())
     
@@ -223,9 +224,8 @@ def get_probs(counts): # frecuencias_dict es un diccionario con la estadística 
  
     for i in range(len(keys)):
         prob_dict[keys[i]]= probabilidades[i]
-#        amp_dict[keys[i]] = np.sqrt(probabilidades[i]) #las amplitudes, sólo en valor absoluto, las fases no son accesibles
     
-    return  prob_dict #, amp_dict
+    return  prob_dict
 
 
 

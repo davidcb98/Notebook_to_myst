@@ -1,56 +1,45 @@
 format: jb-book
 root: docs/index
-# options:  
-#  numbered: True  # Number sections 
 parts:
-- caption: Las reglas del juego
-#  numbered: True
+- caption:  Las reglas del juego
   chapters:
-
-  - file: docs/00_Formalismo/01_formalismo_matematico.md
+  - file:  docs/Part_01_Formalismo/Chapter_01_01_formalismo_matematico_myst.md
     sections:
-    - file: docs/00_Formalismo/01_Numeros_Complejos.md
-    - file: docs/00_Formalismo/01_Vectores.md
-    - file: docs/00_Formalismo/01_Operadores_01.md
-    - file: docs/00_Formalismo/01_Operadores_02.md
-    - file: docs/00_Formalismo/01_Tensores.md
-    - file: docs/00_Formalismo/01_Probabilidades.md
+    - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_01_Numeros_Complejos_myst.ipynb
+    - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_02_Vectores_myst.ipynb
+    - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_03_Operadores_myst.ipynb
+    - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_04_Tensores_myst.ipynb
+    - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_05_Probabilidades_myst.ipynb
+  - file:  docs/Part_01_Formalismo/Chapter_02_01_Fundamentos_MC_myst.ipynb
 
-  - file: docs/00_Formalismo/02_Fundamentos_MC_intro.md
-    sections:
-    - file: docs/00_Formalismo/02_Fundamentos_MC.md
-
-  - file: docs/pruebas/214_Grover_myst
-  - file: docs/QML/4_QSVM_myst
-
-- caption: Circuitos Cuánticos
-#  numbered: True
+- caption:  Circuitos Cuánticos
   chapters:
-
-  - file: docs/01_Circuitos/110_Circuitos_1_qúbit.md
+  - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_01_Circuitos_1_cubit_myst.md
     sections:
-    - file: docs/01_Circuitos/111_Cubits.ipynb
-    - file: docs/01_Circuitos/112_Puertas_Simples.ipynb
-    - file: docs/01_Circuitos/113_Espin.ipynb
-
-  - file: docs/01_Circuitos/120_Circuitos_multiqúbit.md
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_02_Circuitos_1_cubit/Section_021_Cubits_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_02_Circuitos_1_cubit/Section_022_Puertas_Simples_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_02_Circuitos_1_cubit/Section_023_Espin_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_02_Circuitos_1_cubit/Section_024_El_Arte_de_Medir_I_myst.ipynb
+  - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_02_01_Circuitos_multicubit_myst.md
     sections:
-    - file: docs/01_Circuitos/121_Multicubits.ipynb
-    - file: docs/01_Circuitos/122_El_Arte_de_Medir_II.ipynb
-    - file: docs/01_Circuitos/123_Entrelazamiento.ipynb
-
-  - file: docs/01_Circuitos/130_circuitos_mas_cosas.md
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_02_02_Circuitos_multicubit/Section_025_Multicubits_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_02_02_Circuitos_multicubit/Section_026_El_Arte_de_Medir_II_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_02_02_Circuitos_multicubit/Section_027_Entrelazamiento_myst.ipynb
+  - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_03_01_Mas_sobre_circuitos_myst.md
     sections:
-    - file: docs/01_Circuitos/131_Elementos_Basicos.ipynb
-    - file: docs/01_Circuitos/132_CompClasica.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_03_02_Mas_sobre_Circuitos/Section_031_Elementos_Basicos_myst.ipynb
+    - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_03_02_Mas_sobre_Circuitos/Section_032_CompClasica_myst.ipynb
 
+- caption:  Algoritmos Cuánticos
+  chapters:
+  - file:  docs/Part_03_Algoritmos/Chapter_041_Alg_Oraculo_myst.ipynb
+  - file:  docs/Part_03_Algoritmos/Chapter_042_QFT_myst.ipynb
+  - file:  docs/Part_03_Algoritmos/Chapter_043_QPE_myst.ipynb
+  - file:  docs/Part_03_Algoritmos/Chapter_044_Grover_myst.ipynb
 
+- caption:  Informacion Cuántica
+  chapters:
+  - file:  docs/Part_04_Quantum_Info/Chapter_051_Operador_densidad_myst.ipynb
+  - file:  docs/Part_04_Quantum_Info/Chapter_052_Fun_Info_Cuant_myst.ipynb
+  - file:  docs/Part_04_Quantum_Info/Chapter_053_Entrop_Cuant_myst.ipynb
 
-
-#- caption: Part 1
-#  numbered: True
-#  maxdepth: 3     # The displayed Table of Contents will only have two levels
-#  chapters:
-#  - file: docs/about_py
-#    sections:
-#      - file: docs/getting_started
