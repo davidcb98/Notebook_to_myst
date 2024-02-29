@@ -11,7 +11,7 @@ fi
 git checkout book_branch
 error=$?
 if ! [ $error == 0 ] ; then
-    echo "ERROR. Ejecución abortada. Estás en la rama: " `git rev-parse --abbrev-ref HEAD`
+    echo "ERROR: falta hacer un commit. Ejecución abortada. Estás en la rama: " `git rev-parse --abbrev-ref HEAD`
     exit
 fi
 
