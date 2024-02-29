@@ -1,5 +1,8 @@
 rama_origen=$(git rev-parse --abbrev-ref HEAD)
 
+git status | egrep "l árbol de trabajo está limpio | working tree is clean"
+
+
 git checkout book_branch
 error=$?
 if ! [ $error == 0 ] ; then
