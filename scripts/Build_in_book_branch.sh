@@ -43,7 +43,7 @@ if ! [ $error == 0 ] ; then
     exit
 fi
 
-git pull -s recursive -X ours origin book_branck
+git pull -s recursive -X ours origin book_branck --no-edit
 error=$?
 if ! [ $error == 0 ] ; then
     echo "ERROR. Ejecución abortada. Estás en la rama: " `git rev-parse --abbrev-ref HEAD`
