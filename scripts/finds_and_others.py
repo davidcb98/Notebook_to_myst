@@ -258,7 +258,7 @@ def find_figures(f_data, i_start_list):
     width_fig_list   = []
     caption_fig_list = []
     label_fig_list   = []
-    
+    number_ref  = False
 
 
     i_end_last_iteration = 0
@@ -277,7 +277,7 @@ def find_figures(f_data, i_start_list):
             width_fig   = None
             caption_fig = None
             label_fig   = None
-            number_ref  = False
+            
                     
             found = False
             while not found:
@@ -318,9 +318,11 @@ def find_figures(f_data, i_start_list):
                 elif 'alt=' in line_img_split[i] and i_caption > 0:
                     number_ref = True
                     caption_fig = line_img_split[i].split('=')[1].replace('\\"','').replace("\'",'').replace('/>','').replace('\\n",\n','').replace(',\n','').replace("--"," ")
+                    if caption_fig == "":
+                        caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
+
 
             if i_caption > 0 and not 'alt=' in line_img:
-                number_ref=False
                 caption_fig = re.search(r'<center>(.*?)</center>', f_data[i_caption]).group(1)
 
             ########################
