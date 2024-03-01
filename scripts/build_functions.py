@@ -266,6 +266,27 @@ def build_tabset(f_data, i_start_next_cell, name_code_list ,content_list):
         '    ":::::{tab-set}\\n",\n' + f_data[i_start_next_cell]
     
 
+
+def build_code_block(f_data, i_start_cell, i_start_all_cells, content, language):
+
+    f_data[i_start_cell] = \
+        '  {\n' + \
+        '   "cell_type": "markdown",\n' + \
+        '   "metadata": {},\n' + \
+        '   "source": [\n' + \
+        '    "```{code-block} '+language+'\\n",\n'
+    
+    content[-1] = content[-1][:-2]+'\\n",\n'
+
+    for line in content:
+        f_data[i_start_cell] = f_data[i_start_cell] + line
+    
+    if i_start_cell >= i_start_all_cells[-1]:
+        f_data[i_start_cell] =  f_data[i_start_cell] + '    "```\\n"\n' + '   ]\n' + '  }\n'
+    else:
+        f_data[i_start_cell] =  f_data[i_start_cell] + '    "```\\n"\n' + '   ]\n' + '  },\n'
+
+
 def bluid_references(f_data, pattern_ref, file_name, out_ref):
     
     if pattern_ref == 'bib_' :

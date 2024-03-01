@@ -22,7 +22,7 @@ from build_functions import number_cells
 from build_functions import delete_cell
 from build_functions import bluid_references
 
-
+from build_functions import build_code_block
 
 # Obtenemos el nombre del archivo del primer algumento de la llamada
 file_name = sys.argv[1:][0]
@@ -194,7 +194,7 @@ if len(i_pattern_code_list) > 0:
     for mask in masks_list:
         i_start_cell_list    = []
         i_start_content_list = []
-        i_end_content_list      = []
+        i_end_content_list   = []
         
         name_code_list  = []
         content_list    = []
@@ -210,12 +210,14 @@ if len(i_pattern_code_list) > 0:
                 if content[i] == f_data[i_pattern_code]:
                     content[i] ='    "",\n'
 
+            # La primera celda de cada bloque conserva la salida. Lo que hacemos es esconder la entrada con "remove_input"
             if k == 0:
                 f_data[i_start_content-2] = f_data[i_start_content-2] + '   "metadata": {\n    "tags": [\n     "remove_input"\n    ]\n   },\n'
                 
                 # Si una de las celdas del bloque es la última, hay que quitar una coma
                 if np.array(i_pattern_code_list)[mask][-1] > i_start_all_cells[-1]:  
                     f_data[i_end_content+2] = '  }\n'
+            
             else:
                 delete_cell(f_data, i_start_cell, i_end_content)
                 #for i in range(i_start_cell,i_end_content+3):
@@ -234,6 +236,26 @@ if len(i_pattern_code_list) > 0:
 
 
 
+################################################################################
+## Celdas de código no ejecutables: "skip_execution"
+
+pattern_skip_exe = 'skip_execution'
+command_i_pattern_skip_exe = 'grep -n "'+pattern_skip_exe+'" '+ file_name + ' |  cut -d":" -f1 '
+i_pattern_skip_exe_list = grep_file_index(command_i_pattern_skip_exe)
+
+
+if len(i_pattern_skip_exe_list) > 0: 
+    
+    num_cells_pattern_skip_exe = number_cells(i_pattern_skip_exe_list, i_start_all_cells)
+
+
+    for k in range(len(i_pattern_skip_exe_list)):
+        i_start_cell, i_start_content, i_end_content, content, full_cell = find_cell(f_data, i_pattern_skip_exe_list[k])
+
+
+        delete_cell(f_data, i_start_cell, i_end_content)
+
+        build_code_block(f_data, i_start_cell, i_start_all_cells, content, "python")
 
 
 
