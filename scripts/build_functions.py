@@ -287,7 +287,7 @@ def build_code_block(f_data, i_start_cell, i_start_all_cells, content, language)
         f_data[i_start_cell] =  f_data[i_start_cell] + '    "```\\n"\n' + '   ]\n' + '  },\n'
 
 
-def bluid_references(f_data, pattern_ref, file_name, out_ref):
+def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells):
     
     if pattern_ref == 'bib_' :
         pattern_ref_grep = '\](#'+pattern_ref
@@ -310,7 +310,59 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref):
             # Sustituimos las referencias del estilo      [...](path#sec_...) por {ref}`sec_...` o {numref}`sec_...`
             f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\([^)]*#'+pattern_ref+r'(\w+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
 
+
+    elif pattern_ref == 'ec_':
+        # Eliminamos las referencias con <a id='ec_... 
+        pattern_a_grep = '<a id=\''+pattern_ref
+        command_i_pattern_a = 'grep -n "'+pattern_a_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+        i_pattern_a_list = grep_file_index(command_i_pattern_a)
+        for i_pattern_a in i_pattern_a_list:
+            f_data[i_pattern_a] = re.sub(r'<a id=\'ec_[^>]+></a>', '', f_data[i_pattern_a])
+
+        # Añadimos las ecuaciones con \begin{...} \label{...} e un bloque ```{math}
+        
+        command_i_begin_label = 'grep -n "begin{" ' + file_name + ' | grep "label{" |  cut -d":" -f1 ' 
+        i_begin_label_list = grep_file_index(command_i_begin_label)
+
+        for i_begin_label in i_begin_label_list:
+            number_begin = 1
+            i_end = i_begin_label + 1 
+            while number_begin > 0:
+                if "begin{" in f_data[i_end]:
+                    number_begin +=1
+                    
+                if "end{" in f_data[i_end]:
+                    number_begin -=1
+               
+                i_end += 1
+            i_end -= 1
+
+            label = f_data[i_begin_label].split('label{')[1].split('}')[0]
+        
+            f_data[i_begin_label] = '    "```{math}\\n",\n' + \
+                                    '    ":label: ' + label +' \\n",\n' + \
+                                    f_data[i_begin_label].split('}')[0] + '} \\n",\n'
             
+
+            end = f_data[i_end].split('}')[0] 
+            end_part_2 = f_data[i_end].split('}')[1]
+            
+            f_data[i_end] = end + '} \\n",\n' + \
+                            '    "```' + end_part_2
+
+        pattern_ref_grep = '#'+pattern_ref
+        command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+        i_pattern_ref_list = grep_file_index(command_i_pattern_ref)
+
+        for i_pattern_ref in i_pattern_ref_list:
+
+            # Sustituimos las referencias del estilo      [...](#ec_...) por {eq}`Ec. %s <eq_...>` 
+            f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\([^)]*#'+pattern_ref+r'([^\)]+)\)', 'Ec. ' + out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
+            #f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\([^)]*#'+pattern_ref+r'([^\)]+)\)', out_ref+r'`'+pattern_ref+r'\2`', f_data[i_pattern_ref])
+            #{numref}`sec. %s <sec_Code_Blocks_y_Ecuaciones>`
+
+            #regex_pattern = r'\[([^\]]+)\]\(#' + pattern_ref + r'([^\)]+)\)'
+
     elif pattern_ref == 'fig_':
         pattern_ref_grep = '\](#'+pattern_ref
         command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
@@ -328,3 +380,6 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref):
                 # Sustituimos las referencias de la forma    [...](#fig_...)  por  {ref}`sec_...` o {numref}`sec_...`
                 f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#'+pattern_ref+r'(\w+)\)', out_ref+r'`\1 <'+pattern_ref+r'\2>`', f_data[i_pattern_ref])
                 #f_data[i_pattern_ref] = re.sub(r'\[([^\]]+)\]\(#(\w+)\)', out_ref+r'`\1 <\2>`', f_data[i_pattern_ref])
+
+
+

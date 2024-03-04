@@ -108,7 +108,11 @@ for i in reversed(range(len(index_list_list[0]))):
         #print(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \033[0m")
         raise TypeError(f"\033[91m    tipo de cuadro no reconocido: {title_lowercase}, linea {index_list_list[0][i]}  \n======\033[0m")
         
-        
+################################################################################
+## Inicio de todas las celdas
+
+command_i_start_all_cells = 'grep -n "   \\"cell_type\\":" '+ file_name + ' |  cut -d":" -f1 '
+i_start_all_cells = grep_file_index(command_i_start_all_cells)
 
 ############################################################################
 # Sacamalos el numero de linea del inicio de las <figure>
@@ -166,13 +170,9 @@ if len(i_start_figure_list) > 0:
     ## Arreglamos las referencias a las figuras
     ##   [...](#fig_...)  --->  {ref}`sec_...` o {numref}`sec_...`
 
-    bluid_references(f_data, 'fig_', file_name, number_ref_fig)
+    bluid_references(f_data, 'fig_', file_name, number_ref_fig, i_start_all_cells)
 
-################################################################################
-## Inicio de todas las celdas
 
-command_i_start_all_cells = 'grep -n "   \\"cell_type\\":" '+ file_name + ' |  cut -d":" -f1 '
-i_start_all_cells = grep_file_index(command_i_start_all_cells)
 
 ################################################################################
 ## Buscamos las celdas de código con nuestro patron _code_cell'''
@@ -264,13 +264,19 @@ if len(i_pattern_skip_exe_list) > 0:
 ## Arreglamos las referencias bibliograficas
 ##   [[...]](#bib_...)  --->  {cite}`bib_...` o {numref}`sec_...`
 
-bluid_references(f_data, 'bib_', file_name, '{cite}')
+bluid_references(f_data, 'bib_', file_name, '{cite}', i_start_all_cells)
 
 ################################################################################
 ## Arreglamos las referencias a secciones
 ##    [...](path#sec_...) ---> {ref}`sec_...` o {numref}`sec_...`
     
-bluid_references(f_data, 'sec_', file_name, '{ref}')
+bluid_references(f_data, 'sec_', file_name, '{ref}', i_start_all_cells)
+
+################################################################################
+## Arreglamos las referencias a ecuaciones
+##    [...](path#sec_...) ---> {ref}`sec_...` o {numref}`sec_...`
+    
+bluid_references(f_data, 'ec_', file_name, '{eq}', i_start_all_cells)
 
 ################################################################################
 ## Arreglamos las label de las secciones
