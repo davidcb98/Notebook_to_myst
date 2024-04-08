@@ -211,7 +211,10 @@ if len(i_pattern_code_list) > 0:
             
             for i in range(len(content)):
                 if content[i] == f_data[i_pattern_code]:
-                    content[i] ='    "",\n'
+                    if len(content) > 1:
+                        content[i] ='    "",\n'
+                    else:
+                        content[i] ='    ""\n'
 
             # La primera celda de cada bloque conserva la salida. Lo que hacemos es esconder la entrada con "remove_input"
             if k == 0:
