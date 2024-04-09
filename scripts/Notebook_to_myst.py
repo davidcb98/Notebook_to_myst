@@ -331,7 +331,9 @@ if len(i_pattern_ref_bib) > 0:
         f_data[i] ='    "",\n'
     f_data[i_end_content] ='    ""\n'
 
-    f_data[i_start_content] = '    "```{bibliography} \\n",\n' + \
+    f_data[i_start_content] = '    "---\\n",\n' + \
+                '    "## Bibliografía \\n",\n' + \
+                '    "```{bibliography} \\n",\n' + \
                 '    ":style: plain\\n",\n' + \
                 '    ":filter: docname in docnames\\n",\n' + \
                 '    "```",\n'
