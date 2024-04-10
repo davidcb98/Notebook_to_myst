@@ -24,6 +24,7 @@ from build_functions import bluid_references
 
 from build_functions import build_code_block
 
+
 # Obtenemos el nombre del archivo del primer algumento de la llamada
 file_name = sys.argv[1:][0]
 print("===========================")
@@ -163,6 +164,7 @@ if len(i_start_figure_list) > 0:
             print(f"\033[91mFormato erroneo en la fecha. Debe de ser:\033[0m")
             print(f"\033[91m<a id='Notebook_Date'></a> Created: yyyy/mm/dd\033[0m")
             print(f"\033[91m======\033[0m") 
+            raise
     else:
         my_replace(f_data, i_first_line[0], 'source": [\n'+
                                             #'    "> {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read\\n",\n'
@@ -291,9 +293,24 @@ bluid_references(f_data, 'ec_', file_name, '{eq}', i_start_all_cells)
 command_i_pattern_a_sec = 'grep -n "<a id="  '+ file_name + ' | grep "sec_" |  cut -d":" -f1 '
 i_pattern_a_sec_list = grep_file_index(command_i_pattern_a_sec)
 
-for i_pattern_a_sec in i_pattern_a_sec_list:
-    f_data[i_pattern_a_sec] = '    "('+f_data[i_pattern_a_sec].split('\'')[1]+')= \\n",\n'
 
+
+
+try:
+    for i_pattern_a_sec in i_pattern_a_sec_list:
+        f_data[i_pattern_a_sec] = '    "('+f_data[i_pattern_a_sec].split('\'')[1]+')= \\n",\n'
+
+except Exception as error :
+    print(f"\033[91m======\033[0m") 
+    print(f"\033[91m Error encontrando la label de una sección. Esta debe ir con comillas simples\033[0m")
+    print(f"\033[91m    ",{f_data[i_pattern_a_sec]},"\033[0m")
+    print(f"\033[91m    ",{f_data[i_pattern_a_sec+1]}," \033[0m")
+    print(f"\033[91m    ",{f_data[i_pattern_a_sec+2]}," \033[0m")
+    print(f"\033[91m    ",{f_data[i_pattern_a_sec+3]}," \033[0m")
+    print("")
+    print(f"\033[91m    ",error," \033[0m")
+    print(f"\033[91m======\033[0m") 
+    raise 
 
 
 ################################################################################
@@ -449,6 +466,7 @@ with open(out_file, 'r') as f:
             print("")
             print(f"\033[91m    ",error," \033[0m")
             print(f"\033[91m======\033[0m") 
+            raise
 
 
     
