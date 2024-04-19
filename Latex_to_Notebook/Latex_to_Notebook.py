@@ -175,11 +175,11 @@ def build_i_a_in_b(i_a, i_b):
     aux = []
 
     if i_b[0] > i_a[0]:
-        a_before_firt_b = True
+        a_before_first_b = True
     else:
-        a_before_firt_b = False
+        a_before_first_b = False
 
-    if a_before_firt_b == True:
+    if a_before_first_b == True:
         k_a = 0
         while i_a[k_a] < i_b[0]:
             aux.append(k_a)
@@ -202,16 +202,36 @@ def build_i_a_in_b(i_a, i_b):
     aux.append(k_a)
     i_a_in_b.append(aux)
 
-    return i_a_in_b
+    return i_a_in_b, a_before_first_b
 
-i_chap_in_parts = build_i_a_in_b(i_chapter, i_part)
-i_sec_in_chap = build_i_a_in_b(i_section, i_chapter)
+i_chap_in_parts, chapters_before_first_part = build_i_a_in_b(i_chapter, i_part)
+i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
 for i in i_chap_in_parts:
     print(i)
 
 for i in i_sec_in_chap:
     print(i)
+
+
+print("")
+
+
+chapters_before_first_part_aux = chapters_before_first_part
+k_part = 0
+for k_chap_in_one_part in i_chap_in_parts:
+    if chapters_before_first_part_aux == False:
+        print({f_data[i_part[k_part]]})
+        k_part +=1
+
+    for k_chap in k_chap_in_one_part:
+        print("  ", {f_data[i_chapter[k_chap]]})
+        for k_sec in i_sec_in_chap[k_chap]:
+            print("    ", {f_data[i_section[k_sec]]})
+    
+    chapters_before_first_part_aux = False
+
+
 
 exit()
 with open(out_file, 'w') as f_out:
