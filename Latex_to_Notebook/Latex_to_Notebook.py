@@ -5,7 +5,20 @@ from subprocess import check_output as bash
 import sys
 import re
 import numpy as np
+import os
+from shutil import rmtree
 
+Notebook_folder_path = "../Notebooks"
+Notebook_old_folder_path = "../Notebooks_old"
+Plantilla_section_path = "Plantilla_seccion.ipynb"
+
+
+if os.path.exists(Notebook_folder_path):
+    if os.path.exists(Notebook_old_folder_path):
+        rmtree(Notebook_old_folder_path)
+    os.rename(Notebook_folder_path,Notebook_old_folder_path)
+
+os.mkdir(Notebook_folder_path)
 
 
 
@@ -17,6 +30,26 @@ print("Input File  = ", file_name)
 out_file = file_name[:-4]+'.ipynb'
 
 
+with open(Plantilla_section_path, 'r') as f:
+    header_plantilla = []
+    tail_plantilla = []
+
+    tail = False
+    count_source = 0
+    for line in f:
+        if tail == False:
+            if '\"source\"' in line:
+                count_source +=1
+                if count_source > 1:
+                    tail = True
+                    continue
+            header_plantilla.append(line)
+        
+        else:
+            tail_plantilla.append(line)        
+
+            print(line)
+
 
 with open(file_name, 'r') as f:
     
@@ -26,148 +59,39 @@ with open(file_name, 'r') as f:
     i_chapter         = []
     i_section         = []
 
+    last_line = None
     for line in f:
         line = line.lstrip()
         
-        f_data.append(line)
-
-        if line != "" and line[0] != "%":
+        if line == "":
+            line = "\n"
         
-            if "\\section{" in line or "\\section*{" in line:
-                i_section.append(i)
+        if line == "\n" and last_line == "\n":
+            pass
+        else:
+            f_data.append(line)
+
+            if line != "" and line[0] != "%":
             
-            elif "\\chapter{" in line or "\\chapter*{" in line:
-                i_chapter.append(i)
+                if "\\section{" in line or "\\section*{" in line:
+                    i_section.append(i)
+                
+                elif "\\chapter{" in line or "\\chapter*{" in line:
+                    i_chapter.append(i)
 
-            elif "\\part{" in line or "\\part*{" in line:
-                i_part.append(i)
-            
-            elif "\\begin{document}" in line:
-                i_begin_doc = i
+                elif "\\part{" in line or "\\part*{" in line:
+                    i_part.append(i)
+                
+                elif "\\begin{document}" in line:
+                    i_begin_doc = i
 
-            elif "\\end{document}" in line:
-                i_end_doc = i
+                elif "\\end{document}" in line:
+                    i_end_doc = i
 
-            elif "% == Bibliograf" in line: 
-                i_bib = i
-        i +=1 
-'''
-k_sec  = 0
-k_part = 0
-
-for k_chap in range(len(i_chapter)):
-    if k_part < len(i_part):
-        if i_chapter[k_chap] < i_part[k_part]:
-            print(i_chapter[k_chap], {f_data[i_chapter[k_chap]]})
-            while i_section[k_sec] < i_chapter[k_chap +1]:
-                print(i_section[k_sec], {f_data[i_section[k_sec]]})
-                k_sec +=1
-
-        else:
-            print(i_part[k_part], {f_data[i_part[k_part]]}) 
-            k_part +=1
-            print(i_chapter[k_chap], {f_data[i_chapter[k_chap]]})
-            while i_section[k_sec] < i_chapter[k_chap +1]:
-                print(i_section[k_sec], {f_data[i_section[k_sec]]})
-                k_sec +=1
-    else:
-        print(i_chapter[k_chap], {f_data[i_chapter[k_chap]]})
-        if k_chap < len(i_chapter) - 1 :
-            while i_section[k_sec] < i_chapter[k_chap +1]:
-                print(i_section[k_sec], {f_data[i_section[k_sec]]})
-                k_sec +=1
-        else:
-            while i_section[k_sec] < i_section[len(i_section)-1]:
-                print(i_section[k_sec], {f_data[i_section[k_sec]]})
-                k_sec +=1
-            print(i_section[k_sec], {f_data[i_section[k_sec]]})
-
-
-k_sec  = 0
-k_part = 0
-
-i_chap_in_parts   = []
-i_sec_in_chap = []
-
-i_chap_in_parts_aux   = []
-
-def make_i_sec_in_chap_aux(i_section, i_chapter, k_sec, k_chap):
-    i_sec_in_chap_aux = []
-    while i_section[k_sec] < i_chapter[k_chap +1]:
-        i_sec_in_chap_aux.append(k_sec)
-        k_sec +=1
-    return i_sec_in_chap_aux, k_sec
-
-
-for k_chap in range(len(i_chapter)):
-    if k_part < len(i_part):
-        if i_chapter[k_chap] < i_part[k_part]:
-            i_chap_in_parts_aux.append(k_chap)
-
-            i_sec_in_chap_aux, k_sec = make_i_sec_in_chap_aux(i_section, i_chapter, k_sec, k_chap)
-            i_sec_in_chap.append(i_sec_in_chap_aux)
-            
-
-        else:
-            i_chap_in_parts.append(i_chap_in_parts_aux)
-            i_chap_in_parts_aux   = [] 
-
-            k_part +=1
-            i_chap_in_parts_aux.append(k_chap)
-
-            i_sec_in_chap_aux, k_sec = make_i_sec_in_chap_aux(i_section, i_chapter, k_sec, k_chap)
-            i_sec_in_chap.append(i_sec_in_chap_aux)
-    else:
-        i_chap_in_parts_aux.append(k_chap)
-
-        if k_chap < len(i_chapter) - 1 :
-            i_sec_in_chap_aux, k_sec = make_i_sec_in_chap_aux(i_section, i_chapter, k_sec, k_chap)
-            i_sec_in_chap.append(i_sec_in_chap_aux)
-        else:
-            i_sec_in_chap_aux, k_sec = make_i_sec_in_chap_aux(i_section, i_section, k_sec, len(i_section)-2)
-            i_sec_in_chap_aux.append(k_sec)
-            i_sec_in_chap.append(i_sec_in_chap_aux)
-            i_chap_in_parts.append(i_chap_in_parts_aux)
-
-for i in i_chap_in_parts:
-    print(i)
-
-for i in i_sec_in_chap:
-    print(i)
-print("")
-
-i_part, i_section
-
-
-i_chap_in_parts = []
-aux = []
-
-if i_part[0] > i_chapter[0]:
-    chapters_before_part_1 = True
-
-if chapters_before_part_1 == True:
-    k_chap = 0
-    while i_chapter[k_chap] < i_part[0]:
-        aux.append(k_chap)
-        k_chap +=1
-    i_chap_in_parts.append(aux)
-    aux = []
-else:
-    k_chap = 0
-
-for k_part in range(len(i_part) - 1):
-    while i_chapter[k_chap] < i_part[k_part +1 ]:
-        aux.append(k_chap)
-        k_chap +=1
-    i_chap_in_parts.append(aux)
-    aux = []
-
-while i_chapter[k_chap] < i_chapter[len(i_chapter) -1]:
-    aux.append(k_chap)
-    k_chap +=1
-aux.append(k_chap)
-i_chap_in_parts.append(aux)
-'''
+                elif "% == Bibliograf" in line: 
+                    i_bib = i
+            i +=1 
+        last_line = line
 
 def build_i_a_in_b(i_a, i_b):
 
@@ -207,31 +131,57 @@ def build_i_a_in_b(i_a, i_b):
 i_chap_in_parts, chapters_before_first_part = build_i_a_in_b(i_chapter, i_part)
 i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
-for i in i_chap_in_parts:
-    print(i)
-
-for i in i_sec_in_chap:
-    print(i)
-
-
 print("")
 
 
 chapters_before_first_part_aux = chapters_before_first_part
 k_part = 0
+k_part_sum = 0
+k_chap_sum = 0
 for k_chap_in_one_part in i_chap_in_parts:
     if chapters_before_first_part_aux == False:
-        print({f_data[i_part[k_part]]})
+        print(f"Part_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
+        part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
+        os.mkdir(part_folder_path)
         k_part +=1
+        k_part_sum +=1
+    else:
+        print(f"Part_"+str(k_part_sum+1).zfill(2))
+        part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
+        os.mkdir(part_folder_path)
+        k_part_sum +=1
 
     for k_chap in k_chap_in_one_part:
-        print("  ", {f_data[i_chapter[k_chap]]})
+        print("  ",f"Chapter_"+str(k_chap_sum +1).zfill(3), {f_data[i_chapter[k_chap]]})
+        k_sec_sum = 0
+        chapter_folder_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)
+        if len(i_sec_in_chap[k_chap]) >= 1:
+            os.mkdir(chapter_folder_path)
         for k_sec in i_sec_in_chap[k_chap]:
-            print("    ", {f_data[i_section[k_sec]]})
-    
+            print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
+            sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3) + ".ipynb"
+            if k_sec_sum < len(i_sec_in_chap[k_chap]) -1 :
+                with open(sec_file_path, 'w') as f_out:
+                    for line in header_plantilla:
+                        f_out.write(line)
+
+                    f_out.write('   \"source\": [\n')
+                    for k in range(i_section[k_sec], i_section[k_sec + 1] - 1):
+                        f_out.write('    \"' +f_data[k][:-1].replace("\\","\\\\") + '\\n",\n')
+                    f_out.write('    \"' +f_data[k+1][:-1].replace("\\","\\\\") + '\\n\"\n')
+                    f_out.write('   ]\n')
+
+                    for line in tail_plantilla:
+                        f_out.write(line)
+                pass
+            
+            k_sec_sum += 1
+        
+        k_chap_sum +=1
     chapters_before_first_part_aux = False
 
-
+for i in range(7642, 7642+10):
+    print({f_data[i]})
 
 exit()
 with open(out_file, 'w') as f_out:
