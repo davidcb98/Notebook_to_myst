@@ -48,8 +48,6 @@ with open(Plantilla_section_path, 'r') as f:
         else:
             tail_plantilla.append(line)        
 
-            print(line)
-
 
 with open(file_name, 'r') as f:
     
@@ -69,10 +67,11 @@ with open(file_name, 'r') as f:
         if line == "\n" and last_line == "\n":
             pass
         else:
-            f_data.append(line)
-
-            if line != "" and line[0] != "%":
             
+
+            if line[0] != "%":
+                f_data.append(line)
+
                 if "\\section{" in line or "\\section*{" in line:
                     i_section.append(i)
                 
@@ -88,10 +87,15 @@ with open(file_name, 'r') as f:
                 elif "\\end{document}" in line:
                     i_end_doc = i
 
-                elif "% == Bibliograf" in line: 
-                    i_bib = i
-            i +=1 
-        last_line = line
+                i +=1 
+                last_line = line
+
+            if "% == Bibliograf" in line: 
+                i_bib = i
+                f_data.append(line)
+                
+                i +=1 
+                last_line = line
 
 def build_i_a_in_b(i_a, i_b):
 
@@ -133,6 +137,22 @@ i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
 print("")
 
+def write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla):
+
+    with open(sec_file_path, 'w') as f_out:
+        for line in header_plantilla:
+            f_out.write(line)
+
+        f_out.write('   \"source\": [\n')
+        for k in range(i_start_write, i_end_write - 1):
+            f_out.write('    \"' +f_data[k][:-1].replace("\\","\\\\") + '\\n",\n')
+        f_out.write('    \"' +f_data[k+1][:-1].replace("\\","\\\\") + '\\n\"\n')
+        f_out.write('   ]\n')
+
+        for line in tail_plantilla:
+            f_out.write(line)
+
+
 
 chapters_before_first_part_aux = chapters_before_first_part
 k_part = 0
@@ -151,6 +171,7 @@ for k_chap_in_one_part in i_chap_in_parts:
         os.mkdir(part_folder_path)
         k_part_sum +=1
 
+    k_chap_sum_part = 0
     for k_chap in k_chap_in_one_part:
         print("  ",f"Chapter_"+str(k_chap_sum +1).zfill(3), {f_data[i_chapter[k_chap]]})
         k_sec_sum = 0
@@ -160,28 +181,56 @@ for k_chap_in_one_part in i_chap_in_parts:
         for k_sec in i_sec_in_chap[k_chap]:
             print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
             sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3) + ".ipynb"
+            i_start_write = i_section[k_sec]
+
             if k_sec_sum < len(i_sec_in_chap[k_chap]) -1 :
+                i_end_write   = i_section[k_sec + 1]
+
+                write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
+                '''
                 with open(sec_file_path, 'w') as f_out:
                     for line in header_plantilla:
                         f_out.write(line)
 
                     f_out.write('   \"source\": [\n')
-                    for k in range(i_section[k_sec], i_section[k_sec + 1] - 1):
+                    for k in range(i_start_write, i_end_write - 1):
                         f_out.write('    \"' +f_data[k][:-1].replace("\\","\\\\") + '\\n",\n')
                     f_out.write('    \"' +f_data[k+1][:-1].replace("\\","\\\\") + '\\n\"\n')
                     f_out.write('   ]\n')
 
                     for line in tail_plantilla:
                         f_out.write(line)
-                pass
-            
+                '''
+                
+            else:
+                if k_chap_sum_part < len(k_chap_in_one_part) - 1:
+                    i_end_write   = i_chapter[k_chap + 1]
+                    write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
+
+                else:
+                    if k_part == k_chap_sum:
+                        k_part_aux = k_part + 1
+                            
+                    else:
+                        k_part_aux = k_part 
+
+                    if k_part_aux < len(i_part):
+                        i_end_write = i_part[k_part_aux]
+                        write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
+                    else:
+                        i_end_write = i_bib
+                        write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
+                    
+
+
             k_sec_sum += 1
         
         k_chap_sum +=1
+        k_chap_sum_part += 1
     chapters_before_first_part_aux = False
 
-for i in range(7642, 7642+10):
-    print({f_data[i]})
+#for i in range(7642, 7642+10):
+#    print({f_data[i]})
 
 exit()
 with open(out_file, 'w') as f_out:
