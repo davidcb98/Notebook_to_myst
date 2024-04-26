@@ -59,17 +59,23 @@ with open(file_name, 'r') as f:
 
     last_line = None
     for line in f:
-        line = line.lstrip()
-        
+        # Eliminamos los espacios en blanco a izquierda y derecha
+        # Sustituimos "\" por "\\"
+        line = line.lstrip().rstrip().replace("\\","\\\\")  
+
+        # Eliminamos los tabuladores \t, teniendo cuidado de no eliminar los \\t
+        line = re.sub(r'(?<!\\)\t','',line)
+
         if line == "":
-            line = "\n"
+            line = "\\n"
         
-        if line == "\n" and last_line == "\n":
+        if line == "\\n" and last_line == "\\n":
             pass
         else:
             
-
             if line[0] != "%":
+                if "\\boxed{a" in line:
+                    print({line})
                 f_data.append(line)
 
                 if "\\section{" in line or "\\section*{" in line:
@@ -145,8 +151,9 @@ def write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_pla
 
         f_out.write('   \"source\": [\n')
         for k in range(i_start_write, i_end_write - 1):
-            f_out.write('    \"' +f_data[k][:-1].replace("\\","\\\\") + '\\n",\n')
-        f_out.write('    \"' +f_data[k+1][:-1].replace("\\","\\\\") + '\\n\"\n')
+            #print({'    \"' +f_data[k].replace("\\","\\\\") + '\\n",\n'})
+            f_out.write('    \"' +f_data[k]+ '\\n",\n')
+        f_out.write('    \"' +f_data[k+1]+ '\\n\"\n')
         f_out.write('   ]\n')
 
         for line in tail_plantilla:
@@ -208,7 +215,7 @@ for k_chap_in_one_part in i_chap_in_parts:
                     write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
 
                 else:
-                    if k_part == k_chap_sum:
+                    if k_part == k_part_sum:
                         k_part_aux = k_part + 1
                             
                     else:
@@ -232,11 +239,3 @@ for k_chap_in_one_part in i_chap_in_parts:
 #for i in range(7642, 7642+10):
 #    print({f_data[i]})
 
-exit()
-with open(out_file, 'w') as f_out:
-    for k in range(len(f_data)):
-        f_out.write(f_data[k])
-
-    
-print("Output file = ", out_file)
-print("===========================")
