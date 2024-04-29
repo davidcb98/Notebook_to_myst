@@ -6,19 +6,21 @@ import sys
 import re
 import numpy as np
 import os
-from shutil import rmtree
+import shutil 
 
 Notebook_folder_path = "../Notebooks"
 Notebook_old_folder_path = "../Notebooks_old"
 Plantilla_section_path = "Plantilla_seccion.ipynb"
+Name_Figuras_folder = "Figuras"
 
 
 if os.path.exists(Notebook_folder_path):
     if os.path.exists(Notebook_old_folder_path):
-        rmtree(Notebook_old_folder_path)
+        shutil.rmtree(Notebook_old_folder_path)
     os.rename(Notebook_folder_path,Notebook_old_folder_path)
 
 os.mkdir(Notebook_folder_path)
+shutil.copytree(Name_Figuras_folder,Notebook_folder_path +"/"+ Name_Figuras_folder)
 
 
 
@@ -48,6 +50,13 @@ with open(Plantilla_section_path, 'r') as f:
         else:
             tail_plantilla.append(line)        
 
+def reemplazo_sec(match):
+    titulo = match.group(1)
+    return f"# {titulo}"
+
+def reemplazo_subsec(match):
+    titulo = match.group(1)
+    return f"## {titulo}"
 
 with open(file_name, 'r') as f:
     
@@ -74,12 +83,24 @@ with open(file_name, 'r') as f:
         else:
             
             if line[0] != "%":
-                if "\\boxed{a" in line:
-                    print({line})
-                f_data.append(line)
 
-                if "\\section{" in line or "\\section*{" in line:
+                if "\\section{" in line:
                     i_section.append(i)
+                    patron = r"\\\\section\{(.+?)\}"
+                    line = re.sub(patron, reemplazo_sec, line)
+
+                elif "\\section*{" in line:
+                    i_section.append(i)
+                    patron = r"\\\\section\*\{(.+?)\}"
+                    line = re.sub(patron, reemplazo_sec, line)
+                
+                elif "\\subsection{" in line:
+                    patron = r"\\\\subsection\{(.+?)\}"
+                    line = re.sub(patron, reemplazo_subsec, line)
+                
+                elif "\\subsection*{" in line:
+                    patron = r"\\\\subsection\*\{(.+?)\}"
+                    line = re.sub(patron, reemplazo_subsec, line)
                 
                 elif "\\chapter{" in line or "\\chapter*{" in line:
                     i_chapter.append(i)
@@ -92,6 +113,8 @@ with open(file_name, 'r') as f:
 
                 elif "\\end{document}" in line:
                     i_end_doc = i
+
+                f_data.append(line)
 
                 i +=1 
                 last_line = line
@@ -151,13 +174,26 @@ def write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_pla
 
         f_out.write('   \"source\": [\n')
         for k in range(i_start_write, i_end_write - 1):
+            if f_data[k] == '\\n':
+                f_out.write('   ]\n')
+                f_out.write('  },\n')
+                f_out.write('  {\n')
+                f_out.write('   "cell_type": "markdown",\n')
+                f_out.write('   "id": "080fe82e",\n')
+                f_out.write('   "metadata": {},\n')
+                f_out.write('   "source": [\n')
             #print({'    \"' +f_data[k].replace("\\","\\\\") + '\\n",\n'})
-            f_out.write('    \"' +f_data[k]+ '\\n",\n')
-        f_out.write('    \"' +f_data[k+1]+ '\\n\"\n')
+            elif f_data[k+1] == '\\n':
+                f_out.write('    \"' +f_data[k]+ '\\n"\n')
+            else:
+                f_out.write('    \"' +f_data[k]+ '\\n",\n')
+        if f_data[k+1] != '\\n':
+            f_out.write('    \"' +f_data[k+1]+ '\\n\"\n')
         f_out.write('   ]\n')
 
         for line in tail_plantilla:
             f_out.write(line)
+
 
 
 
