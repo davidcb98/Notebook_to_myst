@@ -50,13 +50,70 @@ with open(Plantilla_section_path, 'r') as f:
         else:
             tail_plantilla.append(line)        
 
-def reemplazo_sec(match):
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar las \label por <a id='..
+def reemplazo_label_aux(match):
+    titulo = match.group(1)
+    return f"<a id='{titulo}'></a>"
+
+def reemplazo_label(line):
+    patron_lab = r"\\\\label\{(.+?)\}"
+    return re.sub(patron_lab, reemplazo_label_aux, line)
+
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \section por #
+## Se reemplazan también la label 
+def reemplazo_sec_aux(match):
     titulo = match.group(1)
     return f"# {titulo}"
 
-def reemplazo_subsec(match):
+def reemplazo_sec(line, nonumber):
+    if nonumber == True:
+        #patron_sec = r"\\\\section\*\{(.+?)\}"
+        patron_sec = r"\\\\section\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    else:
+        #patron_sec = r"\\\\section\{(.+?)\}"
+        patron_sec = r"\\\\section\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron_sec, reemplazo_sec_aux, line))
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \subsection por ##
+## Se reemplazan también la label 
+def reemplazo_subsec_aux(match):
     titulo = match.group(1)
     return f"## {titulo}"
+
+def reemplazo_subsec(line, nonumber):
+    if nonumber == True:
+        #patron_subsec = r"\\\\subsection\*\{(.+?)\}"
+        patron_subsec = r"\\\\subsection\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    else:
+        #patron_subsec = r"\\\\subsection\{(.+?)\}"
+        #patron_subsec = r"\\\\subsection\{([^{}]+)\}"
+        patron_subsec = r"\\\\subsection\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron_subsec, reemplazo_subsec_aux, line))
+
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \SubsubiIt por ###
+## Se reemplazan también la label 
+def reemplazo_SubsubIt_aux(match):
+    titulo = match.group(1)
+    return f"### {titulo}"
+
+def reemplazo_SubsubIt(line):
+    patron_SubsubIt = r"\\\\SubsubiIt\{(.+?)\}"
+    return reemplazo_label(re.sub(patron_SubsubIt, reemplazo_SubsubIt_aux, line))
+
+# =============================================================================
+i_begin_doc = 0
+i_end_doc = 0
+find_mybox_gray2 = False
+find_proof = False
+find_mybox_blue = False
+find_itemize = False
+find_itemize_2 = False
 
 with open(file_name, 'r') as f:
     
@@ -78,44 +135,105 @@ with open(file_name, 'r') as f:
         if line == "":
             line = "\\n"
         
-        if line == "\\n" and last_line == "\\n":
-            pass
+        if line == "\\n":
+            if last_line == "\\n":
+                pass
+            elif find_mybox_gray2 == True or find_mybox_blue == True or \
+                find_proof == True or find_itemize == True:
+
+                line = "<br>"
+                f_data.append(line)
+                i +=1 
+                last_line = line
+            else:
+                f_data.append(line)
+                i +=1 
+                last_line = line
         else:
             
             if line[0] != "%":
 
                 if "\\section{" in line:
                     i_section.append(i)
-                    patron = r"\\\\section\{(.+?)\}"
-                    line = re.sub(patron, reemplazo_sec, line)
+                    line = reemplazo_sec(line, nonumber = False)
 
                 elif "\\section*{" in line:
                     i_section.append(i)
-                    patron = r"\\\\section\*\{(.+?)\}"
-                    line = re.sub(patron, reemplazo_sec, line)
+                    line = reemplazo_sec(line, nonumber = True)
                 
                 elif "\\subsection{" in line:
-                    patron = r"\\\\subsection\{(.+?)\}"
-                    line = re.sub(patron, reemplazo_subsec, line)
+                    line = reemplazo_subsec(line, nonumber = False)
                 
                 elif "\\subsection*{" in line:
-                    patron = r"\\\\subsection\*\{(.+?)\}"
-                    line = re.sub(patron, reemplazo_subsec, line)
+                    line = reemplazo_sec(line, nonumber = True)
                 
                 elif "\\chapter{" in line or "\\chapter*{" in line:
                     i_chapter.append(i)
 
                 elif "\\part{" in line or "\\part*{" in line:
                     i_part.append(i)
+
+                elif "\\SubsubiIt{" in line:
+                    line = reemplazo_SubsubIt(line)
                 
                 elif "\\begin{document}" in line:
                     i_begin_doc = i
+                    print(line)
 
                 elif "\\end{document}" in line:
                     i_end_doc = i
 
-                f_data.append(line)
+                elif "\\begin{mybox_gray2}" in line and i_begin_doc > 0:
+                    find_mybox_gray2 = True
+                    line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
+                            '    "<p style=\\"color: navy;\\">'
+                    
+                elif "\\end{mybox_gray2}" in line and i_begin_doc > 0:
+                    find_mybox_gray2 = False
+                    line = '</p></div>'
 
+                elif "\\begin{mybox_blue}" in line and i_begin_doc > 0:
+                    find_mybox_blue = True
+                    line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
+                            '    "<p style=\\"color: DarkRed;\\">\\n",\n' + \
+                            '    "<b>Nota</b>:\\n",\n' + \
+                            '    "<br>'
+                    
+                elif "\\end{mybox_blue}" in line and i_begin_doc > 0:
+                    find_mybox_blue = False
+                    line = '</p></div>'
+
+                elif "\\begin{itemize}" in line and i_begin_doc > 0:
+                    if find_itemize == True:
+                        find_itemize_2 = True
+                    else:
+                        find_itemize = True
+                    line = '\\n'
+                    
+                elif "\\end{itemize}" in line and i_begin_doc > 0:
+                    if find_itemize_2 == True:
+                        find_itemize_2 = False
+                    else:
+                        find_itemize = False
+                    line = '\\n'
+
+                elif find_itemize == True and "\\\\item " in line:
+                    if find_itemize_2 == True:
+                        line = line.replace('\\\\item', '    -')
+                    else:
+                        line = line.replace('\\\\item', '-')
+
+                elif "\\begin{proof}" in line and i_begin_doc > 0:
+                    find_proof = True
+                    line = '<details><summary><p style=\\"color:blue\\" > >> <i>Demostración</i> </p></summary>'
+                    
+                elif "\\end{proof}" in line and i_begin_doc > 0:
+                    find_proof = False
+                    line = '</details>'
+
+
+
+                f_data.append(line)
                 i +=1 
                 last_line = line
 
@@ -219,6 +337,11 @@ for k_chap_in_one_part in i_chap_in_parts:
         print("  ",f"Chapter_"+str(k_chap_sum +1).zfill(3), {f_data[i_chapter[k_chap]]})
         k_sec_sum = 0
         chapter_folder_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)
+
+        '''
+        NOTA (to do): Crear Jupyter con la intro de lo capitulos
+        '''
+
         if len(i_sec_in_chap[k_chap]) >= 1:
             os.mkdir(chapter_folder_path)
         for k_sec in i_sec_in_chap[k_chap]:
@@ -230,21 +353,7 @@ for k_chap_in_one_part in i_chap_in_parts:
                 i_end_write   = i_section[k_sec + 1]
 
                 write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
-                '''
-                with open(sec_file_path, 'w') as f_out:
-                    for line in header_plantilla:
-                        f_out.write(line)
-
-                    f_out.write('   \"source\": [\n')
-                    for k in range(i_start_write, i_end_write - 1):
-                        f_out.write('    \"' +f_data[k][:-1].replace("\\","\\\\") + '\\n",\n')
-                    f_out.write('    \"' +f_data[k+1][:-1].replace("\\","\\\\") + '\\n\"\n')
-                    f_out.write('   ]\n')
-
-                    for line in tail_plantilla:
-                        f_out.write(line)
-                '''
-                
+               
             else:
                 if k_chap_sum_part < len(k_chap_in_one_part) - 1:
                     i_end_write   = i_chapter[k_chap + 1]
