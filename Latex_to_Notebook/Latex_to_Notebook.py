@@ -64,11 +64,12 @@ def reemplazo_label(line):
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \section por #
 ## Se reemplazan también la label 
-def reemplazo_sec_aux(match):
-    titulo = match.group(1)
-    return f"# {titulo}"
-
 def reemplazo_sec(line, nonumber):
+    
+    def reemplazo_sec_aux(match):
+        titulo = match.group(1)
+        return f"# {titulo}"
+    
     if nonumber == True:
         #patron_sec = r"\\\\section\*\{(.+?)\}"
         patron_sec = r"\\\\section\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
@@ -80,11 +81,12 @@ def reemplazo_sec(line, nonumber):
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \subsection por ##
 ## Se reemplazan también la label 
-def reemplazo_subsec_aux(match):
-    titulo = match.group(1)
-    return f"## {titulo}"
-
 def reemplazo_subsec(line, nonumber):
+
+    def reemplazo_subsec_aux(match):
+        titulo = match.group(1)
+        return f"## {titulo}"
+    
     if nonumber == True:
         #patron_subsec = r"\\\\subsection\*\{(.+?)\}"
         patron_subsec = r"\\\\subsection\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
@@ -98,13 +100,43 @@ def reemplazo_subsec(line, nonumber):
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \SubsubiIt por ###
 ## Se reemplazan también la label 
-def reemplazo_SubsubIt_aux(match):
-    titulo = match.group(1)
-    return f"### {titulo}"
-
 def reemplazo_SubsubIt(line):
-    patron_SubsubIt = r"\\\\SubsubiIt\{(.+?)\}"
+
+    def reemplazo_SubsubIt_aux(match):
+        titulo = match.group(1)
+        return f"### {titulo}"
+
+    #patron_SubsubIt = r"\\\\SubsubiIt\{(.+?)\}"
+    patron_SubsubIt = r"\\\\SubsubiIt\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
     return reemplazo_label(re.sub(patron_SubsubIt, reemplazo_SubsubIt_aux, line))
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \caption por <center> <center>
+def reemplazo_caption(line):
+
+    def reemplazo_caption_aux(match):
+        titulo = match.group(1)
+        return f"<center>{titulo}</center>"
+
+    patron_caption = r"\\\\caption\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron_caption, reemplazo_caption_aux, line))
+
+
+# =============================================================================
+## Funcion para sustituir la llamada a la figura
+def reemplazo_includegraphics(line):
+    patron_includegraphics = r"\\\\includegraphics\[width=(\d+(\.\d+)?)\\\\linewidth\]\{([^}]+)\}"
+    print(line)
+    # Definir la función de reemplazo
+    def reemplazo_includegraphics_aux(match):
+        width = float(match.group(1))
+        nombre_archivo = match.group(3)
+        nueva_width = int(width * 1000)
+        return f"<img src=\\\"{nombre_archivo}\\\" alt=\\\"\\\" align=center width='{nueva_width}px'/>"
+
+    # Realizar el reemplazo
+    return re.sub(patron_includegraphics, reemplazo_includegraphics_aux, line)
+
 
 # =============================================================================
 i_begin_doc = 0
@@ -114,6 +146,7 @@ find_proof = False
 find_mybox_blue = False
 find_itemize = False
 find_itemize_2 = False
+find_figure = False
 
 with open(file_name, 'r') as f:
     
@@ -127,7 +160,7 @@ with open(file_name, 'r') as f:
     for line in f:
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
-        line = line.lstrip().rstrip().replace("\\","\\\\")  
+        line = line.lstrip().rstrip().replace("\\","\\\\").replace("``","\\\"").replace("''","\\\"")
 
         # Eliminamos los tabuladores \t, teniendo cuidado de no eliminar los \\t
         line = re.sub(r'(?<!\\)\t','',line)
@@ -139,7 +172,7 @@ with open(file_name, 'r') as f:
             if last_line == "\\n":
                 pass
             elif find_mybox_gray2 == True or find_mybox_blue == True or \
-                find_proof == True or find_itemize == True:
+                find_proof == True or find_itemize == True or find_figure == True:
 
                 line = "<br>"
                 f_data.append(line)
@@ -216,7 +249,30 @@ with open(file_name, 'r') as f:
                     else:
                         find_itemize = False
                     line = '\\n'
+                
+                ########################## Figuras #############################
+                elif "\\begin{figure}" in line and i_begin_doc > 0:
+                    find_figure = True
+                    line = '<figure><center>'
 
+                elif "\\end{figure}" in line and i_begin_doc > 0:
+                    find_figure = False
+                    line = '</center></figure>\\n'
+                
+                elif "\\centering" in line and find_figure == True:
+                    line = '<br>'
+                
+                elif "\\caption{" in line and find_figure == True:
+                    line = reemplazo_caption(line)
+
+                elif "\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
+                    line = reemplazo_includegraphics(line)
+                    print(line)
+                
+                elif "\\label{" in line and find_figure == True:
+                    line = reemplazo_label(line)
+
+                ########################## Itemice #############################
                 elif find_itemize == True and "\\\\item " in line:
                     if find_itemize_2 == True:
                         line = line.replace('\\\\item', '    -')
@@ -324,12 +380,14 @@ for k_chap_in_one_part in i_chap_in_parts:
         print(f"Part_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
+        shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
         k_part +=1
         k_part_sum +=1
     else:
         print(f"Part_"+str(k_part_sum+1).zfill(2))
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
+        shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
         k_part_sum +=1
 
     k_chap_sum_part = 0
@@ -344,6 +402,7 @@ for k_chap_in_one_part in i_chap_in_parts:
 
         if len(i_sec_in_chap[k_chap]) >= 1:
             os.mkdir(chapter_folder_path)
+            shutil.copytree(Name_Figuras_folder, chapter_folder_path + "/" + Name_Figuras_folder)
         for k_sec in i_sec_in_chap[k_chap]:
             print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
             sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3) + ".ipynb"
