@@ -126,7 +126,6 @@ def reemplazo_caption(line):
 ## Funcion para sustituir la llamada a la figura
 def reemplazo_includegraphics(line):
     patron_includegraphics = r"\\\\includegraphics\[width=(\d+(\.\d+)?)\\\\linewidth\]\{([^}]+)\}"
-    print(line)
     # Definir la función de reemplazo
     def reemplazo_includegraphics_aux(match):
         width = float(match.group(1))
@@ -147,6 +146,7 @@ find_mybox_blue = False
 find_itemize = False
 find_itemize_2 = False
 find_figure = False
+omitir_seccion = False
 
 with open(file_name, 'r') as f:
     
@@ -173,7 +173,6 @@ with open(file_name, 'r') as f:
                 pass
             elif find_mybox_gray2 == True or find_mybox_blue == True or \
                 find_proof == True or find_itemize == True or find_figure == True:
-
                 line = "<br>"
                 f_data.append(line)
                 i +=1 
@@ -187,13 +186,26 @@ with open(file_name, 'r') as f:
             if line[0] != "%":
 
                 if "\\section{" in line:
-                    i_section.append(i)
-                    line = reemplazo_sec(line, nonumber = False)
+                    if "%%Omitir_seccion" in line:
+                        omitir_seccion = True
+                        print(line)
+                    else:
+                        omitir_seccion = False
+                        i_section.append(i)
+                        line = reemplazo_sec(line, nonumber = False)
 
                 elif "\\section*{" in line:
-                    i_section.append(i)
-                    line = reemplazo_sec(line, nonumber = True)
+                    if "%%Omitir_seccion" in line:
+                        omitir_seccion = True
+                        print(line)
+                    else:
+                        omitir_seccion = False
+                        i_section.append(i)
+                        line = reemplazo_sec(line, nonumber = True)
                 
+                if omitir_seccion == True:
+                    pass
+
                 elif "\\subsection{" in line:
                     line = reemplazo_subsec(line, nonumber = False)
                 
@@ -211,7 +223,6 @@ with open(file_name, 'r') as f:
                 
                 elif "\\begin{document}" in line:
                     i_begin_doc = i
-                    print(line)
 
                 elif "\\end{document}" in line:
                     i_end_doc = i
@@ -267,7 +278,6 @@ with open(file_name, 'r') as f:
 
                 elif "\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
                     line = reemplazo_includegraphics(line)
-                    print(line)
                 
                 elif "\\label{" in line and find_figure == True:
                     line = reemplazo_label(line)
@@ -288,10 +298,12 @@ with open(file_name, 'r') as f:
                     line = '</details>'
 
 
-
-                f_data.append(line)
-                i +=1 
-                last_line = line
+                if omitir_seccion == True:
+                    pass
+                else:
+                    f_data.append(line)
+                    i +=1 
+                    last_line = line
 
             if "% == Bibliograf" in line: 
                 i_bib = i
