@@ -250,7 +250,8 @@ with open(file_name, 'r') as f:
                 elif "\\begin{mybox_gray2}" in line and i_begin_doc > 0:
                     find_mybox_gray2 = True
                     line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
-                            '    "<p style=\\"color: navy;\\">'
+                            '    "<p style=\\"color: navy;\\">\\n",\n'+ \
+                            '    "<b></b>'
                     
                 elif "\\end{mybox_gray2}" in line and i_begin_doc > 0:
                     find_mybox_gray2 = False
@@ -272,14 +273,14 @@ with open(file_name, 'r') as f:
                         find_itemize_2 = True
                     else:
                         find_itemize = True
-                    line = '\\n'
+                    line = '<br>'
                     
                 elif "\\end{itemize}" in line and i_begin_doc > 0:
                     if find_itemize_2 == True:
                         find_itemize_2 = False
                     else:
                         find_itemize = False
-                    line = '\\n'
+                    line = '<br>'
                 
                 ########################## Figuras #############################
                 elif "\\begin{figure}" in line and i_begin_doc > 0:
@@ -308,6 +309,9 @@ with open(file_name, 'r') as f:
                         line = line.replace('\\\\item', '    -')
                     else:
                         line = line.replace('\\\\item', '-')
+                    
+                    line = '<br>\\n",\n' + \
+                           '    "'+line
 
                 elif "\\begin{proof}" in line and i_begin_doc > 0:
                     find_proof = True
