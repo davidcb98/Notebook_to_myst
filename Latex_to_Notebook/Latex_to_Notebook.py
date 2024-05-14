@@ -20,7 +20,7 @@ if os.path.exists(Notebook_folder_path):
     os.rename(Notebook_folder_path,Notebook_old_folder_path)
 
 os.mkdir(Notebook_folder_path)
-shutil.copytree(Name_Figuras_folder,Notebook_folder_path +"/"+ Name_Figuras_folder)
+#shutil.copytree(Name_Figuras_folder,Notebook_folder_path +"/"+ Name_Figuras_folder)
 
 
 
@@ -71,12 +71,12 @@ def reemplazo_sec(line, nonumber):
         return f"# {titulo}"
     
     if nonumber == True:
-        #patron_sec = r"\\\\section\*\{(.+?)\}"
-        patron_sec = r"\\\\section\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+        #patron = r"\\\\section\*\{(.+?)\}"
+        patron = r"\\\\section\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
     else:
-        #patron_sec = r"\\\\section\{(.+?)\}"
-        patron_sec = r"\\\\section\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron_sec, reemplazo_sec_aux, line))
+        #patron = r"\\\\section\{(.+?)\}"
+        patron = r"\\\\section\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron, reemplazo_sec_aux, line))
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \subsection por ##
@@ -88,13 +88,30 @@ def reemplazo_subsec(line, nonumber):
         return f"## {titulo}"
     
     if nonumber == True:
-        #patron_subsec = r"\\\\subsection\*\{(.+?)\}"
-        patron_subsec = r"\\\\subsection\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+        #patron = r"\\\\subsection\*\{(.+?)\}"
+        patron = r"\\\\subsection\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
     else:
-        #patron_subsec = r"\\\\subsection\{(.+?)\}"
-        #patron_subsec = r"\\\\subsection\{([^{}]+)\}"
-        patron_subsec = r"\\\\subsection\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron_subsec, reemplazo_subsec_aux, line))
+        #patron = r"\\\\subsection\{(.+?)\}"
+        #patron = r"\\\\subsection\{([^{}]+)\}"
+        patron = r"\\\\subsection\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron, reemplazo_subsec_aux, line))
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \chapter por #
+## Se reemplazan también la label 
+def reemplazo_chapter(line, nonumber):
+    
+    def reemplazo_chapter_aux(match):
+        titulo = match.group(1)
+        return f"# {titulo}"
+    
+    if nonumber == True:
+        #patron = r"\\\\section\*\{(.+?)\}"
+        patron = r"\\\\chapter\*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    else:
+        #patron = r"\\\\section\{(.+?)\}"
+        patron = r"\\\\chapter\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return reemplazo_label(re.sub(patron, reemplazo_chapter_aux, line))
 
 
 # =============================================================================
@@ -161,6 +178,11 @@ with open(file_name, 'r') as f:
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
         line = line.lstrip().rstrip().replace("\\","\\\\").replace("``","\\\"").replace("''","\\\"")
+        line = line.replace("\\section*{", "\\section{")
+        line = line.replace("\\subsection*{", "\\subsection{")
+        line = line.replace("\\chapter*{", "\\chapter{")
+        line = line.replace("\\part*{", "\\part{")
+
 
         # Eliminamos los tabuladores \t, teniendo cuidado de no eliminar los \\t
         line = re.sub(r'(?<!\\)\t','',line)
@@ -193,7 +215,7 @@ with open(file_name, 'r') as f:
                         omitir_seccion = False
                         i_section.append(i)
                         line = reemplazo_sec(line, nonumber = False)
-
+                '''
                 elif "\\section*{" in line:
                     if "%%Omitir_seccion" in line:
                         omitir_seccion = True
@@ -202,30 +224,28 @@ with open(file_name, 'r') as f:
                         omitir_seccion = False
                         i_section.append(i)
                         line = reemplazo_sec(line, nonumber = True)
-                
+                '''
                 if omitir_seccion == True:
                     pass
 
                 elif "\\subsection{" in line:
                     line = reemplazo_subsec(line, nonumber = False)
                 
-                elif "\\subsection*{" in line:
-                    line = reemplazo_sec(line, nonumber = True)
+                #elif "\\subsection*{" in line:
+                #    line = reemplazo_subsec(line, nonumber = True)
                 
-                elif "\\chapter{" in line or "\\chapter*{" in line:
+                elif "\\chapter{" in line: 
+                    line = reemplazo_chapter(line, nonumber = False)
                     i_chapter.append(i)
+                
+                #elif "\\chapter*{" in line:
+                #    i_chapter.append(i)
 
-                elif "\\part{" in line or "\\part*{" in line:
+                elif "\\part{" in line: # or "\\part*{" in line:
                     i_part.append(i)
 
                 elif "\\SubsubiIt{" in line:
                     line = reemplazo_SubsubIt(line)
-                
-                elif "\\begin{document}" in line:
-                    i_begin_doc = i
-
-                elif "\\end{document}" in line:
-                    i_end_doc = i
 
                 elif "\\begin{mybox_gray2}" in line and i_begin_doc > 0:
                     find_mybox_gray2 = True
@@ -297,6 +317,16 @@ with open(file_name, 'r') as f:
                     find_proof = False
                     line = '</details>'
 
+                ##################### begin/end document #######################
+                elif "\\begin{document}" in line:
+                    i_begin_doc = i
+
+                elif "\\end{document}" in line:
+                    i_end_doc = i
+
+
+
+
 
                 if omitir_seccion == True:
                     pass
@@ -352,9 +382,21 @@ i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
 print("")
 
-def write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla):
+def test_write_start_end(i_end_write_old, i_start_write, write_path):
+    if i_end_write_old > i_start_write:
+        print(f"\033[91m======\033[0m") 
+        print(f"\033[91mLa anterior escritura termino después del inicio de la actual\033[0m")
+        print(f"\033[91mEs decir, i_end_write_old > i_start_write: {i_end_write_old} > {i_start_write} \033[0m")
+        print(f"\033[91mPath al ultimo archivo escrito: \033[0m")
+        print("   ",write_path)
+        print(f"\033[91m======\033[0m") 
+        raise 
 
-    with open(sec_file_path, 'w') as f_out:
+def write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla):
+
+    print(f"[INFO]: Writing {write_path}")
+
+    with open(write_path, 'w') as f_out:
         for line in header_plantilla:
             f_out.write(line)
 
@@ -379,6 +421,15 @@ def write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_pla
 
         for line in tail_plantilla:
             f_out.write(line)
+    
+    ##################
+    ### Test
+    global i_end_write_old
+
+    test_write_start_end(i_end_write_old, i_start_write, write_path)
+
+    i_end_write_old = i_end_write
+    
 
 
 
@@ -387,67 +438,97 @@ chapters_before_first_part_aux = chapters_before_first_part
 k_part = 0
 k_part_sum = 0
 k_chap_sum = 0
+i_end_write_old = -1
+
 for k_chap_in_one_part in i_chap_in_parts:
     if chapters_before_first_part_aux == False:
-        print(f"Part_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
+        print(f"\nPart_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
         shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
         k_part +=1
         k_part_sum +=1
     else:
-        print(f"Part_"+str(k_part_sum+1).zfill(2))
+        print(f"\nPart_"+str(k_part_sum+1).zfill(2))
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
         shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
         k_part_sum +=1
 
     k_chap_sum_part = 0
+    
     for k_chap in k_chap_in_one_part:
-        print("  ",f"Chapter_"+str(k_chap_sum +1).zfill(3), {f_data[i_chapter[k_chap]]})
-        k_sec_sum = 0
-        chapter_folder_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)
 
-        '''
-        NOTA (to do): Crear Jupyter con la intro de lo capitulos
-        '''
+        #print("  ",f"Chapter_"+str(k_chap_sum +1).zfill(3), {f_data[i_chapter[k_chap]]})
+        k_sec_sum = 0
+        chapter_intro_file_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)+"_01.ipynb"
+        chapter_folder_path     = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)+"_02"
 
         if len(i_sec_in_chap[k_chap]) >= 1:
+            ## Escribimos lo que hay antes de la primera seccion del capitulo en un archivo Chapter_.._01
+            i_start_write = i_chapter[k_chap]
+            i_end_write = i_section[i_sec_in_chap[k_chap][0]]
+
+            write_path = chapter_intro_file_path
+            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
+
+            ## Carpeta para las secciones
             os.mkdir(chapter_folder_path)
             shutil.copytree(Name_Figuras_folder, chapter_folder_path + "/" + Name_Figuras_folder)
-        for k_sec in i_sec_in_chap[k_chap]:
-            print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
-            sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3) + ".ipynb"
-            i_start_write = i_section[k_sec]
 
-            if k_sec_sum < len(i_sec_in_chap[k_chap]) -1 :
-                i_end_write   = i_section[k_sec + 1]
+            ## Escribirmos las secciones
+            for k_sec in i_sec_in_chap[k_chap]:
+                #print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
+                sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3) + ".ipynb"
+                write_path = sec_file_path
+                i_start_write = i_section[k_sec]
 
-                write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
-               
-            else:
-                if k_chap_sum_part < len(k_chap_in_one_part) - 1:
-                    i_end_write   = i_chapter[k_chap + 1]
-                    write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
 
-                else:
-                    if k_part == k_part_sum:
-                        k_part_aux = k_part + 1
-                            
-                    else:
-                        k_part_aux = k_part 
-
-                    if k_part_aux < len(i_part):
-                        i_end_write = i_part[k_part_aux]
-                        write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
-                    else:
-                        i_end_write = i_bib
-                        write_notebook(f_data, i_start_write, i_end_write, sec_file_path, header_plantilla, tail_plantilla)
+                if k_sec_sum < len(i_sec_in_chap[k_chap]) -1 :
+                    i_end_write   = i_section[k_sec + 1]
                     
+                    
+                else:
+                    if k_chap_sum_part < len(k_chap_in_one_part) - 1:
+                        i_end_write   = i_chapter[k_chap + 1]
+
+                    else:
+                        if k_part == k_part_sum:
+                            k_part_aux = k_part + 1
+                        else:
+                            k_part_aux = k_part 
+
+                        if k_part_aux < len(i_part):
+                            i_end_write = i_part[k_part_aux]
+                        else:
+                            i_end_write = i_bib
+                    
+                write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
+                k_sec_sum += 1
+        else:
+            ## Escribimos lo que hay antes de la primera seccion del capitulo en un archivo Chapter_.._01
+            i_start_write = i_chapter[k_chap]
+            write_path = chapter_intro_file_path
+            if k_chap_sum_part < len(k_chap_in_one_part) - 1:
+                i_end_write   = i_chapter[k_chap + 1]
+
+            else:
+                if k_part == k_part_sum:
+                    k_part_aux = k_part + 1
+                else:
+                    k_part_aux = k_part 
+
+                if k_part_aux < len(i_part):
+                    i_end_write = i_part[k_part_aux]
+                else:
+                    i_end_write = i_bib
+
+            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
 
 
-            k_sec_sum += 1
+            
         
+
         k_chap_sum +=1
         k_chap_sum_part += 1
     chapters_before_first_part_aux = False
