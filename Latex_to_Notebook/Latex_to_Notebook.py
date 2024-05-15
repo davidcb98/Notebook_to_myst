@@ -163,7 +163,24 @@ find_mybox_blue = False
 find_itemize = False
 find_itemize_2 = False
 find_figure = False
+find_Teorema = False
+find_Lemma = False
+find_Corolario = False
+find_Definicion = False
+find_Proposicion = False
+find_Ejercicio = False
+
 omitir_seccion = False
+
+#conteo_corch_abrir = 0
+#conteo_corch_cerrar = 0
+
+'''
+# Contar llaves que no están escapadas
+conteo_abrir = len(re.findall(r'(?<!\\){', cadena))
+conteo_cerrar = len(re.findall(r'(?<!\\)}', cadena))
+'''
+
 
 with open(file_name, 'r') as f:
     
@@ -175,6 +192,20 @@ with open(file_name, 'r') as f:
 
     last_line = None
     for line in f:
+        finds = [
+                 find_mybox_gray2,
+                 find_proof,
+                 find_mybox_blue,
+                 find_itemize,
+                 find_itemize_2,
+                 find_figure,
+                 find_Teorema,
+                 find_Lemma,
+                 find_Corolario,
+                 find_Definicion,
+                 find_Proposicion,
+                 find_Ejercicio
+                 ]
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
         line = line.lstrip().rstrip().replace("\\","\\\\").replace("``","\\\"").replace("''","\\\"")
@@ -193,12 +224,14 @@ with open(file_name, 'r') as f:
         if line == "\\n":
             if last_line == "\\n":
                 pass
-            elif find_mybox_gray2 == True or find_mybox_blue == True or \
-                find_proof == True or find_itemize == True or find_figure == True:
-                line = "<br>"
-                f_data.append(line)
-                i +=1 
-                last_line = line
+            elif True in finds:
+                line = "<br><br>"
+                if last_line == "<br>" or last_line == "<br><br>":
+                    continue
+                else:
+                    f_data.append(line)
+                    i +=1 
+                    last_line = line
             else:
                 f_data.append(line)
                 i +=1 
@@ -207,7 +240,7 @@ with open(file_name, 'r') as f:
             
             if line[0] != "%":
 
-                if "\\section{" in line:
+                if "\\\\section{" in line:
                     if "%%Omitir_seccion" in line:
                         omitir_seccion = True
                         print(line)
@@ -228,104 +261,117 @@ with open(file_name, 'r') as f:
                 if omitir_seccion == True:
                     pass
 
-                elif "\\subsection{" in line:
+                elif "\\\\subsection{" in line:
                     line = reemplazo_subsec(line, nonumber = False)
                 
                 #elif "\\subsection*{" in line:
                 #    line = reemplazo_subsec(line, nonumber = True)
                 
-                elif "\\chapter{" in line: 
+                elif "\\\\chapter{" in line:
                     line = reemplazo_chapter(line, nonumber = False)
                     i_chapter.append(i)
                 
                 #elif "\\chapter*{" in line:
                 #    i_chapter.append(i)
 
-                elif "\\part{" in line: # or "\\part*{" in line:
+                elif "\\\\part{" in line: # or "\\part*{" in line:
                     i_part.append(i)
 
-                elif "\\SubsubiIt{" in line:
+                elif "\\\\SubsubiIt{" in line:
                     line = reemplazo_SubsubIt(line)
 
-                elif "\\begin{mybox_gray2}" in line and i_begin_doc > 0:
+                elif "\\\\begin{mybox_gray2}" in line and i_begin_doc > 0:
                     find_mybox_gray2 = True
                     line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
                             '    "<p style=\\"color: navy;\\">\\n",\n'+ \
                             '    "<b></b>'
                     
-                elif "\\end{mybox_gray2}" in line and i_begin_doc > 0:
+                elif "\\\\end{mybox_gray2}" in line and i_begin_doc > 0:
                     find_mybox_gray2 = False
                     line = '</p></div>'
 
-                elif "\\begin{mybox_blue}" in line and i_begin_doc > 0:
+                elif "\\\\begin{mybox_blue}" in line and i_begin_doc > 0:
                     find_mybox_blue = True
                     line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
                             '    "<p style=\\"color: DarkRed;\\">\\n",\n' + \
-                            '    "<b>Nota</b>:\\n",\n' + \
-                            '    "<br>'
+                            '    "<b>Nota</b>:'
                     
-                elif "\\end{mybox_blue}" in line and i_begin_doc > 0:
+                elif "\\\\end{mybox_blue}" in line and i_begin_doc > 0:
                     find_mybox_blue = False
                     line = '</p></div>'
 
-                elif "\\begin{itemize}" in line and i_begin_doc > 0:
+                ######################### Teoremas  ############################
+                elif "\\\\Teorema{" in line:
+
+                    find_Teorema = True
+                    new_line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
+                               '    "<p style=\\"color: navy;\\">\\n",\n' + \
+                               '    "<b>Teorema</b>:\\n",\n' + \
+                               '    "<br>'
+                    line = line.replace("\\\\Teorema{", new_line)
+                elif line == "}" and find_Teorema == True:
+                    find_Teorema = False
+                    line = '</p></div>'
+
+
+                ########################## Figuras #############################
+                elif "\\\\begin{figure}" in line and i_begin_doc > 0:
+                    find_figure = True
+                    line = '<figure><center>'
+
+                elif "\\\\end{figure}" in line and i_begin_doc > 0:
+                    find_figure = False
+                    line = '</center></figure>\\n'
+                
+                elif "\\\\centering" in line and find_figure == True:
+                    line = '<br>'
+                
+                elif "\\\\caption{" in line and find_figure == True:
+                    line = reemplazo_caption(line)
+
+                elif "\\\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
+                    line = reemplazo_includegraphics(line)
+                
+                elif "\\\\label{" in line and find_figure == True:
+                    line = reemplazo_label(line)
+
+                ########################## Itemice #############################
+                elif ("\\\\begin{itemize}" in line or "\\\\begin{enumerate}" in line)  and i_begin_doc > 0:
                     if find_itemize == True:
                         find_itemize_2 = True
                     else:
                         find_itemize = True
                     line = '<br>'
-                    
-                elif "\\end{itemize}" in line and i_begin_doc > 0:
+
+                elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line) and i_begin_doc > 0:
                     if find_itemize_2 == True:
                         find_itemize_2 = False
                     else:
                         find_itemize = False
                     line = '<br>'
-                
-                ########################## Figuras #############################
-                elif "\\begin{figure}" in line and i_begin_doc > 0:
-                    find_figure = True
-                    line = '<figure><center>'
 
-                elif "\\end{figure}" in line and i_begin_doc > 0:
-                    find_figure = False
-                    line = '</center></figure>\\n'
-                
-                elif "\\centering" in line and find_figure == True:
-                    line = '<br>'
-                
-                elif "\\caption{" in line and find_figure == True:
-                    line = reemplazo_caption(line)
-
-                elif "\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
-                    line = reemplazo_includegraphics(line)
-                
-                elif "\\label{" in line and find_figure == True:
-                    line = reemplazo_label(line)
-
-                ########################## Itemice #############################
                 elif find_itemize == True and "\\\\item " in line:
                     if find_itemize_2 == True:
                         line = line.replace('\\\\item', '    -')
                     else:
                         line = line.replace('\\\\item', '-')
                     
-                    line = '<br>\\n",\n' + \
-                           '    "'+line
+                    line = line + '\\n",\n' + \
+                           '    "<br>'
 
-                elif "\\begin{proof}" in line and i_begin_doc > 0:
+                elif "\\\\begin{proof}" in line and i_begin_doc > 0:
                     find_proof = True
                     line = '<details><summary><p style=\\"color:blue\\" > >> <i>Demostración</i> </p></summary>'
                     
-                elif "\\end{proof}" in line and i_begin_doc > 0:
+                elif "\\\\end{proof}" in line and i_begin_doc > 0:
                     find_proof = False
                     line = '</details>'
 
                 ##################### begin/end document #######################
-                elif "\\begin{document}" in line:
+                elif "\\\\begin{document}" in line:
                     i_begin_doc = i
 
-                elif "\\end{document}" in line:
+                elif "\\\\end{document}" in line:
                     i_end_doc = i
 
 

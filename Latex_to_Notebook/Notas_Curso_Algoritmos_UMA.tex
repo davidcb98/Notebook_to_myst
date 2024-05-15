@@ -369,7 +369,7 @@ Como veremos más adelante, la computación cuántica (al igual que la clásica)
 \newpage
 
 \addcontentsline{toc}{section}{Código de colores}
-\section*{Código de colores} %%Omitir_seccion
+\section*{Código de colores}
 
 \begin{mybox_gray2}{}
 Teoremas, Lemmas, Definiciones, Demostraciones y conceptos importantes
@@ -492,11 +492,13 @@ Es bien conocido que los números reales se representan sobre una recta, la \tex
 			
 			\SubsubiIt{Forma Polar}
 			
-	\Teorema{Dado un ángulo $\theta \in [0,2 \pi)$ las dos expresiones siguientes son equivalentes
+	\Teorema{ (\textit{Fórmula de Euler})
+	Dado un ángulo $\theta \in [0,2 \pi)$ las dos expresiones siguientes son equivalentes
 	\begin{equation}
 	\cos \theta + i \sin \theta = e^{i \theta}
 	\end{equation}
-	A esta identidad se la denomina \textbf{Fórmula de Euler}.}
+	A esta identidad se la denomina \textbf{Fórmula de Euler}.
+	}
 	
 	\begin{proof}
 	La demostración de la Fórmula de Euler viene de expandir ambos miembros en serie de Taylor en torno a $\theta = 0$ y comprobar que ambas series son iguales
@@ -1530,7 +1532,7 @@ Naturalmente, esta ecuación se traduce en la misma ecuación para las matrices 
 	\end{equation}
 Veamos ahora por qué hemos definido esta clase de operadores.
 
-	\Teorema{
+	\Teorema{ 
 	La acción de un operador unitario conserva \textbf{intacto el producto escalar} de dos vectores cualesquiera. En particular, conserva también la \textit{norma} de cualquier vector. 
 	}
 
@@ -1979,7 +1981,7 @@ $$
 
 			\SubsubiIt{Descomposición Espectral}
 
-	\Teorema{ (\textbf{Teorema Espectral}) 
+	\Teorema{ (\textit{Teorema Espectral}) 
 	Para todo operador normal $N$ existe una base de  autovectores ortonormales,  $\{\ket{\lambda^a_k}\}$,  tales que  $N$ admite la siguiente  \textbf{descomposición espectral }
 	\begin{equation}
 	N = \sum_{k=1}^d \lambda_k   P_k
@@ -2094,7 +2096,8 @@ $A = B + B^\dagger$. Sin embargo, fabricar operadores unitarios no es tan fácil
 
 			\SubsubiIt{Descomposición Polar (PD)}
 
-	\Teorema{Todo operador $A\in{\rm L}(\mathcal{H})$ admite la descomposición polar $A = UR$ donde $U$ es un operador unitario, y $R$ es un operador semi-definido positivo (sólo tiene autovalores positivos o cero)
+	\Teorema{
+	Todo operador $A\in{\rm L}(\mathcal{H})$ admite la descomposición polar $A = UR$ donde $U$ es un operador unitario, y $R$ es un operador semi-definido positivo (sólo tiene autovalores positivos o cero)
 	}
 
 \begin{itemize}
@@ -2175,7 +2178,8 @@ Una propiedad importante de la función exponencial es  $e^xe^y = e^{x+y}$. La p
 	
 	\item \textbf{Teorema de Lie-Suzuki-Trotter}
 	
-	\Teorema{Sean $A,B\subset{\rm L}(\mathcal{H})$ dos operadores lineales genéricos. Entonces
+	\Teorema{
+	Sean $A,B\subset{\rm L}(\mathcal{H})$ dos operadores lineales genéricos. Entonces
 		\begin{equation}
 		e^{A+B} = \lim_{n\to\infty} \left(e^{{A/n}} e^{B/n}\right)^n
 		\end{equation}
@@ -2564,8 +2568,7 @@ y, secretamente, el vector $\ket{w}$ sería factorizable.
 
 El siguiente teorema nos dice \textbf{cuánto nos podemos acercar a esta situación}.
 
-	\Teorema{ (\textbf{Teorema de Schmidt)} 
-	
+	\Teorema{ (\textit{de Schmidt)} 
 	Para cada vector $\ket{w}\in \mathcal{H}_1\otimes \mathcal{H}_2$, \textbf{existen  bases } $\{\ket{f_{1,i}}\}$  de $\mathcal{H}_1$ y  $\{\ket{f_{2,i}}\}$  de $\mathcal{H}_2$, tales que, podemos expresar 
 		\begin{equation} \label{ec_formalismo_teorema_schmidt}
 		\ket{w} = \sum_{i=1}^r s_i \ket{f_{1,i}}\otimes\ket{f_{2,i}} \, ,
@@ -3085,7 +3088,8 @@ La distribución de \textbf{probabilidad condicionada} $p(X|Y)$ asigna un númer
 
 La manera de acceder experimentalmente a estas distribuciones, es efectuar un muestreo $(a_i,b_i), i=1,...,N$ de valores de $(X,Y)$ y \textit{seleccionar} sólo aquellos sucesos donde $b_i = y$ un valor concreto de $Y$.
 
-\Teorema{ (\textbf{Teorema de Bayes}): Las probabilidades condicionales y combinadas se relacionan de la forma siguiente
+\Teorema{ (\textit{de Bayes}): 
+Las probabilidades condicionales y combinadas se relacionan de la forma siguiente
 	\begin{equation}
 	p(x,y) = p(x|y)p(y) = p(y|x) p(x)
 	\end{equation}
@@ -3320,7 +3324,8 @@ Por el \textbf{valor esperado} $\langle A\rangle$ del \textit{observable} $A$ en
 \end{eqnarray}
 Reconocemos entre paréntesis la descomposición espectral de $A$. Llegamos así a la siguiente expresión para el valor esperado de un observable $A$ en un estado $\ket{\psi}$:
 	
-	\Teorema{ El \textbf{valor esperado de un operador} es
+	\Teorema{(\textit{Valor esperado de un operador})
+	El \textbf{valor esperado de un operador} es
 		\begin{equation}
 		\langle A \rangle=\bra{\psi}A \ket{\psi}
 		\end{equation}
@@ -3706,8 +3711,7 @@ Podemos extraer esta información de forma \textit{independiente de la base} usa
 \end{itemize}
 
 	\Teorema{
-	Un estado  $\rho$ será \textit{puro} (\textit{mezcla}) sí y solo sí ${\rm Tr } \rho^2 = 1~~
- ({\rm Tr } \rho^2 <1)$  
+	Un estado  $\rho$ será \textit{puro} (\textit{mezcla}) sí y solo sí ${\rm Tr } \rho^2 = 1~~ ({\rm Tr } \rho^2 <1)$  
 	}
 
 
@@ -3904,7 +3908,192 @@ En resumen: \textbf{bajo \textit{traza parcial}, el entrelazamiento induce \text
 
 \chapter{Qubits}
 
-Hola mundo
+    \section{Definición y bases}
+    
+        \subsection{Definición de Qubit}
+Un concepto fundamental en computación cuántica (QC) es el concepto de \textbf{qúbit} o \textit{bit cuántico}.
+En esta sección veremos que es un qúbit, que es la base computación y como se representa un qubit en la esfera de Bloch.
+
+
+Como sabemos, la computación clásica se de basa en el \textbf{bits}, es decir, en ceros o unos. Con estos bits construimos cadenas de ceros y unos sobre las que se aplican puertas lógicas (AND, OR, NOT,...) que transforman esta cadena en otra. Definamos de forma matemática un bit:
+	\Definicion{
+	Un \textbf{bit} es una variable  real $a$ que puede tomar valores en $ {\mathbb Z}_2= \{0, 1\}$.
+	}
+
+Un qúbit es el equivalen en computación cuántica de un bit. Un qúbit es un \textbf{sistema cuántico de dos niveles de energía o dos estados no degenerado\footnote{Dentro de un sistema cuántico dos estados se denominan \textbf{degenerados} si tiene la misma energía}}. El estado de menor energía será el equivalente al cero y el estado de mayor energía será equivalente al uno. Definiéndolo de forma rigurosa:
+	\Definicion{
+	Un cúbit es un \textbf{espacio de Hilbert} complejo de dimensión dos, $\ket{v} \in \mathcal{H} \sim  \mathbb{C}^2$
+	}
+
+Quizás estas dos definiciones parecen muy pomposas, pero tienen la capacidad de transmitirnos en dos simples frases la abismal diferencia entre un bit y un qúbit. Mientras un bit es simplemente un número entero que puede tomar dos valores, un qúbit puede tomar los infinitos valores del espacio del Hilbert de dos dimensiones. Es decir, bit es una variable discreta (digitalizada), mientras que un qúbit es una variable continua (analógica). Como veremos mas adelante, la digitalización de la computación cuántica se da en el momento de la \textbf{medida}.
+
+Cabe destacar que cualquier sistema  cuyo estado instantáneo se pueda describir mediante un vector $\ket{v}\in {\mathbb C}^2$ puede albergar físicamente un \textbf{qúbit}. A efectos prácticos,  se trata de sistemas que pueden estar y conmutar entre dos niveles de energía bien definidos de manera controlada. Esto lleva a que haya varias implementaciones de los qúbits (qúbits superconductores, trampas de iones, ...). 
+
+Se está explorando también el uso de sistemas cuánticos de más niveles que dos, como lo \textbf{qútrit} de dimensión 3. De forma genérica, a un qúbit de $d$ dimensiones se le denomina \textbf{qúdit}.
+
+
+
+\begin{mybox_blue}{Nota: El espín del electrón como un qúbit}
+El ejemplo más típico es el de un espín de un electrón, que de forma natural tiene dos niveles (la proyección 1/2 y la proyección -1/2). Sin embargo, como queremos que los dos estados estén bien diferenciados, debemos pensar en el espín de un electrón sumergido en un campo magnético, de forma que la proyección del espín a favor del campo se ve favorecida sobre la otra. Es decir, pasamos de tener un dos estados degenerados (de igual energía) a tener dos estados con diferente energía. 
+\end{mybox_blue}
+
+
+	
+
+	  	\subsection{Bases computacionales y bases $X$ e $Y$.}
+	  	
+En esta sección vamos a ver tres bases para representar nuestro qúbits: la base $Z$ (o computacional), la $X$ y la $Y$. Estás dos últimas bases estarán referidas a la primera.  
+	  	
+			\SubsubiIt{Base computacional o base $Z$} 
+    	
+Como acabamos de ver, los qúbits viven en un espacio de Hilbert complejo de dos dimensiones, así que vamos a necesitar dos vectores ortonormales para definir una \textbf{base}. 
+    	
+Definir por primera vez una base tiene una cierta componente de arbitraridad. Por ejemplo, cuando tenemos un vector en un plano podemos describirlo definiendo sus cordenadas respecto a unos ejes $x$ e $y$. La gracia está en que estos ejes podemos elegirlos como queramos (siempre que sean independientes). Sin embargo, una vez fijados unos ejes, cualquier nuevo par de ejes que introduzcamos (cualquier nueva base) está definido a partir de los primeros.
+
+%	\begin{mybox_red}{!!!!!!!!!!}
+%	Puedo dibujar un grafiquito
+%	\end{mybox_red}
+
+	\begin{mybox_blue}{Mas sobre el espín}
+	Como comentamos en una nota anterior, los autoestado  $\ket{+}$ y $\ket{-}$ de la matriz $\sigma_z$ 
+	corresponden a las proyecciones $1/2$ y $-1/2$ del espín sobre el eje $z$. Cabe preguntarnos, porque 
+	es tan común medir las proyecciones sobre este eje? En realidad, es simplemente por convenio y 
+	por la arbitraridad a la hora de elegir la dirección de este eje. Simplemente, se mide la 
+	proyección del espín sobre un eje cualquiera y se considera que este es el eje $z$. Como ahora 
+	tenemos definido uno de los ejes, si medimos en otro eje diferente, esta nueva medida  ya no podrá 
+	ser la proyección sobre el eje $z$. 
+	\end{mybox_blue}
+
+La base que se usa habitualmente en computación cuántica se denomina \textbf{base computacional} y se denota como $B = \{ \ket{0}, \ket{1} \}$. Podemos ver la clara analogía con los bits. Esta base es \textbf{ortonormal}, es decir
+	\begin{equation}
+	\braket{0}{1}=\braket{1}{0}=0 ~~~ \text{y} ~~~ \braket{0}{0}=\braket{1}{1}=1\, .
+	\end{equation}
+
+Una manera de especificar una base es decir cuál es el operador que diagonaliza. A la base computacional se la suele denominar habitualmente como \textbf{base $Z$}, pues es la base que diagonaliza la matriz de Pauli $\sigma_z$
+	\begin{align}
+	& \ket{+} = \ket{0}_Z \equiv \boxed{\ket{0} = \begin{bmatrix}  1\\ 0\end{bmatrix}},  
+	& \ket{-} = \ket{1}_Z \equiv \boxed{\ket{1} =  \begin{bmatrix}  0\\ 1\end{bmatrix}} 
+	\end{align}
+Es decir, esta base la forman los autoestados del operador $Z = \sigma_z = \lp \begin{matrix} 1& 0 \\ 0 & -1 \end{matrix} \rp $ con autovalores $\pm 1$. 
+ 
+			\SubsubiIt{Base $X$} 
+			
+También podemos usar la base de autoestados del operador $X = \sigma_x = \lp \begin{matrix} 0 & 1 \\ 1 & 0 \end{matrix} \rp $ con autovalores $\pm 1$:
+	\begin{align}
+	& \ket{x_+} = \ket{0}_X \equiv \boxed{\ket{+} = \frac{1}{\sqrt{2}} \lp \ket{0} + \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ 1  \end{bmatrix}}, \label{ec_qubit_x+} \\
+	& \ket{x_-} = \ket{1}_X \equiv \boxed{\ket{-} =  \frac{1}{\sqrt{2}} \lp \ket{0} - \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -1  \end{bmatrix}}. \label{ec_qubit_x-}
+	\end{align}
+
+			\SubsubiIt{Base $Y$} 
+			
+También podemos usar la base de autoestados del operador $Y = \sigma_y = \lp \begin{matrix} 0 & -i \\ i & 0 \end{matrix} \rp $ con autovalores $\pm 1$:
+	\begin{align}
+	& \ket{y_+} = \ket{0}_Y \equiv \boxed{\ket{+i} = \frac{1}{\sqrt{2}} \lp \ket{0} + i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ i  \end{bmatrix}}, \label{ec_qubit_y-} \\
+	& \ket{y_-} = \ket{1}_Y \equiv \boxed{\ket{-i} =  \frac{1}{\sqrt{2}} \lp \ket{0} - i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -i  \end{bmatrix}}. \label{ec_qubit_y-}
+	\end{align}
+   	
+	\Ejercicio{Escribe las matrices de cambio de la base $Z\to X$, $Z\to Y$ y $X\to Y$.}
+	
+
+    	
+    \section{El estado de un qúbit y la esfera de Bloch}
+    	\subsection{Parametrización del estado de un qúbit.}
+    
+Como ya sabemos, en un bit clásico podemos almacenar un valor, o 0 o 1. La pregunta ahora es, ¿cuánta información podemos almacenar en un qúbit? De forma genérica, el \textbf{estado de un qubit} se puede representar como
+	\begin{equation}
+	\ket{u} = a \ket{0} + b \ket{1}, ~~~~ \text{con } a,b \in \mathbb{C}
+	\end{equation}
+	
+	\begin{mybox_blue}{Nota}
+	Habitualmente, se denomina simplemente \textbf{qúbit} al \textbf{estado del qúbit}.
+	\end{mybox_blue}	
+	
+En principio, como $a$ y $b$ son complejos tenemos 4 grados de libertas. Sin embargo, tenemos una ligadura, la normalización\footnote{El estado completo de un sistema cuántico debe estar normalizada a $1$, pues la probabilidad de medir algo alguno de los estados debe de ser el 100 \%} del estado
+	\begin{equation}
+	|a|^2 + |b|^2 = 1,
+	\end{equation}
+lo que nos deja 3 grados de libertar. Además, como en mecánica cuántica las fases globales\footnote{Al multiplicar un estado por una fase de la forma $e^{i \phi}$, el estado es el mismo} no tienen significado, perdemos otro grado de libertad. Nos quedamos pues con dos grados de libertar (reales), es decir, solo necesitamos dos parámetros reales para parametrizar el estado estado de un qubit. La parametrización más habitual se presenta en el siguiente lemma:
+
+	\Lemma{
+	El \textbf{qúbit} $\ket{u}$  \textbf{más general} se puede representar, en la base computacional 
+	$\{\ket{0},\ket{1}\}$, usando dos números reales (ángulos) $\theta\in [0,\pi)$ y $\varphi\in [0,2\pi)$   
+	\begin{equation} \label{ec_qubit_caso_general}
+	\boxed{\ket{u} = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\varphi}\sin{\frac{\theta}{2}}\,|1\rangle }
+	\end{equation}
+	}
+
+	\begin{proof}
+	Para demostrar el lema escribimos un vector de estado general usando la representación polar para 
+	las componentes complejas
+    $$
+	\begin{array}{rcl}
+	\ket{u} &=& u_0\ket{0} + u_1\ket{1} \\
+	&=& a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
+	&=& e^{i b_0}\big(a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1}\big)\\
+	&\sim & \big( a_0 \ket{0} + a_1 e^{i(b_1-b_0)}\ket{1} \big)
+	\end{array}
+	$$
+    
+	donde hemos hecho uso de la irrelevancia de una fase global para descartar $e^{i b_0}$ en la última línea.
+
+	Ahora $a_1$ y $a_0$ no son números independientes sino que verifican $a_0^2 + a_1^2 = 0$ para que 
+	$\|\ket{u}\|=1$. Esta ecuación se puede resolver en términos de un ángulo $\theta/2$ tal que
+	$$
+	a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2} 
+	$$
+	Por su parte, de los números $b_1, b_2$ sólo la diferencia
+	$$
+	\varphi = b_1-b_2
+	$$
+	es relevante para especificar $\ket{u}$. 
+	\end{proof}
+  
+En componentes escribimos equivalentemente
+	\begin{equation} \label{ec_qubit_vec_estado}
+	\boxed{\ket{u} = \begin{bmatrix} & \cos \frac{\theta}{2} \\ & e^{i \psi}  \sin \frac{\theta}{2} \end{bmatrix}
+	~~~~ \text{con } \theta\in [0,\pi) \text{ y } \phi\in [0,2\pi)}
+	\end{equation}
+
+ 
+        \subsection{La esfera de Bloch}
+        
+Viendo la Ec. (\ref{ec_qubit_vec_estado}) vemos que podemos interpretar los parámetros $\theta$ y $\varphi$ como ángulos y representar el vector de estado del qúbit en sobre una \textit{esfera unidad}. Dicho de otro modo, podemos representar  cada estado de un qúbit como un \textbf{punto }sobre una esfera de radio unidad: la \textbf{esfera de Bloch}.
+	\begin{itemize}
+		\item $\theta\in [0,\pi)$ el ángulo \textbf{azimutal} se mide desde el eje $z$. De modo que $\theta=\pi/2$ 
+		es el \textbf{ecuador de la esfera de Bloch}.
+		
+		\item $\phi\in [0,2\pi)$ el ángulo \textbf{polar} en torno al eje $z$, medido a partir del plano $XZ$
+	\end{itemize}
+
+Veamos donde se sitúan en la esfera los elementos de las bases $Z$, $X$ e $Y$ que vimos anteriormente 
+	\begin{itemize}
+		\item $(\theta, \phi) = (0, \phi)   \rqa e^{i\phi}  \ket{0} = \ket{0}$
+		\item $(\theta, \phi) = (\pi, \phi) \rqa e^{i \phi} \ket{1} = \ket{1}$
+		\item $(\theta, \phi) = (\pi/2, 0)   \rqa \frac{1}{\sqrt{2}}\big(|0\rangle+|1\rangle \big) =\ket{0}_X \equiv |+\rangle$
+		\item $(\theta, \phi) = (\pi/2, \pi) \rqa \frac{1}{\sqrt{2}}\big(|0\rangle-|1\rangle \big)=\ket{1}_X \equiv |-\rangle $
+		\item $(\theta, \phi) = (\pi/2, \pi/2) \rqa \frac{1}{\sqrt{2}}\big( |0\rangle +i|1\rangle\big) =\ket{0}_Y \equiv  |+i \rangle $
+		\item $(\theta, \phi) = (\pi/2, 3\pi/2) \rqa \frac{1}{\sqrt{2}}\big(|0\rangle-i|1\rangle\big) = \ket{1}_Y \equiv  |-i\rangle $
+	\end{itemize}
+
+Podemos ver la representación de estos estados sobre la esfera de Bloch en la Fig. \ref{Fig_qubit_BlochSphere}. 
+
+
+
+
+	\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.3\linewidth]{Figuras/Fig_qubit_BlochSphere.png}
+	\caption{Esfera de Bloch. Figura tomada de \cite{Curso-JMas}}
+	\label{Fig_qubit_BlochSphere}
+	\end{figure}
+	
+	Véase que no estamos representando vectores en un espacio tridimensional, sino algo completamente diferente. En el espacio $\mathbb{R}^3$, dos vectores son ortogonales si forman un ángulo de 90º. Sin embargo, en la esfera de Bloch \textit{dos vectores son ortonales (en realidad, ortonormales) si apuntan en direcciones opuestas}. Por ejemplo, ya comentamos que los estados $\ket{0}$ y $\ket{1}$ forman una base ortonormal. Si nos fijamos, en la esfera de Bloch el estado $\ket{0}$ está en el polo norte y el estado $\ket{1}$ en el polo sur. Lo mismo pasa con $\ket{0}_X$ y $\ket{1}_X$ y con $\ket{0}_Y$ y $\ket{1}_Y$.
+
+        
+    \begin{mybox_orange}{Jupyter Notebook: 01-Estados\_y\_Esfera\_de\_Bloch}
+    Puede verse el Notebook \textit{01-Estados\_y\_Esfera\_de\_Bloch.ipynb}. En el se muestra como dibujar estados en la esfera de Bloch usando 
+    Qiskit en Python.
+    \end{mybox_orange}
 
 
 
@@ -3948,7 +4137,8 @@ Como podemos ver en el teorema anterior, solo necesitamos un ángulo y un eje (u
 	\begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.3\linewidth]{Figuras/Fig_puertas_simples_BlochSphere_rot.png}
-	\caption{Una rotación en la esfera de Bloch representada por un eje de rotación y el ángulo que se rota entorno al mismo. Figura tomada de \cite{Curso-JMas}}
+	\caption{Una rotación en la esfera de Bloch representada por un eje de rotación y el 
+	ángulo que se rota entorno al mismo. Figura tomada de \cite{Curso-JMas}}
 	\label{Fig_puertas_simples_BlochSphere_rot.png}
 	\end{figure}
 
@@ -5354,12 +5544,14 @@ $$
 
 La cosa se pone más divertida cuando los dos polarizadores de Stern Gerlach \textbf{no se orientan en la misma dirección}. Es decir, cuando medimos las proyecciones del spín en dos direcciones diferentes. El observable asociado ahora a la dirección $\hat{\bf n}$  será  $\hat{\bf n}\cdot \boldsymbol{\sigma}$. Aun así, los autovalores de este operador y, por ello, la proyección del espín seguirá siendo $\pm 1$. Como ya comentamos, da igual en que eje se mida, los valores de la proyección del espín que podemos medir son los mismos. Sin embargo, ahora el valor esperado cambia:
 
-	\Teorema{El valor medio del producto de las proyecciones de espín a lo largo de sendos ejes $\hat{\bf m}$ y 
+	\Teorema{ \label{Teo_entrelazamiento_bell}
+	El valor medio del producto de las proyecciones de espín a lo largo de sendos ejes $\hat{\bf m}$ y 
 	$\hat{\bf n}$ viene dada por el coseno del ángulo $\theta$  que forman los  ejes de los dos detectores     
 	$$
 	\bra{B_{11}}(\hat{\bf m}\cdot \boldsymbol{\sigma}\otimes \hat{\bf n}\cdot \boldsymbol{\sigma})\ket{B_{11}}
 	= -\cos \theta = - \hat{\bf m}\cdot \hat{\bf n}
-	$$ \label{Teo_entrelazamiento_bell}}
+	$$ 
+	}
 	
 	\Ejercicio{Prueba el resultado del teorema \ref{Teo_entrelazamiento_bell}}
 
@@ -5406,7 +5598,8 @@ Esta vez, como miden en direcciones diferentes, los dos pueden medir el mismo va
 
 En un mundo clásico, supondríamos que los valores $a_i,b_i$ proceden de \textbf{valores predefinidos} para cada sistema individual, sobre el que efectuamos simplemente un promedio estadístico de muchos sistemas. Entonces podemos probar la \textbf{desigualdad de CSCH}:
 
-	\Teorema{La desigualdad de CSCH afirma que 
+	\Teorema{
+	La desigualdad de CSCH afirma que 
 	\begin{equation} \label{ec_entrelazamiento_CHSH_R}
 	R \leq 2
 	\end{equation}
@@ -5644,10 +5837,12 @@ Consideremos el circuito de la Fig. \ref{Fig_entrelazamiento_entanglement_swap}.
 	En un principio, que el protocolo de teleportación exija la destrucción del estado inicial para teleportarlo puede parecer una particularidad de este protocolo. Sin embargo, nada más lejos de la realidad.
 	El \textbf{Teorema de No Clonación} es uno de los resultados más sencillos y a la vez más importante del formalismo de la Mecánica Cuántica. De hecho su formalización completa es bastante reciente, 1982, debida a Wootters, Zurek \cite{clone2} y Dieks \cite{clone1}.
 	
-	\Teorema{ \textbf{(de No Clonación)} No existe un operador unitario $U$ (clonador) que, para un estado arbitrario $|\psi\rangle$, realice la siguiente operación
+	\Teorema{ (\textit{de No Clonación})
+	No existe un operador unitario $U$ (clonador) que, para un estado arbitrario $|\psi\rangle$, realice la siguiente operación
 		\begin{equation}
 		U \ket{\psi}\ket{0} = \ket{\psi}\ket{\psi}
-		\end{equation}}
+		\end{equation}
+	}
 
 	\begin{proof}
 	Supondremos que $U$ existe y llegaremos a una contradicción. 
@@ -6877,7 +7072,8 @@ donde $f: x \to f(x)$ es una función arbitraria invertible.
 
 
 
-	\Teorema{ \textit{(Barenco et. al. 1995):} Cualquier operador unitario $U_n$ sobre $n$ qúbits puede expresarse como el 
+	\Teorema{ (\textit{Barenco et. al. 1995}): 
+	Cualquier operador unitario $U_n$ sobre $n$ qúbits puede expresarse como el 
 	producto de 
 	\begin{itemize}
 		\item puertas continuas de \textit{un qúbit}
@@ -7209,7 +7405,9 @@ Es decir, tomamos $\ket{y} = 0$.
 
 Nada nos impide inicializar la ancilla en un \textbf{autovector} de $U_f$. 
 
-	\Teorema{Teorema: los autovectores de $U_f$ son los estados $\ket{x}\otimes \ket{\pm}$.}
+	\Teorema{
+	Los autovectores de $U_f$ son los estados $\ket{x}\otimes \ket{\pm}$.
+	}
 	
 	\begin{proof}
 	Por un lado sabemos que los autovalores deben ser $\pm 1$ dado que $U_f^2 = I$. Veamos cada caso
@@ -7331,7 +7529,9 @@ Vamos a plantear los siguientes problemas del oráculo de la siguiente forma: te
 		\begin{figure}[h!]
 		\centering 
 		\includegraphics[width=0.6\linewidth]{Figuras/Fig_algoritmos_circuito_genérico_Deutsch-Jozsa.png}
-		\caption{Forma genérica de los circuitos de Deutsch-Jozsa y Bernstein-Vazirani, donde el oráculo toma como entradas todos los qúbits menos el último, el qúbit ancila. Sobre este último qúbit es sobre el que se aplica el oráculo. Como el qúbit ancila se inicializa en el estado $\ket{-}$, estamos ente oráculos de fase.}
+		\caption{Forma genérica de los circuitos de Deutsch-Jozsa y Bernstein-Vazirani, donde el oráculo toma como entradas todos los qúbits 
+		menos el último, el qúbit ancila. Sobre este último qúbit es sobre el que se aplica el oráculo. Como el qúbit ancila se inicializa en el 
+		estado $\ket{-}$, estamos ente oráculos de fase.}
 		\label{Fig_algoritmos_circuito_genérico_Deutsch-Jozsa}
 		\end{figure}
 
@@ -7650,7 +7850,9 @@ En general, los elementos de matriz serán evidentemente, las fases
 
 En el primer ejemplo es fácil de ver que los vectores de la base de Fourier se sitúan sobre el plano $xy$. 	En el segundo caso también es cierto, pero es más difícil de ver a primera vista. Esta es una regla de la QFT:
 
-	\Teorema{Los vectores de la \textbf{base de Fourier} son estados \textbf{factorizables} en productos de estados de un qúbit que se sitúan \textbf{sobre el ecuador} de la esfera de Bloch (sobre el plano $xy$)}
+	\Teorema{
+	Los vectores de la \textbf{base de Fourier} son estados \textbf{factorizables} en productos de estados de un qúbit que se sitúan \textbf{sobre el ecuador} de la esfera de Bloch (sobre el plano $xy$)
+	}
 
 Uno de los puntos importantes del anterior teorema es que nos dice que la base de Fourier es factorizable, no entrelazada. Esto puede parecer sorprendente, pues la QFT es una suma de muchos elementos con fases distintas. Como la base de Fourier es factorizable, podemos dibujarla como productos de esferas de Bloch, como se puede ver en la Fig. \ref{Fig_QFT_compu_fourier_bases}. En esta figura podemos ver varios ejemplos de transformadas de Fourier de elementos de la base computacional para 4 qúbits. Veamos ahora la demostración del teorema:
 
@@ -7985,7 +8187,8 @@ con $a \in \mathbb{Z}$ y $\delta \in [0,1)$. Con esta separación, el resultado 
 
 La \textbf{anchura $t$ del circuito auxiliar} determina la anchura de la curva de probabilidad en torno al valor medio, es decir, como de precisa será nuestra estimación de la fase. Es fácil convencerse de que cuanto mayor sea $t$, mayor será nuestra precisión. Podemos acotar la aproximación al valor real de la fase buscada según el siguiente teorema  (ver Nielsen \cite{nielsen} p. 224)
 
-	\Teorema{El algoritmo QPE (Quantum Phase Estimation) es capaz de producir una \textit{estimación $m$ de orden $k$}  para la fase $\varphi$ (en el sentido de que  $|\varphi- m/2^t |<2^{-k}$) con una  probabilidad $1-\epsilon$,  tomando una dimensión del espacio de representación
+	\Teorema{
+	El algoritmo QPE (Quantum Phase Estimation) es capaz de producir una \textit{estimación $m$ de orden $k$}  para la fase $\varphi$ (en el sentido de que  $|\varphi- m/2^t |<2^{-k}$) con una  probabilidad $1-\epsilon$,  tomando una dimensión del espacio de representación
 	$$
 	t \geq k  + \left[ \log\left(1 + \frac{1}{2\epsilon}\right) \right] 
 	$$
@@ -8188,7 +8391,7 @@ $d$ fácilmente. La fiabilidad del sistema reside en la inexistencia de métodos
 
 
 	\section{Fundamentos de QKD}
- 
+
 
 El panorama ha cambiado en las últimas décadas, gracias a las inesperadas aportaciones de la física cuántica. A principios de los años 80, Bennett y Brassard propusieron una solución al problema de la distribución de claves basada en la física cuántica \cite{BB84}; esta idea, redescubierta independientemente por Ekert unos años más tarde \cite{Ekert-1991}, fue el comienzo de la \textbf{Quantum Key Distribution (QKD)}.
 

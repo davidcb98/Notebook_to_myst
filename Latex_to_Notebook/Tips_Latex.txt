@@ -1,0 +1,29 @@
+################################################################
+### Los cuadros \Teorema{}, \Lemma{},... de la forma
+
+\Teorema{ (\textbf{Subtitulo}) \label{Teo_...}
+Contenido del cuadro
+}
+
+El subtitulo y la label son opcionales.
+Puede haber lineas en blando dentro.
+
+
+
+
+
+
+
+
+######### Cosas para hacer
+
+- Subtitulos de los teoremas
+- los textbf
+- los textit
+- \vspace
+- Los mybox_green,....
+- Lemma,...
+- Añadir ketbra a a plantilla
+
+
+- Subfigure
