@@ -11,7 +11,6 @@ parts:
     - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_04_Tensores_myst.ipynb
     - file:  docs/Part_01_Formalismo/Chapter_01_02_Formalismo_matemático/Section_01_05_Probabilidades_myst.ipynb
   - file:  docs/Part_01_Formalismo/Chapter_02_01_Fundamentos_MC_myst.ipynb
-
 - caption:  Circuitos Cuánticos
   chapters:
   - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_01_01_Circuitos_1_cubit_myst.md
@@ -29,17 +28,14 @@ parts:
     sections:
     - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_03_02_Mas_sobre_Circuitos/Section_031_Elementos_Basicos_myst.ipynb
     - file:  docs/Part_02_Circuitos_Cuánticos/Chapter_03_02_Mas_sobre_Circuitos/Section_032_CompClasica_myst.ipynb
-
 - caption:  Algoritmos Cuánticos
   chapters:
   - file:  docs/Part_03_Algoritmos/Chapter_041_Alg_Oraculo_myst.ipynb
   - file:  docs/Part_03_Algoritmos/Chapter_042_QFT_myst.ipynb
   - file:  docs/Part_03_Algoritmos/Chapter_043_QPE_myst.ipynb
   - file:  docs/Part_03_Algoritmos/Chapter_044_Grover_myst.ipynb
-
 - caption:  Informacion Cuántica
   chapters:
   - file:  docs/Part_04_Quantum_Info/Chapter_051_Operador_densidad_myst.ipynb
   - file:  docs/Part_04_Quantum_Info/Chapter_052_Fun_Info_Cuant_myst.ipynb
   - file:  docs/Part_04_Quantum_Info/Chapter_053_Entrop_Cuant_myst.ipynb
-

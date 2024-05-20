@@ -565,7 +565,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Mar 01, 2024 | 16 min read</p>
+<div><p>May 16, 2024 | 16 min read</p>
 </div></blockquote>
 <figure class="align-right">
 <a class="reference internal image-reference" href="../../_images/Logo_TalentQ_Azul.png"><img alt="../../_images/Logo_TalentQ_Azul.png" src="../../_images/Logo_TalentQ_Azul.png" style="width: 150px;" /></a>
@@ -660,8 +660,8 @@ p (x^n) ~=~ \prod_{i=1}^n p(x_i) ~=~  \prod_{i=1}^N p(a_i)^{N(a_i|x^n)}\, .\labe
 \left|-\frac{1}{n} \log \, p(\bar x^n) - H(X)\right| \leq \delta
 \]</div>
 <p>El número de secuencias típicas es <i>subexponencial</i> con respecto al conjunto de secuencias posible</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b885e8a-cce9-4902-b0e2-445e839c17c8">
-<span class="eqno">(44)<a class="headerlink" href="#equation-2b885e8a-cce9-4902-b0e2-445e839c17c8" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-cf8ae7ad-a530-41fb-991b-831e189742e5">
+<span class="eqno">(44)<a class="headerlink" href="#equation-cf8ae7ad-a530-41fb-991b-831e189742e5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{[\bar x^n ]}{N^n} =  \frac{n!}{\prod_{i=1}^N (N(a_i | \bar x^n)!}\frac{1}{N^n} &amp;\stackrel{n\to\infty}{\to}&amp; \frac{n!}{\prod_{i=1}^N (n p_X(a_i))!}  \frac{1}{N^n} = 2^{\log n! - \sum_{i=1}^N \log (n p_X(a_i))!-n\log N} \nonumber\\
 \rule{0mm}{7mm}&amp;\sim &amp; 2^{n\log n - n/\ln 2 - \sum_i (np_X(a_i) \log n p_X(a_i)+ n p_X(a_i) /\ln 2)-n\log N}  \nonumber\\
 &amp; \sim  &amp; 2^{-n (\log N- H_X)}  
@@ -669,8 +669,8 @@ p (x^n) ~=~ \prod_{i=1}^n p(x_i) ~=~  \prod_{i=1}^N p(a_i)^{N(a_i|x^n)}\, .\labe
 \end{eqnarray}\]</div>
 <p>Finalmente, la probabilidad de encontrar
 una secuencia típica  <span class="math notranslate nohighlight">\(\bar x^n = x_1...x_n\)</span>, será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce286098-b365-41fe-a4d8-13c8f03a4a70">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ce286098-b365-41fe-a4d8-13c8f03a4a70" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-21c3df8d-1192-424e-9e54-78e6a32b6227">
+<span class="eqno">(45)<a class="headerlink" href="#equation-21c3df8d-1192-424e-9e54-78e6a32b6227" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
  p(\bar x^n) &amp;=&amp; p(x_1)p(x_2)....p(x_n)  \nonumber\\
 \rule{0mm}{5mm} &amp;\simeq &amp; p(a_1)^{n p(a_1)} ...p(a_N)^{np(a_N)} \nonumber\\
 \rule{0mm}{5mm} &amp;=&amp; 
@@ -771,8 +771,8 @@ su máximo.</p></li>
 <section id="entropia-relativa">
 <h3>Entropía relativa<a class="headerlink" href="#entropia-relativa" title="Permalink to this heading">#</a></h3>
 <p>La entropía relativa  es una medida de la <em>distancia</em> entre las distribuciones de probabilidad <span class="math notranslate nohighlight">\(p(x)\)</span> y <span class="math notranslate nohighlight">\(q(x)\)</span>, definidas sobre el mismo espacio muestral <span class="math notranslate nohighlight">\(x\in X\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-632a7ff3-b2ad-4aa7-ac77-8a6e1b41e748">
-<span class="eqno">(46)<a class="headerlink" href="#equation-632a7ff3-b2ad-4aa7-ac77-8a6e1b41e748" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-613a8034-5624-4d24-9081-46984b33c30b">
+<span class="eqno">(46)<a class="headerlink" href="#equation-613a8034-5624-4d24-9081-46984b33c30b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H(p|| q) &amp;=&amp; \sum_x p(x) \big( \log p(x)- \log q(x) \big)  \\
 &amp;=&amp;  - H(X) -  \sum_x p(x) \log q(x)\, .
 \end{eqnarray}\]</div>
@@ -798,8 +798,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">En general tendremos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1fb7e6a-1399-41de-8020-95e0d2031fcb">
-<span class="eqno">(47)<a class="headerlink" href="#equation-c1fb7e6a-1399-41de-8020-95e0d2031fcb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-67b0a4e4-1dbf-4a00-b3c9-81ec24d886a8">
+<span class="eqno">(47)<a class="headerlink" href="#equation-67b0a4e4-1dbf-4a00-b3c9-81ec24d886a8" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
  \sum_x p(x)  \log \frac{p(x)}{q(x)} &amp; ~= ~&amp;   \sum_x p(x) \log\frac{p(x)}{q(x)}    ~= ~ - \sum_x p(x)   \log\frac{q(x)}{p(x)} \nonumber\\
 &amp;~\geq ~&amp; -  \log  \sum_x p(x)  \frac{q(x)}{p(x)}   ~= ~ -  \log  \sum_x q(x)   \nonumber\\
 &amp;=&amp;  -\log 1\nonumber =  0  \nonumber
@@ -842,8 +842,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Tomemos ahora sobre la variable aleatoria <span class="math notranslate nohighlight">\(XY \to \{(x,y)\}\)</span>, para <span class="math notranslate nohighlight">\(p_X\)</span> la distribución combinada <span class="math notranslate nohighlight">\(p_{X,Y}\)</span> y para <span class="math notranslate nohighlight">\(q_X\)</span> la  factorizada <span class="math notranslate nohighlight">\( p_Xp_Y\)</span>, donde <span class="math notranslate nohighlight">\(p_X(x) = \sum_y p_{XY}(x,y)\)</span> y <span class="math notranslate nohighlight">\(p_Y(y) = \sum_x p_{XY}(x,y)\)</span> son las distribuciones marginales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-35fcdcef-7cbd-461f-949f-30aa029cf5d2">
-<span class="eqno">(48)<a class="headerlink" href="#equation-35fcdcef-7cbd-461f-949f-30aa029cf5d2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-c3f3b226-70fc-44e8-a48f-a2e94e7e6ce0">
+<span class="eqno">(48)<a class="headerlink" href="#equation-c3f3b226-70fc-44e8-a48f-a2e94e7e6ce0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H(p_{X,Y}(x, y) || p_X(x) p_Y(y)) 
 &amp;=&amp; -  H(X,Y) - \sum_{x,y} p_{XY}(x,y) \log p_X(x)  - \sum_{x,y} p_{XY}(x,y) \log p_Y(y) \nonumber\\
 &amp;=&amp; -  H(X,Y) - \sum_{x} p_{X}(x) \log p_X(x)  - \sum_{y} p_{Y}(y) \log p_Y(y) \nonumber\\
@@ -897,8 +897,8 @@ H(X) = - \sum_{a=1}^r p_a \log p_a
 <li><p>el <em>canónico</em>, asociado a la diagonalización de <span class="math notranslate nohighlight">\(\rho \to   C = \{\ket{\lambda_i},\lambda_i\}\)</span></p></li>
 </ul>
 <p>Cada colectivo lleva asociada una entropía de Shannon</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eddced01-f7c5-4024-ae3c-ce08fe9a2ea5">
-<span class="eqno">(49)<a class="headerlink" href="#equation-eddced01-f7c5-4024-ae3c-ce08fe9a2ea5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-af541021-729d-4b51-ade7-130023caf3b4">
+<span class="eqno">(49)<a class="headerlink" href="#equation-af541021-729d-4b51-ade7-130023caf3b4" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 H(X) &amp;=&amp; -\sum_a p_a \log p_a \\
 H(C) &amp;=&amp; -\sum_{i=1}^N \lambda_i \log \lambda_i
 \end{eqnarray}\]</div>
@@ -1075,15 +1075,15 @@ El resultado es plausible porque <span class="math notranslate nohighlight">\(H(
 \rho = p_0\ket{0}\bra{0} + p_1\ket{1}\bra{1} = \begin{bmatrix} p_0 &amp; 0 \\ 0 &amp; p_1 \end{bmatrix}
 \end{split}\]</div>
 <p>y la entropía de Shannon asociada será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c6d8cef-329f-43d9-8bc2-f7b65d20b7df">
-<span class="eqno">(50)<a class="headerlink" href="#equation-5c6d8cef-329f-43d9-8bc2-f7b65d20b7df" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-4e81e26c-fc3f-4afe-acbc-003042ff1784">
+<span class="eqno">(50)<a class="headerlink" href="#equation-4e81e26c-fc3f-4afe-acbc-003042ff1784" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S(\rho) &amp;=&amp;  -\Tr \rho\log \rho = - \Tr \left( \begin{bmatrix} p_0 &amp; 0 \\ 0 &amp; p_1 \end{bmatrix}  \begin{bmatrix} \log p_0 &amp; 0 \\ 0 &amp; \log p_1 \end{bmatrix} \right) \nonumber\\
 &amp;=&amp; \rule{0mm}{5mm}
 -p_0\log p_0 - p_1 \log p_1 = H(p_0,p_1) \nonumber
 \end{eqnarray}\]</div>
 <p>Entonces, para estados ortogonales, las entropías de  Von Neuman y de Shannon son iguales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a89bd63-cc8d-4299-8e9a-61d281bd60f5">
-<span class="eqno">(51)<a class="headerlink" href="#equation-1a89bd63-cc8d-4299-8e9a-61d281bd60f5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-500ed4d0-72b1-422f-b911-414ff621b04b">
+<span class="eqno">(51)<a class="headerlink" href="#equation-500ed4d0-72b1-422f-b911-414ff621b04b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S(\rho)\rule{0mm}{8mm}&amp;=&amp; -\frac{1}{4}\log \frac{1}{4} - \frac{3}{4} \log \frac{3}{4}    = 0.81 \, \hbox{bits} = 
   H(X)   \, . \nonumber
 \end{eqnarray}\]</div>
@@ -1159,8 +1159,8 @@ $<span class="math notranslate nohighlight">\(
 \tr (\rho'\log \rho') = \tr\left[ \sum_l  P_l \rho P_l \log \rho' \right] 
 \]</div>
 <p class="sd-card-text">Examinemos:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ffecc9b-6d0d-423b-9a16-ef5a00b7c368">
-<span class="eqno">(52)<a class="headerlink" href="#equation-0ffecc9b-6d0d-423b-9a16-ef5a00b7c368" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-82ba769b-8db8-431c-9582-6ff9f9f1e24f">
+<span class="eqno">(52)<a class="headerlink" href="#equation-82ba769b-8db8-431c-9582-6ff9f9f1e24f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 P_l \rho' &amp;=&amp; P_l\sum_m P_m \rho P_m = \sum_m P_l\delta_{lm}\rho P_m = P_l\rho P_l \nonumber \\
 \rho'P_l  &amp;=&amp; \sum_m P_m \rho P_mP_l = \sum_m P_m\rho P_l \delta_{lm} = P_l\rho P_l\nonumber  \\
 \end{eqnarray}\]</div>
@@ -1402,8 +1402,8 @@ Demostración<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Consideremos la entropía relativa asociada a los estados <span class="math notranslate nohighlight">\(\rho  = \rho_{AB}\)</span> y  <span class="math notranslate nohighlight">\(\sigma = \rho_A\otimes \rho_B\)</span></p>
 <p class="sd-card-text">Entonces, por la desigualdad de Klein</p>
-<div class="amsmath math notranslate nohighlight" id="equation-016a15c0-e6bb-4d5c-971a-5fc83f04f524">
-<span class="eqno">(53)<a class="headerlink" href="#equation-016a15c0-e6bb-4d5c-971a-5fc83f04f524" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-6e3b87f4-2447-4484-90ab-fdbad1413f37">
+<span class="eqno">(53)<a class="headerlink" href="#equation-6e3b87f4-2447-4484-90ab-fdbad1413f37" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 0\leq S(\rho\|\sigma) &amp;=&amp; \tr\left(\rho_{AB}(\log \rho_{AB} - \log (\rho_A\otimes \rho_B) \rule{0mm}{4mm}\right)\nonumber\\  \rule{0mm}{8mm}
 &amp;=&amp; \tr \left(\rho_{AB}(\log \rho_{AB} - \log (\rho_A\otimes I) -\log ( I \otimes \rho_B) \rule{0mm}{4mm} \right)
 \\ \rule{0mm}{8mm}
@@ -1491,8 +1491,8 @@ Demostración<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">La desigualdad de la derecha se denomina <i>subaditividad</i>    y equivale a la positividad de la entropía relativa.</p>
 <p class="sd-card-text">Para demostrar la desigualdad de la izquierda (Araki-Lieb) recordamos la cota inferior para la entropía condicional</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf328ef1-d54b-4fab-a53b-bc41e9ea4bf7">
-<span class="eqno">(54)<a class="headerlink" href="#equation-bf328ef1-d54b-4fab-a53b-bc41e9ea4bf7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-3344c43e-8cb6-4570-8523-229b8a31b0fb">
+<span class="eqno">(54)<a class="headerlink" href="#equation-3344c43e-8cb6-4570-8523-229b8a31b0fb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
  S(A|B) = S(AB) - S(B) &amp;\geq &amp; - \hbox{min}(S_A,S_B) \geq -S_A \\
  S(B|A) = S(AB) - S(A) &amp;\geq&amp; - \hbox{min}(S_A,S_B) \geq -S_B \rule{0mm}{6mm}
 \end{eqnarray}\]</div>
@@ -1534,16 +1534,16 @@ and, now, define  the following \)</span>AB<span class="math notranslate nohighl
 \rho_{AB} = \sum_{i} p_i \rho_i \otimes \ket{i}\bra{i}
 \)</span><span class="math notranslate nohighlight">\(
 If \)</span>\rho_i <span class="math notranslate nohighlight">\( has eigenvectors  \)</span>\ket{e_{ia}}<span class="math notranslate nohighlight">\( with eigenvalues \)</span>\lambda_{ia}<span class="math notranslate nohighlight">\( so that \)</span>\sum_a \lambda_{ia} = 1<span class="math notranslate nohighlight">\(. Then it is easy to see that  the eigenvalues of \)</span>\rho_{AB}<span class="math notranslate nohighlight">\( will be \)</span>{ p_i\lambda_{ia}}$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-475846c9-9270-4de2-9dc2-72f873c86f7b">
-<span class="eqno">(55)<a class="headerlink" href="#equation-475846c9-9270-4de2-9dc2-72f873c86f7b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-237611ff-8aa7-43e0-8c79-ecd5ba891312">
+<span class="eqno">(55)<a class="headerlink" href="#equation-237611ff-8aa7-43e0-8c79-ecd5ba891312" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 S_{AB} &amp;=&amp;-  \sum_{i,a} p_i\lambda_{ia} \log( p_i \lambda_{ia})  =
 \sum_i p_i\log p_i\sum_a\lambda_{ia} + \sum_i p_i \sum_{a}\lambda_{ia}\log\lambda_{ia} \nonumber\\
 &amp;=&amp;  \sum_i p_i\log p_i+ \sum_i p_i S(\rho_i)\nonumber\\
 &amp;=&amp; S_B + \sum_i p_i S(\rho_i) 
 \end{eqnarray}\]</div>
 <p class="sd-card-text">Taking the partial traces we find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77a78e6c-b435-4298-9ec5-2a4f759b4355">
-<span class="eqno">(56)<a class="headerlink" href="#equation-77a78e6c-b435-4298-9ec5-2a4f759b4355" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-ad90131a-0cc2-4cc7-bd9b-37de4c848531">
+<span class="eqno">(56)<a class="headerlink" href="#equation-ad90131a-0cc2-4cc7-bd9b-37de4c848531" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \rho_A &amp;=&amp; \tr_B \rho_{AB} =  \sum_{i} p_i \rho_i \nonumber\\
 \rho_B &amp;=&amp; \tr_A \rho_{AB} = \sum_i p_i \ket{i}\bra{i} \nonumber
 \end{eqnarray}\]</div>

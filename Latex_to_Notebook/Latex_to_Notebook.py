@@ -153,10 +153,64 @@ def reemplazo_includegraphics(line):
     # Realizar el reemplazo
     return re.sub(patron_includegraphics, reemplazo_includegraphics_aux, line)
 
+# =============================================================================
+## Para buscar un titulo y subtitulo en \begin{..}{Titulo: subtitulo}
+
+def find_title_subtitle_BeginBox(line):
+    #patron = r"\{([^:{}]+)(?:: ([^}]+))?\}"
+    patron_segundo_conjunto = r"\\begin{[^{}]+}\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    contenido_segundo_conjunto = re.search(patron_segundo_conjunto, line).group(1)
+
+
+    patron_division = r"([^:]+):\s*(.+)"
+    match_division = re.match(patron_division, contenido_segundo_conjunto)
+
+    if match_division:
+        Titulo = match_division.group(1).strip()
+        Subtitulo = match_division.group(2).strip()
+
+    else:
+        Titulo = contenido_segundo_conjunto.strip()
+        Subtitulo = None
+    # print(Titulo, "------", Subtitulo)
+    return Titulo, Subtitulo
+
 
 # =============================================================================
-i_begin_doc = 0
-i_end_doc = 0
+## Reemplazar \\textbf{texto} por <b>texto</b>
+def reemplazo_textbf(line):
+
+    def reemplazo_textbf_aux(match):
+        texto = match.group(1)
+        return f"<b>{texto}</b>"
+
+    patron_textbf = r"\\\\textbf\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return re.sub(patron_textbf, reemplazo_textbf_aux, line)
+
+# =============================================================================
+## Reemplazar \\textit{texto} por <b>texto</b>
+def reemplazo_textit(line):
+
+    def reemplazo_textit_aux(match):
+        texto = match.group(1)
+        return f"<i>{texto}</i>"
+
+    patron_textit = r"\\\\textit\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return re.sub(patron_textit, reemplazo_textit_aux, line)
+
+# =============================================================================
+## Eliminar los \vspace{...}
+def delete_vspace(line):
+    patron_vspace = r"\\\\vspace\{[^{}]*\}"
+    return re.sub(patron_vspace, '', line)
+
+# =============================================================================
+
+#i_begin_doc = 0
+#i_end_doc = 0
+begin_doc_bool = False
+end_doc_bool   = False
+
 find_mybox_gray2 = False
 find_proof = False
 find_mybox_blue = False
@@ -169,6 +223,7 @@ find_Corolario = False
 find_Definicion = False
 find_Proposicion = False
 find_Ejercicio = False
+find_mybox_green = False
 
 omitir_seccion = False
 
@@ -204,8 +259,20 @@ with open(file_name, 'r') as f:
                  find_Corolario,
                  find_Definicion,
                  find_Proposicion,
-                 find_Ejercicio
+                 find_Ejercicio,
+                 find_mybox_green
                  ]
+
+
+        ## Cogemos solo lo que hay entre el \\begin{document} y el \\end{document}
+        if begin_doc_bool == False:
+            if "\\begin{document}" in line:
+                begin_doc_bool = True
+            else:
+                continue
+        if end_doc_bool == True:
+            continue
+
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
         line = line.lstrip().rstrip().replace("\\","\\\\").replace("``","\\\"").replace("''","\\\"")
@@ -213,10 +280,17 @@ with open(file_name, 'r') as f:
         line = line.replace("\\subsection*{", "\\subsection{")
         line = line.replace("\\chapter*{", "\\chapter{")
         line = line.replace("\\part*{", "\\part{")
-
+        line = line.replace("\\\\newpage","")
 
         # Eliminamos los tabuladores \t, teniendo cuidado de no eliminar los \\t
         line = re.sub(r'(?<!\\)\t','',line)
+
+        if "\\\\vspace{" in line:
+            line = delete_vspace(line)
+
+
+
+
 
         if line == "":
             line = "\\n"
@@ -240,6 +314,15 @@ with open(file_name, 'r') as f:
             
             if line[0] != "%":
 
+                ##### If's sueltos
+                if "\\\\textbf{" in line:
+                    line = reemplazo_textbf(line)
+
+                if "\\\\textit{" in line:
+                    line = reemplazo_textit(line)
+
+
+
                 if "\\\\section{" in line:
                     if "%%Omitir_seccion" in line:
                         omitir_seccion = True
@@ -248,59 +331,87 @@ with open(file_name, 'r') as f:
                         omitir_seccion = False
                         i_section.append(i)
                         line = reemplazo_sec(line, nonumber = False)
-                '''
-                elif "\\section*{" in line:
-                    if "%%Omitir_seccion" in line:
-                        omitir_seccion = True
-                        print(line)
-                    else:
-                        omitir_seccion = False
-                        i_section.append(i)
-                        line = reemplazo_sec(line, nonumber = True)
-                '''
+
+
+                ###############################################################
+                ##### Cadena de elif's
+                ###############################################################
+
+
                 if omitir_seccion == True:
                     pass
 
+                #################### part/chapter/section/subsec #######################
                 elif "\\\\subsection{" in line:
                     line = reemplazo_subsec(line, nonumber = False)
-                
-                #elif "\\subsection*{" in line:
-                #    line = reemplazo_subsec(line, nonumber = True)
                 
                 elif "\\\\chapter{" in line:
                     line = reemplazo_chapter(line, nonumber = False)
                     i_chapter.append(i)
                 
-                #elif "\\chapter*{" in line:
-                #    i_chapter.append(i)
-
                 elif "\\\\part{" in line: # or "\\part*{" in line:
                     i_part.append(i)
 
                 elif "\\\\SubsubiIt{" in line:
                     line = reemplazo_SubsubIt(line)
 
-                elif "\\\\begin{mybox_gray2}" in line and i_begin_doc > 0:
+                #################### mybox_gray / Nota sin titulo #######################
+
+                elif "\\\\begin{mybox_gray2}" in line :
                     find_mybox_gray2 = True
                     line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
                             '    "<p style=\\"color: navy;\\">\\n",\n'+ \
                             '    "<b></b>'
                     
-                elif "\\\\end{mybox_gray2}" in line and i_begin_doc > 0:
+                elif "\\\\end{mybox_gray2}" in line:
                     find_mybox_gray2 = False
                     line = '</p></div>'
 
-                elif "\\\\begin{mybox_blue}" in line and i_begin_doc > 0:
+
+                #################### mybox_blue / Nota y Resumen #######################
+                elif "\\\\begin{mybox_blue}" in line:
                     find_mybox_blue = True
-                    line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
-                            '    "<p style=\\"color: DarkRed;\\">\\n",\n' + \
-                            '    "<b>Nota</b>:'
-                    
-                elif "\\\\end{mybox_blue}" in line and i_begin_doc > 0:
+
+                    title, subtitle = find_title_subtitle_BeginBox(line)
+
+                    if subtitle == None:
+                        line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
+                                '    "<p style=\\"color: DarkRed;\\">\\n",\n' + \
+                                '    "<b>'+title+'</b>:\\n",\n' + \
+                                '    "<br>'
+                    else:
+                        line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
+                                '    "<p style=\\"color: DarkRed;\\">\\n",\n' + \
+                                '    "<b>'+title+'</b>: <i>('+subtitle+')</i>\\n",\n' + \
+                                '    "<br>'
+
+                elif "\\\\end{mybox_blue}" in line:
                     find_mybox_blue = False
                     line = '</p></div>'
 
-                ######################### Teoremas  ############################
+                #################### mybox_greeb / Ejemplos #######################
+
+                elif "\\\\begin{mybox_green}" in line:
+                    find_mybox_green = True
+                    title, subtitle = find_title_subtitle_BeginBox(line)
+
+                    if subtitle == None:
+                        line = '<div class=\\"alert alert-block alert-success\\">\\n",\n' + \
+                                '    "<p style=\\"color: DarkGreen;\\">\\n",\n' + \
+                                '    "<b>'+title+'</b>:\\n",\n' + \
+                                '    "<br>'
+                    else:
+                        line = '<div class=\\"alert alert-block alert-success\\">\\n",\n' + \
+                                '    "<p style=\\"color: DarkGreen;\\">\\n",\n' + \
+                                '    "<b>'+title+'</b>: <i>('+subtitle+')</i>\\n",\n' + \
+                                '    "<br>'
+
+                elif "\\\\end{mybox_green}" in line:
+                    find_mybox_green = False
+                    line = '</p></div>'
+
+
+                ########################### Teoremas  #############################
                 elif "\\\\Teorema{" in line:
 
                     find_Teorema = True
@@ -314,12 +425,12 @@ with open(file_name, 'r') as f:
                     line = '</p></div>'
 
 
-                ########################## Figuras #############################
-                elif "\\\\begin{figure}" in line and i_begin_doc > 0:
+                ############################ Figuras ##############################
+                elif "\\\\begin{figure}" in line :
                     find_figure = True
                     line = '<figure><center>'
 
-                elif "\\\\end{figure}" in line and i_begin_doc > 0:
+                elif "\\\\end{figure}" in line :
                     find_figure = False
                     line = '</center></figure>\\n'
                 
@@ -335,15 +446,15 @@ with open(file_name, 'r') as f:
                 elif "\\\\label{" in line and find_figure == True:
                     line = reemplazo_label(line)
 
-                ########################## Itemice #############################
-                elif ("\\\\begin{itemize}" in line or "\\\\begin{enumerate}" in line)  and i_begin_doc > 0:
+                ############################ Itemice ##############################
+                elif ("\\\\begin{itemize}" in line or "\\\\begin{enumerate}" in line):
                     if find_itemize == True:
                         find_itemize_2 = True
                     else:
                         find_itemize = True
                     line = '<br>'
 
-                elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line) and i_begin_doc > 0:
+                elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line):
                     if find_itemize_2 == True:
                         find_itemize_2 = False
                     else:
@@ -359,20 +470,19 @@ with open(file_name, 'r') as f:
                     line = line + '\\n",\n' + \
                            '    "<br>'
 
-                elif "\\\\begin{proof}" in line and i_begin_doc > 0:
+                ######################## proof / dropdown #########################
+                elif "\\\\begin{proof}" in line :
                     find_proof = True
                     line = '<details><summary><p style=\\"color:blue\\" > >> <i>Demostración</i> </p></summary>'
                     
-                elif "\\\\end{proof}" in line and i_begin_doc > 0:
+                elif "\\\\end{proof}" in line :
                     find_proof = False
                     line = '</details>'
 
-                ##################### begin/end document #######################
-                elif "\\\\begin{document}" in line:
-                    i_begin_doc = i
+                ##################### end document #######################
 
                 elif "\\\\end{document}" in line:
-                    i_end_doc = i
+                    end_doc_bool = True
 
 
 

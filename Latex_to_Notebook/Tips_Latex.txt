@@ -2,7 +2,10 @@
 ### Los cuadros \Teorema{}, \Lemma{},... de la forma
 
 \Teorema{ (\textbf{Subtitulo}) \label{Teo_...}
-Contenido del cuadro
+Contenido del primer paragrafo del cuadro
+\vspace{0.3cm}
+
+Contenido del segundo parágrafo del cuadro
 }
 
 El subtitulo y la label son opcionales.
@@ -10,7 +13,9 @@ Puede haber lineas en blando dentro.
 
 
 
+################################################################
 
+\begin{mybox_blue}{Nota/Resumen: Subtitulo}
 
 
 
@@ -18,12 +23,12 @@ Puede haber lineas en blando dentro.
 ######### Cosas para hacer
 
 - Subtitulos de los teoremas
-- los textbf
-- los textit
-- \vspace
 - Los mybox_green,....
 - Lemma,...
 - Añadir ketbra a a plantilla
 
-
+- Lidiar con $$
 - Subfigure
+
+
+Añadir un contandor de la linea del fichero .tex

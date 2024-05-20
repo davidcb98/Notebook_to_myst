@@ -354,13 +354,9 @@ Como veremos más adelante, la computación cuántica (al igual que la clásica)
 
 
 	\begin{mybox_blue}{Nota: Paradigmas de Computación Cuántica}
-	Habitualmente cuando se habla de \textbf{computación cuántica} se suele hablar de la \textbf{Computación 
-	Cuántica basada en Puertas}. Los otros dos paradigmas de computación cuántica son la \textbf{Computación
-	Cuántica Adiabática} y el \textbf{Quantum Anneling}. Los dos primeros son paradigmas de computación
-	universal mientras que el Quantum Anneling no lo es. \vspace{0.3cm}
+Habitualmente cuando se habla de \textbf{computación cuántica} se suele hablar de la \textbf{Computación Cuántica basada en Puertas}. Los otros dos paradigmas de computación cuántica son la \textbf{Computación Cuántica Adiabática} y el \textbf{Quantum Anneling}. Los dos primeros son paradigmas de computación	universal mientras que el Quantum Anneling no lo es. \vspace{0.3cm}
 	
-	En estas notas hablaremos solo de Computación Cuántica basada en Puertas, a partir de ahora simplemente
-	computación cuántica o QC (del inglés, Quantum Computing).
+En estas notas hablaremos solo de Computación Cuántica basada en Puertas, a partir de ahora simplemente	computación cuántica o QC (del inglés, Quantum Computing).
 	\end{mybox_blue}	
 
 
@@ -379,11 +375,11 @@ Teoremas, Lemmas, Definiciones, Demostraciones y conceptos importantes
 Ejercicios
 \end{mybox_gray}
 
-\begin{mybox_blue}{Cuadros azules}
+\begin{mybox_blue}{Nota}
 Notas o aclaraciones
 \end{mybox_blue}
 
-\begin{mybox_green}{Cuadros verdes}
+\begin{mybox_green}{Ejemplo}
 Ejemplos
 \end{mybox_green}
 
@@ -531,7 +527,7 @@ Con esto, veamos lo que es la forma polar:
 	x^2 + y^2 = \rho^2 \cos^2 \theta + \rho^2 \sin^2 \theta = \rho^2 (\cos^2 \theta +  \sin^2 \theta) =  \rho^2.
 	$$
 
-	\begin{mybox_blue}{Números con módulo 1}
+	\begin{mybox_blue}{Nota: Números con módulo 1}
 	Como ya comentamos, a $\theta$ se le denomina \textbf{fase}. Habitualmente también se denominan fases a los números complejos con $\rho =1$ pues en estos casos tenemos $z = e^{i \theta}$. Esto es un abuso del lenguaje pero es algo muy extendido.
 	\end{mybox_blue}
 
@@ -547,7 +543,7 @@ La conversión inversa, \textit{de cartesiana a polar} es un poco más delicada.
 	\boxed{z = x + i y  = r e^{i\theta} ~~~ \hbox{ con } ~~~ \left\{\begin{array}{l} r=\sqrt{x^2+y^2} \\  \rule{0mm}{4mm} \theta = \arctan(y/x) . \end{array} \right.} 
 	\end{equation}
 
-	\begin{mybox_blue}{Signo de la arcotangente}
+	\begin{mybox_blue}{Nota: Signo de la arcotangente}
 	En la formula de la arcotangente de la Ec. (\ref{ec_formalismo_de_cartesiana_a_polar}) hay que elegir el signo con cuidado. La arcotangente devuelve valores en $(-\pi/2$, $\pi/2)$, pero sabemos que los ángulos en la circunferencia está en  $[0,2\pi)$. Por ello, hay que aplicar el siguiente criterio:
 	\begin{itemize}
 		\item Si $x=0$ e $y>0$ (sobre el eje $y$) $\Rightarrow \theta = \pi$
@@ -742,7 +738,7 @@ Es decir,  en un espacio vectorial  tenemos las siguientes propiedades:
 		\end{equation}
 	\end{itemize}
 
-	\begin{mybox_blue}{Dimensión de un espacio vectorial complejo}
+	\begin{mybox_blue}{Nota: Dimensión de un espacio vectorial complejo}
 	La \textbf{dimensión} es igual al número de cantidades (\textit{grados de libertad}) que debemos fijar para especificar un vector. Como estamos lidiando con un espacio vectorial complejo donde nuestro vector está compuesto por $N$ números complejos, la cantidad de números reales que debemos fijar es $2N$.
    \vspace{0.3cm}
    
@@ -771,7 +767,7 @@ Consistentemente encontramos para el producto de un vector por un número comple
 	\end{equation}
 ya que el producto de un vector por un número es conmutativo.		
 		
-	\begin{mybox_blue}{Notación}
+	\begin{mybox_blue}{Nota: Sobre la notación}
 	En la notación con \textit{kets} y \textit{bras} vemos que es lo mimos escribir $\lambda\ket{u}$ que $\ket{\lambda u}$. Esto podemos pensarlo como que los números complejos entran y salen de los kets sin modificaciones. 
 	\vspace{0.3cm}
 	
@@ -885,7 +881,7 @@ En términos de matrices, la formula de cambio de base es
 	Es más, que el cambio de base sea invertible es un \textbf{requisito}. Si no lo es, no es un cambio de base.
 	
 
-	\begin{mybox_blue}{Los elementos de la base expresados en la propia base}
+	\begin{mybox_blue}{Nota: Los elementos de la base expresados en la propia base}
 	Quizás la siguiente afirmación parezca contradictoria, pero veremos que no: dadas dos bases $\{\ket{e_i}\}$ y $\{\ket{f_i}\}$, los elementos de la base $\{\ket{e_i}\}$ expresados en la base $\{\ket{e_i}\}$ toman la forma
 		\begin{equation*}
 |e_1\rangle \sim \begin{bmatrix} 1 \\ 0 \\ \vdots 
@@ -1031,7 +1027,8 @@ La positividad del producto escalar de un vector por sí mismo permite definir s
 	\boxed{\|\ket{v}\| = \sqrt{\braket{v}{v}}}
 	\end{equation}
 
-	\begin{mybox_blue}{Notar que:}
+	\begin{mybox_blue}{Nota}
+	Véase que:
 	\begin{itemize}
 		\item En contraste con la definición de producto escalar en espacios vectoriales reales, en el caso complejo se hace necesario conjugar (usar un  \textit{bra}), para  que la \textit{norma} de un vector sea siempre real y positiva. Esta es la idea detrás de la definición de la \textit{conjugación adjunta}.
 		
@@ -1136,7 +1133,7 @@ En este curso siempre supondremos que las bases con las que trabajamos son orton
 	
 \end{itemize}
 
-	\begin{mybox_blue}{Importante:}
+	\begin{mybox_blue}{Nota: Importante}
 	La expresión de la izquierda  $a = \braket{u}{v}$ \textbf{no hace referencia a ninguna base}. Por tanto, el resultado $\sum_{i=1}^n{ u_i^* v_i} $ debe ser independiente de la base que utilizamos para representar estos vectores mediante sus componentes $u_i$ y $v_i$. 
 \vspace{0.3cm}    
     
@@ -1173,7 +1170,7 @@ Con números (reales o complejos), un ejemplo de una operación que no es lineal
 	\end{equation}
 \end{mybox_blue}
 
-	\begin{mybox_blue}{El cambio en física}
+	\begin{mybox_blue}{Nota: El cambio en física}
 	Podemos ver la física como \textit{el arte de estudiar el cambio}, es decir, estudiar como varía un sistema con el tiempo. Como acabamos de comentar, los \textit{operadores lineales} nos introducen una noción de cambio (de evolución): un vector se transforma (evoluciona) a otro. Ya adelantamos aquí que en Mecánica Cuántica los vectores representan \textbf{estados} del sistema, con lo cual, el hecho de aplicar un operador sobre un vector implica pasar de un estado del sistema a otro. 
 	\vspace{0.3cm}
 	
@@ -1268,7 +1265,8 @@ Para comprender por qué es un operador, observamos que dicha expresión aplicad
 El número complejo $b=\braket{u}{w}$ es  la \textit{proyección} de $\ket{w}$ en la dirección de $\ket{u}$.
 \end{itemize}
 
-\begin{mybox_blue}{Notar que:}
+\begin{mybox_blue}{Nota}
+Véase que:
 \begin{enumerate}
 	\item El \textit{orden} en que escribimos las cosas es \textit{muy} relevante.
 \vspace{0.1cm}	
@@ -1335,7 +1333,7 @@ $N=4$
 \end{bmatrix} ~~\Rightarrow ~~ A_{ij} = \delta_{i2}\delta_{j3}
 	\end{equation}
 
-	\begin{mybox_blue}{Cambio de notación en la base}
+	\begin{mybox_blue}{Nota: Cambio de notación en la base}
 	Véase que en esta sección se han denominado a los elementos de la base simplemente como $\ket{i}$ en vez de como $\ket{e_i}$. Esto es simplemente un cambio de notación. Las dos notaciones son habituales en matemáticas y física, pero la usada en computación cuántica es la primera, $\ket{i}$.
 	\end{mybox_blue}
 
@@ -1692,7 +1690,7 @@ P^2 = P
 $$
 	}
 
-\begin{mybox_blue}{Los proyectores son no-unitarios}
+\begin{mybox_blue}{Nota: Los proyectores son no-unitarios}
 El proyector es un operador \textit{no-unitario}: la proyección reduce la norma.
 Supongamos que $\ket{u}$ y $\ket{w}$ son vectores unitarios y distintos
 	\begin{equation}
@@ -1882,7 +1880,9 @@ Es decir, asociado a un autovalor tenemos infinitos autovectores paralelos.
 			
 \begin{mybox_gray2}{}
 Decimos que un autovalor $\lambda_k$ es $d_k$ veces \textbf{degenerado} si existen $d_k$ autovectores \textbf{linealmente independientes},  $\ket{\lambda_k^{a}}$ con $a=1,...,d_k$ asociados al \textbf{mismo} autovalor
-$$A\ket{\lambda_k^a} = \lambda_k \ket{\lambda_k^a} ~,~~~ {\rm con } ~~ a = 1,...,d_k$$ 
+$$
+A\ket{\lambda_k^a} = \lambda_k \ket{\lambda_k^a} ~,~~~ {\rm con } ~~ a = 1,...,d_k
+$$ 
 \end{mybox_gray2}
 
 
@@ -1994,7 +1994,7 @@ N_{ij} = \bra{\lambda^a_i} N\ketnew{\lambda^b_j} =  \lambda_k \delta_{kj} \delta
 $$
 donde $\lambda_k$ aparecerá $d_k$ veces repetido.
 
-	\begin{mybox_blue}{El operador identidad}
+	\begin{mybox_blue}{Nota: El operador identidad}
 	El operador identidad tiene a cualquier vector por autovector $ I\ket{v} = \ket{v}$, con autovalores $\lambda_ i = 1$. Por tanto, en \textbf{cualquier base}, la matriz asociada a $I$ tiene la forma diagonal
 	$$
 	I_{ij} = \delta_{ij} = \begin{bmatrix} 1 &  &  &  \\ & 1 & &  \\ & & \ddots & \\ & & &  1 \end{bmatrix}
@@ -2300,7 +2300,7 @@ Tomando la traza de la relación de composición obtenemos que las matrices de P
 	~~~[\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k
 	$$}
 
-\begin{mybox_blue}{Conmutador y anti-conmutador}
+\begin{mybox_blue}{Nota: Conmutador y anti-conmutador}
 \begin{itemize}
 	\item Conmutador:
 		\begin{equation}
@@ -2364,7 +2364,7 @@ donde
 
 
 
-	\begin{mybox_blue}{Autoestados y autovectores. El espín}
+	\begin{mybox_blue}{Nota: Autoestados y autovectores. El espín}
 	En esta sección hemos estado hablando de \textbf{autoestados} en vez de \textbf{autovectores}. Esto es 
 	por el significa físico que tienen las matrices de Pauli. Estas se usan, entre otras cosas, para 
 	describir el espín de una partícula, así que sus autovectores representan autoestados de espín de la partícula. 
@@ -2422,7 +2422,7 @@ Ahora viene la segunda definición clave:
     y $~a,b,... \in {\mathbb C}$ son coeficientes complejos.
 	}
 
-	\begin{mybox_blue}{Notas para el resto de la sección}
+	\begin{mybox_blue}{Nota: Comentarios para el resto de la sección}
 	\begin{itemize}
 		\item En el resto de esta lección nos restringiremos al caso de $\mathcal{H}_1 = \mathcal{H}_2$ y, por tanto, $d_1 = d_2 \equiv d$, y  $\mathcal{H}\otimes \mathcal{H} \equiv \mathcal{H}^{\otimes 2}$ 
     	\item Prescindiremos del subíndice $\ket{u}_1\otimes \ket{y}_2=\ket{u}\otimes \ket{y} \equiv \ket{uy}$ que estará implícito en el orden. 
@@ -2707,7 +2707,7 @@ Escribiendo $\ket{v_k} = \sum_{i_k=1}^d v_{i_k}\ket{i_k}$ vemos que un \textit{v
 	\end{equation}
 están parametrizados por $nd$ cantidades $v_{i_k}, \, i_k=1,...,d, \, k=1,...,n$.
 
-\begin{mybox_blue}{Notas}
+\begin{mybox_blue}{Nota:}
 \begin{itemize}
 	\item $nd \ll d^n$. El crecimiento exponencial del número de estados entrelazados es el ingrediente crucial para la computación cuántica. Observar que $d^n$ es el \textit{número de enteros} alcanzables por $n$ bits. Pero en computación cuántica es el \textit{número de dimensiones} en la que podemos poner $d^n$ amplitudes complejas.  
 \vspace{0.2cm}
@@ -3411,7 +3411,7 @@ que lleve el estado inicial al actual a tiempo $t$
 	 U(t,t_0): \ket{\psi(t_0)}~~ \to~~ \rule{0mm}{3.5mm} \ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}
 	\end{equation}
 
-\begin{mybox_blue}{Propiedades de ${U(t,t_0)}$}
+\begin{mybox_blue}{Nota: Propiedades de ${U(t,t_0)}$}
 El operador de evolución satisface las siguientes propiedades
 \begin{itemize}
 	\item $U(t_0,t_0) = I$ \, .
@@ -3954,7 +3954,7 @@ Definir por primera vez una base tiene una cierta componente de arbitraridad. Po
 %	Puedo dibujar un grafiquito
 %	\end{mybox_red}
 
-	\begin{mybox_blue}{Mas sobre el espín}
+	\begin{mybox_blue}{Nota: Mas sobre el espín}
 	Como comentamos en una nota anterior, los autoestado  $\ket{+}$ y $\ket{-}$ de la matriz $\sigma_z$ 
 	corresponden a las proyecciones $1/2$ y $-1/2$ del espín sobre el eje $z$. Cabe preguntarnos, porque 
 	es tan común medir las proyecciones sobre este eje? En realidad, es simplemente por convenio y 
@@ -4770,7 +4770,7 @@ Vamos ahora a empezar a ver que pasa cuando tenemos \textbf{más de un qúbit}.
 	
 La \textbf{dimensión}  dim($\mathcal{H}^{\otimes n}$) = $2^n$ coincide con el número de combinaciones distintas posibles: 	$2\times 2...\times 2 = 2^n$.    
 
-	\begin{mybox_blue}{Producto de Krönecker}
+	\begin{mybox_blue}{Nota: Producto de Krönecker}
 	
 	Cuando tenemos que un espacio de Hilbert es un \textbf{producto tensorial} de espacios Hilbert, para construir los
 	elementos de la base y los operadores tenemos que usar el \textbf{producto de Krönecker}. 
@@ -4943,7 +4943,7 @@ $$
 $$
 también con probabilidad 1/2. Vemos que ahora, \textit{el segundo qúbit ha sufrido modificación  \textbf{correlacionada} con el resultado obtenido de la medida del primero qúbit}.  Es decir, una medida parcial sobre uno de los espacios de Hilbert está afrectando al otro espacio de Hilbert. 
 
-	\begin{mybox_blue}{Entrelazamiento: acción fantasmal a distancia}
+	\begin{mybox_blue}{Nota: Entrelazamiento y acción fantasmal a distancia}
 	Cuando se descubrió el entrelazamiento y las consecuencias que tenía sobre los estados al hecho de medir, a este efecto se lo denominó
 	\textit{acción fantasmal a distancia}, y fue muy criticado por personalidades de la talla de Albert Einstein. 
 	
@@ -6038,7 +6038,7 @@ Podemos entender gráficamente la evolución temporal $U = e^{-i \mathcal{H} t/ 
 	\label{Fig_Harware_NMR_precesion}
 	\end{figure}
 
-	\begin{mybox_blue}{Esfera de Bloch para el espín}
+	\begin{mybox_blue}{Nota: Esfera de Bloch para el espín}
 	Véase que para el espín la representación en la esfera de Bloch no es más que la representación 
 	en 3D del vector de espín. 	
 	\end{mybox_blue}
@@ -6647,7 +6647,7 @@ Con lo cual, solo nos interesan dos de las cuatro ecuaciones, una para $\rho_{\u
 	\end{align}
 donde $\Delta \omega = (\omega_0 - \omega_{rf})$.
 
-	\begin{mybox_green}{Derivación de (\ref{ec_decoherencia_rho_up-up}) y  (\ref{ec_decoherencia_rho_up-down})}
+	\begin{mybox_blue}{Nota: Derivación de (\ref{ec_decoherencia_rho_up-up}) y  (\ref{ec_decoherencia_rho_up-down})}
 		\begin{align*}
 		\frac{2}{\hbar}\lc \mathcal{H} , \rho \rc & = - 
 		\begin{bmatrix}
@@ -6874,7 +6874,7 @@ $$
 \lambda' = \lambda ~~~~~~\hbox{y}~~~~~~  \ket{\lambda}' = U\ket{\lambda}
 $$
 
-	\begin{mybox_blue}{Comprobémoslo}
+	\begin{mybox_blue}{Nota: Comprobémoslo}
 	\begin{align*}
 	\boxed{V \ket{\lambda}= \lambda\ket{\lambda}} & ~~ \Rightarrow ~~~V'\ket{\lambda}' =
 	 (UVU^\dagger) U\ket{\lambda} = UV\ket{\lambda} =  U(\lambda\ket{\lambda}) = 
@@ -7658,7 +7658,7 @@ El algoritmo de Simon fue el primer algoritmo cuántico que mostró una acelerac
 		Donde $00 \oplus 10 =  10$ y $01 \oplus 11 = 10$, con lo cual $s =10$
 	\end{itemize}
 	
-	\begin{mybox_blue}{Suma bit a bit}
+	\begin{mybox_blue}{Nota: Suma bit a bit}
 	Obsérvese que $x_1 \oplus x_2 = a$ se refiere a suma módulo 2 bit a bit, es decir, sumamos el primer bit con el primero y, independientemente de cual sea el resultado de la suma, no nos llevamos nada. El ejemplo más claro es este: $00111 \oplus 00111 = 00000$.
 	\end{mybox_blue}
 	
@@ -7789,7 +7789,7 @@ Veamos como actúa la QFT sobre los elementos de la base computacional. Para ell
 
 La Ec. (\ref{ec_QFT_sobre_base_computacional}) es la transformada de Fourier de un elemento de la base computaciónal $\ket{x}$. Esta nos da el elemento transformado en la base de Fourier $\ket{\widetilde{x}}$. Como podemos ver, la transformada de Fourier es un operador unitario. Como también sabemos, un operador está completamente definido si especificamos como actúa sobre todos los elementos de una base, como es el caso.
 
-	\begin{mybox_blue}{QFT y Walsh-Hadamard}
+	\begin{mybox_blue}{Nota: QFT y Walsh-Hadamard}
 	Comparar la Ec. (\ref{ec_QFT_sobre_base_computacional}) con la de la transformada de Walsh-Hadamard (\ref{ec_algoritmos_Walsh_H_sobre_x})
 	$$
 	W: \ket{x} \to \ket{\tilde x} =  \frac{1}{\sqrt{N}}\sum_{y}(-1)^{xy}\ket{y} =   \frac{1}{\sqrt{N}}\sum_{y} e^{i\pi   xy} \ket{y} 
@@ -7856,7 +7856,7 @@ En el primer ejemplo es fácil de ver que los vectores de la base de Fourier se 
 
 Uno de los puntos importantes del anterior teorema es que nos dice que la base de Fourier es factorizable, no entrelazada. Esto puede parecer sorprendente, pues la QFT es una suma de muchos elementos con fases distintas. Como la base de Fourier es factorizable, podemos dibujarla como productos de esferas de Bloch, como se puede ver en la Fig. \ref{Fig_QFT_compu_fourier_bases}. En esta figura podemos ver varios ejemplos de transformadas de Fourier de elementos de la base computacional para 4 qúbits. Veamos ahora la demostración del teorema:
 
-	 \begin{mybox_blue}{Notación binaria con decimales}
+	 \begin{mybox_blue}{Nota: Notación binaria con decimales}
 	 Antes de ver la demostración del teorema, veamos la notación binaria con decimales: Un número $x \in \mathbb{Q}$ puede expresarse en base 2 como
 	 \begin{align*}
 	 x & = x_{n-1} 2^{n-1} + \dots + x_1 2^1 + x_0 2^0 + x_{-1} 2^{-1} + \dots + x_{-m} 2^{-m} \\
@@ -7905,7 +7905,7 @@ En realidad, esta expresión es tan útil e importante que podríamos haberla to
 
 	
 
-	\begin{mybox_blue}{QFT sobre vectores}
+	\begin{mybox_blue}{Nota: QFT sobre vectores}
 	Por supuesto, la operación $U_{TFC}$ no está restringida a elementos de la base computacional. Ya hemos visto en la Ec. (\ref{ec_QFT_sobre_Psi}) que puede actuar sobre vectores.
 	\end{mybox_blue}
 
@@ -8060,7 +8060,7 @@ El algoritmo lo que hace es estimar el valor de $\theta$. Es decir:
 	\item \textbf{Problema:} Calcular la mejor aproximación posible a $\theta$.
 \end{itemize}
 
-	\begin{mybox_blue}{Periodicidad de la fase}
+	\begin{mybox_blue}{Nota: Periodicidad de la fase}
 	Las fases  $e^{i2\pi \theta}=e^{i2\pi (\theta+n)}$  son iguales, para cualquier $n\in {\mathbb Z}$ entero. Por tanto será suficiente considerar  $\theta \in [0,1)$ para generar \textit{todos} los  posibles autovalores distintos.
 	\end{mybox_blue}
 
@@ -8219,7 +8219,7 @@ donde $\ket{\Phi_i}$ es el estado del registro de $t$ qúbits antes de la media 
 	\ket{\Psi_{3,i}} = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{\frac{2 \pi i y}{2^t} (2^t \theta_i - x)} |x\rangle \rc \otimes \vert\psi_i\rangle = \ket{\Phi_i} \otimes \vert\psi_i\rangle =  \ket{\Phi_i} \vert\psi_i\rangle
 	\end{equation}
 
-	\begin{mybox_blue}{Aclaración}	
+	\begin{mybox_blue}{Nota: Aclaración}	
 	Para entender un poco este resultado, quedemonos primero con la expresión siguiente:
 	\begin{equation} \label{ec_QPE_Psi_3_ci}
 	\ket{\Psi_3}  = \sum_{i=1}^N  c_i \ket{\Phi_i}\ket{\psi_i} \\ \rule{0mm}{7mm}
@@ -8245,7 +8245,7 @@ Comparando este resultado con el de la Ec. (\ref{ec_QPE_p(m)}) vemos que lo que 
 	Esto quiere decir que dependiendo de como sea $\ket{b}$, este podrá tener más componente de unos autovectores que de otros. Con lo cual, dependiendo de como sea $\ket{b}$ podremos estimar unos autovalores o de otros.
 \end{itemize}
 
-	\begin{mybox_blue}{Aclaración}
+	\begin{mybox_blue}{Nota}
 	Esta última sección puede resultar un poco confusa, pero se entiende mejor si pensamos en un ejemplo concreto. Como vamos a ver a continuación, en el algoritmo de Shor se usa la QPE. Como no conocemos los autoestados del operador, lo que se hace es usar una propiedad del propio operador para, de una manera sencilla, darle al algoritmo de QPE en vez de un autoestado, \textbf{una superporsición homogénea de todos los autoestados}. Es decir, en el algoritmo de Shor estamos en el caso en el que todos los $|c_i|^2$ son iguales. 
 	\vspace{0.3cm}
 	
@@ -8538,7 +8538,7 @@ La creación de la clave en bruto es ligeramente más complicada que en BB84. Su
 \end{itemize}  
 Alice sin embargo, como ha enviado ella el estado sabe que $s_a = +$. En la fase de criba, Bob revela $s_b$; Alice le dice que acepte si había preparado un estado con $s_a \neq s_b$, en cuyo caso Bob acepta el bit correspondiente a la base que no ha utilizado. La razón está clara en el ejemplo anterior: en ausencia de errores, $s_b= -$ señala la base equivocada.
 
-	\begin{mybox_blue}{Ejemplo con $\ket{-x}$}
+	\begin{mybox_blue}{Nota: Ejemplo con $\ket{-x}$}
 	Si Alice envía $\ket{-x}$ ella tiene que $s_a = -$. Sin embargo, Bob tiene los casos:
 	\begin{itemize}
 		\item si Bob mide $X$, obtiene $s_b = -$
