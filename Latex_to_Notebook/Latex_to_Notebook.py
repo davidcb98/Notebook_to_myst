@@ -205,6 +205,13 @@ def delete_vspace(line):
     return re.sub(patron_vspace, '', line)
 
 # =============================================================================
+## Eliminar lo que hay despues de "%" (sin contar "\%")
+def delete_comments(line):
+    patron_comments = r"(?<!\\)%.*"
+    return re.sub(patron_comments, '', line)
+
+# ===========================================================================
+
 
 #i_begin_doc = 0
 #i_end_doc = 0
@@ -224,6 +231,12 @@ find_Definicion = False
 find_Proposicion = False
 find_Ejercicio = False
 find_mybox_green = False
+
+num_start_braket_teorema = 0
+num_end_braket_teorema = 0
+
+
+
 
 omitir_seccion = False
 
@@ -291,7 +304,6 @@ with open(file_name, 'r') as f:
 
 
 
-
         if line == "":
             line = "\\n"
         
@@ -313,6 +325,8 @@ with open(file_name, 'r') as f:
         else:
             
             if line[0] != "%":
+
+                line = delete_comments(line) # Eliminamos lo de despues de "%"
 
                 ##### If's sueltos
                 if "\\\\textbf{" in line:
@@ -503,6 +517,21 @@ with open(file_name, 'r') as f:
                 last_line = line
 
 def build_i_a_in_b(i_a, i_b):
+    '''
+    Funcion para construir:
+        - i_chap_in_parts y chapters_before_first_part
+    a partir de
+        - i_chapter, i_part
+
+    Es decir, a la función se le pasan
+        - los indices de las lineas de los capítulos
+        - los indices de las lineas de las partes
+    y te devuelve:
+        - Una lista de listas donde en cada lista están los indices
+          de los capitulos de cada parte (i_chap_in_parts)
+        - Un booleano que nos dice si hay capitulos antes de la primera
+          parte (chapters_before_first_part)
+    '''
 
     i_a_in_b = []
     aux = []
