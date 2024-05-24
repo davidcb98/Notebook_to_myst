@@ -236,12 +236,11 @@ num_start_braket_teorema = 0
 num_end_braket_teorema = 0
 
 
-
+num_line_text_file = -1
 
 omitir_seccion = False
 
-#conteo_corch_abrir = 0
-#conteo_corch_cerrar = 0
+
 
 '''
 # Contar llaves que no están escapadas
@@ -251,6 +250,8 @@ conteo_cerrar = len(re.findall(r'(?<!\\)}', cadena))
 
 
 with open(file_name, 'r') as f:
+
+    num_line_text_file += 1
     
     f_data = []
     i = 0
@@ -427,6 +428,8 @@ with open(file_name, 'r') as f:
 
                 ########################### Teoremas  #############################
                 elif "\\\\Teorema{" in line:
+                    num_start_braket_teorema = len(re.findall(r'(?<!\\)\{', line))
+                    num_end_braket_teorema   = len(re.findall(r'(?<!\\)\}', line))
 
                     find_Teorema = True
                     new_line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
@@ -434,9 +437,31 @@ with open(file_name, 'r') as f:
                                '    "<b>Teorema</b>:\\n",\n' + \
                                '    "<br>'
                     line = line.replace("\\\\Teorema{", new_line)
+
+                elif find_Teorema == True:
+                    num_start_braket_teorema = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_teorema
+                    num_end_braket_teorema   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_teorema
+
+                    if num_start_braket_teorema == num_end_braket_teorema:
+                        print(f"\033[91m======\033[0m")
+                        print(f"\033[91m El numero de \"{{\" y \"}}\" diferentes.\033[0m")
+                        print(f"\033[91m Linea del text: {num_line_text_file}.\033[0m")
+                        raise
+
+
                 elif line == "}" and find_Teorema == True:
+                    num_start_braket_teorema = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_teorema
+                    num_end_braket_teorema   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_teorema
+
                     find_Teorema = False
                     line = '</p></div>'
+
+                    if num_start_braket_teorema != num_end_braket_teorema:
+
+                        print(f"\033[91m======\033[0m")
+                        print(f"\033[91m El numero de \"{{\" y \"}}\" diferentes.\033[0m")
+                        print(f"\033[91m Linea del text: {num_line_text_file}.\033[0m")
+                        raise
 
 
                 ############################ Figuras ##############################
