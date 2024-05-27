@@ -103,10 +103,6 @@ find_Proposicion = False
 find_Ejercicio = False
 find_mybox_green = False
 
-num_start_braket_teorema = 0
-num_end_braket_teorema = 0
-num_start_braket_definicion = 0
-num_end_braket_definicion = 0
 
 num_line_text_file = -1
 
@@ -377,24 +373,28 @@ with open(file_name, 'r') as f:
             num_end_braket_definicion   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_definicion
 
             line, find_Definicion = \
-                replace_end_newtheorem(f_data, line, find_Definicion, i_start_definicion_in_tex, num_start_braket_definicion, num_end_braket_definicion, "Teorema")
-            '''
-            if line == "}":
-                find_Definicion = False
-
-                if num_start_braket_definicion != num_end_braket_definicion:
-
-                    message = "El numero de \"{{\" y \"}}\" diferentes."
-                    raise ErrorGenerico(f_data, line, i_start_definicion_in_tex, message)
-
-                line = '</p></div>'
+                replace_end_newtheorem(f_data, line, find_Definicion, i_start_definicion_in_tex, num_start_braket_definicion, num_end_braket_definicion, "Definicion")
 
 
-            elif num_start_braket_definicion == num_end_braket_definicion:
+        ########################### Lemma  #############################
+        elif "\\\\Lemma{" in line:
 
-                message = "El numero de \"{\" y \"}\" iguales, pero no se ha encontrado el final de la definicion (linea con solo un \"}\")"
-                raise ErrorGenerico(f_data, line, i_start_definicion_in_tex, message)
-            '''
+            find_Lemma = True
+
+            i_start_lemma_in_tex   = num_line_text_file
+            num_start_braket_lemma = len(re.findall(r'(?<!\\)\{', line))
+            num_end_braket_lemma   = len(re.findall(r'(?<!\\)\}', line))
+
+            line = replace_start_newtheorem(f_data, line, "Lemma", "Lema")
+
+
+        elif find_Lemma == True:
+            num_start_braket_lemma = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_lemma
+            num_end_braket_lemma   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_lemma
+
+            line, find_Lemma = \
+                replace_end_newtheorem(f_data, line, find_Lemma, i_start_lemma_in_tex, num_start_braket_lemma, num_end_braket_lemma, "Lemma")
+
 
         ##################### end document #######################
         elif "\\\\end{document}" in line:

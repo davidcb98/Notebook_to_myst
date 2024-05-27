@@ -287,13 +287,14 @@ def replace_end_newtheorem(f_data, line, find_bool, i_start_in_tex, num_start_br
             message = "El numero de \"{\" y \"}\" diferentes."
             raise ErrorGenerico(f_data, line, i_start_in_tex, message)
 
-        line = '</p></div>'
+        line = '</p></div>\\n",\n' + \
+               '    "\\n'
 
 
     elif num_start_braket == num_end_braket:
 
         message = f"El numero de \"{{\" y \"}}\" iguales, pero no se ha encontrado el final del {theorem_type_in} (linea con solo un \"}}\")"
-        raise ErrorGenerico(f_data, line, i_start_teorema_in_tex, message)
+        raise ErrorGenerico(f_data, line, i_start_in_tex, message)
 
     return line, find_bool
 
