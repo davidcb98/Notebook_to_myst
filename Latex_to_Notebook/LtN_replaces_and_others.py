@@ -27,6 +27,24 @@ class ErrorGenerico(Exception):
 
         super().__init__(self.message)
 
+# ===========================================================================
+
+class ErrorUnrecognizedBox(Exception):
+
+    def __init__(self, box_type):
+
+        final_message = "\n" + \
+                        "\033[91m======\033[0m\n" + \
+                       f"\033[91m {box_type}: Tipo de alert-block no reconocido\033[0m\n" +\
+                        "\n" +\
+                        "\033[91m Este es un error en los parámetros de la funcion, no es culpa del .tex\033[0m\n" +\
+                        "\033[91m======\033[0m\n"
+
+
+        self.message = final_message
+
+        super().__init__(self.message)
+
 
 
 # =============================================================================
@@ -249,7 +267,20 @@ def build_i_a_in_b(i_a, i_b):
 
 # =============================================================================
 
-def replace_start_newtheorem(f_data, line, theorem_type_in, theorem_type_out):
+def replace_start_newtheorem(f_data, line, theorem_type_in, theorem_type_out, box_type):
+
+    if box_type == "info":
+        color_text = "navy"
+    elif box_type == "success":
+        color_text = "DarkGreen"
+    elif box_type == "danger":
+        color_text = "DarkRed"
+    elif box_type == "warning":
+        color_text = "#4B5320"
+    else:
+        raise ErrorUnrecognizedBox(box_type)
+
+
 
     if "\\\\label{" in line:
         line = reemplazo_label(line)
@@ -260,15 +291,15 @@ def replace_start_newtheorem(f_data, line, theorem_type_in, theorem_type_out):
         line = label + '\\n",\n' + \
                 pre_label
 
-        new_line = '    "<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
-                   '    "<p style=\\"color: navy;\\">\\n",\n' + \
+        new_line = '    "<div class=\\"alert alert-block alert-' + box_type + '\\">\\n",\n' + \
+                   '    "<p style=\\"color: '+ color_text +';\\">\\n",\n' + \
                   f'    "<b>{theorem_type_out}</b>:'
 
 
 
     else:
-        new_line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
-                   '    "<p style=\\"color: navy;\\">\\n",\n' + \
+        new_line = '<div class=\\"alert alert-block alert-' + box_type + '\\">\\n",\n' + \
+                   '    "<p style=\\"color: '+ color_text +';\\">\\n",\n' + \
                   f'    "<b>{theorem_type_out}</b>:'
 
     text_to_replace = "\\\\" + theorem_type_in + "{"

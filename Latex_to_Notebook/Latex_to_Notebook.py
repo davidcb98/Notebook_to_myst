@@ -104,7 +104,7 @@ find_Ejercicio = False
 find_mybox_green = False
 
 
-num_line_text_file = -1
+num_line_text_file = 0
 
 omitir_seccion = False
 
@@ -306,7 +306,7 @@ with open(file_name, 'r') as f:
             num_start_braket_teorema = len(re.findall(r'(?<!\\)\{', line))
             num_end_braket_teorema   = len(re.findall(r'(?<!\\)\}', line))
 
-            line = replace_start_newtheorem(f_data, line, "Teorema", "Teorema")
+            line = replace_start_newtheorem(f_data, line, "Teorema", "Teorema", "info")
 
             '''
             if "\\\\label{" in line:
@@ -365,7 +365,7 @@ with open(file_name, 'r') as f:
             num_start_braket_definicion = len(re.findall(r'(?<!\\)\{', line))
             num_end_braket_definicion   = len(re.findall(r'(?<!\\)\}', line))
 
-            line = replace_start_newtheorem(f_data, line, "Definicion", "Definicion")
+            line = replace_start_newtheorem(f_data, line, "Definicion", "Definicion", "info")
 
 
         elif find_Definicion == True:
@@ -385,7 +385,7 @@ with open(file_name, 'r') as f:
             num_start_braket_lemma = len(re.findall(r'(?<!\\)\{', line))
             num_end_braket_lemma   = len(re.findall(r'(?<!\\)\}', line))
 
-            line = replace_start_newtheorem(f_data, line, "Lemma", "Lema")
+            line = replace_start_newtheorem(f_data, line, "Lemma", "Lema", "info")
 
 
         elif find_Lemma == True:
@@ -395,6 +395,25 @@ with open(file_name, 'r') as f:
             line, find_Lemma = \
                 replace_end_newtheorem(f_data, line, find_Lemma, i_start_lemma_in_tex, num_start_braket_lemma, num_end_braket_lemma, "Lemma")
 
+
+        ########################### Ejercicio  #############################
+        elif "\\\\Ejercicio{" in line:
+
+            find_Ejercicio = True
+
+            i_start_ejercicio_in_tex   = num_line_text_file
+            num_start_braket_ejercicio = len(re.findall(r'(?<!\\)\{', line))
+            num_end_braket_ejercicio   = len(re.findall(r'(?<!\\)\}', line))
+
+            line = replace_start_newtheorem(f_data, line, "Ejercicio", "Ejercicio", "success")
+
+
+        elif find_Ejercicio == True:
+            num_start_braket_ejercicio = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_ejercicio
+            num_end_braket_ejercicio   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_ejercicio
+
+            line, find_Ejercicio = \
+                replace_end_newtheorem(f_data, line, find_Ejercicio, i_start_ejercicio_in_tex, num_start_braket_ejercicio, num_end_braket_ejercicio, "Ejercicio")
 
         ##################### end document #######################
         elif "\\\\end{document}" in line:
@@ -411,14 +430,15 @@ with open(file_name, 'r') as f:
                 find_itemize_2 = True
             else:
                 find_itemize = True
-            line = '<br>'
+            line = line.replace("\\\\begin{itemize}","<br>").replace("\\\\begin{enumerate}","<br>")
+
 
         elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line):
             if find_itemize_2 == True:
                 find_itemize_2 = False
             else:
                 find_itemize = False
-            line = '<br>'
+            line = line.replace("\\\\end{itemize}","<br>").replace("\\\\end{enumerate}","<br>")
 
         elif find_itemize == True and "\\\\item " in line:
             if find_itemize_2 == True:
@@ -432,23 +452,23 @@ with open(file_name, 'r') as f:
         ######################## proof / dropdown #########################
         if "\\\\begin{proof}" in line :
             find_proof = True
-            line = '<details><summary><p style=\\"color:blue\\" > >> <i>Demostración</i> </p></summary>'
+            line = line.replace("\\\\begin{proof}",'<details><summary><p style=\\"color:blue\\" > >> <i>Demostración</i> </p></summary>')
 
         elif "\\\\end{proof}" in line :
             find_proof = False
-            line = '</details>'
+            line = line.replace("\\\\end{proof}",'</details>')
 
                 ############################ Figuras ##############################
         elif "\\\\begin{figure}" in line :
             find_figure = True
-            line = '<figure><center>'
+            line = line.replace("\\\\begin{figure}",'<figure><center>')
 
         elif "\\\\end{figure}" in line :
             find_figure = False
-            line = '</center></figure>\\n'
+            line = line.replace("\\\\end{figure}",'</center></figure>\\n')
 
         elif "\\\\centering" in line and find_figure == True:
-            line = '<br>'
+            line = line.replace("\\\\centering",'<br>')
 
         elif "\\\\caption{" in line and find_figure == True:
             line = reemplazo_caption(line)
