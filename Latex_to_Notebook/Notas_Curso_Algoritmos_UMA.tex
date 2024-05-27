@@ -6990,7 +6990,8 @@ Para el caso $A = \hat{\bf n}\cdot \boldsymbol{\sigma} $  la conjugación es
 	Comprueba la Ec. \ref{ec_elementos_UAU^dagger}.
 	}
 
-	\Corolario{La conjugación de una rotación en torno a un eje produce una rotación en torno al eje conjugado
+	\Corolario{
+	La conjugación de una rotación en torno a un eje produce una rotación en torno al eje conjugado
 	\begin{equation}
 	U R_{\hat{\bf n}}(\theta) U^\dagger = R_{U\hat{\bf n}}(\theta)
 	\end{equation}
@@ -8527,7 +8528,9 @@ En resumen, la QKD siempre se implementa con luz y no hay razón para creer que 
 			
 El primer paso de un protocolo QKD es el intercambio y la medición de señales en el canal cuántico. El papel de Alice es codificar: el protocolo debe especificar qué estado cuántico $\ket{\Psi(S_n)}$ codifica para la secuencia de $n$ símbolos $S_n = \lch s_1, \dots, s_n \rch$. En muchos protocolos, pero no en todos, el estado $\ket{\Psi(S_n)}$ tiene la forma de un producto tensorial $\ket{\psi(s_1)} \otimes \cdots \ket{\psi(s_n)}$.  En todos los casos, es crucial que el protocolo utilice un conjunto de estados \textbf{no ortogonales}, ya que, de lo contrario, Eve podría descodificar la secuencia sin introducir errores midiendo en la base adecuada (en otras palabras, un conjunto de estados ortogonales puede clonarse perfectamente). La razón de usar estados no ortogonales viene dada por la siguiente proposición:
 
-	\Proposicion{\textbf{(La ganancia de información implica perturbaciones)} En cualquier intento de distinguir entre dos estados cuánticos no ortogonales, la ganancia de información sólo es posible a costa de introducir perturbaciones en la señal.}
+	\Proposicion{
+	\textit{(La ganancia de información implica perturbaciones)} En cualquier intento de distinguir entre dos estados cuánticos no ortogonales, la ganancia de información sólo es posible a costa de introducir perturbaciones en la señal.
+	}
 
 	\begin{proof}
 	Sean $\ket{\psi}$ y $\ket{\varphi}$ los estados cuánticos no ortogonales sobre los que Eve intenta obtener información. Podemos suponer sin pérdida de generalidad que el proceso que utiliza para obtener información es interactuar unitariamente el estado ($\ket{\psi}$ o $\ket{\varphi}$) con una ancilla preparada en un estado estándar $\ket{u}$. Suponiendo que este proceso no perturba los estados, en los dos casos se obtiene

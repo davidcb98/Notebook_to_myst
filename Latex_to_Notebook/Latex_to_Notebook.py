@@ -150,12 +150,16 @@ with open(file_name, 'r') as f:
 
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
-        line = line.lstrip().rstrip().replace("\\","\\\\").replace("``","\\\"").replace("''","\\\"")
+
+        line = line.lstrip().rstrip().replace("\\","\\\\")
+        line = line.replace('"','\\"')
+        line = line.replace('``','\\"').replace("''",'\\"')
         line = line.replace("\\section*{", "\\section{")
         line = line.replace("\\subsection*{", "\\subsection{")
         line = line.replace("\\chapter*{", "\\chapter{")
         line = line.replace("\\part*{", "\\part{")
         line = line.replace("\\\\newpage","")
+
 
         # Eliminamos los tabuladores \t, teniendo cuidado de no eliminar los \\t
         line = re.sub(r'(?<!\\)\t','',line)
@@ -415,6 +419,45 @@ with open(file_name, 'r') as f:
             line, find_Ejercicio = \
                 replace_end_newtheorem(f_data, line, find_Ejercicio, i_start_ejercicio_in_tex, num_start_braket_ejercicio, num_end_braket_ejercicio, "Ejercicio")
 
+        ########################### Proposicion  #############################
+        elif "\\\\Proposicion{" in line:
+
+            find_Proposicion = True
+
+            i_start_proposicion_in_tex   = num_line_text_file
+            num_start_braket_proposicion = len(re.findall(r'(?<!\\)\{', line))
+            num_end_braket_proposicion   = len(re.findall(r'(?<!\\)\}', line))
+
+            line = replace_start_newtheorem(f_data, line, "Proposicion", "Proposicion", "info")
+
+
+        elif find_Proposicion == True:
+            num_start_braket_proposicion = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_proposicion
+            num_end_braket_proposicion   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_proposicion
+
+            line, find_Proposicion = \
+                replace_end_newtheorem(f_data, line, find_Proposicion, i_start_proposicion_in_tex, num_start_braket_proposicion, num_end_braket_proposicion, "Proposicion")
+
+        ########################### Corolario  #############################
+        elif "\\\\Corolario{" in line:
+
+            find_Corolario = True
+
+            i_start_corolario_in_tex   = num_line_text_file
+            num_start_braket_corolario = len(re.findall(r'(?<!\\)\{', line))
+            num_end_braket_corolario   = len(re.findall(r'(?<!\\)\}', line))
+
+            line = replace_start_newtheorem(f_data, line, "Corolario", "Corolario", "info")
+
+
+        elif find_Corolario == True:
+            num_start_braket_corolario = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_corolario
+            num_end_braket_corolario   = len(re.findall(r'(?<!\\)\}', line)) + num_end_braket_corolario
+
+            line, find_Corolario = \
+                replace_end_newtheorem(f_data, line, find_Corolario, i_start_corolario_in_tex, num_start_braket_corolario, num_end_braket_corolario, "Corolario")
+
+
         ##################### end document #######################
         elif "\\\\end{document}" in line:
             end_doc_bool = True
@@ -456,9 +499,9 @@ with open(file_name, 'r') as f:
 
         elif "\\\\end{proof}" in line :
             find_proof = False
-            line = line.replace("\\\\end{proof}",'</details>')
+            line = line.replace("\\\\end{proof}",'</details>\\n')
 
-                ############################ Figuras ##############################
+        ############################ Figuras ##############################
         elif "\\\\begin{figure}" in line :
             find_figure = True
             line = line.replace("\\\\begin{figure}",'<figure><center>')
