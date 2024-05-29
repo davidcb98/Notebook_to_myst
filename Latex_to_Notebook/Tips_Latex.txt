@@ -1,7 +1,7 @@
 ################################################################
 ### Los cuadros \Teorema{}, \Lemma{},... de la forma
 
-\Teorema{ (\textbf{Subtitulo}) \label{Teo_...}
+\Teorema{ (\textit{Subtitulo}) \label{Teo_...}
 Contenido del primer paragrafo del cuadro
 \vspace{0.3cm}
 
@@ -22,10 +22,8 @@ Puede haber lineas en blando dentro.
 
 ######### Cosas para hacer
 
-- Subtitulos de los teoremas
 - Los mybox_green,....
-- Lemma,...
-- Añadir ketbra a a plantilla
+- Añadir colortex a a plantilla
 
 - Lidiar con $$
 - Subfigure
