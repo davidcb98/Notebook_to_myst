@@ -364,6 +364,7 @@ En estas notas hablaremos solo de Computación Cuántica basada en Puertas, a pa
 
 \newpage
 
+% == Star_omitir_en_Notebook
 \addcontentsline{toc}{section}{Código de colores}
 \section*{Código de colores}
 
@@ -371,9 +372,11 @@ En estas notas hablaremos solo de Computación Cuántica basada en Puertas, a pa
 Teoremas, Lemmas, Definiciones, Demostraciones y conceptos importantes
 \end{mybox_gray2}
 
-\begin{mybox_gray}{Cuadros grises con bordes}
-Ejercicios
-\end{mybox_gray}
+
+\begin{mybox_gray}{Cuadros grises con bordes} 
+Ejercicios 
+\end{mybox_gray} 
+
 
 \begin{mybox_blue}{Nota}
 Notas o aclaraciones
@@ -386,7 +389,7 @@ Ejemplos
 \begin{mybox_orange}{Cuadros naranjas}
 Referencias a cuadernos de Jupyter Notebook
 \end{mybox_orange}
-
+% == End_omitir_en_Notebook
 
 \part{Conceptos básicos}	 \label{part_conceptos_basicos}
 
@@ -6741,7 +6744,7 @@ donde $\Delta \omega = (\omega_0 - \omega_{rf})$.
 		\vdots & \vdots
 		\end{bmatrix}
 		\end{align*}
-	\end{mybox_green}
+	\end{mybox_blue}
 
 La evolución de este espín de electrón giratorio o en precesión es unitaria ya que hasta ahora estamos considerando un único espín aislado sin desfase ni decoherencia. La coherencia cuántica se mantiene siempre. Sin embargo, \textbf{el espín de un electrón nunca está aislado}. Se acopla a los grados de libertad orbitales del electrón a través del acoplamiento espín-órbita, a los espines nucleares a través de la interacción hiperfina y la interacción dipolar, a la red cristalina (y por tanto a los fonones) a través del acoplamiento espín-órbita, a cualquier impureza magnética del entorno a través del acoplamiento directo espín-dipolo, y a otros espines de electrones a través del acoplamiento dipolar y de intercambio. 
 
@@ -7230,10 +7233,9 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 
 La descomposición del teorema de Barenco es  una identidad exacta capaz de descomponer un conjunto infinito y continuo de operadores $U_n$ en puertas CNOT y puertas \textit{continuas} $U$. Por otro lado, esto coincide con la demanda de la computación cuántica \textbf{resistente a errores (fault tolerant)} de una discretización del proceso de computación. De esta forma, lo que se busca es un \textit{conjunto discreto de puertas universales} susceptibles de ser implementadas de manera resistente a errores.
 
-Este conjunto de puertas universales puede ser diferente dependiendo de la plataforma utilizada. Por ejemplo, circuitos superconductores se usan, entre otras, las bases
+Este conjunto de puertas universales puede ser diferente dependiendo de la plataforma utilizada. Por ejemplo, circuitos superconductores se usa, entre otras, la base
 	\begin{itemize}
-		\item Shor basis: $\{ H$, $T$, CNOT$ \}$
-		\item NCT: $\{ X$, CNOT, Toffoli $\}$
+		\item Las puertas de Clifford: $\{ H$, $S$, CNOT$ \}$ + $T$
 	\end{itemize}
 
 Es importante relacionar las puertas universales con \textbf{puertas nativas} (las que de verdad se implementan y se usan para construir las demás). Por ejemplo, en ordenadores de iones atrapados hay las siguientes puertas nativas \cite{IONQ}:

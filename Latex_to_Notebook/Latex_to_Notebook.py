@@ -89,9 +89,7 @@ with open(Plantilla_section_path, 'r') as f:
 begin_doc_bool = False
 end_doc_bool   = False
 
-find_mybox_gray2 = False
 find_proof = False
-find_mybox_blue = False
 find_itemize = False
 find_itemize_2 = False
 find_figure = False
@@ -101,13 +99,16 @@ find_Corolario = False
 find_Definicion = False
 find_Proposicion = False
 find_Ejercicio = False
-find_mybox_green = False
 
+find_mybox_green = False
+find_mybox_gray2 = False
+find_mybox_blue = False
+find_mybox_gray = False
 
 num_line_text_file = 0
 
-omitir_seccion = False
-
+#omitir_seccion = False
+omitir_en_Notebook = False
 
 
 with open(file_name, 'r') as f:
@@ -138,8 +139,9 @@ with open(file_name, 'r') as f:
                  find_mybox_green
                  ]
 
-
+        ###############################################################################################################
         ## Cogemos solo lo que hay entre el \\begin{document} y el \\end{document}
+        ###############################################################################################################
         if begin_doc_bool == False:
             if "\\begin{document}" in line:
                 begin_doc_bool = True
@@ -147,6 +149,28 @@ with open(file_name, 'r') as f:
                 continue
         if end_doc_bool == True:
             continue
+
+        ###############################################################################################################
+        ## Buscamos los comentarios con "% == "
+        ###############################################################################################################
+        if "% == Bibliograf" in line:
+            i_bib = i
+            #f_data.append(line)
+
+            #i +=1
+            last_line = line
+            continue
+
+        elif "% == Star_omitir_en_Notebook" in line:
+            omitir_en_Notebook = True
+        elif "% == End_omitir_en_Notebook" in line:
+            omitir_en_Notebook = False
+
+
+        if line[0] == "%" or omitir_en_Notebook == True:
+            continue
+
+
 
         # Eliminamos los espacios en blanco a izquierda y derecha
         # Sustituimos "\" por "\\"
@@ -191,16 +215,8 @@ with open(file_name, 'r') as f:
                 last_line = line
                 continue
 
-        if "% == Bibliograf" in line:
-            i_bib = i
-            f_data.append(line)
 
-            i +=1
-            last_line = line
-            continue
 
-        if line[0] == "%":
-            continue
 
 
         line = delete_comments(line) # Eliminamos lo de despues de "%"
@@ -212,8 +228,7 @@ with open(file_name, 'r') as f:
         if "\\\\textit{" in line:
             line = reemplazo_textit(line)
 
-
-
+        """
         if "\\\\section{" in line:
             if "%%Omitir_seccion" in line:
                 omitir_seccion = True
@@ -226,6 +241,10 @@ with open(file_name, 'r') as f:
 
         if omitir_seccion == True:
             continue
+        """
+        if "\\\\section{" in line:
+            i_section.append(i)
+            line = reemplazo_sec(line, nonumber = False)
 
         ###############################################################################################################
         ##### Cadena principal de elif's

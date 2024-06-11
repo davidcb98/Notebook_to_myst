@@ -19,14 +19,25 @@ Puede haber lineas en blando dentro.
 
 
 
+################################################################
+
+## Bibliografia: poner esto antes
+
+% == Bibliograf
+
+
+## Omitir una zona
+
+% == Star_omitir_en_Notebook
+% == End_omitir_en_Notebook
+
 
 ######### Cosas para hacer
 
-- Los mybox_green,....
+- Los mybox_orange
 - Añadir colortex a a plantilla
 
 - Lidiar con $$
+- Lidiar con los \ref{}
+- Lidiar con los \cite{}
 - Subfigure
-
-
-Añadir un contandor de la linea del fichero .tex
