@@ -57,6 +57,8 @@ import os
 import shutil 
 import unicodedata
 
+from make_bib_in_ipynb import write_bib_notebook
+
 from LtN_replaces_and_others import reemplazo_label
 from LtN_replaces_and_others import reemplazo_sec
 from LtN_replaces_and_others import reemplazo_subsec
@@ -663,6 +665,21 @@ with open(file_name, 'r') as f:
         i +=1
         last_line = line
 
+
+#######################################################################################################################
+### Creamos el Bibliografia.ipynb
+#######################################################################################################################
+
+if find_bib_file == True:
+
+    write_path = Notebook_folder_path+"/Bibliografia.ipynb"
+
+    write_bib_notebook(bib_file, write_path,Plantilla_Bib)   # Hacemos el Bibliografia.ipynb
+
+    shutil.copy(bib_file, Notebook_folder_path)              # Copiamos el .bib
+
+    # Le ponemos de nombre Bibliografia.bib
+    os.rename(Notebook_folder_path+"/"+bib_file, Notebook_folder_path+"/Bibliografia.bib")
 
 #######################################################################################################################
 ### Escribimos los notebook

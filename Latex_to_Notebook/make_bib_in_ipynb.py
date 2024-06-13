@@ -1,7 +1,5 @@
 import bibtexparser
 
-
-
 def write_bib_notebook(Bib_file, write_path,Plantilla_Bib):
 
     with open(Plantilla_Bib, 'r') as f:
@@ -23,6 +21,7 @@ def write_bib_notebook(Bib_file, write_path,Plantilla_Bib):
                 tail_plantilla_bib.append(line)
 
     library = bibtexparser.parse_file(Bib_file)
+    print("")
     print(f"[INFO]: Writing {write_path}")
 
     with open(write_path, 'w') as f_out:
@@ -61,8 +60,6 @@ def write_bib_notebook(Bib_file, write_path,Plantilla_Bib):
             i +=1
 
         f_out.write('   "source": []\n')
-
-
 
         for line in tail_plantilla_bib:
             f_out.write(line)
