@@ -1,5 +1,16 @@
 import re
+import unicodedata
 
+# ===========================================================================
+
+def remove_capital_accents(string):
+    # Normalizar y eliminar acentos
+    normalized_string = ''.join((c for c in unicodedata.normalize('NFD', string) if unicodedata.category(c) != 'Mn'))
+
+    # Convertir a minúsculas
+    final_string = normalized_string.lower()
+
+    return final_string
 
 # ===========================================================================
 

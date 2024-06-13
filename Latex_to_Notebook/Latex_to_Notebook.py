@@ -1,8 +1,56 @@
 #!/usr/bin/env python3
+'''
+
+Made by davidcb98 (https://github.com/davidcb98)
+Date: 13/06/2024
+
+'''
+#######################################################################################################################
+### Help Message
+#######################################################################################################################
+
+def help_message():
+    ayuda = """
+=======================================================================================
+Help Message:
+
+ Este script convierte un archivo .tex en una serie de notebooks (uno por seccion).
+ Este script debe de ejecutarse dentro de una carpeta "scripts" que contenga las plantillas.
+ Los notebook se generarán en una carpeta "../Notebooks" que estará al mismo nivel que
+ la carpeta donde se ejecuta el scipt. Es decir, la estructura de carpetas es:
+
+    /.../scripts
+    /.../scripts/Latex_to_Notebook.py
+    /.../scripts/Plantilla_seccion.ipynb
+    /.../scripts/Plantilla_Bibliografia.ipynb
+    /.../Notebooks
+
+ Parametros:
+
+    - Primer argumento: ruta archivo .tex
+    - Segundo argumento (opcional): ruta a la carpeta con las figuras
+    - Tercer argumento (opcional): ruta al archivo .bib
+
+ Ejemplos de ejecucion:
+
+    python Latex_to_Notebook.py my_archivo_latex.tex
+    python Latex_to_Notebook.py my_archivo_latex.tex Figuras my_bibliografia.bib
+=======================================================================================
+    """
+    print(ayuda)
+    exit(0)
+
+import sys
+
+if '--help' in sys.argv or '-h' in sys.argv:
+    help_message()
+
+#######################################################################################################################
+### Imports
+#######################################################################################################################
 
 from subprocess import check_output as bash
 
-import sys
 import re
 import numpy as np
 import os
@@ -24,43 +72,106 @@ from LtN_replaces_and_others import delete_comments
 from LtN_replaces_and_others import build_i_a_in_b
 from LtN_replaces_and_others import replace_start_newtheorem
 from LtN_replaces_and_others import replace_end_newtheorem
+from LtN_replaces_and_others import remove_capital_accents
 
 from LtN_replaces_and_others import ErrorGenerico
+
+
+#######################################################################################################################
+### Rutas
+#######################################################################################################################
+
+#####################
+## Archivo tex
+
+try:
+    file_name  = sys.argv[1:][0] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+except:
+    print("\033[91m[ERROR]: No se ha pasado ningún argumento\033[0m")
+    help_message()
+
+#####################
+## Carpeta figuras
+
+try:
+    Figures_folder  = sys.argv[1:][1] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+    find_Fig_folder = True
+except:
+    find_Fig_folder = False
+
+#####################
+## Archivo .bib
+
+try:
+    bib_file  = sys.argv[1:][2] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+    find_bib_file = True
+except:
+    find_bib_file = False
+
+######################
+## Archivos de salida
 
 Notebook_folder_path = "../Notebooks"
 Notebook_old_folder_path = "../Notebooks_old"
 Plantilla_section_path = "Plantilla_seccion.ipynb"
-Name_Figuras_folder = "Figuras"
+Plantilla_Bib = "Plantilla_Bibliografia.ipynb"
 
+#######################################################################################################################
+### Prints de las Rutas
+#######################################################################################################################
 
-def remove_capital_accents(string):
-    # Normalizar y eliminar acentos
-    normalized_string = ''.join((c for c in unicodedata.normalize('NFD', string) if unicodedata.category(c) != 'Mn'))
+def print_rutas(file_name, Figures_folder, bib_file, Notebook_folder_path, Plantilla_section_path, Plantilla_Bib):
+    print("===========================")
+    print("INPUTS PATHS:")
+    print(" - TeX File  = ", file_name)
 
-    # Convertir a minúsculas
-    final_string = normalized_string.lower()
+    if not os.path.exists(file_name):
+        print("\033[91m[ERROR]: El archivo TeX no existe.\033[0m")
+        exit(1)
 
-    return final_string
+    if find_Fig_folder == True:
+        print(" - Figures Folder  = ", Figures_folder)
 
+        if not os.path.isdir(Figures_folder):
+            print("\033[91m[ERROR]: La carpeta de figuras no existe.\033[0m")
+            help_message()
+            exit(2)
 
+    if find_bib_file == True:
+        print(" - BibTeX File = ", bib_file)
+        if not os.path.exists(bib_file):
+            print("\033[91m[ERROR]: El archivo BibTeX no existe.\033[0m")
+            help_message()
+            exit(3)
 
+    print("OUTPUT PATHS:")
+    print(" - Notebooks folder = ", Notebook_folder_path)
+    print("TEMPLATES PATHS:")
+    print(" - Plantilla seccion = ", Plantilla_section_path)
+    print(" - Plantilla bibliografía = ", Plantilla_Bib)
+    print("===========================")
+
+print_rutas(file_name, Figures_folder, bib_file, Notebook_folder_path, Plantilla_section_path, Plantilla_Bib)
+
+################### grep "<a id='nielsen_chuang_2010'></a>" ../Notebooks/No_Bibliografia.ipynb | awk -F"[" '{print $2}' | awk -F"]" '{print $1}'
+
+#######################################################################################################################
+### Creamos el Notebook Folder.
+#######################################################################################################################
+
+## Si ya existe, lo movemos a uno _old y creamos el nuevo
 if os.path.exists(Notebook_folder_path):
     if os.path.exists(Notebook_old_folder_path):
         shutil.rmtree(Notebook_old_folder_path)
     os.rename(Notebook_folder_path,Notebook_old_folder_path)
 
 os.mkdir(Notebook_folder_path)
-#shutil.copytree(Name_Figuras_folder,Notebook_folder_path +"/"+ Name_Figuras_folder)
+#shutil.copytree(Figures_folder,Notebook_folder_path +"/"+ Figures_folder)
 
 
-
-# Obtenemos el nombre del archivo del primer algumento de la llamada
-file_name = sys.argv[1:][0]
-print("===========================")
-print("Input File  = ", file_name)
-
-out_file = file_name[:-4]+'.ipynb'
-
+#######################################################################################################################
+### Leemos la plantilla de las secciones
+#######################################################################################################################
 
 with open(Plantilla_section_path, 'r') as f:
     header_plantilla = []
@@ -82,7 +193,9 @@ with open(Plantilla_section_path, 'r') as f:
 
 
 
-
+#######################################################################################################################
+### Leemos el archivo TeX
+#######################################################################################################################
 
 #i_begin_doc = 0
 #i_end_doc = 0
@@ -551,6 +664,9 @@ with open(file_name, 'r') as f:
         last_line = line
 
 
+#######################################################################################################################
+### Escribimos los notebook
+#######################################################################################################################
 
 
 i_chap_in_parts, chapters_before_first_part = build_i_a_in_b(i_chapter, i_part)
@@ -621,14 +737,14 @@ for k_chap_in_one_part in i_chap_in_parts:
         print(f"\nPart_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
-        shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
+        shutil.copytree(Figures_folder, part_folder_path + "/" + Figures_folder)
         k_part +=1
         k_part_sum +=1
     else:
         print(f"\nPart_"+str(k_part_sum+1).zfill(2))
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
-        shutil.copytree(Name_Figuras_folder, part_folder_path + "/" + Name_Figuras_folder)
+        shutil.copytree(Figures_folder, part_folder_path + "/" + Figures_folder)
         k_part_sum +=1
 
     k_chap_sum_part = 0
@@ -659,7 +775,7 @@ for k_chap_in_one_part in i_chap_in_parts:
 
             ## Carpeta para las secciones
             os.mkdir(chapter_folder_path)
-            shutil.copytree(Name_Figuras_folder, chapter_folder_path + "/" + Name_Figuras_folder)
+            shutil.copytree(Figures_folder, chapter_folder_path + "/" + Figures_folder)
 
             ## Escribirmos las secciones
             for k_sec in i_sec_in_chap[k_chap]:
@@ -724,3 +840,5 @@ for k_chap_in_one_part in i_chap_in_parts:
 #for i in range(7642, 7642+10):
 #    print({f_data[i]})
 
+print("")
+print_rutas(file_name, Figures_folder, bib_file, Notebook_folder_path, Plantilla_section_path, Plantilla_Bib)
