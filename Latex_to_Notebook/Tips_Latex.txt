@@ -35,7 +35,7 @@ Puede haber lineas en blando dentro.
 ######### Cosas para hacer
 
 - Los mybox_orange
-- Añadir colortex a a plantilla
+- Añadir colortex a plantilla
 
 - Lidiar con $$
 - Lidiar con los \ref{}

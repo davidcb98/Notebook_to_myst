@@ -66,9 +66,11 @@ from LtN_replaces_and_others import reemplazo_chapter
 from LtN_replaces_and_others import reemplazo_SubsubIt
 from LtN_replaces_and_others import reemplazo_caption
 from LtN_replaces_and_others import reemplazo_includegraphics
-from LtN_replaces_and_others import find_title_subtitle_BeginBox
 from LtN_replaces_and_others import reemplazo_textbf
 from LtN_replaces_and_others import reemplazo_textit
+from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_full
+
+from LtN_replaces_and_others import find_title_subtitle_BeginBox
 from LtN_replaces_and_others import delete_vspace
 from LtN_replaces_and_others import delete_comments
 from LtN_replaces_and_others import build_i_a_in_b
@@ -668,18 +670,33 @@ with open(file_name, 'r') as f:
 
 #######################################################################################################################
 ### Creamos el Bibliografia.ipynb
+### y la variable "cites_dic"
 #######################################################################################################################
 
 if find_bib_file == True:
 
-    write_path = Notebook_folder_path+"/Bibliografia.ipynb"
+    bib_file_ipynb = "Bibliografia.ipynb"
+    write_path_bib = Notebook_folder_path+"/" + bib_file_ipynb
 
-    write_bib_notebook(bib_file, write_path,Plantilla_Bib)   # Hacemos el Bibliografia.ipynb
+    write_bib_notebook(bib_file, write_path_bib,Plantilla_Bib)   # Hacemos el Bibliografia.ipynb
 
     shutil.copy(bib_file, Notebook_folder_path)              # Copiamos el .bib
 
     # Le ponemos de nombre Bibliografia.bib
     os.rename(Notebook_folder_path+"/"+bib_file, Notebook_folder_path+"/Bibliografia.bib")
+
+    # Del archivo que acabamos de escribir, sacamos los nombres de las referencias y los números
+    bash_command = 'grep "\]<a id='+"'"+'" '+ write_path_bib + ' | sed -E "s/.*\\\"\\\\[(.*)\\\\]<a id=' + "'([^']*)'.*/\\1 \\2/" + '"'
+
+    cites_list = bash(bash_command, shell=True).decode("utf-8").splitlines()
+
+    # Construimos un diccionario con los nombres de las referencias como claves, y los numes como items:
+    # Ejemplo:
+    #   cites_dic[bib_...] = '5'
+
+    cites_dic = {item.split()[1]: item.split()[0] for item in cites_list}
+
+
 
 #######################################################################################################################
 ### Escribimos los notebook
@@ -701,9 +718,11 @@ def test_write_start_end(i_end_write_old, i_start_write, write_path):
         print(f"\033[91m======\033[0m") 
         raise 
 
-def write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla):
+def write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla, cites_dic, path_bib_ipynb):
 
     print(f"[INFO]: Writing {write_path}")
+
+    reemplazo_cite_full(f_data, i_start_write, i_end_write, cites_dic, path_bib_ipynb)
 
     with open(write_path, 'w') as f_out:
         for line in header_plantilla:
@@ -787,8 +806,10 @@ for k_chap_in_one_part in i_chap_in_parts:
             ## Escribimos lo que hay antes de la primera seccion del capitulo en un archivo Chapter_.._01
             write_path = chapter_intro_file_path
             i_end_write = i_section[i_sec_in_chap[k_chap][0]]
+            path_bib_ipynb = "../"+bib_file_ipynb
 
-            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
+
+            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla, cites_dic, path_bib_ipynb)
 
             ## Carpeta para las secciones
             os.mkdir(chapter_folder_path)
@@ -805,6 +826,7 @@ for k_chap_in_one_part in i_chap_in_parts:
 
                 sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3)+"_"+ title_lowecase + ".ipynb"
                 write_path = sec_file_path
+                path_bib_ipynb = "../../"+bib_file_ipynb
 
                 if k_sec_sum < len(i_sec_in_chap[k_chap]) -1 :
                     i_end_write   = i_section[k_sec + 1]
@@ -824,12 +846,14 @@ for k_chap_in_one_part in i_chap_in_parts:
                             i_end_write = i_part[k_part_aux]
                         else:
                             i_end_write = i_bib
-                    
-                write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
+
+                write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla, cites_dic, path_bib_ipynb)
                 k_sec_sum += 1
         else:
             ## Escribimos lo que hay antes de la primera seccion del capitulo en un archivo Chapter_.._01
             write_path = chapter_intro_file_path
+            path_bib_ipynb = "../"+bib_file_ipynb
+
             if k_chap_sum_part < len(k_chap_in_one_part) - 1:
                 i_end_write   = i_chapter[k_chap + 1]
 
@@ -844,7 +868,7 @@ for k_chap_in_one_part in i_chap_in_parts:
                 else:
                     i_end_write = i_bib
 
-            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla)
+            write_notebook(f_data, i_start_write, i_end_write, write_path, header_plantilla, tail_plantilla, cites_dic, path_bib_ipynb)
 
 
             

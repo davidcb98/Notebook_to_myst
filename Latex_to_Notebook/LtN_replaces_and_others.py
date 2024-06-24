@@ -210,6 +210,44 @@ def reemplazo_textit(line):
     return re.sub(patron_textit, reemplazo_textit_aux, line)
 
 # =============================================================================
+## Los \cite{
+# Separamos los \cite{bib_..., bib_..., ...} en \cite{bib_...},\cite{bib_...}, ...
+
+def split_cites(line):
+    # Expresión regular para encontrar y reemplazar el formato
+    patron = re.compile(r'\\cite{([^}]+)}')
+
+    def reemplazar_citas(match):
+        citas = match.group(1).split(',')
+        citas = [cita.strip() for cita in citas]  # Eliminar espacios alrededor de las citas
+        return ','.join(f'\\cite{{{cita}}}' for cita in citas)
+
+    return patron.sub(reemplazar_citas, line)
+
+
+def reemplazo_cite(line, cites_dic, path_bib_ipynb):
+
+    def reemplazo_cite_aux(match):
+        texto = match.group(1)
+
+        return f"[[{cites_dic[texto]}]]({path_bib_ipynb}#{texto})"
+
+    patron_textit = r"\\\\cite\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return re.sub(patron_textit, reemplazo_cite_aux, line)
+
+def reemplazo_cite_full(f_data, i_start_write, i_end_write, cites_dic, path_bib_ipynb):
+
+    for i in range(i_start_write, i_end_write):
+    #for i in range(len(f_data)):
+        line = f_data[i]
+        if "\\\\cite{" in line:
+
+            line = split_cites(line)
+            line = reemplazo_cite(line, cites_dic, path_bib_ipynb)
+
+            f_data[i] = line
+
+# =============================================================================
 ## Eliminar los \vspace{...}
 def delete_vspace(line):
     patron_vspace = r"\\\\vspace\{[^{}]*\}"
