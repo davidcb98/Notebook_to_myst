@@ -69,7 +69,8 @@ from LtN_replaces_and_others import reemplazo_includegraphics
 from LtN_replaces_and_others import reemplazo_textbf
 from LtN_replaces_and_others import reemplazo_textit
 from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_full
-
+from LtN_replaces_and_others import reemplazo_begin_figure
+from LtN_replaces_and_others import reemplazo_item
 from LtN_replaces_and_others import find_title_subtitle_BeginBox
 from LtN_replaces_and_others import delete_vspace
 from LtN_replaces_and_others import delete_comments
@@ -244,8 +245,6 @@ with open(file_name, 'r') as f:
                  find_mybox_gray2,
                  find_proof,
                  find_mybox_blue,
-                 find_itemize,
-                 find_itemize_2,
                  find_figure,
                  find_Teorema,
                  find_Lemma,
@@ -255,6 +254,9 @@ with open(file_name, 'r') as f:
                  find_Ejercicio,
                  find_mybox_green
                  ]
+
+        finds_2 = [find_itemize,
+                   find_itemize_2,]
 
         ###############################################################################################################
         ## Cogemos solo lo que hay entre el \\begin{document} y el \\end{document}
@@ -326,6 +328,9 @@ with open(file_name, 'r') as f:
                     i +=1 
                     last_line = line
                     continue
+            elif True in finds_2:
+                continue
+
             else:
                 f_data.append(line)
                 i +=1 
@@ -398,8 +403,12 @@ with open(file_name, 'r') as f:
         #################### mybox_blue / Nota y Resumen #######################
         elif "\\\\begin{mybox_blue}" in line:
             find_mybox_blue = True
+            try:
+                title, subtitle = find_title_subtitle_BeginBox(line)
+            except:
+                message = "Error al buscar el titulo y subtitulo de una mybox_green"
+                raise ErrorGenerico(f_data, line,num_line_text_file , message)
 
-            title, subtitle = find_title_subtitle_BeginBox(line)
 
             if subtitle == None:
                 line = '<div class=\\"alert alert-block alert-danger\\">\\n",\n' + \
@@ -420,7 +429,11 @@ with open(file_name, 'r') as f:
 
         elif "\\\\begin{mybox_green}" in line:
             find_mybox_green = True
-            title, subtitle = find_title_subtitle_BeginBox(line)
+            try:
+                title, subtitle = find_title_subtitle_BeginBox(line)
+            except:
+                message = "Error al buscar el titulo y subtitulo de una mybox_green"
+                raise ErrorGenerico(f_data, line,num_line_text_file , message)
 
             if subtitle == None:
                 line = '<div class=\\"alert alert-block alert-success\\">\\n",\n' + \
@@ -609,7 +622,12 @@ with open(file_name, 'r') as f:
                 find_itemize_2 = True
             else:
                 find_itemize = True
-            line = line.replace("\\\\begin{itemize}","<br>").replace("\\\\begin{enumerate}","<br>")
+
+            if True in finds:
+                line = line.replace("\\\\begin{itemize}","<br>").replace("\\\\begin{enumerate}","<br>")
+            else:
+                line = line.replace("\\\\begin{itemize}","").replace("\\\\begin{enumerate}","")
+
 
 
         elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line):
@@ -617,16 +635,31 @@ with open(file_name, 'r') as f:
                 find_itemize_2 = False
             else:
                 find_itemize = False
-            line = line.replace("\\\\end{itemize}","<br>").replace("\\\\end{enumerate}","<br>")
 
-        elif find_itemize == True and "\\\\item " in line:
-            if find_itemize_2 == True:
-                line = line.replace('\\\\item', '    *')
+            if True in finds:
+                line = line.replace("\\\\end{itemize}","<br>").replace("\\\\end{enumerate}","<br>")
             else:
-                line = line.replace('\\\\item', '-')
+                line = line.replace("\\\\end{itemize}","").replace("\\\\end{enumerate}","")
 
-            line = line + '\\n",\n' + \
-                    '    "<br>'
+
+        elif find_itemize == True:
+            if "\\\\item" in line:
+                if find_itemize_2 == True:
+                    #line = line.replace('\\\\item', '    -')
+                    line = reemplazo_item(line, '    ')
+                    line = " \\n" + line
+                else:
+                    #line = line.replace('\\\\item', '-')
+                    line = reemplazo_item(line, '')
+                    line = " \\n" + line
+            """
+            if True in finds:
+                line = line + '\\n",\n' + \
+                            '    "<br>'
+            else:
+                line = line + '\\n",\n' + \
+                            '    "'
+            """
 
         ######################## proof / dropdown #########################
         if "\\\\begin{proof}" in line :
@@ -640,7 +673,8 @@ with open(file_name, 'r') as f:
         ############################ Figuras ##############################
         elif "\\\\begin{figure}" in line :
             find_figure = True
-            line = line.replace("\\\\begin{figure}",'<figure><center>')
+            #line = line.replace("\\\\begin{figure}",'<figure><center>')
+            line = reemplazo_begin_figure(line)
 
         elif "\\\\end{figure}" in line :
             find_figure = False

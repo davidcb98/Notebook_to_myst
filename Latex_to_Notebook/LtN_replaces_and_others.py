@@ -210,6 +210,45 @@ def reemplazo_textit(line):
     return re.sub(patron_textit, reemplazo_textit_aux, line)
 
 # =============================================================================
+## Reemplazar \\begin{figure}[...] por <figure><center>
+def reemplazo_begin_figure(line):
+
+    patron_beg_fig = re.compile(r'\\\\begin{figure}(\[.*?\])?')
+
+    # Función para reemplazar el patrón encontrado
+    def reemplazo_begin_figure_aux(match):
+        if match.group(1):  # Si hay opciones entre corchetes
+            return '<figure><center>'
+        else:  # Si no hay opciones entre corchetes
+            return '<figure><center>'
+
+    # Aplicar la sustitución
+    return patron_beg_fig.sub(reemplazo_begin_figure_aux, line)
+
+
+
+# =============================================================================
+## Reemplazar \item por - y \item[1.] por 1.
+def reemplazo_item(line, out_spaces):
+
+    patron = re.compile(r'\\\\item(\[(.*?)\])?')
+
+    # Función para reemplazar el patrón encontrado
+    def reemplazar_item_aux(match):
+        if match.group(1):  # Si hay una opción entre corchetes
+            return out_spaces + match.group(2)
+        else:  # Si no hay opciones entre corchetes
+            return out_spaces + "-"
+
+    # Aplicar la sustitución
+    return patron.sub(reemplazar_item_aux, line)
+
+
+
+
+
+
+# =============================================================================
 ## Los \cite{
 # Separamos los \cite{bib_..., bib_..., ...} en \cite{bib_...},\cite{bib_...}, ...
 

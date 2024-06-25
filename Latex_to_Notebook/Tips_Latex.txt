@@ -17,7 +17,15 @@ Puede haber lineas en blando dentro.
 
 \begin{mybox_blue}{Nota/Resumen: Subtitulo}
 
+################################################################
 
+\begin{itemize} e \begin{enumerate}
+
+Se acepta usar:
+
+\item
+\item[1.], \item[2.], ...
+\item[a)], ....
 
 ################################################################
 
@@ -39,5 +47,6 @@ Puede haber lineas en blando dentro.
 
 - Lidiar con $$
 - Lidiar con los \ref{}
-- Lidiar con los \cite{}
+- Los graficos de los ciruitos
+
 - Subfigure
