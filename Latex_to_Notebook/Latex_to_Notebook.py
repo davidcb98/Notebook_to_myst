@@ -616,31 +616,35 @@ with open(file_name, 'r') as f:
         ##### Otros if
         ###############################################################################################################
 
+        ############################ Enumerate ##############################
+        if "\\\\begin{enumerate}" in line:
+
+            message = "No se aceptan los \\begin\{enumerate\}. \n"+ \
+                      "Sustituirlo con \\begin\{itemize\} usando \\item[1.], \\item[2.], ..."
+            raise ErrorGenerico(f_data, line, num_line_text_file, message)
+
         ############################ Itemice ##############################
-        if ("\\\\begin{itemize}" in line or "\\\\begin{enumerate}" in line):
+        if "\\\\begin{itemize}" in line:
             if find_itemize == True:
                 find_itemize_2 = True
             else:
                 find_itemize = True
 
             if True in finds:
-                line = line.replace("\\\\begin{itemize}","<br>").replace("\\\\begin{enumerate}","<br>")
+                line = line.replace("\\\\begin{itemize}","<br>")
             else:
-                line = line.replace("\\\\begin{itemize}","").replace("\\\\begin{enumerate}","")
+                line = line.replace("\\\\begin{itemize}","")
 
-
-
-        elif ("\\\\end{itemize}" in line or "\\\\end{enumerate}" in line):
+        elif "\\\\end{itemize}" in line:
             if find_itemize_2 == True:
                 find_itemize_2 = False
             else:
                 find_itemize = False
 
             if True in finds:
-                line = line.replace("\\\\end{itemize}","<br>").replace("\\\\end{enumerate}","<br>")
+                line = line.replace("\\\\end{itemize}","<br>")
             else:
-                line = line.replace("\\\\end{itemize}","").replace("\\\\end{enumerate}","")
-
+                line = line.replace("\\\\end{itemize}","")
 
         elif find_itemize == True:
             if "\\\\item" in line:
@@ -660,6 +664,7 @@ with open(file_name, 'r') as f:
                 line = line + '\\n",\n' + \
                             '    "'
             """
+
 
         ######################## proof / dropdown #########################
         if "\\\\begin{proof}" in line :

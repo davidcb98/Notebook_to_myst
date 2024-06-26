@@ -1274,8 +1274,8 @@ El número complejo $b=\braket{u}{w}$ es  la \textit{proyección} de $\ket{w}$ e
 
 \begin{mybox_blue}{Nota}
 Véase que:
-\begin{enumerate}
-	\item El \textit{orden} en que escribimos las cosas es \textit{muy} relevante.
+\begin{itemize}
+	\item[1.] El \textit{orden} en que escribimos las cosas es \textit{muy} relevante.
 \vspace{0.1cm}	
 
 	\begin{itemize}
@@ -1286,12 +1286,12 @@ Véase que:
 	\end{itemize}
 	\vspace{0.2cm}
 	
-	\item La acción del operador  $A = \ket{v}\!\bra{u}$ es muy fácil de expresar con palabras: 
+	\item[2.] La acción del operador  $A = \ket{v}\!\bra{u}$ es muy fácil de expresar con palabras: 
 el operador $A$ toma \textit{cualquier vector} $\ket{w}$ y lo convierte en un vector \textit{paralelo} a $\ket{v}$ proporcionalmente a su proyección $b=\braket{u}{w}$. 
 \vspace{0.1cm}
 
 Si la proyección es nula $b=0$, el operador aniquila, es decir, da el elemento neutro.
-\end{enumerate}
+\end{itemize}
 
 \end{mybox_blue}
 
@@ -1713,9 +1713,9 @@ donde hemos aplicado la desigualdad de Cauchy Schwarz estricta, al suponer que $
 
 	\item \textbf{Matriz asociada a un proyector}
 
-\begin{enumerate}
+\begin{itemize}
 
-	\item Si $\ket{u} = \ket{e_1}$ el operador $P_1 = \ket{e_1}\bra{e_1}$ proyecta cualquier vector sobre su componente a lo largo de $\ket{e_1}$.    En forma matricial
+	\item[1.] Si $\ket{u} = \ket{e_1}$ el operador $P_1 = \ket{e_1}\bra{e_1}$ proyecta cualquier vector sobre su componente a lo largo de $\ket{e_1}$.    En forma matricial
  \begin{equation}
 \ketbra{e_1}{e_1} = \begin{bmatrix} 1 \\ 0 \\ \vdots\\ 0 \end{bmatrix} \begin{bmatrix} 1 & 0 & ...& 0 \end{bmatrix}  =
  \begin{bmatrix} 1 & 0 &  \cdots & 0 \\ 0 & 0  & \cdots & 0 \\ 
@@ -1730,7 +1730,7 @@ de modo que
  = \begin{bmatrix} u^1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} = u^1 \ket{e_1}
 \end{equation}
 
-	\item Si $\ket{u} = \sum_i u^i\ket{e_i}$ es un vector unitario  $\|\ket{u}\|=1$, entonces el proyector a lo largo de $\ket{u}$ viene dado por
+	\item[2.] Si $\ket{u} = \sum_i u^i\ket{e_i}$ es un vector unitario  $\|\ket{u}\|=1$, entonces el proyector a lo largo de $\ket{u}$ viene dado por
 	\begin{equation}
 	\boxed{P(u) = \ketbra{u}{u} = \sum_{i,j} u_i u^*_j \ketbra{e_i}{e_j}}
 	\end{equation}
@@ -1739,7 +1739,7 @@ Es decir, le está asociada una matriz dada por $P_{ij}=u_iu^*_j$. Es trivial ve
 \sum_j P_{ij}P_{jk} = \sum_j u_i u^*_j u_j u^*_k = u_i\left(\sum_j u^*_j u_j\right) u_k = u_i u_k^* = P_{ik}
 \end{equation}
 como corresponde a un proyector.
-\end{enumerate}		
+\end{itemize}		
 
 
 	\item \textbf{Proyectores ortogonales}
@@ -2023,25 +2023,25 @@ donde $\lambda_k$ aparecerá $d_k$ veces repetido.
 
 \begin{mybox_gray2}{}
 El \textbf{espectro de un operador hermítico}  $A = A^\dagger$,  tiene dos propiedades importantes:
-\begin{enumerate}
-	\item Los \textbf{autovalores} de un operador hermíticos son reales $\lambda_i \in {\mathbb R}$.
-	\item Los \textbf{autovectores} $\ket{\lambda_i}$ de un operador hermítico asociados a autovalores distintos son ortogonales. Es decir
+\begin{itemize}
+	\item[1.] Los \textbf{autovalores} de un operador hermíticos son reales $\lambda_i \in {\mathbb R}$.
+	\item[2.] Los \textbf{autovectores} $\ket{\lambda_i}$ de un operador hermítico asociados a autovalores distintos son ortogonales. Es decir
 	\begin{equation} \label{ec_op_hermitico_autovec_ortogonal}
 	\lambda_i\neq \lambda_j ~~~\Longleftrightarrow ~~~\braket{\lambda_i}{\lambda_j} = 0\, .
 	\end{equation}
-\end{enumerate} 
+\end{itemize}
 
 \end{mybox_gray2}
 
 \begin{proof}
-\begin{enumerate}
-	\item Tomemos un autovector normalizado de $A$, $\ket{\lambda}$ de autovalor $\lambda$.
+\begin{itemize}
+	\item[1.] Tomemos un autovector normalizado de $A$, $\ket{\lambda}$ de autovalor $\lambda$.
 \begin{equation}
 \lambda = \bra{\lambda}A\ket{\lambda} =  (\bra{\lambda}A^\dagger\ket{\lambda})^* = (\bra{\lambda}A\ket{\lambda})^*= \lambda^* .~~~
 \end{equation}   
 
-	\item Los operadores hermíticos son también normales, así que la demostración ya la vimos para esos operadores.
-\end{enumerate}
+	\item[2.] Los operadores hermíticos son también normales, así que la demostración ya la vimos para esos operadores.
+\end{itemize}
 \end{proof}
 
 \textbf{Base ortonormal}: el conjunto de autovectores $\ket{\lambda_i}$ de un operador hermítico forma una base ortogonal. Puede normalizarse para formar una base ortonormal
@@ -2177,23 +2177,23 @@ Una propiedad importante de la función exponencial es  $e^xe^y = e^{x+y}$. La p
 	}
 
 	Vemos que:
-	\begin{enumerate}
-		\item Si $A$ y $B$ conmutan, 
+	\begin{itemize}
+		\item[1.] Si $A$ y $B$ conmutan, 
 		\begin{equation}
 		[A,B]=0 ~\Leftrightarrow ~e^A e^B = e^{A+B}
 		\end{equation}
 		
-		\item Si el conmutador de $A$ y $B$  es un c-número 
+		\item[2.] Si el conmutador de $A$ y $B$  es un c-número 
 		\begin{equation}
 		[A,B]= c I  ~\Leftrightarrow ~  e^A e^B = e^{A+B + \frac{c}{2}}
 		\end{equation}
 		
-		\item El inverso de $e^A$ es $e^{-A}$. Efectivamente, como 
+		\item[3.] El inverso de $e^A$ es $e^{-A}$. Efectivamente, como 
 		\begin{equation}
 		[A,A]=0 \Rightarrow e^A e^{-A} = e^{A-A} = e^0 = I
 		\end{equation}
 
-	\end{enumerate}
+	\end{itemize}
 	
 	\item \textbf{Teorema de Lie-Suzuki-Trotter}
 	
@@ -3189,13 +3189,13 @@ Para más información sobre Mecánica Cuántica, se recomienda el famoso libro 
 
 \begin{mybox_green}{Ejemplo}
 Un ejemplo son los axiomas (postulados) de la geometría euclidiana:
-\begin{enumerate}
-	\item Es posible trazar una línea recta desde cualquier punto a cualquier otro punto.
-	\item Es posible prolongar un segmento de recta continuamente en ambas direcciones.
-	\item Es posible describir una circunferencia con cualquier centro y cualquier radio.
-	\item Es cierto que todos los ángulos rectos son iguales entre sí.
-	\item ("Postulado de las paralelas") Es cierto que, si una recta que cae sobre dos rectas hace que el ángulos interiores de un mismo lado sean menores que dos ángulos rectos, las dos rectas, si se producen indefinidamente, se intersecan en aquel lado en el que están los ángulos menores que los dos ángulos rectos.
-\end{enumerate}
+\begin{itemize}
+	\item[1.] Es posible trazar una línea recta desde cualquier punto a cualquier otro punto.
+	\item[2.] Es posible prolongar un segmento de recta continuamente en ambas direcciones.
+	\item[3.] Es posible describir una circunferencia con cualquier centro y cualquier radio.
+	\item[4.] Es cierto que todos los ángulos rectos son iguales entre sí.
+	\item[5.] ("Postulado de las paralelas") Es cierto que, si una recta que cae sobre dos rectas hace que el ángulos interiores de un mismo lado sean menores que dos ángulos rectos, las dos rectas, si se producen indefinidamente, se intersecan en aquel lado en el que están los ángulos menores que los dos ángulos rectos.
+\end{itemize}
 \end{mybox_green}	
 	
 
@@ -5617,8 +5617,8 @@ mucho más interesante es cuando las direcciones de los detectores de Alice y Bo
         \subsection{Desigualdad CSCH}
 
 Enn 1970 Clauser, Horne, Shimony y Holt \cite{bib_Bell_CHSH} propusieron una figura de mérito fácilmente accesible para verificar las desigualdades de Bell. La idea es que Alice y Bob pueden orientar sus detectores en \textbf{dos direcciones  arbitrarias} cada uno. Para alice Alice denotamos $\hat{\bf n}_A, \hat{\bf n}'_A$  y  para Bob $\, \hat{\bf n}_B, \hat{\bf n}'_B$. Los pasos a seguir son los siguientes:
-\begin{enumerate}
-	\item Alice y Bob seleccionan cada uno una orientación (de las dos posibles de cada uno), p. ej.  $\hat{\bf n}_A$ y $\hat{\bf n}'_B$, para sus detectores. 
+\begin{itemize}
+	\item[1.] Alice y Bob seleccionan cada uno una orientación (de las dos posibles de cada uno), p. ej.  $\hat{\bf n}_A$ y $\hat{\bf n}'_B$, para sus detectores. 
 	Hay cuatro parejas posibles dependiendo de que selecciones cada uno
 	\begin{equation}
 	\begin{array}{c|c} {\rm Alice} & {\rm Bob} \\ 
@@ -5628,24 +5628,24 @@ Enn 1970 Clauser, Horne, Shimony y Holt \cite{bib_Bell_CHSH} propusieron una fig
 	\hat{\bf n}'_A        &  \hat{\bf n}'_B \end{array}
 	\end{equation}
 
-	\item Alice y Bob reciben un electrón cada uno de un par entrelazado en el estado $\ket{B_{11}}$
+	\item[2.] Alice y Bob reciben un electrón cada uno de un par entrelazado en el estado $\ket{B_{11}}$
 
-	\item Alice y Bob realizan la medida de la proyección del espín a lo largo del eje elegido y anotan el resultado de la medición $(a,b')=(\pm 1, \pm 1)$
+	\item[3.] Alice y Bob realizan la medida de la proyección del espín a lo largo del eje elegido y anotan el resultado de la medición $(a,b')=(\pm 1, \pm 1)$
 	
-	\item Repiten el paso anterior un número $i=1,..., N$ grande de veces, y con los datos obtenidos $(a_i,b_i)=(\pm 1, \pm 1)$
+	\item[4.] Repiten el paso anterior un número $i=1,..., N$ grande de veces, y con los datos obtenidos $(a_i,b_i)=(\pm 1, \pm 1)$
 donde $i=1,...,N$ pueden reconstruir la cantidad
 	\begin{equation}
 	 C(\hat{\bf n}_A, \hat{\bf n}'_B) = \frac{1}{N}\sum_{i=1}^N a_i b'_i ~\in~  [-1,1]
 	\end{equation}
 Esta vez, como miden en direcciones diferentes, los dos pueden medir el mismo valor, así que esta cantidad estará ente $-1$ y $+1$.
 
-	\item Repiten todo el proceso anterior para las cuatro posibles orientaciones elegidas de forma aleatoria. Con las  $4N$ mediciones construyen la cantidad
+	\item[5.] Repiten todo el proceso anterior para las cuatro posibles orientaciones elegidas de forma aleatoria. Con las  $4N$ mediciones construyen la cantidad
 	\begin{equation} \label{ec_entrelazamiento_bell_R}
 	R = | C(\hat{\bf n}_A, \hat{\bf n}_B) +  C(\hat{\bf n}_A, \hat{\bf n}'_B) +  C(\hat{\bf n}'_A, \hat{\bf n}_B)-  
 	C(\hat{\bf n}'_A, \hat{\bf n}'_B)|
 	\end{equation}
 
-\end{enumerate}
+\end{itemize}
 
 En un mundo clásico, supondríamos que los valores $a_i,b_i$ proceden de \textbf{valores predefinidos} para cada sistema individual, sobre el que efectuamos simplemente un promedio estadístico de muchos sistemas. Entonces podemos probar la \textbf{desigualdad de CSCH}:
 
@@ -5781,8 +5781,8 @@ Supongamos que Alice y Bob tiene dos qúbits que se encuentran en el estado entr
 	\label{Fig_entrelazamiento_teleportacion}
 	\end{figure}
 
-\begin{enumerate}
-	\item El estado inicial es
+\begin{itemize}
+	\item[1.] El estado inicial es
 \begin{equation} 
 \ket{\phi} \ket{B_{00}} =  \ket{\phi}\otimes \frac{1}{\sqrt{2}}\left(\ket{0}\otimes \ket{0} + \ket{1}\otimes\ket{1}\rule{0mm}{4mm}\right)\, .
 \end{equation}
@@ -5791,7 +5791,7 @@ Alice tiene acceso a los dos primeros qubits y Bob al tercero. El estado que que
 \ket{\phi} = a \ket{0} + b \ket{1}
 \end{equation}
 
-	\item Alice realiza una  \textit{medida de Bell} a sus dos qúbits.
+	\item[2.] Alice realiza una  \textit{medida de Bell} a sus dos qúbits.
 Ello  implica un desentrelazador $U_{\rm desent}= (H \otimes I)\cdot U_{\rm CNOT}.~$
 Un cálculo sencillo  da el resultado
 	\begin{align*} 
@@ -5802,11 +5802,11 @@ Un cálculo sencillo  da el resultado
 	\end{align*}
 	Podemos ver que al estar entrelazados, las operaciones sobre los qúbit de Alice afectan al estado del qúbit de Bob. 
 
-	\item Alice mide el estado que obra en su poder, y obtiene un 2-bit  clásico, $xy$ de manera equiprobable para las 4 posibilidades. De forma correlacionada, el qúbit de Bob colapsa a uno de los 4 estados $\ket{\varphi_{xy}},$ pero no sabe a cuál. 
+	\item[3.] Alice mide el estado que obra en su poder, y obtiene un 2-bit  clásico, $xy$ de manera equiprobable para las 4 posibilidades. De forma correlacionada, el qúbit de Bob colapsa a uno de los 4 estados $\ket{\varphi_{xy}},$ pero no sabe a cuál. 
 
-	\item Alice envía el resultado de su medida $xy$ por un canal clásico a Bob.
+	\item[4.] Alice envía el resultado de su medida $xy$ por un canal clásico a Bob.
 	
-	\item Bob efectúa sobre su qúbit, una operación controlada por este 2-bit, $U_{xy} =  X^y Z^x $. 
+	\item[5.] Bob efectúa sobre su qúbit, una operación controlada por este 2-bit, $U_{xy} =  X^y Z^x $. 
 \begin{equation}
 xy ~=~ \left\{ \begin{array}{c} 00 \\ 01 \\ 10 \\ 11 \end{array} \right\}~~ \Longrightarrow  
 ~~~ X^y Z^x \ket{\varphi_{xy}} ~=~ \left\{  \begin{array}{rl}    I :& (a\ket{0} + b\ket{1})  \\    X: & (a\ket{1} + b\ket{0})  \\  Z:& (a\ket{0} - b\ket{1})  
@@ -5815,7 +5815,7 @@ xy ~=~ \left\{ \begin{array}{c} 00 \\ 01 \\ 10 \\ 11 \end{array} \right\}~~ \Lon
 \end{equation}
 Como resultado de esta operación, el qúbit de Bob es finalmente $\ket{\phi}$.
 
-\end{enumerate}
+\end{itemize}
 
 	\Ejercicio{
 	Calcula $(H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}}$ y verifica que la ecuación del paso 2 es correcta.
@@ -5867,14 +5867,14 @@ El siguiente ejercicio ilustra el principio de la medida diferida.
 Ya hemos visto cómo el ejemplo más sencillo de entrelazamiento tiene una aplicación muy interesante en la teleportación. Vamos a ver que el entrelazamiento se puede ``contagiar'' a terceras partes. En inglés se denomina \textbf{entanglement swapping}.
 
 Consideremos el circuito de la Fig. \ref{Fig_entrelazamiento_entanglement_swap}. El circuito podemos interpretarlo de la siguiente forma:
-	\begin{enumerate}
-		\item Alice (A) entrelaza un qúbit con Charles (C) y otro con Bob (B).
+	\begin{itemize}
+		\item[1.] Alice (A) entrelaza un qúbit con Charles (C) y otro con Bob (B).
 		
-		\item Después, Alice hace una medida de Bell, y comunica el resultado $xy$ a Charles 
+		\item[2.] Después, Alice hace una medida de Bell, y comunica el resultado $xy$ a Charles 
 		y a Bob respectivamente.
 		
-		\item Charles y Bob efectúan las puertas controladas $Z^x$ y $X^y$ respectivamente. El resultado final es que los qúbits de Bob y Charlie están entrelazados.
-	\end{enumerate}
+		\item[3.] Charles y Bob efectúan las puertas controladas $Z^x$ y $X^y$ respectivamente. El resultado final es que los qúbits de Bob y Charlie están entrelazados.
+	\end{itemize}
 
 
 	\begin{figure}[H]
@@ -7174,11 +7174,11 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 
 	\begin{proof}
 	No vamos a ver en detalle la demostración pero su vamos a ilustrar cuales son los pasos a seguir:
-	\begin{enumerate}
-		\item Cualquier operador $U_n$ sobre $n$ cúbits se puede descomponer como \textbf{producto de operadores} $\cg{^kU}$ 
+	\begin{itemize}
+		\item[1.] Cualquier operador $U_n$ sobre $n$ cúbits se puede descomponer como \textbf{producto de operadores} $\cg{^kU}$ 
 		controlados por $k$ cúbits.
 		
-		\item Los operadores $\hbox{C}^kU$ se pueden descomponer como productos de un  operador $\cg{U}$ y puertas de Toffoli (CCNOT).
+		\item[2.] Los operadores $\hbox{C}^kU$ se pueden descomponer como productos de un  operador $\cg{U}$ y puertas de Toffoli (CCNOT).
 		En general para $\cg{^kU}$ necesitamos $k-1$ ancillas, como podemos ver en la Fig. \ref{Fig_universal_CkUdecomposition}.
 			\begin{figure}[H]
 			\centering 
@@ -7188,7 +7188,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 			\end{figure}
 
 
-		\item Las puertas de Toffoli puede descomponerse como productos de $H$, $\cg{X}$ y $\cg{S}$, como podemos ver en la 
+		\item[3.] Las puertas de Toffoli puede descomponerse como productos de $H$, $\cg{X}$ y $\cg{S}$, como podemos ver en la 
 		Fig. \ref{Fig_universal_Toffolidecomposition}. Este no es más que el caso particular  de la descomposición general 
 		de $\cg{^2U}$ de la Fig. \ref{Fig_elementos_CCUdecomposition} usando 
 		$U = X = HZH=HSSH =  (HSH)(HSH)= V^2 ~~\Rightarrow ~~V = HSH$.
@@ -7199,7 +7199,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 			\label{Fig_universal_Toffolidecomposition}
 			\end{figure}
 
-		\item Una puerta $\cg{U}$ puede descomponerse de forma única usando tres rotaciones $A, B$ y $C$ que verifiquen
+		\item[4.] Una puerta $\cg{U}$ puede descomponerse de forma única usando tres rotaciones $A, B$ y $C$ que verifiquen
 		\begin{equation}
 		ABC = I ~~~~~,~~~~ e^{i\delta}  AXBXC = U\, ,
 		\end{equation}
@@ -7237,7 +7237,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 		para obtener un operador unitario general. 
 		\end{mybox_blue}		
 		
-	\end{enumerate}
+	\end{itemize}
 	\end{proof}
 
 
@@ -7287,10 +7287,10 @@ Alguna medidas cuantitativas  permiten comparar la calidad de distintos circuito
 	
 	\Ejercicio{
 		Competa los siguientes apartados:	
-		\begin{enumerate} 
-		\item Programa y ejecuta un circuito de 16 cúbits que prepare el estado $\ket{00\ldots 0} \to \frac{1}{\sqrt{2}}\left(\ket{00\ldots 0} + \ket{11\ldots 1}\right) $ 
-		\item Modifica la posición de los controladores hasta reducir la profundidad a 5.
-	\end{enumerate}
+	\begin{itemize} 
+		\item[1.] Programa y ejecuta un circuito de 16 cúbits que prepare el estado $\ket{00\ldots 0} \to \frac{1}{\sqrt{2}}\left(\ket{00\ldots 0} + \ket{11\ldots 1}\right) $ 
+		\item[2.] Modifica la posición de los controladores hasta reducir la profundidad a 5.
+	\end{itemize}
 	}
 
 %  \section{------ Complegidad computacional}
@@ -8183,18 +8183,18 @@ Vemos que aparece también la \textbf{inversa de la transformada de Fourier}, es
 
 Veamos paso a paso que hace el circuito anterior para estimar la fase $\theta$.
 
-\begin{enumerate}
-	\item \textbf{Inicialización}: Por un lado tenemos un registro de qúbits que forman un autoestado $\left| \psi \right\rangle$ del operador $U$. Por otro lado tenemos un conjunto de $\bm t$ \textbf{qúbits} que forman un \textbf{registro de conteo} donde al final del circuito tendremos almacenado el valor $2^t \theta$:
+\begin{itemize}
+	\item[1.] \textbf{Inicialización}: Por un lado tenemos un registro de qúbits que forman un autoestado $\left| \psi \right\rangle$ del operador $U$. Por otro lado tenemos un conjunto de $\bm t$ \textbf{qúbits} que forman un \textbf{registro de conteo} donde al final del circuito tendremos almacenado el valor $2^t \theta$:
 \begin{equation}
 \left| \Psi_0 \right\rangle = \left| 0 \right\rangle^{\otimes t} \left| \psi \right\rangle
 \end{equation}
 
-	\item \textbf{Superposición}: Aplicamos una operación de puerta de Hadamard t-bit al registro de conteo:
+	\item[2.] \textbf{Superposición}: Aplicamos una operación de puerta de Hadamard t-bit al registro de conteo:
 \begin{equation}
 \left| \Psi_1 \right\rangle = \frac{1}{2^{t/2}}  \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right)^{\otimes t} \left| \psi \right\rangle
 \end{equation}
 
-	\item \textbf{Operaciones unitarias controladas}: Aplicamos sucesivas veces el operador controlado $CU$, es decir, aplicar $U$ en el registro objetivo solo si el qúbit controlador está en el estado $\left| 1 \right\rangle$. En concreto, aplicamos $2^{j}$ veces $U$ en el registro $\left| \psi \right\rangle$ controlado por un qúbits del registro de conteo. El número de veces $2^{j}$ que aplicamos $U$ depende de que qúbit es el controlador (si es el bit más significativo tenemos $j = t-1$, para el siguiente $j = t-2$, ..., hasta llegar al bit menos significativo en el cual $j=0$). 
+	\item[3.] \textbf{Operaciones unitarias controladas}: Aplicamos sucesivas veces el operador controlado $CU$, es decir, aplicar $U$ en el registro objetivo solo si el qúbit controlador está en el estado $\left| 1 \right\rangle$. En concreto, aplicamos $2^{j}$ veces $U$ en el registro $\left| \psi \right\rangle$ controlado por un qúbits del registro de conteo. El número de veces $2^{j}$ que aplicamos $U$ depende de que qúbit es el controlador (si es el bit más significativo tenemos $j = t-1$, para el siguiente $j = t-2$, ..., hasta llegar al bit menos significativo en el cual $j=0$). 
 	
 	En la notación del convenio estandar, el qúbit más significativo es el primero. En Qiskit es al revés.
 
@@ -8227,7 +8227,7 @@ Es decir, lo que se hace es aplicar $z$ veces el operador $U$ sobre el estado $|
 \end{mybox_blue}
 
 
-	\item \textbf{Transformada de Fourier inversa}: Si nos fijamos en detalle vemos que la expresión anterior es igual al resultado de aplicar la QFT un estado de $t$ qúbits $\ket{x}$ (ver Ec. (\ref{ec_QFT_ecuacion_desarrollada}))
+	\item[4.] \textbf{Transformada de Fourier inversa}: Si nos fijamos en detalle vemos que la expresión anterior es igual al resultado de aplicar la QFT un estado de $t$ qúbits $\ket{x}$ (ver Ec. (\ref{ec_QFT_ecuacion_desarrollada}))
 \begin{equation}
 \left( U_{QFT} \left| x \right\rangle \right) \otimes \left| \psi \right\rangle = \frac{1}{2^{t/2}} \sum_{y=0}^{2^t-1} e^{2 \pi i xy /2^t} \left| y \right\rangle \otimes \left| \psi \right\rangle 
 \end{equation}
@@ -8242,7 +8242,7 @@ Lo que podemos hacer es aplicar la transformada de Fourier inversa en el registr
 
 En general, $2^t \theta$ no será un número entero, así que, en general $(x-2^t \theta) \neq  0$ $\forall x \in \mathbb{Z}$.
 
-	\item \textbf{Medida}. Aunque no parezca obvio, la expresión anterior está picada entorno a $x = 2^t \theta$ incluso para el caso en el que $2^t \theta$ no sea un número entero. Para verlo, primero separemos el número $2^t \theta$ en su parte entera y decimal de la siguiente forma
+	\item[5.] \textbf{Medida}. Aunque no parezca obvio, la expresión anterior está picada entorno a $x = 2^t \theta$ incluso para el caso en el que $2^t \theta$ no sea un número entero. Para verlo, primero separemos el número $2^t \theta$ en su parte entera y decimal de la siguiente forma
 	\begin{equation*}
 	2^t \theta = a + \delta
  	\end{equation*} 
@@ -8274,7 +8274,7 @@ con $a \in \mathbb{Z}$ y $\delta \in [0,1)$. Con esta separación, el resultado 
 		picada en $m=a=[2^t\varphi]$. 
 	\end{itemize}
 
-\end{enumerate}
+\end{itemize}
 
 	\begin{mybox_orange}{Jypyter Notebook: 10-QPE}
 	Ver la sección 1.1 del notebook notebook \textbf{9-QFS}.
@@ -8406,18 +8406,18 @@ Lo primero es introducir la noción de \textbf{números coprimos}:
 
 Los pasos para reducir un problema de factorización en uno de period finding son los siguientes. Sea $N$ el número que queremos factorizas
 
-\begin{enumerate}
-	\item Si $N$ es par, devolver el factor 2.
+\begin{itemize}
+	\item[1.] Si $N$ es par, devolver el factor 2.
 
-	\item Determinar si $N=p^b$ para los enteros $p \geq 1$ y $b \geq 2$, y si es así, devolver el factor $p$ (puede hacerse en un tiempo polinómico).
+	\item[2.] Determinar si $N=p^b$ para los enteros $p \geq 1$ y $b \geq 2$, y si es así, devolver el factor $p$ (puede hacerse en un tiempo polinómico).
 
-	\item Elegir un número entero aleatorio $a$ tal que $1 < a \leq N-1$. Usando el algoritmo de Euclides, determinar si gcd$(a,N) > 1$. Si lo es, devolver el factor gcd$(a,N)$.
+	\item[3.] Elegir un número entero aleatorio $a$ tal que $1 < a \leq N-1$. Usando el algoritmo de Euclides, determinar si gcd$(a,N) > 1$. Si lo es, devolver el factor gcd$(a,N)$.
 
-	\item Si gcd$(a,N) = 1$ ($a$ y $N$ son coprimos) y $a^{r/2} \neq -1$ mod$N = (\alpha N -1)$ mod$N$, calculamos el periodo $r$ de la función $f(x) = a^x \text{ mod} N$.
+	\item[4.] Si gcd$(a,N) = 1$ ($a$ y $N$ son coprimos) y $a^{r/2} \neq -1$ mod$N = (\alpha N -1)$ mod$N$, calculamos el periodo $r$ de la función $f(x) = a^x \text{ mod} N$.
 
-	\item Si $r$ es impar, volvemos al paso 3. Sino, calculamos gcd$(a^{r/2}-1,N)$ y gcd$(a^{r/2}+1,N)$. Probamos a ver si uno de estos dos es un factor no-trivial de $N$, y devolvemos el mismo si lo es.
+	\item[5.] Si $r$ es impar, volvemos al paso 3. Sino, calculamos gcd$(a^{r/2}-1,N)$ y gcd$(a^{r/2}+1,N)$. Probamos a ver si uno de estos dos es un factor no-trivial de $N$, y devolvemos el mismo si lo es.
 	
-\end{enumerate}
+\end{itemize}
 
 Todos los pasos de este algoritmo, excepto el \textbf{paso 4}, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor se puede usar el Algoritmo de Euclides \cite{bib_Euclides}, el cual resuelve el problema en un \textbf{tiempo polinómico} (se puede calcular en un tiempo razonable).
 
@@ -8676,9 +8676,9 @@ Denominamos \textbf{$n$ al número de qubits que necesitamos para codificar el n
 
 Esta sección puede ser un poco árida si es la primera vez que se ve esta implementación, pues está enfocada para ser re-leída una vez se ha mirado más a fondo la implementación. Veamos paso a paso como es esta implementación:
 
-\begin{enumerate}
+\begin{itemize}
 
-	\item \underline{Algoritmo cuántico de suma (ver sección \ref{sec_2n+3-Suma})}: 
+	\item[1.] \underline{Algoritmo cuántico de suma (ver sección \ref{sec_2n+3-Suma})}: 
 	
 	Como vamos a ir viendo en las siguientes secciones, esta implementación se basa en \textbf{sumar}. En concreto, se parte de la implementación del algoritmo cuántico de suma de Draper \cite{bib_Addition}, que podemos ver en la Fig. \ref{Fig_idea_suma}.
 
@@ -8691,7 +8691,7 @@ Lo que vamos a ver es como, partiendo de esta implementación del algoritmo de s
 
 
 
-	\item \underline{Valor clásico + registro cuántico, puerta $\phi ADD(a)$ (ver sección \ref{sec_2n+3-Puerta-phiADD(a)})}: 
+	\item[2.] \underline{Valor clásico + registro cuántico, puerta $\phi ADD(a)$ (ver sección \ref{sec_2n+3-Puerta-phiADD(a)})}: 
 	 
 	Nosotros queremos llegar a calcular el periodo de la función $f(x) = a^x \text{ mod}N$, donde $a$ es un valor que fijamos al principio del algoritmo de Shor. Como precisamente este valor es fijo, la primera simplificación para reducir el número de qúbits es prescindir de los qúbits que codifican $a$ en el algoritmo de suma y tomar $a$ como un valor clásico. Definimos así la puerta $\bm{\phi ADD(a)}$ (ver Fig. \ref{Fig_idea_puerta_phiADD(a)}), que \textbf{suma un valor clásico} $a$ \textbf{a la un registro cuántico que codifica el valor} $b$ :
 	
@@ -8702,7 +8702,7 @@ Lo que vamos a ver es como, partiendo de esta implementación del algoritmo de s
 Podemos además, definir la inversa de esta puerta, es decir, una puerta de resta. La acción de esta última se recoge en la Fig. \ref{Fig_idea_resta} (\textbf{véase que la puerta de suma tiene la barra negra a la derecha y la de resta a la izquierda})
 
 
-	\item \underline{Suma modulada, puerta ${\phi ADD(a)MOD(N)}$ (ver sección \ref{sec_2n+3-Puerta-phiADD(a)MOD(N)})}: 
+	\item[3.] \underline{Suma modulada, puerta ${\phi ADD(a)MOD(N)}$ (ver sección \ref{sec_2n+3-Puerta-phiADD(a)MOD(N)})}: 
 	
 	Un vez definida esta puerta, podemos usarla para construir una puerta doble controlada de \textbf{suma modulada} $\bm{\phi ADD(a)MOD(N)}$ (ver Fig. \ref{Fig_idea_puerta_phiADD(a)MOD(N)}) tal que 
 	\begin{equation}
@@ -8710,7 +8710,7 @@ Podemos además, definir la inversa de esta puerta, es decir, una puerta de rest
 	\end{equation}
 
 
-	\item \underline{Multiplicación modulada, puerta ${CMULT(a)MOD(N)}$ (ver sección \ref{sec_2n+3-Puerta-CMULT(a)MOD(N)})}: 
+	\item[4.] \underline{Multiplicación modulada, puerta ${CMULT(a)MOD(N)}$ (ver sección \ref{sec_2n+3-Puerta-CMULT(a)MOD(N)})}: 
 	
 	Ahora, podemos usar esta puerta doble controlada de suma modulada para construir una puerta controlada de \textbf{multiplicación modulada} $\bm{CMULT(a)MOD(N)}$ (ver Fig. \ref{Fig_idea_CMULT(a)MOD(N)}) tal que
 	\begin{equation}
@@ -8718,7 +8718,7 @@ Podemos además, definir la inversa de esta puerta, es decir, una puerta de rest
 	\end{equation}
 
 
-	\item \underline{Puerta controlada ${C\text{-}U_a}$ (ver sección \ref{sec_2n+3-Puerta-C-U_a})}: 
+	\item[5.] \underline{Puerta controlada ${C\text{-}U_a}$ (ver sección \ref{sec_2n+3-Puerta-C-U_a})}: 
 	
 	Juntando esta puerta con una puerta \textbf{SWAP} (pues la multiplicación modulada nos sale en el registro de $b$, no el de $x$) y tomando $b = 0$ (una ancilla), podemos finalmente construir una puerta controlada $C\text{-}U_a$ (ver Fig. \ref{Fig_idea_C-U_a}) tal que :
 	\begin{equation}
@@ -8727,24 +8727,24 @@ Podemos además, definir la inversa de esta puerta, es decir, una puerta de rest
 
 
 
-	\item \underline{Exponencial modulada, puerta ${C\text{-}U_{a^{s}}}$ (ver sección \ref{sec_2n+3-Puerta-C-U_a^s})}: 
+	\item[6.] \underline{Exponencial modulada, puerta ${C\text{-}U_{a^{s}}}$ (ver sección \ref{sec_2n+3-Puerta-C-U_a^s})}: 
 	
 	Ahora, para implementar el algoritmo de Shor lo que se hace es tomar $ |x \rangle = | 1 \rangle$ y implementar puertas $C\text{-}U_{a^{s}}$, donde $s$ = $2^0$, $2^1$, ..., $2^{2n-1}$, pues puede verse que
 	\begin{equation}
  	\boxed{C\text{-}U_{a^{s}} = (C\text{-}U_{a})^s}
  	\end{equation} 
 
-	\item \underline{Circuito final con ${4n+2}$ qúbits, sin la simplificación del registro de conteo (ver sección \ref{sec_2n+3-Circuito-final-no-simplificacion})}: 
+	\item[7.] \underline{Circuito final con ${4n+2}$ qúbits, sin la simplificación del registro de conteo (ver sección \ref{sec_2n+3-Circuito-final-no-simplificacion})}: 
 	
 	El circuito para la implementación del algoritmo de Shor sería el de la Fig. \ref{Fig_idea_circ_final_no_simpli}.
 	
 	
-	\item \underline{Circuito final con ${2n+3}$. El truco de un qúbit de control (ver sección \ref{sec_2n+3-Circuito-final-simplificado})}: 
+	\item[8.] \underline{Circuito final con ${2n+3}$. El truco de un qúbit de control (ver sección \ref{sec_2n+3-Circuito-final-simplificado})}: 
 	
 	Nos faltaría implementar la simplificación del registro de conteo, donde se pasa de $2n$ qúbits en el mismo a 1, llegando a tener el circuito de la Fig. \ref{Fig_idea_circ_final_simpli}.
 
 
-\end{enumerate}
+\end{itemize}
 
 
 
@@ -8894,17 +8894,17 @@ Partimos del estado $| \phi(b) \rangle$.
 	\item \textbf{Puerta 1}: Después de aplicar la puerta 1 (puerta $\phi ADD(a)$) tenemos el estado $| \phi(a+b) \rangle$.
 
 	\item \textbf{Puertas 2, 3, 4 y 5}: Lo que vamos a hacer con estas puestas es ver si estamos en el caso de $a+b \geq N$ o $a+b <N$. Para ello, aplicamos una puerta $\phi ADD^{-1}(N)$ (puerta 2), con lo cual tenemos:
-	\begin{enumerate}
+	\begin{itemize}
 		\item[1.] El estado $| \phi(a+b - N) \rangle$ si $a+b \geq N$.
 		\item[2.] El estado $| \phi(2^{n+1} -(a+b - N)) \rangle$ si $a+b < N$.
-	\end{enumerate}		
+	\end{itemize}		
 	
     Las puertas 3, 4 y 5 lo que hacen es poner el qúbit ancila a 1 si el bit más significativo es 1, es decir, si estamos en el segundo caso. 
 
 	\item \textbf{Puerta 6}: Esta puerta solo se activa si la ancila es 1, es decir, si estamos en el segundo caso del paso anterior ($a+b < N$). Esta puerta lo que hace es sumar $N$, deshaciendo la resta de la puerta 2 si estamos en el caso $a+b < N$, es decir, si no teníamos que haber restado $N$. Después de esta puerta ya tenemos el resultado de la suma modulada. Solo nos queda limpiar la ancila.
 
 	\item \textbf{Puerta 7}: Partimos del valor $(a+b) \text{ mod} N$. Con esta puerta restamos $a$, con lo cual tenemos dos casos.
-	\begin{enumerate}
+	\begin{itemize}
 		\item[3.] Si  $(a+b) > N \quad \Rightarrow \quad (a+b) \text{ mod} N = a+b-N < a \quad \Rightarrow $
 		
 		$\qquad \quad \Rightarrow \quad \phi ADD^{-1}(a) \, | \phi ((a+b) \text{ mod} N) \rangle = | \phi ( 2^{n+1} - (N - b) ) \rangle$
@@ -8913,7 +8913,7 @@ Partimos del estado $| \phi(b) \rangle$.
 		
 		$\qquad \quad \Rightarrow \quad \phi ADD^{-1}(a) \, | \phi ((a+b) \text{ mod} N) \rangle = | \phi ( b ) \rangle$
 				
-	\end{enumerate}
+	\end{itemize}
 
 	\item \textbf{Puertas 8, 9, 10, 11, 12}: Estas puertas lo que hacen es cambiar la ancila si el bit más significativo es cero. Vemos que este es el caso 4 del paso anterior, es decir, cuando $(a+b) < N$. Si nos fijamos en cuando aplicamos las puertas 2, 3, 4 y 5, esto corresponde al caso 2, justo aquel en el que cambiamos la ancila. Es decir, si hubiéramos cambiado la ancila, ahora la habríamos vuelto a poner a cero.
 
@@ -9074,40 +9074,17 @@ Esta implementación usa $4n+2$ qúbits:
 
 Nos faltaría implementar la simplificación del registro de conteo, donde se pasa de $2n$ qúbits en el mismo a 1 (ver Fig. \ref{Fig_idea_circ_final_simpli}). Esta simplificación consiste en usar una versión mejorada del Algoritmo de Estimación de Fases Cuántico (QPE) denominado \textbf{Algoritmo de Estimación Iterativa de Fase} o Iterative Phase Estimation (IPE) Algorithm. Vamos a explicar como pasar del QPE al IPE en nuestro circuito. Para ello, vamos a ejemplificar el desarrollo con el circuito de 4 qúbits en el registro de conteo de la Fig. \ref{Fig_IPE_1}. Las puertas de colores del final no son más que la transformada de Fourier inversa. Vemos que al ser la inversa lo que hay que hacer es invertir el orden de las puertas del QFT normal (ver Fig. \ref{Fig_2n+3_QFT_exacta} y Fig. \ref{Fig_QFT_circuit}).
 
+
 \begin{figure}[t]
 \centering
-\scalebox{0.95}{
-\Qcircuit @C=0.4em @R=0.4em @!R { \\
-\nghost{{q0}_{0}:}&\lstick{|0\rangle:}&\gate{ \mathrm{H}} & 
-\qw & \qw & \qw & \ctrl{4} & \qw  & \qw & \qw  & \qw & \qw & \qw   & \gate{\color{red} P_{\frac{\pi}{2}}} \qw & \gate{\color{red} P_{\frac{\pi}{4}}} \qw& \gate{ \color{red} P_{\frac{\pi}{8}}} \qw  & \gate{\color{red} \mathrm{H}}  \barrier[-0.8em]{5} & \qw & \qw & \qw  & \meter  & \qw  \\
-\nghost{{q0}_{1}:}&\lstick{|0\rangle:}&\gate{ \mathrm{H}} & 
-\qw & \qw & \ctrl{3} & \qw   & \qw & \qw & \qw & \gate{\color{orange} P_{\frac{\pi}{2}}}  & \gate{\color{orange} P_{\frac{\pi}{4}}} \qw   & \gate{\color{orange} \mathrm{H}} & \qw   & \qw  & \ctrl{-1}  & \qw & \qw & \qw    & \meter  & \qw  & \qw \\
-\nghost{{q0}_{2}:}&\lstick{|0\rangle:}&\gate{ \mathrm{H}} & 
-\qw & \ctrl{2} & \qw & \qw & \qw &  \gate{\color{blue} P_{\frac{\pi}{2}}}   & \gate{\color{blue} \mathrm{H}} & \qw  & \ctrl{-1} & \qw & \qw & \ctrl{-2} & \qw   & \qw & \qw & \meter & \qw & \qw & \qw \\
-\nghost{{q0}_{3}:} & \lstick{|0\rangle:}&\gate{ \mathrm{H}} & 
-\ctrl{1} & \qw  & \qw & \qw & \gate{\color{green} \mathrm{H}} & \ctrl{-1} & \qw  & \ctrl{-2}  & \qw & \qw & \ctrl{-3} & \qw & \qw & \qw  & \meter & \qw & \qw & \qw & \qw  \\
-\nghost{{q0}_{4}:}&\lstick{|1\rangle:} & \qw & \gate{ U_{a^{2^0}}} & \gate{ U_{a^{2^1}}} & \gate{ U_{a^{2^2}}} & \gate{ U_{a^{2^3}}} & \qw  & \qw & \qw & \qw & \qw  & \qw & \qw & \qw & \qw & \qw & \qw   & \qw & \qw  & \qw  & \qw    \\
-\nghost{{c0}_{3}:} & \lstick{c^4:}&\cw 
-&\cw & \cw  & \cw & \cw & \cw & \cw &\cw & \cw  & \cw & \cw & \cw & \cw &\cw & \cw  & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-2,0] & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-3,0] & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-4,0] & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-5,0] & \cw   \\
-\\ }}
+\includegraphics[width=1\linewidth]{Figuras/Fig_IPE_1.png}
 \caption{Ejemplo del algoritmo de Shor con 4 qúbits (en el convenio estándar). Las puertas de colores del final no son más que la transformada de Fourier inversa.}
 \label{Fig_IPE_1}
 \end{figure}
 
 \begin{figure}[t]
 \centering
-\scalebox{0.95}{
-\Qcircuit @C=0.2em @R=0.4em @!R { \\
-\nghost{{q0}_{0}:}&\lstick{|0\rangle:} & 
-\qw & \qw & \qw  & \qw \barrier[-0.8em]{4} & \qw &  \qw & \qw  & \qw  & \qw \barrier[-0.8em]{4} & \qw & \qw & \qw & \qw & \qw & \qw \barrier[-0.8em]{4} &\gate{ \mathrm{H}} & \ctrl{4} & \gate{\color{red} P_{\frac{\pi}{2}}}  & \gate{\color{red} P_{\frac{\pi}{4}}}  & \gate{\color{red} P_{\frac{\pi}{8}}}   & \gate{\color{red} \mathrm{H}} & \meter & \cw \\
-\nghost{{q0}_{1}:}&\lstick{|0\rangle:} & 
-\qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw  & \qw &\gate{\mathrm{H}}  & \ctrl{3}  & \gate{\color{orange} P_{\frac{\pi}{2}}}  & \gate{\color{orange} P_{\frac{\pi}{4}}}  & \gate{\color{orange}\mathrm{H}} & \meter  & \cw  & \cw & \cw & \cw  \cw \cwx & \cw \cwx & \control \cw \cwx & \cw & \cw  \\
-\nghost{{q0}_{2}:}&\lstick{|0\rangle:} & 
-\qw & \qw & \qw & \qw &\gate{ \mathrm{H}} & \ctrl{2} & \gate{\color{blue} P_{\frac{\pi}{2}}} & \gate{\color{blue} \mathrm{H}}  & \meter & \cw & \cw & \cw \cwx  & \control \cw \cwx & \cw & \cw & \cw & \cw  & \cw  &  \cw \cwx & \control \cw \cwx & \cw & \cw & \cw   \\
-\nghost{{q0}_{3}:}&\lstick{|0\rangle:}&\gate{\mathrm{H}} & 
-\ctrl{1} & \gate{\color{green} \mathrm{H}} & \meter & \cw & \cw & \control \cw \cwx  & \cw & \cw &  \cw & \cw &  \control   \cw \cwx &\cw & \cw &  \cw & \cw & \cw  & \cw & \control \cw \cwx &  \cw & \cw & \cw  & \cw  \\
-\nghost{{q0}_{4}:}&\lstick{|1\rangle^{\otimes n}:} & \qw  & \gate{U_{a^{2^0}}} & \qw & \qw  & \qw & \gate{U_{a^{2^1}}} & \qw  & \qw & \qw & \qw & \gate{U_{a^{2^2}}}  & \qw  & \qw & \qw & \qw & \qw & \gate{U_{a^{2^3}}} & \qw  & \qw & \qw & \qw & \qw  & \qw \\
-\\ }}
+\includegraphics[width=1\linewidth]{Figuras/Fig_IPE_3.png}
 \caption{Ejemplo del algoritmo de Shor con 4 qúbits usando IPE (en el convenio estándar). Las puertas de colores no son más que la transformada de Fourier inversa. }
 \label{Fig_IPE_3}
 \end{figure}
@@ -9134,70 +9111,7 @@ Extrapolando al caso de $2n$ qúbits en el registro de conteo (el caso del algor
 
 \begin{figure}[t]
 \centering
-\scalebox{0.95}{
-\Qcircuit @C=0.4em @R=0.2em @!R { \\
-% Linea 1
-\nghost{{q0}_{0}:}&\lstick{|0\rangle:} & 
-\gate{ \mathrm{H}} & \ctrl{1} & \gate{ \color {green} \mathrm{H}} & \meter  &  \gate{\mathrm{X}}  & \gate{\mathrm{H}} 
-% 1.2 
-& \ctrl{1}  & \gate{\color{blue}\mathrm{P}_{\frac{\pi}{2}}} & \gate{\color{blue} \mathrm{H}}  & \meter & \gate{\mathrm{X}} &\gate{ \mathrm{H}}  & \qw &  & \lstick{\rightarrow}\\
-% Linea 2
-\nghost{{q0}_{1}:}&\lstick{|1\rangle^{\otimes n}:} & \qw  & \gate{U_{a^{2^0}}}& \qw & \qw & \qw \cwx & \qw 
-% 2.2
-& \gate{U_{a^{2^1}}} & \qw \cwx & \qw  & \qw & \qw \cwx & \qw & \qw &  & \lstick{\rightarrow} \\
-% Linea 3
-\nghost{{c0}_{0}:}&\lstick{c_0} 
-& \cw & \cw & \cw &  \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-2,0] & \control \cw \cwx & \cw 
-% 3.2
-& \cw  &  \control \cw \cwx & \cw  &  \cw &   \cw \cwx & \cw & \cw &  & \lstick{\Rightarrow} \\
-% Linea 4
-\nghost{{c0}_{1}:}&\lstick{c_1} 
-& \cw & \cw & \cw &  \cw & \cw  & \cw 
-% 4.2
-& \cw  &   \cw  & \cw  &  \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-3,0] &  \control \cw \cwx & \cw  & \cw &  & \lstick{\Rightarrow} \\
-% Linea 5
-\nghost{{c0}_{2}:}&\lstick{c_2} 
-& \cw & \cw & \cw & \cw & \cw & \cw 
-% 5.2
-& \cw & \cw & \cw & \cw & \cw & \cw  & \cw &  & \lstick{\Rightarrow} \\
-% Linea 6
-\nghost{{c0}_{3}:}&\lstick{c_3} 
-& \cw & \cw & \cw & \cw & \cw & \cw 
-% 6.2
-& \cw & \cw & \cw & \cw & \cw & \cw & \cw &  & \lstick{\Rightarrow}  \\
-\\
-% Line 1
-% 1.3 
-& \lstick{\rightarrow} & \ctrl{1} & \gate{\color{orange} \mathrm{P}_{\frac{\pi}{2}}} & \gate{\color{orange}\mathrm{P}_{\frac{\pi}{4}}} & \gate{ \color{orange} \mathrm{H}}  & \meter &   \gate{\mathrm{X}}  & \gate{\mathrm{H}}  
-% 1.4 
-& \ctrl{1}    & \gate{\color{red}\mathrm{P}_{\frac{\pi}{2}}} & \gate{\color{red}\mathrm{P}_{\frac{\pi}{4}}}  & \gate{\color{red} \mathrm{P}_{\frac{\pi}{8}}} & \gate{\color{red} \mathrm{H}}  & \meter & \qw \\
-% Line 2
-% 2.3
-& \lstick{\rightarrow} & \gate{U_{a^{2^2}}} & \qw \cwx & \qw \cwx & \qw & \qw  & \qw \cwx  & \qw   
-% 2.4
-& \gate{U_{a^{2^3}}} & \qw \cwx & \qw \cwx & \qw \cwx & \qw & \qw  & \qw \\
-% Line 3
-% 3.3
-& \lstick{\Rightarrow} & \cw & \control \cw \cwx  & \cw \cwx & \cw  & \cw  & \cw \cwx & \cw 
-% 3.4
-& \cw & \control \cw \cwx  & \cw \cwx & \cw \cwx & \cw & \cw & \cw    \\
-%Line 4
-% 4.3
-& \lstick{\Rightarrow} & \cw & \cw & \control \cw \cwx & \cw  & \cw  & \cw \cwx & \cw 
-% 4.4
-& \cw & \cw  & \control \cw \cwx & \cw \cwx & \cw & \cw & \cw   \\
-% Line 5
-% 5.3
-& \lstick{\Rightarrow} & \cw & \cw & \cw  & \cw & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-4,0]  & \control \cw \cwx & \cw  
-% 5.4
-& \cw & \cw & \cw & \control \cw \cwx & \cw & \cw & \cw    \\
-% Line 6
-% 6.3
-& \lstick{\Rightarrow} & \cw & \cw & \cw & \cw & \cw & \cw & \cw 
-% 6.4
-& \cw & \cw & \cw & \cw  & \cw & \dstick{_{_{\hspace{0.0em}}}} \cw \ar @{<=} [-5,0] & \cw    \\
-\\
-}}
+\includegraphics[width=0.8\linewidth]{Figuras/Fig_IPE_4.png}
 \caption{Circuito final con $2n+3$ qúbits (ejemplo con 4 qúbits). }
 \label{Fig_IPE_4}
 \end{figure}
@@ -10058,13 +9972,13 @@ La puerta $X^{\otimes n}$ (que consiste en aplicar puertas $X$ a todos los qubit
 & |11 \dots 1 \rangle \rightarrow |00 \dots 0 \rangle \, \, \Lc |2^n-1 \rangle \rightarrow | 0 \rangle \Rc
 \end{align*}
 De esta forma, lo que hace $S_{0}$ es: 
-\begin{enumerate}
-	\item Aplicar la puerta $X^{\otimes n}$ para cambiar el estado $|00 \dots 0 \rangle$ por el estado $|11 \dots 1 \rangle$. (Ver la Nota de abajo)
+\begin{itemize}
+	\item[1.] Aplicar la puerta $X^{\otimes n}$ para cambiar el estado $|00 \dots 0 \rangle$ por el estado $|11 \dots 1 \rangle$. (Ver la Nota de abajo)
 	
-	\item Aplicar la puerta $MCZ$ con la que cambiamos el signo a $|11 \dots 1 \rangle$ 
+	\item[2.] Aplicar la puerta $MCZ$ con la que cambiamos el signo a $|11 \dots 1 \rangle$ 
 	
-	\item Aplicar la puerta $X^{\otimes n}$ para deshacer los cambios del primer paso. De esta forma, el único cambio real es el del signo del estado $|0\rangle = |00 \dots 0 \rangle$.
-\end{enumerate}
+	\item[3.] Aplicar la puerta $X^{\otimes n}$ para deshacer los cambios del primer paso. De esta forma, el único cambio real es el del signo del estado $|0\rangle = |00 \dots 0 \rangle$.
+\end{itemize}
 
 	\begin{mybox_blue}{Nota}
 	En realidad la puerta $X^{\otimes n}$ afecta a todos los estados (no solo a $|00 \dots 0 \rangle $ y $|11 \dots 1 \rangle$).
@@ -10446,12 +10360,12 @@ La principal dificultad de los criptosistemas de clave privada es la \textbf{dis
 			\SubsubiIt{Cifrado de Vernam (One time pad)}
 
 El cifrado de Vernam es un protocolo en tres pasos
-\begin{enumerate}
-	\item El mensaje se codifica en forma de un número binario $s_i = 0100101110$.
-	\item La clave secreta es una secuencia binaria aleatoria de longitud al menos tan grande como el mensaje $c_i = 0101111001$. La codificación consiste en la suma módulo dos de ambas secuencias: 
+\begin{itemize}
+	\item[1.] El mensaje se codifica en forma de un número binario $s_i = 0100101110$.
+	\item[2.] La clave secreta es una secuencia binaria aleatoria de longitud al menos tan grande como el mensaje $c_i = 0101111001$. La codificación consiste en la suma módulo dos de ambas secuencias: 
 	$\tilde{s}_i = s_i \oplus c_i = 0001010111$.
-	\item La de-codificación consiste en la suma módulo dos de nuevo de la clave compartida con el mensaje cifrado $s_i = \tilde{s}_i \oplus c_i = si \oplus 2c_i = 0001010111$.
-\end{enumerate}
+	\item[3.] La de-codificación consiste en la suma módulo dos de nuevo de la clave compartida con el mensaje cifrado $s_i = \tilde{s}_i \oplus c_i = si \oplus 2c_i = 0001010111$.
+\end{itemize}
 Por un lado, el texto cifrado es indescifrable porque la clave es aleatoria. Por tanto no transmite ninguna correlación entre los dígitos del mensaje original.
 
 			\SubsubiIt{Distribución secreta de claves}
@@ -10480,29 +10394,29 @@ Una vez recibido, Bob usa la clave de desencriptar para averiguar el contenido. 
 			\SubsubiIt{El protocolo RSA}
 	
 El protocolo RSA es el criptosistema más utilizado en transacciones comerciales, o para la verificación de identidad. Inventado en 1977 por Rivest, Shamir y Adleman. Funciona con el siguiente conjunto de pasos
-\begin{enumerate}
-	\item Bob escoge dos numeros primos $p$ y $q$ y calcula $N = pq$ y $L = (p - 1)(q - 1)$.
-	\item Escoge $e$ (de encriptación), un número impar pequeño, coprimo con $L$.
-	\item Calcula $d$ (de desencriptación), el inverso módulo $L$ de $e$. Es decir
+\begin{itemize}
+	\item[1.] Bob escoge dos numeros primos $p$ y $q$ y calcula $N = pq$ y $L = (p - 1)(q - 1)$.
+	\item[2.] Escoge $e$ (de encriptación), un número impar pequeño, coprimo con $L$.
+	\item[3.] Calcula $d$ (de desencriptación), el inverso módulo $L$ de $e$. Es decir
 		\begin{equation}
 		e \cdot d \text{mod }L = 1
 		\end{equation}
 	Esta tarea es fácil, conociendo $e$ y $L$.
-	\item 
+	\item[4.] 
 	\begin{itemize}
 		\item La clave pública es ($e$, $N$) y cualquiera puede usarla para mandar mensajes a Bob.
 		\item La clave privada es ($d$, $N$) y, a priori, sólo es conocida por Bob.
 	\end{itemize}
-	\item Para encriptar, Alice divide su mensaje en bloques, $i = 1, 2, \dots,$ de manera que cada bloque pueda ser identificado por un número $m_i < N$. La clave permite una \textit{regla de sustitución}
+	\item[5.] Para encriptar, Alice divide su mensaje en bloques, $i = 1, 2, \dots,$ de manera que cada bloque pueda ser identificado por un número $m_i < N$. La clave permite una \textit{regla de sustitución}
 		\begin{equation}
 		m_i \rightarrow \tilde{m}_i = (m_i)^e \text{mod } N
 		\end{equation}
 		es decir el resto mod$(N)$ de exponenciar $m_i$ a las potencia $e$.
-	\item  Para desencriptar, Bob realiza la operación inversa sobre $\tilde{m}_i$. Se puede probar que $(m_i)^{ed}|_{\text{mod }N} = m_i$. Por tanto la operación que realiza Bob es simplemente
+	\item[6.]  Para desencriptar, Bob realiza la operación inversa sobre $\tilde{m}_i$. Se puede probar que $(m_i)^{ed}|_{\text{mod }N} = m_i$. Por tanto la operación que realiza Bob es simplemente
 		\begin{equation}
 		\tilde{m}_i = (\tilde{m}_i)^d (\text{mod }N)
 		\end{equation}
-\end{enumerate}
+\end{itemize}
 
 Las dos ventajas principales del sistema criptográfico público son
 \begin{itemize}
@@ -10638,14 +10552,14 @@ Estamos hablando de polarizaciones de la luz porque, como ya comentamos, se usan
 \end{mybox_blue}
 
 Dada esta codificación, el protocolo BB84 es el siguiente:
-\begin{enumerate}
-	\item Alice prepara un fotón aleatoriamente en uno de los cuatro estados anteriores y lo envía a Bob por el canal cuántico. 
-	\item Bob lo mide. Como Bob no conoce en que base lo ha generado Alice, este elige aleatoriamente una de las dos bases: $+$ o $\times$. 
-	\item Los dos pasos anteriores se repiten $4N$ veces, de forma que tanto Alice como Bob tienen ahora una lista de $4N$ bits cada uno.
-	\item Alice y Bob se comunican por un canal clásico diciendose que base han usado para medir cada uno de los fotones.
-	\item Alice y Bob descartan aquellos bits en los cuales han medido en bases distintas. Este paso se le suele llamar \textbf{criba} (\textit{sifting}).  En promedio, habrán descartado $2N$ bits, así que les queda una lista con los otros $2N$ bits. A esto se llama la \textbf{clave bruta} (\textit{raw key}).
-	\item  Alice y Bob revelan ahora una muestra aleatoria de tamaño $N$ de los bits de sus claves brutas y estiman la tasa de error en el canal cuántico, y por tanto a su vez la información de Eve, manteniendo secretos los otros $N$ bits. En ausencia de errores, la clave bruta es idéntica para Alice y Bob, y Eve no tiene información: en este caso, los $N$ bit secretos de la clave bruta ya son la clave secreta. Sin embargo, si hay errores, Alice y Bob tienen que corregirlos y borrar la información que Eve podría haber obtenido. Ambas tareas pueden realizarse mediante la comunicación en el canal clásico, por lo que esta parte del protocolo se denomina \textbf{postprocesamiento clásico}. Al final de este procesamiento, Alice y Bob comparten una clave realmente secreta o nada en absoluto (si la información de Eve era demasiado grande).
-\end{enumerate}
+\begin{itemize}
+	\item[1.] Alice prepara un fotón aleatoriamente en uno de los cuatro estados anteriores y lo envía a Bob por el canal cuántico. 
+	\item[2.] Bob lo mide. Como Bob no conoce en que base lo ha generado Alice, este elige aleatoriamente una de las dos bases: $+$ o $\times$. 
+	\item[3.] Los dos pasos anteriores se repiten $4N$ veces, de forma que tanto Alice como Bob tienen ahora una lista de $4N$ bits cada uno.
+	\item[4.] Alice y Bob se comunican por un canal clásico diciendose que base han usado para medir cada uno de los fotones.
+	\item[5.] Alice y Bob descartan aquellos bits en los cuales han medido en bases distintas. Este paso se le suele llamar \textbf{criba} (\textit{sifting}).  En promedio, habrán descartado $2N$ bits, así que les queda una lista con los otros $2N$ bits. A esto se llama la \textbf{clave bruta} (\textit{raw key}).
+	\item[6.]  Alice y Bob revelan ahora una muestra aleatoria de tamaño $N$ de los bits de sus claves brutas y estiman la tasa de error en el canal cuántico, y por tanto a su vez la información de Eve, manteniendo secretos los otros $N$ bits. En ausencia de errores, la clave bruta es idéntica para Alice y Bob, y Eve no tiene información: en este caso, los $N$ bit secretos de la clave bruta ya son la clave secreta. Sin embargo, si hay errores, Alice y Bob tienen que corregirlos y borrar la información que Eve podría haber obtenido. Ambas tareas pueden realizarse mediante la comunicación en el canal clásico, por lo que esta parte del protocolo se denomina \textbf{postprocesamiento clásico}. Al final de este procesamiento, Alice y Bob comparten una clave realmente secreta o nada en absoluto (si la información de Eve era demasiado grande).
+\end{itemize}
 
 
 	\begin{mybox_blue}{Nota}
@@ -10696,20 +10610,20 @@ Estas primeras propuestas y su generalización directa se denominan \textbf{prot
 		\SubsubiIt{Squeezed-states y cuadraturas}
 		
 En el contexto de la óptica cuántica y la mecánica cuántica, un ``estado estrangulado'' (squeezed-states) se refiere a un estado cuántico específico de la luz (normalmente radiación electromagnética, como la luz láser) con algunas propiedades únicas. Los squeezed-states se caracterizan por la reducción de la incertidumbre en una de las dos propiedades complementarias del campo luminoso, a menudo denominadas \textbf{cuadraturas}. Los conceptos clave son los siguientes: 
-\begin{enumerate}
-	\item \textbf{Cuadraturas}: 
+\begin{itemize}
+	\item[1.] \textbf{Cuadraturas}: 
 	\begin{itemize}
 		\item En óptica cuántica, la luz puede describirse mediante dos propiedades u observables complementarias: la \textbf{posición} ($x$) y el \textbf{momento} ($p$). Se denominan variables conjugadas y representan direcciones ortogonales en el espacio de fases del sistema cuántico.
 		\item El principio de incertidumbre, formulado por Heisenberg, establece que existe un límite fundamental en cuanto a la precisión con la que pueden conocerse simultáneamente la posición y el momento de una partícula cuántica (o, en este caso, un fotón en un campo luminoso). En otras palabras, no se pueden conocer con precisión ambas propiedades simultáneamente.
 	\end{itemize}
 
-	\item \textbf{Squeezed-state}: 
+	\item[2.] \textbf{Squeezed-state}: 
 	\begin{itemize}
 		\item Un squeezed-state es un estado cuántico de la luz en el que la incertidumbre (desviación típica) en una de las cuadraturas ($x$ o $p$) se reduce por debajo del límite de incertidumbre de Heisenberg.
    		\item Cuando un estado se ``estruja'' en una cuadratura concreta, significa que las mediciones de esa propiedad se hacen más precisas, pero a costa de aumentar la incertidumbre en la cuadratura complementaria.
 	\end{itemize}
 	
-\end{enumerate}
+\end{itemize}
 
 Por ejemplo, si se tiene un squeezed-state en la cuadratura de posición ($x$), significa que se reduce la incertidumbre en la medición de la posición, lo que permite realizar mediciones de posición más precisas. Sin embargo, esto tiene el coste de aumentar la incertidumbre en la cuadratura del momento ($p$). A la inversa, si el estado está comprimido en la cuadratura de momento ($p$), permite mediciones de momento más precisas a expensas de la incertidumbre de posición.
 

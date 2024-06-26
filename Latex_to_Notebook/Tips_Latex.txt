@@ -45,8 +45,6 @@ Se acepta usar:
 - Los mybox_orange
 - Añadir colortex a plantilla
 
-- Lidiar con $$
 - Lidiar con los \ref{}
-- Los graficos de los ciruitos
 
 - Subfigure
