@@ -72,7 +72,7 @@ from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_
 from LtN_replaces_and_others import reemplazo_begin_figure
 from LtN_replaces_and_others import reemplazo_item
 from LtN_replaces_and_others import find_title_subtitle_BeginBox
-from LtN_replaces_and_others import delete_vspace
+from LtN_replaces_and_others import delete_vspace, delete_hspace
 from LtN_replaces_and_others import delete_comments
 from LtN_replaces_and_others import build_i_a_in_b
 from LtN_replaces_and_others import replace_start_newtheorem
@@ -211,6 +211,7 @@ find_proof = False
 find_itemize = False
 find_itemize_2 = False
 find_figure = False
+find_subfigure = False
 find_Teorema = False
 find_Lemma = False
 find_Corolario = False
@@ -676,27 +677,41 @@ with open(file_name, 'r') as f:
             line = line.replace("\\\\end{proof}",'</details>\\n')
 
         ############################ Figuras ##############################
-        elif "\\\\begin{figure}" in line :
+        if "\\\\begin{figure}" in line :
             find_figure = True
             #line = line.replace("\\\\begin{figure}",'<figure><center>')
-            line = reemplazo_begin_figure(line)
+            line = reemplazo_begin_figure(line).replace("\\\\setcounter{subfigure}{0}","")
 
-        elif "\\\\end{figure}" in line :
-            find_figure = False
-            line = line.replace("\\\\end{figure}",'</center></figure>\\n')
+        if find_figure == True:
+            ## Cosas de todas las figuras
+            if "\\\\end{figure}" in line :
+                find_figure = False
+                find_subfigure = False
+                line = line.replace("\\\\end{figure}",'</center></figure>\\n')
 
-        elif "\\\\centering" in line and find_figure == True:
-            line = line.replace("\\\\centering",'<br>')
+            if "\\\\centering" in line and find_figure == True:
+                line = line.replace("\\\\centering",'<br>')
 
-        elif "\\\\caption{" in line and find_figure == True:
-            line = reemplazo_caption(line)
+            if "\\\\hspace{" in line:
+                line = delete_hspace(line)
 
-        elif "\\\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
-            line = reemplazo_includegraphics(line)
+            ## Ahora tratanos por separado las figuras normales de las subfigure
+            if "\\\\subfigure" in line:
+                find_subfigure = True
 
-        elif "\\\\label{" in line and find_figure == True:
-            line = reemplazo_label(line)
+            if find_subfigure == True:
+                message = "No se aceptan las subfigure. Deben sustituirse por una única figura\n" + \
+                          "con un único pie de foto."
+                raise ErrorGenerico(f_data, line, num_line_text_file, message)
+            else:
+                if "\\\\caption{" in line and find_figure == True:
+                    line = reemplazo_caption(line)
 
+                if "\\\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
+                    line = reemplazo_includegraphics(line)
+
+                if "\\\\label{" in line and find_figure == True:
+                    line = reemplazo_label(line)
 
 
 

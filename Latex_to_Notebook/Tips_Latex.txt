@@ -27,6 +27,9 @@ Se acepta usar:
 \item[1.], \item[2.], ...
 \item[a)], ....
 
+No se aceptan las \subfigure: poner una única imagen con un único pie de foto
+
+
 ################################################################
 
 ## Bibliografia: poner esto antes

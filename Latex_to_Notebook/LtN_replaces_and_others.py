@@ -19,7 +19,7 @@ class ErrorGenerico(Exception):
     def __init__(self, f_data, line, num_line_text_file, message):
 
         final_message = "\n" + \
-                        "\033[91m======\033[0m\n" + \
+                        "\033[91m=============================\033[0m\n" + \
                         "\033[91m " + message + "\033[0m\n" + \
                         "\n" + \
                         f"\033[91m Linea del .tex: {num_line_text_file}.\033[0m\n"
@@ -32,7 +32,7 @@ class ErrorGenerico(Exception):
                       f"\033[91m    {f_data[-1]}\033[0m\n" + \
                       f"\033[91m    {line}\033[0m\n"
 
-        final_message = final_message + f"\033[91m======\033[0m"
+        final_message = final_message + f"\033[91m=============================\033[0m"
 
         self.message = final_message
 
@@ -291,6 +291,12 @@ def reemplazo_cite_full(f_data, i_start_write, i_end_write, cites_dic, path_bib_
 def delete_vspace(line):
     patron_vspace = r"\\\\vspace\{[^{}]*\}"
     return re.sub(patron_vspace, '', line)
+
+# =============================================================================
+## Eliminar los \hspace{...}
+def delete_hspace(line):
+    patron_hspace = r"\\\\hspace\{[^{}]*\}"
+    return re.sub(patron_hspace, '', line)
 
 # =============================================================================
 ## Eliminar lo que hay despues de "%" (sin contar "\%")
