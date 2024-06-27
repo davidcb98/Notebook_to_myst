@@ -705,7 +705,18 @@ with open(file_name, 'r') as f:
                 raise ErrorGenerico(f_data, line, num_line_text_file, message)
             else:
                 if "\\\\caption{" in line and find_figure == True:
+
+                    num_start_braket_caption = len(re.findall(r'(?<!\\)\{', line))
+                    num_end_braket_caption   = len(re.findall(r'(?<!\\)\}', line))
+
+                    if num_start_braket_caption != num_end_braket_caption:
+                        message = "El numero de \"{\" y \"}\" diferentes en caption de un figura."
+                        raise ErrorGenerico(f_data, line, num_line_text_file, message)
+
                     line = reemplazo_caption(line)
+
+
+
 
                 if "\\\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
                     line = reemplazo_includegraphics(line)

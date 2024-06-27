@@ -30,6 +30,8 @@ Se acepta usar:
 No se aceptan las \subfigure: poner una única imagen con un único pie de foto
 
 
+Las caption de las figuras deben de ir en una linea: \caption{.....}
+
 ################################################################
 
 ## Bibliografia: poner esto antes
@@ -50,4 +52,3 @@ No se aceptan las \subfigure: poner una única imagen con un único pie de foto
 
 - Lidiar con los \ref{}
 
-- Subfigure
