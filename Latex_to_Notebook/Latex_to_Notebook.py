@@ -63,7 +63,7 @@ from LtN_replaces_and_others import reemplazo_label
 from LtN_replaces_and_others import reemplazo_sec
 from LtN_replaces_and_others import reemplazo_subsec
 from LtN_replaces_and_others import reemplazo_chapter
-from LtN_replaces_and_others import reemplazo_SubsubIt
+from LtN_replaces_and_others import reemplazo_SubsubiIt, reemplazo_SubsubiiIt
 from LtN_replaces_and_others import reemplazo_caption
 from LtN_replaces_and_others import reemplazo_includegraphics
 from LtN_replaces_and_others import reemplazo_textbf
@@ -117,7 +117,7 @@ except:
 ## Archivos de salida
 
 Notebook_folder_path = "../Notebooks"
-Notebook_old_folder_path = "../Notebooks_old"
+Notebook_old_folder_path = "../No_Notebooks_old"
 Plantilla_section_path = "Plantilla_seccion.ipynb"
 Plantilla_Bib = "Plantilla_Bibliografia.ipynb"
 
@@ -324,7 +324,7 @@ with open(file_name, 'r') as f:
             if last_line == "\\n":
                 continue
             elif True in finds:
-                line = "<br><br>"
+                line = "<br>"
 
                 if last_line == "<br>" or last_line == "<br><br>" or last_line[-4:] == "<br>":
                     continue
@@ -395,7 +395,10 @@ with open(file_name, 'r') as f:
 
 
         elif "\\\\SubsubiIt{" in line:
-            line = reemplazo_SubsubIt(line)
+            line = reemplazo_SubsubiIt(line)
+
+        elif "\\\\SubsubiiIt{" in line:
+            line = reemplazo_SubsubiiIt(line)
 
         #################### mybox_gray / Nota sin titulo #######################
 
@@ -661,11 +664,18 @@ with open(file_name, 'r') as f:
                 if find_itemize_2 == True:
                     #line = line.replace('\\\\item', '    -')
                     line = reemplazo_item(line, '    ')
-                    line = " \\n" + line
+                    if True in finds:
+                        line = "<br>\\n" + line
+                    else:
+                        line = " \\n" + line
+
                 else:
                     #line = line.replace('\\\\item', '-')
                     line = reemplazo_item(line, '')
-                    line = " \\n" + line
+                    if True in finds:
+                        line = "<br>\\n" + line
+                    else:
+                        line = " \\n" + line
             """
             if True in finds:
                 line = line + '\\n",\n' + \
@@ -688,6 +698,9 @@ with open(file_name, 'r') as f:
         ############################ Figuras ##############################
         if "\\\\begin{figure}" in line :
             find_figure = True
+            label_writed = False
+            caption_writed = False
+            caption_find = False
             #line = line.replace("\\\\begin{figure}",'<figure><center>')
             line = reemplazo_begin_figure(line).replace("\\\\setcounter{subfigure}{0}","")
 
@@ -696,13 +709,22 @@ with open(file_name, 'r') as f:
             if "\\\\end{figure}" in line :
                 find_figure = False
                 find_subfigure = False
+
                 line = line.replace("\\\\end{figure}",'</center></figure>\\n')
 
+                if caption_find == True and caption_writed == False:
+                    line = line_caption + '\\n",\n' + \
+                           '    "' + line
+
+
             if "\\\\centering" in line and find_figure == True:
-                line = line.replace("\\\\centering",'<br>')
+                line = line.replace("\\\\centering","")
+                continue
 
             if "\\\\hspace{" in line:
                 line = delete_hspace(line)
+                if line == '':
+                    continue
 
             ## Ahora tratanos por separado las figuras normales de las subfigure
             if "\\\\subfigure" in line:
@@ -722,9 +744,15 @@ with open(file_name, 'r') as f:
                         message = "El numero de \"{\" y \"}\" diferentes en caption de un figura."
                         raise ErrorGenerico(f_data, line, num_line_text_file, message)
 
-                    line = reemplazo_caption(line)
+                    caption_find = True
 
-
+                    if label_writed == False:
+                        line_caption = reemplazo_caption(line)
+                        continue
+                        line = ""
+                    else:
+                        line = reemplazo_caption(line)
+                        caption_writed = True
 
 
                 if "\\\\includegraphics[" in line and find_figure == True and not "\\subfigure" in line:
@@ -732,10 +760,14 @@ with open(file_name, 'r') as f:
 
                 if "\\\\label{" in line and find_figure == True:
                     line = reemplazo_label(line)
+                    label_writed = True
 
 
 
 
+        if "\t" in line:
+            message = "Parece que ha quedado un tabulador (\\t) suelto."
+            raise ErrorGenerico(f_data, {line}, num_line_text_file, message)
 
         f_data.append(line)
         i +=1
@@ -880,10 +912,10 @@ for k_chap_in_one_part in i_chap_in_parts:
 
         i_start_write = i_chapter[k_chap]
 
-        title_lowecase = remove_capital_accents(f_data[i_start_write].replace("#","").lstrip().replace(" ","_")  \
+        title_lowecase = remove_capital_accents(f_data[i_start_write].lstrip().replace(" ","_")  \
                         .replace(":","").replace(".","").replace(">","").replace("<","").replace("\"","")        \
                         .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","") \
-                        .replace("(","").replace(")","").replace("$","").split("_a_id=")[0])
+                        .replace("(","").replace(")","").replace("$","").split('#_')[1])
 
 
         chapter_intro_file_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)+"_01_" + title_lowecase + ".ipynb"
@@ -909,10 +941,10 @@ for k_chap_in_one_part in i_chap_in_parts:
                 #print("    ", f"Section_"+ str(k_sec_sum+1).zfill(3) ,i_section[k_sec], {f_data[i_section[k_sec]]})
                 i_start_write = i_section[k_sec]
 
-                title_lowecase = remove_capital_accents(f_data[i_start_write].replace("#","").lstrip().replace(" ","_")  \
+                title_lowecase = remove_capital_accents(f_data[i_start_write].lstrip().replace(" ","_")  \
                                 .replace(":","").replace(".","").replace(">","").replace("<","").replace("\"","")        \
                                 .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","") \
-                                .replace("(","").replace(")","").replace("$","").split("_a_id=")[0])
+                                .replace("(","").replace(")","").replace("$","").split('#_')[1])
 
                 sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3)+"_"+ title_lowecase + ".ipynb"
                 write_path = sec_file_path

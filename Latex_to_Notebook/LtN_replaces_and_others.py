@@ -87,7 +87,15 @@ def reemplazo_sec(line, nonumber):
     else:
         #patron = r"\\\\section\{(.+?)\}"
         patron = r"\\\\section\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron, reemplazo_sec_aux, line))
+
+
+    if "\\\\label{" in line:
+        line = reemplazo_label(re.sub(patron, reemplazo_sec_aux, line))
+        line_sec = line.split('<a id=')[0]
+        line_label = line.split('<a id=')[1]
+        return '\\n",\n' +'    "<a id=' +line_label + '\\n",\n' + '    "' + line_sec
+    else:
+        return re.sub(patron, reemplazo_sec_aux, line)
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \subsection por ##
@@ -105,7 +113,16 @@ def reemplazo_subsec(line, nonumber):
         #patron = r"\\\\subsection\{(.+?)\}"
         #patron = r"\\\\subsection\{([^{}]+)\}"
         patron = r"\\\\subsection\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron, reemplazo_subsec_aux, line))
+
+    if "\\\\label{" in line:
+        line = reemplazo_label(re.sub(patron, reemplazo_subsec_aux, line))
+        line_sec = line.split('<a id=')[0]
+        line_label = line.split('<a id=')[1]
+        return '\\n",\n' + '    "<a id=' +line_label + '\\n",\n' + '    "' + line_sec
+    else:
+        return re.sub(patron, reemplazo_subsec_aux, line)
+
+    #return reemplazo_label(re.sub(patron, reemplazo_subsec_aux, line))
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \chapter por #
@@ -122,21 +139,59 @@ def reemplazo_chapter(line, nonumber):
     else:
         #patron = r"\\\\section\{(.+?)\}"
         patron = r"\\\\chapter\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron, reemplazo_chapter_aux, line))
+
+    if "\\\\label{" in line:
+        line = reemplazo_label(re.sub(patron, reemplazo_chapter_aux, line))
+        line_sec = line.split('<a id=')[0]
+        line_label = line.split('<a id=')[1]
+        return '\\n",\n' +'    "<a id=' +line_label + '\\n",\n' + '    "' + line_sec
+    else:
+        return re.sub(patron, reemplazo_chapter_aux, line)
+
+    #return reemplazo_label(re.sub(patron, reemplazo_chapter_aux, line))
 
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \SubsubiIt por ###
 ## Se reemplazan también la label
-def reemplazo_SubsubIt(line):
+def reemplazo_SubsubiIt(line):
 
-    def reemplazo_SubsubIt_aux(match):
+    def reemplazo_SubsubiIt_aux(match):
         titulo = match.group(1)
         return f"### {titulo}"
 
     #patron_SubsubIt = r"\\\\SubsubiIt\{(.+?)\}"
-    patron_SubsubIt = r"\\\\SubsubiIt\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return reemplazo_label(re.sub(patron_SubsubIt, reemplazo_SubsubIt_aux, line))
+    patron_SubsubiIt = r"\\\\SubsubiIt\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+
+    if "\\\\label{" in line:
+        line = reemplazo_label(re.sub(patron_SubsubiIt, reemplazo_SubsubiIt_aux, line))
+        line_sec = line.split('<a id=')[0]
+        line_label = line.split('<a id=')[1]
+        return '\\n",\n' +'    "<a id=' +line_label + '\\n",\n' + '    "' + line_sec
+    else:
+        return re.sub(patron_SubsubiIt, reemplazo_SubsubiIt_aux, line)
+    #return reemplazo_label(re.sub(patron_SubsubiIt, reemplazo_SubsubIt_aux, line))
+
+# =============================================================================
+## Las dos siguientes funciones son para reemplazar \SubsubiiIt por ###
+## Se reemplazan también la label
+def reemplazo_SubsubiiIt(line):
+
+    def reemplazo_SubsubiiIt_aux(match):
+        titulo = match.group(1)
+        return f"#### {titulo}"
+
+    #patron_SubsubIt = r"\\\\SubsubiIt\{(.+?)\}"
+    patron_SubsubiiIt = r"\\\\SubsubiiIt\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+
+    if "\\\\label{" in line:
+        line = reemplazo_label(re.sub(patron_SubsubiiIt, reemplazo_SubsubiiIt_aux, line))
+        line_sec = line.split('<a id=')[0]
+        line_label = line.split('<a id=')[1]
+        return '\\n",\n' +'    "<a id=' +line_label + '\\n",\n' + '    "' + line_sec
+    else:
+        return re.sub(patron_SubsubiiIt, reemplazo_SubsubiiIt_aux, line)
+    #return reemplazo_label(re.sub(patron_SubsubIt, reemplazo_SubsubiiIt_aux, line))
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \caption por <center> <center>

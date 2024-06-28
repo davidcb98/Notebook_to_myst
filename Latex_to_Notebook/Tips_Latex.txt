@@ -12,7 +12,9 @@ El subtitulo y la label son opcionales.
 Puede haber lineas en blando dentro.
 
 
+Las label de las secciones deben de ir en la misma linea que los \section{} y \subsection.
 
+Los \begin{equation} y \end{equation} debem de ir al principio de las lineas (no pueden ir en medio)
 ################################################################
 
 \begin{mybox_blue}{Nota/Resumen: Subtitulo}
@@ -52,3 +54,4 @@ Las caption de las figuras deben de ir en una linea: \caption{.....}
 
 - Lidiar con los \ref{}
 
+- Tratar los \footnote

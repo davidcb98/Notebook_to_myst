@@ -6,14 +6,14 @@ parts:
   - file:  docs/Part_01/Chapter_001_01_introduccion_myst.ipynb
 - caption:  Conceptos básicos
   chapters:
-  - file:  docs/Part_02/Chapter_002_01_formalismo_matematico_myst.ipynb
+  - file:  docs/Part_02/Chapter_002_01_formalismo_matematico__myst.ipynb
     sections:
     - file:  docs/Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.ipynb
     - file:  docs/Part_02/Chapter_002_02/Section_002_vectores_myst.ipynb
     - file:  docs/Part_02/Chapter_002_02/Section_003_operadores_myst.ipynb
     - file:  docs/Part_02/Chapter_002_02/Section_004_tensores_myst.ipynb
     - file:  docs/Part_02/Chapter_002_02/Section_005_probabilidades_myst.ipynb
-  - file:  docs/Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica_myst.ipynb
+  - file:  docs/Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.ipynb
     sections:
     - file:  docs/Part_02/Chapter_003_02/Section_001_axiomas_myst.ipynb
     - file:  docs/Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.ipynb
@@ -57,13 +57,13 @@ parts:
     - file:  docs/Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.ipynb
     - file:  docs/Part_03/Chapter_009_02/Section_003_teleportacion_myst.ipynb
     - file:  docs/Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.ipynb
-    - file:  docs/Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion_myst.ipynb
+    - file:  docs/Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.ipynb
   - file:  docs/Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.ipynb
     sections:
     - file:  docs/Part_03/Chapter_010_02/Section_001_introduccion_myst.ipynb
-    - file:  docs/Part_03/Chapter_010_02/Section_002_el_espin_nuclear_myst.ipynb
+    - file:  docs/Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.ipynb
     - file:  docs/Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.ipynb
-    - file:  docs/Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales_myst.ipynb
+    - file:  docs/Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.ipynb
   - file:  docs/Part_03/Chapter_011_01_decoherencia_y_desfase_myst.ipynb
     sections:
     - file:  docs/Part_03/Chapter_011_02/Section_001_introduccion_myst.ipynb
@@ -77,7 +77,7 @@ parts:
     - file:  docs/Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.ipynb
     - file:  docs/Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.ipynb
     - file:  docs/Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.ipynb
-    - file:  docs/Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas_myst.ipynb
+    - file:  docs/Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.ipynb
     - file:  docs/Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.ipynb
   - file:  docs/Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.ipynb
     sections:
@@ -88,41 +88,41 @@ parts:
     - file:  docs/Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.ipynb
     - file:  docs/Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.ipynb
     - file:  docs/Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.ipynb
-  - file:  docs/Part_04/Chapter_015_01_qft_quantum_fourier_transform_myst.ipynb
+  - file:  docs/Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.ipynb
     sections:
     - file:  docs/Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.ipynb
     - file:  docs/Part_04/Chapter_015_02/Section_002_intuicion_myst.ipynb
     - file:  docs/Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.ipynb
     - file:  docs/Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.ipynb
-  - file:  docs/Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica_myst.ipynb
+  - file:  docs/Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.ipynb
     sections:
     - file:  docs/Part_04/Chapter_016_02/Section_001_introduccion_myst.ipynb
     - file:  docs/Part_04/Chapter_016_02/Section_002_circuito_myst.ipynb
     - file:  docs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.ipynb
     - file:  docs/Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.ipynb
-  - file:  docs/Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding_myst.ipynb
+  - file:  docs/Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.ipynb
     sections:
     - file:  docs/Part_04/Chapter_017_02/Section_001_introduccion_myst.ipynb
     - file:  docs/Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.ipynb
     - file:  docs/Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n=15_myst.ipynb
   - file:  docs/Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n+3_qubit_myst.ipynb
     sections:
-    - file:  docs/Part_04/Chapter_018_02/Section_001_la_idea_myst.ipynb
+    - file:  docs/Part_04/Chapter_018_02/Section_001_la_idea__myst.ipynb
     - file:  docs/Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.ipynb
     - file:  docs/Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.ipynb
     - file:  docs/Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.ipynb
-  - file:  docs/Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud_myst.ipynb
+  - file:  docs/Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.ipynb
     sections:
     - file:  docs/Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.ipynb
     - file:  docs/Part_04/Chapter_019_02/Section_002_introduccion_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion_myst.ipynb
-    - file:  docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria_myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.ipynb
+    - file:  docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.ipynb
     - file:  docs/Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.ipynb
-  - file:  docs/Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd_myst.ipynb
+  - file:  docs/Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.ipynb
     sections:
     - file:  docs/Part_04/Chapter_020_02/Section_001_introduccion_myst.ipynb
     - file:  docs/Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.ipynb

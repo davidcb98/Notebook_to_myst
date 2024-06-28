@@ -478,14 +478,12 @@ Como podemos ver, tenemos dos casos:
 Aquí podemos ver perfectamente que los número complejos (o imaginarios) son una extensión de los números reales, en el sentido de que los engloban: como acabamos de ver, un número real puede verse como un número complejo con la parte imaginaria igual a cero.
 
 
-Es bien conocido que los números reales se representan sobre una recta, la \textbf{recta real}. Los números complejos por su parte se representan en un plano, el \textbf{plano complejo}, donde el eje horizontal es la recta real y el eje vertical es el eje imaginario. Esto se ve precisamente muy bien en la forma cartesiana, pues $x$ sería el valor del eje real e $y$ sería el valor del eje imaginario. Podemos ver esto más claramente en la Fig. \ref{Fig_formalismo_Complex_number_illustration_modarg}. 
+Es bien conocido que los números reales se representan sobre una recta, la \textbf{recta real}. Los números complejos por su parte se representan en un plano, el \textbf{plano complejo}, donde el eje horizontal es la recta real y el eje vertical es el eje imaginario. Esto se ve precisamente muy bien en la forma cartesiana, pues $x$ sería el valor del eje real e $y$ sería el valor del eje imaginario. Podemos ver esto más claramente en la Fig. \ref{Fig_formalismo_conjugación}b). 
 
 	\begin{figure}[H]
 	\centering 
 	\includegraphics[width=1\linewidth]{Figuras/Fig_subfig_formalismo_nums_en_plano_complejo.png}
 	\caption{Representaciones de números en el plano complejo.}
-	\label{Fig_formalismo_Complex_number_illustration}
-	\label{Fig_formalismo_Complex_number_illustration_modarg}
 	\label{Fig_formalismo_conjugación}
 	\end{figure}
 
@@ -524,7 +522,7 @@ Con esto, veamos lo que es la forma polar:
  	Tanto $\rho$ como $\theta$ son números reales y se denominan \textbf{módulo} y \textbf{fase}.
 	\end{mybox_gray2}
 	
-	En principio, esta forma de representar los números complejos puede parecer rara, pero es muy fácil de entender. Para ello, solo hay que recordar que los números complejos los podemos representar en un plano. Los puntos en un plano pueden verse como \textbf{vectores} que parten del origen y cuya punta acaba en el punto que queremos describir. La forma habitual de referirse a estos vectores (puntos) es usar las coordenadas sobre los dos ejes, es decir, usar lo que en matemáticas se llama \textbf{sistema de coordenadas cartesiano} (ver la Fig. \ref{Fig_formalismo_Complex_number_illustration_modarg}). Sin embargo, otra forma de describir estos puntos es usando el módulo del vector (su longitud) y el ángulo que este forma con el eje horizontal (ver la Fig. \ref{Fig_formalismo_Complex_number_illustration_modarg}). A esta forma de describir el plano se la llama \textbf{sistema de coordenadas polar}.
+	En principio, esta forma de representar los números complejos puede parecer rara, pero es muy fácil de entender. Para ello, solo hay que recordar que los números complejos los podemos representar en un plano. Los puntos en un plano pueden verse como \textbf{vectores} que parten del origen y cuya punta acaba en el punto que queremos describir. La forma habitual de referirse a estos vectores (puntos) es usar las coordenadas sobre los dos ejes, es decir, usar lo que en matemáticas se llama \textbf{sistema de coordenadas cartesiano} (ver la Fig. \ref{Fig_formalismo_conjugación}b)). Sin embargo, otra forma de describir estos puntos es usando el módulo del vector (su longitud) y el ángulo que este forma con el eje horizontal (ver la Fig. \ref{Fig_formalismo_conjugación}b)). A esta forma de describir el plano se la llama \textbf{sistema de coordenadas polar}.
 	
 	La forma polar que acabamos de ver de los número complejos (Ec. \ref{ec_formalismo_forma_polar}) no es más que describir el número complejo usando el sistema de coordenadas polar. En concreto, el número real $\rho$ es el módulo del vector y el número real $\theta$ es su fase, es decir, el ángulo con el eje horizontal. Usando el \textbf{teorema de Pitágoras} para los triángulos rectángulos es muy fácil comprobar que $\rho$ es el módulo si tenemos en cuenta que $x$ e $y$ son los catetos:
 	\begin{equation}
@@ -6185,7 +6183,7 @@ Para ver que está pasando con el espín bajo la evolución de este Hamiltoniano
 	\nonumber \\
 	= & \, \Lc a e ^{-i \gamma B_0 t/2} \qquad  b e ^{-i \gamma B_0 t/2} \Rc 
 	\frac{\hbar}{2} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} 
-	\begin{bmatrix} \cos (\alpha/2) e^{i \gamma B_0 t/2} \\	\sin (\alpha/2) e^{-i \gamma B_0 t/2} \end{bmatrix} 
+	\begin{bmatrix} \cos (\alpha/2) e^{i \gamma B_0 t/2} \\ \sin (\alpha/2) e^{-i \gamma B_0 t/2} \end{bmatrix} 
 	\nonumber \\
 	= & \, \frac{\hbar}{2} \sin \alpha \cos (\gamma B_0 t ) 
 	\end{align}
