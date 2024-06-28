@@ -71,7 +71,7 @@ from LtN_replaces_and_others import reemplazo_textit
 from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_full
 from LtN_replaces_and_others import reemplazo_begin_figure
 from LtN_replaces_and_others import reemplazo_item
-from LtN_replaces_and_others import find_title_subtitle_BeginBox
+from LtN_replaces_and_others import find_title_subtitle_BeginBox, find_title_part
 from LtN_replaces_and_others import delete_vspace, delete_hspace
 from LtN_replaces_and_others import delete_comments
 from LtN_replaces_and_others import build_i_a_in_b
@@ -230,6 +230,8 @@ num_line_text_file = 0
 omitir_en_Notebook = False
 
 
+
+
 with open(file_name, 'r') as f:
 
 
@@ -238,6 +240,8 @@ with open(file_name, 'r') as f:
     i_part            = []
     i_chapter         = []
     i_section         = []
+    titles_part_list  = []
+    labels_part_list  = []
 
     last_line = None
     for line in f:
@@ -384,6 +388,11 @@ with open(file_name, 'r') as f:
 
         elif "\\\\part{" in line: # or "\\part*{" in line:
             i_part.append(i)
+            title_part, label_part = find_title_part(line)
+
+            titles_part_list.append(title_part)
+            labels_part_list.append(label_part)
+
 
         elif "\\\\SubsubiIt{" in line:
             line = reemplazo_SubsubIt(line)
@@ -768,10 +777,7 @@ if find_bib_file == True:
 #######################################################################################################################
 
 
-i_chap_in_parts, chapters_before_first_part = build_i_a_in_b(i_chapter, i_part)
-i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
-print("")
 
 def test_write_start_end(i_end_write_old, i_start_write, write_path):
     if i_end_write_old > i_start_write:
@@ -824,7 +830,10 @@ def write_notebook(f_data, i_start_write, i_end_write, write_path, header_planti
     i_end_write_old = i_end_write
     
 
+i_chap_in_parts, chapters_before_first_part = build_i_a_in_b(i_chapter, i_part)
+i_sec_in_chap, _ = build_i_a_in_b(i_section, i_chapter)
 
+print("")
 
 
 chapters_before_first_part_aux = chapters_before_first_part
@@ -838,6 +847,12 @@ for k_chap_in_one_part in i_chap_in_parts:
         print(f"\nPart_"+str(k_part_sum+1).zfill(2), {f_data[i_part[k_part]]})
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
+
+        # Caption.txt
+        write_path = part_folder_path + "/caption.txt"
+        with open(write_path, 'w') as f_out:
+            f_out.write(titles_part_list[k_part])
+
         shutil.copytree(Figures_folder, part_folder_path + "/" + Figures_folder)
         k_part +=1
         k_part_sum +=1
@@ -845,8 +860,16 @@ for k_chap_in_one_part in i_chap_in_parts:
         print(f"\nPart_"+str(k_part_sum+1).zfill(2))
         part_folder_path = str(Notebook_folder_path) + "/" + f"Part_"+str(k_part_sum+1).zfill(2)
         os.mkdir(part_folder_path)
+
+        #Caption.txt
+        write_path = part_folder_path + "/caption.txt"
+        with open(write_path, 'w') as f_out:
+            f_out.write("")
+
         shutil.copytree(Figures_folder, part_folder_path + "/" + Figures_folder)
         k_part_sum +=1
+
+    chapters_before_first_part_aux = False
 
     k_chap_sum_part = 0
     
@@ -859,7 +882,8 @@ for k_chap_in_one_part in i_chap_in_parts:
 
         title_lowecase = remove_capital_accents(f_data[i_start_write].replace("#","").lstrip().replace(" ","_")  \
                         .replace(":","").replace(".","").replace(">","").replace("<","").replace("\"","")        \
-                        .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","").split("_a_id=")[0])
+                        .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","") \
+                        .replace("(","").replace(")","").replace("$","").split("_a_id=")[0])
 
 
         chapter_intro_file_path = part_folder_path + "/Chapter_"+str(k_chap_sum +1).zfill(3)+"_01_" + title_lowecase + ".ipynb"
@@ -887,7 +911,8 @@ for k_chap_in_one_part in i_chap_in_parts:
 
                 title_lowecase = remove_capital_accents(f_data[i_start_write].replace("#","").lstrip().replace(" ","_")  \
                                 .replace(":","").replace(".","").replace(">","").replace("<","").replace("\"","")        \
-                                .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","").split("_a_id=")[0])
+                                .replace("/","").replace("\\","").replace("|","").replace("?","").replace("¿","") \
+                                .replace("(","").replace(")","").replace("$","").split("_a_id=")[0])
 
                 sec_file_path = str(chapter_folder_path) + "/" + f"Section_"+ str(k_sec_sum+1).zfill(3)+"_"+ title_lowecase + ".ipynb"
                 write_path = sec_file_path
@@ -941,7 +966,7 @@ for k_chap_in_one_part in i_chap_in_parts:
 
         k_chap_sum +=1
         k_chap_sum_part += 1
-    chapters_before_first_part_aux = False
+
 
 #for i in range(7642, 7642+10):
 #    print({f_data[i]})

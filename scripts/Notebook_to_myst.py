@@ -86,6 +86,9 @@ for i in reversed(range(len(index_list_list[0]))):
     elif 'postulado' in title_lowercase:
         build_card_box(i, f_data, index_list_list, titles_list_list)
 
+    elif 'proposicion' in title_lowercase:
+        build_card_box(i, f_data, index_list_list, titles_list_list)
+
     elif 'axioma' in title_lowercase:
         build_card_box(i, f_data, index_list_list, titles_list_list)
 

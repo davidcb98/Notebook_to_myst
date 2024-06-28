@@ -492,7 +492,7 @@ Es bien conocido que los números reales se representan sobre una recta, la \tex
 			
 			\SubsubiIt{Forma Polar}
 			
-	\Teorema{ (\textit{Fórmula de Euler})
+	\Teorema{ \textit{(Fórmula de Euler)}
 	Dado un ángulo $\theta \in [0,2 \pi)$ las dos expresiones siguientes son equivalentes
 	\begin{equation}
 	\cos \theta + i \sin \theta = e^{i \theta}
@@ -759,7 +759,8 @@ Habitualmente, cuando se habla simplemente de \textit{dimensión} se habla de la
 		
 La operación \textbf{conjugación adjunta},  $\dagger$, es una \textit{extensión} de la \textbf{conjugación compleja}  a los vectores.
 
-	\Definicion{Asociado a cada \textit{ket }$\ket{u}$, definimos un vector \textbf{adjunto}, o \textbf{bra} $\bra{u}\equiv\left(\ket{u}\right)^\dagger$,  que representamos mediante un vector fila con las componentes conjugadas complejas:  
+	\Definicion{
+	Asociado a cada \textit{ket }$\ket{u}$, definimos un vector \textbf{adjunto}, o \textbf{bra} $\bra{u}\equiv\left(\ket{u}\right)^\dagger$,  que representamos mediante un vector fila con las componentes conjugadas complejas:  
 		\begin{equation}
 \dagger \,: \quad\,|u\rangle = \begin{bmatrix} {u_1}\\ {u_2}\\ \vdots \\ {u_N} \end{bmatrix} 
 ~~~~~{\rightarrow}~~~~~~ \left(\ket{u}\right)^\dagger \equiv \bra{u} =\begin{bmatrix} {u_1^*} & {u_2^*} & \cdots & {u_N^*}
@@ -1993,7 +1994,7 @@ P_k = \sum_{a=1}^{d_k} \ketbra{\lambda^a_k}{\lambda^a_k}
 
 			\SubsubiIt{Descomposición Espectral}
 
-	\Teorema{ (\textit{Teorema Espectral}) 
+	\Teorema{ \textit{(Teorema Espectral)} 
 	Para todo operador normal $N$ existe una base de  autovectores ortonormales,  $\{\ket{\lambda^a_k}\}$,  tales que  $N$ admite la siguiente  \textbf{descomposición espectral }
 	\begin{equation}
 	N = \sum_{k=1}^d \lambda_k   P_k
@@ -3107,7 +3108,7 @@ La distribución de \textbf{probabilidad condicionada} $p(X|Y)$ asigna un númer
 
 La manera de acceder experimentalmente a estas distribuciones, es efectuar un muestreo $(a_i,b_i), i=1,...,N$ de valores de $(X,Y)$ y \textit{seleccionar} sólo aquellos sucesos donde $b_i = y$ un valor concreto de $Y$.
 
-\Teorema{ (\textit{de Bayes}): 
+\Teorema{ \textit{(de Bayes)} 
 Las probabilidades condicionales y combinadas se relacionan de la forma siguiente
 	\begin{equation}
 	p(x,y) = p(x|y)p(y) = p(y|x) p(x)
@@ -3313,7 +3314,8 @@ Vemos que, \textit{mediante la repetición estadística, solamente podemos recup
 	\end{equation}
 
 	
-	\Ejercicio{Generalizar las expresiones anteriores al caso en que los autovalores $\lambda_k$ puedan ser $d_k$ veces degenerados.
+	\Ejercicio{
+	Generalizar las expresiones anteriores al caso en que los autovalores $\lambda_k$ puedan ser $d_k$ veces degenerados.
 	}
 
 	\section{Medidas Estadísticas}
@@ -3343,7 +3345,7 @@ Por el \textbf{valor esperado} $\langle A\rangle$ del \textit{observable} $A$ en
 \end{eqnarray}
 Reconocemos entre paréntesis la descomposición espectral de $A$. Llegamos así a la siguiente expresión para el valor esperado de un observable $A$ en un estado $\ket{\psi}$:
 	
-	\Teorema{(\textit{Valor esperado de un operador})
+	\Teorema{\textit{(Valor esperado de un operador)}
 	El \textbf{valor esperado de un operador} es
 		\begin{equation}
 		\langle A \rangle=\bra{\psi}A \ket{\psi}
@@ -5898,7 +5900,7 @@ Consideremos el circuito de la Fig. \ref{Fig_entrelazamiento_entanglement_swap}.
 	En un principio, que el protocolo de teleportación exija la destrucción del estado inicial para teleportarlo puede parecer una particularidad de este protocolo. Sin embargo, nada más lejos de la realidad.
 	El \textbf{Teorema de No Clonación} es uno de los resultados más sencillos y a la vez más importante del formalismo de la Mecánica Cuántica. De hecho su formalización completa es bastante reciente, 1982, debida a Wootters, Zurek \cite{bib_clone2} y Dieks \cite{bib_clone1}.
 	
-	\Teorema{ (\textit{de No Clonación})
+	\Teorema{ \textit{(de No Clonación)}
 	No existe un operador unitario $U$ (clonador) que, para un estado arbitrario $|\psi\rangle$, realice la siguiente operación
 		\begin{equation}
 		U \ket{\psi}\ket{0} = \ket{\psi}\ket{\psi}
@@ -7145,7 +7147,7 @@ donde $f: x \to f(x)$ es una función arbitraria invertible.
 
 
 
-	\Teorema{ (\textit{Barenco et. al. 1995}): 
+	\Teorema{ \textit{(Barenco et. al. 1995)} 
 	Cualquier operador unitario $U_n$ sobre $n$ qúbits puede expresarse como el 
 	producto de 
 	\begin{itemize}
@@ -8466,7 +8468,7 @@ Para entender como pasar del periodo $r$ de nuestra función a tener los factore
 
 
 
-	\Teorema{(\textit{Teorema 5.2 del Nielsen-Chuang}): 
+	\Teorema{\textit{(Teorema 5.2 del Nielsen-Chuang)} 
 	Supongamos que $N$ es un número compuesto de $L$ bits, y $x$ es una solución no trivial de la ecuación $(x^2 = 1 \text{ mod} N)$ en el rango $1 \leq a \leq N$, esto es, ni $x = (1 \text{ mod} N)$ ni $x = N-1 = (-1 \text{ mod} N)$. Entonces, uno de gcd$(x-1,N)$ y gcd$(x+1,N)$ es un factor no trivial de $N$ que se puede calcular usando $\mathcal{O}(L^3)$ operaciones. 
 	}
 	
@@ -8474,7 +8476,7 @@ Para entender como pasar del periodo $r$ de nuestra función a tener los factore
 	Ya que $x^2 \text{ mod} N = 1 \rightarrow (x^2 -1) \text{ mod} N = 0$, debe de cumplirse que $N$ divida a $(x^2-1) = (x+1)(x-1)$, con lo cual $N$ debe de tener un factor común con $(x+1)$ o con $(x-1)$. Como por suposición tenemos que $1 <  x < N-1$, con lo cual $x-1 < x+1 < N$, de lo cual podemos ver que el factor común no puede ser el propio $N$. Usando el Algoritmo de Euclides \cite{bib_Euclides} podemos calcular gcd$(x-1)$ y gcd$(x+1)$, y con lo cual obtener un factor no trivial de $N$, usando $\mathcal{O}$ operaciones.
 	\end{proof}
 
-	\Teorema{(\textit{Teorema 5.3 del Nielsen-Chuang}): 
+	\Teorema{\textit{(Teorema 5.3 del Nielsen-Chuang)} 
 	Supongamos $N = p^{\alpha_1}_1 \dots p^{\alpha_m}_m $ es la descomposición en factores primos de un entero impar positivo. Sea $x$ un número entero elegido uniformemente al azar, sujeto a la restricción $1 \leq x \leq N-1$ y $x$ coprimo de $N$. Sea $r$ el periodo de $x \text{ mod} N$. Entonces
 	\begin{equation}
 	p(r \text{ es impar y } x^{r/2} \text{ mod} N \neq - 1) \geq 1 - \frac{1}{2^m}
@@ -9828,7 +9830,7 @@ donde en la última expresión se ha tenido en cuenta que $\sin \theta \approx \
 \boxed{|M - \tilde{M}| <   \frac{2 \pi}{2^p} \sqrt{M N} + \frac{\pi^2}{(2^p)^2} N}.
 \end{equation}
 
-	\begin{mybox_green}{Derivación de la Ec. (\ref{ec_QC_error})}
+	\begin{mybox_green}{Cálculo: Derivación de la Ec. (\ref{ec_QC_error})}
 	Teniendo en cuenta las desigualdades anteriores, podemos derivar la expresión deseada
 	\begin{equation*}
 	|M - \tilde{M}|  < N \left| sin^2 \theta - sin^2 \tilde{\theta}  \right|  =   

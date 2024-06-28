@@ -188,6 +188,31 @@ def find_title_subtitle_BeginBox(line):
 
 
 # =============================================================================
+## Para buscar un los titulos y las labels de las partes
+
+def find_title_part(line):
+
+    # Expresiones regulares para extraer el contenido de part y label
+    part_pattern = r'\\part\{([^}]*)\}'
+    label_pattern = r'\\label\{([^}]*)\}'
+
+    # Buscar las coincidencias
+    part_match = re.search(part_pattern, line)
+    label_match = re.search(label_pattern, line)
+
+    part_title = part_match.group(1)
+
+    # Extraer los contenidos si las coincidencias se encontraron
+    if label_match:
+        label_content = label_match.group(1)
+    else:
+        label_content = ""
+
+    return part_title, label_content
+
+
+
+# =============================================================================
 ## Reemplazar \\textbf{texto} por <b>texto</b>
 def reemplazo_textbf(line):
 

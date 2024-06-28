@@ -1,7 +1,7 @@
 ################################################################
 ### Los cuadros \Teorema{}, \Lemma{},... de la forma
 
-\Teorema{ (\textit{Subtitulo}) \label{Teo_...}
+\Teorema{ \textit{(Subtitulo)} \label{Teo_...}           ---> importante!!!, los parentesis dentro del \textit{} y nada de texto fuera del textit o el \label{}
 Contenido del primer paragrafo del cuadro
 \vspace{0.3cm}
 
