@@ -681,13 +681,13 @@ document.write(`
 <section id="puertas-cuanticas-y-circuitos">
 <h3>Puertas cuánticas y circuitos<a class="headerlink" href="#puertas-cuanticas-y-circuitos" title="Permalink to this heading">#</a></h3>
 <p>La rotación básica de un qúbit simple son las rotaciones de la forma (\ref{ec_puertas_simples_Rn}), es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0625e1db-6761-4525-bf5a-375bae2bc233">
-<span class="eqno">(498)<a class="headerlink" href="#equation-0625e1db-6761-4525-bf5a-375bae2bc233" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dd2c9dc2-5b66-4fd9-afcd-612165ff2a2c">
+<span class="eqno">(498)<a class="headerlink" href="#equation-dd2c9dc2-5b66-4fd9-afcd-612165ff2a2c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 R_{\hat{n}} (\theta) = \exp \lc - \frac{i \theta \hat{n} \cdot \vec{\sigma}}{2} \rc
 \end{equation}\]</div>
 <p>Como ya hemos comentado en la sección \ref{sec_subsub_puertas_euler}, usando la <b>parametrización de Euler</b>  podemos general cualquier rotación sobre la esfera de Bloch usando tres rotaciones sobre dos ejes (Ec. (\ref{ec_puertas_simples_rotacion_1})). En esa sección elegimos las rotaciones en <span class="math notranslate nohighlight">\(\hat{z}\)</span> y <span class="math notranslate nohighlight">\(\hat{y}\)</span>, pero en esta vamos a usar las siguientes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-213b33b1-99b0-4d7a-8d42-337eb8e87340">
-<span class="eqno">(499)<a class="headerlink" href="#equation-213b33b1-99b0-4d7a-8d42-337eb8e87340" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f4fa8f44-0344-47a1-a571-3a335319e27d">
+<span class="eqno">(499)<a class="headerlink" href="#equation-f4fa8f44-0344-47a1-a571-3a335319e27d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U = e^{i \alpha} R_x(\beta) R_y (\gamma) R_x (\delta)
 \end{equation}\]</div>
 <p>Como también comentamos, la puerta básica de dos qúbits es la CNOT (Ec. (\ref{ec_multiqubit_CNOT})).</p>
@@ -711,8 +711,8 @@ U = e^{i \frac{\mathcal{H}_{control}}{\hbar}} = \exp \Lc i \omega_1 \lp  \cos \p
 <p>Para sistemas multiqubit, se utilizan subíndices para indicar sobre qué qúbit actúa la operación, por ejemplo, <span class="math notranslate nohighlight">\(Z^\dagger_3\)</span> es una rotación de <span class="math notranslate nohighlight">\(180\)</span>º del qúbit 3 alrededor de <span class="math notranslate nohighlight">\(- \hat{z}\)</span>.</p>
 <p>Por tanto, no es necesario aplicar el campo de RF a lo largo de diferentes ejes espaciales en el marco del laboratorio para realizar rotaciones <span class="math notranslate nohighlight">\(\hat{x}\)</span> y <span class="math notranslate nohighlight">\(\hat{y}\)</span>. Más bien, la fase del campo de RF determina el eje de nutación en el marco de rotación. Además, nótese que sólo importa la fase relativa entre pulsos aplicados al mismo espín. La fase absoluta del primer impulso en un espín determinado no tiene importancia en sí misma. Sólo establece una referencia de fase con la que deben compararse las fases de todos los pulsos posteriores en ese mismo espín, así como la lectura de ese espín.</p>
 <p>Anteriormente señalamos que la capacidad de implementar rotaciones arbitrarias sobre <span class="math notranslate nohighlight">\(\ket{x}\)</span> y <span class="math notranslate nohighlight">\(\ket{y}\)</span> es suficiente para realizar rotaciones arbitrarias de un solo qúbit (Ec. \ref{ec_Hardware_NMR_U_arbitrario}). Dado que las rotaciones <span class="math notranslate nohighlight">\(\hat{z}\)</span> son muy comunes, existen dos descomposiciones explícitas útiles de <span class="math notranslate nohighlight">\(R_z(\theta)\)</span> en términos de las rotaciones <span class="math notranslate nohighlight">\(\hat{x}\)</span> y <span class="math notranslate nohighlight">\(\hat{y}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46d9efc7-7959-414d-a78a-36f6987d213e">
-<span class="eqno">(501)<a class="headerlink" href="#equation-46d9efc7-7959-414d-a78a-36f6987d213e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-574b6087-ab85-4ea1-a18d-0e1493b1fa12">
+<span class="eqno">(501)<a class="headerlink" href="#equation-574b6087-ab85-4ea1-a18d-0e1493b1fa12" title="Permalink to this equation">#</a></span>\[\begin{equation}
 R_z (\theta) = \sqrt{X} R_y (\theta) \sqrt{X^\dagger} = \sqrt{Y} R_x(-\theta) \sqrt{Y^\dagger}
 \end{equation}\]</div>
 </section>
@@ -730,8 +730,8 @@ e^{-i \pi Jt/2} &amp; 0 &amp; 0 &amp; 0 \\
 \end{bmatrix}
 \end{equation} \end{split}\]</div>
 <p>Si se permite que esta evolución ocurra durante un tiempo <span class="math notranslate nohighlight">\(t = 1/2J\)</span> se obtiene una transformación conocida como <b>puerta de fase controlada</b>, salvo un desplazamiento de fase de 90º en cada qúbit y una fase global (y por tanto irrelevante):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6af52ea-9e82-4098-b7a5-da9fdfc70e97">
-<span class="eqno">(503)<a class="headerlink" href="#equation-b6af52ea-9e82-4098-b7a5-da9fdfc70e97" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-64e36e28-fcb6-4ee6-b92c-dd9723741fc2">
+<span class="eqno">(503)<a class="headerlink" href="#equation-64e36e28-fcb6-4ee6-b92c-dd9723741fc2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_{CPHASE} = \sqrt{-i} \sqrt{Z^\dagger_1} \sqrt{Z^\dagger_2} U_J (1/2J) =
 \begin{bmatrix}
 1 &amp; 0 &amp; 0  &amp; 0 \\
@@ -782,13 +782,13 @@ U_{CNOT} = &amp; \, i Z_1 \sqrt{Y^\dagger_2} U_{CPHASE} \sqrt{Y_2} \nonumber \\
 <p>El efecto de los términos de acoplamiento durante un intervalo de tiempo de evolución libre puede eliminarse mediante las denominadas técnicas de <b>reenfoque</b>.  Para hamiltonianos de acoplamiento de la forma <span class="math notranslate nohighlight">\(S_z^i S_z^j\)</span>, como suele ocurrir en los experimentos de RMN de líquidos, el mecanismo de reenfoque puede entenderse a un nivel muy intuitivo.</p>
 <p>Veamos primero dos formas de deshacer <span class="math notranslate nohighlight">\(S_z^i S_z^j\)</span> en un sistema de dos qúbits. En la Fig. \ref{Fig_Harware_NMR_refocusing}a, la evolución del qúbit 1 en el primer intervalo de tiempo <span class="math notranslate nohighlight">\(\tau\)</span> se invierte en el segundo intervalo de tiempo, debido al pulso de 180º en el qubit 2. En la Fig. \ref{Fig_Harware_NMR_refocusing}b, el qubit 1 continúa evolucionando en la misma dirección todo el tiempo, pero el primer pulso de 180º hace que los dos componentes del qubit 1 se reenfoquen al final del segundo intervalo de tiempo. El segundo pulso de 180º garantiza que ambos qúbits vuelvan siempre a su estado inicial.</p>
 <p>Matemáticamente, podemos ver cómo funciona el reenfoque de los acoplamientos <span class="math notranslate nohighlight">\(J\)</span> utilizando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9429154-672d-4715-be21-56585bc9b12b">
-<span class="eqno">(505)<a class="headerlink" href="#equation-e9429154-672d-4715-be21-56585bc9b12b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-44c6d5b4-cd08-43cf-a6ab-932826f37383">
+<span class="eqno">(505)<a class="headerlink" href="#equation-44c6d5b4-cd08-43cf-a6ab-932826f37383" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X_1 \, U_J(\tau) \, X_1 = U_J (- \tau) = X_2 \, U_J \, X_2 \, ,
 \end{equation}\]</div>
 <p>que nos lleva a</p>
-<div class="amsmath math notranslate nohighlight" id="equation-16a48621-8b13-4896-84ba-52bfa8636496">
-<span class="eqno">(506)<a class="headerlink" href="#equation-16a48621-8b13-4896-84ba-52bfa8636496" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8cb9c435-cb6f-4565-aa3a-5783c94c8b6d">
+<span class="eqno">(506)<a class="headerlink" href="#equation-8cb9c435-cb6f-4565-aa3a-5783c94c8b6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X_1 \, U_J(\tau) \, X_1 \, U_J(\tau) = I =  X_2 \, U_J(\tau) \, X_2 \, U_J(\tau)
 \end{equation}\]</div>
 <div class="tip admonition">
@@ -810,13 +810,13 @@ X_1 \, U_J(\tau) \, X_1 \, U_J(\tau) = I =  X_2 \, U_J(\tau) \, X_2 \, U_J(\tau)
 </figcaption>
 </figure>
 <p>Se han desarrollado métodos sistemáticos para diseñar esquemas de reenfoque para sistemas multi-qubit específicamente con el propósito de la computación cuántica. El esquema más compacto se basa en matrices de Hadamard <span class="xref myst">[15]</span>-<span class="xref myst">[16]</span>. Una matriz de Hadamard de orden <span class="math notranslate nohighlight">\(n\)</span>, denotada por <span class="math notranslate nohighlight">\(H(n)\)</span>, es una matriz <span class="math notranslate nohighlight">\(n \times n\)</span> con entradas <span class="math notranslate nohighlight">\(\pm 1\)</span>, tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9fb9edda-6215-4d66-8e44-d98ea3a024b5">
-<span class="eqno">(507)<a class="headerlink" href="#equation-9fb9edda-6215-4d66-8e44-d98ea3a024b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-932d1f31-4313-4679-af7e-12b5b3dcb456">
+<span class="eqno">(507)<a class="headerlink" href="#equation-932d1f31-4313-4679-af7e-12b5b3dcb456" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(n) \, H(n)^T = n I
 \end{equation}\]</div>
 <p>Las filas son, por tanto, ortogonales por pares, y dos filas cualesquiera coinciden exactamente en la mitad de las entradas. Identificando <span class="math notranslate nohighlight">\(+1\)</span> y <span class="math notranslate nohighlight">\(-1\)</span> con <span class="math notranslate nohighlight">\(+\)</span> y <span class="math notranslate nohighlight">\(-\)</span> como en el diagrama de la Fig. \ref{Fig_Harware_NMR_refocuse_1}, vemos que <span class="math notranslate nohighlight">\(H(n)\)</span> da un esquema de desacoplamiento válido para <span class="math notranslate nohighlight">\(n\)</span> espines utilizando sólo <span class="math notranslate nohighlight">\(n\)</span> intervalos de tiempo. Un ejemplo de <span class="math notranslate nohighlight">\(H(12)\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bde17c4-af19-4a97-90d8-14b4c8f82d28">
-<span class="eqno">(508)<a class="headerlink" href="#equation-9bde17c4-af19-4a97-90d8-14b4c8f82d28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c4ba9e21-c280-4334-9e12-91509a52671a">
+<span class="eqno">(508)<a class="headerlink" href="#equation-c4ba9e21-c280-4334-9e12-91509a52671a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 + &amp; + &amp; + &amp; + &amp; + &amp; + &amp;  + &amp; + &amp; + &amp; + &amp; + &amp; + \\
 +&amp;+&amp;+&amp;-&amp;-&amp;+&amp;-&amp;-&amp;+&amp;-&amp;-&amp;+\\

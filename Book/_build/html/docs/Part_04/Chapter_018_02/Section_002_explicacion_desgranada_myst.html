@@ -694,13 +694,13 @@ document.write(`
 <p>Véase que la puerta “Conditional Phase Shif” de la Fig. \ref{Fig_idea_suma} es la puerta <span class="math notranslate nohighlight">\(\cg{R_k}\)</span> de la Ec. (\ref{ec_QFT_CRk}). Véase también que estas puertas no son más que puertas <span class="math notranslate nohighlight">\(P(\phi)\)</span> (o <span class="math notranslate nohighlight">\(P_\phi\)</span>) controladas con <span class="math notranslate nohighlight">\(\phi_k =  2\pi i/2^k\)</span>.</p>
 </div>
 <p>Este algoritmo suma los valores <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Las entradas del circuito de suma son el <span class="math notranslate nohighlight">\(\bm{n}\)</span> <b>qúbits</b> representando el número <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(\bm{n}\)</span> <b>qúbits</b> que contienen la transformada de Fourier de otro número <span class="math notranslate nohighlight">\(b\)</span>, denotada como <span class="math notranslate nohighlight">\(\phi(b)\)</span>, es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-afe8e9ad-4142-42d8-a6f2-01ad0ef3c617">
-<span class="eqno">(624)<a class="headerlink" href="#equation-afe8e9ad-4142-42d8-a6f2-01ad0ef3c617" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e674c69-bf01-4787-9bcb-dbfd2b894da8">
+<span class="eqno">(624)<a class="headerlink" href="#equation-9e674c69-bf01-4787-9bcb-dbfd2b894da8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\phi (b) \rangle = QFT \, |b \rangle.
 \end{equation}\]</div>
 <p>El registro que codifica el número <span class="math notranslate nohighlight">\(a\)</span> no cambia, mientras que registro que codifica <span class="math notranslate nohighlight">\(\phi (b)\)</span> pasa a albergar la suma de <span class="math notranslate nohighlight">\(a+b\)</span> en el espacio de Fourier, <span class="math notranslate nohighlight">\(\phi (a+b)\)</span>. Haciendo la transformada inversa se puede recuperar el valor <span class="math notranslate nohighlight">\(a+b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2631e796-595f-4d3c-b200-5c9faf0cdfe9">
-<span class="eqno">(625)<a class="headerlink" href="#equation-2631e796-595f-4d3c-b200-5c9faf0cdfe9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ee86c1c-c45e-47ec-b55a-df578fe02519">
+<span class="eqno">(625)<a class="headerlink" href="#equation-9ee86c1c-c45e-47ec-b55a-df578fe02519" title="Permalink to this equation">#</a></span>\[\begin{equation}
 QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 \end{equation}\]</div>
 <p>Lo que vamos a ver es como, partiendo de esta implementación del algoritmo de suma podemos construir la exponencial modulada.</p>
@@ -720,8 +720,8 @@ QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 </figcaption>
 </figure>
 <p>Definimos así la puerta <span class="math notranslate nohighlight">\(\bm{\phi ADD(a)}\)</span> (ver Fig. \ref{Fig_idea_puerta_phiADD(a)}), que <b>suma un valor clásico</b> <span class="math notranslate nohighlight">\(a\)</span> <b>a un registro cuántico que codifica el valor</b> <span class="math notranslate nohighlight">\( \phi(b)\)</span>. La entrada de esta puerta es la transformada de Fourier del registro <span class="math notranslate nohighlight">\(b\)</span>, es decir, <span class="math notranslate nohighlight">\(\phi (b)\)</span>, y la salida es la transformada de Fourier de la suma, <span class="math notranslate nohighlight">\(\phi (a+b)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a50d2e60-e983-4553-869b-ebaa68f9b495">
-<span class="eqno">(626)<a class="headerlink" href="#equation-a50d2e60-e983-4553-869b-ebaa68f9b495" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21d7b2c6-481f-4445-8ba8-d8a78dc55e98">
+<span class="eqno">(626)<a class="headerlink" href="#equation-21d7b2c6-481f-4445-8ba8-d8a78dc55e98" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\phi ADD(a) \, |\phi (b) \rangle = |\phi (a+b) \rangle},
 \end{equation}\]</div>
 <p>Comentamos antes que el número de qúbits <span class="math notranslate nohighlight">\(n\)</span> que usamos para codificar <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> es número de qúbits que nos hacen falta para codificar <span class="math notranslate nohighlight">\(N\)</span> (ya que <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b &lt; N\)</span>). Puede darse el caso de que al hacer la suma tengamos un valor mayor que <span class="math notranslate nohighlight">\(N\)</span>, es decir, <span class="math notranslate nohighlight">\(a+b &gt; N\)</span>. Podríamos tener entonces un número mayor que el número más grande que podemos codificar con los <span class="math notranslate nohighlight">\(n\)</span> qúbits de los que partimos. Esto se denomina <b>overflow</b>. Para evitar esto, lo que podemos hacer es añadir un qúbit extra al registro que contiene <span class="math notranslate nohighlight">\(\phi (b)\)</span>. Tenemos pues que <span class="math notranslate nohighlight">\(\bm{\phi(b)}\)</span> <b>es de forma efectiva la transformada de Fourier de un registro de</b> <span class="math notranslate nohighlight">\(\bm{n+1}\)</span> <b>qúbits que contiene un número de</b> <span class="math notranslate nohighlight">\(\bm n\)</span> <b>bits</b>. De esta forma, antes de la suma, <b>el bit más significativos de la transformada de Fourier inversa del registro</b> <span class="math notranslate nohighlight">\(\bm{\phi(b)}\)</span> <b>es siempre</b> <span class="math notranslate nohighlight">\(\bm{|0 \rangle}\)</span>:</p>
@@ -752,18 +752,18 @@ QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota (<span class="math notranslate nohighlight">\(\phi ADD(p)\)</span> y <span class="math notranslate nohighlight">\(\phi ADD^{-1}(p)\)</span> son una la inversa de la otra)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1b8d562-536f-4a9a-8508-8f5e063fbe9b">
-<span class="eqno">(628)<a class="headerlink" href="#equation-f1b8d562-536f-4a9a-8508-8f5e063fbe9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-433d5160-2233-432c-ac46-2f7f61861b4f">
+<span class="eqno">(628)<a class="headerlink" href="#equation-433d5160-2233-432c-ac46-2f7f61861b4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \phi ADD^{-1}(p) \, | \phi(g) \rangle = |\phi (2^{n+1} - (p-g)) \rangle
 \end{equation}\]</div>
 <p>Si ahora sumamos otra vez <span class="math notranslate nohighlight">\(p\)</span> tenemos:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba94ce2b-8a05-488d-ae4c-959f024e7c57">
-<span class="eqno">(629)<a class="headerlink" href="#equation-ba94ce2b-8a05-488d-ae4c-959f024e7c57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93f9992f-0181-425b-9a5b-9cfaa3181b89">
+<span class="eqno">(629)<a class="headerlink" href="#equation-93f9992f-0181-425b-9a5b-9cfaa3181b89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \phi ADD(p) \, |\phi (2^{n+1} - (p-g)) \rangle =  |\phi (2^{n+1} - (p-g)) + p \rangle =  |\phi (2^{n+1} + g)) \rangle
 \end{equation}\]</div>
 <p>Como <span class="math notranslate nohighlight">\(2^{n+1} + g\)</span> es mayor que el valor máximo que podemos almacenar con <span class="math notranslate nohighlight">\(n+1\)</span> qúbits, tenemos overflow:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bc04ed5-6c45-4cf6-a1e2-324bd4e678cf">
-<span class="eqno">(630)<a class="headerlink" href="#equation-2bc04ed5-6c45-4cf6-a1e2-324bd4e678cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3eb9eeed-f6ca-490d-88f2-450ca486adca">
+<span class="eqno">(630)<a class="headerlink" href="#equation-3eb9eeed-f6ca-490d-88f2-450ca486adca" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \phi ADD(p) \, |\phi (2^{n+1} - (p-g)) \rangle = |\phi (2^{n+1} + g)) \rangle = |\phi (g) \rangle
 \end{equation}\]</div>
 <p>Con lo cual, efectivamente, <span class="math notranslate nohighlight">\(\phi ADD(p)\)</span> y <span class="math notranslate nohighlight">\(\phi ADD^{-1}(p)\)</span> son una la inversa de la otra.</p>
@@ -772,8 +772,8 @@ QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 <section id="suma-modulada-puerta-phi-add-a-mod-n">
 <span id="sec-2n-3-puerta-phiadd-a-mod-n"></span><h2>Suma modulada (puerta <span class="math notranslate nohighlight">\(\phi ADD(a)MOD(N)\)</span>)<a class="headerlink" href="#suma-modulada-puerta-phi-add-a-mod-n" title="Permalink to this heading">#</a></h2>
 <p>Un vez definida la puerta de suma <span class="math notranslate nohighlight">\(\phi ADD(a)\)</span>, podemos usarla para construir una puerta de <b>suma modulada</b> <span class="math notranslate nohighlight">\(\bm{\phi ADD(a)MOD(N)}\)</span> (ver Fig. \ref{Fig_idea_puerta_phiADD(a)MOD(N)}). Esta puerta suma <span class="math notranslate nohighlight">\(a+b\)</span> y le resta <span class="math notranslate nohighlight">\(N\)</span> si <span class="math notranslate nohighlight">\(a+b \geq N\)</span>. Las entradas de la misma son <span class="math notranslate nohighlight">\(\phi(b)\)</span> con <span class="math notranslate nohighlight">\(b &lt; N\)</span> y un valor clásico <span class="math notranslate nohighlight">\(a &lt; N\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cceabb1-8be5-4fb0-983a-6f31f8a3fc47">
-<span class="eqno">(631)<a class="headerlink" href="#equation-9cceabb1-8be5-4fb0-983a-6f31f8a3fc47" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-82e382dc-d5b8-4059-86d6-36aac56e7103">
+<span class="eqno">(631)<a class="headerlink" href="#equation-82e382dc-d5b8-4059-86d6-36aac56e7103" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\phi ADD(a)MOD(N) |\phi (b) \rangle = |\phi \left( (a+b) \text{ mod} N \right)\rangle}  = \,  QFT \, | (a+b) \text{ mod} N \rangle
 \end{equation}\]</div>
 <figure class="align-center" id="fig-idea-puerta-phiadd-a-mod-n">
@@ -812,7 +812,7 @@ QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 <p>Las puertas 3, 4 y 5 lo que hacen es poner el qúbit ancila a 1 si el bit más significativo es 1, es decir, si estamos en el segundo caso.</p>
 <ul class="simple">
 <li><p><b>Puerta 6</b>: Esta puerta solo se activa si la ancila es 1, es decir, si estamos en el segundo caso del paso anterior (<span class="math notranslate nohighlight">\(a+b &lt; N\)</span>). Esta puerta lo que hace es sumar <span class="math notranslate nohighlight">\(N\)</span>, deshaciendo la resta de la puerta 2 si estamos en el caso <span class="math notranslate nohighlight">\(a+b &lt; N\)</span>, es decir, si no teníamos que haber restado <span class="math notranslate nohighlight">\(N\)</span>. Después de esta puerta ya tenemos el resultado de la suma modulada. Solo nos queda limpiar la ancila.</p></li>
-<li><p><b>Puerta 7</b>: Partimos del valor <span class="math notranslate nohighlight">\((a+b) \text{ mod} N\)</span>. Con esta puerta restamos <span class="math notranslate nohighlight">\(a\)</span>, con lo cual tenemos dos casos.</p>
+<li><p>Puerta 7: Partimos del valor <span class="math notranslate nohighlight">\((a+b) \text{ mod} N\)</span>. Con esta puerta restamos <span class="math notranslate nohighlight">\(a\)</span>, con lo cual tenemos dos casos.</p>
 <ol class="arabic simple" start="3">
 <li><p>Si  <span class="math notranslate nohighlight">\((a+b) &gt; N \quad \Rightarrow \quad (a+b) \text{ mod} N = a+b-N &lt; a \quad \Rightarrow \)</span>
 <span class="math notranslate nohighlight">\(\qquad \quad \Rightarrow \quad \phi ADD^{-1}(a) \, | \phi ((a+b) \text{ mod} N) \rangle = | \phi ( 2^{n+1} - (N - b) ) \rangle\)</span></p></li>
@@ -842,12 +842,12 @@ QFT^{-1}| \phi (a+b) \rangle = | a+b \rangle
 <span id="sec-2n-3-puerta-cmult-a-mod-n"></span><h2>Multiplicación modulada (puerta <span class="math notranslate nohighlight">\(CMULT(a)MOD(N)\)</span>)<a class="headerlink" href="#multiplicacion-modulada-puerta-cmult-a-mod-n" title="Permalink to this heading">#</a></h2>
 <p>El siguiente paso es usar la puerta <span class="math notranslate nohighlight">\(\phi ADD(a)MOD(N)\)</span> para construir una
 puerta controlada de multiplicación modulada que denominaremos como <span class="math notranslate nohighlight">\(CMULT(a)MOD(N)\)</span>. La entrada de esta puerta serán tres registros <span class="math notranslate nohighlight">\(|c \rangle |x \rangle |b  \rangle\)</span>, donde <span class="math notranslate nohighlight">\(|c \rangle\)</span> es un qúbit controlador:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b78eb1bd-acd7-4b18-b0db-476d57c00c3e">
-<span class="eqno">(632)<a class="headerlink" href="#equation-b78eb1bd-acd7-4b18-b0db-476d57c00c3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc322908-97f6-4aa6-b088-a7602d325e75">
+<span class="eqno">(632)<a class="headerlink" href="#equation-fc322908-97f6-4aa6-b088-a7602d325e75" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | (b + a x) \text{ mod} N \rangle, \qquad \, \text{si }   c = 1}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-5f1ccb28-9ef0-475d-b517-63c821c8ef58">
-<span class="eqno">(633)<a class="headerlink" href="#equation-5f1ccb28-9ef0-475d-b517-63c821c8ef58" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8f007f09-5ff7-48fe-9da8-46591a14c069">
+<span class="eqno">(633)<a class="headerlink" href="#equation-8f007f09-5ff7-48fe-9da8-46591a14c069" title="Permalink to this equation">#</a></span>\[\begin{equation}
 CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | b \rangle, \qquad  \text{si }  c = 0
 \end{equation}\]</div>
 <p>Para implementar esta puerta recurrimos a las puertas <span class="math notranslate nohighlight">\(\phi ADD(a)MOD(N)\)</span> de la sección anterior y a la identidad</p>
@@ -873,8 +873,8 @@ CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | b \
 <section id="puerta-controlada-c-text-u-a">
 <span id="sec-2n-3-puerta-c-u-a"></span><h2>Puerta controlada <span class="math notranslate nohighlight">\(C\text{-}U_a\)</span><a class="headerlink" href="#puerta-controlada-c-text-u-a" title="Permalink to this heading">#</a></h2>
 <p>En la sección anterior vimos como construir una puerta controlada que aplica la operación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20a49d3d-b4b8-422e-bce0-57d2e40e42e5">
-<span class="eqno">(634)<a class="headerlink" href="#equation-20a49d3d-b4b8-422e-bce0-57d2e40e42e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bd873c56-cefb-4e98-9c3c-5196042cf498">
+<span class="eqno">(634)<a class="headerlink" href="#equation-bd873c56-cefb-4e98-9c3c-5196042cf498" title="Permalink to this equation">#</a></span>\[\begin{equation}
 | x \rangle | b \rangle \quad \rightarrow \quad |x \rangle | (b+ax) \text{ mod}N \rangle
 \end{equation}\]</div>
 <p>Pero esto no es lo que queremos, nosotros queremos una puerta controlada que nos lleve el estado <span class="math notranslate nohighlight">\(|x \rangle\)</span> al estado <span class="math notranslate nohighlight">\(| (ax) \text{ mod} \rangle\)</span>. Lo que podemos hacer para solventar esto es lo siguiente:</p>
@@ -883,8 +883,8 @@ CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | b \
 <li><p>A continuación, si <span class="math notranslate nohighlight">\(|c \rangle = | 1 \rangle\)</span> aplicamos puertas SWAP controladas  para cambiar los registros <span class="math notranslate nohighlight">\(|x \rangle\)</span> y <span class="math notranslate nohighlight">\(|(b + ax) \text{ mod} N \rangle\)</span>, con lo cual pasamos a tener el estado <span class="math notranslate nohighlight">\(|c \rangle |(ax) \text{ mod} N \rangle |x \rangle \)</span>. Solo necesitamos aplicar puertas controladas SWAP a <span class="math notranslate nohighlight">\(n\)</span> qúbits, no a <span class="math notranslate nohighlight">\(n+1\)</span>, ya que el qúbit más significativo de <span class="math notranslate nohighlight">\((ax) \text{ mod}N\)</span> es siempre 0, ya que es el qúbit extra que incluimos para evitar overflow en las puertas <span class="math notranslate nohighlight">\(\phi ADD (a)\)</span>.</p></li>
 <li><p>Finalmente, aplicamos la inversa de la puerta controlada <span class="math notranslate nohighlight">\(CMULT(a^{-1}) MOD(N)\)</span> (donde <span class="math notranslate nohighlight">\(a^{-1}\)</span> es el inverso de <span class="math notranslate nohighlight">\(a\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>), para poner el tercer registro a <span class="math notranslate nohighlight">\(\ket{0}\)</span> otra vez. Este valor se calcula clásicamente en tiempo polinómico usando el algoritmo de Euclides y tenemos asegurado que siempre existe ya que <span class="math notranslate nohighlight">\(gcd(a,N) =1\)</span>. En resumen, si la entrada de esta puerta es el estado <span class="math notranslate nohighlight">\(|c \rangle | x \rangle | b \rangle\)</span> con <span class="math notranslate nohighlight">\(|c \rangle = |1 \rangle\)</span> tenemos:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-e5e7a6f7-1fb6-4c81-9955-c44c7c2f169e">
-<span class="eqno">(635)<a class="headerlink" href="#equation-e5e7a6f7-1fb6-4c81-9955-c44c7c2f169e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6af9e7e-7f97-4302-8d4c-11c32b97d976">
+<span class="eqno">(635)<a class="headerlink" href="#equation-b6af9e7e-7f97-4302-8d4c-11c32b97d976" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{[CMULT(a^{-1}) MOD(N)]^{-1} |c \rangle | x \rangle | b \rangle = |c \rangle | x \rangle | (b - a^{-1}x \rangle}
 \end{equation}\]</div>
 <p>En nuestro caso tenemos que el estado de entrada es <span class="math notranslate nohighlight">\(|c \rangle |(ax) \text{ mod} N \rangle |x \rangle \)</span>, con lo cual:</p>
@@ -893,9 +893,9 @@ CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | b \
 [CMULT(a^{-1}) MOD(N)]^{-1} |c \rangle |(ax) \text{ mod} N \rangle |x \rangle &amp; = |c \rangle |(ax) \text{ mod} N \rangle |(x - a^{-1} ax )\text{ mod} N \rangle = \\
 &amp; = |c \rangle |(ax) \text{ mod} N \rangle | 0 \rangle
 \end{align*}\]</div>
-<p>Denominaremos al conjunto de aplicar estas tres puertas controladas la <b>puerta controlada</b> <span class="math notranslate nohighlight">\(\bm{U_a}\)</span>, es decir, <span class="math notranslate nohighlight">\(C\text{-}U_a\)</span>. En resumen, esta puerta lo que hace es tomar como entrada <span class="math notranslate nohighlight">\(| c \rangle | x \rangle |0 \rangle\)</span> y devolver  <span class="math notranslate nohighlight">\(| c \rangle | (ax) \text{ mod} N  \rangle |0 \rangle\)</span> si <span class="math notranslate nohighlight">\(c=1\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b800b2d2-5760-4a91-bdab-f9597c6ff518">
-<span class="eqno">(636)<a class="headerlink" href="#equation-b800b2d2-5760-4a91-bdab-f9597c6ff518" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Denominaremos al conjunto de aplicar estas tres puertas controladas la puerta controlada <span class="math notranslate nohighlight">\(\bm{U_a}\)</span>, es decir, <span class="math notranslate nohighlight">\(C\text{-}U_a\)</span>. En resumen, esta puerta lo que hace es tomar como entrada <span class="math notranslate nohighlight">\(| c \rangle | x \rangle |0 \rangle\)</span> y devolver  <span class="math notranslate nohighlight">\(| c \rangle | (ax) \text{ mod} N  \rangle |0 \rangle\)</span> si <span class="math notranslate nohighlight">\(c=1\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f3997231-c10a-4b8e-a303-61f5382bb2fc">
+<span class="eqno">(636)<a class="headerlink" href="#equation-f3997231-c10a-4b8e-a303-61f5382bb2fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{C\text{-}U_a | c \rangle | x \rangle |0 \rangle = | c \rangle | (ax) \text{ mod} N  \rangle |0 \rangle \qquad \text{ si } c = 1}
 \end{equation}\]</div>
 <p>Si <span class="math notranslate nohighlight">\(c=0\)</span>, aplica la identidad.</p>
@@ -906,8 +906,8 @@ CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | b \
 &amp;\rightarrow \quad | (ax) \text{ mod}N \rangle  | (x - a^{-1}ax) \text{ mod}N \rangle = | (ax) \text{ mod}N \rangle | 0\rangle
 \end{align*}\]</div>
 <p>Si nos fijamos, el último registro, al estar a <span class="math notranslate nohighlight">\(|0 \rangle\)</span> al inicio y al final, podemos considerarlo parte de la puerta <span class="math notranslate nohighlight">\(C\text{-}U_{a}\)</span> (una ancila):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3581e1a4-d34c-4ce2-9f37-870cb985e3b2">
-<span class="eqno">(637)<a class="headerlink" href="#equation-3581e1a4-d34c-4ce2-9f37-870cb985e3b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09736550-fa5f-4aa2-9583-ea228be13654">
+<span class="eqno">(637)<a class="headerlink" href="#equation-09736550-fa5f-4aa2-9583-ea228be13654" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C\text{-}U_a | x \rangle |0\rangle = |(ax) \text{ mod} N \rangle |0 \rangle \quad \Rightarrow \quad \boxed{C\text{-}U_a | x \rangle  = |(ax) \text{ mod} N \rangle}
 \end{equation}\]</div>
 <figure class="align-center" id="fig-idea-c-u-a">
@@ -920,18 +920,18 @@ C\text{-}U_a | x \rangle |0\rangle = |(ax) \text{ mod} N \rangle |0 \rangle \qua
 <section id="exponencial-modulada-puerta-c-text-u-a-s">
 <span id="sec-2n-3-puerta-c-u-a-s"></span><h2>Exponencial modulada (puerta <span class="math notranslate nohighlight">\(C\text{-}U_{a^{s}}\)</span>)<a class="headerlink" href="#exponencial-modulada-puerta-c-text-u-a-s" title="Permalink to this heading">#</a></h2>
 <p>Una vez construida la puerta <span class="math notranslate nohighlight">\(C\text{-}U_{a}\)</span> uno podría pensar que para aplicar la exponencial modulada lo que hay que hacer es aplicar varias veces esta puerta, es decir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eff6b146-981d-4785-8b50-743739e42a49">
-<span class="eqno">(638)<a class="headerlink" href="#equation-eff6b146-981d-4785-8b50-743739e42a49" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72d08e2c-7c1f-4ad0-ad90-f625dd7a0315">
+<span class="eqno">(638)<a class="headerlink" href="#equation-72d08e2c-7c1f-4ad0-ad90-f625dd7a0315" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left( C\text{-}U_a \right)^s  | x \rangle  = |(a^s x) \text{ mod} N \rangle
 \end{equation}\]</div>
 <p>Aunque esta implementación es posible, tenemos la opción de hacer una mucho más optima. Para ello nos servimos de la propiedad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-117f6581-61fb-4036-b87c-5b344cc7e92f">
-<span class="eqno">(639)<a class="headerlink" href="#equation-117f6581-61fb-4036-b87c-5b344cc7e92f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5a6b75a-420a-4644-996a-9af07aecc66f">
+<span class="eqno">(639)<a class="headerlink" href="#equation-f5a6b75a-420a-4644-996a-9af07aecc66f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a^s x) \text{ mod} N = \underbrace{\{ \dots [a(ax) \text{ mod}N] \text{ mod}N \dots \}\text{ mod}{N}}_{s \text{ veces}} = [x (a^s)\text{ mod}N ] \text{ mod}N
 \end{equation}\]</div>
 <p>En vez de aplicar <span class="math notranslate nohighlight">\(s\)</span> veces la puerta <span class="math notranslate nohighlight">\(C\text{-}U_{a}\)</span> podemos aplicar una sola vez la puerta <span class="math notranslate nohighlight">\(C\text{-}U_{a^s}\)</span> donde el subíndice <span class="math notranslate nohighlight">\(a^s\)</span> hace referencia que le pasamos a la puerta el valor <span class="math notranslate nohighlight">\(a^s \text{ mod} N\)</span> (este se calcula clásicamente)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-501bc7de-80d2-42b5-ad1f-7ba6a649a8da">
-<span class="eqno">(640)<a class="headerlink" href="#equation-501bc7de-80d2-42b5-ad1f-7ba6a649a8da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bab55b03-3f17-4188-b26c-31cee99bbd63">
+<span class="eqno">(640)<a class="headerlink" href="#equation-bab55b03-3f17-4188-b26c-31cee99bbd63" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C\text{-}U_{a^{s}} = (C\text{-}U_{a})^s
 \end{equation}\]</div>
 </section>

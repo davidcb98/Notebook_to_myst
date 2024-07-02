@@ -660,8 +660,8 @@ document.write(`
 <h1>¿Y si no conocemos el autoestado?<a class="headerlink" href="#y-si-no-conocemos-el-autoestado" title="Permalink to this heading">#</a></h1>
 <p>Hemos visto que el algoritmo de estimación de fase requiere de seamos capaces de preparar un autoestado. Esto en realidad es contradictorio, pues para conocer un autoestado de un operador genérico (no diagonal), lo que tenemos que hacer es diagonizarlo. Diagonalizar un operador (una matriz) es una operación costosa y además, una vez diagonalizada la matriz, es trivial calcular los autovalores. Es decir, tal y como está planteado hasta ahora el problema de estimación de fase, no nos aporta nada debido a la restricción de conocer un autovector.</p>
 <p>Sin embargo, no es necesario conocer un autovector en concreto. El secreto está en que los autovectores de un operador forman una <b>base</b>, de forma que cualquier estado se puede escribir como combinación lineal de estos autoestado. Supongamos por ejemplo que tenemos un operador <span class="math notranslate nohighlight">\(U\)</span> con autovectores <span class="math notranslate nohighlight">\(\ket{\psi_i}\)</span> y autovalores <span class="math notranslate nohighlight">\(2 \pi \theta_i\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e96a92b2-63a7-4d76-a42c-87e88bbc793c">
-<span class="eqno">(595)<a class="headerlink" href="#equation-e96a92b2-63a7-4d76-a42c-87e88bbc793c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a76d0f7-3c27-4ede-b80f-6928370a54ab">
+<span class="eqno">(595)<a class="headerlink" href="#equation-6a76d0f7-3c27-4ede-b80f-6928370a54ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U \ket{\psi_i} = e^{2 \pi i \theta_i} \ket{\psi_i}
 \end{equation}\]</div>
 <p>Si tenemos por ejemplo un estado genérico <span class="math notranslate nohighlight">\(\ket{b}\)</span>, podemos escribirlo en la base de autovectores de <span class="math notranslate nohighlight">\(U\)</span>:</p>
@@ -677,8 +677,8 @@ U_{QPE}\, :\,\ket{0}_t \left(\sum_{i=1}c_i\ket{\psi_i}\right) \rightarrow \ket{\
 &amp; = \sum_{i=1}^N c_i \ket{\Psi_{3,i}}
 \end{align*}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\ket{\Phi_i}\)</span> es el estado del registro de <span class="math notranslate nohighlight">\(t\)</span> qúbits antes de la media en la Ec. (\ref{ec_QPE_Psi3_2}), es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56ce6556-d10c-4eee-83f3-3d943de42cf4">
-<span class="eqno">(597)<a class="headerlink" href="#equation-56ce6556-d10c-4eee-83f3-3d943de42cf4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b94048b0-61f7-41d8-88a5-e4e4c383e4c4">
+<span class="eqno">(597)<a class="headerlink" href="#equation-b94048b0-61f7-41d8-88a5-e4e4c383e4c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi_{3,i}} = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{\frac{2 \pi i y}{2^t} (2^t \theta_i - x)} |x\rangle \rc \otimes \vert\psi_i\rangle = \ket{\Phi_i} \otimes \vert\psi_i\rangle =  \ket{\Phi_i} \vert\psi_i\rangle
 \end{equation}\]</div>
 <div class="note admonition">

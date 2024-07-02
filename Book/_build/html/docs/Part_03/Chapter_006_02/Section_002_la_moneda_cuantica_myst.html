@@ -672,13 +672,13 @@ document.write(`
 <p>El resultado de tirar una moneda al aire es una variable aleatoria con dos resultados equiprobables:  cara y cruz.  Es irrelevante si analizamos el resultado cada tirada o cada dos, o tres tiradas. Las frecuencias relativas de caras y cruces, siempre serán próximas a <span class="math notranslate nohighlight">\(1/2\)</span>. Es decir, podemos tirar la moneda, recogerla sin mirarla, volver a tirar, y las probabilidades no cambian.</p>
 <p>Podemos imaginar un experimento similar con un qúbit, donde cara <span class="math notranslate nohighlight">\(\to 0\)</span> y cruz <span class="math notranslate nohighlight">\(\to 1\)</span> son los resultados posibles de la medida en la base <span class="math notranslate nohighlight">\(Z\)</span>. Como al tirar la moneda, mientras esta está en el aire podemos pensar que está en “una superposición equiprobable del cara y cruz”, el hecho de <b>tirar la moneda</b> en computación cuántica será aplicar el operador <span class="math notranslate nohighlight">\(H\)</span> (ver Ec. (\ref{ec_puertas_simples_H})).</p>
 <p>Haciendo esta consideración, podemos ver que no es lo mismo tirar la moneda 1 vez y mirar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c37c37a-75bd-41ea-b4e8-6e867102a9af">
-<span class="eqno">(369)<a class="headerlink" href="#equation-8c37c37a-75bd-41ea-b4e8-6e867102a9af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-82849478-65e9-4487-83eb-f011d8c5dd38">
+<span class="eqno">(369)<a class="headerlink" href="#equation-82849478-65e9-4487-83eb-f011d8c5dd38" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{0}~ \stackrel{\rm tirar}{\longrightarrow} ~ H \ket{0}= \ket{+} ~ \stackrel{\rm medir}{\longrightarrow} ~p(0) = p(1) = 0.5
 \end{equation}\]</div>
 <p>que tirarla dos veces y mirar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9de8a7af-7537-4096-8b02-2374a6b526bb">
-<span class="eqno">(370)<a class="headerlink" href="#equation-9de8a7af-7537-4096-8b02-2374a6b526bb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8994a2b7-082c-4f61-9006-bb27564decf1">
+<span class="eqno">(370)<a class="headerlink" href="#equation-8994a2b7-082c-4f61-9006-bb27564decf1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{0}~ \stackrel{\rm tirar}{\longrightarrow} ~ H \ket{0}~ \stackrel{\rm tirar}{\longrightarrow} H^2\ket{0} = \ket{0} ~ \stackrel{\rm medir}{\longrightarrow} ~p(0) = 1 ~,~p(1) = 0
 \end{equation}\]</div>
 <p>El objetivo de este experimento es simplemente ver que ciertas puertas son sus propias inversas y que cuando aplicamos las aplicamos un número par de veces seguidas, es como si no aplicáramos nada. Otra cosa que podemos ver con este experimento es que <b>las medidas intermedias alteran el resultado</b>. Esto podemos verlo si colocamos un medidor en medio entre las puertas <span class="math notranslate nohighlight">\(H\)</span> y vemos como varía el resultado.</p>

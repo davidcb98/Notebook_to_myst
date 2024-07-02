@@ -660,33 +660,33 @@ document.write(`
 <h1>Bases ortogonales<a class="headerlink" href="#bases-ortogonales" title="Permalink to this heading">#</a></h1>
 <p>En Mecánica Cuántica especificamos un estado usando las componentes de la expansión del mismo en una base ortogonal. Existen infinitas bases posibles para expresar un vector. ¿Cuál es la mejor base? La respuesta es que depende del proceso que estudiemos.</p>
 <p>Por ejemplo, si el proceso es la <i>medida</i> de un cierto observable <span class="math notranslate nohighlight">\(A = A^\dagger\)</span>, según los postulados el resultado de nuestra medición sólo puede ser uno de los <i>valores propios</i> <span class="math notranslate nohighlight">\(\lambda_i\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d136581-6b7b-486f-b781-c22f37cdf9ae">
-<span class="eqno">(265)<a class="headerlink" href="#equation-3d136581-6b7b-486f-b781-c22f37cdf9ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-53cc8f33-b269-41ad-b9a1-6e78ca0a248c">
+<span class="eqno">(265)<a class="headerlink" href="#equation-53cc8f33-b269-41ad-b9a1-6e78ca0a248c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A \ket{\lambda_k} = \lambda_k \ket{\lambda_k} \,,
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\ket{\lambda_k}\)</span> son los autovectores <span class="math notranslate nohighlight">\(k = 1,2,\dots\)</span>. Estos autovectores forman una base ortonormal (ver Ecs. (\ref{ec_op_hermitico_autovec_ortonorm}) y (\ref{ec_op_hermitico_autovec_ortogonal})). Esta es la base natural adaptaba al proceso de medida de <span class="math notranslate nohighlight">\(A\)</span>. En particular, para conocer con que probabilidad se producirá cada resultado, expandiremos el estado de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-acec6715-5513-4946-9290-6ee3625c9316">
-<span class="eqno">(266)<a class="headerlink" href="#equation-acec6715-5513-4946-9290-6ee3625c9316" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-92a0bdd4-4579-4bc3-b2fd-24754abcc3d5">
+<span class="eqno">(266)<a class="headerlink" href="#equation-92a0bdd4-4579-4bc3-b2fd-24754abcc3d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = \sum_{i=1}^{N} a_i \ket{\lambda_i} \, .
 \end{equation}\]</div>
 <p>El axioma III (regla de Born) afirma que la <i>probabilidad de aparición</i> del resultado <span class="math notranslate nohighlight">\(\lambda_i\)</span> es precisamente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec609cb6-dfb3-4b0b-a63d-b2b28b43c6c4">
-<span class="eqno">(267)<a class="headerlink" href="#equation-ec609cb6-dfb3-4b0b-a63d-b2b28b43c6c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c1860461-b1db-4963-a2c7-4c3b002adcf8">
+<span class="eqno">(267)<a class="headerlink" href="#equation-c1860461-b1db-4963-a2c7-4c3b002adcf8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(\lambda_i) = | \braket{\lambda_i}{\psi} |^2 = |a_i|^2 \, .
 \end{equation}\]</div>
 <p>La forma de tener acceso experimental a los números <span class="math notranslate nohighlight">\(p(\lambda_i)\)</span> es mediante la repetición estadística. Si efectuamos la medida un número <span class="math notranslate nohighlight">\(n\)</span> de veces con <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span>, y contamos la frecuencia de aparición de los distintos <span class="math notranslate nohighlight">\(\lambda_i\)</span>, esto es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51de72d7-cf7a-4a41-a251-c08d75c67960">
-<span class="eqno">(268)<a class="headerlink" href="#equation-51de72d7-cf7a-4a41-a251-c08d75c67960" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1e47bc1-11ba-40d9-a44d-0c37556a0e60">
+<span class="eqno">(268)<a class="headerlink" href="#equation-f1e47bc1-11ba-40d9-a44d-0c37556a0e60" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(\lambda_i) \approx \frac{n(\lambda_i)}{n} \, ,
 \end{equation}\]</div>
 <p>en el límite <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span> dicha frecuencia experimental convergerá a la probabilidad teórica</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af768c95-74b0-48e5-b24d-a96d2ac1fbe1">
-<span class="eqno">(269)<a class="headerlink" href="#equation-af768c95-74b0-48e5-b24d-a96d2ac1fbe1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b7140111-1c9a-43bd-acd0-0556ead68a41">
+<span class="eqno">(269)<a class="headerlink" href="#equation-b7140111-1c9a-43bd-acd0-0556ead68a41" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lim_{n \rightarrow \infty} \frac{n(\lambda_i)}{n} = p(\lambda_i) = | a_i |^2 \, .
 \end{equation}\]</div>
 <p>Vemos que, <i>mediante la repetición estadística, solamente podemos recuperar el módulo de las amplitudes</i></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9108188-1d4c-4631-8b1a-5bb1e3142724">
-<span class="eqno">(270)<a class="headerlink" href="#equation-d9108188-1d4c-4631-8b1a-5bb1e3142724" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3ba6909c-a093-4a62-bad2-a1a4832b45bc">
+<span class="eqno">(270)<a class="headerlink" href="#equation-3ba6909c-a093-4a62-bad2-a1a4832b45bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |a_i| = \lim_{n \rightarrow \infty} \sqrt{\frac{n(\lambda_i)}{n}}
 \end{equation}\]</div>
 <div class="tip admonition">

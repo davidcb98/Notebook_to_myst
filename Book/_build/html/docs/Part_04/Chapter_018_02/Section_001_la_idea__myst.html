@@ -664,17 +664,17 @@ document.write(`
 Como vamos a ir viendo en las siguientes secciones, esta implementación se basa en <b>sumar</b>. En concreto, se parte de la implementación del algoritmo cuántico de suma de Draper <span class="xref myst">[27]</span>, que podemos ver en la Fig. \ref{Fig_idea_suma}.
 Este algoritmo suma dos registros cuánticos <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(\phi (b)\)</span>, donde <span class="math notranslate nohighlight">\(| \phi(x) \rangle\)</span> hace referencia a la transformada de Fourier del registro <span class="math notranslate nohighlight">\(x\)</span>:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-db8d7721-53f1-4e99-84c2-05f1a2acb17b">
-<span class="eqno">(618)<a class="headerlink" href="#equation-db8d7721-53f1-4e99-84c2-05f1a2acb17b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2684a61-50d9-4a0e-baf5-bfae19884665">
+<span class="eqno">(618)<a class="headerlink" href="#equation-e2684a61-50d9-4a0e-baf5-bfae19884665" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{|\phi (x) \rangle = QFT \, |x \rangle.}
 \end{equation}\]</div>
 <p>Lo que vamos a ver es como, partiendo de esta implementación del algoritmo de suma, podemos construir la exponencial modulada.</p>
 <ol class="arabic simple" start="2">
 <li><p>\underline{Valor clásico + registro cuántico, puerta <span class="math notranslate nohighlight">\(\phi ADD(a)\)</span> (ver sección \ref{sec_2n+3-Puerta-phiADD(a)})}:
-Nosotros queremos llegar a calcular el periodo de la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{ mod}N\)</span>, donde <span class="math notranslate nohighlight">\(a\)</span> es un valor que fijamos al principio del algoritmo de Shor. Como precisamente este valor es fijo, la primera simplificación para reducir el número de qúbits es prescindir de los qúbits que codifican <span class="math notranslate nohighlight">\(a\)</span> en el algoritmo de suma y tomar <span class="math notranslate nohighlight">\(a\)</span> como un valor clásico. Definimos así la puerta <span class="math notranslate nohighlight">\(\bm{\phi ADD(a)}\)</span> (ver Fig. \ref{Fig_idea_puerta_phiADD(a)}), que <b>suma un valor clásico</b> <span class="math notranslate nohighlight">\(a\)</span> <b>a la un registro cuántico que codifica el valor</b> <span class="math notranslate nohighlight">\(b\)</span> :</p></li>
+Nosotros queremos llegar a calcular el periodo de la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{ mod}N\)</span>, donde <span class="math notranslate nohighlight">\(a\)</span> es un valor que fijamos al principio del algoritmo de Shor. Como precisamente este valor es fijo, la primera simplificación para reducir el número de qúbits es prescindir de los qúbits que codifican <span class="math notranslate nohighlight">\(a\)</span> en el algoritmo de suma y tomar <span class="math notranslate nohighlight">\(a\)</span> como un valor clásico. Definimos así la puerta <span class="math notranslate nohighlight">\(\bm{\phi ADD(a)}\)</span> (ver Fig. \ref{Fig_idea_puerta_phiADD(a)}), que suma un valor clásico <span class="math notranslate nohighlight">\(a\)</span> a la un registro cuántico que codifica el valor <span class="math notranslate nohighlight">\(b\)</span> :</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-689dfb34-55ce-4d8d-94d0-6e56d66fe189">
-<span class="eqno">(619)<a class="headerlink" href="#equation-689dfb34-55ce-4d8d-94d0-6e56d66fe189" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-405bee22-c765-49d8-b529-465de6a4c886">
+<span class="eqno">(619)<a class="headerlink" href="#equation-405bee22-c765-49d8-b529-465de6a4c886" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\phi ADD(a) \, |\phi (b) \rangle = |\phi (a+b) \rangle},
 \end{equation}\]</div>
 <p>Podemos además, definir la inversa de esta puerta, es decir, una puerta de resta. La acción de esta última se recoge en la Fig. \ref{Fig_idea_resta} (<b>véase que la puerta de suma tiene la barra negra a la derecha y la de resta a la izquierda</b>)</p>
@@ -682,32 +682,32 @@ Nosotros queremos llegar a calcular el periodo de la función <span class="math 
 <li><p>\underline{Suma modulada, puerta <span class="math notranslate nohighlight">\({\phi ADD(a)MOD(N)}\)</span> (ver sección \ref{sec_2n+3-Puerta-phiADD(a)MOD(N)})}:
 Un vez definida esta puerta, podemos usarla para construir una puerta doble controlada de <b>suma modulada</b> <span class="math notranslate nohighlight">\(\bm{\phi ADD(a)MOD(N)}\)</span> (ver Fig. \ref{Fig_idea_puerta_phiADD(a)MOD(N)}) tal que</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-7b2582f8-f1cb-4496-a904-a5cbf910c2ed">
-<span class="eqno">(620)<a class="headerlink" href="#equation-7b2582f8-f1cb-4496-a904-a5cbf910c2ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-03fded11-2703-4939-8193-10bde6e4a845">
+<span class="eqno">(620)<a class="headerlink" href="#equation-03fded11-2703-4939-8193-10bde6e4a845" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\phi ADD(a)MOD(N) |\phi (b) \rangle = |\phi \left( (a+b) \text{ mod} N \right)\rangle } = \,  QFT \, | (a+b) \text{ mod} N \rangle
 \end{equation}\]</div>
 <ol class="arabic simple" start="4">
 <li><p>\underline{Multiplicación modulada, puerta <span class="math notranslate nohighlight">\({CMULT(a)MOD(N)}\)</span> (ver sección \ref{sec_2n+3-Puerta-CMULT(a)MOD(N)})}:
 Ahora, podemos usar esta puerta doble controlada de suma modulada para construir una puerta controlada de <b>multiplicación modulada</b> <span class="math notranslate nohighlight">\(\bm{CMULT(a)MOD(N)}\)</span> (ver Fig. \ref{Fig_idea_CMULT(a)MOD(N)}) tal que</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-3b15c9be-2fc6-4f1a-8f0a-bc54ac7e25af">
-<span class="eqno">(621)<a class="headerlink" href="#equation-3b15c9be-2fc6-4f1a-8f0a-bc54ac7e25af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a0a420a-2a74-44ae-8091-a20d1b36c421">
+<span class="eqno">(621)<a class="headerlink" href="#equation-7a0a420a-2a74-44ae-8091-a20d1b36c421" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{CMULT(a)MOD(N) \, |c \rangle |x \rangle |b \rangle = |c \rangle |x \rangle | (b + a  x) \text{ mod} N \rangle, \qquad \text{si }  c = 1}
 \end{equation}\]</div>
 <ol class="arabic simple" start="5">
 <li><p>\underline{Puerta controlada <span class="math notranslate nohighlight">\({C\text{-}U_a}\)</span> (ver sección \ref{sec_2n+3-Puerta-C-U_a})}:
-Juntando esta puerta con una puerta <b>SWAP</b> (pues la multiplicación modulada nos sale en el registro de <span class="math notranslate nohighlight">\(b\)</span>, no el de <span class="math notranslate nohighlight">\(x\)</span>) y tomando <span class="math notranslate nohighlight">\(b = 0\)</span> (una ancilla), podemos finalmente construir una puerta controlada <span class="math notranslate nohighlight">\(C\text{-}U_a\)</span> (ver Fig. \ref{Fig_idea_C-U_a}) tal que :</p></li>
+Juntando esta puerta con una puerta SWAP (pues la multiplicación modulada nos sale en el registro de <span class="math notranslate nohighlight">\(b\)</span>, no el de <span class="math notranslate nohighlight">\(x\)</span>) y tomando <span class="math notranslate nohighlight">\(b = 0\)</span> (una ancilla), podemos finalmente construir una puerta controlada <span class="math notranslate nohighlight">\(C\text{-}U_a\)</span> (ver Fig. \ref{Fig_idea_C-U_a}) tal que :</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-bb442f4b-1355-4c25-a4fa-01f6a6852bea">
-<span class="eqno">(622)<a class="headerlink" href="#equation-bb442f4b-1355-4c25-a4fa-01f6a6852bea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5cbf5924-cfc0-4e74-b21c-a8be976b29b3">
+<span class="eqno">(622)<a class="headerlink" href="#equation-5cbf5924-cfc0-4e74-b21c-a8be976b29b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{C \text{-} U_a \, |c \rangle |x \rangle = |c \rangle | (a \cdot x) \text{ mod} N \rangle, \qquad \text{si }  c = 1}
 \end{equation}\]</div>
 <ol class="arabic simple" start="6">
 <li><p>\underline{Exponencial modulada, puerta <span class="math notranslate nohighlight">\({C\text{-}U_{a^{s}}}\)</span> (ver sección \ref{sec_2n+3-Puerta-C-U_a^s})}:
 Ahora, para implementar el algoritmo de Shor lo que se hace es tomar <span class="math notranslate nohighlight">\( |x \rangle = | 1 \rangle\)</span> y implementar puertas <span class="math notranslate nohighlight">\(C\text{-}U_{a^{s}}\)</span>, donde <span class="math notranslate nohighlight">\(s\)</span> = <span class="math notranslate nohighlight">\(2^0\)</span>, <span class="math notranslate nohighlight">\(2^1\)</span>, …, <span class="math notranslate nohighlight">\(2^{2n-1}\)</span>, pues puede verse que</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-fcc3c950-65c5-4692-a9a1-7bd04cfd0bbf">
-<span class="eqno">(623)<a class="headerlink" href="#equation-fcc3c950-65c5-4692-a9a1-7bd04cfd0bbf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f9fccc7a-bd63-4938-963f-1633cf1c33f1">
+<span class="eqno">(623)<a class="headerlink" href="#equation-f9fccc7a-bd63-4938-963f-1633cf1c33f1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{C\text{-}U_{a^{s}} = (C\text{-}U_{a})^s}
 \end{equation}\]</div>
 <ol class="arabic simple" start="7">

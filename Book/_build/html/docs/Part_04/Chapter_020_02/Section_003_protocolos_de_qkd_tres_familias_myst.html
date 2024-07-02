@@ -698,8 +698,8 @@ document.write(`
 \end{array}
 \end{equation} \end{split}\]</div>
 <p>Vemos que ambos valores de bit 0 y 1 se codifican de dos formas posibles, o más exactamente en estados no ortogonales porque</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83fd5ce1-1513-4996-9f6e-20142b4f1a9a">
-<span class="eqno">(737)<a class="headerlink" href="#equation-83fd5ce1-1513-4996-9f6e-20142b4f1a9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ae36c4d0-7191-470d-b35a-48c9e29212ed">
+<span class="eqno">(737)<a class="headerlink" href="#equation-ae36c4d0-7191-470d-b35a-48c9e29212ed" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{0_\times} &amp; = \frac{1}{\sqrt{2}} \lp \ket{0_+} + \ket{0_-} \rp \\
 \ket{1_\times} &amp; = \frac{1}{\sqrt{2}} \lp \ket{0_+} - \ket{0_-} \rp
 \end{align}\]</div>
@@ -789,8 +789,8 @@ document.write(`
 <span id="subsec-qkd-phase"></span><h2>Protocolos Distributed-phase-reference<a class="headerlink" href="#protocolos-distributed-phase-reference" title="Permalink to this heading">#</a></h2>
 <p>Tanto los protocolos de variable discreta como los de variable continua fueron inventados por teóricos. Algunos grupos experimentales, en sus desarrollos hacia sistemas QKD prácticos, han concebido nuevos protocolos, que no encajan en las categorías anteriores. En ellos, al igual que en los protocolos de variable discreta, las claves brutas están formadas por realizaciones de una variable discreta (un bit) y ya están perfectamente correlacionadas en ausencia de errores. Sin embargo, el canal cuántico se controla utilizando las propiedades de los estados coherentes, más concretamente, observando la coherencia de fase de los impulsos subsiguientes; de ahí el nombre de protocolos distributed-phase-reference.</p>
 <p>El primer protocolo de este tipo se ha denominado desplazamiento de fase diferencial (DPS) <span class="xref myst">[55]</span>,<span class="xref myst">[56]</span>. Alice produce una secuencia de estados coherentes de la misma intensidad,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-913f805d-8349-4513-886a-2011cbe76ae1">
-<span class="eqno">(739)<a class="headerlink" href="#equation-913f805d-8349-4513-886a-2011cbe76ae1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb34b6db-4389-4a3d-a2a3-d36d408edd93">
+<span class="eqno">(739)<a class="headerlink" href="#equation-bb34b6db-4389-4a3d-a2a3-d36d408edd93" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{ \Psi (S_n)} = \cdots \ket{e^{i \varphi_{k-1}} \sqrt{\mu}} \ket{e^{i \varphi_k} \sqrt{\mu}} \ket{e^{i \varphi_{k+1}} \sqrt{\mu}} \cdots
 \end{equation}\]</div>
 <p>donde cada fase puede fijarse en <span class="math notranslate nohighlight">\(\varphi = 0\)</span> o <span class="math notranslate nohighlight">\(\pi\)</span> (ver Fig. \ref{Fig_QKD_DFR}). Los bits se codifican en la diferencia entre dos fases sucesivas: <span class="math notranslate nohighlight">\(b_k = 0\)</span> si <span class="math notranslate nohighlight">\(e^{i \varphi_k} = e^{i \varphi_{k+1}}\)</span> y <span class="math notranslate nohighlight">\(b_k = 1\)</span> en caso contrario. Esto puede discriminarse inequívocamente utilizando un interferómetro desequilibrado. La complejidad en el análisis de este protocolo radica en que el k-ésimo pulso contribuye tanto al k-ésimo como al (k + 1)-ésimo bit. El protocolo DPS ya ha sido objeto de varios experimentos <span class="xref myst">[69]</span>,<span class="xref myst">[70]</span>,<span class="xref myst">[71]</span></p>
@@ -801,8 +801,8 @@ document.write(`
 </figcaption>
 </figure>
 <p>En el protocolo denominado coherent one way (COW) <span class="xref myst">[58]</span>,<span class="xref myst">[57]</span>, cada bit se codifica en una secuencia de un impulso no vacío y otro vacío,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf772b10-b2c4-4928-82b1-e85ad5227259">
-<span class="eqno">(740)<a class="headerlink" href="#equation-cf772b10-b2c4-4928-82b1-e85ad5227259" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f593d2c-b8c1-42b6-b604-03eb6f7a10b8">
+<span class="eqno">(740)<a class="headerlink" href="#equation-4f593d2c-b8c1-42b6-b604-03eb6f7a10b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{0}_k = \ket{\sqrt{\mu}}_{2k+1} \ket{0}_{2k}, \hspace{2cm}
 \ket{1}_k = \ket{0}_{2k+1} \ket{\sqrt{\mu}}_{2k}.
 \end{equation}\]</div>

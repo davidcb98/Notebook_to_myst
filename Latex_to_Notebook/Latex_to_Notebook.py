@@ -356,6 +356,9 @@ with open(file_name, 'r') as f:
         if "\\\\textit{" in line:
             line = reemplazo_textit(line)
 
+        if "\\\\footnote" in line:
+            message = "[Error] No puede haber \\footnote{}. Convertilos en cuadros"
+            raise ErrorGenerico(f_data, line,num_line_text_file , message)
         """
         if "\\\\section{" in line:
             if "%%Omitir_seccion" in line:

@@ -660,8 +660,8 @@ document.write(`
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>La estimación de fase cuántica (Quantum Phase Estimation - <b>QPE</b>) es una pieza fundamental de algoritmos más complejos, como por ejemplo el de Shor.</p>
 <p>Este algoritmo sirve para calcular los autovalores de un <b>operador unitario</b>. Como sabemos, los operadores unitarios son los únicos que podemos aplicar a un estado cuántico (son las puertas en los circuitos), pues son los únicos que preservan la normalización de los estados cuánticos, es decir, que las probabilidades sumen la unidad. Esto se manifiesta en que los autovalores de los operadores unitarios tiene módulo 1, es decir, son <b>fases</b>. Dado un operador unitario <span class="math notranslate nohighlight">\(U\)</span> y un autovector <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del mismo, tenemos:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ebc582d-3cd5-4661-9a77-d086a0e74ba1">
-<span class="eqno">(584)<a class="headerlink" href="#equation-4ebc582d-3cd5-4661-9a77-d086a0e74ba1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f80f6cfc-ac77-427a-b1fb-9b64a81c4a56">
+<span class="eqno">(584)<a class="headerlink" href="#equation-f80f6cfc-ac77-427a-b1fb-9b64a81c4a56" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U \left| \psi \right\rangle = e^{2 \pi i \theta} \left| \psi \right\rangle
 \end{equation}\]</div>
 <p>El algoritmo lo que hace es estimar el valor de <span class="math notranslate nohighlight">\(\theta\)</span>. Es decir:</p>

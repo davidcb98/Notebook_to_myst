@@ -740,8 +740,8 @@ Una vez recibido, Bob usa la clave de desencriptar para averiguar el contenido. 
 <li><p>Escoge <span class="math notranslate nohighlight">\(e\)</span> (de encriptación), un número impar pequeño, coprimo con <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
 <li><p>Calcula <span class="math notranslate nohighlight">\(d\)</span> (de desencriptación), el inverso módulo <span class="math notranslate nohighlight">\(L\)</span> de <span class="math notranslate nohighlight">\(e\)</span>. Es decir</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-b588adf9-192c-4c89-8600-7c5f16329306">
-<span class="eqno">(730)<a class="headerlink" href="#equation-b588adf9-192c-4c89-8600-7c5f16329306" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-549987fa-7692-4104-a993-32bf1131c501">
+<span class="eqno">(730)<a class="headerlink" href="#equation-549987fa-7692-4104-a993-32bf1131c501" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e \cdot d \text{mod }L = 1
 \end{equation}\]</div>
 <p>Esta tarea es fácil, conociendo <span class="math notranslate nohighlight">\(e\)</span> y <span class="math notranslate nohighlight">\(L\)</span>.</p>
@@ -756,16 +756,16 @@ e \cdot d \text{mod }L = 1
 <ol class="arabic simple" start="5">
 <li><p>Para encriptar, Alice divide su mensaje en bloques, <span class="math notranslate nohighlight">\(i = 1, 2, \dots,\)</span> de manera que cada bloque pueda ser identificado por un número <span class="math notranslate nohighlight">\(m_i &lt; N\)</span>. La clave permite una <i>regla de sustitución</i></p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-4ddc0438-c5d4-4966-a32c-a4da0b82e8c3">
-<span class="eqno">(731)<a class="headerlink" href="#equation-4ddc0438-c5d4-4966-a32c-a4da0b82e8c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36d5d40e-1aa6-4c6b-9059-0f61afa15184">
+<span class="eqno">(731)<a class="headerlink" href="#equation-36d5d40e-1aa6-4c6b-9059-0f61afa15184" title="Permalink to this equation">#</a></span>\[\begin{equation}
 m_i \rightarrow \tilde{m}_i = (m_i)^e \text{mod } N
 \end{equation}\]</div>
 <p>es decir el resto mod<span class="math notranslate nohighlight">\((N)\)</span> de exponenciar <span class="math notranslate nohighlight">\(m_i\)</span> a las potencia <span class="math notranslate nohighlight">\(e\)</span>.</p>
 <ol class="arabic simple" start="6">
 <li><p>Para desencriptar, Bob realiza la operación inversa sobre <span class="math notranslate nohighlight">\(\tilde{m}_i\)</span>. Se puede probar que <span class="math notranslate nohighlight">\((m_i)^{ed}|_{\text{mod }N} = m_i\)</span>. Por tanto la operación que realiza Bob es simplemente</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-0732b558-8d9b-43e4-b999-b40b7a4a4895">
-<span class="eqno">(732)<a class="headerlink" href="#equation-0732b558-8d9b-43e4-b999-b40b7a4a4895" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efa9fbe3-59bf-43b6-8a79-d4ac1a8eea65">
+<span class="eqno">(732)<a class="headerlink" href="#equation-efa9fbe3-59bf-43b6-8a79-d4ac1a8eea65" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \tilde{m}_i = (\tilde{m}_i)^d (\text{mod }N)
 \end{equation}\]</div>
 <p>Las dos ventajas principales del sistema criptográfico público son</p>

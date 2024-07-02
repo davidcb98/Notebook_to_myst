@@ -660,8 +660,8 @@ document.write(`
 <h1>Primeros algoritmos: algoritmos del oráculo.<a class="headerlink" href="#primeros-algoritmos-algoritmos-del-oraculo" title="Permalink to this heading">#</a></h1>
 <p>En esta capítulo veremos una clase de algoritmos denominados <b>algoritmos del oráculo</b>. Estos son una colección de tres algoritmos didácticos, en el sentido de que no tienen aplicación práctica más allá de ser suficientemente simples como para que sea buena idea empezar el estudio por ellos. Aún así, el tercero de estos algoritmos, el algoritmo de Simon, sirvió como inspiración para que Peter Shor construyera el famoso algoritmo que lleva su nombre, el algoritmo de factorización de Shor.</p>
 <p>Ya hemos visto que la computación cuántica destaca por su paralelismo. El ejemplo más fácil inicializar estado aplicando una puerta de Walsh-Hadammar sobre <span class="math notranslate nohighlight">\(n\)</span> qúbits. Si los <span class="math notranslate nohighlight">\(n\)</span> qúbits están en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> ya hemos visto que lo que obtenemos es la superposición uniforme de todos los estados de la base:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58335444-f934-411e-9288-acf05a3a6a85">
-<span class="eqno">(548)<a class="headerlink" href="#equation-58335444-f934-411e-9288-acf05a3a6a85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-22ac381f-1d78-4e37-99f8-c1622fa51ba7">
+<span class="eqno">(548)<a class="headerlink" href="#equation-22ac381f-1d78-4e37-99f8-c1622fa51ba7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H^{\otimes n} \ket{0} = \ket{00\cdots0} + \ket{00\cdots1} + \cdots + \ket{11\cdots 1}
 \end{equation}\]</div>
 <p>Esto es una ventaja respecto a un cálculo clásico, pues en el caso clásico tendríamos que ir inicializando uno a uno los estados. Sin embargo, este paralelismo es, en cierta medida, una ilusión.  Si quisiéramos medir las amplitudes de todos los estados de este tipo de superposiciones, tendríamos que repetir el cálculo (es este caso, aplicar <span class="math notranslate nohighlight">\(H^{\otimes}\)</span>) un número exponencial de veces con el tamaño del registro <span class="math notranslate nohighlight">\(n\)</span>. Esto es debido a que, como ya se comento, al medir <b>destruimos</b> la superposición, así que si queremos volver a medir sobre el estado del principio, tenemos que volver a construirlo.</p>
@@ -671,8 +671,8 @@ H^{\otimes n} \ket{0} = \ket{00\cdots0} + \ket{00\cdots1} + \cdots + \ket{11\cdo
 <p class="admonition-title">Ejemplo</p>
 <p>Denotaremos el conjunto <span class="math notranslate nohighlight">\(S_n =\{0,1,...2^n-1 \}\sim \{0,1\}^n\)</span> indistintamente. Vamos a considerar una función binaria  <span class="math notranslate nohighlight">\(f:S_n \to S_1\)</span> implementada
 a través de un oráculo <span class="math notranslate nohighlight">\(O\)</span> que podemos consultar a placer. La implementación unitaria de <span class="math notranslate nohighlight">\(f\)</span> se realiza en la forma de un operador controlado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b09c900-5c12-4fed-918a-99bdf302e680">
-<span class="eqno">(549)<a class="headerlink" href="#equation-3b09c900-5c12-4fed-918a-99bdf302e680" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7685cd24-954a-42f5-893e-26f6caab0388">
+<span class="eqno">(549)<a class="headerlink" href="#equation-7685cd24-954a-42f5-893e-26f6caab0388" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {U_f} : \ket{x}_n\otimes \ket{y} \to \ket{x}_n\otimes \ket{y + f(x)}
 \end{equation}\]</div>
 <p>En particular, si <span class="math notranslate nohighlight">\(\ket{y} = \ket{-}\)</span> tendremos el oráculo <span class="math notranslate nohighlight">\(f(x)\)</span> <b>codificado en la fase</b>. Vamos a estudiar el circuito de la Fig. \ref{Fig_algoritmos_didac_Busqueda_Oraculo}</p>
@@ -698,8 +698,8 @@ a través de un oráculo <span class="math notranslate nohighlight">\(O\)</span>
 \frac{1}{2^n} \sum^{2^n -1}_{x,y=0} (-1)^{f(x)+x\cdot y}  \ket{y} \otimes \ket{-}  \hspace{0.5cm}  \text{(interferencia)} \, ,
 \end{align*}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-162d98d8-f26f-4066-8834-001cf5a23615">
-<span class="eqno">(550)<a class="headerlink" href="#equation-162d98d8-f26f-4066-8834-001cf5a23615" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e097219d-f509-446e-9093-d4790480080b">
+<span class="eqno">(550)<a class="headerlink" href="#equation-e097219d-f509-446e-9093-d4790480080b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x\cdot y = x_{n-1} y_{n-1} \oplus x_{n-1} y_{n-1} \oplus \ldots \oplus x_0 y_0
 \end{equation}\]</div>
 <p>Vemos que el estado final está <b>factorizado</b>, por un lado tenemos el estado del primer registro</p>

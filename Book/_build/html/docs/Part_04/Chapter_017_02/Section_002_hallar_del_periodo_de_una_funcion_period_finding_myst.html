@@ -673,14 +673,14 @@ document.write(`
 <section id="la-funcion">
 <h2>La función<a class="headerlink" href="#la-funcion" title="Permalink to this heading">#</a></h2>
 <p>Como comentamos en la introducción, lo que queremos es hallar el periodo de la función</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49466c85-a217-4b51-a0e7-4d968bbc6063">
-<span class="eqno">(610)<a class="headerlink" href="#equation-49466c85-a217-4b51-a0e7-4d968bbc6063" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b53e8e8b-7406-42e4-a40a-25433661ae4d">
+<span class="eqno">(610)<a class="headerlink" href="#equation-b53e8e8b-7406-42e4-a40a-25433661ae4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{mod } N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a &lt; N\)</span> y no teniendo factores comunes. La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <b>resto</b> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>. A este tipo de funciones se las denomina <b>exponenciales moduladas</b>.</p>
 <p>Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al valor del periodo de la función <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b36613d6-7635-438a-9d59-f1f5063d3b21">
-<span class="eqno">(611)<a class="headerlink" href="#equation-b36613d6-7635-438a-9d59-f1f5063d3b21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-108278d5-1a93-4c58-9759-f62d361d45a0">
+<span class="eqno">(611)<a class="headerlink" href="#equation-108278d5-1a93-4c58-9759-f62d361d45a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x+r) = f(x)
 \end{equation}\]</div>
 <p>En la Fig. \ref{Fig-Ejemplo-Funcion-Periodica} vemos un ejemplo de este tipo de funciones con <span class="math notranslate nohighlight">\(a = 3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>. Vemos que para este caso el periodo es <span class="math notranslate nohighlight">\(r = 12\)</span>.</p>
@@ -694,13 +694,13 @@ f(x+r) = f(x)
 <section id="solucion-estimacion-de-fase-de-un-operador-u">
 <h2>Solución: Estimación de fase de un operador U<a class="headerlink" href="#solucion-estimacion-de-fase-de-un-operador-u" title="Permalink to this heading">#</a></h2>
 <p>El algoritmo de Shor se basa en implementar el algoritmo de estimación de fases al operador unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-412e52b3-5c68-48c9-a188-3614cefb0857">
-<span class="eqno">(612)<a class="headerlink" href="#equation-412e52b3-5c68-48c9-a188-3614cefb0857" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1bac530-b1ce-4d56-9280-22ebb4fc1c7b">
+<span class="eqno">(612)<a class="headerlink" href="#equation-d1bac530-b1ce-4d56-9280-22ebb4fc1c7b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U |y \rangle \equiv | ay \, \text{mod} N \rangle
 \end{equation}\]</div>
 <p>Al aplicar sucesivas veces el operador <span class="math notranslate nohighlight">\(U\)</span> sobre el estado <span class="math notranslate nohighlight">\(|1 \rangle\)</span> vamos obteniendo los valores de <span class="math notranslate nohighlight">\(f(x)\)</span> con <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span>, esto es,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36b9a488-e5dd-443d-8224-b1ced8a4594e">
-<span class="eqno">(613)<a class="headerlink" href="#equation-36b9a488-e5dd-443d-8224-b1ced8a4594e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37d8dc74-b014-4bd7-a301-1895fe363f1f">
+<span class="eqno">(613)<a class="headerlink" href="#equation-37d8dc74-b014-4bd7-a301-1895fe363f1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U^x |1 \rangle = | f(x) \rangle
 \end{equation}\]</div>
 <p>Por ejemplo, para el caso que vimos en la gráfica anterior (<span class="math notranslate nohighlight">\(a=3\)</span> y <span class="math notranslate nohighlight">\(N=35\)</span>) tenemos</p>
@@ -725,8 +725,8 @@ U(U^{r-1} |1\rangle) &amp; = U(|12\rangle) =|1\rangle \\
 U(U^r |1\rangle) &amp; = U(|1\rangle) = |3\rangle
 \end{align*}\]</div>
 <p>Con esto se entiende fácilmente que la superposición equiprobable de todos los estados es un autoestado del operador <span class="math notranslate nohighlight">\(U\)</span> con autovalor 1:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-418ff943-0ffe-4794-90c6-2642dab4b42d">
-<span class="eqno">(614)<a class="headerlink" href="#equation-418ff943-0ffe-4794-90c6-2642dab4b42d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1ddbd862-6a67-4466-803f-0bace66c62ee">
+<span class="eqno">(614)<a class="headerlink" href="#equation-1ddbd862-6a67-4466-803f-0bace66c62ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 | u_0 \rangle = \frac{1}{\sqrt{r}} \sum^{r-1}_{k=0} |a^k \, \text{mod} N \rangle, \qquad \text{donde} \quad U|u_0 \rangle = |u_0\rangle
 \end{equation}\]</div>
 <div class="tip admonition">
@@ -741,8 +741,8 @@ U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangl
 \end{align*}\]</div>
 </div>
 <p>Un autoestado de autovalor 1 no nos es muy interesante a la hora de aplicar el algoritmo de estimación fase. Otro conjunto de autoestados mucho más interesantes son aquellos de la forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13d97828-b7f2-4871-b84c-925e8da1fb18">
-<span class="eqno">(615)<a class="headerlink" href="#equation-13d97828-b7f2-4871-b84c-925e8da1fb18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-22cc7645-1def-43a3-bd50-4f9551617304">
+<span class="eqno">(615)<a class="headerlink" href="#equation-22cc7645-1def-43a3-bd50-4f9551617304" title="Permalink to this equation">#</a></span>\[\begin{equation}
 | u_s \rangle = \frac{1}{\sqrt{r}} \sum^{r-1}_{k=0} e^{- \boldsymbol{2 \pi i}k \frac{s}{r}} |a^k \, \text{mod} N \rangle, \qquad \text{donde} \quad U|u_s \rangle = e^{\boldsymbol{2 \pi i} \frac{s}{r}}|u_s\rangle
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(0 \leq s \leq r-1\)</span>. Si ahora aplicamos el algoritmo de estimación de fase cuántica a uno de estos autoestados <span class="math notranslate nohighlight">\(|u_s \rangle\)</span>, lo que obtendremos en el registro de conteo es <span class="math notranslate nohighlight">\(|2^n s/r \rangle\)</span>. De aquí podemos extraer el valor de <span class="math notranslate nohighlight">\(r\)</span>. Sin embargo, para preparar el estado <span class="math notranslate nohighlight">\(|u_s \rangle\)</span> tenemos que conocer <span class="math notranslate nohighlight">\(r\)</span>, es decir, lo que queremos calcular.</p>
@@ -756,8 +756,8 @@ U |u_0 \rangle &amp; = U \left[ \frac{1}{\sqrt{12}} \left( |1 \rangle + |3\rangl
 <p>Comprueba la veracidad de la ecuación (\ref{ec_Shor_suma_igual_1}) para el caso <span class="math notranslate nohighlight">\(a=7\)</span> y <span class="math notranslate nohighlight">\(N=15\)</span>.</p>
 </div>
 <p>Si ahora aplicamos el algoritmo de estimación de fase cuántico (QPS) al estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> (un estado fácilmente implementable) obtenemos una superposición equiprobable de estados de la forma <span class="math notranslate nohighlight">\(|2^n s/r \rangle\)</span>, es decir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29b76ee7-6713-4cc8-a76c-2a17eb3d309e">
-<span class="eqno">(617)<a class="headerlink" href="#equation-29b76ee7-6713-4cc8-a76c-2a17eb3d309e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-24a78e9c-c3a1-4ce6-b738-4d2eeebd2d9d">
+<span class="eqno">(617)<a class="headerlink" href="#equation-24a78e9c-c3a1-4ce6-b738-4d2eeebd2d9d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |0 \rangle|1 \rangle \xrightarrow{QPS} \frac{1}{\sqrt{r}} \left( \left|2^t \frac{1}{r} \right\rangle + \left|2^t \frac{2}{r} \right\rangle + \dots + \left|2^t \frac{r-1}{r} \right\rangle \right) |1 \rangle
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(t\)</span> es el número de qubits del registro de conteo.

@@ -674,8 +674,8 @@ document.write(`
 <section id="superposiciones-medidas-y-colapso">
 <h2>Superposiciones, medidas y colapso.<a class="headerlink" href="#superposiciones-medidas-y-colapso" title="Permalink to this heading">#</a></h2>
 <p>En mecánica cuántica podemos tener un estado que sea la <b>superposición</b> de varios estado. Por ejemplo, el estado de un qúbit puede ser la superposición de los estados <span class="math notranslate nohighlight">\(\ket{0}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span>, esto es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca56477f-8055-4af8-be8b-f545ea5df329">
-<span class="eqno">(367)<a class="headerlink" href="#equation-ca56477f-8055-4af8-be8b-f545ea5df329" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ccab0fa2-9367-4e60-b262-9d39425631af">
+<span class="eqno">(367)<a class="headerlink" href="#equation-ccab0fa2-9367-4e60-b262-9d39425631af" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\ket{u} = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\varphi}\sin{\frac{\theta}{2}}\,|1\rangle }
 \end{equation}\]</div>
 <p>Sin embargo, al medir solo obtenemos <b>uno de estos estado de la superposición</b>. La probabilidad de medir cada uno de estos estados que forman la superposición es igual <b>al módulo cuadrado del coeficiente que lo acompaña en el vector</b>  <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> (el módulo cuadrado de la amplitud de ese estado). En este caso vemos que la probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> es <span class="math notranslate nohighlight">\(|\alpha|^2\)</span> y la de medir <span class="math notranslate nohighlight">\(\ket{1}\)</span> es <span class="math notranslate nohighlight">\(|\beta|^2\)</span>.</p>
@@ -700,8 +700,8 @@ Medidas de un qubit en el estado <span class="math notranslate nohighlight">\(\k
 <section id="sobre-medir-en-la-base-computaciones">
 <h2>Sobre medir en la base computaciones.<a class="headerlink" href="#sobre-medir-en-la-base-computaciones" title="Permalink to this heading">#</a></h2>
 <p>Los elementos de la base computacional <span class="math notranslate nohighlight">\(\ket{a}\in \{\ket{0},\ket{1}\}\)</span>, son autoestados del <b>observable</b> <span class="math notranslate nohighlight">\(Z = \sigma_z \)</span>, cuyos autovalores son <span class="math notranslate nohighlight">\(+1\)</span> y <span class="math notranslate nohighlight">\(-1\)</span> respectivamente, cumpliendo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-904aa3b6-53f0-49c4-8213-91b7b0ecc0b7">
-<span class="eqno">(368)<a class="headerlink" href="#equation-904aa3b6-53f0-49c4-8213-91b7b0ecc0b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de221dbc-c618-4bca-9819-aa49b6e0bfce">
+<span class="eqno">(368)<a class="headerlink" href="#equation-de221dbc-c618-4bca-9819-aa49b6e0bfce" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Z\ket{0} = +\ket{0}~~~~,~~~~~ Z\ket{1} = -\ket{1}
 \end{equation}\]</div>
 <p>Podemos unificar ambos resultados como: <span class="math notranslate nohighlight">\(Z\ket{a} = (-1)^a\ket{a}\)</span>, con  <span class="math notranslate nohighlight">\(a=\{0,1\}\)</span>. Es decir, lo que estamos haciendo es medir el observable <span class="math notranslate nohighlight">\(Z\)</span> (por ejemplo, medir el espín en el eje <span class="math notranslate nohighlight">\(z\)</span>) y si obtenemos el autovalor <span class="math notranslate nohighlight">\(+1\)</span> decimos que tenemos un 0, mientras que si medimos el autovalor <span class="math notranslate nohighlight">\(-1\)</span>, decimos que tenemos un <span class="math notranslate nohighlight">\(1\)</span>.</p>

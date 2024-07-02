@@ -710,13 +710,13 @@ document.write(`
 <section id="medidas-parciales-en-un-estado-factorizable">
 <h3>Medidas parciales en un estado factorizable.<a class="headerlink" href="#medidas-parciales-en-un-estado-factorizable" title="Permalink to this heading">#</a></h3>
 <p>Consideremos el estado bi-qúbit <b>factorizable</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a00a1732-ec0d-48d9-aad7-a6733eb3aaa0">
-<span class="eqno">(403)<a class="headerlink" href="#equation-a00a1732-ec0d-48d9-aad7-a6733eb3aaa0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1bae92e3-6091-40f7-a5cc-ee4a91de2284">
+<span class="eqno">(403)<a class="headerlink" href="#equation-1bae92e3-6091-40f7-a5cc-ee4a91de2284" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = \ket{a}\otimes \ket{b} = \frac{1}{\sqrt{2}}\big( \ket{0} + \ket{1}\big)\otimes \frac{1}{\sqrt{2}}\big( \ket{0} + \ket{1}\big)\, .
 \end{equation}\]</div>
 <p>Una medida sobre el primer qúbit solo podrá resultar, con probabilidad <span class="math notranslate nohighlight">\(1/2\)</span>, en uno de los dos posibles estados siguientes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fbfa861-7860-4d9b-beae-f6d0b8110f8a">
-<span class="eqno">(404)<a class="headerlink" href="#equation-5fbfa861-7860-4d9b-beae-f6d0b8110f8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc25d4e8-8428-438e-a189-3785f998b8c9">
+<span class="eqno">(404)<a class="headerlink" href="#equation-cc25d4e8-8428-438e-a189-3785f998b8c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} ~\rightarrow ~ \left\{ \begin{matrix}\ket{0} \otimes \frac{1}{\sqrt{2}}\big( \ket{0} + \ket{1}\big)\\ \ket{1} \otimes \frac{1}{\sqrt{2}}\big( \ket{0} + \ket{1}\big) \end{matrix} \right.
 \end{equation}\]</div>
 <p>Vemos que, después de esta medición, el segundo qúbit permanece intacto. Es decir, si medimos el segundo qúbit seguimos teniendo una probabilidad 1/2 de medir <span class="math notranslate nohighlight">\(\ket{0}\)</span> o <span class="math notranslate nohighlight">\(\ket{1}\)</span>.</p>
@@ -724,13 +724,13 @@ document.write(`
 <section id="id1">
 <h3>Medidas parciales en un estado factorizable.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Sin embargo, si el estado es <b>entrelazado</b>, por ejemplo,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7fe734f-8cac-4c04-91d3-b955c1427a61">
-<span class="eqno">(405)<a class="headerlink" href="#equation-d7fe734f-8cac-4c04-91d3-b955c1427a61" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75e48c0b-6124-4358-8a9b-461da0889e72">
+<span class="eqno">(405)<a class="headerlink" href="#equation-75e48c0b-6124-4358-8a9b-461da0889e72" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{B_{00}} = \frac{1}{\sqrt{2}}\big( \ket{00} + \ket{11} \big)\, ,
 \end{equation}\]</div>
 <p>una medida sobre el primer cúbit hace colapsar el segundo a uno de los dos siguientes posibles estados</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bbd929a-6155-4e99-906b-b64d2d4b2a1e">
-<span class="eqno">(406)<a class="headerlink" href="#equation-1bbd929a-6155-4e99-906b-b64d2d4b2a1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca1eaf48-f17d-4ac5-a566-60e30c1a5f87">
+<span class="eqno">(406)<a class="headerlink" href="#equation-ca1eaf48-f17d-4ac5-a566-60e30c1a5f87" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{B_{00}} ~\rightarrow ~ \left\{ \begin{matrix}\ket{0}\otimes\ket{0}  \\ \ket{1}\otimes \ket{1}\end{matrix} \right. \, .
 \end{equation}\]</div>
 <p>también con probabilidad 1/2. Vemos que ahora, <i>el segundo qúbit ha sufrido modificación  <b>correlacionada</b> con el resultado obtenido de la medida del primero qúbit</i>.  Es decir, una medida parcial sobre uno de los espacios de Hilbert está afrectando al otro espacio de Hilbert.</p>
@@ -761,8 +761,8 @@ Como este mensaje no puede viajar más rápido que la velocidad de la luz, no se
 <p class="admonition-title">Nota (Dos electrones entrelados)</p>
 <p>Una forma intuitiva de pensar en el entrelazamiento es pensar que dos partículas están entrelazadas cuando las medidas de sus estados están correlacionadas. El ejemplo clásico es del espín de dos electrones. Dos electrones pueden entrelazarse de forma que si mides que uno de ellos tiene espín <span class="math notranslate nohighlight">\(+1/2\)</span>, el otro tiene espín <span class="math notranslate nohighlight">\(-1/2\)</span>.</p>
 <p>La gracia de este entrelazamiento es que ambos electrones están en un estado de superposición, de forma que el estado global del sistema es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39a4fe91-18f3-466e-9eae-b0962cd60116">
-<span class="eqno">(407)<a class="headerlink" href="#equation-39a4fe91-18f3-466e-9eae-b0962cd60116" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4c0fde53-7c16-4e19-8e5b-d189a5c2e438">
+<span class="eqno">(407)<a class="headerlink" href="#equation-4c0fde53-7c16-4e19-8e5b-d189a5c2e438" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi} = \ket{\uparrow \downarrow} + \ket{\downarrow\uparrow}
 \end{equation}\]</div>
 <p>Vemos que es una supersición, pero donde solo son posibles los estados en los que los electrones tienen estados al contrarios. Se ve fácilmente que este estado no es factorizable, con lo que es entrelazado.</p>

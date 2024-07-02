@@ -680,14 +680,14 @@ La medida de Hadamard hace precisamente esto aprovechando el entrelazamiento.</p
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Sea el circuito de la Fig. \ref{Fig_medidas2_Hadamard_measure}, donde por uno de los qúbits (el qúbit ancilla) entra el estado <span class="math notranslate nohighlight">\(\ket{+}\)</span>, por el otro entra el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>, se aplica el operador <span class="math notranslate nohighlight">\(U\)</span> sobre qúbit en el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> controlado por el qúbit en el estado <span class="math notranslate nohighlight">\(\ket{+}\)</span> y se mide este último qúbit. Esta medida se hace bien usando un medidor en la base <span class="math notranslate nohighlight">\(X\)</span> (ver Fig. \ref{Fig_medidas2_Hadamard_measurea}) o un medidor en la base base <span class="math notranslate nohighlight">\(Y\)</span> (ver Fig. \ref{Fig_medidas2_Hadamard_measureb}). Calculando los valores esperados de <span class="math notranslate nohighlight">\(\langle X \rangle \)</span> e <span class="math notranslate nohighlight">\(\langle Y \rangle\)</span> en este qúbit ancilla (en la base computacional)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-129d305e-3714-4ec2-9c8a-724e2b5279d8">
-<span class="eqno">(429)<a class="headerlink" href="#equation-129d305e-3714-4ec2-9c8a-724e2b5279d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c63c218-179d-4844-893b-64fb855fd8f5">
+<span class="eqno">(429)<a class="headerlink" href="#equation-1c63c218-179d-4844-893b-64fb855fd8f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle X \rangle_{ancilla} = (+1) \frac{n^x_0}{n_0^x+n_1^x} + (-1) \frac{n^x_1}{n^x_0+n^x_1} ~~~~, ~~~~
 \langle Y \rangle_{ancilla} = (+1) \frac{n^y_0}{n^y_0+n^y_1} + (-1) \frac{n^y_1}{n^y_0+n^y_1}
 \end{equation}\]</div>
 <p class="sd-card-text">podemos calcular el valor esperado del operador <span class="math notranslate nohighlight">\(U\)</span> en el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> usando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-953d35ef-a6cf-4823-ae09-debee63554bb">
-<span class="eqno">(430)<a class="headerlink" href="#equation-953d35ef-a6cf-4823-ae09-debee63554bb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60dac7bc-fdc2-4f0e-84c7-8f9f66cfa3f3">
+<span class="eqno">(430)<a class="headerlink" href="#equation-60dac7bc-fdc2-4f0e-84c7-8f9f66cfa3f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle X\rangle_{ancilla} = {\rm Re} \langle U\rangle_{\psi} ~~~,~~~ \langle Y\rangle_{ancilla} = {\rm Im} \langle U\rangle_{\psi}\,
 \end{equation}\]</div>
 <figure class="align-center" id="id1">
@@ -715,13 +715,13 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Para el caso <span class="math notranslate nohighlight">\(X\)</span>, el circuito anterior será el de la Fig. \ref{Fig_medidas2_Hadamard_measurea}. Un cálculo explícito nos da el estado que llega al aparato de medida (el estado que llega a las lineas punteadas verticales)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61cabc94-2f46-4e6e-ba49-dc7675dd9f5b">
-<span class="eqno">(431)<a class="headerlink" href="#equation-61cabc94-2f46-4e6e-ba49-dc7675dd9f5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1ebe2c1-4798-4599-9bfa-9a926e3f9721">
+<span class="eqno">(431)<a class="headerlink" href="#equation-d1ebe2c1-4798-4599-9bfa-9a926e3f9721" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{0}\ket{\psi} ~\to ~ \ket{\Psi} = \frac{1}{2} \Lc \rule{0mm}{3mm} |0\rangle \otimes (1 + U) |\psi\rangle +  |1\rangle \otimes (1 - U) |\psi\rangle \Rc \label{hadam}
 \end{equation}\]</div>
 <p class="sd-card-text">Si medimos el qúbit ancilla (el de arriba), obtendremos como resultados <span class="math notranslate nohighlight">\(\{0,1\}\)</span> con probabilidades</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7acad45-0476-45b8-b03b-ae107adbec84">
-<span class="eqno">(432)<a class="headerlink" href="#equation-a7acad45-0476-45b8-b03b-ae107adbec84" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-92d064a2-f0ac-40ae-916c-0ec341bbf8b3">
+<span class="eqno">(432)<a class="headerlink" href="#equation-92d064a2-f0ac-40ae-916c-0ec341bbf8b3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 p_{0}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 + U) \ket{\psi}  \right\vert^{2} =
 \frac{1}{4}\bra{\psi}(1 + U^\dagger) (1 + U) \ket{\psi} =\frac{1}{2}(1+\operatorname{Re}\langle \psi|U|\psi\rangle) \nonumber\\
 p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=
@@ -729,8 +729,8 @@ p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=
 \frac{1}{2}(1-\operatorname{Re}\langle \psi|U|\psi\rangle) \nonumber
 \end{eqnarray}\]</div>
 <p class="sd-card-text">El valor esperado <span class="math notranslate nohighlight">\(\langle X \rangle_{ancilla}\)</span> será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0eb18c14-5c9a-4259-8bcc-3a85c77a0696">
-<span class="eqno">(433)<a class="headerlink" href="#equation-0eb18c14-5c9a-4259-8bcc-3a85c77a0696" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2484318a-7072-4d4f-b4e7-c6accfb959c3">
+<span class="eqno">(433)<a class="headerlink" href="#equation-2484318a-7072-4d4f-b4e7-c6accfb959c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle X \rangle_{ancilla} = (+1) \frac{n^x_0}{n_0^x+n_1^x} + (-1) \frac{n^x_1}{n^x_0+n^x_1} =  \hbox{Re}\bra{\psi} U \ket{\psi}
 \end{equation}\]</div>
 <p class="sd-card-text">La demostración para la medida en de <span class="math notranslate nohighlight">\(\ket{Y}\)</span> y la obtención de la <span class="math notranslate nohighlight">\(\operatorname{Re}\langle \psi|U|\psi\rangle\)</span> es análoga.</p>
@@ -738,8 +738,8 @@ p_{1}  &amp;=&amp;  \left\vert \frac{1}{2}  (1 - U) \ket{\psi}  \right\vert^{2}=
 </details><div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Verificar que la parte imaginaria viene de medir  <span class="math notranslate nohighlight">\(\langle Y\rangle\)</span> en la ancilla</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d91fbd98-62d5-4fef-b3fe-ff316c5b5297">
-<span class="eqno">(434)<a class="headerlink" href="#equation-d91fbd98-62d5-4fef-b3fe-ff316c5b5297" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cd008952-726d-4600-8cf6-1484e416e8a7">
+<span class="eqno">(434)<a class="headerlink" href="#equation-cd008952-726d-4600-8cf6-1484e416e8a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle{Y}\rangle_{ancilla}  =  \hbox{Im}\bra{\psi} U \ket{\psi} \, .
 \end{equation}\]</div>
 </div>
@@ -767,8 +767,8 @@ Ver la sección 4 del notebook <b>04-Medidas_II</b>.
 </ul>
 <p>Ello deja a <span class="math notranslate nohighlight">\(\lambda = \pm 1\)</span> como los únicos autovalores posibles para un operador así. Los operadores <span class="math notranslate nohighlight">\(X,Y,Z\)</span> y <span class="math notranslate nohighlight">\(H\)</span> son ejemplos de ello.</p>
 <p>Denominemos <span class="math notranslate nohighlight">\(\ket{a}_U, \, a=0,1\)</span>  los autovectores de <span class="math notranslate nohighlight">\(U\)</span> con autovalores <span class="math notranslate nohighlight">\((-1)^a\)</span>, es decir <span class="math notranslate nohighlight">\(U\ket{a}_U = (-1)^a\ket{a}_U\)</span>. En este caso, los factores <span class="math notranslate nohighlight">\((1\pm U)\)</span> que aparecen en la medida de Hadamard son proyectores ortogonales sobre los autoestados de <span class="math notranslate nohighlight">\(U\)</span>. La imagen bajo este circuito de un estado de entrada <span class="math notranslate nohighlight">\(\ket{0}\ket{\psi}\)</span> ahora será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cd89ff4-8c87-4f27-ad75-65f67e4137f2">
-<span class="eqno">(435)<a class="headerlink" href="#equation-8cd89ff4-8c87-4f27-ad75-65f67e4137f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0adbd754-292c-4c08-95e0-9cbf90c27392">
+<span class="eqno">(435)<a class="headerlink" href="#equation-0adbd754-292c-4c08-95e0-9cbf90c27392" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{0}\ket{\psi} = \ket{0}\otimes (\alpha\ket{0}_U + \beta\ket{1}_U) ~~\longrightarrow ~~  \alpha\ket{0}\ket{0}_U +  \beta\ket{1}\ket{1}_U\, .
 \end{equation}\]</div>
 <p>Podemos ver esto en la Fig. \ref{Fig_medidas2_HadamardProjection}  Al igual que con los estados de Bell, cada resultado de  medida en la ancilla está correlacionado con un autoestado del operador <span class="math notranslate nohighlight">\(U\)</span>.</p>

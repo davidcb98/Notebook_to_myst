@@ -710,30 +710,30 @@ document.write(`
 <h2>Explicación cualitativa<a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
 <p>Vamos a intentar entender de forma cualitativa porqué calculando el periodo de una función se pueden hallar los factores de un número. En la sección \ref{sec_Formalismo} veremos un poco más en detalle las afirmaciones que se hacen en esta sección.</p>
 <p>La función que nos interesa es la siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8454b238-fc9f-4e4e-88d5-165e37f91c63">
-<span class="eqno">(601)<a class="headerlink" href="#equation-8454b238-fc9f-4e4e-88d5-165e37f91c63" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1074c54c-02c5-4b5d-9189-eac8c8782451">
+<span class="eqno">(601)<a class="headerlink" href="#equation-1074c54c-02c5-4b5d-9189-eac8c8782451" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{ mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a &lt; N\)</span> y no teniendo factores comunes, es decir, que sean coprimos (gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>). La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <b>resto</b> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>La función <span class="math notranslate nohighlight">\(f(x)\)</span> se denomina  <b>exponenciales moduladas</b>. Esta se encaja dentro de la <b>aritmética modular</b> y si se cumplen las condiciones anteriores esta función es periódica. Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al <b>valor del periodo de la función</b> <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47661492-956b-4cf1-813d-b47f40aa9c7e">
-<span class="eqno">(602)<a class="headerlink" href="#equation-47661492-956b-4cf1-813d-b47f40aa9c7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-954576b4-4e72-4ad3-8604-718599c38daa">
+<span class="eqno">(602)<a class="headerlink" href="#equation-954576b4-4e72-4ad3-8604-718599c38daa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x+r) = f(x).
 \end{equation}\]</div>
 <p>Este se puede calcular mediante un circuito cuántico.</p>
 <p>Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span>. Esto es debido a que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8feec2ca-874f-460e-9388-18d77d4b87c0">
-<span class="eqno">(603)<a class="headerlink" href="#equation-8feec2ca-874f-460e-9388-18d77d4b87c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-59a68ef7-1ae7-49d2-84b0-f38b6e1f82a3">
+<span class="eqno">(603)<a class="headerlink" href="#equation-59a68ef7-1ae7-49d2-84b0-f38b6e1f82a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r \text{ mod} N = 1
 \end{equation}\]</div>
 <p>con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0994d284-f7a3-4bc2-98ac-5cec584d60cd">
-<span class="eqno">(604)<a class="headerlink" href="#equation-0994d284-f7a3-4bc2-98ac-5cec584d60cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa91f036-6508-440f-a052-1dab76600fcf">
+<span class="eqno">(604)<a class="headerlink" href="#equation-aa91f036-6508-440f-a052-1dab76600fcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a^r-1) \text{ mod} N = 0
 \end{equation}\]</div>
 <p>Con lo cual, <span class="math notranslate nohighlight">\(N\)</span> debe ser un divisor de <span class="math notranslate nohighlight">\(a^r-1\)</span>. Si <span class="math notranslate nohighlight">\(r\)</span> es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>), podemos escribir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50298e65-9cc7-4211-9e1a-0df6ce4eac54">
-<span class="eqno">(605)<a class="headerlink" href="#equation-50298e65-9cc7-4211-9e1a-0df6ce4eac54" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb41bd5d-340f-4971-a7ec-f1d01b235c25">
+<span class="eqno">(605)<a class="headerlink" href="#equation-eb41bd5d-340f-4971-a7ec-f1d01b235c25" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 \end{equation}\]</div>
 <p>Entonces tenemos una alta probabilidad de que el <b>máximo común divisor</b> de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -752,19 +752,19 @@ a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 <p class="sd-card-text">Dada la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span>, si se cumple que gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, tenemos que para algún valor entero <span class="math notranslate nohighlight">\(z&gt;0\)</span> se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span>.</p>
 </div>
 </div>
-<p>Vemos a ver ahora que este valor <span class="math notranslate nohighlight">\(z&gt;0\)</span> para el cual se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span> será el periodo de la función. Denominaremos a este valor <span class="math notranslate nohighlight">\(r\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> será <b>el primer valor (mayor que cero) para el cual se cumple</b> <span class="math notranslate nohighlight">\(f(r) = 1\)</span>. Tenemos que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5899fd92-ccc5-4ca4-b02b-8e75688036d8">
-<span class="eqno">(606)<a class="headerlink" href="#equation-5899fd92-ccc5-4ca4-b02b-8e75688036d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Vemos a ver ahora que este valor <span class="math notranslate nohighlight">\(z&gt;0\)</span> para el cual se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span> será el periodo de la función. Denominaremos a este valor <span class="math notranslate nohighlight">\(r\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> será el primer valor (mayor que cero) para el cual se cumple <span class="math notranslate nohighlight">\(f(r) = 1\)</span>. Tenemos que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5ef67db0-41be-4a52-8298-a275d871e574">
+<span class="eqno">(606)<a class="headerlink" href="#equation-5ef67db0-41be-4a52-8298-a275d871e574" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^0 =1 \rightarrow f(0) = a^0 \text{ mod} N = 1 = a^r \text{ mod} N = f(r).
 \end{equation}\]</div>
 <p>En el momento en el que llegamos a un exponente <span class="math notranslate nohighlight">\(r\)</span> tal que <span class="math notranslate nohighlight">\(a^r \text{ mod} N = 1\)</span> podemos pues escribir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4478affe-3465-4404-b115-fb65615964ac">
-<span class="eqno">(607)<a class="headerlink" href="#equation-4478affe-3465-4404-b115-fb65615964ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-32925e98-48f2-407c-9030-9fbd44417797">
+<span class="eqno">(607)<a class="headerlink" href="#equation-32925e98-48f2-407c-9030-9fbd44417797" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r = \alpha N + 1
 \end{equation}\]</div>
 <p>con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eebe2e4f-3f95-45bb-b6c4-7c94dc116d9b">
-<span class="eqno">(608)<a class="headerlink" href="#equation-eebe2e4f-3f95-45bb-b6c4-7c94dc116d9b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2a4ea167-4a1e-42c6-932d-a06f4a9c3e22">
+<span class="eqno">(608)<a class="headerlink" href="#equation-2a4ea167-4a1e-42c6-932d-a06f4a9c3e22" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\
 &amp; = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
 \end{align}\]</div>
@@ -796,8 +796,8 @@ Demostración<div class="sd-summary-down docutils">
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Supongamos <span class="math notranslate nohighlight">\(N = p^{\alpha_1}_1 \dots p^{\alpha_m}_m \)</span> es la descomposición en factores primos de un entero impar positivo. Sea <span class="math notranslate nohighlight">\(x\)</span> un número entero elegido uniformemente al azar, sujeto a la restricción <span class="math notranslate nohighlight">\(1 \leq x \leq N-1\)</span> y <span class="math notranslate nohighlight">\(x\)</span> coprimo de <span class="math notranslate nohighlight">\(N\)</span>. Sea <span class="math notranslate nohighlight">\(r\)</span> el periodo de <span class="math notranslate nohighlight">\(x \text{ mod} N\)</span>. Entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bf6152f-e9d8-4048-a69d-67f38badef58">
-<span class="eqno">(609)<a class="headerlink" href="#equation-6bf6152f-e9d8-4048-a69d-67f38badef58" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6ad9c44-fec6-45ab-b17a-06d3a69273a8">
+<span class="eqno">(609)<a class="headerlink" href="#equation-b6ad9c44-fec6-45ab-b17a-06d3a69273a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(r \text{ es impar y } x^{r/2} \text{ mod} N \neq - 1) \geq 1 - \frac{1}{2^m}
 \end{equation}\]</div>
 <p class="sd-card-text">esto es, la probabilidad de hallar un <span class="math notranslate nohighlight">\(r\)</span> impar y que cumpla <span class="math notranslate nohighlight">\(x^{r/2} \text{ mod} N \neq - 1\)</span> es mayor que 1 - 1/<span class="math notranslate nohighlight">\(2^m\)</span>.</p>

@@ -687,8 +687,8 @@ document.write(`
 \right.}
 \end{equation} \end{split}\]</div>
 <p>Es fácil ver que podemos escribir tanto el oráculo como el difusor en función de los operadores <span class="math notranslate nohighlight">\(S_A\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2a5babd-e6f1-4e21-8bcb-bee0c0164465">
-<span class="eqno">(698)<a class="headerlink" href="#equation-f2a5babd-e6f1-4e21-8bcb-bee0c0164465" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f380be33-566b-4d76-ba5b-5d9473dd8015">
+<span class="eqno">(698)<a class="headerlink" href="#equation-f380be33-566b-4d76-ba5b-5d9473dd8015" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; U_\omega = S_\omega
 &amp; \boxed{U_{\Psi_0} = - S_{\Psi_0}}
 \end{align}\]</div>
@@ -696,18 +696,18 @@ document.write(`
 <section id="caso-con-n-2-n">
 <h3>Caso con <span class="math notranslate nohighlight">\(N = 2^n\)</span>.<a class="headerlink" href="#caso-con-n-2-n" title="Permalink to this heading">#</a></h3>
 <p>En el caso en el que el estado inicial es una superposición uniforme de la forma (\ref{ec_geo_phi_0_H}) podemos construir el difusor teniendo en cuenta que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22734d17-4038-4d11-9f79-7b9cc60be71b">
-<span class="eqno">(699)<a class="headerlink" href="#equation-22734d17-4038-4d11-9f79-7b9cc60be71b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb94926a-f3d3-49f6-a76b-20dad6fd882d">
+<span class="eqno">(699)<a class="headerlink" href="#equation-fb94926a-f3d3-49f6-a76b-20dad6fd882d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\Psi_0 \rangle = H^{\otimes n} |00 \dots 0 \rangle \rqa H^{\otimes n} |\Psi_0 \rangle = |0 0 \dots 0\rangle.
 \end{equation}\]</div>
 <p>Viendo esta propiedad, podemos darnos cuenta de que si aplicamos el operador de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span> a la salida del oráculo lo que obtenemos es el estado <span class="math notranslate nohighlight">\(| 0 0 \dots 0 \rangle\)</span> más una serie de estado que corresponderán a los cambios respecto al estado inicial que ha realizado el oráculo. Lo que tenemos que hacer para aplicar el difusor es cambiarle el signo al estado <span class="math notranslate nohighlight">\(| 0 0 \dots 0 \rangle\)</span> (aplicar <span class="math notranslate nohighlight">\(S_0\)</span>) y volver a aplicar <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span> para deshacer los cambios introducidos por la última aplicación el mismo. Es decir, el difusor será de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7cadb23c-8ed4-465d-aff0-c88de58afc04">
-<span class="eqno">(700)<a class="headerlink" href="#equation-7cadb23c-8ed4-465d-aff0-c88de58afc04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc8d18da-dea0-407e-b9fd-6c56cc46111c">
+<span class="eqno">(700)<a class="headerlink" href="#equation-dc8d18da-dea0-407e-b9fd-6c56cc46111c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_{\Psi_0} = - S_{\Psi_0}= - H^{\otimes n} S_0 H^{\otimes n}
 \end{equation}\]</div>
 <p>Podemos construir <span class="math notranslate nohighlight">\(S_0\)</span> a partir de la <b>puerta multicontrolada Z</b> (<span class="math notranslate nohighlight">\(MCZ\)</span>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db2c0ee1-5162-42f4-969c-d41f4d02bf13">
-<span class="eqno">(701)<a class="headerlink" href="#equation-db2c0ee1-5162-42f4-969c-d41f4d02bf13" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5858da88-0928-4b91-9bd0-aef5c51a9154">
+<span class="eqno">(701)<a class="headerlink" href="#equation-5858da88-0928-4b91-9bd0-aef5c51a9154" title="Permalink to this equation">#</a></span>\[\begin{equation}
 MCZ =
 \lp
 \begin{matrix}
@@ -720,8 +720,8 @@ MCZ =
 \rp
 \end{equation}\]</div>
 <p>que lo que hace es cambiarle el signo al estado <span class="math notranslate nohighlight">\(|2^n-1\rangle= | 11 \dots 1\rangle\)</span>. Tenemos pues</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd2b0933-f05a-482f-b5a8-c1aa6aa40d71">
-<span class="eqno">(702)<a class="headerlink" href="#equation-fd2b0933-f05a-482f-b5a8-c1aa6aa40d71" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9320aa5e-8efa-4c49-a218-9e2d29ea2623">
+<span class="eqno">(702)<a class="headerlink" href="#equation-9320aa5e-8efa-4c49-a218-9e2d29ea2623" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_0 = X^{\otimes n} (MCZ) X^{\otimes n}
 \end{equation}\]</div>
 <p>La puerta <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> (que consiste en aplicar puertas <span class="math notranslate nohighlight">\(X\)</span> a todos los qubits) lo que hace es</p>
@@ -744,8 +744,8 @@ aplicación de <span class="math notranslate nohighlight">\(X^{\otimes n}\)</spa
 cambios se deshacen menos este signo, que pasa a estar en el estado <span class="math notranslate nohighlight">\(|00 \dots 0 \rangle \)</span>.</p>
 </div>
 <p>Como ya comentamos,<b> el operador que se implementa es</b> <span class="math notranslate nohighlight">\(\bm{-U_{\Psi_0}}\)</span>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-81821cf1-fe39-424d-9588-5b78124e5306">
-<span class="eqno">(703)<a class="headerlink" href="#equation-81821cf1-fe39-424d-9588-5b78124e5306" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e121891b-c8a4-4c41-9ab1-dc7df6b2c511">
+<span class="eqno">(703)<a class="headerlink" href="#equation-e121891b-c8a4-4c41-9ab1-dc7df6b2c511" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}} \Rightarrow \label{ec_cons-imple_U_Psi0} \\
 &amp; \boxed{G_{imple}  =  - U_{\Psi_0} U_\omega = - H^{\otimes n} S_0 H^{\otimes n} U_\omega}
 \end{align}\]</div>
@@ -753,8 +753,8 @@ cambios se deshacen menos este signo, que pasa a estar en el estado <span class=
 <section id="caso-con-n-neq-2-n">
 <span id="sub-sec-n-no-2-n"></span><h3>Caso con <span class="math notranslate nohighlight">\(N \neq 2^n\)</span>.<a class="headerlink" href="#caso-con-n-neq-2-n" title="Permalink to this heading">#</a></h3>
 <p>Las limitación que hemos impuesto hasta ahora diciendo que <span class="math notranslate nohighlight">\(N\)</span> debía ser una potencia de <span class="math notranslate nohighlight">\(2\)</span> viene de la transformación de Walsh-Hadammard</p>
-<div class="amsmath math notranslate nohighlight" id="equation-443c36d7-f000-4933-a7cc-c86c53651550">
-<span class="eqno">(704)<a class="headerlink" href="#equation-443c36d7-f000-4933-a7cc-c86c53651550" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ceec1b08-dc6e-4e08-9f57-d66f992665a5">
+<span class="eqno">(704)<a class="headerlink" href="#equation-ceec1b08-dc6e-4e08-9f57-d66f992665a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H^{\otimes n} |j \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} (-1)^{i \cdot j} | i \rangle, \qquad \text{ (donde } i \cdot j \text{ denota el producto escalar binario)}
 \end{equation}\]</div>
 <p>Esta transformación, que se usa para generar el estado inicial y en el difusor, no está bien definida si no se cumple que <span class="math notranslate nohighlight">\(N=2^n\)</span>.</p>
@@ -764,8 +764,8 @@ H^{\otimes n} |j \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} (-1)^{i \cdot j} 
 \boxed{F |0 \rangle = \frac{1}{\sqrt{N}} \sum^{N-1}_{i=0} | i \rangle}
 \end{equation} \]</div>
 <p>y seguiremos teniendo interaciones de Grover válidas aplicando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-337b10e3-f32f-403f-8c0e-b0a4f8902f55">
-<span class="eqno">(706)<a class="headerlink" href="#equation-337b10e3-f32f-403f-8c0e-b0a4f8902f55" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fcda40f1-1ba5-4501-b42a-2dc00106c776">
+<span class="eqno">(706)<a class="headerlink" href="#equation-fcda40f1-1ba5-4501-b42a-2dc00106c776" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F S_0 F^{-1} U_\omega
 \end{equation}\]</div>
 <p>De hecho, cuando estamos en el caso <span class="math notranslate nohighlight">\(N = 2^n\)</span>, la Walsh-Hadammard es simplemente la elección más sencilla de <span class="math notranslate nohighlight">\(F\)</span>. Para el caso en el que <span class="math notranslate nohighlight">\(N\)</span> no es una potencia de dos, podemos usar la transformación de Fourier de Kitaev <span class="xref myst">[35]</span>. Puede verse también <span class="xref myst">[36]</span></p>

@@ -730,14 +730,14 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Sean <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> y <span class="math notranslate nohighlight">\(\ket{\varphi}\)</span> los estados cuánticos no ortogonales sobre los que Eve intenta obtener información. Podemos suponer sin pérdida de generalidad que el proceso que utiliza para obtener información es interactuar unitariamente el estado (<span class="math notranslate nohighlight">\(\ket{\psi}\)</span> o <span class="math notranslate nohighlight">\(\ket{\varphi}\)</span>) con una ancilla preparada en un estado estándar <span class="math notranslate nohighlight">\(\ket{u}\)</span>. Suponiendo que este proceso no perturba los estados, en los dos casos se obtiene</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb8bac00-601a-4e67-9249-f05ec0a3beab">
-<span class="eqno">(733)<a class="headerlink" href="#equation-eb8bac00-601a-4e67-9249-f05ec0a3beab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b9678e86-4d00-4c80-abdc-ada7083e3c8b">
+<span class="eqno">(733)<a class="headerlink" href="#equation-b9678e86-4d00-4c80-abdc-ada7083e3c8b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\psi} \ket{u} &amp; \rightarrow \ket{\psi} \ket{v} \\
 \ket{\varphi} \ket{u} &amp; \rightarrow \ket{\varphi} \ket{v'}
 \end{align}\]</div>
 <p class="sd-card-text">A Eve le gustaría que <span class="math notranslate nohighlight">\(\ket{v}\)</span> y <span class="math notranslate nohighlight">\(\ket{v'}\)</span> fueran diferentes, de tal forma que pudiera adquirir información sobre la identidad de los estados. Sin embargo, como el producto interno se conserva respecto a las transformaciones unitarias, debe de seguirse que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e783cd78-a8d6-4778-9ac2-d1f25f24e480">
-<span class="eqno">(734)<a class="headerlink" href="#equation-e783cd78-a8d6-4778-9ac2-d1f25f24e480" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e578a64a-cbc6-4a01-974b-a66a9984776d">
+<span class="eqno">(734)<a class="headerlink" href="#equation-e578a64a-cbc6-4a01-974b-a66a9984776d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \braket{v}{v'} \braket{\psi}{\varphi} = \braket{u}{u} \braket{\psi}{\varphi} \rqa \braket{v}{v'} = \braket{u}{u} = 1
 \end{equation}\]</div>
 <p class="sd-card-text">lo que implica que <span class="math notranslate nohighlight">\(\ket{v}\)</span> y <span class="math notranslate nohighlight">\(\ket{v'}\)</span> deben de ser idénticos. Así, distinguir entre <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> y <span class="math notranslate nohighlight">\(\ket{\varphi}\)</span> debe perturbar inevitablemente al menos uno de estos estados.</p>
@@ -747,8 +747,8 @@ Demostración<div class="sd-summary-down docutils">
 <section id="marco-eb">
 <h3>Marco EB<a class="headerlink" href="#marco-eb" title="Permalink to this heading">#</a></h3>
 <p>Hemos descrito la codificación cuántica de los protocolos QKD con el lenguaje de los esquemas de preparación y medida (<i>prepare-and-measure</i>, <b>P<span class="math notranslate nohighlight">\(\&amp;\)</span>M</b>): Alice elige activamente la secuencia <span class="math notranslate nohighlight">\(S_n\)</span> que quiere enviar, prepara el estado <span class="math notranslate nohighlight">\(\ket{\Psi(S_n)}\)</span>, y lo envía a Bob, que realiza alguna medida. Cualquier esquema de este tipo puede traducirse inmediatamente en un esquema basado en el entrelazamiento (<i>entanglement-based</i>, <b>EB</b>): Alice prepara el estado entrelazado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d722c71-43de-4060-8ab0-57251ee668b3">
-<span class="eqno">(735)<a class="headerlink" href="#equation-3d722c71-43de-4060-8ab0-57251ee668b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-060ff068-5b18-435a-a7d3-87af3b9ee155">
+<span class="eqno">(735)<a class="headerlink" href="#equation-060ff068-5b18-435a-a7d3-87af3b9ee155" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Phi^n} = \frac{1}{\sqrt{d_n}} \sum_{S_n} \ket{S_n}_A \otimes \ket{\Psi(S_n)}_B
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(d_n\)</span> es el número de posibles secuencias <span class="math notranslate nohighlight">\(S_n\)</span> y <span class="math notranslate nohighlight">\(\ket{S_n}_A\)</span> forma una base ortogonal. Midiendo en esta base, Alice aprende un <span class="math notranslate nohighlight">\(S_n\)</span> y prepara el correspondiente <span class="math notranslate nohighlight">\(\ket{\Psi(S_n)}\)</span> en el subsistema que se envía a Bob: desde el punto de vista de Bob, nada cambia. Esta traducción formal no significa que ambas realizaciones sean igualmente prácticas o incluso factibles con la tecnología actual. Sin embargo, implica que la prueba de seguridad para el protocolo EB se traduce inmediatamente al protocolo P<span class="math notranslate nohighlight">\(\&amp;\)</span>M correspondiente y viceversa.</p>
