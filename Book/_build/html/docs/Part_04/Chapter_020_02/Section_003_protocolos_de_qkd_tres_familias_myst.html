@@ -1,0 +1,949 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Protocolos de QKD: Tres familias &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Bibliografía" href="../../Chapter_Bibliografia_myst.html" />
+    <link rel="prev" title="Fundamentos de QKD" href="Section_002_fundamentos_de_qkd_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Protocolos de QKD: Tres familias</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-de-variable-discreta">Protocolos de variable discreta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bb84-bbm">BB84-BBM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sar04">SAR04</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-protocolos-de-variable-discreta">Otros protocolos de variable discreta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-de-variable-continua">Protocolos de variable continua</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#squeezed-states-y-cuadraturas">Squeezed-states y cuadraturas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-homodina">Detección homodina</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-distributed-phase-reference">Protocolos Distributed-phase-reference</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 13 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi22.png"><img alt="../../../_images/Fig_logo_UMA_scbi22.png" src="../../../_images/Fig_logo_UMA_scbi22.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="protocolos-de-qkd-tres-familias">
+<h1>Protocolos de QKD: Tres familias<a class="headerlink" href="#protocolos-de-qkd-tres-familias" title="Permalink to this heading">#</a></h1>
+<p>El número de protocolos QKD explícitos es prácticamente infinito: después de todo, Bennett ha demostrado que se puede obtener seguridad cuando un bit se codifica en sólo dos estados cuánticos no ortogonales <span class="xref myst">[44]</span>. Pero, de hecho, esta posible variedad se ha cristalizado en tres familias principales: codificación de <b>variable discreta</b> (sección \ref{subsec_QKD_discreta}), codificación de <b>variable continua</b> (sección \ref{subsec_QKD_continua}) y, más recientemente, codificación <b>distributed-phase-referenc</b>e (sección \ref{subsec_QKD_phase}). La diferencia crucial es el esquema de detección: la codificación discreta-variable y la codificación distribuida-fase-referencia utilizan el <b>recuento de fotones</b> y postseleccionan los eventos en los que se ha producido efectivamente una detección, mientras que la codificación continua-variable se define por el uso de <b>detección homodina</b>.</p>
+<p>La codificación variable discreta es la original. Su principal ventaja es que los protocolos pueden diseñarse de forma que, en ausencia de errores, Alice y Bob compartan inmediatamente una clave secreta perfecta. Siguen siendo los protocolos QKD más frecuentemente implementados. Los argumentos a favor de la codificación de variable continua se derivan de la observación de que los contadores de fotones presentan normalmente bajas eficiencias cuánticas, altas tasas de recuento oscuro y tiempos muertos bastante largos, mientras que estos inconvenientes pueden superarse utilizando la detección homodina. El precio que hay que pagar es que el protocolo proporciona a Alice y Bob una realización correlacionada pero bastante ruidosa de una variable aleatoria continua, porque las pérdidas se traducen en ruido: como consecuencia, hay que utilizar una cantidad significativa de corrección de errores. En cuanto a la codificación distributed-phase-reference, su origen se encuentra en los esfuerzos de algunos grupos experimentales hacia una implementación más práctica. Desde el punto de vista de la detección, estos protocolos producen un resultado de variable discreta; pero la naturaleza de las señales cuánticas es muy diferente a la de la codificación de variable discreta, y esto motiva un tratamiento aparte.</p>
+<p>A pesar de las diferencias originadas por el uso de un dispositivo de detección distinto, existe una fuerte unidad conceptual subyacente en la QKD discreta y continua. Por poner sólo un ejemplo, en ambos casos la capacidad de distribuir una clave cuántica está estrechamente relacionada con la capacidad de distribuir entrelazamiento, independientemente del esquema de detección utilizado e incluso si no hay entrelazamiento real. Estas similitudes no son muy sorprendentes, ya que se sabe desde hace tiempo que las características cuánticas de la luz pueden revelarse mediante el recuento de fotones (por ejemplo, experimentos antibunching o anticorrelación) o mediante la detección homodina (por ejemplo, experimentos de squeezing). Dado que la QKD es una técnica que explota estas características cuánticas de la luz, no hay razón para que se restrinja al régimen de recuento de fotones. Sorprendentemente, al igual que el antibunching (o una fuente monofotónica) ni siquiera es necesario en la QKD basada en el recuento de fotones, el squeezing tampoco es necesario en la QKD basada en la detección homodina. La única característica cuántica que resulta necesaria es la no ortogonalidad de los estados de luz.</p>
+<section id="protocolos-de-variable-discreta">
+<span id="subsec-qkd-discreta"></span><h2>Protocolos de variable discreta<a class="headerlink" href="#protocolos-de-variable-discreta" title="Permalink to this heading">#</a></h2>
+<section id="bb84-bbm">
+<h3>BB84-BBM<a class="headerlink" href="#bb84-bbm" title="Permalink to this heading">#</a></h3>
+<p>El protocolo BB84 es, no solo el más famoso de los protocolos de variable discreta, sino el más famoso en general. Se trata también de la primera propuesta de un algoritmo de QKD y data de 1984 <span class="xref myst">[42]</span>. El correspondiente protocolo EB (entanglement-base) es conocido como BBM <span class="xref myst">[44]</span>: el protocolo E91 <span class="xref myst">[43]</span> es equivalente a él cuando se implementa con qúbits. Veamos la filosofía de estos protocolos.</p>
+<p>Supongamos que Alicia tiene una fuente de fotones individuales. Las propiedades espectrales de los fotones están claramente definidas, por lo que el único grado de libertad que queda es la polarización. Alice y Bob alinean sus polarizadores y acuerdan utilizar la base horizontal o vertical (+), o la base complementaria de polarizaciones lineales, es decir, +45/-45 (<span class="math notranslate nohighlight">\(\times\)</span>). En concreto, la codificación de bits es</p>
+<div class="math notranslate nohighlight" id="equation-ec-qkd-estados-bb84">
+<span class="eqno">(736)<a class="headerlink" href="#equation-ec-qkd-estados-bb84" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\begin{array}{rr}
+\ket{0_+},&amp; \quad \text{codifica la polarización horizontal} \\
+\ket{1_+},&amp; \quad \text{codifica la polarización vertical} \\
+\ket{0_\times},&amp; \quad \text{codifica la polarización a +45º} \\
+\ket{1_\times},&amp; \quad \text{codifica la polarización a -45º}
+\end{array}
+\end{equation} \end{split}\]</div>
+<p>Vemos que ambos valores de bit 0 y 1 se codifican de dos formas posibles, o más exactamente en estados no ortogonales porque</p>
+<div class="amsmath math notranslate nohighlight" id="equation-83fd5ce1-1513-4996-9f6e-20142b4f1a9a">
+<span class="eqno">(737)<a class="headerlink" href="#equation-83fd5ce1-1513-4996-9f6e-20142b4f1a9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+\ket{0_\times} &amp; = \frac{1}{\sqrt{2}} \lp \ket{0_+} + \ket{0_-} \rp \\
+\ket{1_\times} &amp; = \frac{1}{\sqrt{2}} \lp \ket{0_+} - \ket{0_-} \rp
+\end{align}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (caso con qúbits)</p>
+<p>Estamos hablando de polarizaciones de la luz porque, como ya comentamos, se usan fotones para las transmisiones en el canal cuántico. Sin embargo, podríamos plantear el mismo protocolo tratando con qúbit. Por ejemplo, con qúbits podemos usar los siguientes cuatro estados:</p>
+<div class="math notranslate nohighlight" id="equation-ec-qkd-estados-bb84-xy">
+<span class="eqno">(738)<a class="headerlink" href="#equation-ec-qkd-estados-bb84-xy" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\begin{array}{rr}
+\ket{+x}, \ket{-x}, &amp; \quad \text{autoestados de } \sigma_x \\
+\ket{+y}, \ket{-y}, &amp; \quad \text{autoestados de } \sigma_y
+\end{array}
+\end{equation} \end{split}\]</div>
+</div>
+<p>Dada esta codificación, el protocolo BB84 es el siguiente:</p>
+<ol class="arabic simple">
+<li><p>Alice prepara un fotón aleatoriamente en uno de los cuatro estados anteriores y lo envía a Bob por el canal cuántico.</p></li>
+<li><p>Bob lo mide. Como Bob no conoce en que base lo ha generado Alice, este elige aleatoriamente una de las dos bases: <span class="math notranslate nohighlight">\(+\)</span> o <span class="math notranslate nohighlight">\(\times\)</span>.</p></li>
+<li><p>Los dos pasos anteriores se repiten <span class="math notranslate nohighlight">\(4N\)</span> veces, de forma que tanto Alice como Bob tienen ahora una lista de <span class="math notranslate nohighlight">\(4N\)</span> bits cada uno.</p></li>
+<li><p>Alice y Bob se comunican por un canal clásico diciendose que base han usado para medir cada uno de los fotones.</p></li>
+<li><p>Alice y Bob descartan aquellos bits en los cuales han medido en bases distintas. Este paso se le suele llamar <b>criba</b> (<i>sifting</i>).  En promedio, habrán descartado <span class="math notranslate nohighlight">\(2N\)</span> bits, así que les queda una lista con los otros <span class="math notranslate nohighlight">\(2N\)</span> bits. A esto se llama la <b>clave bruta</b> (<i>raw key</i>).</p></li>
+<li><p>Alice y Bob revelan ahora una muestra aleatoria de tamaño <span class="math notranslate nohighlight">\(N\)</span> de los bits de sus claves brutas y estiman la tasa de error en el canal cuántico, y por tanto a su vez la información de Eve, manteniendo secretos los otros <span class="math notranslate nohighlight">\(N\)</span> bits. En ausencia de errores, la clave bruta es idéntica para Alice y Bob, y Eve no tiene información: en este caso, los <span class="math notranslate nohighlight">\(N\)</span> bit secretos de la clave bruta ya son la clave secreta. Sin embargo, si hay errores, Alice y Bob tienen que corregirlos y borrar la información que Eve podría haber obtenido. Ambas tareas pueden realizarse mediante la comunicación en el canal clásico, por lo que esta parte del protocolo se denomina <b>postprocesamiento clásico</b>. Al final de este procesamiento, Alice y Bob comparten una clave realmente secreta o nada en absoluto (si la información de Eve era demasiado grande).</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Véase que las comunicaciones por el canal clásico no tiene porque estar encriptadas, pues aunque Eve conozca esa información no le servirá para romper el protocolo.</p>
+</div>
+</section>
+<section id="sar04">
+<h3>SAR04<a class="headerlink" href="#sar04" title="Permalink to this heading">#</a></h3>
+<p>El protocolo SARG04 <span class="xref myst">[60]</span>,<span class="xref myst">[61]</span> utiliza los mismos cuatro estados Ec. (\ref{ec_QKD_estados_BB84_xy}) y las mismas medidas en el lado de Bob que BB84, pero el bit se codifica en la base en lugar de en el estado (la base <span class="math notranslate nohighlight">\(X\)</span> codifica para 0 y la base <span class="math notranslate nohighlight">\(Y\)</span> codifica para 1). Bob tiene que elegir sus bases con probabilidad 1/2.</p>
+<p>La creación de la clave en bruto es ligeramente más complicada que en BB84. Supongamos por definición que Alice envía <span class="math notranslate nohighlight">\(\ket{+x}\)</span>: en ausencia de errores tenemos que:</p>
+<ul class="simple">
+<li><p>si Bob mide <span class="math notranslate nohighlight">\(X\)</span>, obtiene <span class="math notranslate nohighlight">\(s_b = +\)</span></p></li>
+<li><p>si Bob mide <span class="math notranslate nohighlight">\(Y\)</span>, puede obtener ambos <span class="math notranslate nohighlight">\(s_b= +/-\)</span> con igual probabilidad</p></li>
+</ul>
+<p>Alice sin embargo, como ha enviado ella el estado sabe que <span class="math notranslate nohighlight">\(s_a = +\)</span>. En la fase de criba, Bob revela <span class="math notranslate nohighlight">\(s_b\)</span>; Alice le dice que acepte si había preparado un estado con <span class="math notranslate nohighlight">\(s_a \neq s_b\)</span>, en cuyo caso Bob acepta el bit correspondiente a la base que no ha utilizado. La razón está clara en el ejemplo anterior: en ausencia de errores, <span class="math notranslate nohighlight">\(s_b= -\)</span> señala la base equivocada.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (Ejemplo con <span class="math notranslate nohighlight">\(\ket{-x}\)</span>)</p>
+<p>Si Alice envía <span class="math notranslate nohighlight">\(\ket{-x}\)</span> ella tiene que <span class="math notranslate nohighlight">\(s_a = -\)</span>. Sin embargo, Bob tiene los casos:</p>
+<ul class="simple">
+<li><p>si Bob mide <span class="math notranslate nohighlight">\(X\)</span>, obtiene <span class="math notranslate nohighlight">\(s_b = -\)</span></p></li>
+<li><p>si Bob mide <span class="math notranslate nohighlight">\(Y\)</span>, puede obtener ambos <span class="math notranslate nohighlight">\(s_b= +/-\)</span> con igual probabilidad</p></li>
+</ul>
+<p>En este caso, lo que señala que Bob ha medido en la base equivocada es que obtenga <span class="math notranslate nohighlight">\(s_b = +\)</span>.</p>
+</div>
+<p>SARG04 se inventó para implementaciones con fuentes láser atenuadas porque es más robusto que BB84 contra los <b>ataques PNS</b>. Se ha demostrado la seguridad incondicional de este algoritmo (ver <span class="xref myst">[39]</span>).</p>
+</section>
+<section id="otros-protocolos-de-variable-discreta">
+<h3>Otros protocolos de variable discreta<a class="headerlink" href="#otros-protocolos-de-variable-discreta" title="Permalink to this heading">#</a></h3>
+<p>Se ha propuesto un gran número de otros protocolos de variables discretas; todos ellos tienen características que los hacen menos interesantes para la QKD práctica que BB84 o SARG04.El protocolo de seis estados <span class="xref myst">[62]</span>,<span class="xref myst">[63]</span> sigue la misma estructura que BB84, al que añade la tercera base Z mutuamente insesgada definida por la matriz de Pauli <span class="math notranslate nohighlight">\(\sigma_z\)</span>. Su seguridad incondicional se demostró bastante pronto <span class="xref myst">[64]</span>. El interés de este protocolo reside en el hecho de que la estimación del canal se vuelve “tomográficamente completa”, es decir, los parámetros medidos caracterizan completamente el canal. Como consecuencia, se puede tolerar más ruido que con los protocolos BB84 o SARG04. Sin embargo, el ruido es bastante bajo en las configuraciones ópticas, mientras que las pérdidas son más preocupantes. En este sentido, el protocolo de seis estados funciona peor porque requiere componentes ópticos con pérdidas adicionales. Consideraciones similares se aplican a la versión de seis estados de la codificación SARG04.</p>
+<p>Por último, mencionamos el protocolo B92 <span class="xref myst">[45]</span>, que utiliza sólo dos estados no ortogonales, cada uno de los cuales codifica un valor de bit. En términos de codificación, ésta es obviamente la posibilidad más económica. Desafortunadamente, B92 es un protocolo bastante sensible: como se observó en el artículo original, este protocolo es seguro sólo si alguna otra señal (por ejemplo, un pulso de referencia fuerte) está presente junto con los dos estados que codifican el bit. Se ha demostrado la seguridad incondicional de las implementaciones monofotónicas <span class="xref myst">[65]</span>,<span class="xref myst">[66]</span> y de algunas implementaciones con un pulso de referencia fuerte <span class="xref myst">[67]</span>,<span class="xref myst">[68]</span>.</p>
+</section>
+</section>
+<section id="protocolos-de-variable-continua">
+<span id="subsec-qkd-continua"></span><h2>Protocolos de variable continua<a class="headerlink" href="#protocolos-de-variable-continua" title="Permalink to this heading">#</a></h2>
+<p>La codificación de variables discretas puede aplicarse con varias fuentes, pero requiere técnicas de recuento de fotones. Se ha sugerido un enfoque alternativo a la QKD, en el que los contadores de fotones se sustituyen por fotodiodos <span class="math notranslate nohighlight">\(p\)</span>-<span class="math notranslate nohighlight">\(i\)</span>-<span class="math notranslate nohighlight">\(n\)</span> estándar de telecomunicaciones, que son más rápidos (gigahercios en lugar de megahercios) y más eficientes (normalmente el 80% en lugar del 10%). Los esquemas de medición correspondientes se basan entonces en la <b>detección homodina</b> e implican la medición de datos que son amplitudes reales en lugar de eventos discretos; de ahí que estos esquemas se denominen QKD de variable continua (<b>CV</b>).</p>
+<p>Las primeras propuestas que sugieren el uso de la detección homodina en QKD se deben a Ralph <span class="xref myst">[48]</span>, Hillery <span class="xref myst">[49]</span> y Reid <span class="xref myst">[54]</span>. En particular, una versión de <b>estado estrangulado</b> (<i>squeezed-state</i>) de BB84 fue propuesta por <span class="xref myst">[49]</span>, donde la elección de base de Alice consiste en seleccionar si el estado de luz enviado a Bob está estrangulado en la <b>cuadratura</b> <span class="math notranslate nohighlight">\(q = x\)</span> o <span class="math notranslate nohighlight">\(q = p\)</span>. A continuación, este q-squeezed state se desplaza en <span class="math notranslate nohighlight">\(q\)</span> en <span class="math notranslate nohighlight">\(+c\)</span> o <span class="math notranslate nohighlight">\(-c\)</span> dependiendo de un bit aleatorio elegido por Alice, donde <span class="math notranslate nohighlight">\(c\)</span> es una constante elegida apropiadamente. La base aleatoria elegida por Bob define si lo que se mide es la cuadratura <span class="math notranslate nohighlight">\(x\)</span> o <span class="math notranslate nohighlight">\(p\)</span>. La criba consiste simplemente en conservar sólo los casos en los que las cuadraturas elegidas por Alice y Bob coinciden. En este caso, el valor medido por Bob se distribuye según una distribución gaussiana centrada en el valor (<span class="math notranslate nohighlight">\(+c\)</span> o <span class="math notranslate nohighlight">\(-c\)</span>) enviado por Alice. En cierto sentido, este protocolo puede considerarse “híbrido” porque los datos de Alice son binarios mientras que los de Bob son reales (con distribución gaussiana).</p>
+<p>Estas primeras propuestas y su generalización directa se denominan <b>protocolos CV con modulación discreta</b>; al mismo tiempo, se propuso otra clase de protocolos CV que utilizan en su lugar una <b>modulación continua</b>, en particular una modulación gaussiana. Aunque los protocolos CV son mucho más recientes que los protocolos de variable discreta, sus pruebas de seguridad no han dejado de progresar en los últimos años y ahora están a punto de alcanzar un nivel comparable (ver <span class="xref myst">[39]</span>).</p>
+<section id="squeezed-states-y-cuadraturas">
+<h3>Squeezed-states y cuadraturas<a class="headerlink" href="#squeezed-states-y-cuadraturas" title="Permalink to this heading">#</a></h3>
+<p>En el contexto de la óptica cuántica y la mecánica cuántica, un “estado estrangulado” (squeezed-states) se refiere a un estado cuántico específico de la luz (normalmente radiación electromagnética, como la luz láser) con algunas propiedades únicas. Los squeezed-states se caracterizan por la reducción de la incertidumbre en una de las dos propiedades complementarias del campo luminoso, a menudo denominadas <b>cuadraturas</b>. Los conceptos clave son los siguientes:</p>
+<ol class="arabic simple">
+<li><p><b>Cuadraturas</b>:</p>
+<ul class="simple">
+<li><p>En óptica cuántica, la luz puede describirse mediante dos propiedades u observables complementarias: la <b>posición</b> (<span class="math notranslate nohighlight">\(x\)</span>) y el <b>momento</b> (<span class="math notranslate nohighlight">\(p\)</span>). Se denominan variables conjugadas y representan direcciones ortogonales en el espacio de fases del sistema cuántico.</p></li>
+<li><p>El principio de incertidumbre, formulado por Heisenberg, establece que existe un límite fundamental en cuanto a la precisión con la que pueden conocerse simultáneamente la posición y el momento de una partícula cuántica (o, en este caso, un fotón en un campo luminoso). En otras palabras, no se pueden conocer con precisión ambas propiedades simultáneamente.</p></li>
+</ul>
+</li>
+<li><p><b>Squeezed-state</b>:</p>
+<ul class="simple">
+<li><p>Un squeezed-state es un estado cuántico de la luz en el que la incertidumbre (desviación típica) en una de las cuadraturas (<span class="math notranslate nohighlight">\(x\)</span> o <span class="math notranslate nohighlight">\(p\)</span>) se reduce por debajo del límite de incertidumbre de Heisenberg.</p></li>
+<li><p>Cuando un estado se “estruja” en una cuadratura concreta, significa que las mediciones de esa propiedad se hacen más precisas, pero a costa de aumentar la incertidumbre en la cuadratura complementaria.</p></li>
+</ul>
+</li>
+</ol>
+<p>Por ejemplo, si se tiene un squeezed-state en la cuadratura de posición (<span class="math notranslate nohighlight">\(x\)</span>), significa que se reduce la incertidumbre en la medición de la posición, lo que permite realizar mediciones de posición más precisas. Sin embargo, esto tiene el coste de aumentar la incertidumbre en la cuadratura del momento (<span class="math notranslate nohighlight">\(p\)</span>). A la inversa, si el estado está comprimido en la cuadratura de momento (<span class="math notranslate nohighlight">\(p\)</span>), permite mediciones de momento más precisas a expensas de la incertidumbre de posición.</p>
+</section>
+<section id="deteccion-homodina">
+<h3>Detección homodina<a class="headerlink" href="#deteccion-homodina" title="Permalink to this heading">#</a></h3>
+<p>La QKD de variación continua se basa en la medición de los componentes de cuadratura de la luz. Esto puede hacerse cómodamente mediante detección óptica homodina. Este esquema de detección utiliza dos haces de la misma frecuencia: la señal y el llamado oscilador local (LO), mucho más fuerte y, por tanto, a menudo tratado como clásico. Los haces se superponen en un divisor de haz equilibrado. La intensidad de la luz en cada uno de los modos de salida se mide con detectores proporcionales y se registra la diferencia entre las fotocorrientes resultantes. Si la amplitud y la fase del oscilador local son estables, la corriente diferencial transporta información sobre un componente en cuadratura de la señal de entrada.</p>
+<p>Las intensidades se miden mediante diodos <span class="math notranslate nohighlight">\(p\)</span>-<span class="math notranslate nohighlight">\(i\)</span>-<span class="math notranslate nohighlight">\(n\)</span>, que proporcionan una alta eficiencia de detección (normalmente el 80%) y un ruido relativamente bajo. Por tanto, la detección homodina podría funcionar en principio a velocidades de repetición de gigahercios, a diferencia de los contadores de fotones basados en APD, cuya velocidad de detección está limitada por el tiempo muerto del detector.</p>
+<p>Desgraciadamente, el uso de una técnica de detección homodina de tan alta velocidad tiene un precio. Debido al principio de incertidumbre, la medición de cuadraturas complementarias es intrínsecamente ruidosa. El ruido de vacío (o ruido intrínseco) es el ruido que se obtiene cuando hay vacío en el puerto de señal (sólo está presente el oscilador local). Ahora bien, las inevitables pérdidas de transmisión en la línea óptica, que simplemente causan “clics perdidos” en los esquemas basados en el recuento de fotones, provocan una disminución de la relación señal/ruido en los esquemas basados en la detección homodina. El ruido del vacío es responsable de un ruido añadido bastante significativo en la QKD de variación continua, que debe corregirse durante la etapa clásica de postprocesamiento: un esfuerzo informático adicional en la QKD de variación continua.</p>
+</section>
+</section>
+<section id="protocolos-distributed-phase-reference">
+<span id="subsec-qkd-phase"></span><h2>Protocolos Distributed-phase-reference<a class="headerlink" href="#protocolos-distributed-phase-reference" title="Permalink to this heading">#</a></h2>
+<p>Tanto los protocolos de variable discreta como los de variable continua fueron inventados por teóricos. Algunos grupos experimentales, en sus desarrollos hacia sistemas QKD prácticos, han concebido nuevos protocolos, que no encajan en las categorías anteriores. En ellos, al igual que en los protocolos de variable discreta, las claves brutas están formadas por realizaciones de una variable discreta (un bit) y ya están perfectamente correlacionadas en ausencia de errores. Sin embargo, el canal cuántico se controla utilizando las propiedades de los estados coherentes, más concretamente, observando la coherencia de fase de los impulsos subsiguientes; de ahí el nombre de protocolos distributed-phase-reference.</p>
+<p>El primer protocolo de este tipo se ha denominado desplazamiento de fase diferencial (DPS) <span class="xref myst">[55]</span>,<span class="xref myst">[56]</span>. Alice produce una secuencia de estados coherentes de la misma intensidad,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-913f805d-8349-4513-886a-2011cbe76ae1">
+<span class="eqno">(739)<a class="headerlink" href="#equation-913f805d-8349-4513-886a-2011cbe76ae1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{ \Psi (S_n)} = \cdots \ket{e^{i \varphi_{k-1}} \sqrt{\mu}} \ket{e^{i \varphi_k} \sqrt{\mu}} \ket{e^{i \varphi_{k+1}} \sqrt{\mu}} \cdots
+\end{equation}\]</div>
+<p>donde cada fase puede fijarse en <span class="math notranslate nohighlight">\(\varphi = 0\)</span> o <span class="math notranslate nohighlight">\(\pi\)</span> (ver Fig. \ref{Fig_QKD_DFR}). Los bits se codifican en la diferencia entre dos fases sucesivas: <span class="math notranslate nohighlight">\(b_k = 0\)</span> si <span class="math notranslate nohighlight">\(e^{i \varphi_k} = e^{i \varphi_{k+1}}\)</span> y <span class="math notranslate nohighlight">\(b_k = 1\)</span> en caso contrario. Esto puede discriminarse inequívocamente utilizando un interferómetro desequilibrado. La complejidad en el análisis de este protocolo radica en que el k-ésimo pulso contribuye tanto al k-ésimo como al (k + 1)-ésimo bit. El protocolo DPS ya ha sido objeto de varios experimentos <span class="xref myst">[69]</span>,<span class="xref myst">[70]</span>,<span class="xref myst">[71]</span></p>
+<figure class="align-center" id="fig-qkd-dfr">
+<a class="reference internal image-reference" href="../../../_images/Fig_QKD_DFR.png"><img alt="../../../_images/Fig_QKD_DFR.png" src="../../../_images/Fig_QKD_DFR.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 95 </span><span class="caption-text">Dos formas de implementar el protocolo distributed-phase-reference: desplazamiento de fase diferencial (DPS, arriba) y coherente unidireccional (COW, abajo). Leyenda: PM, modulador de fase; IM, modulador de intensidad. Figura tomada de <span class="xref myst">[39]</span></span><a class="headerlink" href="#fig-qkd-dfr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En el protocolo denominado coherent one way (COW) <span class="xref myst">[58]</span>,<span class="xref myst">[57]</span>, cada bit se codifica en una secuencia de un impulso no vacío y otro vacío,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cf772b10-b2c4-4928-82b1-e85ad5227259">
+<span class="eqno">(740)<a class="headerlink" href="#equation-cf772b10-b2c4-4928-82b1-e85ad5227259" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{0}_k = \ket{\sqrt{\mu}}_{2k+1} \ket{0}_{2k}, \hspace{2cm}
+\ket{1}_k = \ket{0}_{2k+1} \ket{\sqrt{\mu}}_{2k}.
+\end{equation}\]</div>
+<p>Estos dos estados pueden discriminarse inequívocamente de forma óptima midiendo el tiempo de llegada (ver Fig. \ref{Fig_QKD_DFR}).</p>
+<p>Tanto DPS como COW son esquemas P&amp;M, adaptados para fuentes láser. Aún no ha sido posible derivar un límite para la seguridad incondicional\footnote{Esta afirmación es a fecha del 2009, pues el paper en que se basa esta sección <span class="xref myst">[39]</span> data de esa fecha} porque las técnicas existentes sólo se aplican cuando <span class="math notranslate nohighlight">\(\ket{\Psi (S_n)}\)</span> puede descomponerse en señales independientes.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_04/Chapter_020_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_002_fundamentos_de_qkd_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fundamentos de QKD</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Chapter_Bibliografia_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliografía</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-de-variable-discreta">Protocolos de variable discreta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bb84-bbm">BB84-BBM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sar04">SAR04</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-protocolos-de-variable-discreta">Otros protocolos de variable discreta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-de-variable-continua">Protocolos de variable continua</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#squeezed-states-y-cuadraturas">Squeezed-states y cuadraturas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-homodina">Detección homodina</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolos-distributed-phase-reference">Protocolos Distributed-phase-reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

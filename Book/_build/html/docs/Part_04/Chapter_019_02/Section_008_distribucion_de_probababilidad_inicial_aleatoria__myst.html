@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Distribución de probababilidad inicial aleatoria &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Implementaciones con qiskit." href="Section_009_implementaciones_con_qiskit_myst.html" />
+    <link rel="prev" title="Consideraciones sobre la implementacion" href="Section_007_consideraciones_sobre_la_implementacion__myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Distribución de probababilidad inicial aleatoria</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo">Algoritmo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-las-amplitudes-m-soluciones">Evolución de las amplitudes (<span class="math notranslate nohighlight">\(M\)</span> soluciones)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivacion-de-las-ecuaciones-diferenciales">Derivación de las ecuaciones diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soluciones-de-las-ecuaciones-diferenciales">Soluciones de las ecuaciones diferenciales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-las-soluciones-probabilidad-de-acierto">Propiedades de las soluciones: Probabilidad de acierto.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-las-amplitudes-en-funcion-de-la-evolucion-de-las-medias">Evolución de las amplitudes en función de la evolución de las medias.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-de-acierto">Probabilidad de acierto.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-optimo-t-de-iteraciones">Número optimo, <span class="math notranslate nohighlight">\(T\)</span>, de iteraciones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casos-particulares">Casos particulares.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad-desconocida">Distribución de probabilidad desconocida.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-la-seccion">Resumen de la sección.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 9 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="distribucion-de-probababilidad-inicial-aleatoria">
+<span id="sec-arbitrary-distribition"></span><h1>Distribución de probababilidad inicial aleatoria<a class="headerlink" href="#distribucion-de-probababilidad-inicial-aleatoria" title="Permalink to this heading">#</a></h1>
+<p>En esta sección vamos a ver una generalización del algoritmo de Grover para el caso en el que partimos de una distribución de probabilidad aleatoria (no uniforme). Veremos como este algoritmo generalizado sigue requiriendo un número de iteraciones <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span>, aunque veremos también que hay ciertos casos particularmente desfavorables donde no podemos encontrar ninguna solución.</p>
+<p>Este caso es de especial interés si tenemos en cuenta que muchas veces hay errores al aplicar las puertas. De esta forma, podemos tener errores en el paso de inicialización de la distribución uniforme y acabar con una distribución que se distancia un poco de esta. Como veremos a continuación, el algoritmo de Grover sigue funcionando en presencia de estos errores modestos.</p>
+<p>En la siguientes subsecciones presentaremos el algoritmo y derivaremos las ecuaciones diferenciales que rigen la evolución de las amplitudes. Usaremos la solución (exacta) de las mismas para calcular la probabilidad de éxito y analizaremos la diferente casuística. Como el cálculo, aunque simple, puede hacerse pesado, se incluye al final un resumen de con las conclusiones importantes (sección \ref{sec_prop-no-uni_resumen}).</p>
+<section id="algoritmo">
+<h2>Algoritmo<a class="headerlink" href="#algoritmo" title="Permalink to this heading">#</a></h2>
+<p>En realidad, el algoritmo no tiene ningún misterio. Consiste simplemente en saltarse al paso de la inicialización con las puertas de Hadammard y partir del estado con una distribución aleatoria:</p>
+<ol class="arabic simple">
+<li><p>Utilizar cualquier distribución inicial, por ejemplo, el estado final de cualquier otro algoritmo cuántico (no inicializar el sistema con la distribución uniforme).</p></li>
+<li><p>Aplicar el operador de Grover <span class="math notranslate nohighlight">\(T\)</span> veces (calcularemos <span class="math notranslate nohighlight">\(T\)</span>). El operador de Grover al que nos referimos aquí es el mismo de las anteriores secciones (con la Walsh-Hadammard o con una trasformación de la forma (\ref{ec_N-no-2n_T})). No cambia nada en ese sentido.</p></li>
+<li><p>Medir el resultado</p></li>
+</ol>
+</section>
+<section id="evolucion-de-las-amplitudes-m-soluciones">
+<span id="subsec-prop-no-uni-ecuaciones-diff"></span><h2>Evolución de las amplitudes (<span class="math notranslate nohighlight">\(M\)</span> soluciones)<a class="headerlink" href="#evolucion-de-las-amplitudes-m-soluciones" title="Permalink to this heading">#</a></h2>
+<p>Analicemos la evolución de las amplitudes en el algoritmo modificado. Supongamos (como siempre) que tenemos <span class="math notranslate nohighlight">\(N\)</span> estados y <span class="math notranslate nohighlight">\(M\)</span> soluciones. Asumamos, sin perdida de generalidad, que <span class="math notranslate nohighlight">\(0 \leq M \leq N/2\)</span>. El estado total ahora será de la forma</p>
+<div class="math notranslate nohighlight" id="equation-ec-prob-no-uni-phi-j">
+<span class="eqno">(707)<a class="headerlink" href="#equation-ec-prob-no-uni-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{|\Psi(t) \rangle = \sum_{i \in \omega} k_i(t) |i \rangle + \sum_{i \in \omega^\perp} l_i(t) |i \rangle }.
+\end{equation} \]</div>
+<p>Nótese que ahora las amplitudes tenemos un índices <span class="math notranslate nohighlight">\(i\)</span> que corresponde al estado al que acompañan. Esto es fácil de entender: como la distribución de partida ahora no es uniforme, cada estado tendrá su amplitud. Las medias de las amplitudes de los estados solución (<span class="math notranslate nohighlight">\(i \in \omega\)</span>) y no solución (<span class="math notranslate nohighlight">\(i \in \omega^\perp\)</span>) son</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-k-l-mean">
+<span class="eqno">(708)<a class="headerlink" href="#equation-ec-prop-no-uni-k-l-mean" title="Permalink to this equation">#</a></span>\[\begin{align} 
+&amp; \boxed{\bar{k}(t) = \frac{1}{M} \sum_{i \in \omega} k_i(t) }
+&amp; \boxed{\bar{l}(t) = \frac{1}{N-M} \sum_{i \in \omega^\perp} l_i(t)}.
+\end{align} \]</div>
+<p>Una de las conclusiones clave del desarrollo que vamos a ver a continuación es que <i>la dinámica dictada por el algoritmo de Grover se puede describir por completo basándose en la dependencia de las medias de las amplitudes con las iteraciones</i>.</p>
+<section id="derivacion-de-las-ecuaciones-diferenciales">
+<h3>Derivación de las ecuaciones diferenciales<a class="headerlink" href="#derivacion-de-las-ecuaciones-diferenciales" title="Permalink to this heading">#</a></h3>
+<p>Comencemos viendo la expresión de la media total de las amplitudes el estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-3a1274a1-6385-4d10-9529-223598e97e28">
+<span class="eqno">(709)<a class="headerlink" href="#equation-3a1274a1-6385-4d10-9529-223598e97e28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bar{\psi}(t) = \frac{1}{N} \lc M \bar{k}(t) + (N-M) \bar{l}(t) \rc,
+\end{equation}\]</div>
+<p>y definamos la cantidad <span class="math notranslate nohighlight">\(C(t)\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e9de57b4-7553-4c26-aa7a-c53b07cdc5cc">
+<span class="eqno">(710)<a class="headerlink" href="#equation-e9de57b4-7553-4c26-aa7a-c53b07cdc5cc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+C(t) = \frac{2}{N} \lc (N-M) \bar{l}(t) - M \bar{k}(t) \rc.
+\end{equation}\]</div>
+<p>Veamos como evolucionan las medias de las amplitudes con cada iteracións:</p>
+<ul class="simple">
+<li><p>Después a aplicar el oráculo sobre el esto <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> lo que sucede es el signo de la amplitud de los estados solución se invierte, con lo que
+{
+\extrarowheight = -0.5ex
+\renewcommand{\arraystretch}{1.75}</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\lch \begin{matrix}
+&amp; \bar{k}(t) \, \rightarrow \, \bar{k^{'}}(t) = -\bar{k}(t) \\
+&amp; \bar{l}(t) \, \rightarrow \, \bar{l^{'}}(t) = \bar{l}(t)
+\end{matrix} \right.
+\rqa
+\overline{U_\omega \psi}(t) = \frac{1}{N} \lc - M\bar{k}(t) + (N-M) \bar{l}(t) \rc = \frac{C(t)}{2}.
+\end{equation*}\]</div>
+<p>}</p>
+<ul class="simple">
+<li><p>Después a aplicar el difusor sobre el esto <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> lo que sucede es una reflexión respecto a la media <span class="math notranslate nohighlight">\(\overline{U_\omega \psi}(t)\)</span>. Esto se pude expresar de la siguiente manera</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-cbee0521-dbcf-4c8e-9a7a-89ebaa84ee4c">
+<span class="eqno">(711)<a class="headerlink" href="#equation-cbee0521-dbcf-4c8e-9a7a-89ebaa84ee4c" title="Permalink to this equation">#</a></span>\[\begin{align}
+{k}^{'}_i(t) \, &amp; \rightarrow \, {k}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {k}^{'}_i(t) =  C(t) - k^{'}_i(t) = \boxed{ C(t) + k_i(t) = k_i(t+1)}  \label{ec_prop-no-uni_k-j+1_i} \\
+{l}^{'}_i(t) \, &amp; \rightarrow \, {l}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {l}^{'}_i(t) = C(t) - l^{'}_i(t) = \boxed{C(t) - l_i(t) = l_i(t+1)}. \label{ec_prop-no-uni_l-j+1_i}
+\end{align}\]</div>
+<p>Promediando</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d35f3d9-b3db-4660-a73c-e15b78cffb54">
+<span class="eqno">(712)<a class="headerlink" href="#equation-6d35f3d9-b3db-4660-a73c-e15b78cffb54" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Aboxed{\bar{k}(t+1) = C_j + \bar{k}(t) } \label{ec_prop-no-uni_k-j+1} \\
+\Aboxed{\bar{l}(t+1) = C_j - \bar{l}(t)}.  \label{ec_prop-no-uni_l-j+1}
+\end{align}\]</div>
+<p>Las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) son las ecuaciones diferenciales que rigen la evolución de la media de las amplitudes.</p>
+</section>
+<section id="soluciones-de-las-ecuaciones-diferenciales">
+<h3>Soluciones de las ecuaciones diferenciales<a class="headerlink" href="#soluciones-de-las-ecuaciones-diferenciales" title="Permalink to this heading">#</a></h3>
+<p>Vamos a resolver de forma analítica las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1})  para ver la evolución exacta de las medias de las amplitudes de los estados solución y no solución. Procedemos a resolver las fórmulas de recursión para condiciones iniciales complejas arbitrarias. Empecemos definiendo las funciones</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fd4813c4-c625-400e-ba44-b181ff918c8a">
+<span class="eqno">(713)<a class="headerlink" href="#equation-fd4813c4-c625-400e-ba44-b181ff918c8a" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Aboxed{&amp; f_{+}(t) = \bar{l}(t) + i \sqrt{\frac{M}{N-M}} \bar{k}(t)} \label{ec_prop-no-uni_f+}\\
+\Aboxed{&amp; f_{-}(t) = \bar{l}(t) - i \sqrt{\frac{M}{N-M}} \bar{k}(t)}. \label{ec_prop-no-uni_f-}
+\end{align}\]</div>
+<p>Vemos que no son más que un <b>cambio de variables</b> para facilitarnos la resolución de las ecuaciones. Empleando este cambio de variables podemos reescribir las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) de la siguiente forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b1641993-2ca6-4509-8e50-8f49a0c923e0">
+<span class="eqno">(714)<a class="headerlink" href="#equation-b1641993-2ca6-4509-8e50-8f49a0c923e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+&amp; f_{+}(t+1) = e^{i \beta} f_{+}(t) \\
+&amp; f_{-}(t+1) = e^{- i \beta} f_{-}(t),
+\end{align}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\beta\)</span> es <b>real</b> y cumple</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-ini-beta">
+<span class="eqno">(715)<a class="headerlink" href="#equation-ec-prop-no-ini-beta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{\cos \beta = 1 - 2 \frac{M}{N}}.
+\end{equation} \]</div>
+<p>Vemos que ahora la solución de las ecuaciones es trivial:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-11d83ba5-3bdc-4219-8441-c295b2f13d67">
+<span class="eqno">(716)<a class="headerlink" href="#equation-11d83ba5-3bdc-4219-8441-c295b2f13d67" title="Permalink to this equation">#</a></span>\[\begin{align}
+&amp; f_{+}(t) = e^{i \beta t} f_{+}(0) \\
+&amp; f_{-}(t) = e^{-i \beta t} f_{-}(0).
+\end{align}\]</div>
+<p>Vemos claramente que <span class="math notranslate nohighlight">\(| f_{+}(0) |\)</span> y <span class="math notranslate nohighlight">\(|f_{-}(0)|\)</span> son independientes de la iteración <span class="math notranslate nohighlight">\(t\)</span> en la que estemos. Podemos ahora deshacer el cambio de variable</p>
+<div class="amsmath math notranslate nohighlight" id="equation-525856d5-b982-413a-8aad-fcd607af09c0">
+<span class="eqno">(717)<a class="headerlink" href="#equation-525856d5-b982-413a-8aad-fcd607af09c0" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Aboxed{\bar{k}(t) &amp; = - i \sqrt{\frac{N-M}{4M}} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc}  \label{ec_prop-no-uni_sol_k} \\
+\Aboxed{\bar{l}(t) &amp; = \frac{1}{2} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc }.  \label{ec_prop-no-uni_sol_l}
+\end{align}\]</div>
+</section>
+</section>
+<section id="propiedades-de-las-soluciones-probabilidad-de-acierto">
+<h2>Propiedades de las soluciones: Probabilidad de acierto.<a class="headerlink" href="#propiedades-de-las-soluciones-probabilidad-de-acierto" title="Permalink to this heading">#</a></h2>
+<section id="evolucion-de-las-amplitudes-en-funcion-de-la-evolucion-de-las-medias">
+<h3>Evolución de las amplitudes en función de la evolución de las medias.<a class="headerlink" href="#evolucion-de-las-amplitudes-en-funcion-de-la-evolucion-de-las-medias" title="Permalink to this heading">#</a></h3>
+<p>Lo primero que vamos a hacer es ver que, efectivamente, solo con la evolución de las medias podemos describir la evolución.
+Para ello, restemos a la Ec. (\ref{ec_prop-no-uni_k-j+1_i}) la Ec. (\ref{ec_prop-no-uni_k-j+1}) y a la Ec. (\ref{ec_prop-no-uni_l-j+1_i}) restémosle la Ec. (\ref{ec_prop-no-uni_l-j+1})</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+k_i(t+1) - \bar{k}(t+1) &amp; = k_i(t) - \bar{k}(t) \\
+l_i(t+1) - \bar{l}(t+1) &amp; = - \lc l_i(t) - \bar{l}(t) \rc.
+\end{align*}\]</div>
+<p>Esto significa que las cantidades</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e89721ac-487e-46a0-9813-9473f9f1d238">
+<span class="eqno">(718)<a class="headerlink" href="#equation-e89721ac-487e-46a0-9813-9473f9f1d238" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Delta k_i &amp; \equiv k_i(0) - \bar{k}(0) \\
+\Delta l_i &amp; \equiv l_i(0) - \bar{l}(0)
+\end{align}\]</div>
+<p>son <i>constantes del movimiento</i>. Esto nos permite simplificar las expresiones para la dependencia temporal de las amplitudes:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fad4614f-3bef-4cc3-8ac7-5c01b749cd94">
+<span class="eqno">(719)<a class="headerlink" href="#equation-fad4614f-3bef-4cc3-8ac7-5c01b749cd94" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Aboxed{k_i(t) &amp; = \bar{k}(t) + \Delta k_i} \label{ec_prop-no-uni_k-delta}\\
+\Aboxed{l_i(t) &amp; = \bar{l}(t) + (-1)^t \Delta l_i}. \label{ec_prop-no-uni_l-delta}
+\end{align}\]</div>
+<p>Vemos que  la distribución de las amplitudes de los estados solución <span class="math notranslate nohighlight">\(k_i(t)\)</span> respecto a su medias <span class="math notranslate nohighlight">\(\bar{k}(t)\)</span> es constante. Es decir, las amplitudes varían al unísono entorno a la medias. De esta forma, con saber las distribución inicial respecto a las medía (<span class="math notranslate nohighlight">\(\Delta k_i\)</span>) podemos describir la evolución de las amplitudes solo conociendo la evolución de las medias. Lo mismo sucede para los estados no solución <span class="math notranslate nohighlight">\(l_i(t)\)</span>, salvo que estos se invierten entorno a su media en cada iteración.</p>
+<p>De las Ecs. (\ref{ec_prop-no-uni_k-delta}) y (\ref{ec_prop-no-uni_l-delta}) se ve inmediatamente que las varianzas</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sigma_k^2 (t) &amp; = \frac{1}{M} \sum_{i \in \omega} |k_i(t) - \bar{k}(t)|^2   \\
+\sigma_l^2 (t) &amp; = \frac{1}{N-M} \sum_{i \in \omega^\perp} |l_i(t) - \bar{l}(t)|^2
+\end{align*}\]</div>
+<p>son independientes del tiempo [<span class="math notranslate nohighlight">\(\sigma_k^2 (t) = \sigma_k^2 (0)\)</span> y <span class="math notranslate nohighlight">\(\sigma_l^2 (t)=\sigma_l^2 (0)\)</span> <span class="math notranslate nohighlight">\( \forall t\)</span>].</p>
+</section>
+<section id="probabilidad-de-acierto">
+<span id="subsec-prop-no-uni-pt"></span><h3>Probabilidad de acierto.<a class="headerlink" href="#probabilidad-de-acierto" title="Permalink to this heading">#</a></h3>
+<p>Para facilitar el análisis de las soluciones, definamos las variables (complejas) <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\phi\)</span> de la forma</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-alpha-phi">
+<span class="eqno">(720)<a class="headerlink" href="#equation-ec-prop-no-uni-alpha-phi" title="Permalink to this equation">#</a></span>\[\begin{align} 
+&amp; \alpha = \sqrt{f_{+}(0) f_{-}(0)},
+&amp; e^{2i\phi} = f_{+}(0)/f_{-}(0).
+\end{align} \]</div>
+<p>Reescribamos las Ecs. (\ref{ec_prop-no-uni_sol_k}) y (\ref{ec_prop-no-uni_sol_l}) en función de estas variables</p>
+<div class="amsmath math notranslate nohighlight" id="equation-16e09a53-fbe8-431c-954c-87b1673fdd4d">
+<span class="eqno">(721)<a class="headerlink" href="#equation-16e09a53-fbe8-431c-954c-87b1673fdd4d" title="Permalink to this equation">#</a></span>\[\begin{align}
+\Aboxed{\bar{k}(t) &amp; = \sqrt{\frac{N-M}{M}} \alpha \sin ( \beta t + \phi)}  \label{ec_prop-no-uni_sol_k-2} \\
+\Aboxed{\bar{l}(t) &amp; = \alpha \cos (\beta t + \phi)} \label{ec_prop-no-uni_sol_l-2}
+\end{align}\]</div>
+<p>Esto nos permite ver que hay una diferencia de fase de <span class="math notranslate nohighlight">\(\pi/2\)</span> entre las medias de las amplitudes de los estados solución y los no solución. Se ve fácilmente que cuando una es máxima, la otra es mínima.</p>
+<p>La probabilidad de medir alguno de los estados solución será <span class="math notranslate nohighlight">\(P(t) = \sum_{i \in \omega} |k_i(t)|^2\)</span>. Como todos los operadores son unitarios, las amplitudes cumplen la condición de normalización:</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-unitaridad">
+<span class="eqno">(722)<a class="headerlink" href="#equation-ec-prop-no-uni-unitaridad" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\sum_{i \in \omega} |k_i(t)|^2 + \sum_{i \in \omega^\perp} |l_i(t)|^2 = 1 \quad \forall t
+\end{equation} \]</div>
+<p>Usando la identidad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-035f89f4-27ba-4f46-862b-e733a20385d0">
+<span class="eqno">(723)<a class="headerlink" href="#equation-035f89f4-27ba-4f46-862b-e733a20385d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\overline{(y-\bar{y})^2} = \overline{y^2} - \bar{y}^2 \rqa \sigma_y^2 = \overline{y^2} - \bar{y}^2
+\rqa  \overline{y^2} = \sigma_y^2  + \bar{y}^2
+\end{equation}\]</div>
+<p>podemos escribir</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\overline{|k_i(t)|^2} = \frac{1}{M} \sum_{i \in \omega} |k_i (t) |^2 = \sigma_k^2 + |\bar{k}(t)|^2 \\
+\overline{|l_i(t)|^2} = \frac{1}{N-M} \sum_{i \in \omega} |l_i (t) |^2 = \sigma_l^2 + |\bar{l}(t)|^2
+\end{align*}\]</div>
+<p>Despejando <span class="math notranslate nohighlight">\(\sum_{i \in \omega} |k_i(t)|^2\)</span> en (\ref{ec_prop-no-uni_unitaridad}), sustituyendo en <span class="math notranslate nohighlight">\(P(t)\)</span>, usando la expresión anterior de <span class="math notranslate nohighlight">\(\sum_{i \in \omega} |l_i (t) |^2 \)</span> y desarrollando con cuidado, puede verse que</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-pt">
+<span class="eqno">(724)<a class="headerlink" href="#equation-ec-prop-no-uni-pt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{P(t) = P_{av} - \Delta P \cos 2\lc \beta t + \text{Re}(\phi) \rc ,}
+\end{equation} \]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; P_{av} = 1- (N-M) \sigma_l^2 - \frac{1}{2} \Lc (N-r) |\bar{l}(0)|^2 + r |\bar{k}(0)|^2 \Rc \\
+&amp; \Delta P = \frac{1}{2} \Bigl| (N-M) \bar{l}(0)^2 + M \bar{k}(0)^2 \Bigr|
+\end{align*}\]</div>
+</section>
+<section id="numero-optimo-t-de-iteraciones">
+<span id="subsec-prop-no-uni-t"></span><h3>Número optimo, <span class="math notranslate nohighlight">\(T\)</span>, de iteraciones.<a class="headerlink" href="#numero-optimo-t-de-iteraciones" title="Permalink to this heading">#</a></h3>
+<p>El valor máximo de la probabilidad que se puede obtener durante la evolución del algoritmo es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9aa46405-d2b5-475f-b218-98b849bb2edd">
+<span class="eqno">(725)<a class="headerlink" href="#equation-9aa46405-d2b5-475f-b218-98b849bb2edd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_{max}=P_{av} + \Delta P
+\end{equation}\]</div>
+<p>Dada una distribución arbitraria inicial de <span class="math notranslate nohighlight">\(M\)</span> estados solución y <span class="math notranslate nohighlight">\(N-M\)</span> estados no solución, con medias <span class="math notranslate nohighlight">\(\bar{k}(0)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(0)\)</span> respectivamente, el valor máximo de la probabilidad <span class="math notranslate nohighlight">\(P_{max}\)</span> se alcanzará cuando realicemos <span class="math notranslate nohighlight">\(T\)</span> iteraciones tal que</p>
+<div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-t">
+<span class="eqno">(726)<a class="headerlink" href="#equation-ec-prop-no-uni-t" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\cos 2 \lc \beta T + \text{Re} (\phi) \rc = -1 \rqa
+\boxed{T = \lc (u + 1/2)  \pi - \text{Re} (\phi) \rc/\beta}
+\end{equation} \]</div>
+<p>con <span class="math notranslate nohighlight">\(u = 0,1,2,\dots\)</span>. Una importante conclusión es que para determinar el valor óptimo de iteraciones, todo lo que necesitamos es conocer <i>las medias iniciales de las amplitudes y el número de estados marcados</i>.</p>
+<p>Si <span class="math notranslate nohighlight">\(M\)</span> es pequeño tenemos que <span class="math notranslate nohighlight">\(1-2M/N \approx 1\)</span>, así que podemos aproximar <span class="math notranslate nohighlight">\(\beta\)</span> a segundo orden en la Ec. (\ref{ec_prop-no-ini_beta})</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4aa13aa1-9bf7-47e1-ade6-07694890e009">
+<span class="eqno">(727)<a class="headerlink" href="#equation-4aa13aa1-9bf7-47e1-ade6-07694890e009" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\cos \beta \approx 1 - \frac{1}{2} \beta^2 = 1- 2 \frac{M}{N} \rqa \beta = 2 \sqrt{\frac{M}{N}}
+\end{equation}\]</div>
+<p>Así que tenemos que <span class="math notranslate nohighlight">\(T\)</span> es del orden de <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> (para <span class="math notranslate nohighlight">\(u=0\)</span>).</p>
+</section>
+<section id="casos-particulares">
+<span id="subsec-prop-no-uni-casos-particulares"></span><h3>Casos particulares.<a class="headerlink" href="#casos-particulares" title="Permalink to this heading">#</a></h3>
+<p>El valor máximo de la probabilidad puede variar mucho dependiendo de las propiedades estáticas (medias y varianzas) de las distribución inicial de amplitudes. Como es lógico, cuanto mayor sea <span class="math notranslate nohighlight">\(P_{max}\)</span> menos repeticiones del algoritmo tendremos que hacer para encontrar una solución (donde cada repetición son <span class="math notranslate nohighlight">\(m\)</span> iteraciones). Es fácil darse cuenta de que el número esperado de repeticiones del algoritmo hasta encontrar un estado solución es <span class="math notranslate nohighlight">\(1/P_{max}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Porque <i>repeticiones del algoritmo</i>? En el parágrafo anterior llamamos repeticiones del algoritmo a realizar varias veces las <span class="math notranslate nohighlight">\(m\)</span> iteraciones necesarias para maximizar la probabilidad.</p>
+<p>Si la probabilidad máxima es menor de uno, tenemos entonces la posibilidad de tras realizar las <span class="math notranslate nohighlight">\(m\)</span> iteraciones no midamos un estado solución. Si esto sucede, como al medir se destruye el estado, lo que hay que hacer es volver a empezar: volver a partir de la distribución inicial y aplicar <span class="math notranslate nohighlight">\(m\)</span> iteraciones. En promedio, tendremos que repetir este proceso <span class="math notranslate nohighlight">\(1/P_{max}\)</span> veces. Vemos que si la probabilidad máxima es, por ejemplo, <span class="math notranslate nohighlight">\(1/4\)</span>, tendremos que medir en promedio 4 veces para obtener un estado solución.</p>
+</div>
+<p>Veamos los diferentes casos:</p>
+<ul class="simple">
+<li><p>Cuando el ratio <span class="math notranslate nohighlight">\(\bar{l}(0)/\bar{k}(0)\)</span> es real, puede verse fácilmente que <span class="math notranslate nohighlight">\(|f_+(0)| =|f_{-}(0)|\)</span>. En este caso <span class="math notranslate nohighlight">\(P_{max} = 1-(N-r)\sigma_l^2\)</span>. El mejor caso, aquel con <span class="math notranslate nohighlight">\(P_{max}=1\)</span>, se obtiene cuando <span class="math notranslate nohighlight">\(\sigma_l=0\)</span>, es decir, cuando la distribución inicial es uniforme.</p></li>
+<li><p>Cuando tenemos <span class="math notranslate nohighlight">\(f_+(0)=0\)</span> o <span class="math notranslate nohighlight">\(f_-(0)=0\)</span>, el algoritmo es inútil, pues <span class="math notranslate nohighlight">\(P(t)\)</span> es constante.</p></li>
+<li><p>El peor caso se da cuando <span class="math notranslate nohighlight">\(\sigma_k^2=f_+(0)=f_-(0)=\bar{k} (0)=\bar{l}(0)=0\)</span> y <span class="math notranslate nohighlight">\((N-r)\sigma_l^2=1\)</span>. En este caso tenemos <span class="math notranslate nohighlight">\(P_{max}=P(t)=0\)</span> <span class="math notranslate nohighlight">\(\forall t\)</span>, con lo que nunca encontraremos una solución.</p></li>
+</ul>
+</section>
+<section id="distribucion-de-probabilidad-desconocida">
+<span id="subsec-prop-no-uni-desconocida"></span><h3>Distribución de probabilidad desconocida.<a class="headerlink" href="#distribucion-de-probabilidad-desconocida" title="Permalink to this heading">#</a></h3>
+<p>Veamos que sucede si no conocemos de antemano las medias y las varianzas de la distribución inicial de amplitudes.
+La solución es más sencilla de lo que podríamos pensar en un principio. Lo único que hay que hacer es ejecutar el algoritmo dos veces, ejecutando en un caso <span class="math notranslate nohighlight">\(m_1\)</span> iteraciones y en el otro <span class="math notranslate nohighlight">\(m_2\)</span> iteraciones, tal que <span class="math notranslate nohighlight">\(m_2-m_1=\pi/(2 \beta)\)</span>. De la Ec. (\ref{ec_prop-no-uni_Pt}) está claro que al menos en uno de los dos caso vamos a tener <span class="math notranslate nohighlight">\(P(t)\geq P_{av} \geq P_{max}/2\)</span>. En este caso, necesitamos el doble de repeticiones para obtener al menos la mitad de probabilidades de éxito que cuando se conoce el tiempo de medición óptimo. Vemos además que lo único que necesitamos conocer en este caso es <span class="math notranslate nohighlight">\(\beta\)</span>, que según la Ec. (\ref{ec_prop-no-ini_beta}) podemos calcularlo a partir del número de soluciones <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</section>
+</section>
+<section id="resumen-de-la-seccion">
+<span id="sec-prop-no-uni-resumen"></span><h2>Resumen de la sección.<a class="headerlink" href="#resumen-de-la-seccion" title="Permalink to this heading">#</a></h2>
+<p>Uno de los puntos importantes del análisis de esta sección es el hecho de demostrar que el algoritmo de Grover funciona incluso en el caso en el que tenemos pequeños errores a la hora de generar la distribución de probabilidad inicial. En realidad, en esta sección no se presenta ningún algoritmo nuevo. Simplemente se analiza que pasa si usamos el algoritmo de Grover donde en el primer paso sustituimos la inicialización de la distribución uniforme por una distribución no uniforme.</p>
+<p>Otra de las conclusiones clave del desarrollo es que la dinámica dictada por el algoritmo de Grover se puede describir por completo basándose en la dependencia de las medias de las amplitudes <span class="math notranslate nohighlight">\(\bar{k}(t)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(t)\)</span> (definidas en la Ec. (\ref{ec_prop-no-uni_k-l-mean})).</p>
+<p>Para estudiar la dependencia con las iteraciones de las medias <span class="math notranslate nohighlight">\(\bar{k}(t)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(t)\)</span>, en la sección \ref{subsec_prop-no-uni_ecuaciones-diff} deducimos las ecuaciones diferenciales que rigen su evolución (Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1})) y las resolvemos. Para ello primero hacemos un cambio de variable de <span class="math notranslate nohighlight">\(\bar{k}(t)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(t)\)</span> a <span class="math notranslate nohighlight">\(f_+(t)\)</span> y <span class="math notranslate nohighlight">\(f_-(t)\)</span> (Ecs. (\ref{ec_prop-no-uni_f+}) y (\ref{ec_prop-no-uni_f-})).  Resolvemos usando estas variables y deshacemos el cambio. Nos quedan pues <span class="math notranslate nohighlight">\(\bar{k}(t)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(t)\)</span> en función de <span class="math notranslate nohighlight">\(f_+(0)\)</span>, <span class="math notranslate nohighlight">\(f_-(0)\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> (definido <span class="math notranslate nohighlight">\(\beta\)</span> en la Ec. (\ref{ec_prop-no-ini_beta}), que solo depende de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(M\)</span>).</p>
+<p>Una vez tenemos las soluciones, en las Ecs. (\ref{ec_prop-no-uni_k-delta}) y (\ref{ec_prop-no-uni_l-delta}) demostramos que las amplitudes mantienen su distribución respecto a las medias invariante (con una salvedad en <span class="math notranslate nohighlight">\(\bar{l}(t)\)</span>). De esta forma, confirmamos que solo tenemos que conocer la distribución inicial respecto a las medias para describir la evolución de las amplitudes usando solo la evolución de las medias.</p>
+<p>En la sección \ref{subsec_prop-no-uni_Pt}  definimos dos parámetros más, <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\phi\)</span> (Ec. (\ref{ec_prop-no-uni_alpha_phi})), que depende de <span class="math notranslate nohighlight">\(f_+(0)\)</span> y <span class="math notranslate nohighlight">\(f_-(0)\)</span>. Tras unas líneas de cálculo podemos llegar a la Ec. (\ref{ec_prop-no-uni_Pt}) que nos da la probabilidad <span class="math notranslate nohighlight">\(P(t)\)</span> de medir un estado solución en función del número de iteraciones. Una vez tenemos esta expresión, en la sección \ref{subsec_prop-no-uni_T} buscamos el número <span class="math notranslate nohighlight">\(T\)</span> de iteraciones que nos maximizan la probabilidad (Ec. (\ref{ec_prop-no-uni_T})). Una importante conclusión es que para determinar el valor óptimo de iteraciones, todo lo que necesitamos es conocer las medias iniciales de las amplitudes y el número de estados marcados. Concluimos también que si <span class="math notranslate nohighlight">\(M\)</span> es pequeño, tenemos que <span class="math notranslate nohighlight">\(T\)</span> es del orden de <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span>.</p>
+<p>Finalmente, analizamos casos particulares de distribuciones iniciales favorables y desfavorables (sección \ref{subsec_prop-no-uni_casos-particulares}) y vemos que pasa si no conocemos las distribución de probabilidad inicial. Es este último caso, nuevamente podemos hallar una solución en tiempo <span class="math notranslate nohighlight">\(\mathcal{O}(N/M)\)</span> conociendo solo <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_04/Chapter_019_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_007_consideraciones_sobre_la_implementacion__myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Consideraciones sobre la implementacion</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_009_implementaciones_con_qiskit_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Implementaciones con qiskit.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo">Algoritmo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-las-amplitudes-m-soluciones">Evolución de las amplitudes (<span class="math notranslate nohighlight">\(M\)</span> soluciones)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivacion-de-las-ecuaciones-diferenciales">Derivación de las ecuaciones diferenciales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soluciones-de-las-ecuaciones-diferenciales">Soluciones de las ecuaciones diferenciales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-las-soluciones-probabilidad-de-acierto">Propiedades de las soluciones: Probabilidad de acierto.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-de-las-amplitudes-en-funcion-de-la-evolucion-de-las-medias">Evolución de las amplitudes en función de la evolución de las medias.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-de-acierto">Probabilidad de acierto.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-optimo-t-de-iteraciones">Número optimo, <span class="math notranslate nohighlight">\(T\)</span>, de iteraciones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#casos-particulares">Casos particulares.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad-desconocida">Distribución de probabilidad desconocida.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-la-seccion">Resumen de la sección.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

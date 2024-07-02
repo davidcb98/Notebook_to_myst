@@ -1,0 +1,1225 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Estados Mezcla y Matriz Densidad &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Qubits" href="../../Part_03/Chapter_004_01_qubits_myst.html" />
+    <link rel="prev" title="Evolución temporal" href="Section_004_evolucion_temporal_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Estados Mezcla y Matriz Densidad</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-puro-y-mezcla">Estado puro y mezcla</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estos-puros">Estos puros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estados-mezcla">Estados mezcla</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-densidad">Operador densidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-densidad-de-un-estado-puro">Matriz densidad de un estado puro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-maximalmente-mezclado">Estado máximalmente mezclado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-mezcla-parcial">Estado mezcla parcial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-de-gibbs">Estado de Gibbs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropia-de-von-neumann">Entropía de Von Neumann</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-en-estados-mezcla">Medidas en estados mezcla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-mezcla-bipartito">Estado mezcla bipartito</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-parcial">Traza parcial</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 8 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi3.png"><img alt="../../../_images/Fig_logo_UMA_scbi3.png" src="../../../_images/Fig_logo_UMA_scbi3.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="estados-mezcla-y-matriz-densidad">
+<h1>Estados Mezcla y Matriz Densidad<a class="headerlink" href="#estados-mezcla-y-matriz-densidad" title="Permalink to this heading">#</a></h1>
+<section id="estado-puro-y-mezcla">
+<h2>Estado puro y mezcla<a class="headerlink" href="#estado-puro-y-mezcla" title="Permalink to this heading">#</a></h2>
+<p>Hasta ahora hemos estado estudiando casos <b>ideales</b>, donde los estados que tenemos son <i>perfectos</i>, en el sentido de que tenemos el estado que creemos tener con una probabilidad del 100%. Esto en la vida real no es así. Cuando intentamos generar un estado cuántico, nunca vamos a generar estos estados perfectos, pues nuestros aparatos no son perfectos y nunca lo serán. Todo aparato lleva asociada una <b>incertidumbre</b>, es decir, una probabilidad de error.</p>
+<p>A estos estados <i>perfectos</i> se los denomina <b>estados puros</b>, mientras que al resto de estados se los denomina <b>estados mezcla</b>.</p>
+<section id="estos-puros">
+<h3>Estos puros<a class="headerlink" href="#estos-puros" title="Permalink to this heading">#</a></h3>
+<p>Si sabemos <i>con seguridad</i> que el  sistema se encuentra en un estado <span class="math notranslate nohighlight">\(\ket{\psi}\in \mathcal{H}\)</span> <i>toda la incertidumbre</i> que queda es cuántica.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b>Estado puro</b>:</p>
+<p class="sd-card-text">Si con <i>certeza total</i> podemos afirmar que el estado de un sistema está descrito por un vector <span class="math notranslate nohighlight">\(\ket{\psi}\in \mathcal{H}\)</span> decimos que nuestro sistema se encuentra en un <b>estado puro</b>.</p>
+</div>
+</div>
+<p>Tomemos un estado <b>superposición</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-d8d6218f-182e-4b1f-8906-eedf4917eb00">
+<span class="eqno">(295)<a class="headerlink" href="#equation-d8d6218f-182e-4b1f-8906-eedf4917eb00" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = a\ket{0} + b\ket{1}
+\end{equation}\]</div>
+<p>con <span class="math notranslate nohighlight">\(a,b \neq 0\)</span>.
+La probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> será positiva</p>
+<div class="amsmath math notranslate nohighlight" id="equation-15cbbb38-311f-44c8-a49f-cbe134e4814e">
+<span class="eqno">(296)<a class="headerlink" href="#equation-15cbbb38-311f-44c8-a49f-cbe134e4814e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(0) = |\braket{0}{\psi}|^2  =
+\left\vert\bra{0}\big(a\ket{0}+b\ket{1}\big)\right\vert^2=\left\vert a\braket{0}{0}+b \braket{0}{1}\right\vert^2 = |a|^2
+\end{equation}\]</div>
+<p>la de medir el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> también</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dcb27bb7-9f30-425b-97d9-34bfc4ba71cb">
+<span class="eqno">(297)<a class="headerlink" href="#equation-dcb27bb7-9f30-425b-97d9-34bfc4ba71cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(1) = |\braket{1}{\psi}|^2  = \left\vert\bra{1}\big(a\ket{0}+b\ket{1}\big)\right\vert^2 =\left\vert a\braket{1}{0}+b \braket{1}{1}\right\vert^2= |b|^2
+\end{equation}\]</div>
+<p>y la de medir el estado <span class="math notranslate nohighlight">\(\ket{+} =  \frac{1}{\sqrt{2}}(\ket{0}+\ket{1})\)</span> será</p>
+<div class="amsmath math notranslate nohighlight" id="equation-282a0369-d3be-4139-b4df-6ce705e6bb0f">
+<span class="eqno">(298)<a class="headerlink" href="#equation-282a0369-d3be-4139-b4df-6ce705e6bb0f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+p(+)&amp;=&amp;|\braket{+}{\psi}|^2 =  \frac{1}{2}\left\vert\big(\bra{0}+ \bra{1}\big)\big(a\ket{0}+b\ket{1}\big)\right\vert^2 = \frac{1}{2}\left\vert\big(a\braket{0}{0}+b\braket{1}{1}\big)
+\right\vert^2  \nonumber \\
+&amp;=&amp;\frac{1}{2}|a+b|^2  = \frac{1}{2}(a+b)(a^* + b^*)
+\\
+&amp;=&amp; \frac{1}{2}\left(\rule{0mm}{4mm} |a|^2 + |b|^2 + 2{\rm Re}(ab^*) \right) \nonumber
+\end{eqnarray}\]</div>
+<p>El término que no tiene signo definido <span class="math notranslate nohighlight">\(2{\rm Re}(ab^*)\)</span> se denomina <i>interferencia</i>.
+Es el responsable de que <span class="math notranslate nohighlight">\(p(+)=0\)</span> se pueda anular aun cuando <span class="math notranslate nohighlight">\(a,b\neq 0\)</span>. Concretamente cuando <span class="math notranslate nohighlight">\(a=1=-b\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-aab65562-796b-4ab7-97e8-6d01995e5c3b">
+<span class="eqno">(299)<a class="headerlink" href="#equation-aab65562-796b-4ab7-97e8-6d01995e5c3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi}=   \frac{1}{\sqrt{2}}(\ket{0}-\ket{1}) = \ket{-}
+\end{equation}\]</div>
+<p>y los estados son ortogonales <span class="math notranslate nohighlight">\(|\braket{\psi}{+}|^2=|\braket{-}{+}|^2= p(\ket{-}\to\ket{+})=0\)</span>, obteniendo <span class="math notranslate nohighlight">\(p(+)=0\)</span>.</p>
+</section>
+<section id="estados-mezcla">
+<h3>Estados mezcla<a class="headerlink" href="#estados-mezcla" title="Permalink to this heading">#</a></h3>
+<p>¿Qué ocurre si no podemos tener la certeza de que el estado que describe el sistema sea <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>?</p>
+<p>Por ejemplo: supongamos que,</p>
+<ul class="simple">
+<li><p>a la salida de un polarizador de Stern Gerlach, encontramos que el estado es <span class="math notranslate nohighlight">\(\ket{+}\)</span>,</p></li>
+<li><p>pero la fiabilidad nominal de dicho aparato es del 90%.</p></li>
+<li><p>Eso quiere decir que, con un 10% de probabilidad, el estado emergente ha sido, en realidad, <span class="math notranslate nohighlight">\(\ket{-}\)</span>.</p></li>
+</ul>
+<p>Nuestro polarizador se comporta como una <i>variable aleatoria</i> <span class="math notranslate nohighlight">\( \{\{\ket{+},0.9\},\{\ket{-},0.1\}\}\)</span> de la que obtendremos, cada vez, un estado u otro con distinta probabilidad.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Véase que esta incertidumbre debida al error del polarizador que genera el estado es clásica, no cuántica.</p>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b>Estados mezcla</b>:</p>
+<p class="sd-card-text">En la situación más general, un  sistema estará en un <b>estado mezcla</b> asociado a una variable aleatoria</p>
+<div class="amsmath math notranslate nohighlight" id="equation-40e46f2b-efd1-436c-917e-892cd5b7cee0">
+<span class="eqno">(300)<a class="headerlink" href="#equation-40e46f2b-efd1-436c-917e-892cd5b7cee0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\{\ket{\psi_\alpha},p_\alpha\}
+\end{equation}\]</div>
+<p class="sd-card-text">que indica que, con probabilidad <span class="math notranslate nohighlight">\(p_\alpha\)</span>,  el estado real del sistema es <span class="math notranslate nohighlight">\(\ket{\psi_\alpha}\)</span></p>
+</div>
+</div>
+<ul class="simple">
+<li><p>Un estado mezcla no es un vector en el espacio de Hilbert, sino que es una variable aleatoria donde el espacio muestral son vectores en el espacio de Hilbert.</p></li>
+<li><p>Es importante recalcar que las probabilidades <span class="math notranslate nohighlight">\(p_\alpha \in  \mathbb{R}\)</span> son incertidumbres clásicas, y por tanto <span class="math notranslate nohighlight">\(p_k \in \lc 0,1 \rc\)</span>, <span class="math notranslate nohighlight">\(\sum_\alpha p_\alpha = 1\)</span>.</p></li>
+<li><p>El estado mixto contiene al estado puro como caso particular en el que para un cierto valor <span class="math notranslate nohighlight">\(\alpha = i\)</span>, tenemos <span class="math notranslate nohighlight">\(p_i = 1\)</span> y el resto son cero.</p></li>
+</ul>
+</section>
+</section>
+<section id="operador-densidad">
+<h2>Operador densidad<a class="headerlink" href="#operador-densidad" title="Permalink to this heading">#</a></h2>
+<p>El formalismo matemático que nos permite lidiar con los estados mezcla pasa por usar la <b>matriz densidad</b>.</p>
+<p>Supongamos que a nuestro sistema le podemos asignar un estado mixto <span class="math notranslate nohighlight">\(\{\ket{\psi_\alpha},p_\alpha\}\)</span>. La probabilidad, <span class="math notranslate nohighlight">\(p(\lambda_n)\)</span>, de encontrar un autovector <span class="math notranslate nohighlight">\(\ket{\lambda_n}\)</span> como resultado de la medida de un observable <span class="math notranslate nohighlight">\(A\)</span>, debe ser la <i>suma ponderada</i> de probabilidades  de esa medida en cada uno de los estados <span class="math notranslate nohighlight">\(\ket{\psi_\alpha}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-ec-fundamentos-op-dens-prob">
+<span class="eqno">(301)<a class="headerlink" href="#equation-ec-fundamentos-op-dens-prob" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\begin{array}{rcl}
+p(\lambda_n) &amp;=&amp; \sum_\alpha p_\alpha |\braket{\lambda_n}{\psi_\alpha}|^2  =  \sum_\alpha p_\alpha \braket{\lambda_n}{\psi_\alpha}\braket{\psi_\alpha}{\lambda_n} \\ \rule{0mm}{6mm}
+&amp;=&amp; \bra{\lambda_n}\left(\rule{0mm}{6mm}\sum_\alpha p_\alpha \ket{\psi_\alpha}\bra{\psi_\alpha}\right)\ket{\lambda_n} \\
+&amp;\equiv&amp;\bra{\lambda_n}\rho\ket{\lambda_n}\\
+\end{array}
+\end{equation} \end{split}\]</div>
+<p>El resultado anterior muestra la aparición en escena de un <i>nuevo operador</i> formado con los datos del colectivo aleatorio <span class="math notranslate nohighlight">\(\{\ket{\psi_\alpha},p_\alpha\}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-ec-fundamentos-operador-densidad-diag">
+<span class="eqno">(302)<a class="headerlink" href="#equation-ec-fundamentos-operador-densidad-diag" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{\rho = \sum_\alpha p_\alpha \ketbra{\psi_\alpha}{\psi_\alpha} = \sum_\alpha p_\alpha P_\alpha}
+\end{equation} \]</div>
+<p><span class="math notranslate nohighlight">\(\rho ~\)</span> se denomina <b>matriz densidad</b> y consiste en una suma ponderada de proyectores sobre cada uno de los subespacios generados por los estados posibles. Este es el objeto matemático que caracteriza un estado mezcla.</p>
+<p>En particular, como acabamos de ver, la probabilidad de medir el autovalor <span class="math notranslate nohighlight">\(\lambda\)</span> es el <i>valor esperado</i> del operador densidad en dicho estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a6c25001-5373-473f-9ef9-1cb548896099">
+<span class="eqno">(303)<a class="headerlink" href="#equation-a6c25001-5373-473f-9ef9-1cb548896099" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{p(\lambda_n) =\langle \rho \rangle_{\ket{\lambda_n}} = \bra{\lambda_n }\rho\ket{\lambda_n}}
+\end{equation}\]</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b>Operador densidad</b>:</p>
+<p class="sd-card-text">Un operador, <span class="math notranslate nohighlight">\(\rho\)</span>, podrá ser el operador densidad de un sistema si cumple los siguientes requisitos</p>
+<ul class="simple">
+<li><p class="sd-card-text">es hermítico <span class="math notranslate nohighlight">\(\rho = \rho^\dagger\)</span></p></li>
+<li><p class="sd-card-text">es semidefinido positivo</p></li>
+<li><p class="sd-card-text">tiene traza unidad <span class="math notranslate nohighlight">\({\rm tr }\rho = 1\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>Claramente la expresión dada anteriormente cumple con todos estos requisitos.</p>
+<ul class="simple">
+<li><p>Hermiticidad: se ve gracias a que los <span class="math notranslate nohighlight">\(p_\alpha\)</span> son probabilidades (números reales)</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-fda87b1d-d9a0-4c78-8ba0-a4da8671f891">
+<span class="eqno">(304)<a class="headerlink" href="#equation-fda87b1d-d9a0-4c78-8ba0-a4da8671f891" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho^\dagger = \left(\sum_\alpha p_\alpha \ketbra{\psi_\alpha}{\psi_\alpha}\right)^\dagger =
+\sum_\alpha p^*_\alpha \ketbra{\psi_\alpha}{\psi_\alpha} = \rho
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>De hecho escrito en esta base, la matriz que representa <span class="math notranslate nohighlight">\(\rho\)</span> es diagonal</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-264b71b7-af9c-43db-8c5c-8bfef1c739aa">
+<span class="eqno">(305)<a class="headerlink" href="#equation-264b71b7-af9c-43db-8c5c-8bfef1c739aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \begin{bmatrix} p_1&amp; 0 &amp; ... &amp; 0 \\ 0 &amp; p_2 &amp; ... &amp; 0 \\ &amp; &amp;\vdots  &amp; \\ 0 &amp; 0 &amp; \cdots &amp; p_n
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Por tanto los números <span class="math notranslate nohighlight">\(p_\alpha\geq 0\)</span> son los autovalores, que son no-negativos, lo cuál caracteriza un operador semidefinido positivo.</p>
+<ul class="simple">
+<li><p>Finalmente la traza es la unidad debido a que <span class="math notranslate nohighlight">\(p_\alpha\)</span> son probabilidades</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-734896ef-a31a-403b-a88e-2b91b2618423">
+<span class="eqno">(306)<a class="headerlink" href="#equation-734896ef-a31a-403b-a88e-2b91b2618423" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm Tr}\, \rho = \sum_\alpha p_\alpha = 1
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Es importante darse cuenta de que un estado mezcla <b>no se puede escribir como un vector de estado</b>. Solo los estados puros pueden ser escritos así.</p>
+<p>Por ejemplo, en el caso que veíamos antes de un polarizador que generaba el estado <span class="math notranslate nohighlight">\(\ket{+}\)</span> con una probabilidad del 90%, este se comportaba como una variable aleatoria <span class="math notranslate nohighlight">\( \{\{\ket{+},0.9\},\{\ket{-},0.1\}\}\)</span>. El estado que sale de este polarizador es un estado mezcla que se puede expresar con siguiente matriz densidad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2dbaf6d2-e7d1-4afe-bc88-13cc01c50358">
+<span class="eqno">(307)<a class="headerlink" href="#equation-2dbaf6d2-e7d1-4afe-bc88-13cc01c50358" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \Lc 0.9 \ketbra{+}{+}\Rc + \Lc 0.1 \ketbra{-}{-} \Rc
+\end{equation}\]</div>
+<p>Este estado <b>no es el mismo</b> que el estado puro</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2e762900-899c-48fb-bbe7-998e49628928">
+<span class="eqno">(308)<a class="headerlink" href="#equation-2e762900-899c-48fb-bbe7-998e49628928" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = \sqrt{0.9} \ket{+} + \sqrt{0.1} \ket{-}
+\end{equation}\]</div>
+<p>Es más, podemos escribir la matriz densidad de este segundo estado para ver que es diferente:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-316dba97-ea6b-452e-bdd2-d27ed92b233a">
+<span class="eqno">(309)<a class="headerlink" href="#equation-316dba97-ea6b-452e-bdd2-d27ed92b233a" title="Permalink to this equation">#</a></span>\[\begin{align}
+\rho_{\ket{\psi}}
+&amp; =\ketbra{\psi}{\psi}
+= \lp \sqrt{0.9} \ket{+} + \sqrt{0.1} \ket{-} \rp
+\lp \sqrt{0.9} \bra{+} + \sqrt{0.1} \bra{-} \rp \\
+&amp; = \Lc 0.9 \ketbra{+}{+} \Rc + \Lc 0.1 \ketbra{-}{-} \Rc + \Lc \sqrt{0.9}\sqrt{0.1} \ketbra{+}{-} \Rc  + \Lc \sqrt{0.9}\sqrt{0.1} \ketbra{-}{+} \Rc
+\end{align}\]</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La matriz densidad de un estado mezcla <b>no tiene porque ser diagonal</b>. La Ec. (\ref{ec_fundamentos_operador_densidad_diag}) es simplemente el caso en el que estamos en una base donde la matriz es diagonal.</p>
+</div>
+<section id="matriz-densidad-de-un-estado-puro">
+<h3>Matriz densidad de un estado puro<a class="headerlink" href="#matriz-densidad-de-un-estado-puro" title="Permalink to this heading">#</a></h3>
+<p>La matriz densidad es un formalismo más general que el del vector estado, que sólo se aplica en el caso de estados puros. En efecto, la matriz densidad asociada a un estado puro <span class="math notranslate nohighlight">\(\ket{\psi_0}\)</span> se obtiene haciendo todas las probabilidades <span class="math notranslate nohighlight">\(p_{\alpha\neq 0}=0\)</span> y <span class="math notranslate nohighlight">\(p_{0} = 1\)</span>. Entonces el colectivo <span class="math notranslate nohighlight">\(\{\ket{\psi_0},p_0=1\}\)</span> tiene asociado el operador</p>
+<div class="amsmath math notranslate nohighlight" id="equation-787adbbc-61c2-42fb-abeb-fa38ccc793c9">
+<span class="eqno">(310)<a class="headerlink" href="#equation-787adbbc-61c2-42fb-abeb-fa38ccc793c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \ketbra{\psi_0}{\psi_0} = \begin{bmatrix}1 &amp;  &amp; \\ &amp; 0 &amp; \\ &amp; &amp; \ddots  \end{bmatrix}
+\end{equation}\]</div>
+<p>Es evidente que esta expresión cumple, a mayores, la propiedad que caracteriza a un <b>proyector</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-48b14dbf-9cd4-4b8c-9771-370d10bf2cf3">
+<span class="eqno">(311)<a class="headerlink" href="#equation-48b14dbf-9cd4-4b8c-9771-370d10bf2cf3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho^2 = \rho
+\end{equation}\]</div>
+<p>y esto es una ecuación que <i>sólo verifican las matrices densidad asociadas a estados puros</i>.</p>
+<p><b>Por el contrario</b>, para un estado mezcla podemos ver que <span class="math notranslate nohighlight">\(\rho^2 \neq \rho\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-082582c4-ec63-4b29-ba61-95da84462acf">
+<span class="eqno">(312)<a class="headerlink" href="#equation-082582c4-ec63-4b29-ba61-95da84462acf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho^2  = \sum_\alpha p_\alpha^2 \ketbra{\psi_\alpha}{\psi_\alpha} \neq  \sum_\alpha p_\alpha \ketbra{\psi_\alpha}{\psi_\alpha} = \rho
+\end{equation}\]</div>
+<p>Podemos extraer esta información de forma <i>independiente de la base</i> usando la función traza  <span class="math notranslate nohighlight">\({\rm Tr}\)</span></p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\ket{\psi_\alpha}\)</span> son vectores ortonormales,  <span class="math notranslate nohighlight">\({\rm Tr } \rho = \sum p_\alpha = 1\)</span> pero  <span class="math notranslate nohighlight">\({\rm Tr }\rho^2 = \sum_\alpha p_\alpha^2\leq 1\)</span></p></li>
+<li><p>La igualdad <span class="math notranslate nohighlight">\({\rm Tr} \rho^2=1\)</span> sólo se producirá si  <span class="math notranslate nohighlight">\(p_\alpha = 1\)</span> para un solo <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un estado  <span class="math notranslate nohighlight">\(\rho\)</span> será <i>puro</i> (<i>mezcla</i>) sí y solo sí <span class="math notranslate nohighlight">\({\rm Tr } \rho^2 = 1~~ ({\rm Tr } \rho^2 &lt;1)\)</span></p>
+</div>
+</div>
+</section>
+<section id="estado-maximalmente-mezclado">
+<h3>Estado máximalmente mezclado<a class="headerlink" href="#estado-maximalmente-mezclado" title="Permalink to this heading">#</a></h3>
+<p>En el extremo opuesto de un estado puro, encontramos un estado <b>maximalmente mezclado</b>, en el cual <i>todos</i> los proyectores aparecen de manera equiprobable <span class="math notranslate nohighlight">\(\{\ket{\psi_\alpha},p_\alpha = \frac{1}{d}\}, \alpha = 1,...,d\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-933d47eb-0c76-4064-9658-62717a5a1aa7">
+<span class="eqno">(313)<a class="headerlink" href="#equation-933d47eb-0c76-4064-9658-62717a5a1aa7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \sum_{\alpha=1}^d \frac{1}{d} \ket{\psi_\alpha}\bra{\psi_\alpha} = \frac{1}{d} I = \begin{bmatrix}\frac{1}{d} &amp;  &amp; &amp; \\ &amp; \frac{1}{d} &amp;  &amp;\\ &amp; &amp; &amp;\ddots &amp; \\ &amp; &amp; &amp; &amp; \frac{1}{d} \end{bmatrix}
+\end{equation}\]</div>
+<p>Por tanto, es una matriz diagonal proporcional a la identidad.</p>
+</section>
+<section id="estado-mezcla-parcial">
+<h3>Estado mezcla parcial<a class="headerlink" href="#estado-mezcla-parcial" title="Permalink to this heading">#</a></h3>
+<p>Entre los dos extremos mencionados anteriormente, estado puro y estado maximalmente mezclado, se sitúa cualquier estado <span class="math notranslate nohighlight">\(\rho\)</span> genérico. Si escribimos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-70b5d579-42ae-44c4-9b7d-58506b425e14">
+<span class="eqno">(314)<a class="headerlink" href="#equation-70b5d579-42ae-44c4-9b7d-58506b425e14" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \sum_{\alpha} p_\alpha \ketbra{\psi_\alpha}{\psi_\alpha}
+\end{equation}\]</div>
+<p>el grado de mezcla es proporcional a la uniformidad en la distribución de valores <span class="math notranslate nohighlight">\(p_\alpha\)</span>.</p>
+</section>
+<section id="estado-de-gibbs">
+<h3>Estado de Gibbs<a class="headerlink" href="#estado-de-gibbs" title="Permalink to this heading">#</a></h3>
+<p>Un caso muy importante de mezcla parcial es el <b>estado de Gibbs</b>, que describe un sistema cuando alcanza el <i>equilibrio término a una temperatura </i><span class="math notranslate nohighlight">\(T\)</span>. En este caso, los estados <span class="math notranslate nohighlight">\(\{\ket{\psi_\alpha}= \ket{E_\alpha}\}\)</span> son la <i>base de autoestados del operador Hamiltoniano</i>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b54f3ae1-12ed-4e46-9f37-1daf42a40337">
+<span class="eqno">(315)<a class="headerlink" href="#equation-b54f3ae1-12ed-4e46-9f37-1daf42a40337" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H\ket{E_\alpha} = E_\alpha \ket{E_\alpha}
+\end{equation}\]</div>
+<p>y los autovalores <span class="math notranslate nohighlight">\(E_\alpha\)</span>, con <span class="math notranslate nohighlight">\(\alpha = 1,2...d\)</span>, son los <i>niveles de energía</i> del sistema.</p>
+<p>Cuando un sistema se encuentra en contacto con un baño térmico a temperatura <span class="math notranslate nohighlight">\(T\)</span> el estado de energía no está bien definido, sino que es una mezcla denominada <b>colectivo canónico</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-298449d0-c1a1-4375-9e85-ad0691ffc801">
+<span class="eqno">(316)<a class="headerlink" href="#equation-298449d0-c1a1-4375-9e85-ad0691ffc801" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\left\{\rule{0mm}{5mm}\ket{E_\alpha}, p_\alpha = e^{-E_\alpha/k_BT}\right\}
+\end{equation}\]</div>
+<p>Los coeficientes <span class="math notranslate nohighlight">\(p_\alpha = e^{-E_\alpha/k_BT}\)</span> se denominan <i>coeficientes de Boltzmann</i>  codifican la probabilidad  de hallarse en el estado (nivel de energía) <span class="math notranslate nohighlight">\(\ket{E_\alpha}\)</span>.</p>
+<p>La matriz densidad que describe el estado de este sistema es el denominado <b>estado de Gibbs</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-a161254a-826f-4cc2-a267-00939152b04a">
+<span class="eqno">(317)<a class="headerlink" href="#equation-a161254a-826f-4cc2-a267-00939152b04a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho(T) = \frac{1}{Z}\sum_{\alpha=1}^d e^{-E_\alpha/k_BT} \ket{E_\alpha}\bra{E_\alpha} = \frac{1}{Z} \begin{bmatrix}e^{-E_0/k_BT}&amp;  &amp; \\ &amp; e^{-E_1/k_BT} &amp; \\ &amp;  &amp;\ddots  \end{bmatrix} \, ,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(k_B\)</span> es la constante de Bolzmann, y  <span class="math notranslate nohighlight">\(Z =\sum_\alpha e^{-E_\alpha/k_BT}\)</span> es la normalización necesaria para que <span class="math notranslate nohighlight">\({\rm tr}\rho(T) = 1\)</span>. La <b>energía del sistema</b> a cada temperatura, vendrá dada por un promedio sobre todos los autoestados pesados por la matriz densidad a dicha temperatura</p>
+<div class="amsmath math notranslate nohighlight" id="equation-31c3ca48-401f-4dec-99da-eb6529290bdc">
+<span class="eqno">(318)<a class="headerlink" href="#equation-31c3ca48-401f-4dec-99da-eb6529290bdc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle E \rangle_T = {\rm tr} (\rho(T) H)
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (autoestados del Hamiltoniano)</p>
+<p>Como ya comentamos, un autoestado de un operador es un estado donde el observable (operador) toma un valor concreto (el autovalor). Los autoestados del operador hamiltoniano son especiales, pues son los <b>niveles de energía</b>. Es decir, los autovalores son las <b>energías</b>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Probar  que recuperamos los casos puro y maximalmente mezclado en los límites siguientes</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho(T=0) = \ketbra{E_0}{E_0}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho(T=\infty) = \frac{1}{d} I\)</span></p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Genera aleatoriamente un estado de Gibbs a temperatura <span class="math notranslate nohighlight">\(T\)</span> y grafica los valores de <span class="math notranslate nohighlight">\(p_\alpha(T)\)</span>
+para distintos valores de <span class="math notranslate nohighlight">\(T\)</span> (toma <span class="math notranslate nohighlight">\(k_B=1\)</span>).</p>
+</div>
+</section>
+<section id="entropia-de-von-neumann">
+<h3>Entropía de Von Neumann<a class="headerlink" href="#entropia-de-von-neumann" title="Permalink to this heading">#</a></h3>
+<p>La entropía de Von Neumann <span class="math notranslate nohighlight">\(S(\rho)\)</span> es una medida del <i>grado de mezcla</i> que hay en una matriz densidad. Se define  como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eddc5612-90bb-4e35-a0e1-3ccf3a848cbd">
+<span class="eqno">(319)<a class="headerlink" href="#equation-eddc5612-90bb-4e35-a0e1-3ccf3a848cbd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+S(\rho) = -{\rm tr} (\rho \log \rho )\, .
+\end{equation}\]</div>
+<p>Usando la descomposición espectral de <span class="math notranslate nohighlight">\(\rho = \sum_\alpha p_\alpha \ket{\psi_\alpha}\bra{\psi_\alpha}  \, ,\)</span> donde  <span class="math notranslate nohighlight">\(\sum_i p_\alpha =1\)</span>, la entropía de Von Neumann resulta ser</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1514dd38-74df-449e-8832-00fd975077d2">
+<span class="eqno">(320)<a class="headerlink" href="#equation-1514dd38-74df-449e-8832-00fd975077d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+S(\rho) = -\sum_\alpha p_\alpha \log p_\alpha
+\end{equation}\]</div>
+<p>es decir, la entropía de la variable aleatoria <span class="math notranslate nohighlight">\(\{\ket{\psi_\alpha},p_\alpha\}\)</span>.</p>
+<ul class="simple">
+<li><p>Vemos que <span class="math notranslate nohighlight">\(S=0\)</span> cuando el estado que representa <span class="math notranslate nohighlight">\(\rho\)</span> es puro ya que <span class="math notranslate nohighlight">\(p_\alpha = \delta_{\alpha1}\)</span>.</p></li>
+<li><p>Por el contrario, en un estado máximamente mezclado <span class="math notranslate nohighlight">\(p_\alpha= 1/d\)</span>, <span class="math notranslate nohighlight">\(S = \log d\)</span> alcanza su máximo valor.</p></li>
+</ul>
+</section>
+</section>
+<section id="medidas-en-estados-mezcla">
+<h2>Medidas en estados mezcla<a class="headerlink" href="#medidas-en-estados-mezcla" title="Permalink to this heading">#</a></h2>
+<p>El escenario ahora es un estado general <span class="math notranslate nohighlight">\(\rho\)</span> sobre el que efectuamos una medida asociada a un observable que admite una descomposición espectral</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bf831351-9969-441e-be6c-e91fcc32c17c">
+<span class="eqno">(321)<a class="headerlink" href="#equation-bf831351-9969-441e-be6c-e91fcc32c17c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = \sum_n \lambda_n \ketbra{\lambda_n}{\lambda_n} = \sum_n \lambda_n P_n
+\end{equation}\]</div>
+<p>Según el axioma del colapso de la función de onda, después de una medida, si el resultado ha sido <span class="math notranslate nohighlight">\(\lambda_n\)</span>, el estado mezcla <span class="math notranslate nohighlight">\(\rho\)</span> colapsa al estado puro <span class="math notranslate nohighlight">\(\rho\to \ketbra{\lambda_n}{\lambda_n}\)</span>. En términos de matriz densidad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-82471904-fdc0-4f08-ba6f-f951c45af0a0">
+<span class="eqno">(322)<a class="headerlink" href="#equation-82471904-fdc0-4f08-ba6f-f951c45af0a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho \to \ketbra{\lambda_n}{\lambda_n} = \frac{P_n\rho P_n}{p(\lambda_n)} \, .
+\end{equation}\]</div>
+<p>Desarrollando un poco el numerador</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2aa74fa9-f4de-44af-bbf9-a82e2c856331">
+<span class="eqno">(323)<a class="headerlink" href="#equation-2aa74fa9-f4de-44af-bbf9-a82e2c856331" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+P_n \rho P_n &amp;=&amp; \ketbra{\lambda_n}{\lambda_n} \rho \ketbra{\lambda_n}{\lambda_n}  = p(\lambda_n) \ketbra{\lambda_n}{\lambda_n}
+\end{eqnarray}\]</div>
+<p>Vamos a manipular un poco la expresión de la probabilidad que hemos visto en la Ec. (\ref{ec_fundamentos_op_dens_prob}):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b78add60-9482-4e97-8cbf-de970a6bc6a7">
+<span class="eqno">(324)<a class="headerlink" href="#equation-b78add60-9482-4e97-8cbf-de970a6bc6a7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+p(\lambda_n) &amp;=&amp; \bra{\lambda_n}\rho\ket{\lambda_n} = \sum_i  \braket{\lambda_n}{i}\bra{i}\rho\ket{\lambda_n} =
+\sum_i \bra{i}\rho\ket{\lambda_n}\braket{\lambda_n}{i} = \sum_i \bra{i}\left( \rho\ket{\lambda_n}\bra{\lambda_n}\rule{0mm}{5mm}\right)\ket{i} \nonumber\\
+&amp;\equiv&amp; {\rm tr}(\rho P_n )
+\end{eqnarray}\]</div>
+<p>Es decir,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-25fe95ec-5ae1-4d93-8d77-1c3c362ae24c">
+<span class="eqno">(325)<a class="headerlink" href="#equation-25fe95ec-5ae1-4d93-8d77-1c3c362ae24c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{p(\lambda_n) = \bra{\lambda_n}\rho\ket{\lambda_n} = {\rm tr} (\rho P_n)}
+\end{equation}\]</div>
+<p>Ahora podemos hallar el valor esperado de <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-8a8ef71d-fe6c-407c-b484-153539f2492a">
+<span class="eqno">(326)<a class="headerlink" href="#equation-8a8ef71d-fe6c-407c-b484-153539f2492a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle A\rangle_\rho = \sum_n \lambda_n p(\lambda_n) = \sum_n \lambda_n {\rm tr}(\rho P_n )
+= {\rm tr} \left( \rho \sum_n \lambda_n P_n \right) = {\rm tr }(\rho A)
+\end{equation}\]</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El valor esperado de un observable <span class="math notranslate nohighlight">\(A\)</span> en un estado general <span class="math notranslate nohighlight">\(\rho\)</span> es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b582a1f4-fc46-4b3f-9902-76834165603b">
+<span class="eqno">(327)<a class="headerlink" href="#equation-b582a1f4-fc46-4b3f-9902-76834165603b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle A\rangle_\rho = {\rm tr}(\rho A)
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="estado-mezcla-bipartito">
+<h2>Estado mezcla bipartito<a class="headerlink" href="#estado-mezcla-bipartito" title="Permalink to this heading">#</a></h2>
+<p>De forma similar, podemos definir la matriz densidad en sistemas multipartitos. Si consideramos por simplicidad un espacio <span class="math notranslate nohighlight">\(\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2\)</span>, el siguiente operador <span class="math notranslate nohighlight">\(\rho \in {\rm L}(\mathcal{H})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-8640a540-1fd3-4635-80af-1d6798e606eb">
+<span class="eqno">(328)<a class="headerlink" href="#equation-8640a540-1fd3-4635-80af-1d6798e606eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho=\sum_{ia,jb}\rho_{ia,jb}\ketbra{e_{ia}}{e_{jb}}
+\end{equation}\]</div>
+<p>podrá describir el estado mezcla de un sistema bipartito si la matriz <span class="math notranslate nohighlight">\(\rho_{ia,jb}\)</span> verifica las tres condiciones que definen un operador densidad.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>No confundir estado <b>mezcla</b> con estado <b>entrelazado</b> Un estado <span class="math notranslate nohighlight">\(\ket{\psi}\in \mathcal{H}_1\otimes\mathcal{H}_2\)</span> puede ser entrelazado, y aun así <span class="math notranslate nohighlight">\(\rho = \ketbra{\psi}{\psi}\)</span> ser puro.</p>
+</div>
+<p>En el caso de vectores <span class="math notranslate nohighlight">\(\ket{\psi} \in \mathcal{H}_1\otimes \mathcal{H}_2\)</span>, ya hemos visto la división que existe entre vectores factorizables y entrelazados. Para estados <span class="math notranslate nohighlight">\(\rho \in {\rm L}(\mathcal{H}_1\otimes \mathcal{H}_2)\)</span> tenemos más posibilidades:</p>
+<ul class="simple">
+<li><p><b>Factorizable</b>: si <span class="math notranslate nohighlight">\(\rho\)</span> es un operador factorizable</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-552f90da-fa0f-4536-95d3-80468a25162b">
+<span class="eqno">(329)<a class="headerlink" href="#equation-552f90da-fa0f-4536-95d3-80468a25162b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho = \rho_1\otimes \rho_2\, .
+\end{equation}\]</div>
+<p>En este caso, <span class="math notranslate nohighlight">\(\rho_{ia,jb} = \rho_{1,ij}\rho_{2,ab}\)</span> y decimos que, en este estado, los subsistemas 1 y 2 están <i>descorrelacionados</i>.</p>
+<ul class="simple">
+<li><p><b>Separable</b>: Si es combinación lineal de operadores factorizables</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-e414e9f8-f635-49a4-922e-f1409a0b15b7">
+<span class="eqno">(330)<a class="headerlink" href="#equation-e414e9f8-f635-49a4-922e-f1409a0b15b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho=\sum_a p_a \, \rho_{1a}\otimes\rho_{2a}
+\end{equation}\]</div>
+<p>con <span class="math notranslate nohighlight">\(p_a\in [0,1]\)</span> y <span class="math notranslate nohighlight">\(\sum_a p_a = 1\)</span>. En este caso existen correlaciones clásicas entre ambos sistemas.</p>
+<ul class="simple">
+<li><p><b>No-separable:</b> en cualquier otro caso. En este caso hay correlaciones clásicas y cuánticas entre ambos sistemas.</p></li>
+</ul>
+<section id="traza-parcial">
+<h3>Traza parcial<a class="headerlink" href="#traza-parcial" title="Permalink to this heading">#</a></h3>
+<p>A partir de un estado bipartito <span class="math notranslate nohighlight">\(\rho \in {\rm L}(\mathcal{H}_1\otimes\mathcal{H}_2)\)</span>  podemos definir estados <span class="math notranslate nohighlight">\(\rho_1 \in {\rm L}(\mathcal{H}_1)\)</span> y <span class="math notranslate nohighlight">\(\rho_2 \in {\rm L}(\mathcal{H}_2)\)</span> mediante la operación de <i>traza parcial</i></p>
+<div class="amsmath math notranslate nohighlight" id="equation-18b88c03-e923-4726-aa13-4520a9b02322">
+<span class="eqno">(331)<a class="headerlink" href="#equation-18b88c03-e923-4726-aa13-4520a9b02322" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho_1 = {\rm Tr}_{\mathcal{H}_2}\rho = \sum_{a=1}^{d_2} \bra{e_a^{(2)}} \rho \ket{e_a^{(2)}}\quad , \quad \rho_2 = {\rm Tr}_{\mathcal{H}_1}\rho = \sum_{a=1}^{d_1} \bra{e_a^{(1)}} \rho \ket{e_a^{(1)}}
+\end{equation}\]</div>
+<p>Sobre las matriz densidad <span class="math notranslate nohighlight">\(\rho_{ia,jb}\)</span> las trazas parciales dan matrices</p>
+<div class="amsmath math notranslate nohighlight" id="equation-15643e08-6c25-42a1-8752-96bdaf99f72c">
+<span class="eqno">(332)<a class="headerlink" href="#equation-15643e08-6c25-42a1-8752-96bdaf99f72c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\rho_{1,ij}= \sum_{a=1}^{d_2} \rho_{ia,ja} ~~~~,~~~~ \rho_{2,ab} = \sum_{i=1}^{d_1} \rho_{ia,ib}
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Sea un estado bipartito <span class="math notranslate nohighlight">\(\rho \in {\rm L}(\mathcal{H}_1\otimes\mathcal{H}_2)\)</span> y <span class="math notranslate nohighlight">\(A=A_1\otimes I\)</span> un observable que sólo depende del subsistema <span class="math notranslate nohighlight">\(1\)</span>. Demuestra que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-455f7468-2dd3-4af0-8c74-f0d9e0677c77">
+<span class="eqno">(333)<a class="headerlink" href="#equation-455f7468-2dd3-4af0-8c74-f0d9e0677c77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle A \rangle_\rho  = {\rm tr} (\rho_1 A_1)
+\end{equation}\]</div>
+</div>
+<p>Supongamos un <i>estado puro bipartito</i>  <span class="math notranslate nohighlight">\(\rho=\ketbra{\psi}{\psi}\, \in \,  {\rm L}(\mathcal{H}_1\otimes\mathcal{H}_2)~\Rightarrow ~ \rho=\rho^2\)</span> es un proyector. Después de tomar la traza parcial  <span class="math notranslate nohighlight">\(\rho\to \rho_1 = {\rm tr}_{\mathcal{H}_2}\rho\)</span> hay dos opciones</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es <i>factorizable</i> <span class="math notranslate nohighlight">\(\Rightarrow \)</span> <span class="math notranslate nohighlight">\(\rho_1\)</span> permanece <i>puro</i></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-88c9b0ca-1767-4dd8-9ffc-6cf4e4a2141e">
+<span class="eqno">(334)<a class="headerlink" href="#equation-88c9b0ca-1767-4dd8-9ffc-6cf4e4a2141e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = \ket{\varphi}\otimes \ket{\phi} ~~~ \Rightarrow ~~~ \rho_1 = {\rm Tr}_{\mathcal{H}_2}\ketbra{\psi}{\psi} = \ketbra{\varphi}{\varphi} = \rho_1^2
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> es <i>entrelazado</i> <span class="math notranslate nohighlight">\(\Rightarrow \rho_1\)</span> se vuelve <i>mezclado</i>. Podemos ver esto con la descomposición de Schmidt</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-2eaf51b5-d08d-4a4e-afcf-63f344b5df71">
+<span class="eqno">(335)<a class="headerlink" href="#equation-2eaf51b5-d08d-4a4e-afcf-63f344b5df71" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = \sum_{a=1}^r \sqrt{s_a}\ket{f_a}\ket{\tilde f_a} ~~~\Rightarrow ~~~ \rho_1 = {\rm Tr}_{\mathcal{H}_2}\ketbra{\psi}{\psi} = \sum_{a=1}^r s_a \ket{f_a}\bra{f_a} \neq \rho_1^2
+\end{equation}\]</div>
+<p>En resumen: <b>bajo <i>traza parcial</i>, el entrelazamiento induce <i>mezcla</i></b>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_02/Chapter_003_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_004_evolucion_temporal_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Evolución temporal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Part_03/Chapter_004_01_qubits_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Qubits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-puro-y-mezcla">Estado puro y mezcla</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estos-puros">Estos puros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estados-mezcla">Estados mezcla</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-densidad">Operador densidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-densidad-de-un-estado-puro">Matriz densidad de un estado puro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-maximalmente-mezclado">Estado máximalmente mezclado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-mezcla-parcial">Estado mezcla parcial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-de-gibbs">Estado de Gibbs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropia-de-von-neumann">Entropía de Von Neumann</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-en-estados-mezcla">Medidas en estados mezcla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-mezcla-bipartito">Estado mezcla bipartito</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-parcial">Traza parcial</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

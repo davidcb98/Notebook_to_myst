@@ -9721,9 +9721,13 @@ Teniendo en cuenta la Ec. (\ref{teorema_no-t_proof_j-hat}), vemos que el número
 \end{split}
 \end{equation}
 
-donde se ha aplicado la formula e la suma de la serie geométrica\footnote{Suma de la serie geométrica: \begin{equation} \label{ec_no-t_suma-geometrica}
+donde se ha aplicado la formula e la suma de la serie geométrica.
+\begin{mybox_blue}{Nota: Suma de serie geométrica}
+\begin{equation} \label{ec_no-t_suma-geometrica}
 \sum_{k=0}^n r^k = \frac{1-r^{n+1}}{1-r} = \frac{r^{n+1} -1 }{r -1}.
-\end{equation}}. 
+\end{equation}
+\end{mybox_blue}
+
 Vemos que el algoritmo llega a la fase crítica en un tiempo $\mathcal{O} (r_0) < \mathcal{O}(\sqrt{N/M})$ (ver Ec. (\ref{teorema_no-t_proof_alpha})). 
 
 Como ya comentamos, una vez alcanzado el estado crítico, por el Lemma \ref{lemma_Pm}, sabemos que en cada nueva iteración del bucle principal la \textbf{probabilidad de éxito} $\bm{P_r \geq 1/4}$ ya que $r_s > 1/\sin (2 \theta)$. De ello se deduce que el número esperado de iteraciones de Grover necesarias para tener éxito una vez alcanzada la fase crítica está acotado superiormente por
@@ -10403,7 +10407,7 @@ La QKD se desarrolló con la presentación del primer protocolo completo por par
 
 El año 1992 fue testigo de otros dos hitos: la invención del protocolo B92 \cite{bib_B92} y la primera demostración experimental \cite{bib_experiment_QKD}. Se puede concluir razonablemente el periodo fundacional de la QKD con la definición de la amplificación de la privacidad, el postprocesamiento clásico necesario para borrar la información de Eve de la clave bruta \cite{bib_Privacy_amplification}.
 
-Con el paso de los años el campo de la QKD práctica ha ido creciendo en amplitud y madurez. Se han propuesto nuevas familias de protocolos, en particular \textbf{protocolos de variable continua} \cite{bib_Continue_var_Ralph_1999, bib_Continue_var_Hillery_2000, bib_Continue_var_Cerf_2001, bib_Continue_var_Gottesman_2001, bib_Continue_var_Grosshans_2002, bib_Continue_var_Silberhorn_2002} y los más recientes \textbf{protocolos de referencia de fase distribuida} (\textit{distributed-phase-reference protocols}) \cite{bib_Phase_Inoue_2002, Phase_Stucki_2005}. 
+Con el paso de los años el campo de la QKD práctica ha ido creciendo en amplitud y madurez. Se han propuesto nuevas familias de protocolos, en particular \textbf{protocolos de variable continua} \cite{bib_Continue_var_Ralph_1999, bib_Continue_var_Hillery_2000, bib_Continue_var_Cerf_2001, bib_Continue_var_Gottesman_2001, bib_Continue_var_Grosshans_2002, bib_Continue_var_Silberhorn_2002} y los más recientes \textbf{protocolos de referencia de fase distribuida} (\textit{distributed-phase-reference protocols}) \cite{bib_Phase_Inoue_2002, bib_Phase_Stucki_2005}. 
 
 	
 		\subsection{Conceptos generales}

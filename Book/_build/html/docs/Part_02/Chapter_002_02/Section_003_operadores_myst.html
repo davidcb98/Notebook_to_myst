@@ -1,0 +1,2366 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Operadores &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_02/Chapter_002_02/Section_003_operadores_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tensores" href="Section_004_tensores_myst.html" />
+    <link rel="prev" title="Vectores" href="Section_002_vectores_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_02/Chapter_002_02/Section_003_operadores_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_02/Chapter_002_02/Section_003_operadores_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_02/Chapter_002_02/Section_003_operadores_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_02/Chapter_002_02/Section_003_operadores_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operadores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-matrices">Operadores y matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-un-operador">Matriz de un operador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo">Producto externo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-vectores">Producto externo de vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-vectores-en-componentes">Producto externo de vectores (en componentes)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-canonica-de-operadores">Base canónica de operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-operadores-de-la-base">Producto externo de operadores de la base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-de-un-operador-general">Expansión de un operador general</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementos-de-matriz">Elementos de matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-de-base">Cambios de base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-de-completitud">Relación de completitud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-espacio-vectorial-rm-l-mathcal-h">El espacio vectorial <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-adjunto">Operador Adjunto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-adjunta">Matriz Adjunta</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-de-rm-l-mathcal-h">Dimensión de <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-de-operadores">Clases de operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-unitario">Operador Unitario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-unitario-sobre-bases-ortonormales">Operador Unitario sobre bases ortonormales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-ortogonal">Operador ortogonal</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-normal">Operador Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-hermitico">Operador Hermítico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-anti-hermitico">Operador anti-Hermítico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyectores">Proyectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflectores">Reflectores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conmutador-y-traza">Conmutador y Traza</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conmutador">Conmutador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-de-un-operador">Traza de un operador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autovalores-y-autovectores">Autovalores y autovectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autovalores-degenerados">Autovalores degenerados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subespacio-propio">Subespacio propio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-normales">Espectro de Operadores Normales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-espectral">Descomposición Espectral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-hermiticos">Espectro de Operadores Hermíticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-unitarios">Espectro de Operadores Unitarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-que-conmutan">Operadores que conmutan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-de-unitarios">Factorización de unitarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-polar-pd">Descomposición Polar (PD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-en-valores-singulares-svd">Descomposición en valores singulares (SVD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-operadores">Funciones de Operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-analiticas">Funciones analíticas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial-de-un-operador">Exponencial de un operador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-unitarios-a-partir-de-hermiticos">Operadores unitarios a partir de hermíticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">Funciones generales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-pauli">Matrices de Pauli</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-ortogonal-del-espacio-de-hilbert-de-matrices-hermiticas-2-times2">Base ortogonal del espacio de Hilbert de matrices hermiticas <span class="math notranslate nohighlight">\(2\times2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion">Composición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-y-ortogonalidad">Traza y ortogonalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial-de-matrices-de-pauli">Exponencial de matrices de Pauli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-pauli-en-otras-bases">Matrices de Pauli en otras bases</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 19 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="operadores">
+<h1>Operadores<a class="headerlink" href="#operadores" title="Permalink to this heading">#</a></h1>
+<section id="operadores-y-matrices">
+<h2>Operadores y matrices<a class="headerlink" href="#operadores-y-matrices" title="Permalink to this heading">#</a></h2>
+<p>En un espacio vectorial, además de los vectores, será esencial entender la manera en que estos se pueden transformar entre sí. Un tipo de transformaciones es aquella dada por un <i>operador lineal</i>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un <b>operador lineal </b>es una aplicación  que transforma un vector  en otro</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e04d338-4e2f-4445-9dd2-f1ec26cd51d6">
+<span class="eqno">(67)<a class="headerlink" href="#equation-1e04d338-4e2f-4445-9dd2-f1ec26cd51d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A: \ket{u} ~~\to ~~ \ket{v}
+\end{equation}\]</div>
+<p class="sd-card-text">de forma <i>lineal</i>, esto es que sobre una <i>combinación lineal</i> de vectores actúa de forma lineal. Es decir, para todo <span class="math notranslate nohighlight">\(\alpha,\beta \in {\mathbb C}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e7f522ed-7ad8-4e0f-bedd-49576140fa9c">
+<span class="eqno">(68)<a class="headerlink" href="#equation-e7f522ed-7ad8-4e0f-bedd-49576140fa9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A: (\alpha\ket{u} + \beta\ket{w})~~\to ~~ \ket{v} =\alpha A\ket{u} + \beta A\ket{w}
+\end{equation}\]</div>
+</div>
+</div>
+<p>Podemos escribir también <span class="math notranslate nohighlight">\(\ket{v} = A\ket{u} \equiv \ket{Au}\)</span> (donde <span class="math notranslate nohighlight">\(Au\)</span> debe entenderse como una etiqueta).</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Con números (reales o complejos), un ejemplo de una operación que no es lineal es <i>elevar a una potencia</i>, por ejemplo, al cuadrado:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-61c595d8-cde6-4d6e-b1b6-cc6a01586ee0">
+<span class="eqno">(69)<a class="headerlink" href="#equation-61c595d8-cde6-4d6e-b1b6-cc6a01586ee0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x) = x^2 ~~ \Rightarrow ~~ f(a+b) = (a+b)^2 \neq a^2 + b^2
+\end{equation}\]</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (El cambio en física)</p>
+<p>Podemos ver la física como <i>el arte de estudiar el cambio</i>, es decir, estudiar como varía un sistema con el tiempo. Como acabamos de comentar, los <i>operadores lineales</i> nos introducen una noción de cambio (de evolución): un vector se transforma (evoluciona) a otro. Ya adelantamos aquí que en Mecánica Cuántica los vectores representan <b>estados</b> del sistema, con lo cual, el hecho de aplicar un operador sobre un vector implica pasar de un estado del sistema a otro.</p>
+<p>Existen transformaciones inducidas por operadores <i>no lineales</i>. Sin embargo, <b>la Mecánica Cuántica es intrínsicamente lineal</b>: todas las evoluciones se dan por medio de operadores lineales.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Un <i>operador</i>  fácil de visualizar es el operador de <b>rotación en un plano</b>. Dado un ángulo <span class="math notranslate nohighlight">\(\theta \in (0,2\pi)\)</span> el operador <span class="math notranslate nohighlight">\(A = R(\theta)\)</span> gira cualquier vector un ángulo <span class="math notranslate nohighlight">\(\theta\)</span> en el sentido antihorario.</p>
+<p>Un vector en el plano <span class="math notranslate nohighlight">\({\vec{u}} =  (u_1,u_2)\)</span>  es equivalente al número complejo <span class="math notranslate nohighlight">\(u = u_1 + i u_2\)</span> en el plano complejo <span class="math notranslate nohighlight">\(V = {\mathbb C}\)</span>.</p>
+<p>Escrito en polares, <span class="math notranslate nohighlight">\(u=|u|e^{i\phi}\)</span>, y sabemos que una rotación de ángulo <span class="math notranslate nohighlight">\(\theta\)</span> es equivalente a añadirle dicho  ángulo a la fase</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3265340-d8ba-4aa6-9698-918c6b292015">
+<span class="eqno">(70)<a class="headerlink" href="#equation-c3265340-d8ba-4aa6-9698-918c6b292015" title="Permalink to this equation">#</a></span>\[\begin{equation}
+v = R(\theta) u = |u| e^{i(\phi + \theta)} =  |u| e^{i\phi } e^{i\theta} = u\cdot e^{i\theta}
+\end{equation}\]</div>
+<p>Por tanto, para rotar un número complejo un ángulo <span class="math notranslate nohighlight">\(\theta\)</span> basta con multiplicarlo por la fase <span class="math notranslate nohighlight">\(e^{i\theta}\)</span>, que se corresponde con el operador <span class="math notranslate nohighlight">\(R(\theta)\)</span> en el espacio vectorial <span class="math notranslate nohighlight">\(V = \mathbb{C}\)</span>.</p>
+<p>La propiedad fundamental de una rotación es la de mantener invariante el módulo  <span class="math notranslate nohighlight">\(|v| = |u|\)</span>.</p>
+</div>
+<section id="matriz-de-un-operador">
+<h3>Matriz de un operador<a class="headerlink" href="#matriz-de-un-operador" title="Permalink to this heading">#</a></h3>
+<p>Dada una base, un vector queda especificado por una colección de números, sus <i>componentes</i>. Igualmente, un operador queda definido por una <i>matriz numérica</i>.</p>
+<p>Efectivamente, en una base, la relación <span class="math notranslate nohighlight">\(\ket{v} = A\ket{u}\)</span> equivale a una ecuación que relacione las componentes de ambos vectores</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fda025e5-5cfc-45c4-a2e0-e33f57afb6e1">
+<span class="eqno">(71)<a class="headerlink" href="#equation-fda025e5-5cfc-45c4-a2e0-e33f57afb6e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{v_i = \sum_{j=1}^N A_{ij} u_j } \, .
+\end{equation}\]</div>
+<p>Esta operación se corresponde con la siguiente composición de matrices</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1578ccab-eeab-483b-b69d-3f89178a4879">
+<span class="eqno">(72)<a class="headerlink" href="#equation-1578ccab-eeab-483b-b69d-3f89178a4879" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{\begin{bmatrix}
+v_1 \\ v_2 \\ \vdots \\ v_N \end{bmatrix} =  \begin{bmatrix}
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1N} \\
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2N} \\
+\vdots &amp; \vdots &amp;  \ddots      &amp; \vdots \\
+A_{N1} &amp; A_{N2} &amp;    \cdots    &amp; A_{NN}
+\end{bmatrix}
+\begin{bmatrix}
+u_1 \\ u_2 \\ \vdots \\ u_N\end{bmatrix}}
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Continuando con el ejemplo del operador de rotación en un plano, hemos visto que las componentes de <span class="math notranslate nohighlight">\(u = u_1 + i u_2\)</span> y las de <span class="math notranslate nohighlight">\(R(\theta)u = v = v_1 + i v_2\)</span> se obtienen mediante la multiplicación por una fase pura</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+v= u e^{i\theta}
+\end{equation*}\]</div>
+<p>Vamos a desarrollar cada miembro en cartesianas, separando las partes real e imaginaria</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+v = v_1 + i v_2 &amp;= u e^{i\theta} =  (u_1 + iu_2) (\cos \theta + i \sin \theta)  \\
+\rule{0mm}{6mm}
+&amp;= (\cos\theta \, u_1 - \sin \theta\,  u_2) + i(\sin\theta\,  u_1 + \cos \theta\,  u_2)
+\end{align*}\]</div>
+<p>es decir las coordenadas del vector origen y el vector rotado imagen se relacionan en la  forma</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+v_1 = \cos\theta \, u_1 - \sin \theta\,  u_2 ~~~~~~~,~~~~~~~~
+v_2 = \sin\theta \, u_1 + \cos \theta\,  u_2
+\end{equation*}\]</div>
+<p>que podemos expresar en forma matricial</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp;\cos\theta\end{bmatrix} \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}
+\end{equation*}\]</div>
+</div>
+</section>
+</section>
+<section id="producto-externo">
+<h2>Producto externo<a class="headerlink" href="#producto-externo" title="Permalink to this heading">#</a></h2>
+<section id="producto-externo-de-vectores">
+<h3>Producto externo de vectores<a class="headerlink" href="#producto-externo-de-vectores" title="Permalink to this heading">#</a></h3>
+<p>Consideremos dos vectores <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span>. Dependiendo del orden en que los compongamos, <span class="math notranslate nohighlight">\(\braket{u}{v}\)</span> o <span class="math notranslate nohighlight">\(\ketbra{v}{u}\)</span>, el resultado produce dos cantidades muy distintas.</p>
+<ul class="simple">
+<li><p>El <b>producto interno</b>, o <i>producto escalar</i> es un <b>número complejo</b></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-9756a769-5d77-4be1-aa37-416842015945">
+<span class="eqno">(73)<a class="headerlink" href="#equation-9756a769-5d77-4be1-aa37-416842015945" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a = \braket{u}{v} = \braket{v}{u}^*
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>El <b>producto externo  </b>es un <b>operador</b></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-4683ece3-1527-45cb-ae10-65971eb52f49">
+<span class="eqno">(74)<a class="headerlink" href="#equation-4683ece3-1527-45cb-ae10-65971eb52f49" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = \ketbra{v}{u}
+\end{equation}\]</div>
+<p>Para comprender por qué es un operador, observamos que dicha expresión aplicada a un vector <span class="math notranslate nohighlight">\(\ket{w}\)</span> da otro, paralelo a <span class="math notranslate nohighlight">\(\ket{v}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e6edf8e9-524e-4352-a81d-e92d8d41d9b8">
+<span class="eqno">(75)<a class="headerlink" href="#equation-e6edf8e9-524e-4352-a81d-e92d8d41d9b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A : \ket{w} ~\to ~ A\ket{w} =  \ket{v}\braket{u}{w}=\ket{v} b  = b \ket{v}
+\end{equation}\]</div>
+<p>El número complejo <span class="math notranslate nohighlight">\(b=\braket{u}{w}\)</span> es  la <i>proyección</i> de <span class="math notranslate nohighlight">\(\ket{w}\)</span> en la dirección de <span class="math notranslate nohighlight">\(\ket{u}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Véase que:</p>
+<ol class="arabic simple">
+<li><p>El <i>orden</i> en que escribimos las cosas es <i>muy</i> relevante.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\braket{u}{v}\)</span> y <span class="math notranslate nohighlight">\(\ketbra{v}{u}\)</span> son objetos <i>radicalmente distintos</i>: el primero es un número y el segundo es un operador. Decimos que los vectores no conmutan.</p></li>
+<li><p>En cambio <span class="math notranslate nohighlight">\(\ket{v} b  = b \ket{v}\)</span>, así como <span class="math notranslate nohighlight">\(\bra{u}b = b\bra{u}\)</span>, es decir,  los números complejos y los <span class="math notranslate nohighlight">\(kets\)</span> o <span class="math notranslate nohighlight">\(bras\)</span> pueden escribirse en cualquier orden (decimos que conmutan).</p></li>
+</ul>
+</li>
+<li><p>La acción del operador  <span class="math notranslate nohighlight">\(A = \ket{v}\!\bra{u}\)</span> es muy fácil de expresar con palabras:
+el operador <span class="math notranslate nohighlight">\(A\)</span> toma <i>cualquier vector</i> <span class="math notranslate nohighlight">\(\ket{w}\)</span> y lo convierte en un vector <i>paralelo</i> a <span class="math notranslate nohighlight">\(\ket{v}\)</span> proporcionalmente a su proyección <span class="math notranslate nohighlight">\(b=\braket{u}{w}\)</span>.</p></li>
+</ol>
+<p>Si la proyección es nula <span class="math notranslate nohighlight">\(b=0\)</span>, el operador aniquila, es decir, da el elemento neutro.</p>
+</div>
+</section>
+<section id="producto-externo-de-vectores-en-componentes">
+<h3>Producto externo de vectores (en componentes)<a class="headerlink" href="#producto-externo-de-vectores-en-componentes" title="Permalink to this heading">#</a></h3>
+<p>La diferencia entre el <i>producto interno</i> <span class="math notranslate nohighlight">\(a=\braket{u}{v}\)</span> y el <i>externo</i> <span class="math notranslate nohighlight">\(A=\ketbra{u}{v}\)</span> tiene su reflejo. Expresando ambos vectores en la misma base ortonormal, <span class="math notranslate nohighlight">\(\ket{u} = \sum_i u_i\ket{e_i}\)</span> y <span class="math notranslate nohighlight">\(\ket{v} = \sum_j v_j \ket{e_j}\)</span>:</p>
+<ul class="simple">
+<li><p>El <i>número complejo</i> <span class="math notranslate nohighlight">\(a\)</span>  es el <i>producto escalar</i></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-8bdab519-41c1-42c7-b1ad-2e814cf183f1">
+<span class="eqno">(76)<a class="headerlink" href="#equation-8bdab519-41c1-42c7-b1ad-2e814cf183f1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a = \braket{u}{v}  = \begin{bmatrix} u_1^*,...,u_N^*\end{bmatrix}
+\begin{bmatrix} v_1 \\ \vdots \\ v_N\end{bmatrix}\, =  \sum_i u_i^*v_i
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>La matriz <span class="math notranslate nohighlight">\(A_{ij}\)</span> <i>representa</i> el operador <span class="math notranslate nohighlight">\(A\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-c6bac234-6658-4cc6-8183-bbd42fb7bb97">
+<span class="eqno">(77)<a class="headerlink" href="#equation-c6bac234-6658-4cc6-8183-bbd42fb7bb97" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{A = \ketbra{v}{u} ~\sim ~\begin{bmatrix} v_1 \\ \vdots \\ v_N\end{bmatrix}
+\begin{bmatrix} u_1^*,...,u_N^*\end{bmatrix} ~=~
+\begin{bmatrix} v_1 u_1^* &amp; v_1u_2^* &amp; ... &amp; v_1 u_N^* \\
+v_2 u_1^* &amp; v_2 u_1^*&amp; ... &amp; v_2 u_N^* \\ \vdots &amp; \vdots  &amp; \ddots &amp; \vdots \\
+v_N u_1^* &amp; &amp; ... &amp; v_N u_N^* \end{bmatrix} ~ = ~A_{ij}}
+\end{equation}\]</div>
+</section>
+</section>
+<section id="base-canonica-de-operadores">
+<h2>Base canónica de operadores<a class="headerlink" href="#base-canonica-de-operadores" title="Permalink to this heading">#</a></h2>
+<section id="producto-externo-de-operadores-de-la-base">
+<h3>Producto externo de operadores de la base<a class="headerlink" href="#producto-externo-de-operadores-de-la-base" title="Permalink to this heading">#</a></h3>
+<p>Un caso importante es cuando <span class="math notranslate nohighlight">\(A\)</span> es el producto externo de <i>dos elementos de la base ortonormal</i> <span class="math notranslate nohighlight">\(\ket{i}\)</span> y <span class="math notranslate nohighlight">\(\ket{j}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-5565d55f-0860-4439-9c5b-0fc1698305da">
+<span class="eqno">(78)<a class="headerlink" href="#equation-5565d55f-0860-4439-9c5b-0fc1698305da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = \ketbra{i}{j}
+\end{equation}\]</div>
+<p>La acción de <span class="math notranslate nohighlight">\(A\)</span> sobre un vector <span class="math notranslate nohighlight">\(\ket{k}\)</span> arbitrario de la base es sencilla:  cambia el vector <span class="math notranslate nohighlight">\(\ket{j}\to \ket{i}\)</span> y aniquila a todos los demás</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3020f2b2-dd86-49ac-8598-4e797bdfae5f">
+<span class="eqno">(79)<a class="headerlink" href="#equation-3020f2b2-dd86-49ac-8598-4e797bdfae5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A \ket{k} = \ket{i}\braket{j}{k} = \ket{i} \delta_{jk} = \left\{ \begin{array}{rl}
+0 &amp; {\rm if} ~~k\neq j \\ \ket{i} &amp; {\rm if} ~~ k=j \end{array} \right.
+\end{equation}\]</div>
+<p>La matriz asociada al operador  tiene sólo un 1 en el elemento <span class="math notranslate nohighlight">\((ij)\)</span> y cero en todos los demás. Por ejemplo, supongamos que
+<span class="math notranslate nohighlight">\(N=4\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-7d9f2159-0c66-46f5-a9f7-c40e0b4a0077">
+<span class="eqno">(80)<a class="headerlink" href="#equation-7d9f2159-0c66-46f5-a9f7-c40e0b4a0077" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ketbra{2}{3} ~\to ~~
+\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}\begin{bmatrix} 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} =
+\begin{bmatrix}
+0 &amp;  0 &amp; 0 &amp;  0 \\  0 &amp;  0 &amp; 1&amp;  0 \\ 0 &amp;  0 &amp; 0 &amp;  0 \\ 0 &amp;  0 &amp; 0 &amp;  0
+\end{bmatrix} ~~\Rightarrow ~~ A_{ij} = \delta_{i2}\delta_{j3}
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Cambio de notación en la base)</p>
+<p>Véase que en esta sección se han denominado a los elementos de la base simplemente como <span class="math notranslate nohighlight">\(\ket{i}\)</span> en vez de como <span class="math notranslate nohighlight">\(\ket{e_i}\)</span>. Esto es simplemente un cambio de notación. Las dos notaciones son habituales en matemáticas y física, pero la usada en computación cuántica es la primera, <span class="math notranslate nohighlight">\(\ket{i}\)</span>.</p>
+</div>
+</section>
+<section id="expansion-de-un-operador-general">
+<h3>Expansión de un operador general<a class="headerlink" href="#expansion-de-un-operador-general" title="Permalink to this heading">#</a></h3>
+<p>Ahora podemos obtener una nueva perspectiva sobre la matriz <span class="math notranslate nohighlight">\(A_{ij}\)</span> asociada a un operador <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">De la misma manera que las componentes <span class="math notranslate nohighlight">\(u_i\)</span> expresan la <i>expansión de un vector</i> <span class="math notranslate nohighlight">\(\ket{u}\)</span> en una base <i>ortonormal de vectores</i>,  <span class="math notranslate nohighlight">\(\to \ket{u} = \sum_{i=1}^N u_i \ket{i}\)</span>, los <i>elementos de matriz</i> <span class="math notranslate nohighlight">\(A_{ij}\)</span> expresan la <i>expansión de un operador</i> en una <b>base de operadores</b> <span class="math notranslate nohighlight">\(\ketbra{i}{j}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-base-operadores">
+<span class="eqno">(81)<a class="headerlink" href="#equation-ec-formalismo-base-operadores" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+A= \sum_{i,j=1}^N A_{ij} \ketbra{i}{j}
+\end{equation} \]</div>
+<p class="sd-card-text">Esta base es la <b>base canónica</b>.</p>
+</div>
+</div>
+<p>Escribiendo las matrices asociadas a <span class="math notranslate nohighlight">\(\ketbra{i}{j}\)</span>, es evidente que <span class="math notranslate nohighlight">\(\sum_{i,j=1}^N A_{ij} \ketbra{i}{j} \)</span> reconstruye la mariz <span class="math notranslate nohighlight">\(A_{ij}\)</span> asociada a <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-8023c9eb-c230-4564-9553-6cd53191a339">
+<span class="eqno">(82)<a class="headerlink" href="#equation-8023c9eb-c230-4564-9553-6cd53191a339" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A= \sum_{i,j=1}^N A_{ij} \ketbra{i}{j} \,~~~~ \Longleftrightarrow ~~~~
+\begin{bmatrix}
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1N} \\
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2N} \\
+\vdots &amp; \vdots &amp;  \ddots      &amp; \vdots \\
+A_{N1} &amp; A_{N2} &amp;    \cdots    &amp; A_{NN}
+\end{bmatrix} .
+\end{equation}\]</div>
+</section>
+<section id="elementos-de-matriz">
+<h3>Elementos de matriz<a class="headerlink" href="#elementos-de-matriz" title="Permalink to this heading">#</a></h3>
+<p>De la misma manera que obteníamos las componentes de un vector proyectando sobre un elemento de la base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fdff65ad-f9d1-4b62-992a-f4da419ee1c0">
+<span class="eqno">(83)<a class="headerlink" href="#equation-fdff65ad-f9d1-4b62-992a-f4da419ee1c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+v_i = \braket{i}{v}
+\end{equation}\]</div>
+<p>ahora podemos obtener los <i>elementos de matriz</i> de un operador <span class="math notranslate nohighlight">\(A\)</span> en la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-84936efd-8bca-4e7a-8890-d70ead1906f5">
+<span class="eqno">(84)<a class="headerlink" href="#equation-84936efd-8bca-4e7a-8890-d70ead1906f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{A_{ij} = \bra{i} A \ket{j}}
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Demuestra la expresión <span class="math notranslate nohighlight">\(A_{ij} = \bra{i} A \ket{j}\)</span>. Para ello usa la Ec. (\ref{ec_formalismo_base_operadores})</p>
+</div>
+<div class="attention admonition">
+<p class="admonition-title">Resumen</p>
+<p>Dada una base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> podemos expresar un operador mediante una matriz <span class="math notranslate nohighlight">\(A_{ij}\)</span>. La relación concreta es</p>
+<ul class="simple">
+<li><p>Como operador <span class="math notranslate nohighlight">\(\to ~ A = \sum_{ij} A_{ij}\ketbra{i}{j}\)</span></p></li>
+<li><p>Como elemento de matriz <span class="math notranslate nohighlight">\(\to ~ A_{ij} = \bra{i}A\ket{j}\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="cambios-de-base">
+<h3>Cambios de base<a class="headerlink" href="#cambios-de-base" title="Permalink to this heading">#</a></h3>
+<p>Sean  dos bases ortonormales relacionadas mediante el cambio unitario <span class="math notranslate nohighlight">\( \ket{j} \to  \ketnew{\tilde{j}} = \sum_{ij}U_{ij} \ket{i}\)</span>. En cada una de ellas, un operador adquiere una forma matricial concreta</p>
+<div class="amsmath math notranslate nohighlight" id="equation-da8bf25c-66d4-4d22-9820-36297bc4093e">
+<span class="eqno">(85)<a class="headerlink" href="#equation-da8bf25c-66d4-4d22-9820-36297bc4093e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A_{ij} = \bra{i} A \ket{j} ~~~~,~~~~~ \tilde A_{ij} = \branew{\tilde i} A \ketnew{\tilde j} \, .
+\end{equation}\]</div>
+<p>Ambas se relacionan muy sencillamente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-14ade685-51da-40b3-b8c2-21cd43e906a3">
+<span class="eqno">(86)<a class="headerlink" href="#equation-14ade685-51da-40b3-b8c2-21cd43e906a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\tilde A_{ij} = \branew{\tilde i} A \ketnew{\tilde j} = \sum_{k,l}\bra{e_k}U^*_{ki} A U_{lj}\ket{e_l} =  \sum_{k,l} U_{lj}\bra{e_k} A  \ket{e_l} U^\dagger_{ik}  = \sum_{k,l} U^\dagger_{ik}A_{kl} U_{lj} \, .
+\end{equation}\]</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Bajo un cambio de base <span class="math notranslate nohighlight">\( \ket{e_j} \to \ket{\tilde e_j} = \sum_{ij}U_{ij} \ket{e_i}\)</span> las matrices
+asociadas a un operador <span class="math notranslate nohighlight">\(A\)</span> cambian según la regla</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e235c096-1375-4dff-be34-cf61d14e12c9">
+<span class="eqno">(87)<a class="headerlink" href="#equation-e235c096-1375-4dff-be34-cf61d14e12c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\tilde A_{ij} = (U^\dagger A U)_{ij}
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="relacion-de-completitud">
+<h3>Relación de completitud<a class="headerlink" href="#relacion-de-completitud" title="Permalink to this heading">#</a></h3>
+<p>La acción del operador identidad es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2c780192-4df8-4cea-885b-7f0c703eca03">
+<span class="eqno">(88)<a class="headerlink" href="#equation-2c780192-4df8-4cea-885b-7f0c703eca03" title="Permalink to this equation">#</a></span>\[\begin{equation}
+I\ket{v} = \ket{v}
+\end{equation}\]</div>
+<p>En particular sobre todo elemento de la base <span class="math notranslate nohighlight">\(I\ket{i} = \ket{i}\)</span>. En otras palabras,
+el operador identidad <span class="math notranslate nohighlight">\(I\)</span> tiene por matriz <span class="math notranslate nohighlight">\(I_{ij}=\delta_{ij}={\rm diagonal}\, (1,1,...,1)\)</span> con lo que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-220cd66a-97c7-424c-b3ef-0ecd8b0be947">
+<span class="eqno">(89)<a class="headerlink" href="#equation-220cd66a-97c7-424c-b3ef-0ecd8b0be947" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{ I = \sum_{i}  \ketbra{i}{i} } = \sum_{ij} \delta_{ij}\ketbra{i}{j} =
+\begin{bmatrix}
+1 &amp; 0 &amp; \dots &amp; 0 \\
+0 &amp; 1 &amp; \dots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \dots &amp; 1 \\
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Esta expresión se conoce también como <i>relación de completitud</i> o, también <b>relación de cierre</b> y se utiliza muy frecuentemente.</p>
+<p>La relación de completitud es, en realidad, una propiedad de  <b>cualquier base</b>. Dicho de otro modo, si <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> son, ambas, bases entonces <span class="math notranslate nohighlight">\(I\ket{e_i} = \ket{e_ i}\)</span> y <span class="math notranslate nohighlight">\(I\ket{f_j} = \ket{f_j}\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a4ea6e9c-ac24-43ab-917b-0a62d67b0036">
+<span class="eqno">(90)<a class="headerlink" href="#equation-a4ea6e9c-ac24-43ab-917b-0a62d67b0036" title="Permalink to this equation">#</a></span>\[\begin{equation}
+I =  \sum_{i}  \ketbra{e_i}{e_i} =  \sum_{j}  \ketbra{f_j}{f_j}\, .
+\end{equation}\]</div>
+<p>La relación de cierre, o completitud,  siempre se puede insertar en cualquier momento del cálculo. Se utiliza con frecuencia para efectuar cambios de base.</p>
+<p>Por ejemplo, vamos a ver que el producto escalar <span class="math notranslate nohighlight">\(\braket{u}{v}\)</span> puede calcularse en cualquier.
+Sea <span class="math notranslate nohighlight">\(\ket{u} = \sum_i u_i\ket{e_i} = \sum_i \tilde u_i \ket{f_i}\)</span>  y <span class="math notranslate nohighlight">\(\ket{v} = \sum_i  v_i\ket{e_i}=\sum_i \tilde v_i\ket{f_i}\)</span>. Entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-307cdd77-f2d5-4e23-abeb-2c644cc7e4d3">
+<span class="eqno">(91)<a class="headerlink" href="#equation-307cdd77-f2d5-4e23-abeb-2c644cc7e4d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{v}{u} = \bra{v} I \ket{u} = \bra{v}\left(\sum_i\ketbra{e_i}{e_i}\right)\ket{u} =
+\sum_i \braket{v}{e_i}\braket{e_i}{u} = \sum_i v_i^* u_i
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9c0b3050-9810-43e1-bddd-e8fae5fd7d38">
+<span class="eqno">(92)<a class="headerlink" href="#equation-9c0b3050-9810-43e1-bddd-e8fae5fd7d38" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{v}{u} = \bra{v} I \ket{u} = \bra{v}\left(\sum_i\ketbra{f_i}{f_i}\right)\ket{u} =
+\sum_i \braket{v}{f_i}\braket{f_i}{u} = \sum_i \tilde v_i^* \tilde u_i
+\end{equation}\]</div>
+</section>
+</section>
+<section id="el-espacio-vectorial-rm-l-mathcal-h">
+<h2>El espacio vectorial <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span><a class="headerlink" href="#el-espacio-vectorial-rm-l-mathcal-h" title="Permalink to this heading">#</a></h2>
+<p>El <i>conjunto</i> de <b>todos</b> los <i>operadores lineales</i> sobre un espacio vectorial <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> tiene, de forma natural, una estructura de espacio vectorial que denominamos <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span>.</p>
+<p>En efecto, sean <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> dos operadores, y <span class="math notranslate nohighlight">\(\lambda\in {\mathbb{C}}\)</span> un número complejo. Tanto la suma <span class="math notranslate nohighlight">\(C = A+B\)</span> como la multiplicación externa <span class="math notranslate nohighlight">\(D=\lambda A\)</span> son nuevos operadores definidos por su acción sobre un vector cualquiera <span class="math notranslate nohighlight">\(\ket{v}\in \mathcal{H}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd35c51a-f5ca-40f9-aa5d-3882ca62d19f">
+<span class="eqno">(93)<a class="headerlink" href="#equation-dd35c51a-f5ca-40f9-aa5d-3882ca62d19f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+C\ket{v} ~=~ (A + B) \ket{v} = A\ket{v} + B\ket{v}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-0194bd96-9ace-449a-941d-a36aff533b30">
+<span class="eqno">(94)<a class="headerlink" href="#equation-0194bd96-9ace-449a-941d-a36aff533b30" title="Permalink to this equation">#</a></span>\[\begin{equation}
+D\ket{v} ~=~ (\lambda A) \ket{v} = \lambda (A\ket{v})
+\end{equation}\]</div>
+<section id="operador-adjunto">
+<h3>Operador Adjunto<a class="headerlink" href="#operador-adjunto" title="Permalink to this heading">#</a></h3>
+<p>La conjugación <i>adjunta</i> se puede extender a <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-d10b0396-9954-4b4f-bf6b-c078a017856a">
+<span class="eqno">(95)<a class="headerlink" href="#equation-d10b0396-9954-4b4f-bf6b-c078a017856a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\dagger ~\to ~
+\left\{
+\begin{matrix}
+z &amp; \leftrightarrow  &amp;  z^* \\
+|u\rangle &amp; \leftrightarrow &amp;   \langle u | \\
+A &amp; \leftrightarrow &amp; A^{\dagger}
+\end{matrix}
+\right.
+\end{equation}\]</div>
+<p>pero añadiendo dos reglas que permiten aplicar <span class="math notranslate nohighlight">\(\dagger\)</span> a sumas y productos de <i>objetos</i> <span class="math notranslate nohighlight">\(a,b \in\{z,\ket{u},A\}\)</span></p>
+<ul class="simple">
+<li><p><b>linealidad</b> <span class="math notranslate nohighlight">\(( a + b)^\dagger = a^\dagger + b^\dagger \)</span></p></li>
+<li><p><b>trasposición</b> <span class="math notranslate nohighlight">\((ab)^\dagger = b^\dagger a^\dagger\)</span> (sólo relevante cuando <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> no conmuten)</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplos</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ket{v} = A\ket{u} ~~\Leftrightarrow ~~\bra{v} = \bra{u}A^\dagger\)</span> donde el operador en la derecha actúa sobre el <i>bra</i> a su izquierda.
+Notar que, como <span class="math notranslate nohighlight">\(\ket{v}^\dagger=\ket{Au}^\dagger = \bra{Au}\)</span>, la ecuación anterior implica</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-b9fcb48c-198f-41f3-891c-d1791542b35f">
+<span class="eqno">(96)<a class="headerlink" href="#equation-b9fcb48c-198f-41f3-891c-d1791542b35f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bra{Au} = \bra{u} A^\dagger
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bra{w}A\ket{u}^* = (\bra{w}A\ket{u})^\dagger = \bra{u}A^\dagger\ket{w}\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="matriz-adjunta">
+<h3>Matriz Adjunta<a class="headerlink" href="#matriz-adjunta" title="Permalink to this heading">#</a></h3>
+<p>Estas reglas nos permiten obtener el adjunto de un operador</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ed22fe25-dd9f-4da8-81d9-e99341fd67ed">
+<span class="eqno">(97)<a class="headerlink" href="#equation-ed22fe25-dd9f-4da8-81d9-e99341fd67ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{A^\dagger = \sum_{ij}\left( A_{ij}\ketbra{i}{j}\right)^\dagger = \sum_{ij} \, \ketbra{j}{i}A_{ij}^* =  \sum_{ji} \, A_{ji}^*\ketbra{i}{j}}
+\end{equation}\]</div>
+<p>donde en la última ecuación hemos intercambiado los nombres <span class="math notranslate nohighlight">\(i\leftrightarrow j\)</span>.</p>
+<p>Vemos que la matriz que representa <span class="math notranslate nohighlight">\(A^\dagger\)</span> es la <i>matriz adjunta</i> de <span class="math notranslate nohighlight">\(A_{ij}\)</span>, es decir, la traspuesta y conjugada</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c0502ce2-7732-4e89-8769-baf74bd972b7">
+<span class="eqno">(98)<a class="headerlink" href="#equation-c0502ce2-7732-4e89-8769-baf74bd972b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(A^\dagger)_{ij} = A^*_{ji} = (A^{*}_{ij})^t \equiv (A_{ij})^\dagger
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(^\dagger\)</span> significa el adjunto de un operador a la izquierda, y de una matriz a la derecha.</p>
+<section id="dimension-de-rm-l-mathcal-h">
+<h4>Dimensión de <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span><a class="headerlink" href="#dimension-de-rm-l-mathcal-h" title="Permalink to this heading">#</a></h4>
+<p>Si <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> tiene dimensión <span class="math notranslate nohighlight">\(N\)</span>, un <i>operador general</i> <span class="math notranslate nohighlight">\(A\in {\rm L}(\mathcal{H})\)</span> se especifica mediante una matriz de <span class="math notranslate nohighlight">\(N^2\)</span> números complejos <span class="math notranslate nohighlight">\(\Rightarrow A = A_{ij}\ket{e_i}\bra{e_j}\)</span>. Además, <span class="math notranslate nohighlight">\(N^2\)</span> números complejos equivalen a <span class="math notranslate nohighlight">\(2N^2\)</span> números reales.</p>
+<p>En otras palabras: <span class="math notranslate nohighlight">\(A\)</span>  tiene <span class="math notranslate nohighlight">\(N^2\)</span> grados de libertad complejos y, por tanto, ésta es la dimension del espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-7de198e8-8c5b-4f91-aaae-4c7d54515f85">
+<span class="eqno">(99)<a class="headerlink" href="#equation-7de198e8-8c5b-4f91-aaae-4c7d54515f85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm dim}_{\bf C}({\rm L}(\mathcal{H})) = N^2 ~~~ \Longleftrightarrow ~~~ {\rm dim}_{\bf R}({\rm L}(\mathcal{H})) =  2N^2
+\end{equation}\]</div>
+</section>
+</section>
+</section>
+<section id="clases-de-operadores">
+<h2>Clases de operadores<a class="headerlink" href="#clases-de-operadores" title="Permalink to this heading">#</a></h2>
+<p>Vamos a considerar clases de operadores que satisfagan algún tipo de <i>condición</i> o <i>restricción</i>.</p>
+<section id="operador-unitario">
+<h3>Operador Unitario<a class="headerlink" href="#operador-unitario" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un <b>operador unitario</b> <span class="math notranslate nohighlight">\(U\)</span> es tal que su <i>adjunto</i> es igual a su <i>inverso</i>. Es decir verifica la siguiente ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5c4a1d02-4593-46d5-8175-493c74d152cb">
+<span class="eqno">(100)<a class="headerlink" href="#equation-5c4a1d02-4593-46d5-8175-493c74d152cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+U^\dagger = U^{-1}  \,
+\end{equation}\]</div>
+</div>
+</div>
+<p>Naturalmente, esta ecuación se traduce en la misma ecuación para las matrices asociadas</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9492e3d8-c38a-45db-ac8a-0001f270b7ac">
+<span class="eqno">(101)<a class="headerlink" href="#equation-9492e3d8-c38a-45db-ac8a-0001f270b7ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(U_{ij})^\dagger = U_{ji}^* = U^{-1}_{ij}
+\end{equation}\]</div>
+<p>Veamos ahora por qué hemos definido esta clase de operadores.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La acción de un operador unitario conserva <b>intacto el producto escalar</b> de dos vectores cualesquiera. En particular, conserva también la <i>norma</i> de cualquier vector.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(U\)</span> un operador unitario, y <span class="math notranslate nohighlight">\(\ket{\varphi'}=U\ket{\varphi}\)</span> y <span class="math notranslate nohighlight">\(\ket{\psi'} = U\ket{\psi}\)</span> dos vectores transformados por <span class="math notranslate nohighlight">\(U\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c9165810-efcb-435c-89a5-712791a26b4e">
+<span class="eqno">(102)<a class="headerlink" href="#equation-c9165810-efcb-435c-89a5-712791a26b4e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{\varphi'}{\psi'} = \left(\bra{\varphi}U^\dagger\right)U\ket{\psi} = \bra{\varphi} U^\dagger U \ket{\psi} =
+\braket{\varphi}{\psi}
+\end{equation}\]</div>
+<p class="sd-card-text">particularizando para <span class="math notranslate nohighlight">\(\ket{\varphi} = \ket{\psi}\)</span> tenemos que un operador unitario conserva la norma.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-43aada85-0833-4551-ac88-e02c8b94fec2">
+<span class="eqno">(103)<a class="headerlink" href="#equation-43aada85-0833-4551-ac88-e02c8b94fec2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\|U \ket{\varphi}\| = \|\ket{\varphi}\|
+\end{equation}\]</div>
+</div>
+</details><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>composición</b> de dos operadores <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span>  unitarios es unitaria. Sin embargo, la <b>combinación lineal</b> de operadores unitarios no es unitaria.</p>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Demuestra este resultado, es decir, demuestra que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+(UV)^\dagger &amp; = (UV)^{-1} \\
+(U+V)^\dagger &amp; \neq (U+V)^{-1}
+\end{align*}\]</div>
+</div>
+<p>Por tanto, los operadores unitarios <i>no forman</i> un subespacio vectorial dentro de <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span>. La estructura matemática que forman se denomina <b>grupo</b>: el grupo unitario <span class="math notranslate nohighlight">\(U(m)\)</span>, donde <span class="math notranslate nohighlight">\(m\)</span> es la dimensión del espacio de Hilbert <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p>
+<p>Aun así, forman una <i>variedad</i>: un conjunto continuo  que se puede parametrizar mediante una colección de parámetros, la <i>dimensión de la variedad</i>. Como hay una relación 1 a 1 entre un operador una matriz (en una base), esa dimensión será igual a <i>la dimensión del conjunto de matrices unitarias</i>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Resta de <span class="math notranslate nohighlight">\({\rm dim}_{\bf R}({\rm L}(\mathcal{H})) =  2N^2\)</span> el número de ecuaciones que restringen la matriz de un operador unitario y halla así la dimensión (real) de la <i>variedad de operadores unitarios</i>.</p>
+</div>
+</section>
+<section id="operador-unitario-sobre-bases-ortonormales">
+<h3>Operador Unitario sobre bases ortonormales<a class="headerlink" href="#operador-unitario-sobre-bases-ortonormales" title="Permalink to this heading">#</a></h3>
+<p>Como caso particular, aplicando un operador unitario <span class="math notranslate nohighlight">\(U\)</span> a una base ortonormal <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> obtenemos otra base ortonormal <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-00ded80b-e307-4fb1-a06e-8970583dfd6f">
+<span class="eqno">(104)<a class="headerlink" href="#equation-00ded80b-e307-4fb1-a06e-8970583dfd6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\left. \begin{array}{c}\ket{f_i} = U\ket{e_i}\\ U^{-1} =  U^\dagger \end{array} \right\}
+~~~~ \Longleftrightarrow ~~~~\braket{f_i}{f_j} = \braket{e_i}{e_j} = \delta_{ij}
+\end{equation}\]</div>
+<p>Inversamente, dadas dos bases ortonormales, <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>, el operador que las relaciona es un operador unitario</p>
+<div class="amsmath math notranslate nohighlight" id="equation-be9192b2-337e-4fef-bc72-3e60902d810e">
+<span class="eqno">(105)<a class="headerlink" href="#equation-be9192b2-337e-4fef-bc72-3e60902d810e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{array}{rcl}
+U = \sum_i \ketbra{f_i}{e_i} &amp; \Rightarrow &amp;  U\ket{e_j} = \ket{f_j}
+\\ \rule{0mm}{5mm}
+U^\dagger = \sum_i \ketbra{e_i}{f_i}  &amp; \Rightarrow &amp;    U^\dagger\ket{f_j} = \ket{e_j}
+\end{array}
+\end{equation}\]</div>
+<section id="operador-ortogonal">
+<h4>Operador ortogonal<a class="headerlink" href="#operador-ortogonal" title="Permalink to this heading">#</a></h4>
+<p>Un  <b>operador ortogonal</b> es un caso particular de operador  unitario con <i>elementos de matriz reales</i>. El operador de rotación <span class="math notranslate nohighlight">\(R(\theta)\)</span> que hemos estudiado al comienzo de este tema es un operador ortogonal. Es inmediato comprobar que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-56245818-68cb-4047-af6b-80f3876595fe">
+<span class="eqno">(106)<a class="headerlink" href="#equation-56245818-68cb-4047-af6b-80f3876595fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R(\theta)^t = R(-\theta) = R(\theta)^{-1}
+\end{equation}\]</div>
+</section>
+</section>
+<section id="operador-normal">
+<h3>Operador Normal<a class="headerlink" href="#operador-normal" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un operador <span class="math notranslate nohighlight">\(N\)</span>  es <b>normal</b> si conmuta con su adjunto</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c9cc1cdf-b1c9-46ba-a1ec-8f653373045f">
+<span class="eqno">(107)<a class="headerlink" href="#equation-c9cc1cdf-b1c9-46ba-a1ec-8f653373045f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+NN^\dagger = N^\dagger N
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="operador-hermitico">
+<h3>Operador Hermítico<a class="headerlink" href="#operador-hermitico" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un operador  <span class="math notranslate nohighlight">\(H\)</span> es <b>Hermítico</b> (o <b>autoadjunto</b>)  si  verifica la ecuación siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0ae7fa50-05ff-4b80-900f-72bce953cb9c">
+<span class="eqno">(108)<a class="headerlink" href="#equation-0ae7fa50-05ff-4b80-900f-72bce953cb9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H = H^\dagger
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Es evidente que un operador hermítico es un operador normal, pero a la inversa no tiene por qué.</p></li>
+<li><p>La <b>combinación lineal</b> de dos operadores <i>hermíticos</i> con coeficientes <i>reales</i> es un operador <i>hermítico</i></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-f6e7ae92-c756-4856-9afc-e78de197e7e9">
+<span class="eqno">(109)<a class="headerlink" href="#equation-f6e7ae92-c756-4856-9afc-e78de197e7e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+C^\dagger = (a A + b B)^\dagger = a^* A^\dagger + b^* B^\dagger = aA + b B = C
+\end{equation}\]</div>
+<p>En otras palabras, los operadores autoadjuntos forman un subespacio vectorial <span class="math notranslate nohighlight">\(\subset {\rm L}(\mathcal{H})\)</span>.</p>
+<ul class="simple">
+<li><p>En cambio la composición (producto) de dos operadores hermíticos, en general no es hermítico</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-8afef426-5785-4d1c-862b-cfcf63d84663">
+<span class="eqno">(110)<a class="headerlink" href="#equation-8afef426-5785-4d1c-862b-cfcf63d84663" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(A B)^\dagger = B^\dagger A^\dagger = BA \neq AB
+\end{equation}\]</div>
+<p>salvo que <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> conmuten.</p>
+<ul class="simple">
+<li><p>La matriz asociada a un operador hermítico también se llama hermítica, y coincide con su traspuesta y conjugada</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-71c2f090-e34e-4b8e-bc4f-a8a6c50f3b57">
+<span class="eqno">(111)<a class="headerlink" href="#equation-71c2f090-e34e-4b8e-bc4f-a8a6c50f3b57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A_{ij} = A^\dagger_{ij} \equiv  A^{*t}_{ij} = A^*_{ji}
+\end{equation}\]</div>
+<p>Naturalmente, las matrices hermíticas también forman un subespacio vectorial dentro del espacio vectorial de matrices.</p>
+<ul class="simple">
+<li><p>A partir de cualquier operador <span class="math notranslate nohighlight">\(C\neq C^\dagger \)</span> siempre podemos construir un operador hermítico <span class="math notranslate nohighlight">\(A=A^\dagger\)</span> mediante la combinación lineal</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-2122c0f5-eedd-4575-9fff-5f30a06f6819">
+<span class="eqno">(112)<a class="headerlink" href="#equation-2122c0f5-eedd-4575-9fff-5f30a06f6819" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = C + C^\dagger
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a\)</span> es un número real. Esto se extiende trivialmente a las matrices que los representan en cualquier base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d659833d-a232-49c8-9732-507b48f71f3f">
+<span class="eqno">(113)<a class="headerlink" href="#equation-d659833d-a232-49c8-9732-507b48f71f3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A_{ij} = C_{ij} + C_{ji}^*
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Resta de <span class="math notranslate nohighlight">\(2N^2\)</span> el número de ecuaciones que restringen la matriz de un operador hermítico y halla así la dimensión del <i>subespacio vectorial hermítico</i></p>
+</div>
+</section>
+<section id="operador-anti-hermitico">
+<h3>Operador anti-Hermítico<a class="headerlink" href="#operador-anti-hermitico" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un operador  <span class="math notranslate nohighlight">\(A\)</span> es <b>anti-hermítico</b> si  verifica la ecuación siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a28a4a3e-6763-4f31-9b61-00070ac5e96f">
+<span class="eqno">(114)<a class="headerlink" href="#equation-a28a4a3e-6763-4f31-9b61-00070ac5e96f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = -A^\dagger
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Un operador anti-hermitico siempre se puede obtener de un operador hermítico mediante el número <span class="math notranslate nohighlight">\(i\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-0e2ad7ba-173b-48fe-ac83-058947364add">
+<span class="eqno">(115)<a class="headerlink" href="#equation-0e2ad7ba-173b-48fe-ac83-058947364add" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = i H ~~~\Longleftrightarrow ~~~A^\dagger = (i H)^\dagger = -i H
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Se deduce de lo anterior que un operador anti-hermítico es también un operador normal</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-5f801b70-cfa1-42eb-8004-2314cb674931">
+<span class="eqno">(116)<a class="headerlink" href="#equation-5f801b70-cfa1-42eb-8004-2314cb674931" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A A^\dagger = A (-A) = -A A = A^\dagger A
+\end{equation}\]</div>
+</section>
+<section id="proyectores">
+<h3>Proyectores<a class="headerlink" href="#proyectores" title="Permalink to this heading">#</a></h3>
+<p>El operador <span class="math notranslate nohighlight">\(P = \ketbra{u}{u}\)</span> proyecta cualquier vector en la dirección de <span class="math notranslate nohighlight">\(\ket{u}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-cb73addb-5ad7-433e-9f5b-885736f0b83d">
+<span class="eqno">(117)<a class="headerlink" href="#equation-cb73addb-5ad7-433e-9f5b-885736f0b83d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P \ket{w} = \ket{u}\!\braket{u}{w} = a \ket{u}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a = \braket{u}{w}\)</span>.</p>
+<p>Aplicado al vector <span class="math notranslate nohighlight">\(\ket{u}\)</span> lo deja invariante</p>
+<div class="amsmath math notranslate nohighlight" id="equation-18dad45d-20b7-4dfb-8d37-66a5593500b8">
+<span class="eqno">(118)<a class="headerlink" href="#equation-18dad45d-20b7-4dfb-8d37-66a5593500b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P \ket{u} = \ket{u}\!\braket{u}{u} =  \ket{u}
+\end{equation}\]</div>
+<p>Es por esto que, una segunda aplicación de <span class="math notranslate nohighlight">\(P\)</span>, no modifica el resultado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cf312801-7729-4f73-9f1b-95f0d284624d">
+<span class="eqno">(119)<a class="headerlink" href="#equation-cf312801-7729-4f73-9f1b-95f0d284624d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P(P \ket{w}) =  \braket{u}{w} P(\ket{u}) = \braket{u}{w} \ket{u}
+\end{equation}\]</div>
+<p>Como el vector <span class="math notranslate nohighlight">\(\ket{w}\)</span> es arbitrario, que <span class="math notranslate nohighlight">\(P^2\ket{w} = P\ket{w}\)</span> sean siempre iguales es una propiedad del operador <span class="math notranslate nohighlight">\(P\)</span>. De hecho <b>esta propiedad define una clase de operadores</b>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un <b>proyector </b>es un operador hermítico que verifica la ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0aa56eb1-b2b6-4b24-855f-3e54c7f227bf">
+<span class="eqno">(120)<a class="headerlink" href="#equation-0aa56eb1-b2b6-4b24-855f-3e54c7f227bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P^2 = P
+\end{equation}\]</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Los proyectores son no-unitarios)</p>
+<p>El proyector es un operador <i>no-unitario</i>: la proyección reduce la norma.
+Supongamos que <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{w}\)</span> son vectores unitarios y distintos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-55d5d634-e41e-4b1c-8aae-9418448e4284">
+<span class="eqno">(121)<a class="headerlink" href="#equation-55d5d634-e41e-4b1c-8aae-9418448e4284" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\| P\ket{w}\|^2 = \bra{w}P^\dagger P\ket{w} = \bra{w} P\ket{w}= \braket{w}{u}\braket{u}{w} = |\braket{u}{w}|^2 &lt; \|\ket{u}\|\|\ket{w}\| = 1
+\end{equation}\]</div>
+<p>donde hemos aplicado la desigualdad de Cauchy Schwarz estricta, al suponer que <span class="math notranslate nohighlight">\(\ket{u}\neq\ket{w}\)</span>.</p>
+</div>
+<ul class="simple">
+<li><p><b>Matriz asociada a un proyector</b></p>
+<ol class="arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\ket{u} = \ket{e_1}\)</span> el operador <span class="math notranslate nohighlight">\(P_1 = \ket{e_1}\bra{e_1}\)</span> proyecta cualquier vector sobre su componente a lo largo de <span class="math notranslate nohighlight">\(\ket{e_1}\)</span>.    En forma matricial</p></li>
+</ol>
+</li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-6cf5dd11-a003-4cc9-a39c-a66f2fac8262">
+<span class="eqno">(122)<a class="headerlink" href="#equation-6cf5dd11-a003-4cc9-a39c-a66f2fac8262" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ketbra{e_1}{e_1} = \begin{bmatrix} 1 \\ 0 \\ \vdots\\ 0 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; ...&amp; 0 \end{bmatrix}  =
+\begin{bmatrix} 1 &amp; 0 &amp;  \cdots &amp; 0 \\ 0 &amp; 0  &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp;\vdots &amp; \vdots  \\
+0  &amp; 0 &amp; \cdots &amp; 0\end{bmatrix}
+\end{equation}\]</div>
+<p>de modo que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-971314e2-512d-43af-87c2-7c0a3857b56f">
+<span class="eqno">(123)<a class="headerlink" href="#equation-971314e2-512d-43af-87c2-7c0a3857b56f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{e_1} \! \braket{e_1}{u} ~= ~\begin{bmatrix} 1 &amp; 0 &amp;  \cdots &amp; 0 \\ 0 &amp; 0  &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp;\vdots &amp; \vdots  \\
+0  &amp; 0 &amp; \cdots &amp; 0\end{bmatrix} \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_N \end{bmatrix}
+= \begin{bmatrix} u^1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} = u^1 \ket{e_1}
+\end{equation}\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2. Si $\ket{u} = \sum_i u^i\ket{e_i}$ es un vector unitario  $\|\ket{u}\|=1$, entonces el proyector a lo largo de $\ket{u}$ viene dado por
+</pre></div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-3227bbf9-2635-4829-9237-4d3eaf3b8123">
+<span class="eqno">(124)<a class="headerlink" href="#equation-3227bbf9-2635-4829-9237-4d3eaf3b8123" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{P(u) = \ketbra{u}{u} = \sum_{i,j} u_i u^*_j \ketbra{e_i}{e_j}}
+\end{equation}\]</div>
+<p>Es decir, le está asociada una matriz dada por <span class="math notranslate nohighlight">\(P_{ij}=u_iu^*_j\)</span>. Es trivial verificar que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e2e910c-40ea-45d4-b031-3a5c51edae27">
+<span class="eqno">(125)<a class="headerlink" href="#equation-1e2e910c-40ea-45d4-b031-3a5c51edae27" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum_j P_{ij}P_{jk} = \sum_j u_i u^*_j u_j u^*_k = u_i\left(\sum_j u^*_j u_j\right) u_k = u_i u_k^* = P_{ik}
+\end{equation}\]</div>
+<p>como corresponde a un proyector.</p>
+<ul class="simple">
+<li><p><b>Proyectores ortogonales</b>
+Si <span class="math notranslate nohighlight">\(\{\ket{\mu_i}\}\)</span> es un conjunto de vectores ortonormales, forman la base de un subsespacio <span class="math notranslate nohighlight">\(S\subset \mathcal{H}\)</span>. El operador</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-3ff6de1f-5205-4a6e-a3d7-db1fb0964924">
+<span class="eqno">(126)<a class="headerlink" href="#equation-3ff6de1f-5205-4a6e-a3d7-db1fb0964924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_S = \sum_i P(\mu_i) = \sum_i \ketbra{\mu_i}{\mu_i}
+\end{equation}\]</div>
+<p>es un proyector sobre el subespacio <span class="math notranslate nohighlight">\(S\)</span>, es decir <span class="math notranslate nohighlight">\(P_S\ket{u}\in S\)</span> para todo <span class="math notranslate nohighlight">\(\ket{u}\in \mathcal{H}\)</span>.</p>
+<ul class="simple">
+<li><p><b>Proyector perpendicular</b>
+Cualquier vector se puede descomponer como combinación de un vector y otro perpendicular</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-f9b63053-3d91-44fa-b26a-96282277cc16">
+<span class="eqno">(127)<a class="headerlink" href="#equation-f9b63053-3d91-44fa-b26a-96282277cc16" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = a \ket{u} + b \ket{u_\perp}
+\end{equation}\]</div>
+<p>Si tomamos <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{u_\perp}\)</span> unitarios, los proyectories asociados</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3dd0d4fd-be3d-4618-8de5-c9017119793f">
+<span class="eqno">(128)<a class="headerlink" href="#equation-3dd0d4fd-be3d-4618-8de5-c9017119793f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_\| = P(u)  = \ketbra{u}{u}~~~~~,~~~~~P_\perp = P(u_\perp)= \ketbra{u_\perp}{u_\perp}
+\end{equation}\]</div>
+<p>son perpendiculares</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bebcb68a-7727-408c-a80a-4992c2e77136">
+<span class="eqno">(129)<a class="headerlink" href="#equation-bebcb68a-7727-408c-a80a-4992c2e77136" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_\|\ P_\perp = 0  ~~~~~~,~~~~~~P_\| + P_\perp = I
+\end{equation}\]</div>
+</section>
+<section id="reflectores">
+<h3>Reflectores<a class="headerlink" href="#reflectores" title="Permalink to this heading">#</a></h3>
+<p>Cualquier vector se puede descomponer como combinación de un vector y otro perpendicular</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d14f121-7ef7-4124-8e8a-c527ab43a9de">
+<span class="eqno">(130)<a class="headerlink" href="#equation-6d14f121-7ef7-4124-8e8a-c527ab43a9de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{\psi} = a \ket{u} + b \ket{u_\perp}
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><b>Reflector paralelo a <span class="math notranslate nohighlight">\(\ket{u}\)</span>: <span class="math notranslate nohighlight">\(\ket{u}~\)</span>: <span class="math notranslate nohighlight">\(R_u = R_\|\)</span></b>
+El operador que <i>refleja  paralelamente</i> a <span class="math notranslate nohighlight">\(\ket{u}\)</span> será  el que invierte la componente de <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> en esa dirección</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-a3be8566-d6a6-4fb1-9fd7-f7daa1b49142">
+<span class="eqno">(131)<a class="headerlink" href="#equation-a3be8566-d6a6-4fb1-9fd7-f7daa1b49142" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{R_\| =  I - 2P_\| = I - 2\ketbra{u}{u}}
+\end{equation}\]</div>
+<p>Efectivamente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-38bc950c-908b-4966-873c-ad97f47fc9b6">
+<span class="eqno">(132)<a class="headerlink" href="#equation-38bc950c-908b-4966-873c-ad97f47fc9b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R_\|\ket{\psi} = - a \ket{u} + b \ket{u_\perp}\, .
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><b>Reflector perpendicular a <span class="math notranslate nohighlight">\(~\ket{u}~\)</span>: <span class="math notranslate nohighlight">\(R_{u_\perp} = R_\perp\)</span></b>
+El operador que <i>refleja  perpendiculamente</i> a <span class="math notranslate nohighlight">\(\ket{u}\)</span> debe invertir la componente de <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> a lo largo de <span class="math notranslate nohighlight">\(\ket{u_\perp}\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+R_\perp\ket{\psi} &amp;=&amp;  a \ket{u} - b \ket{u_\perp}\,  \\ \rule{0mm}{8mm}
+&amp;=&amp; - (-a \ket{u} + b \ket{u_\perp}) \\ \rule{0mm}{8mm}
+&amp;=&amp; -R_\| \ket{\psi}
+\end{eqnarray*}\]</div>
+<p>De modo que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c88c2e3a-d11f-4374-8af6-6a8cfbde825a">
+<span class="eqno">(133)<a class="headerlink" href="#equation-c88c2e3a-d11f-4374-8af6-6a8cfbde825a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{R_\perp = -R_\| = 2P_\| - I} \, ,
+\end{equation}\]</div>
+<p>Si tenemos en cuenta la relación  <span class="math notranslate nohighlight">\(P_\| + P_\perp = I~ \Rightarrow ~P_\| = I - P_\perp\)</span>, podemos concluir que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0edfea42-9cf3-4156-b23f-3223d8d94a25">
+<span class="eqno">(134)<a class="headerlink" href="#equation-0edfea42-9cf3-4156-b23f-3223d8d94a25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R_\perp = I - 2\ket{u_\perp}\bra{u_\perp} = I - 2 P_\perp
+\end{equation}\]</div>
+</section>
+</section>
+<section id="conmutador-y-traza">
+<h2>Conmutador y Traza<a class="headerlink" href="#conmutador-y-traza" title="Permalink to this heading">#</a></h2>
+<section id="conmutador">
+<h3>Conmutador<a class="headerlink" href="#conmutador" title="Permalink to this heading">#</a></h3>
+<p>A diferencia de los números, el orden en el que se componen dos operadores es relevante.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dados dos operadores, <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>, definimos el <b>conmutador</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-57942604-fc24-4640-b80c-6e2eee4aaa50">
+<span class="eqno">(135)<a class="headerlink" href="#equation-57942604-fc24-4640-b80c-6e2eee4aaa50" title="Permalink to this equation">#</a></span>\[\begin{equation}
+[A,B] = AB-BA \,.
+\end{equation}\]</div>
+</div>
+</div>
+<p>El conmutador tiene las dos siguientes propiedades algebraicas, elementales de probar</p>
+<div class="amsmath math notranslate nohighlight" id="equation-51da7b76-adb0-4478-ae4c-d99f9572eb73">
+<span class="eqno">(136)<a class="headerlink" href="#equation-51da7b76-adb0-4478-ae4c-d99f9572eb73" title="Permalink to this equation">#</a></span>\[\begin{align}
+{\rm Derivacion} ~~~&amp; \to  ~ [A,BC] = B[A,C] + [A,B]C \nonumber\\ \rule{0mm}{9mm}
+{\rm Identidad \ de \, Jacobi}~~~~ &amp; \to  ~ [A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0
+\end{align}\]</div>
+<p>La conmutatividad de dos operadores <span class="math notranslate nohighlight">\([A,B]=0\)</span> es una propiedad algebraica muy deseable que, cuando se da, implica propiedades  muy ventajosas.</p>
+</section>
+<section id="traza-de-un-operador">
+<h3>Traza de un operador<a class="headerlink" href="#traza-de-un-operador" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>traza de un operador</b> se define como la suma de los elementos diagonales de la matriz que lo representa en una base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cf94e5c1-143d-46a5-8869-fb70797e0cf6">
+<span class="eqno">(137)<a class="headerlink" href="#equation-cf94e5c1-143d-46a5-8869-fb70797e0cf6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm tr} A \equiv \sum_{i} A_{ii} =   \sum_{i} \bra{i}A\ket{i}
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>La traza de <span class="math notranslate nohighlight">\(A\)</span> es <i>independiente de la base</i>. Por eso decimos que es la <i>traza del operador</i>.</p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+{\rm tr} A &amp;=&amp; \sum_{i} \bra{i}A\ket{i} =\sum_{i} \bra{i}A\left( \sum_j\ketbra{\tilde j}{\tilde j}\right)\ket{i}
+\nonumber\\
+&amp;=&amp; \sum_{ij}\bra{i}A\ketnew{\tilde j} \braket{\tilde j}{i} = \sum_{ij}\braket{\tilde j}{i}\bra{i}A\ketnew{\tilde j}  \nonumber\\
+&amp;=&amp; \sum_{j} \branew{\tilde j}\left(\sum_i\ketbra{i}{i}\right) A \ketnew{\tilde j}= \sum_{j} \branew{\tilde j}A\ketnew{\tilde j}\nonumber\\
+&amp;=&amp; \sum_j \tilde A_{jj}
+\end{eqnarray*}\]</div>
+</div>
+</details><ul class="simple">
+<li><p>La traza es una operación <b>lineal</b></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-70a84ec8-e6f2-45ad-b71a-498c992c8527">
+<span class="eqno">(138)<a class="headerlink" href="#equation-70a84ec8-e6f2-45ad-b71a-498c992c8527" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm tr} (A + B ) = {\rm tr}A + {\rm tr}B
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>La traza de un producto de operadores es <b>cíclica</b>: es invariante bajo permutaciones cíclicas de los operadores en su argumento. Por ejemplo, para tres operadores <span class="math notranslate nohighlight">\(A, B\)</span> y <span class="math notranslate nohighlight">\(C\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-caea6595-0b47-4a78-9bb3-b66dbaf39ac6">
+<span class="eqno">(139)<a class="headerlink" href="#equation-caea6595-0b47-4a78-9bb3-b66dbaf39ac6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm tr}(ABC)= {\rm tr}(BCA)
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Demuestra este resultado</p>
+</div>
+<p>Para un producto de dos operadores, el anterior resultado implica que la<i> traza de un conmutador es cero</i>. Dicho de otra forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-75e6b01f-6480-432c-b2c3-7f38f8fc5807">
+<span class="eqno">(140)<a class="headerlink" href="#equation-75e6b01f-6480-432c-b2c3-7f38f8fc5807" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm tr}(AB) = {\rm tr}(BA) ~~~\Rightarrow ~~~~{\rm tr}([A,B]) = 0 \, .
+\end{equation}\]</div>
+</section>
+</section>
+<section id="autovalores-y-autovectores">
+<h2>Autovalores y autovectores<a class="headerlink" href="#autovalores-y-autovectores" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Existen vectores, <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span>, para los cuales <i>la acción de un operador</i> <span class="math notranslate nohighlight">\(A\)</span> devuelve un vector <b>paralelo</b></p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-ec-de-autovalores">
+<span class="eqno">(141)<a class="headerlink" href="#equation-ec-formalismo-ec-de-autovalores" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+A\ket{\lambda} = \lambda \ket{\lambda}\, .
+\end{equation} \]</div>
+<p class="sd-card-text">Decimos que <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span> es un vector propio (o <b>autovector</b>) de <span class="math notranslate nohighlight">\(A\)</span> con valor propio (o <b>autovalor</b>) asociado <span class="math notranslate nohighlight">\(\lambda\in {\mathbb C}\)</span>.</p>
+</div>
+</div>
+<p>Si <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span> es un autovector, también lo es <span class="math notranslate nohighlight">\(\ket{\mu} = \alpha \ket{\lambda}\)</span>, para cualquier número complejo <span class="math notranslate nohighlight">\(\alpha \in \mathbb{C}\)</span>. En efecto</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a609b94-a91f-4a09-984f-03fc24355b66">
+<span class="eqno">(142)<a class="headerlink" href="#equation-9a609b94-a91f-4a09-984f-03fc24355b66" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A \ket{\mu} = A \lp \alpha \ket{\lambda} \rp =  \alpha A \ket{\lambda} =  \alpha \lambda \ket{\lambda} =
+\lambda \alpha \ket{\lambda} = \lambda \ket{\mu}
+\end{equation}\]</div>
+<p>Es decir, asociado a un autovalor tenemos infinitos autovectores paralelos.</p>
+<section id="autovalores-degenerados">
+<h3>Autovalores degenerados<a class="headerlink" href="#autovalores-degenerados" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Decimos que un autovalor <span class="math notranslate nohighlight">\(\lambda_k\)</span> es <span class="math notranslate nohighlight">\(d_k\)</span> veces <b>degenerado</b> si existen <span class="math notranslate nohighlight">\(d_k\)</span> autovectores <b>linealmente independientes</b>,  <span class="math notranslate nohighlight">\(\ket{\lambda_k^{a}}\)</span> con <span class="math notranslate nohighlight">\(a=1,...,d_k\)</span> asociados al <b>mismo</b> autovalor</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b5d678f8-8968-42b4-b2dd-6ad98c58225a">
+<span class="eqno">(143)<a class="headerlink" href="#equation-b5d678f8-8968-42b4-b2dd-6ad98c58225a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A\ket{\lambda_k^a} = \lambda_k \ket{\lambda_k^a} ~,~~~ {\rm con } ~~ a = 1,...,d_k
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="subespacio-propio">
+<h3>Subespacio propio<a class="headerlink" href="#subespacio-propio" title="Permalink to this heading">#</a></h3>
+<p>Bajo la acción del operador, los autovalores generan un <b>subespacio propio</b> <span class="math notranslate nohighlight">\(S(\lambda_k) \in \mathcal{H}\)</span>. Esto quiere decir que aquellos vectores que pertenecen a un subespacio, siguen perteneciendo al mismo subespacio tras la aplicación del operador.</p>
+<p>Por ejemplo, sea un operador <span class="math notranslate nohighlight">\(A\)</span> tal que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-724df236-5c39-4e30-9738-32f6bf9ffdd7">
+<span class="eqno">(144)<a class="headerlink" href="#equation-724df236-5c39-4e30-9738-32f6bf9ffdd7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A\ket{\lambda_k^a} = \lambda_k \ket{\lambda_k^a} ~,~~~ {\rm con } ~~ a = 1,...,d_k
+\end{equation}\]</div>
+<p>Podemos construir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b3b5e3ac-3117-42b2-8cd8-28b9e8e8fbe3">
+<span class="eqno">(145)<a class="headerlink" href="#equation-b3b5e3ac-3117-42b2-8cd8-28b9e8e8fbe3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{u} = \sum_{a=1}^{d_k} c_a\ket{\lambda^a_k}
+\end{equation}\]</div>
+<p>como una combinación de los autovectores asociados a un autovalor concreto <span class="math notranslate nohighlight">\(\lambda_k\)</span>. Entonces, bajo la acción del operador <span class="math notranslate nohighlight">\(A\)</span> tenemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+A \ket{u}
+=  \sum_{a=1}^{d_k} c_a A\ket{\lambda^a_k}  =  \sum_{a=1}^{d_k} c_a \lambda_k\ket{\lambda^a_k}  =   \lambda_k \sum_{a=1}^{d_k} c_a \ket{\lambda^a_k}  =\lambda_k\ket{u}
+\end{equation*}\]</div>
+<p>Por tanto <span class="math notranslate nohighlight">\(\ket{u}\in S(\lambda_k)\)</span>.</p>
+<p>El Teorema de Gramm-Schmidt (Teorema \ref{teorema_formalismo_gramm_schmidt}) garantiza que podemos elegir (mediante un cambio adecuado) el conjunto <span class="math notranslate nohighlight">\(\{\ket{\lambda_{k}^a}\}\in (\lambda_k), a=1,...,d_k\)</span> de forma que que sea una  <i>base ortonormal</i></p>
+<div class="amsmath math notranslate nohighlight" id="equation-068009d9-5b02-4822-97f1-8c93ae3d614e">
+<span class="eqno">(146)<a class="headerlink" href="#equation-068009d9-5b02-4822-97f1-8c93ae3d614e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{\lambda_{k}^a}{\lambda_{k}^b}=\delta_{ab}
+\end{equation}\]</div>
+<p>El <b>proyector ortogonal</b> sobre el subespacio propio <span class="math notranslate nohighlight">\(S(\lambda_k)\)</span> será</p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-proyec-subespacio-propio">
+<span class="eqno">(147)<a class="headerlink" href="#equation-ec-formalismo-proyec-subespacio-propio" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{P_k = \sum_{a=1}^{d_k} \ketbra{\lambda_{k}^a}{\lambda_{k}^a}}
+\end{equation} \]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Llamemos <span class="math notranslate nohighlight">\(R_z(\theta)\)</span> el operador que efectúa una rotación  de ángulo <span class="math notranslate nohighlight">\(\theta\)</span> entorno al eje <span class="math notranslate nohighlight">\(z\)</span>. Cuando <span class="math notranslate nohighlight">\(\theta = \pi\)</span> encontramos las siguiente acción sobre los tres elementos <span class="math notranslate nohighlight">\(\{\hat{\bf x},\hat{\bf y},\hat{\bf z}\}\)</span>
+de la base cartesiana</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+R_z(\pi)\hat{\bf x} &amp;=&amp;-\hat{\bf x}  \\ \rule{0mm}{6mm}
+R_z(\pi)\hat{\bf y} &amp;=&amp; -\hat{\bf y}  \\ \rule{0mm}{6mm}
+R_z(\pi)\hat{\bf z} &amp;=&amp; + \hat{\bf z}
+\end{eqnarray*}\]</div>
+<p>Vemos que hay un autovector <span class="math notranslate nohighlight">\(\hat{\bf z}\)</span> con autovalor <span class="math notranslate nohighlight">\(+1\)</span> y dos autovectores <span class="math notranslate nohighlight">\(\hat{\bf x} \)</span> y <span class="math notranslate nohighlight">\(\hat{\bf y} \)</span>
+con autovalor <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<p>El espacio <span class="math notranslate nohighlight">\({\mathbb R}^3\)</span> se divide en dos subespacios propios de <span class="math notranslate nohighlight">\(R_z(\pi)\)</span>, uno de dimensión 1 (a lo largo del eje <span class="math notranslate nohighlight">\(\hat{\bf z}\)</span>) y otro de dimensión 2 (en el plano <span class="math notranslate nohighlight">\((\hat{\bf x},\hat{\bf y})\)</span>).</p>
+<p>Los proyectores asociados serán</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aaf2119a-0647-4847-bd28-63bb4f572b66">
+<span class="eqno">(148)<a class="headerlink" href="#equation-aaf2119a-0647-4847-bd28-63bb4f572b66" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_{\hat{\bf z}}= \ket{\hat{\bf z}}\bra{\hat{\bf z}}=\begin{bmatrix} 0 &amp; &amp; \\ &amp; 0 &amp; \\ &amp; &amp; 1 \end{bmatrix}~~~,~~~
+P_{\hat{\bf x}\hat{\bf y}}= \ket{\hat{\bf x}}\bra{\hat{\bf x}}+\ket{\hat{\bf y}}\bra{\hat{\bf y}}=\begin{bmatrix} 1 &amp; &amp; \\ &amp; 1 &amp; \\ &amp; &amp; 0 \end{bmatrix}~~~,~~~
+\end{equation}\]</div>
+</div>
+</section>
+<section id="espectro-de-operadores-normales">
+<h3>Espectro de Operadores Normales<a class="headerlink" href="#espectro-de-operadores-normales" title="Permalink to this heading">#</a></h3>
+<p>Recordemos la definición de un operador normal. <span class="math notranslate nohighlight">\(N\)</span> será un operador normal si conmuta con su adjunto</p>
+<div class="amsmath math notranslate nohighlight" id="equation-428fc609-17e7-49d4-b834-76f0c896ba6f">
+<span class="eqno">(149)<a class="headerlink" href="#equation-428fc609-17e7-49d4-b834-76f0c896ba6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+NN^\dagger = N^\dagger N
+\end{equation}\]</div>
+<p>La importancia de los operadores normales radica en el siguiente lema</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dos autovectores de un operador normal asociados a dos autovalores <b>distintos</b>  son <b>ortogonales</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-34a0f8f8-8dae-4878-9db9-2bef55a5d47b">
+<span class="eqno">(150)<a class="headerlink" href="#equation-34a0f8f8-8dae-4878-9db9-2bef55a5d47b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\lambda_i\neq \lambda_j~~~~\Longleftrightarrow ~~~~ \braket{\lambda_i}{\lambda_j} = 0
+\end{equation}\]</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De la ecuación de autovalores <span class="math notranslate nohighlight">\(N\ket{\lambda_j} =  \lambda_j \ket{\lambda_j}\)</span>, y de <span class="math notranslate nohighlight">\(NN^\dagger = N^\dagger N\)</span>, se sigue que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d70e1612-0599-4b14-a806-92f42f3c8283">
+<span class="eqno">(151)<a class="headerlink" href="#equation-d70e1612-0599-4b14-a806-92f42f3c8283" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bra{\lambda_j}(N^\dagger - \lambda_j^*)(N - \lambda_j) \ket{\lambda_j} = \bra{\lambda_j}(N - \lambda_j)(N^\dagger - \lambda_j^*) \ket{\lambda_j}  = 0\,
+\end{equation}\]</div>
+<p class="sd-card-text">de donde obtenemos <span class="math notranslate nohighlight">\((N^\dagger - \lambda_j^*) \ket{\lambda_j} = 0 \Rightarrow \bra{\lambda_j} N = \bra{\lambda_j}\lambda_j\)</span>. Entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e343386-9bb7-459f-a2f4-6c743846c61c">
+<span class="eqno">(152)<a class="headerlink" href="#equation-1e343386-9bb7-459f-a2f4-6c743846c61c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bra{\lambda_j}N\ket{\lambda_i} = \lambda_j \braket{\lambda_j}{\lambda_i} = \lambda_i \braket{\lambda_j}{\lambda_i} \, ,
+\end{equation}\]</div>
+<p class="sd-card-text">de donde se sigue que, para <span class="math notranslate nohighlight">\(\lambda_i \neq \lambda_j \Rightarrow \braket{\lambda_i}{\lambda_j} = 0\)</span>.</p>
+</div>
+</details><p>En general, cada autovalor <span class="math notranslate nohighlight">\(\lambda_k\)</span> será <span class="math notranslate nohighlight">\(d_k \geq 1\)</span> veces degenerado. En ese caso hay  <span class="math notranslate nohighlight">\(\{\ket{\lambda^a_k}\}, a=1,...,d_k\)</span> autovectores que generan el subespacio propio, <span class="math notranslate nohighlight">\(S(\lambda_k)\subset \mathcal{H} \)</span>, de dimensión <span class="math notranslate nohighlight">\(d_k\)</span>.</p>
+<p>Según este lemma, los subespacios <span class="math notranslate nohighlight">\(S(\lambda_k)\perp S(\lambda_j)\)</span> son ortogonales para <span class="math notranslate nohighlight">\(k\neq j\)</span>.</p>
+<p>En resumen: siempre podemos encontrar una base  ortonormal de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, formada por autovectores de un operador normal <span class="math notranslate nohighlight">\(N\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-3df27422-4a3c-43f0-b67a-c75d24d54a8f">
+<span class="eqno">(153)<a class="headerlink" href="#equation-3df27422-4a3c-43f0-b67a-c75d24d54a8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+I = \sum_k\sum_{a=1}^{d_k} \ketbra{\lambda^a_k}{\lambda^a_k} ~~~~~~~~~~~;~~~~~~~~~ \braket{\lambda^a_j}{\lambda^b_k} = \delta_{ab}\delta_{jk}
+\end{equation}\]</div>
+<p>El proyector sobre el subespacio propio <span class="math notranslate nohighlight">\(S(\lambda_k)\)</span> será</p>
+<div class="amsmath math notranslate nohighlight" id="equation-af2bcbbc-280f-4c08-b24b-23015ee3cb3c">
+<span class="eqno">(154)<a class="headerlink" href="#equation-af2bcbbc-280f-4c08-b24b-23015ee3cb3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+P_k = \sum_{a=1}^{d_k} \ketbra{\lambda^a_k}{\lambda^a_k}
+\end{equation}\]</div>
+</section>
+<section id="descomposicion-espectral">
+<h3>Descomposición Espectral<a class="headerlink" href="#descomposicion-espectral" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>: </i>Teorema Espectral</i></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Para todo operador normal <span class="math notranslate nohighlight">\(N\)</span> existe una base de  autovectores ortonormales,  <span class="math notranslate nohighlight">\(\{\ket{\lambda^a_k}\}\)</span>,  tales que  <span class="math notranslate nohighlight">\(N\)</span> admite la siguiente  <b>descomposición espectral </b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e96cd1d3-69b3-4452-a7c6-f55e496f5d72">
+<span class="eqno">(155)<a class="headerlink" href="#equation-e96cd1d3-69b3-4452-a7c6-f55e496f5d72" title="Permalink to this equation">#</a></span>\[\begin{equation}
+N = \sum_{k=1}^d \lambda_k   P_k
+\end{equation}\]</div>
+<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(d=  {\rm dim}(\mathcal{H})\)</span> y <span class="math notranslate nohighlight">\(P_k = \sum_{a=1}^{d_k} \ketbra{\lambda^a_k}{\lambda^a_k}\)</span> es el proyector sobre el subespacio propio <span class="math notranslate nohighlight">\(S(\lambda_k)\)</span></p>
+</div>
+</div>
+<p>La matriz <span class="math notranslate nohighlight">\(N_{ij}\)</span> que expresa <span class="math notranslate nohighlight">\(N\)</span> en la base <span class="math notranslate nohighlight">\(\ket{\lambda_i}\)</span> es diagonal</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f4c4ef3a-969a-4b3a-8f3d-625e0216e288">
+<span class="eqno">(156)<a class="headerlink" href="#equation-f4c4ef3a-969a-4b3a-8f3d-625e0216e288" title="Permalink to this equation">#</a></span>\[\begin{equation}
+N_{ij} = \bra{\lambda^a_i} N\ketnew{\lambda^b_j} =  \lambda_k \delta_{kj} \delta_{ab} =\begin{bmatrix} \lambda_1 &amp;  &amp;  &amp;  &amp;  \\ &amp; \ddots &amp; &amp; &amp; \\ &amp; &amp; \lambda_2 &amp; &amp;  \\&amp;  &amp; &amp; \ddots &amp; \\  &amp; &amp; &amp; &amp;  \lambda_N \end{bmatrix}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\lambda_k\)</span> aparecerá <span class="math notranslate nohighlight">\(d_k\)</span> veces repetido.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (El operador identidad)</p>
+<p>El operador identidad tiene a cualquier vector por autovector <span class="math notranslate nohighlight">\( I\ket{v} = \ket{v}\)</span>, con autovalores <span class="math notranslate nohighlight">\(\lambda_ i = 1\)</span>. Por tanto, en <b>cualquier base</b>, la matriz asociada a <span class="math notranslate nohighlight">\(I\)</span> tiene la forma diagonal</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd82a228-73cf-4703-b6ae-e1f82b0a4ab9">
+<span class="eqno">(157)<a class="headerlink" href="#equation-dd82a228-73cf-4703-b6ae-e1f82b0a4ab9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+I_{ij} = \delta_{ij} = \begin{bmatrix} 1 &amp;  &amp;  &amp;  \\ &amp; 1 &amp; &amp;  \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp;  1 \end{bmatrix}
+\end{equation}\]</div>
+<p>La descomposición espectral de <span class="math notranslate nohighlight">\(I\)</span> no es otra que la <b>relación de completitud</b>, que es cierta <i>para cualquier base</i>, ya que todas las bases son bases de autoestados de <span class="math notranslate nohighlight">\(I\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-12e39628-ea55-4e70-b909-4da5911211b5">
+<span class="eqno">(158)<a class="headerlink" href="#equation-12e39628-ea55-4e70-b909-4da5911211b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+I ~=~ \sum_{i=1}^N \ketbra{\lambda_i}{\lambda_i} ~=~ \sum_{i=1}^N \ketbra{e_i}{e_i}
+\end{equation}\]</div>
+</div>
+</section>
+<section id="espectro-de-operadores-hermiticos">
+<h3>Espectro de Operadores Hermíticos<a class="headerlink" href="#espectro-de-operadores-hermiticos" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El <b>espectro de un operador hermítico</b>  <span class="math notranslate nohighlight">\(A = A^\dagger\)</span>,  tiene dos propiedades importantes:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">Los <b>autovalores</b> de un operador hermíticos son reales <span class="math notranslate nohighlight">\(\lambda_i \in {\mathbb R}\)</span>.</p></li>
+<li><p class="sd-card-text">Los <b>autovectores</b> <span class="math notranslate nohighlight">\(\ket{\lambda_i}\)</span> de un operador hermítico asociados a autovalores distintos son ortogonales. Es decir</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-ec-op-hermitico-autovec-ortogonal">
+<span class="eqno">(159)<a class="headerlink" href="#equation-ec-op-hermitico-autovec-ortogonal" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\lambda_i\neq \lambda_j ~~~\Longleftrightarrow ~~~\braket{\lambda_i}{\lambda_j} = 0\, .
+\end{equation} \]</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Tomemos un autovector normalizado de <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span> de autovalor <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-5ba7c089-e5f8-48cb-811d-441669ae8dd1">
+<span class="eqno">(160)<a class="headerlink" href="#equation-5ba7c089-e5f8-48cb-811d-441669ae8dd1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\lambda = \bra{\lambda}A\ket{\lambda} =  (\bra{\lambda}A^\dagger\ket{\lambda})^* = (\bra{\lambda}A\ket{\lambda})^*= \lambda^* .~~~
+\end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">Los operadores hermíticos son también normales, así que la demostración ya la vimos para esos operadores.</p></li>
+</ol>
+</div>
+</details><p><b>Base ortonormal</b>: el conjunto de autovectores <span class="math notranslate nohighlight">\(\ket{\lambda_i}\)</span> de un operador hermítico forma una base ortogonal. Puede normalizarse para formar una base ortonormal</p>
+<div class="math notranslate nohighlight" id="equation-ec-op-hermitico-autovec-ortonorm">
+<span class="eqno">(161)<a class="headerlink" href="#equation-ec-op-hermitico-autovec-ortonorm" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\braket{\lambda_i}{\lambda_j} = \delta_{ij} \, .
+\end{equation} \]</div>
+</section>
+<section id="espectro-de-operadores-unitarios">
+<h3>Espectro de Operadores Unitarios<a class="headerlink" href="#espectro-de-operadores-unitarios" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Los autovalores de un <b>operador unitario</b> son <b>fases puras</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b9674226-de7a-4bf5-ae35-b4378e5bea55">
+<span class="eqno">(162)<a class="headerlink" href="#equation-b9674226-de7a-4bf5-ae35-b4378e5bea55" title="Permalink to this equation">#</a></span>\[\begin{equation}
+U^\dagger = U^{-1} ~~~\Longleftrightarrow ~~~\lambda_i = e^{i\phi_i}
+\end{equation}\]</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Es evidente puesto que sólo estos números complejos verifican que el complejo conjugado y el inverso coinciden <span class="math notranslate nohighlight">\(\lambda^* = \lambda^{-1} \Leftrightarrow \lambda = e^{i\phi}\)</span>.</p>
+</div>
+</details></section>
+<section id="operadores-que-conmutan">
+<h3>Operadores que conmutan<a class="headerlink" href="#operadores-que-conmutan" title="Permalink to this heading">#</a></h3>
+<p>Cuando dos operadores conmutan se dan ciertas propiedades algebráicas que son muy ventajosas. En cierto modo se parecen más a c-números. Veamos la primera.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dados dos operadores <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> que conmutan, existe una base <span class="math notranslate nohighlight">\(\{\ket{\lambda_i}\}\)</span> de autovalores simultáneos de ambos operadores, es decir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8af1cc54-e4be-44ba-a46c-f35226ab5339">
+<span class="eqno">(163)<a class="headerlink" href="#equation-8af1cc54-e4be-44ba-a46c-f35226ab5339" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = \lambda_i^A\ketbra{\lambda_i}{\lambda_i} ~~~~,~~~~~ B= \lambda_i^B\ketbra{\lambda_i}{\lambda_i}
+\end{equation}\]</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Supongamos que <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> conmutan. Entonces la acción de <span class="math notranslate nohighlight">\(A\)</span> <i>estabiliza</i> los subespacios propios de <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p class="sd-card-text">Es decir, si <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span> es autoestado de <span class="math notranslate nohighlight">\(A\)</span>, entonces <span class="math notranslate nohighlight">\(\ket{\mu} = B\ket{\lambda}  \)</span> también es autoestado con idéntico autovalor. Se comprueba fácilmente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7aa8afcf-f38a-46b0-9894-e99d34f786da">
+<span class="eqno">(164)<a class="headerlink" href="#equation-7aa8afcf-f38a-46b0-9894-e99d34f786da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A \ket{\mu} = A(B\ket{\lambda} ) = B(A\ket{\lambda}) = B(\lambda\ket{\lambda}) = \lambda (B\ket{\lambda})
+\end{equation}\]</div>
+<p class="sd-card-text">Por tanto <span class="math notranslate nohighlight">\(\ket{\lambda}\)</span> y <span class="math notranslate nohighlight">\(B\ket{\lambda}\)</span> pertenecen al <i>mismo subespacio propio</i>. Esto es lo que se entiende por <i>estabilizar el subespacio</i>.</p>
+<p class="sd-card-text">Si <span class="math notranslate nohighlight">\(\lambda\)</span> es degenerado esto sólo asegura que <span class="math notranslate nohighlight">\(B\ket{\lambda} = \ket{\lambda'}\)</span> pertenece al subespacio propio del mismo autovalor <span class="math notranslate nohighlight">\(\lambda\)</span>. Esto quiere decir que, dento de cada subespacio propio de <span class="math notranslate nohighlight">\(B\)</span>, podemos escoger la base que queramos. En particular podemos escoger una base que diagonalice <span class="math notranslate nohighlight">\(A\)</span> dentro de dicho subespacio.</p>
+</div>
+</details><p>En otras palabras, dos operadores que conmutan, son diagonalizables simultáneamente. Su matriz en la base <span class="math notranslate nohighlight">\(\{\ket{\lambda_i}\}\)</span> es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8cca5e03-2caf-4913-a9fc-23b9506d2819">
+<span class="eqno">(165)<a class="headerlink" href="#equation-8cca5e03-2caf-4913-a9fc-23b9506d2819" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = \begin{bmatrix} \lambda^A_1 &amp; &amp; &amp;  \\ &amp; \lambda^A_2 &amp; &amp;   \\ &amp; &amp; \ddots &amp;  \\ &amp; &amp; &amp; \lambda^A_n
+\end{bmatrix}~~~~~~~,~~~~~~~~
+B = \begin{bmatrix} \lambda^B_1 &amp; &amp; &amp;  \\ &amp; \lambda^B_2 &amp; &amp;   \\ &amp; &amp; \ddots &amp;  \\ &amp; &amp; &amp; \lambda^B_n
+\end{bmatrix}\, .
+\end{equation}\]</div>
+</section>
+</section>
+<section id="factorizacion-de-unitarios">
+<h2>Factorización de unitarios<a class="headerlink" href="#factorizacion-de-unitarios" title="Permalink to this heading">#</a></h2>
+<p>Como ya vimos, fabricar un operador hermítico <span class="math notranslate nohighlight">\(A\)</span> a partir de otro operados <span class="math notranslate nohighlight">\(B\)</span> no hermítico, es facil:
+<span class="math notranslate nohighlight">\(A = B + B^\dagger\)</span>. Sin embargo, fabricar operadores unitarios no es tan fácil. Veamos dos métodos para ello.</p>
+<section id="descomposicion-polar-pd">
+<h3>Descomposición Polar (PD)<a class="headerlink" href="#descomposicion-polar-pd" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Todo operador <span class="math notranslate nohighlight">\(A\in{\rm L}(\mathcal{H})\)</span> admite la descomposición polar <span class="math notranslate nohighlight">\(A = UR\)</span> donde <span class="math notranslate nohighlight">\(U\)</span> es un operador unitario, y <span class="math notranslate nohighlight">\(R\)</span> es un operador semi-definido positivo (sólo tiene autovalores positivos o cero)</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>La descomposición polar es <i>única</i> y generaliza la representación polar de números complejos <span class="math notranslate nohighlight">\(z = r e^{i\phi}\)</span> a operadores.</p></li>
+<li><p>El hecho de que <span class="math notranslate nohighlight">\(r\geq 0\)</span> es la contrapartida a que <span class="math notranslate nohighlight">\(R\)</span> sea semi-definida positiva.</p></li>
+<li><p>El factor <span class="math notranslate nohighlight">\(e^{i\phi}\)</span> es análogo al hecho de que un operador unitario, como veremos, sólo tiene autovalores que son fases puras.</p></li>
+</ul>
+</section>
+<section id="descomposicion-en-valores-singulares-svd">
+<h3>Descomposición en valores singulares (SVD)<a class="headerlink" href="#descomposicion-en-valores-singulares-svd" title="Permalink to this heading">#</a></h3>
+<p>Vamos a enunciar este teorema para matrices. Concretamente el teorema habla de una matriz <span class="math notranslate nohighlight">\(m\times n\)</span>. Este tipo de matrices se corresponden con operadores <span class="math notranslate nohighlight">\(O \in{\rm L}(\mathcal{H}_A,\mathcal{H})\)</span> entre espacios de dimensiones <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(A\)</span> una matriz compleja <span class="math notranslate nohighlight">\(m\times n\)</span>. Entonces  admite la siguiente forma (<b>descomposición en valores singulares</b>)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c9a80f0d-da0c-475c-8ed6-6e3e61807993">
+<span class="eqno">(166)<a class="headerlink" href="#equation-c9a80f0d-da0c-475c-8ed6-6e3e61807993" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = U\Sigma V^{\dagger} \, ,
+\end{equation}\]</div>
+<p class="sd-card-text">donde <span class="math notranslate nohighlight">\(U\in U(m)\)</span>, <span class="math notranslate nohighlight">\(V\in U(n)\)</span> son matrices unitarias y <span class="math notranslate nohighlight">\(\Sigma\)</span> es una matriz  <span class="math notranslate nohighlight">\(m\times n\)</span> con <span class="math notranslate nohighlight">\(\lambda_1, ...,\lambda_r\)</span> <b>valores singulares</b> reales y positivos en la diagonal, con <span class="math notranslate nohighlight">\(r\leq {\rm min}(m,n)\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="funciones-de-operadores">
+<h2>Funciones de Operadores<a class="headerlink" href="#funciones-de-operadores" title="Permalink to this heading">#</a></h2>
+<section id="funciones-analiticas">
+<h3>Funciones analíticas<a class="headerlink" href="#funciones-analiticas" title="Permalink to this heading">#</a></h3>
+<p>Estamos acostumbrados a escribir funciones <i>de una variable real o compleja</i>. Por ejemplo <span class="math notranslate nohighlight">\(f(x)= x^2\)</span>, ó, <span class="math notranslate nohighlight">\( f(z) = e^z\)</span>. Querríamos dar sentido a una función <i>de un operador</i>
+<span class="math notranslate nohighlight">\(
+A \to f(A)
+\)</span></p>
+<p>Como en operadores la operación de composición la tenemos bien definida (multiplicación de matrices), en el caso de que <span class="math notranslate nohighlight">\(f(z)\)</span> sea una función analítica expresable como una <b>serie de Taylor</b> en torno a <span class="math notranslate nohighlight">\(x=0\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e1bd22f7-d197-4464-8eef-226c928548c2">
+<span class="eqno">(167)<a class="headerlink" href="#equation-e1bd22f7-d197-4464-8eef-226c928548c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(z) = \sum_{n=0}^\infty \frac{1}{n!} f^{(n)}(0)\,  z^n
+\end{equation}\]</div>
+<p>tomaremos como <b>definición</b> la <i>misma serie</i> cambiando el argumento <span class="math notranslate nohighlight">\(x\to A\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-e4dbe19d-281d-4a67-bf2e-e36dc3e666df">
+<span class="eqno">(168)<a class="headerlink" href="#equation-e4dbe19d-281d-4a67-bf2e-e36dc3e666df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(A) = \sum_{n=0}^\infty \frac{1}{n!} f^{(n)}(0)\,  A^n
+\end{equation}\]</div>
+<p>Vemos que esta definición es una definición formal, que nos puede ser útil para algunas demostraciones, pero que no es práctica, en el sentido de que no sabemos como lidiar con infinitos términos. Veremos otra forma de lidiar con esto en el Teorema \ref{teorema_formalismo_funciones_sobre_operador_diagonal}.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>De la misma forma que, para funciones analíticas <span class="math notranslate nohighlight">\(f(z)^* = f(z^*)\)</span>, también la definición anterior asegura que <span class="math notranslate nohighlight">\(f(A)^\dagger = f(A^\dagger)\)</span></p>
+</div>
+</section>
+<section id="exponencial-de-un-operador">
+<h3>Exponencial de un operador<a class="headerlink" href="#exponencial-de-un-operador" title="Permalink to this heading">#</a></h3>
+<p>La exponencial de un operador será</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ae3a866e-f2a3-4fdd-a230-f9b91070bd96">
+<span class="eqno">(169)<a class="headerlink" href="#equation-ae3a866e-f2a3-4fdd-a230-f9b91070bd96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\exp(A) = e^A = I + A + \frac{1}{2} A^2 + \frac{1}{3!} A^3 + ...
+\end{equation}\]</div>
+<p>Una propiedad importante de la función exponencial es  <span class="math notranslate nohighlight">\(e^xe^y = e^{x+y}\)</span>. La propiedad análoga para operadores <i>sólo es cierta cuando conmutan entre sí</i>. Para el caso genérico tenemos dos opciones</p>
+<ul class="simple">
+<li><p><b>Teorema de Baker-Campbel-Haussdorf</b></p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sean <span class="math notranslate nohighlight">\(A,B\subset{\rm L}(\mathcal{H})\)</span> dos operadores lineales genéricos. Entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-23f7d3a5-1e65-4eb1-b1ba-fc90fadc9f88">
+<span class="eqno">(170)<a class="headerlink" href="#equation-23f7d3a5-1e65-4eb1-b1ba-fc90fadc9f88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+e^A e^B = e^{\left({A+B + \frac{1}{2}[A,B] + \frac{1}{12}[A,[A,B]]+ \frac{1}{12}[B,[B,A]] + ...}\right)}
+\end{equation}\]</div>
+</div>
+</div>
+<p>Vemos que:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Si $A$ y $B$ conmutan,
+</pre></div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-fcea9063-d9b3-492c-ab56-f0762121c119">
+<span class="eqno">(171)<a class="headerlink" href="#equation-fcea9063-d9b3-492c-ab56-f0762121c119" title="Permalink to this equation">#</a></span>\[\begin{equation}
+[A,B]=0 ~\Leftrightarrow ~e^A e^B = e^{A+B}
+\end{equation}\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2. Si el conmutador de $A$ y $B$  es un c-número
+</pre></div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-95a18e10-1a86-4591-9b2c-dd386c7f30b4">
+<span class="eqno">(172)<a class="headerlink" href="#equation-95a18e10-1a86-4591-9b2c-dd386c7f30b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+[A,B]= c I  ~\Leftrightarrow ~  e^A e^B = e^{A+B + \frac{c}{2}}
+\end{equation}\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3. El inverso de $e^A$ es $e^{-A}$. Efectivamente, como
+</pre></div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8bc519bc-1eb2-4ca4-bfd4-93cf50b3dc45">
+<span class="eqno">(173)<a class="headerlink" href="#equation-8bc519bc-1eb2-4ca4-bfd4-93cf50b3dc45" title="Permalink to this equation">#</a></span>\[\begin{equation}
+[A,A]=0 \Rightarrow e^A e^{-A} = e^{A-A} = e^0 = I
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><b>Teorema de Lie-Suzuki-Trotter</b></p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sean <span class="math notranslate nohighlight">\(A,B\subset{\rm L}(\mathcal{H})\)</span> dos operadores lineales genéricos. Entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-95b0b82c-1ac3-4aa4-a844-cdb7388f856d">
+<span class="eqno">(174)<a class="headerlink" href="#equation-95b0b82c-1ac3-4aa4-a844-cdb7388f856d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+e^{A+B} = \lim_{n\to\infty} \left(e^{{A/n}} e^{B/n}\right)^n
+\end{equation}\]</div>
+</div>
+</div>
+<p>Esta segunda opción es de uso muy frecuente en el contexto de la <i>simulación cuántica</i>.</p>
+</section>
+<section id="operadores-unitarios-a-partir-de-hermiticos">
+<h3>Operadores unitarios a partir de hermíticos<a class="headerlink" href="#operadores-unitarios-a-partir-de-hermiticos" title="Permalink to this heading">#</a></h3>
+<p>Todo operador unitario <span class="math notranslate nohighlight">\(U\)</span> se puede expresar como la exponencial imaginaria de un operador hermítico <span class="math notranslate nohighlight">\(H\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-5f0cec34-e427-4c0c-8a81-f89aa40c6071">
+<span class="eqno">(175)<a class="headerlink" href="#equation-5f0cec34-e427-4c0c-8a81-f89aa40c6071" title="Permalink to this equation">#</a></span>\[\begin{equation}
+U = e^{i H}
+\end{equation}\]</div>
+<p>Efectivamente,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bde78153-2416-4fab-884d-9ffe3bc4090d">
+<span class="eqno">(176)<a class="headerlink" href="#equation-bde78153-2416-4fab-884d-9ffe3bc4090d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+U^\dagger = \left(e^{i H}\right)^\dagger = e^{-i H^\dagger} = e^{-i H}=U^{-1}
+\end{equation}\]</div>
+<p>por tanto, <span class="math notranslate nohighlight">\(U\)</span> es unitario si y sólo si <span class="math notranslate nohighlight">\(H\)</span> es hermítico.</p>
+</section>
+<section id="funciones-generales">
+<h3>Funciones generales<a class="headerlink" href="#funciones-generales" title="Permalink to this heading">#</a></h3>
+<p>No siempre <span class="math notranslate nohighlight">\(f(z)\)</span> admite una expansión en serie de Taylor. Por ejemplo <span class="math notranslate nohighlight">\(f(z) = \exp(1/z)\)</span> en torno a <span class="math notranslate nohighlight">\(z=0\)</span> no es analítica. En estos casos, el operador <span class="math notranslate nohighlight">\(f(A)\)</span> existe, pero para construirlo es necesario recurrir a la <i>forma diagonalizada</i></p>
+<p><a id='teorema_formalismo_funciones_sobre_operador_diagonal'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(A\)</span> un operador diagonalizable, y sea <span class="math notranslate nohighlight">\(A= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i}\)</span> su representación espectral. Entonces el operador <span class="math notranslate nohighlight">\(f(A)\)</span> tiene la representación espectral siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5a2e25f7-c3b0-43a4-8130-55cbb267f985">
+<span class="eqno">(177)<a class="headerlink" href="#equation-5a2e25f7-c3b0-43a4-8130-55cbb267f985" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(A) = \sum_i f(\lambda_i) \ket{\lambda_i}\bra{\lambda_i}~~~~\Longleftrightarrow~~~~~
+f(A^{(D)}_{ij}) = \begin{bmatrix} f(\lambda_1)&amp; &amp;  &amp; \\ &amp; f(\lambda_2) &amp; &amp;  \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; f(\lambda_n)
+\end{bmatrix}
+\end{equation}\]</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f08cfffd-8df3-4bdc-8db2-a48f9a33af52">
+<span class="eqno">(178)<a class="headerlink" href="#equation-f08cfffd-8df3-4bdc-8db2-a48f9a33af52" title="Permalink to this equation">#</a></span>\[\begin{equation}
+e^{1/A} = \sum_i e^{1/\lambda_i} \ket{\lambda_i}\bra{\lambda_i}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+{\rm tr}(A \log A) &amp;=&amp; {\rm tr}\left[\left(\sum_j \lambda_j \ket{\lambda_j}\bra{\lambda_j}\right)\left(\sum_k\log \lambda_k \ket{\lambda_k}\bra{\lambda_k}\right)\right]\nonumber\\
+&amp;=&amp; {\rm tr}\left[\sum_k \lambda_k \log\lambda_k \ket{\lambda_k}\bra{\lambda_k} \right] \\
+&amp;=&amp; \sum_k \lambda_k \log \lambda_k \rule{0mm}{8mm}
+\end{eqnarray*}\]</div>
+</div>
+</section>
+</section>
+<section id="matrices-de-pauli">
+<span id="sec-qubit-matrices-pauli"></span><h2>Matrices de Pauli<a class="headerlink" href="#matrices-de-pauli" title="Permalink to this heading">#</a></h2>
+<section id="definicion">
+<h3>Definición<a class="headerlink" href="#definicion" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Se donominan matrices de Pauli a las tres matrices siguientes:</p>
+<div class="math notranslate nohighlight" id="equation-ec-qubits-matrices-de-pauli">
+<span class="eqno">(179)<a class="headerlink" href="#equation-ec-qubits-matrices-de-pauli" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\sigma_x =  \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix} ,   ~~~~
+\sigma_y =  \begin{bmatrix} 0 &amp; -i \\ i &amp; 0 \end{bmatrix} ,  ~~~~
+\sigma_z =  \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix} .
+\end{equation} \end{split}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>También se usan los subíndices enteros <span class="math notranslate nohighlight">\(\sigma_1=\sigma_x, ~
+\sigma_2=\sigma_y\)</span>  y  <span class="math notranslate nohighlight">\(\sigma_3=\sigma_z\)</span>.</p></li>
+<li><p>Las matrices de Pauli son hermíticas y unitarias.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Escribe la descomposición espectral de las tres matrices de Pauli, <span class="math notranslate nohighlight">\(\sigma_x, \sigma_y \)</span> y <span class="math notranslate nohighlight">\(\sigma_z\)</span>.</p>
+</div>
+</section>
+<section id="base-ortogonal-del-espacio-de-hilbert-de-matrices-hermiticas-2-times2">
+<h3>Base ortogonal del espacio de Hilbert de matrices hermiticas <span class="math notranslate nohighlight">\(2\times2\)</span><a class="headerlink" href="#base-ortogonal-del-espacio-de-hilbert-de-matrices-hermiticas-2-times2" title="Permalink to this heading">#</a></h3>
+<p>Estas tres matrices, junto con la matriz identidad, forman una <b>base ortogonal del espacio de Hilbert de matrices hermiticas</b> <span class="math notranslate nohighlight">\(2\times2\)</span>. En otras palabras, cualquier matriz hermítica <span class="math notranslate nohighlight">\(2\times2\)</span> puede escribirse como una combinación lineal de estas matrices</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7cc65258-1a05-4ddf-be97-9a58e78e2c3c">
+<span class="eqno">(180)<a class="headerlink" href="#equation-7cc65258-1a05-4ddf-be97-9a58e78e2c3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A = c I + \sum_k^3 a_k \sigma^k.
+\end{equation}\]</div>
+<p>Es decir</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A &amp;=&amp;  a_0 I + a_1 \sigma_1 + a_2 \sigma_2 + a_3 \sigma_3  \\
+&amp;=&amp;
+\begin{bmatrix}
+a_0 + a_3 &amp; a_1 - i a_2 \\ a_1 + i a_2 &amp; a_0 - a_3
+\end{bmatrix} = A^\dagger \,.
+\end{eqnarray*}\]</div>
+</section>
+<section id="composicion">
+<h3>Composición<a class="headerlink" href="#composicion" title="Permalink to this heading">#</a></h3>
+<p>La <b>composición</b> de dos matrices de Pauli es otra matriz de Pauli (o la identidad <span class="math notranslate nohighlight">\(I\)</span>) que cumple la siguiente propiedad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7817a39b-9b68-42a3-9af5-99d4bcee8452">
+<span class="eqno">(181)<a class="headerlink" href="#equation-7817a39b-9b68-42a3-9af5-99d4bcee8452" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma_i \sigma_j = \delta_{ij} I + i \varepsilon_{ijk} \sigma_k,  \label{ec_qubit_pauli_sigma_ijk}
+\end{equation}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5348bdce-4f81-45b7-bc43-d55e1281d9a1">
+<span class="eqno">(182)<a class="headerlink" href="#equation-5348bdce-4f81-45b7-bc43-d55e1281d9a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\epsilon_{123}=\epsilon_{231}=\epsilon_{312} = 1 ~~, ~~~~ \epsilon_{213}=\epsilon_{132}=\epsilon_{312} = 1
+\end{equation}\]</div>
+<p>y el resto son cero. La propiedad (\ref{ec_qubit_pauli_sigma_ijk}) se refiere a que las matrices de Pauli forman un grupo cerrado, es decir, al multiplicar dos matrices nos da otra matriz de Pauli (o la identidad).</p>
+<p>De la Ec. (\ref{ec_qubit_pauli_sigma_ijk}) se deduce que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a5439567-6b78-4206-8c0b-25b789e620ab">
+<span class="eqno">(183)<a class="headerlink" href="#equation-a5439567-6b78-4206-8c0b-25b789e620ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = - i \sigma_x \sigma_y \sigma_z = I \,.   \label{ec_qubit_pauli_sigma^2}
+\end{equation}\]</div>
+</section>
+<section id="traza-y-ortogonalidad">
+<h3>Traza y ortogonalidad<a class="headerlink" href="#traza-y-ortogonalidad" title="Permalink to this heading">#</a></h3>
+<p>Las matrices de Pauli tiene <b>traza nula</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-41c9514e-2921-4b08-be21-d4612d16d090">
+<span class="eqno">(184)<a class="headerlink" href="#equation-41c9514e-2921-4b08-be21-d4612d16d090" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\text{tr} ~ \sigma_j = 0 \label{ec_qubit_sigma_tr}
+\end{equation}\]</div>
+<p>Tomando la traza de la relación de composición obtenemos que las matrices de Pauli son <b>ortogonales</b> en el sentido siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64d84c54-9ba8-4564-ac09-ff6ba419f0d3">
+<span class="eqno">(185)<a class="headerlink" href="#equation-64d84c54-9ba8-4564-ac09-ff6ba419f0d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm tr}(\sigma_i\sigma_j) = {\rm tr}(\delta_{ij}I + i\epsilon_{ijk}  \sigma_k) = 2\delta_{ij}
+\end{equation}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Demuestra las siguientes relaciones de (anti)conmutación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4fbd04a6-6198-4e81-9eed-18368540b1d3">
+<span class="eqno">(186)<a class="headerlink" href="#equation-4fbd04a6-6198-4e81-9eed-18368540b1d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\{\sigma_i,\sigma_j \} = 2\delta_{ij}~~~~~~~,~~~~~~~
+~~~[\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k
+\end{equation}\]</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Conmutador y anti-conmutador)</p>
+<ul class="simple">
+<li><p>Conmutador:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-ce8f3d27-0f2b-4dff-960b-586fadf940d4">
+<span class="eqno">(187)<a class="headerlink" href="#equation-ce8f3d27-0f2b-4dff-960b-586fadf940d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\lc A, B \rc = AB - BA
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Anti-conmutador</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-667f663b-4151-4fde-ac43-83cb11165177">
+<span class="eqno">(188)<a class="headerlink" href="#equation-667f663b-4151-4fde-ac43-83cb11165177" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\lch A,B \rch = AB + BA
+\end{equation}\]</div>
+</div>
+</section>
+<section id="exponencial-de-matrices-de-pauli">
+<h3>Exponencial de matrices de Pauli<a class="headerlink" href="#exponencial-de-matrices-de-pauli" title="Permalink to this heading">#</a></h3>
+<p>Recordar que la fórmula de Euler permite escribir, para una fase compleja <span class="math notranslate nohighlight">\( e^{i\alpha} = \cos\alpha + i \sin\alpha \)</span>. Ahora estamos en disposición de probar la generalización a matrices de Pauli.  Sea</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e09bd42b-c2b7-4e9d-9a3f-a618a920733f">
+<span class="eqno">(189)<a class="headerlink" href="#equation-e09bd42b-c2b7-4e9d-9a3f-a618a920733f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\bf a} = (a_1,a_2,a_3) =a \left( \frac{a_1}{a},\frac{a_2}{a},\frac{a_3}{a}\right) =  a\, \hat{\bf n}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a=|{\bf a}|=\sqrt{a_1^2+a_2^3+a_3^2}\)</span> es el módulo</p>
+<p>Entonces, escribimos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-baff8b84-fcce-40cb-a120-067f679569c4">
+<span class="eqno">(190)<a class="headerlink" href="#equation-baff8b84-fcce-40cb-a120-067f679569c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\bf a} \cdot \boldsymbol{\sigma} =  a\, \hat{\bf n} \cdot \boldsymbol{\sigma}
+\end{equation}\]</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight" id="equation-cc60b238-a302-4a9a-af3c-026c2adc4602">
+<span class="eqno">(191)<a class="headerlink" href="#equation-cc60b238-a302-4a9a-af3c-026c2adc4602" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\exp \left( \rule{0mm}{4mm} i\,   {\bf a} \cdot \boldsymbol{\sigma}  \right) = \exp \left( \rule{0mm}{4mm} i\,   a\, \hat{\bf n} \cdot \boldsymbol{\sigma}  \right) = \cos a \, I + i \sin a \,(\hat{\bf n} \cdot  \boldsymbol{\sigma}) \, .
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="matrices-de-pauli-en-otras-bases">
+<h3>Matrices de Pauli en otras bases<a class="headerlink" href="#matrices-de-pauli-en-otras-bases" title="Permalink to this heading">#</a></h3>
+<p>Un punto importante es que la representación de las matrices de Pauli que acabamos de ver en la Ec. (\ref{ec_qubits_matrices_de_Pauli}) no es única (aunque sí la mas extendida). Como podemos ver, esta representación es aquella en la que se diagonaliza la matriz <span class="math notranslate nohighlight">\(\sigma_z\)</span>. Es decir, están representadas en la base de <b>autoestados</b> (autovectores) de la matriz <span class="math notranslate nohighlight">\(\sigma_z\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; \boxed{\ket{z_+} = \ket{\uparrow} = \begin{bmatrix}  1 \\ 0  \end{bmatrix}},
+&amp; \boxed{\ket{z_-} = \ket{\downarrow} = \begin{bmatrix}  0 \\ 1  \end{bmatrix}}
+\end{align*}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; \sigma_z \ket{z_+} =   \sigma_z,
+&amp; \sigma_z \ket{z_-} = - \sigma_z.
+\end{align*}\]</div>
+<p>Estas matrices podrían escribirse en otras bases, como por ejemplo la base de autoestados de <span class="math notranslate nohighlight">\(\sigma_x\)</span>, i.e. <span class="math notranslate nohighlight">\(\ket{x_+}, \ket{x_-}\)</span>, que diagonalizaría la matriz <span class="math notranslate nohighlight">\(\sigma_x\)</span> o en la base de autoestados de <span class="math notranslate nohighlight">\(\sigma_y\)</span>, i.e. <span class="math notranslate nohighlight">\(\ket{y_+}, \ket{y_-}\)</span>, que diagonalizaría la matriz <span class="math notranslate nohighlight">\(\sigma_y\)</span>. Cabe destacar que solo podemos tener a la vez una de las tres matrices en forma diagonal (puesto que no conmutan). Por completitud, podemos ver la expresión de estos autoestados en función de los de <span class="math notranslate nohighlight">\( \sigma_z\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f0cb1854-f787-4898-9483-2229a0513e03">
+<span class="eqno">(192)<a class="headerlink" href="#equation-f0cb1854-f787-4898-9483-2229a0513e03" title="Permalink to this equation">#</a></span>\[\begin{align}
+&amp; \boxed{\ket{x_+}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} + \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ 1  \end{bmatrix}},
+&amp; \boxed{\ket{x_-}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} - \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -1  \end{bmatrix}},   \\ \rule{0mm}{10mm}
+&amp; \boxed{\ket{y_+}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} + i \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ i  \end{bmatrix}},
+&amp; \boxed{\ket{y_-}   = \frac{1}{\sqrt{2}} \lp \ket{z_+} - i \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -i \end{bmatrix}}.
+\end{align}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a47a3a03-df2a-44c0-ba59-9c74e95b9241">
+<span class="eqno">(193)<a class="headerlink" href="#equation-a47a3a03-df2a-44c0-ba59-9c74e95b9241" title="Permalink to this equation">#</a></span>\[\begin{align}
+\sigma_x \ket{x_+} &amp; = + \ket{x_+},
+&amp;&amp;\sigma_x \ket{x_-}  =  - \ket{x_-}  \\ \rule{0mm}{3mm}
+\sigma_y \ket{y_+} &amp; = + \ket{y_+},
+&amp;&amp;\sigma_y \ket{y_-}   = - \ket{y_-}.
+\end{align}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Autoestados y autovectores. El espín)</p>
+<p>En esta sección hemos estado hablando de <b>autoestados</b> en vez de <b>autovectores</b>. Esto es
+por el significa físico que tienen las matrices de Pauli. Estas se usan, entre otras cosas, para
+describir el espín de una partícula, así que sus autovectores representan autoestados de espín de la partícula.
+En concreto, representan las proyecciones del espín sobre los tres ejes <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p>Cuando decimos que una partícula tiene espín <span class="math notranslate nohighlight">\(+1/2\)</span> o <span class="math notranslate nohighlight">\(-1/2\)</span> habitualmente nos referimos a que la proyección
+del espín sobre el eje <span class="math notranslate nohighlight">\(z\)</span> es <span class="math notranslate nohighlight">\(+1/2\)</span> o <span class="math notranslate nohighlight">\(-1/2\)</span> (obviando constantes multiplicativas). Es decir, está en el
+estado <span class="math notranslate nohighlight">\(\ket{+}\)</span> o <span class="math notranslate nohighlight">\(\ket{-}\)</span>.</p>
+<p>En física cuántica, un autoestado de un operador es un estado que no evoluciona con el tiempo (si no hay influencias externas).
+Por ejemplo, cuando tenemos un electrón aislado con proyección del espín <span class="math notranslate nohighlight">\(+1/2\)</span>, este estado no va a cambiar con el tiempo,
+pues el electrón está aislado.</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_02/Chapter_002_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_002_vectores_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vectores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_004_tensores_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tensores</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-matrices">Operadores y matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-un-operador">Matriz de un operador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo">Producto externo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-vectores">Producto externo de vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-vectores-en-componentes">Producto externo de vectores (en componentes)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-canonica-de-operadores">Base canónica de operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-externo-de-operadores-de-la-base">Producto externo de operadores de la base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-de-un-operador-general">Expansión de un operador general</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementos-de-matriz">Elementos de matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-de-base">Cambios de base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-de-completitud">Relación de completitud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-espacio-vectorial-rm-l-mathcal-h">El espacio vectorial <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-adjunto">Operador Adjunto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-adjunta">Matriz Adjunta</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-de-rm-l-mathcal-h">Dimensión de <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H})\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-de-operadores">Clases de operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-unitario">Operador Unitario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-unitario-sobre-bases-ortonormales">Operador Unitario sobre bases ortonormales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-ortogonal">Operador ortogonal</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-normal">Operador Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-hermitico">Operador Hermítico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operador-anti-hermitico">Operador anti-Hermítico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyectores">Proyectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflectores">Reflectores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conmutador-y-traza">Conmutador y Traza</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conmutador">Conmutador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-de-un-operador">Traza de un operador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autovalores-y-autovectores">Autovalores y autovectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autovalores-degenerados">Autovalores degenerados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subespacio-propio">Subespacio propio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-normales">Espectro de Operadores Normales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-espectral">Descomposición Espectral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-hermiticos">Espectro de Operadores Hermíticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectro-de-operadores-unitarios">Espectro de Operadores Unitarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-que-conmutan">Operadores que conmutan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-de-unitarios">Factorización de unitarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-polar-pd">Descomposición Polar (PD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-en-valores-singulares-svd">Descomposición en valores singulares (SVD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-operadores">Funciones de Operadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-analiticas">Funciones analíticas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial-de-un-operador">Exponencial de un operador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-unitarios-a-partir-de-hermiticos">Operadores unitarios a partir de hermíticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">Funciones generales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-pauli">Matrices de Pauli</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-ortogonal-del-espacio-de-hilbert-de-matrices-hermiticas-2-times2">Base ortogonal del espacio de Hilbert de matrices hermiticas <span class="math notranslate nohighlight">\(2\times2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion">Composición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traza-y-ortogonalidad">Traza y ortogonalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial-de-matrices-de-pauli">Exponencial de matrices de Pauli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-pauli-en-otras-bases">Matrices de Pauli en otras bases</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

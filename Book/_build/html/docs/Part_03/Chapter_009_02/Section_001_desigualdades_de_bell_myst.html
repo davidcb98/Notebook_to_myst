@@ -1,0 +1,986 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Desigualdades de Bell &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Experimento GHZ" href="Section_002_experimento_ghz_myst.html" />
+    <link rel="prev" title="Entrelazamiento en acción" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Desigualdades de Bell</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfecta-anticorrelacion">Perfecta anticorrelación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desigualdad-csch">Desigualdad CSCH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-particular">Ejemplo particular.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 7 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi10.png"><img alt="../../../_images/Fig_logo_UMA_scbi10.png" src="../../../_images/Fig_logo_UMA_scbi10.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="desigualdades-de-bell">
+<h1>Desigualdades de Bell<a class="headerlink" href="#desigualdades-de-bell" title="Permalink to this heading">#</a></h1>
+<p>Con el nacimiento de la Mecánica Cuántica de mano de grandes físicos como Schrödinger o Dirac, también nacieron sus detractores. Uno de los más emblemáticos es el archiconocido Albert Einstein. Estos detractores defendían que la Mecánica Cuántica era una teoría incompleta. El argumento se basaba en que toda esta “parafernalia” de la Cuántica de las superposiciones, las indeterminaciones, el colapso de los estados,<span class="math notranslate nohighlight">\(\dots\)</span> no eran más que consecuencia de tener una teoría incompleta.</p>
+<p>Argumentaban así que había <b>variables ocultas</b>, es decir, variables que no conocíamos pero en el caso de que las conociéramos, la Cuántica sería una teoría <b>determinista</b> (como la Mecánica Clásica). En esta batalla entre dos bandos enfrentados, entre los aférrimos defensores del determinismo (del <b>realismos local</b>) y los defensores de la cuántica, el tiempo y los experimentos dieron la razón a los segundos: la física cuántica no es una teoría determinista y no hay variables ocultas.</p>
+<p>En este capítulo vamos a explicar el argumento que dio el golpe final a las variables ocultas y demostró el no determinismo inherente a la cuántica: <b>la violación de las desigualdades de Bell</b>.</p>
+<p>Para ello, empecemos viendo un poco en detalle a que nos referimos cuando hablamos de <b>realismo local</b>. Las teorías con realismo local asumen que los valores que adquieren las magnitudes que se miden en un experimento <b>pertenecen</b> al sistema medido. Así, en una teoría con realismo local la posición de una partícula es algo bien definido aunque no la estemos midiendo\footnote{En una teoría con realismo local, si un árbol cae en el bosque este hace ruido aunque nadie lo escuche.}. La palabra <b>local</b> hace referencia a que ningún agente puede propagar su acción a mayor velocidad que la luz. Podría usarse la palabra <b>causal</b> en su lugar.</p>
+<p>Con esta definición en mente, tanto la Mecánica Clásica como un teoría cuántica con varibles ocultas serían teorías con realismo local. Sin embargo, la Mecánica Cuántica no lo sería. Cuando hablamos del espín de un electrón, no es correcto decir que <b>la proyección del espín a lo largo del eje <span class="math notranslate nohighlight">\(\hat{\bf z}\)</span> es <span class="math notranslate nohighlight">\(+\hbar/2\)</span></b>. Lo correcto es decir que, <b>al medir</b> la proyección sobre el eje <span class="math notranslate nohighlight">\(\hat{\bf z}\)</span>, la medida obtenida es <span class="math notranslate nohighlight">\(+\hbar/2\)</span>.  Dicho de otro, cualquiera de los valores <span class="math notranslate nohighlight">\(\pm\hbar/2\)</span> se <b>adquiere</b> o <b>pone de manifiesto</b>  de forma <b>aleatoria</b> al hacer una medida de la proyección elegida.</p>
+<p>En 1964  físico nor-irlandés John Bell, trabajando en el CERN demostró <span class="xref myst">[10]</span> que <b>todas las teorías que respetan el realismo local</b> satisfacen ciertas desigualdades matemáticas. En particular, todas las magnitudes que evolucionan siguiendo las leyes de la física clásica las satisfacen.</p>
+<p>Por el contrario, John Bell mostró cómo, en Mecánica Cuántica, el proceso de medida incorpora correlaciones sutiles que permiten <b>traspasar</b> dichas desigualdades. La discusión, pasó de ser puramente filosófica a ser objeto de investigación experimental, culminando con el  experimento de Alain Aspect y colaboradores en 1982 <span class="xref myst">[11]</span>. Se observó que la Mecánica Cuántica viola las desigualdades de Bell y, por tanto, <b>no es una teoría con realismo local</b>: <b>las propiedades no pertenecen al sistema, se generan en la interacción entre el sistema y el medidor</b>.</p>
+<p>La propuesta de John Bell dio pie a una familia de desigualdades que ponen en evidencia la imposibilidad de obtener ciertas correlaciones en un mundo clásico. Vamos a examinar la desigualdad en la forma estudiada por Clauser, Horne, Shimony y Holt (<b>CHSH</b>) <span class="xref myst">[12]</span>. Posteriormente estudiaremos el <b>experimento de GHZ</b>, el cuál, también pone de manifiesto las correlaciones sutiles que introduce el entrelazamiento de una forma determinista, en lugar de estadística.</p>
+<section id="perfecta-anticorrelacion">
+<h2>Perfecta anticorrelación<a class="headerlink" href="#perfecta-anticorrelacion" title="Permalink to this heading">#</a></h2>
+<p>Central en esta discusión es la presencia de entrelazamiento. Vamos a seleccionar el denominado <b>singlete</b> de la Base de Bell.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ef8a503b-e838-4bfe-967c-6326db7849d1">
+<span class="eqno">(436)<a class="headerlink" href="#equation-ef8a503b-e838-4bfe-967c-6326db7849d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{B_{11}}=\frac{1}{\sqrt{2}}(\ket{01}-\ket{10})
+\end{equation}\]</div>
+<p>Una de las partículas del par entrelazado estaría en poder de Alice y la otra en poder de Bob.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (creación del singlete)</p>
+<p>Desde un punto de vista experimental, para obtener este par entrelazado de electrones lo que se haces es coger los productos
+de una desintegración. Hay desintegraciones radioactivas que emiten estos pares entrelazados de electrones en direcciones
+opuestas.</p>
+</div>
+<p>Supongamos que  Alice y Bob poseen sendos medidores de Stern Gerlach apuntando en la dirección <span class="math notranslate nohighlight">\(\hat{\bf z}\)</span>. De esta forma, lo que miden es el espín en la dirección <span class="math notranslate nohighlight">\(z\)</span>. Tenemos pues que</p>
+<ul class="simple">
+<li><p>Si Alice registra +1 el estado colapsa a <span class="math notranslate nohighlight">\(\ket{01}\)</span> y, por tanto, Bob solo podrá medir  <span class="math notranslate nohighlight">\(\, -1\)</span></p></li>
+<li><p>Si Alice registra -1 el estado colapsa a <span class="math notranslate nohighlight">\(\ket{10}\)</span> y, por tanto, Bob solo podrá medir  <span class="math notranslate nohighlight">\(\, +1\)</span></p></li>
+</ul>
+<p>En definitiva hay una anticorrelación perfecta que se pone de manifiesto en el valor medio del producto de las medidas. Si las mediciones de Alice son <span class="math notranslate nohighlight">\(a_i=\pm 1\)</span>, las de Bob son <span class="math notranslate nohighlight">\(b_i=\mp 1\)</span> respectivamente, con lo cual el valor medio</p>
+<div class="amsmath math notranslate nohighlight" id="equation-68364d84-f824-429b-9a13-6e41fe9d52d4">
+<span class="eqno">(437)<a class="headerlink" href="#equation-68364d84-f824-429b-9a13-6e41fe9d52d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle Z\otimes Z\rangle = \frac{1}{N}\sum_{i=1}^N a_i b_i =\frac{1}{N}\sum_{i=1}^N (-1) = -1
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Veámoslo)</p>
+<p>Vamos a ver cómo la predicción teórica confirma este hecho. El estado <span class="math notranslate nohighlight">\(\ket{B_{11}}\)</span> ya es autoestado
+del observable asociado a dicha pareja</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c8ba6026-98bc-4e62-bbf7-a487a8966c40">
+<span class="eqno">(438)<a class="headerlink" href="#equation-c8ba6026-98bc-4e62-bbf7-a487a8966c40" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Z\otimes Z \ket{B_{11}} = Z\ket{0}Z\ket{1} - Z\ket{1}Z\ket{0} = -\ket{01} + \ket{10} = -\ket{B_{11}}
+\end{equation}\]</div>
+<p>Y el valor esperado satura en este autovalor, con lo que, la probabilidad de medida es 1</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e62ed33-b3ae-40aa-9317-1d6fb83dac81">
+<span class="eqno">(439)<a class="headerlink" href="#equation-1e62ed33-b3ae-40aa-9317-1d6fb83dac81" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\langle Z\otimes Z\rangle = \bra{B_{11}}Z\otimes Z\,  \ket{B_{11}}  = -\braket{B_{11}}{B_{11}}= -1\, .
+\end{equation}\]</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Hasta aquí, no se observa nada cuántico. La anti correlación que hemos hallado parece natural y presente en un
+experimento clásico hecho con una bolsa que contiene dos calcetines de dos colores: si Alice saca el blanco,
+el que saca Bob tiene que ser negro.</p>
+</div>
+<p>La cosa se pone más divertida cuando los dos polarizadores de Stern Gerlach <b>no se orientan en la misma dirección</b>. Es decir, cuando medimos las proyecciones del spín en dos direcciones diferentes. El observable asociado ahora a la dirección <span class="math notranslate nohighlight">\(\hat{\bf n}\)</span>  será  <span class="math notranslate nohighlight">\(\hat{\bf n}\cdot \boldsymbol{\sigma}\)</span>. Aun así, los autovalores de este operador y, por ello, la proyección del espín seguirá siendo <span class="math notranslate nohighlight">\(\pm 1\)</span>. Como ya comentamos, da igual en que eje se mida, los valores de la proyección del espín que podemos medir son los mismos. Sin embargo, ahora el valor esperado cambia:</p>
+<p><a id='Teo_entrelazamiento_bell'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El valor medio del producto de las proyecciones de espín a lo largo de sendos ejes <span class="math notranslate nohighlight">\(\hat{\bf m}\)</span> y
+<span class="math notranslate nohighlight">\(\hat{\bf n}\)</span> viene dada por el coseno del ángulo <span class="math notranslate nohighlight">\(\theta\)</span>  que forman los  ejes de los dos detectores</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f071be16-024c-4aee-a59b-f5703b85e18f">
+<span class="eqno">(440)<a class="headerlink" href="#equation-f071be16-024c-4aee-a59b-f5703b85e18f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bra{B_{11}}(\hat{\bf m}\cdot \boldsymbol{\sigma}\otimes \hat{\bf n}\cdot \boldsymbol{\sigma})\ket{B_{11}}
+= -\cos \theta = - \hat{\bf m}\cdot \hat{\bf n}
+\end{equation}\]</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Prueba el resultado del teorema \ref{Teo_entrelazamiento_bell}</p>
+</div>
+<p>Cuando los ejes son paralelos recuperamos la  anticorrelación, independientemente de la dirección</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f81d1375-5168-4e9d-9967-abd1a00af322">
+<span class="eqno">(441)<a class="headerlink" href="#equation-f81d1375-5168-4e9d-9967-abd1a00af322" title="Permalink to this equation">#</a></span>\[\begin{equation}
+-\hat{\bf n}\cdot \hat{\bf n} = - \cos 0 = -1
+\end{equation}\]</div>
+<p>mucho más interesante es cuando las direcciones de los detectores de Alice y Bob no coinciden (<span class="math notranslate nohighlight">\(\hat{\bf n} \neq \hat{\bf m}\)</span>).</p>
+</section>
+<section id="desigualdad-csch">
+<h2>Desigualdad CSCH<a class="headerlink" href="#desigualdad-csch" title="Permalink to this heading">#</a></h2>
+<p>Enn 1970 Clauser, Horne, Shimony y Holt <span class="xref myst">[12]</span> propusieron una figura de mérito fácilmente accesible para verificar las desigualdades de Bell. La idea es que Alice y Bob pueden orientar sus detectores en <b>dos direcciones  arbitrarias</b> cada uno. Para alice Alice denotamos <span class="math notranslate nohighlight">\(\hat{\bf n}_A, \hat{\bf n}'_A\)</span>  y  para Bob <span class="math notranslate nohighlight">\(\, \hat{\bf n}_B, \hat{\bf n}'_B\)</span>. Los pasos a seguir son los siguientes:</p>
+<ol class="arabic simple">
+<li><p>Alice y Bob seleccionan cada uno una orientación (de las dos posibles de cada uno), p. ej.  <span class="math notranslate nohighlight">\(\hat{\bf n}_A\)</span> y <span class="math notranslate nohighlight">\(\hat{\bf n}'_B\)</span>, para sus detectores.
+Hay cuatro parejas posibles dependiendo de que selecciones cada uno</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-66bd68d8-d3ca-4e7c-b377-3ecf729e6b96">
+<span class="eqno">(442)<a class="headerlink" href="#equation-66bd68d8-d3ca-4e7c-b377-3ecf729e6b96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{array}{c|c} {\rm Alice} &amp; {\rm Bob} \\
+\hline \hat{\bf n}_A  &amp;  \hat{\bf n}_B     \\
+\hat{\bf n}_A         &amp;  \hat{\bf n}'_B    \\
+\hat{\bf n}'_A        &amp;  \hat{\bf n}_B     \\
+\hat{\bf n}'_A        &amp;  \hat{\bf n}'_B \end{array}
+\end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Alice y Bob reciben un electrón cada uno de un par entrelazado en el estado <span class="math notranslate nohighlight">\(\ket{B_{11}}\)</span></p></li>
+<li><p>Alice y Bob realizan la medida de la proyección del espín a lo largo del eje elegido y anotan el resultado de la medición <span class="math notranslate nohighlight">\((a,b')=(\pm 1, \pm 1)\)</span></p></li>
+<li><p>Repiten el paso anterior un número <span class="math notranslate nohighlight">\(i=1,..., N\)</span> grande de veces, y con los datos obtenidos <span class="math notranslate nohighlight">\((a_i,b_i)=(\pm 1, \pm 1)\)</span>
+donde <span class="math notranslate nohighlight">\(i=1,...,N\)</span> pueden reconstruir la cantidad</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-15f3dd08-1d05-4352-ba4c-b53736f28c64">
+<span class="eqno">(443)<a class="headerlink" href="#equation-15f3dd08-1d05-4352-ba4c-b53736f28c64" title="Permalink to this equation">#</a></span>\[\begin{equation}
+C(\hat{\bf n}_A, \hat{\bf n}'_B) = \frac{1}{N}\sum_{i=1}^N a_i b'_i ~\in~  [-1,1]
+\end{equation}\]</div>
+<p>Esta vez, como miden en direcciones diferentes, los dos pueden medir el mismo valor, así que esta cantidad estará ente <span class="math notranslate nohighlight">\(-1\)</span> y <span class="math notranslate nohighlight">\(+1\)</span>.</p>
+<ol class="arabic simple" start="5">
+<li><p>Repiten todo el proceso anterior para las cuatro posibles orientaciones elegidas de forma aleatoria. Con las  <span class="math notranslate nohighlight">\(4N\)</span> mediciones construyen la cantidad</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-ec-entrelazamiento-bell-r">
+<span class="eqno">(444)<a class="headerlink" href="#equation-ec-entrelazamiento-bell-r" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+R = | C(\hat{\bf n}_A, \hat{\bf n}_B) +  C(\hat{\bf n}_A, \hat{\bf n}'_B) +  C(\hat{\bf n}'_A, \hat{\bf n}_B)-
+C(\hat{\bf n}'_A, \hat{\bf n}'_B)|
+\end{equation} \]</div>
+<p>En un mundo clásico, supondríamos que los valores <span class="math notranslate nohighlight">\(a_i,b_i\)</span> proceden de <b>valores predefinidos</b> para cada sistema individual, sobre el que efectuamos simplemente un promedio estadístico de muchos sistemas. Entonces podemos probar la <b>desigualdad de CSCH</b>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La desigualdad de CSCH afirma que</p>
+<div class="math notranslate nohighlight" id="equation-ec-entrelazamiento-chsh-r">
+<span class="eqno">(445)<a class="headerlink" href="#equation-ec-entrelazamiento-chsh-r" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+R \leq 2
+\end{equation} \]</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Es fácil ver que se cumple para cada colección <span class="math notranslate nohighlight">\(a_i,a'_i,b_i,b'_i \in \pm 1\)</span> la desigualdad</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab5f829e-d027-4101-8a88-6db3ad02bb9f">
+<span class="eqno">(446)<a class="headerlink" href="#equation-ab5f829e-d027-4101-8a88-6db3ad02bb9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a_i (b_i +  b'_i) + a'_i (b_i -  b'_i) = \pm 2
+\end{equation}\]</div>
+<p class="sd-card-text">porque si <span class="math notranslate nohighlight">\(b_i +  b'_i=\pm 2\)</span> entonces <span class="math notranslate nohighlight">\(b_i - b'_i=0\)</span> y viceversa. Ahora podemos demostrar la desigualdad</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+R &amp;=&amp; \lim_{N\to \infty}|\frac{1}{N} \sum_{i=1}^N \left( a_i b_i + a_i b'_i + a'_i b_i - a'_i b'_i\right) | \nonumber\\
+&amp;=&amp; \lim_{N\to \infty}\frac{1}{N}| \sum_{i=1}^N  \left( a_i (b_i +  b'_i) + a'_i (b_i -  b'_i)\right)| \nonumber\\
+&amp;\leq &amp;  \lim_{N\to \infty} \frac{1}{N} \sum_{i=1}^N  |\left( a_i (b_i +  b'_i) + a'_i (b_i -  b'_i)\right)| \ \nonumber\\
+&amp;= &amp;  \lim_{N\to \infty} \frac{1}{N} \sum_{i=1}^N  2 \ \nonumber\\
+&amp;=&amp; 2
+\end{eqnarray*}\]</div>
+</div>
+</details><p>La Mecánica Cuántica nos proporciona una respuesta teórica para <span class="math notranslate nohighlight">\(R\)</span> que sólo depende de los ángulos relativos <span class="math notranslate nohighlight">\(\cos\theta_{AB} = \cos(\theta_A-\theta_B)= \hat{\bf n}_A\cdot \hat{\bf n}_B\)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fcf91437-ac71-49b1-a02c-be544203b91d">
+<span class="eqno">(447)<a class="headerlink" href="#equation-fcf91437-ac71-49b1-a02c-be544203b91d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R = | \cos\theta_{AB}  + \cos \theta_{A'B} + \cos \theta_{AB'}  - \cos \theta_{A'B'}|\, .
+\end{equation}\]</div>
+<section id="ejemplo-particular">
+<h3>Ejemplo particular.<a class="headerlink" href="#ejemplo-particular" title="Permalink to this heading">#</a></h3>
+<p>Ahora sólo hace falta jugar un poco con los detectores. Por ejemplo, podemos situarlos en el plano <span class="math notranslate nohighlight">\((y,z)\)</span>, perpendicular al eje de propagación <span class="math notranslate nohighlight">\(x\)</span>, de manera que los vectores  <span class="math notranslate nohighlight">\(\hat{\bf n}'_A,\hat{\bf n}_{A},\hat{\bf n}_B\)</span> y <span class="math notranslate nohighlight">\(\hat{\bf n}_B'\)</span> estén ordenados correlativamente en sentido horario. Finalmente tomaremos dos ejes coincidentes <span class="math notranslate nohighlight">\(\hat{\bf n}_{A}=\hat{\bf n}_B\)</span> paralelos <span class="math notranslate nohighlight">\(\Rightarrow \theta_{AB}=0\)</span>, y apertura igual para ambos, <span class="math notranslate nohighlight">\(\theta_{A'A} = \theta_{BB'} = \varphi\)</span>, de modo que <span class="math notranslate nohighlight">\(\theta_{A'B'} = 2\varphi\)</span>. Podemos ver esta disposión en la Fig. \ref{Fig_entrelazamiento_CHSH_basis}.</p>
+<figure class="align-center" id="fig-entrelazamiento-chsh-basis">
+<a class="reference internal image-reference" href="docs/Part_03/Chapter_009_02/Figuras/Fig_entrelazamiento_CHSH_basis"><img alt="docs/Part_03/Chapter_009_02/Figuras/Fig_entrelazamiento_CHSH_basis" src="docs/Part_03/Chapter_009_02/Figuras/Fig_entrelazamiento_CHSH_basis" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Ejemplo particular de unas orientaciones de los medidores de Alice y Bob</span><a class="headerlink" href="#fig-entrelazamiento-chsh-basis" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La expresión de <span class="math notranslate nohighlight">\(R\)</span> nos queda</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5084b0aa-0814-4382-baac-ace53f527995">
+<span class="eqno">(448)<a class="headerlink" href="#equation-5084b0aa-0814-4382-baac-ace53f527995" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R = |1 +  2 \cos\varphi  - \cos 2\varphi|\, .
+\end{equation}\]</div>
+<p>Derivando vemos que esta expresión alcanza su máximo cuando <span class="math notranslate nohighlight">\(\sin\varphi = \sin 2\varphi\)</span> lo cual tiene solución <span class="math notranslate nohighlight">\(\varphi = \pi/3 = 60^\circ\)</span>. Sustituyendo encontramos <span class="math notranslate nohighlight">\(R= 2.5&gt;2\)</span>, violando la desigualdad CHSH de la Ec. (\ref{ec_entrelazamiento_CHSH_R}).</p>
+<p>\begin{mybox_orange}{Jypyter Notebook: 05-Entrelazamiento sección 1}
+Ver la sección 1 del notebook <b>05-Entrelazamiento</b>.
+\end{mybox_orange}</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Prueba con otros estados de la base de Bell. Realiza este experimento en un ordenador real.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Usar bases perpendiculares de  Alice <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(A'\)</span>  y Bob <span class="math notranslate nohighlight">\(B\)</span> y <span class="math notranslate nohighlight">\(B'\)</span>, y formando un ángulo <span class="math notranslate nohighlight">\(\varphi\)</span> entre sí. Sin pérdida de generalidad puedes tomar <span class="math notranslate nohighlight">\(B = X\)</span> y <span class="math notranslate nohighlight">\(B' = Z\)</span>. Variar <span class="math notranslate nohighlight">\(\varphi\)</span> en el intervalo <span class="math notranslate nohighlight">\((0,\pi)\)</span> y hallar el valor de la máxima violación de la desigualdad de Bell.</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_03/Chapter_009_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter_009_01_entrelazamiento_en_accion_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Entrelazamiento en acción</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_002_experimento_ghz_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Experimento GHZ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perfecta-anticorrelacion">Perfecta anticorrelación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desigualdad-csch">Desigualdad CSCH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-particular">Ejemplo particular.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

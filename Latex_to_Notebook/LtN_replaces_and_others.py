@@ -275,8 +275,17 @@ def reemplazo_textbf(line):
         texto = match.group(1)
         return f"<b>{texto}</b>"
 
+    def delete_textbf_aux(match):
+        texto = match.group(1)
+        return f"{texto}"
+
     patron_textbf = r"\\\\textbf\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return re.sub(patron_textbf, reemplazo_textbf_aux, line)
+
+    # Este if es para lidiar con los \text{ en las ecuaciones
+    if "\\\\text{" in line:
+        return re.sub(patron_textbf, delete_textbf_aux, line)
+    else:
+        return re.sub(patron_textbf, reemplazo_textbf_aux, line)
 
 # =============================================================================
 ## Reemplazar \\textit{texto} por <b>texto</b>
@@ -286,8 +295,17 @@ def reemplazo_textit(line):
         texto = match.group(1)
         return f"<i>{texto}</i>"
 
+    def delete_textit_aux(match):
+        texto = match.group(1)
+        return f"{texto}"
+
     patron_textit = r"\\\\textit\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return re.sub(patron_textit, reemplazo_textit_aux, line)
+
+    # Este if es para lidiar con los \text{ en las ecuaciones
+    if "\\\\text{" in line:
+        return re.sub(patron_textit, delete_textit_aux, line)
+    else:
+        return re.sub(patron_textit, reemplazo_textit_aux, line)
 
 # =============================================================================
 ## Reemplazar \\begin{figure}[...] por <figure><center>
@@ -334,12 +352,12 @@ def reemplazo_item(line, out_spaces):
 
 def split_cites(line):
     # Expresión regular para encontrar y reemplazar el formato
-    patron = re.compile(r'\\cite{([^}]+)}')
+    patron = re.compile(r'\\\\cite{([^}]+)}')
 
     def reemplazar_citas(match):
         citas = match.group(1).split(',')
         citas = [cita.strip() for cita in citas]  # Eliminar espacios alrededor de las citas
-        return ','.join(f'\\cite{{{cita}}}' for cita in citas)
+        return ','.join(f'\\\\cite{{{cita}}}' for cita in citas)
 
     return patron.sub(reemplazar_citas, line)
 
@@ -351,8 +369,8 @@ def reemplazo_cite(line, cites_dic, path_bib_ipynb):
 
         return f"[[{cites_dic[texto]}]]({path_bib_ipynb}#{texto})"
 
-    patron_textit = r"\\\\cite\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
-    return re.sub(patron_textit, reemplazo_cite_aux, line)
+    patron_cite = r"\\\\cite\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    return re.sub(patron_cite, reemplazo_cite_aux, line)
 
 def reemplazo_cite_full(f_data, i_start_write, i_end_write, cites_dic, path_bib_ipynb):
 

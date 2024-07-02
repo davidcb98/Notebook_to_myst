@@ -1,0 +1,948 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introducción. &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_04/Chapter_017_02/Section_001_introduccion_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Hallar del periodo de una función (Period Finding)" href="Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html" />
+    <link rel="prev" title="Algoritmo de Shor (Periodicity Finding)" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_04/Chapter_017_02/Section_001_introduccion_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_04/Chapter_017_02/Section_001_introduccion_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_017_02/Section_001_introduccion_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_04/Chapter_017_02/Section_001_introduccion_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-y-factorizacion">Criptografía y factorización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-de-factorizacion">Algoritmo de factorización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-cualitativa">Explicación cualitativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">Formalismo matemático</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicidad-de-f-x">Periodicidad de <span class="math notranslate nohighlight">\(f(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factores-de-n-a-partir-del-periodo-r">Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 8 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi19.png"><img alt="../../../_images/Fig_logo_UMA_scbi19.png" src="../../../_images/Fig_logo_UMA_scbi19.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<section id="criptografia-y-factorizacion">
+<h2>Criptografía y factorización.<a class="headerlink" href="#criptografia-y-factorizacion" title="Permalink to this heading">#</a></h2>
+<p>El algoritmo de Shor es uno de los algoritmos de computación cuántica más conocidos debido a que es mejor en su tarea que cualquier algoritmo de computación clásica conocido hasta la fecha. Además, resuelve un problema que tiene una aplicación práctica directa: factorizar un número.</p>
+<p>Para entender porque este algoritmo es tan importante debemos hablar primero de criptografía, en concreto, del encriptado de transmisiones a través de Internet mediante el método de clave pública y clave privada (<b>criptografía asimétrica</b> usando el famoso <b>algoritmo RSA</b>). La explicación conceptual de esta forma de encriptar es simple. Cuando quieres, por ejemplo, acceder a la aplicación de tu banco tienes que ingresar las claves de acceso (DNI y pin), estas se mandan por Internet hasta la sede de tu banco, el cual verifica que son correctas y te da acceso. El problema radica precisamente en que la conexión se hace mediante Internet, con lo cual el mensaje con las claves de acceso puede ser interceptado. La solución a este problema es que el mensaje que el cliente envía esté encriptado y que solo tu banco pueda desencriptar el mensaje.</p>
+<p>El método de encriptación más usado en Internet usando el algoritmo RSA. En este tipo de encriptado el receptor del mensaje (en nuestro ejemplo, el banco) genera dos claves dependientes entre sí, una la publicará al exterior (clave pública) y otra solo la conocerá él (clave privada). Si un receptor quisiera recibir un mensaje encriptado, bastaría con que publicase su clave pública de forma que cualquiera que quiera mandarle un mensaje, pueda usarla para encriptar el mismo. Sin embargo, la clave privada solo es conocida por el receptor del mensaje, y se usa para desencriptar. Puede decirse que la clave pública es como un candado y la clave privada es la llave. Cualquiera puede cerrar el candado, pero solo el que tiene la llave puede abrirlo.</p>
+<p>El punto importante aquí es que, la clave privada son dos números primos (de gran tamaño, decenas de cifras), y la clave pública es la multiplicación de estos dos números. La solidez de este método de cifrado (RSA) radica en el hecho de que si tenemos dos números primos multiplicarlos es muy fácil, pero si tenemos la multiplicación de los mismos (la clave pública) hallar cuales son los dos números con los que se construyó (factorizar el número en sus elementos primos) es extremadamente difícil. Como es esperable, cuanto más larga es la clave, más tiempo se tarda en factorizarla. El problema radica específicamente en que el tiempo que se requiere crece <b>exponencialmente</b> con el número de bits. Para las longitudes de clave que se manejan actualmente, incluso con los mejores superordenadores se tardarían cientos o miles de años en hallar los factores.</p>
+<p>La tremenda potencia y aplicabilidad del algoritmo de Shor es que convierte este problema de complejidad exponencial en el número de bits para un computador clásico, en un problema de complejidad polinómica para un computador cuántico. Es decir, con el algoritmo de Shor el tiempo requerido para factorizar un número crece <b>polinómicamente</b> con el número de cifras del número. De esta forma, si se llega a tener un ordenador cuántico con suficientes qúbits como para aplicar este algoritmo a números de la longitud de clave que se usa actualmente, se podrían factorizar y hallar la clave privada en un tiempo razonable para la escala humana. El algoritmo de Shor tiene el potencial de romper la criptografía asimétrica y hacer vulnerables las comunicaciones a través de la red, pero estamos muy lejos de tener un ordenador cuántico capar de implementarlo a la escala requerida. Se estima que se necesitarían del orden del millón de qúbits, mientras que actualmente (año 2023) los ordenadores cuánticos más grandes andan por el orden de cientos de qúbits.</p>
+</section>
+<section id="algoritmo-de-factorizacion">
+<span id="sec-algoritmo-factorizacion"></span><h2>Algoritmo de factorización.<a class="headerlink" href="#algoritmo-de-factorizacion" title="Permalink to this heading">#</a></h2>
+<p>El algoritmo de Shor se basa en el hecho de poder reducir un problema de factorización a uno de <b>period finding (hallar el periodo -orden- de una función)</b>. Antes de hablar de nada cuántico, vamos a ver, tal y como se describe en el Nielsen-Chuang <span class="xref myst">[20]</span>,  como sería la estructura general de un algoritmo de factorización de esta forma comentando en que punto entra la computación cuántica para acelerarlo.</p>
+<p>Lo primero es introducir la noción de <b>números coprimos</b>:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dos números <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son coprimos si su máximo común divisor es 1, esto es, gcd<span class="math notranslate nohighlight">\((a,b) = 1\)</span>. Es decir, dos números coprimos solo comparten como divisor común el 1.</p>
+</div>
+</div>
+<p>Los pasos para reducir un problema de factorización en uno de period finding son los siguientes. Sea <span class="math notranslate nohighlight">\(N\)</span> el número que queremos factorizas</p>
+<ol class="arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(N\)</span> es par, devolver el factor 2.</p></li>
+<li><p>Determinar si <span class="math notranslate nohighlight">\(N=p^b\)</span> para los enteros <span class="math notranslate nohighlight">\(p \geq 1\)</span> y <span class="math notranslate nohighlight">\(b \geq 2\)</span>, y si es así, devolver el factor <span class="math notranslate nohighlight">\(p\)</span> (puede hacerse en un tiempo polinómico).</p></li>
+<li><p>Elegir un número entero aleatorio <span class="math notranslate nohighlight">\(a\)</span> tal que <span class="math notranslate nohighlight">\(1 &lt; a \leq N-1\)</span>. Usando el algoritmo de Euclides, determinar si gcd<span class="math notranslate nohighlight">\((a,N) &gt; 1\)</span>. Si lo es, devolver el factor gcd<span class="math notranslate nohighlight">\((a,N)\)</span>.</p></li>
+<li><p>Si gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span> (<span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son coprimos) y <span class="math notranslate nohighlight">\(a^{r/2} \neq -1\)</span> mod<span class="math notranslate nohighlight">\(N = (\alpha N -1)\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>, calculamos el periodo <span class="math notranslate nohighlight">\(r\)</span> de la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{ mod} N\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(r\)</span> es impar, volvemos al paso 3. Sino, calculamos gcd<span class="math notranslate nohighlight">\((a^{r/2}-1,N)\)</span> y gcd<span class="math notranslate nohighlight">\((a^{r/2}+1,N)\)</span>. Probamos a ver si uno de estos dos es un factor no-trivial de <span class="math notranslate nohighlight">\(N\)</span>, y devolvemos el mismo si lo es.</p></li>
+</ol>
+<p>Todos los pasos de este algoritmo, excepto el <b>paso 4</b>, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor se puede usar el Algoritmo de Euclides <span class="xref myst">[26]</span>, el cual resuelve el problema en un <b>tiempo polinómico</b> (se puede calcular en un tiempo razonable).</p>
+<p>El paso complicado y que, por lo menos hasta la fecha, no hay ninguna forma de implementarlo en un tiempo polinómico en un ordenador clásico (se implementa en un <b>tiempo exponencial</b>) es el <b>paso 4</b>, hallar el periodo de la función. Sin embargo, este paso puede implementarse en un ordenador cuántico en un tiempo polinómico. Tenemos pues que la forma óptima de factorizar un número consiste en <b>implementar los pasos 1, 2, 3 y 5 en un ordenador clásico, y el paso 4 en un ordenador cuántico</b>.</p>
+</section>
+<section id="explicacion-cualitativa">
+<h2>Explicación cualitativa<a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
+<p>Vamos a intentar entender de forma cualitativa porqué calculando el periodo de una función se pueden hallar los factores de un número. En la sección \ref{sec_Formalismo} veremos un poco más en detalle las afirmaciones que se hacen en esta sección.</p>
+<p>La función que nos interesa es la siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8454b238-fc9f-4e4e-88d5-165e37f91c63">
+<span class="eqno">(601)<a class="headerlink" href="#equation-8454b238-fc9f-4e4e-88d5-165e37f91c63" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x) = a^x \text{ mod} N
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a &lt; N\)</span> y no teniendo factores comunes, es decir, que sean coprimos (gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>). La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <b>resto</b> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>La función <span class="math notranslate nohighlight">\(f(x)\)</span> se denomina  <b>exponenciales moduladas</b>. Esta se encaja dentro de la <b>aritmética modular</b> y si se cumplen las condiciones anteriores esta función es periódica. Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al <b>valor del periodo de la función</b> <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-47661492-956b-4cf1-813d-b47f40aa9c7e">
+<span class="eqno">(602)<a class="headerlink" href="#equation-47661492-956b-4cf1-813d-b47f40aa9c7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x+r) = f(x).
+\end{equation}\]</div>
+<p>Este se puede calcular mediante un circuito cuántico.</p>
+<p>Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span>. Esto es debido a que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8feec2ca-874f-460e-9388-18d77d4b87c0">
+<span class="eqno">(603)<a class="headerlink" href="#equation-8feec2ca-874f-460e-9388-18d77d4b87c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a^r \text{ mod} N = 1
+\end{equation}\]</div>
+<p>con lo cual</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0994d284-f7a3-4bc2-98ac-5cec584d60cd">
+<span class="eqno">(604)<a class="headerlink" href="#equation-0994d284-f7a3-4bc2-98ac-5cec584d60cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(a^r-1) \text{ mod} N = 0
+\end{equation}\]</div>
+<p>Con lo cual, <span class="math notranslate nohighlight">\(N\)</span> debe ser un divisor de <span class="math notranslate nohighlight">\(a^r-1\)</span>. Si <span class="math notranslate nohighlight">\(r\)</span> es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>), podemos escribir:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-50298e65-9cc7-4211-9e1a-0df6ce4eac54">
+<span class="eqno">(605)<a class="headerlink" href="#equation-50298e65-9cc7-4211-9e1a-0df6ce4eac54" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
+\end{equation}\]</div>
+<p>Entonces tenemos una alta probabilidad de que el <b>máximo común divisor</b> de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</section>
+<section id="formalismo-matematico">
+<span id="sec-formalismo"></span><h2>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
+<p>Veamos un poco el formalismo matemático detrás de las afirmaciones de la sección anterior.</p>
+<section id="periodicidad-de-f-x">
+<h3>Periodicidad de <span class="math notranslate nohighlight">\(f(x)\)</span><a class="headerlink" href="#periodicidad-de-f-x" title="Permalink to this heading">#</a></h3>
+<p>Demostrar que, dada la condición gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span> es periódica no es fácil, pues se necesitan plantear varios teoremas y la explicación se hace árida (puede verse el Appendix 4 de <span class="xref myst">[20]</span>). Aquí vamos a ver una explicación más simple partiendo del siguiente resultado (sin demostrarlos):</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Lema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dada la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span>, si se cumple que gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, tenemos que para algún valor entero <span class="math notranslate nohighlight">\(z&gt;0\)</span> se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span>.</p>
+</div>
+</div>
+<p>Vemos a ver ahora que este valor <span class="math notranslate nohighlight">\(z&gt;0\)</span> para el cual se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span> será el periodo de la función. Denominaremos a este valor <span class="math notranslate nohighlight">\(r\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> será <b>el primer valor (mayor que cero) para el cual se cumple</b> <span class="math notranslate nohighlight">\(f(r) = 1\)</span>. Tenemos que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5899fd92-ccc5-4ca4-b02b-8e75688036d8">
+<span class="eqno">(606)<a class="headerlink" href="#equation-5899fd92-ccc5-4ca4-b02b-8e75688036d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a^0 =1 \rightarrow f(0) = a^0 \text{ mod} N = 1 = a^r \text{ mod} N = f(r).
+\end{equation}\]</div>
+<p>En el momento en el que llegamos a un exponente <span class="math notranslate nohighlight">\(r\)</span> tal que <span class="math notranslate nohighlight">\(a^r \text{ mod} N = 1\)</span> podemos pues escribir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4478affe-3465-4404-b115-fb65615964ac">
+<span class="eqno">(607)<a class="headerlink" href="#equation-4478affe-3465-4404-b115-fb65615964ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+a^r = \alpha N + 1
+\end{equation}\]</div>
+<p>con lo cual</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eebe2e4f-3f95-45bb-b6c4-7c94dc116d9b">
+<span class="eqno">(608)<a class="headerlink" href="#equation-eebe2e4f-3f95-45bb-b6c4-7c94dc116d9b" title="Permalink to this equation">#</a></span>\[\begin{align}
+f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\
+&amp; = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
+\end{align}\]</div>
+<p>Hemos visto pues que <span class="math notranslate nohighlight">\(f(x)\)</span> es periódica.</p>
+</section>
+<section id="factores-de-n-a-partir-del-periodo-r">
+<span id="sec-factores"></span><h3>Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#factores-de-n-a-partir-del-periodo-r" title="Permalink to this heading">#</a></h3>
+<p>Para entender como pasar del periodo <span class="math notranslate nohighlight">\(r\)</span> de nuestra función a tener los factores de <span class="math notranslate nohighlight">\(N\)</span> nos hace falta conocer un par de teoremas, ambos presentes en <span class="xref myst">[20]</span>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>: </i>Teorema 5.2 del Nielsen-Chuang</i></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Supongamos que <span class="math notranslate nohighlight">\(N\)</span> es un número compuesto de <span class="math notranslate nohighlight">\(L\)</span> bits, y <span class="math notranslate nohighlight">\(x\)</span> es una solución no trivial de la ecuación <span class="math notranslate nohighlight">\((x^2 = 1 \text{ mod} N)\)</span> en el rango <span class="math notranslate nohighlight">\(1 \leq a \leq N\)</span>, esto es, ni <span class="math notranslate nohighlight">\(x = (1 \text{ mod} N)\)</span> ni <span class="math notranslate nohighlight">\(x = N-1 = (-1 \text{ mod} N)\)</span>. Entonces, uno de gcd<span class="math notranslate nohighlight">\((x-1,N)\)</span> y gcd<span class="math notranslate nohighlight">\((x+1,N)\)</span> es un factor no trivial de <span class="math notranslate nohighlight">\(N\)</span> que se puede calcular usando <span class="math notranslate nohighlight">\(\mathcal{O}(L^3)\)</span> operaciones.</p>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Ya que <span class="math notranslate nohighlight">\(x^2 \text{ mod} N = 1 \rightarrow (x^2 -1) \text{ mod} N = 0\)</span>, debe de cumplirse que <span class="math notranslate nohighlight">\(N\)</span> divida a <span class="math notranslate nohighlight">\((x^2-1) = (x+1)(x-1)\)</span>, con lo cual <span class="math notranslate nohighlight">\(N\)</span> debe de tener un factor común con <span class="math notranslate nohighlight">\((x+1)\)</span> o con <span class="math notranslate nohighlight">\((x-1)\)</span>. Como por suposición tenemos que <span class="math notranslate nohighlight">\(1 &lt;  x &lt; N-1\)</span>, con lo cual <span class="math notranslate nohighlight">\(x-1 &lt; x+1 &lt; N\)</span>, de lo cual podemos ver que el factor común no puede ser el propio <span class="math notranslate nohighlight">\(N\)</span>. Usando el Algoritmo de Euclides <span class="xref myst">[26]</span> podemos calcular gcd<span class="math notranslate nohighlight">\((x-1)\)</span> y gcd<span class="math notranslate nohighlight">\((x+1)\)</span>, y con lo cual obtener un factor no trivial de <span class="math notranslate nohighlight">\(N\)</span>, usando <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> operaciones.</p>
+</div>
+</details><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>: </i>Teorema 5.3 del Nielsen-Chuang</i></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Supongamos <span class="math notranslate nohighlight">\(N = p^{\alpha_1}_1 \dots p^{\alpha_m}_m \)</span> es la descomposición en factores primos de un entero impar positivo. Sea <span class="math notranslate nohighlight">\(x\)</span> un número entero elegido uniformemente al azar, sujeto a la restricción <span class="math notranslate nohighlight">\(1 \leq x \leq N-1\)</span> y <span class="math notranslate nohighlight">\(x\)</span> coprimo de <span class="math notranslate nohighlight">\(N\)</span>. Sea <span class="math notranslate nohighlight">\(r\)</span> el periodo de <span class="math notranslate nohighlight">\(x \text{ mod} N\)</span>. Entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6bf6152f-e9d8-4048-a69d-67f38badef58">
+<span class="eqno">(609)<a class="headerlink" href="#equation-6bf6152f-e9d8-4048-a69d-67f38badef58" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(r \text{ es impar y } x^{r/2} \text{ mod} N \neq - 1) \geq 1 - \frac{1}{2^m}
+\end{equation}\]</div>
+<p class="sd-card-text">esto es, la probabilidad de hallar un <span class="math notranslate nohighlight">\(r\)</span> impar y que cumpla <span class="math notranslate nohighlight">\(x^{r/2} \text{ mod} N \neq - 1\)</span> es mayor que 1 - 1/<span class="math notranslate nohighlight">\(2^m\)</span>.</p>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En nuestro caso el teorema 5.2 se aplica con <span class="math notranslate nohighlight">\(x = a^r\)</span> y el teorema 5.3 con <span class="math notranslate nohighlight">\(x = a\)</span>.</p>
+<p>El teorema 5.3 nos da la probabilidad de éxito del algoritmo para cada cálculo de <span class="math notranslate nohighlight">\(r\)</span>. Para el caso que comentamos de la criptografía tenemos <span class="math notranslate nohighlight">\(m=2\)</span> (dos claves privadas), así que
+la probabilidad de obtener un <span class="math notranslate nohighlight">\(r\)</span> válido es <span class="math notranslate nohighlight">\(1/2\)</span>.</p>
+</div>
+<p>Los teoremas 5.2 y 5.3 pueden combinarse para dar un algoritmo que, con alta probabilidad, devuelve un factor no trivial de cualquier numero no primo <span class="math notranslate nohighlight">\(N\)</span>. Todos los pasos del algoritmo pueden realizarse de forma eficiente en un ordenador clásico, excepto (por lo que se sabe hoy en día) una subrutina de búsqueda de periodo que utiliza el algoritmo. Repitiendo el procedimiento podemos encontrar una factorización prima completa de <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_04/Chapter_017_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Algoritmo de Shor (Periodicity Finding)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hallar del periodo de una función (Period Finding)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-y-factorizacion">Criptografía y factorización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmo-de-factorizacion">Algoritmo de factorización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-cualitativa">Explicación cualitativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">Formalismo matemático</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periodicidad-de-f-x">Periodicidad de <span class="math notranslate nohighlight">\(f(x)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factores-de-n-a-partir-del-periodo-r">Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

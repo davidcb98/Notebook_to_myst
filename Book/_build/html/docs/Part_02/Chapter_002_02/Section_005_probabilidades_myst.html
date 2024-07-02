@@ -1,0 +1,1107 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Probabilidades &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_02/Chapter_002_02/Section_005_probabilidades_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Fundamentos de Mecánica Cuántica" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html" />
+    <link rel="prev" title="Tensores" href="Section_004_tensores_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_vectores_myst.html">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_02/Chapter_002_02/Section_005_probabilidades_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_02/Chapter_002_02/Section_005_probabilidades_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_02/Chapter_002_02/Section_005_probabilidades_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_02/Chapter_002_02/Section_005_probabilidades_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Probabilidades</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoria">Variable aleatoria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">Distribución de probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media">Media</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-y-desviacion-estandar">Varianza y desviación estándar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-conexion-estadistica">La conexión estadística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencias-e-histogramas">Frecuencias e Histogramas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-los-grandes-numeros">Ley de los grandes números</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-de-bernouilli">La distribución de Bernouilli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-binomial">La distribución Binomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-normal-o-gaussiana">La distribución Normal o Gaussiana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidades-combinadas">Probabilidades combinadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-combinada">Probabilidad combinada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicionada">Probabilidad condicionada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropia-de-una-una-variable-aleatoria">Entropía de una una variable aleatoria</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 4 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="probabilidades">
+<h1>Probabilidades<a class="headerlink" href="#probabilidades" title="Permalink to this heading">#</a></h1>
+<p>La Mecánica Cuántica es <b>intrinsecamente probabilística</b>. Por ello, es importate repasar algunos conceptos estadístico.</p>
+<section id="variables-aleatorias">
+<h2>Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Permalink to this heading">#</a></h2>
+<section id="variable-aleatoria">
+<h3>Variable aleatoria<a class="headerlink" href="#variable-aleatoria" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Denotamos con <span class="math notranslate nohighlight">\((X,p(X))\)</span> una  <b>variable aleatoria</b> donde</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X\)</span> es el <b>espacio muestral</b> de valores <span class="math notranslate nohighlight">\(\{x_1, x_2,....,x_n\}\)</span> que pueden aparecer en una <i>consulta</i> a la variable aleatoria</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(p(X)\)</span> es la <b>distribución de probabilidad</b></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="distribucion-de-probabilidad">
+<h3>Distribución de probabilidad<a class="headerlink" href="#distribucion-de-probabilidad" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Una <b>distribución de probabilidad</b> es una función real <span class="math notranslate nohighlight">\(x\to p(x)\)</span> que debe  verificar las dos condiciones siguientes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6f9724c5-556f-493b-b62b-5b147ed93948">
+<span class="eqno">(239)<a class="headerlink" href="#equation-6f9724c5-556f-493b-b62b-5b147ed93948" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x) \in [0,1]~~~~~~~,~~~~~~~~\sum_{x\in X }p(x) = 1
+\end{equation}\]</div>
+<p class="sd-card-text">Es decir, la suma de probabilidades de todos los sucesos posibles debe ser la unidad.</p>
+</div>
+</div>
+</section>
+<section id="media">
+<h3>Media<a class="headerlink" href="#media" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>media</b> de una variable aleatoria  viene dada por la expresión</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2734d228-a89f-47a3-b278-1195fd176de9">
+<span class="eqno">(240)<a class="headerlink" href="#equation-2734d228-a89f-47a3-b278-1195fd176de9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\overline X  = \sum_i x_i p(x_i)
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+<section id="varianza-y-desviacion-estandar">
+<h3>Varianza y desviación estándar<a class="headerlink" href="#varianza-y-desviacion-estandar" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>varianza</b>, <span class="math notranslate nohighlight">\(\sigma_X^2\)</span>, es la  <i>media de la desviación cuadrática</i> <span class="math notranslate nohighlight">\(\overline{(x_i - \overline{X} )^2}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-a5077633-27d6-43cc-b47d-a510c57c01a7">
+<span class="eqno">(241)<a class="headerlink" href="#equation-a5077633-27d6-43cc-b47d-a510c57c01a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma^2_X = \sum_j (x_j-\overline{X})^2 p(x_j) = \overline{X^2} - \overline{X}^2
+\end{equation}\]</div>
+<p class="sd-card-text">La cantidad <span class="math notranslate nohighlight">\(\sigma_X\)</span> se denomina  <b>desviación estándar</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-cfbbc6e6-7ed3-4c48-8ef2-250d5e99e485">
+<span class="eqno">(242)<a class="headerlink" href="#equation-cfbbc6e6-7ed3-4c48-8ef2-250d5e99e485" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma_X = \sqrt{\overline{X^2} - \overline{X}^2}
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="la-conexion-estadistica">
+<h2>La conexión estadística<a class="headerlink" href="#la-conexion-estadistica" title="Permalink to this heading">#</a></h2>
+<p>Nuestro conocimiento del mundo se basa en la realización de <b>experimentos</b>, el resultado de los cuales es (empíricamente) <b>aleatorio</b>. Podemos pensar en el hecho de medir un sistema como la consulta de una variable aleatoria <span class="math notranslate nohighlight">\((X,p(X))\)</span> donde la distribución de probabilidad incorpora todo nuestro conocimiento acerca del sistema.</p>
+<section id="frecuencias-e-histogramas">
+<h3>Frecuencias e Histogramas<a class="headerlink" href="#frecuencias-e-histogramas" title="Permalink to this heading">#</a></h3>
+<p>Cualquier consulta o medida da lugar a una <i>muestra</i> finita de valores <span class="math notranslate nohighlight">\(A_N = (a_1,a_2,...,a_N)\)</span>. Cada uno de estos resultados puede tomar cualquier valor <span class="math notranslate nohighlight">\(x_j\)</span> del espacio muestral, es decir, <span class="math notranslate nohighlight">\(a_i\in \{x_1,...,x_n\}\)</span>. A su vez, medidas diferentes (<span class="math notranslate nohighlight">\(a_i\)</span> diferentes) pueden tomar valores iguales <span class="math notranslate nohighlight">\(x_j\)</span>, con números de aparición <span class="math notranslate nohighlight">\(n(x_i)\)</span> tales que  <span class="math notranslate nohighlight">\(n(x_1) +  \ldots + n(x_p) = N\)</span>.</p>
+<p>Estos datos se pueden agrupar en intervalos o <i>bins</i> que eliminen cierta precisión numérica.
+Por ejemplo, si truncamos nuestra precisión a las décimas de unidad,  <span class="math notranslate nohighlight">\(13.10\)</span> y <span class="math notranslate nohighlight">\(13.19\)</span> pertenecerán al mismo <i>bin</i>.</p>
+<p>Un <b>histograma</b> es un diagrama en el que, por cada <i>bin</i>, hay una columna, cuya altura representa el número de sucesos que pertenecen a dicho <i>bin</i>. Podemos ver uno en la Fig. \ref{Fig_formalismo_histograma}.</p>
+<figure class="align-center" id="fig-formalismo-histograma">
+<a class="reference internal image-reference" href="../../../_images/Fig_formalismo_histograma.png"><img alt="../../../_images/Fig_formalismo_histograma.png" src="../../../_images/Fig_formalismo_histograma.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Ejemplo de histograma.</span><a class="headerlink" href="#fig-formalismo-histograma" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ley-de-los-grandes-numeros">
+<h3>Ley de los grandes números<a class="headerlink" href="#ley-de-los-grandes-numeros" title="Permalink to this heading">#</a></h3>
+<p>La conexión entre estadística y teoría de la probabilidad se da mediante la <b>ley de los grandes números</b>. Lo que nos dice esta ley es que cuando el número de muestras tiende a infinito, <span class="math notranslate nohighlight">\(N\to \infty\)</span>, las fracciones relativas tienden a un número fijo que hereda, de toda la dinámica del sistema, ciertas propiedades que no se desvanecen. Este número es la probabilidad, es decir,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4ebaa1b2-73dc-4f76-8825-82f84d074b1a">
+<span class="eqno">(243)<a class="headerlink" href="#equation-4ebaa1b2-73dc-4f76-8825-82f84d074b1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
+\end{equation}\]</div>
+<p>Un punto importante aquí es darnos cuenta de que experimentalmente sólo tenemos acceso a las frecuencias relativas <span class="math notranslate nohighlight">\(f_N(x_i)\)</span> para un <span class="math notranslate nohighlight">\(N\)</span> grande aunque <b>finito</b>.</p>
+<p>Igualmente, nuestro conocimiento de la  media <span class="math notranslate nohighlight">\(\overline X\)</span>  y la varianza <span class="math notranslate nohighlight">\(\sigma_X^2\)</span> siempre es aproximado, y se realiza a través de las medias y varianzas muestrales</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f62cf449-553e-44f4-8fd1-e44558eec694">
+<span class="eqno">(244)<a class="headerlink" href="#equation-f62cf449-553e-44f4-8fd1-e44558eec694" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+\overline{A}_N = \sum_i x_i f_N(x_i)~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \overline{X}\\
+\sigma_{A_N}^2 = \sum_{i} (x_i - \overline{A}_N)^2 f_N(x_i) ~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \sigma_X^2
+\end{eqnarray}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Este es el enfoque <b>frecuentista</b>.</p>
+</div>
+</section>
+<section id="la-distribucion-de-bernouilli">
+<h3>La distribución de Bernouilli<a class="headerlink" href="#la-distribucion-de-bernouilli" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Una <b>variable aleatoria de Bernouilli</b> <span class="math notranslate nohighlight">\(X=(x,p(x))\)</span> tiene dos posibles resultados</p>
+<ul class="simple">
+<li><p class="sd-card-text"><b>Exito</b>:<span class="math notranslate nohighlight">\(\to x=1\)</span> con probabilidad <span class="math notranslate nohighlight">\(p(1) = p\)</span></p></li>
+<li><p class="sd-card-text"><b>Fracaso</b>: <span class="math notranslate nohighlight">\(\to x=0\)</span> con probabilidad <span class="math notranslate nohighlight">\(p(0) = 1-p\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>Podemos calcular fácilmente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-483a4d64-d685-4c67-a026-f9f755f2ea61">
+<span class="eqno">(245)<a class="headerlink" href="#equation-483a4d64-d685-4c67-a026-f9f755f2ea61" title="Permalink to this equation">#</a></span>\[\begin{align}
+\overline X &amp; = \sum_i x_i p_i = 1 \cdot p +0 \cdot (1-p) = p \\
+\sigma^2 &amp; = \sum_i (x-\overline X)^2p_i = (1-p)^2p +(0-p) = p(1-p)
+\end{align}\]</div>
+</section>
+<section id="la-distribucion-binomial">
+<h3>La distribución Binomial<a class="headerlink" href="#la-distribucion-binomial" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>variable aleatoria binomia</b>l <span class="math notranslate nohighlight">\(X = (x,p(x))\)</span> se define como</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cee76aed-d8f5-4427-9bed-92bacf21ff19">
+<span class="eqno">(246)<a class="headerlink" href="#equation-cee76aed-d8f5-4427-9bed-92bacf21ff19" title="Permalink to this equation">#</a></span>\[\begin{equation}
+x = \text{número de éxitos obtenidos en } n \text{ pruebas de Bernouilli sucesivas}
+\end{equation}\]</div>
+<p class="sd-card-text">Claramente <span class="math notranslate nohighlight">\(x \in (0,1,2,...n)\)</span>.</p>
+<p class="sd-card-text">Ahora es muy sencillo obtener la <b>probabilidad</b> de un suceso con <span class="math notranslate nohighlight">\(x\)</span> éxitos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2f819a9a-331d-4b65-9c7f-0112ddeb3c10">
+<span class="eqno">(247)<a class="headerlink" href="#equation-2f819a9a-331d-4b65-9c7f-0112ddeb3c10" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x) = \begin{pmatrix}n\\ x\end{pmatrix} p^x (1-p)^{n-x}
+\end{equation}\]</div>
+<p class="sd-card-text">donde el primer factor tiene en cuenta las posibles ordenaciones en que aparecen <span class="math notranslate nohighlight">\(x\)</span> éxitos en <span class="math notranslate nohighlight">\(n\)</span> intentos.</p>
+</div>
+</div>
+<p>Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_binomial}.</p>
+<p>Un cálculo un poco más largo permite ver que, ahora</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6de40455-0921-436b-85d6-b56daf8c2299">
+<span class="eqno">(248)<a class="headerlink" href="#equation-6de40455-0921-436b-85d6-b56daf8c2299" title="Permalink to this equation">#</a></span>\[\begin{align}
+\overline X &amp;=  np\\ \rule{0mm}{7mm}
+\sigma^2 &amp;= n p(1-p)
+\end{align}\]</div>
+<figure class="align-center" id="fig-formalismo-dist-binomial">
+<a class="reference internal image-reference" href="../../../_images/Fig_formalismo_dist_binomial.png"><img alt="../../../_images/Fig_formalismo_dist_binomial.png" src="../../../_images/Fig_formalismo_dist_binomial.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Distribución binomial</span><a class="headerlink" href="#fig-formalismo-dist-binomial" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="la-distribucion-normal-o-gaussiana">
+<h3>La distribución Normal o Gaussiana<a class="headerlink" href="#la-distribucion-normal-o-gaussiana" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>distribución normal</b> (o <b>gaussiana</b>) centrada en <span class="math notranslate nohighlight">\(\mu\)</span> y con anchura <span class="math notranslate nohighlight">\(\sigma\)</span> viene dada por</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6909e1bf-3ccb-4a6f-a135-b5fb68356b8d">
+<span class="eqno">(249)<a class="headerlink" href="#equation-6909e1bf-3ccb-4a6f-a135-b5fb68356b8d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp \left({-\frac{(x-\mu)^2}{2\sigma^2}}\right)
+\end{equation}\]</div>
+<p class="sd-card-text">Nos encontramos ante una variable aleatoria con un espacio muestral continuo <span class="math notranslate nohighlight">\(x\in (-\infty,+\infty)\)</span>.</p>
+</div>
+</div>
+<p>Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_normal}. Tenemos además que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e92a5f72-917c-4d2a-8877-3e47a2286962">
+<span class="eqno">(250)<a class="headerlink" href="#equation-e92a5f72-917c-4d2a-8877-3e47a2286962" title="Permalink to this equation">#</a></span>\[\begin{align}
+\overline{X} &amp;= \int_{-\infty}^{+\infty} xp(x) dx = \mu \\
+\overline{(x-\overline X)^2} &amp;= \int_{-\infty}^{+\infty} (x-\mu)^2 p(x)dx =\sigma^2
+\end{align}\]</div>
+<figure class="align-center" id="fig-formalismo-dist-normal">
+<a class="reference internal image-reference" href="../../../_images/Fig_subfig_formalismo_dist_normal.png"><img alt="../../../_images/Fig_subfig_formalismo_dist_normal.png" src="../../../_images/Fig_subfig_formalismo_dist_normal.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Distribución normal (o gaussina)</span><a class="headerlink" href="#fig-formalismo-dist-normal" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="probabilidades-combinadas">
+<h2>Probabilidades combinadas<a class="headerlink" href="#probabilidades-combinadas" title="Permalink to this heading">#</a></h2>
+<p>Las probabilidades combinadas son la base de las <b>correlaciones</b>. Es aquí donde la Mecánica Cuántica produce resultados inesperados clásicamente. Esto es porque cantidades que son independientes desde el punto de vista clásico, presentan correlaciones al hacer el experimento.</p>
+<p>Ahora vamos a examinar variables aleatorias formadas por dos espacios muestrales <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span>. Dependiendo de la forma en que combinemos la observación de cada una tendremos distintas distribuciones de probabilidad</p>
+<section id="probabilidad-combinada">
+<h3>Probabilidad combinada<a class="headerlink" href="#probabilidad-combinada" title="Permalink to this heading">#</a></h3>
+<p>Una forma de lidiar con las correlaciones es tratar el conjunto de varias variables aleatorias como una sola variable. Esta es la idea detrás de la <b>probabilidad combinada</b>,</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La <b>distribución de probabilidad combinada</b> asocia un número <span class="math notranslate nohighlight">\(p(x,y)\)</span> a la probabilidad de observación conjunta de <span class="math notranslate nohighlight">\(x\)</span> <b>e</b> <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p class="sd-card-text">De esta forma, tratamos las parejas de eventos  como un solo evento  <span class="math notranslate nohighlight">\(a = (x,y)\)</span>. Por eso, la condición de normalización ahora es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-824d42b3-ecac-4a8b-aeed-1faef04e5402">
+<span class="eqno">(251)<a class="headerlink" href="#equation-824d42b3-ecac-4a8b-aeed-1faef04e5402" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum_a p(a) = \sum_{xy} p(x,y) = 1\, .
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><b>Distribución marginal</b>:
+La suma parcial sobre una de las dos variables conduce a sendas <b>distribuciones marginales</b></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-22d91dcc-d56b-4e05-8b21-330e28e24d4a">
+<span class="eqno">(252)<a class="headerlink" href="#equation-22d91dcc-d56b-4e05-8b21-330e28e24d4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+q(x) = \sum_{y} p(x,y) ~~~~~~~~~ \tilde q(y) = \sum_{x} p(x,y)
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><b>Variables independientes</b>:
+Si dos variables aleatorias no presentan <b>ninguna correlación</b>, decimos que son <b>independientes</b>. En este caso las probabilidades combinadas factorizan</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-b7e34714-d1b5-47a7-a945-6464e2f6ebb6">
+<span class="eqno">(253)<a class="headerlink" href="#equation-b7e34714-d1b5-47a7-a945-6464e2f6ebb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x,y) = p(x) p(y)
+\end{equation}\]</div>
+<p>La distribución de cada variable coincide con la que se deduce de marginalizar la otra</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0b68f88a-faae-42f4-8c5d-dd79f718592c">
+<span class="eqno">(254)<a class="headerlink" href="#equation-0b68f88a-faae-42f4-8c5d-dd79f718592c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum_y p(x,y) = p(x)~~~~,~~~~\sum_x p(x,y) = p(y)
+\end{equation}\]</div>
+</section>
+<section id="probabilidad-condicionada">
+<h3>Probabilidad condicionada<a class="headerlink" href="#probabilidad-condicionada" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La distribución de <b>probabilidad condicionada</b> <span class="math notranslate nohighlight">\(p(X|Y)\)</span> asigna un número <span class="math notranslate nohighlight">\(p(x|y)\)</span> a la probabilidad  de encontrar un suceso <span class="math notranslate nohighlight">\(X=x\)</span> una vez <i>sabemos</i> que <span class="math notranslate nohighlight">\(Y=y\)</span> ha sido el resultado de consultar <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div>
+</div>
+<p>La manera de acceder experimentalmente a estas distribuciones, es efectuar un muestreo <span class="math notranslate nohighlight">\((a_i,b_i), i=1,...,N\)</span> de valores de <span class="math notranslate nohighlight">\((X,Y)\)</span> y <i>seleccionar</i> sólo aquellos sucesos donde <span class="math notranslate nohighlight">\(b_i = y\)</span> un valor concreto de <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>: </i>de Bayes</i></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Las probabilidades condicionales y combinadas se relacionan de la forma siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-05d25c14-d4f0-4c6a-ba6d-d2ed0229f050">
+<span class="eqno">(255)<a class="headerlink" href="#equation-05d25c14-d4f0-4c6a-ba6d-d2ed0229f050" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x,y) = p(x|y)p(y) = p(y|x) p(x)
+\end{equation}\]</div>
+<p class="sd-card-text">La segunda igualdad conduce al <b>teorema de Bayes</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-5fe5a566-e597-4df7-acf2-43b308ca2c98">
+<span class="eqno">(256)<a class="headerlink" href="#equation-5fe5a566-e597-4df7-acf2-43b308ca2c98" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p(x|y) = \frac{p(y|x)p(x)}{p(y)}
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="entropia-de-una-una-variable-aleatoria">
+<h2>Entropía de una una variable aleatoria<a class="headerlink" href="#entropia-de-una-una-variable-aleatoria" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dada una variable aleatoria <span class="math notranslate nohighlight">\((X,p(X))\)</span> definimos la <b>entropía</b> asociada mediante la expresión</p>
+<div class="amsmath math notranslate nohighlight" id="equation-092a0b20-39a7-4e62-a1a0-acde886697dc">
+<span class="eqno">(257)<a class="headerlink" href="#equation-092a0b20-39a7-4e62-a1a0-acde886697dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H = -\sum_x p(x)\log p(x)
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>El signo negativo hace esta expresión positiva, debido a que <span class="math notranslate nohighlight">\(\log p(x)\leq 0\)</span>.</p></li>
+<li><p>El valor de <span class="math notranslate nohighlight">\(H\)</span> está acotado entre <span class="math notranslate nohighlight">\(H\in [0,\log(N)]\)</span> donde <span class="math notranslate nohighlight">\(N\)</span> es el número de sucesos <span class="math notranslate nohighlight">\(x\)</span> posibles</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(p(x_i)=0 \,\,  \forall x_i\)</span> excepto <span class="math notranslate nohighlight">\(p(x_0)=1\)</span> para un evento posible <span class="math notranslate nohighlight">\(\Rightarrow H=0\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(p(x_i) = 1/N\)</span> es equiprobable <span class="math notranslate nohighlight">\(\Rightarrow H = \log(N)\)</span> y este es el valor máximo.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>La entropía de la distribución de Bernoulli es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dae9301e-f649-469b-a59d-d68347486155">
+<span class="eqno">(258)<a class="headerlink" href="#equation-dae9301e-f649-469b-a59d-d68347486155" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H = - p\log p -(1-p)\log (1-p)
+\end{equation}\]</div>
+<figure class="align-center" id="fig-formalismo-binaryentropy">
+<a class="reference internal image-reference" href="../../../_images/Fig_formalismo_binaryentropy.png"><img alt="../../../_images/Fig_formalismo_binaryentropy.png" src="../../../_images/Fig_formalismo_binaryentropy.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Entropía para una distribución de Bernouilli</span><a class="headerlink" href="#fig-formalismo-binaryentropy" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_02/Chapter_002_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_004_tensores_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tensores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Mecánica Cuántica</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoria">Variable aleatoria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">Distribución de probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#media">Media</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-y-desviacion-estandar">Varianza y desviación estándar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-conexion-estadistica">La conexión estadística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frecuencias-e-histogramas">Frecuencias e Histogramas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-los-grandes-numeros">Ley de los grandes números</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-de-bernouilli">La distribución de Bernouilli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-binomial">La distribución Binomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-distribucion-normal-o-gaussiana">La distribución Normal o Gaussiana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidades-combinadas">Probabilidades combinadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-combinada">Probabilidad combinada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicionada">Probabilidad condicionada</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entropia-de-una-una-variable-aleatoria">Entropía de una una variable aleatoria</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

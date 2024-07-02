@@ -1,0 +1,1346 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vectores &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_02/Chapter_002_02/Section_002_vectores_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Operadores" href="Section_003_operadores_myst.html" />
+    <link rel="prev" title="Números complejos" href="Section_001_numeros_complejos_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_numeros_complejos_myst.html">Números complejos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_operadores_myst.html">Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_tensores_myst.html">Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_probabilidades_myst.html">Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_02/Chapter_002_02/Section_002_vectores_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_02/Chapter_002_02/Section_002_vectores_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_02/Chapter_002_02/Section_002_vectores_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_02/Chapter_002_02/Section_002_vectores_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Vectores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-vectorial-complejo">Espacio Vectorial Complejo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacion-adjunta">Conjugación adjunta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases">Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambio-de-base">Cambio de base</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacios-de-hilbert">Espacios de Hilbert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-escalar">Producto escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma">Norma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desigualdades">Desigualdades</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-ortogonales">Bases ortogonales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-ortonormal">Base ortonormal</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 02, 2024 | 9 min read</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
+</figure>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="vectores">
+<h1>Vectores<a class="headerlink" href="#vectores" title="Permalink to this heading">#</a></h1>
+<section id="espacio-vectorial-complejo">
+<h2>Espacio Vectorial Complejo<a class="headerlink" href="#espacio-vectorial-complejo" title="Permalink to this heading">#</a></h2>
+<section id="definicion">
+<h3>Definición<a class="headerlink" href="#definicion" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">De forma poco rigurosa, definiremos un <b>vector de dimensión</b> <span class="math notranslate nohighlight">\(N\)</span> como una columna de <span class="math notranslate nohighlight">\(N\)</span> números complejos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ad398e1b-0b10-452e-b55d-d798df84ae96">
+<span class="eqno">(32)<a class="headerlink" href="#equation-ad398e1b-0b10-452e-b55d-d798df84ae96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+|u\rangle = \begin{bmatrix} {u_1}\\ {u_2}\\ \vdots \\ {u_N}
+\end{bmatrix}
+\end{equation}\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>El símbolo <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <i>representa </i>al vector y se denomina <b>ket</b> en la <b>notación de Dirac</b>. Otra notación sería <span class="math notranslate nohighlight">\(\vec{u}\)</span>, pero esta nunca se usa en Mecánica Cuántica.</p></li>
+<li><p>Los números complejos <span class="math notranslate nohighlight">\(u_i \in {\mathbb C}\)</span> con <span class="math notranslate nohighlight">\(\, i=1,...,N\)</span> se denominan <b>componentes</b> del vector <span class="math notranslate nohighlight">\(\ket{u}\)</span>. Estas componentes toman un valor concreto cuando especificamos una <b>base</b>. En otra base, estos elementos pueden tener otro valores. Es decir, el vector es un objeto abstracto.</p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">La colección de todos los posibles vectores de <span class="math notranslate nohighlight">\(N\)</span> componentes,  con las  propiedades de suma y multiplicación forman un <b>espacio vectorial</b>, <span class="math notranslate nohighlight">\(V\)</span> de dimension compleja <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</div>
+</div>
+<p>Es decir,  en un espacio vectorial  tenemos las siguientes propiedades:</p>
+<ul class="simple">
+<li><p>Dos operaciones posibles: <b>suma </b>de dos vectores y <b>multiplicación de un vector por un número complejo </b><span class="math notranslate nohighlight">\(\lambda\in {\mathbb C}\)</span></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-b0efc907-b7f3-4721-81c8-a356970ab4d6">
+<span class="eqno">(33)<a class="headerlink" href="#equation-b0efc907-b7f3-4721-81c8-a356970ab4d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+|u\rangle + \ket{v}~ =~\,
+\begin{bmatrix} {u_1}+v_1\\ {u_2}+v_2\\ \vdots \\ {u_N}+v_n \end{bmatrix} ~= ~\ket{w}\ , \qquad \lambda|u\rangle ~ =~   \begin{bmatrix} {\lambda u_1}\\ {\lambda u_2}\\ \vdots \\ {\lambda u_N} \end{bmatrix} ~\equiv~\ket{\lambda u}
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Existencia de un <b>elementos neutro</b> (respecto a la suma). Todo vector de <span class="math notranslate nohighlight">\(V\)</span> se denota mediante el símbolo <span class="math notranslate nohighlight">\(\ket{v}\)</span> menos el elemento neutro, que se escribe como <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-160442fa-1946-4ad6-9e6a-9ab239327583">
+<span class="eqno">(34)<a class="headerlink" href="#equation-160442fa-1946-4ad6-9e6a-9ab239327583" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{v} + 0 = \ket{v}
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>La existencia de un <b>elemento opuesto</b> (respecto a la suma):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-ffd6747f-98b9-4570-baf2-5ca8e77ef601">
+<span class="eqno">(35)<a class="headerlink" href="#equation-ffd6747f-98b9-4570-baf2-5ca8e77ef601" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{v} + \ket{-v} = \ket{v}-\ket{v} = 0
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Dimensión de un espacio vectorial complejo)</p>
+<p>La <b>dimensión</b> es igual al número de cantidades (<i>grados de libertad</i>) que debemos fijar para especificar un vector. Como estamos lidiando con un espacio vectorial complejo donde nuestro vector está compuesto por <span class="math notranslate nohighlight">\(N\)</span> números complejos, la cantidad de números reales que debemos fijar es <span class="math notranslate nohighlight">\(2N\)</span>.</p>
+<p>Entonces, podemos decir que la <b>dimensión compleja</b> de un espacio vectorial complejo <span class="math notranslate nohighlight">\(V\)</span> es <span class="math notranslate nohighlight">\(N\)</span>, o que su <b>dimensión real</b> es <span class="math notranslate nohighlight">\(2N\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-42900bdf-7923-449a-ac6d-bee236ac1cab">
+<span class="eqno">(36)<a class="headerlink" href="#equation-42900bdf-7923-449a-ac6d-bee236ac1cab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+{\rm dim}_{\mathbb C} V = N ~~~~\Longleftrightarrow ~~~   {\rm dim}_{\mathbb R} V = 2N
+\end{equation}\]</div>
+<p>Habitualmente, cuando se habla simplemente de <i>dimensión</i> se habla de la real.</p>
+</div>
+</section>
+<section id="conjugacion-adjunta">
+<h3>Conjugación adjunta<a class="headerlink" href="#conjugacion-adjunta" title="Permalink to this heading">#</a></h3>
+<p>La operación <b>conjugación adjunta</b>,  <span class="math notranslate nohighlight">\(\dagger\)</span>, es una <i>extensión</i> de la <b>conjugación compleja</b>  a los vectores.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Asociado a cada <i>ket </i><span class="math notranslate nohighlight">\(\ket{u}\)</span>, definimos un vector <b>adjunto</b>, o <b>bra</b> <span class="math notranslate nohighlight">\(\bra{u}\equiv\left(\ket{u}\right)^\dagger\)</span>,  que representamos mediante un vector fila con las componentes conjugadas complejas:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-670dae03-a9ca-42bd-a183-751b1bd09a25">
+<span class="eqno">(37)<a class="headerlink" href="#equation-670dae03-a9ca-42bd-a183-751b1bd09a25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\dagger \,: \quad\,|u\rangle = \begin{bmatrix} {u_1}\\ {u_2}\\ \vdots \\ {u_N} \end{bmatrix}
+~~~~~{\rightarrow}~~~~~~ \left(\ket{u}\right)^\dagger \equiv \bra{u} =\begin{bmatrix} {u_1^*} &amp; {u_2^*} &amp; \cdots &amp; {u_N^*}
+\end{bmatrix}
+\end{equation}\]</div>
+</div>
+</div>
+<p>Consistentemente encontramos para el producto de un vector por un número complejo <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-a0c1025e-9f56-4933-ae94-45248cb0098d">
+<span class="eqno">(38)<a class="headerlink" href="#equation-a0c1025e-9f56-4933-ae94-45248cb0098d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\dagger \,:\quad\,  \lambda\ket{u}=\ket{\lambda u} ~~~~~{\rightarrow}~~~~~~ \left(\lambda\ket{u}\right)^\dagger=\lambda^*\bra{u} = \bra{u}\lambda^* = \bra{\lambda u}
+\end{equation}\]</div>
+<p>ya que el producto de un vector por un número es conmutativo.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (Sobre la notación)</p>
+<p>En la notación con <i>kets</i> y <i>bras</i> vemos que es lo mimos escribir <span class="math notranslate nohighlight">\(\lambda\ket{u}\)</span> que <span class="math notranslate nohighlight">\(\ket{\lambda u}\)</span>. Esto podemos pensarlo como que los números complejos entran y salen de los kets sin modificaciones.</p>
+<p>Sin embargo, en los bras tenemos <span class="math notranslate nohighlight">\(\bra{u}\lambda^* = \bra{\lambda u}\)</span>. Es decir, sacar o meter un número complejo dentro de los bras implica una conjugación compleja del número.</p>
+<p>Esto, como comentamos, es solo <b>notación</b>, es decir, un convenio para escribir las cosas.</p>
+</div>
+<p>Al igual que la conjugación compleja, la conjugación adjunta es una <b>involución</b>: su aplicación sucesiva devuelve el vector original</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4889a2d1-b1f1-44b0-a8b5-6c08074e7c50">
+<span class="eqno">(39)<a class="headerlink" href="#equation-4889a2d1-b1f1-44b0-a8b5-6c08074e7c50" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(\ket{u}^\dagger)^\dagger =\bra{u}^\dagger =  \ket{u}
+\end{equation}\]</div>
+<p>es decir, <span class="math notranslate nohighlight">\(\dagger^2 = I\)</span>, el operador identidad.</p>
+</section>
+</section>
+<section id="bases">
+<h2>Bases<a class="headerlink" href="#bases" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">En un espacio vectorial <span class="math notranslate nohighlight">\(V\)</span> de dimensión <span class="math notranslate nohighlight">\(N\)</span> una <b>base</b> es una colección de <span class="math notranslate nohighlight">\(N\)</span> vectores  <span class="math notranslate nohighlight">\(\{\ket{e_1},...,\ket{e_N}\}\)</span> tales que, cualquier vector <span class="math notranslate nohighlight">\(\ket{v}\in V\)</span> se puede expresar como una <b>combinación lineal</b> de ellos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-781faac3-bd33-4a74-ab10-77d119ed7643">
+<span class="eqno">(40)<a class="headerlink" href="#equation-781faac3-bd33-4a74-ab10-77d119ed7643" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{v} = \sum_{i=1}^N v_i \ket{e_i}
+\end{equation}\]</div>
+<p class="sd-card-text">Los coeficientes <span class="math notranslate nohighlight">\(v_i\)</span> son las <b>componentes</b> de <span class="math notranslate nohighlight">\(\ket{v}\)</span> <i>en la base dada</i>.</p>
+</div>
+</div>
+<p>Existen <i>infinitas bases</i> en un espacio vectorial. Podemos escoger una de ellas y asociarle el siguiente conjunto de columnas</p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-base-cartesina">
+<span class="eqno">(41)<a class="headerlink" href="#equation-ec-formalismo-base-cartesina" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+|e_1\rangle \sim \begin{bmatrix} 1 \\ 0 \\ 0\\ \vdots
+\\ 0 \\ 0 \end{bmatrix}~~~~
+|e_2\rangle \sim \begin{bmatrix} 0 \\ 1 \\ 0\\ \vdots
+\\ 0 \\ 0 \end{bmatrix}~~~~~~~~~
+\cdots ~~~~~~~~
+|e_{N-1}\rangle \sim \begin{bmatrix} 0 \\ 0 \\ 0\\\vdots
+\\ 1 \\ 0 \end{bmatrix}~~~~
+|e_N\rangle \sim \begin{bmatrix} 0 \\ 0 \\0\\ \vdots
+\\ 0 \\ 1 \end{bmatrix}
+\end{equation} \end{split}\]</div>
+<p>De esta forma, cualquier vector, escrito como una combinación lineal de sus elementos adquiere la representación usual</p>
+<div class="amsmath math notranslate nohighlight" id="equation-020974c8-1777-412e-b8e8-89df7f6f14c2">
+<span class="eqno">(42)<a class="headerlink" href="#equation-020974c8-1777-412e-b8e8-89df7f6f14c2" title="Permalink to this equation">#</a></span>\[\begin{align}
+|u\rangle ~&amp;=~ {u_1} |e_1 \rangle + {u_2} | e_2\rangle +... + {u_{ N}}|e_{ N}\rangle~=~ \sum_{i=1}^N {u_ i} |e_i\rangle \,\sim \\
+\sim &amp;~ {u_1} \begin{bmatrix} 1 \\ 0 \\ 0\\ \vdots
+\\ 0 \\ 0 \end{bmatrix} \,+\,{u_2} \begin{bmatrix} 0 \\ 1 \\ 0\\ \vdots \\ 0 \\ 0 \end{bmatrix}~+~ ... ~+ ~
+{u_{N-1}} \begin{bmatrix} 0 \\ 0 \\ 0\\\vdots
+\\ 1 \\ 0 \end{bmatrix}+
+\,{u_N}\,  \begin{bmatrix} 0 \\ 0 \\0\\ \vdots
+\\ 0 \\ 1 \end{bmatrix}~~~= ~~~
+\begin{bmatrix} {u_1} \\ {u_2} \\{u_3}\\ \vdots
+\\ \,{u_{N-1}}\, \\ {u_{N}} \end{bmatrix}
+\end{align}\]</div>
+<section id="cambio-de-base">
+<h3>Cambio de base<a class="headerlink" href="#cambio-de-base" title="Permalink to this heading">#</a></h3>
+<p>Existen <i>infinitas</i> bases  en un espacio vectorial de dimensión finita.
+Todas ellas sirven para representar un vector arbitrario.</p>
+<p>Consideremos dos bases
+<span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{f_j}\}\)</span> donde <span class="math notranslate nohighlight">\( i,j = 1,...,N\)</span>.
+Cualquier vector <span class="math notranslate nohighlight">\(\ket{v}\)</span> se puede expandir de forma diferente en cada una de ellas</p>
+<div class="amsmath math notranslate nohighlight" id="equation-850716b6-c9ab-41fc-8908-c4bae99be72c">
+<span class="eqno">(43)<a class="headerlink" href="#equation-850716b6-c9ab-41fc-8908-c4bae99be72c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{v} ~=~ \sum_{i=1}^N v_i \ket{e_i} ~=~ \sum_{i=1}^N \tilde v_i \ket{f_i}
+\end{equation}\]</div>
+<p>donde las componente <span class="math notranslate nohighlight">\(v_i\)</span> y <span class="math notranslate nohighlight">\(\tilde v_i\)</span> <i>deben ser distintas</i> pero <i>estar relacionadas</i>. Es decir, las componentes de los vectores dependen de la base elegida y tiene una <i>regla de cambio</i> cuando decidimos escribir nuestro vector en otra base.</p>
+<p>Para encontrar esta relación entre los elementos del vector en distintas bases tenemos que primero encontrar la relación entre la  bases. Como ya dijimos, cualquier vector se puede escribir como combinación lineal de elementos de una base, sin ninguna excepción. Es decir, como caso particular tenemos que cualquier elemento (vector) de una base se puede expresar como una combinación lineal de elementos de la otra. Tomemos por ejemplo, <span class="math notranslate nohighlight">\(\ket{v}= \ket{f_1}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-2cb349fd-2dba-475c-b7b9-3650d3a1a1e7">
+<span class="eqno">(44)<a class="headerlink" href="#equation-2cb349fd-2dba-475c-b7b9-3650d3a1a1e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{f_1} = \sum_{i=1}^N A_{ i 1} \ket{e_i}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(A_{ i 1}\in \mathbb{C}\)</span> son las componentes del vector <span class="math notranslate nohighlight">\(\ket{f_1}\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span>. Haciendo esto para todos los elementos de la base <span class="math notranslate nohighlight">\(\{\ket{f_j}\}\)</span>, los coeficientes constituyen una <b>matriz de cambio de base</b> <span class="math notranslate nohighlight">\(A_{ij}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-cambio-base-base">
+<span class="eqno">(45)<a class="headerlink" href="#equation-ec-formalismo-cambio-base-base" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{\ket{f_j} = \sum_{i=1}^N A_{ i j} \ket{e_i} ~,~~~~~~j=1,..., N}
+\end{equation} \]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La forma en que están sumados los índices <span class="math notranslate nohighlight">\(\ket{f_j} = \sum_{i=1}^N A_{ \textcolor{red}{i} j} \ket{e_{\textcolor{red}{i}}}\)</span>.</p>
+</div>
+<p>Dado un vector <span class="math notranslate nohighlight">\(\ket{v}\)</span> con coordenadas <span class="math notranslate nohighlight">\((v_1,\dots,v_N)\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y coordenadas <span class="math notranslate nohighlight">\((\tilde{v}_1,\dots,\tilde{v}_N)\)</span> en la base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>, es decir,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3921a08b-88a4-417a-b3e3-e9520d3f35f3">
+<span class="eqno">(46)<a class="headerlink" href="#equation-3921a08b-88a4-417a-b3e3-e9520d3f35f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{v} ~=~ \sum_{i=1}^N v_i \ket{e_i} ~=~ \sum_{i=1}^N \tilde{v}_i \ket{f_i}
+\end{equation}\]</div>
+<p>la fórmula de cambio de base expresa las coordenadas sobre la base antigua, <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span>, en términos de las coordenadas sobre la base nueva, <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-cambio-de-base">
+<span class="eqno">(47)<a class="headerlink" href="#equation-ec-formalismo-cambio-de-base" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{v_i = \sum_{i=1}^N A_{ij} \tilde{v}_j}
+\end{equation} \]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La forma en que están sumados los índices <span class="math notranslate nohighlight">\(v_i = \sum_{i=1}^N A_{i\textcolor{red}{j}} \tilde{v}_{\textcolor{red}{j}} \)</span>.</p>
+</div>
+<p>En términos de matrices, la formula de cambio de base es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8ee04be3-c1df-4d91-b930-707c62ecf0f7">
+<span class="eqno">(48)<a class="headerlink" href="#equation-8ee04be3-c1df-4d91-b930-707c62ecf0f7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{\ket{v}_{\{\ket{e_i}\}} = A \ket{v}_{\{\ket{f_i}\}}}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\ket{v}_{\{\ket{e_i}\}}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}_{\{\ket{e_i}\}}\)</span> son los vectores columna con las coordenadas de <span class="math notranslate nohighlight">\(\ket{v}\)</span>  en las bases <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> respectivamente.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Usando definición (\ref{ec_formalismo_cambio_base_base}) de la matriz de cambio de base, tenemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\ket{v} ~&amp;= ~ \sum_{j=1}^N \tilde{v}_j \ket{f_j} \\
+&amp; = ~ \sum_{j=1}^N \tilde{v}_j \lp \sum_{i=1}^N A_{ i j} \ket{e_i} \rp \\
+&amp; =   \sum_{i=1}^N \lp  \sum_{j=1}^N A_{ i j} \tilde{v}_j \rp \ket{e_i}
+\end{align*}\]</div>
+<p class="sd-card-text">Como <span class="math notranslate nohighlight">\(\ket{v} ~=~ \sum_{i=1}^N v_i \ket{e_i}\)</span>, la Ec. (\ref{ec_formalismo_cambio_de_base}) se demuestra debido a la unicidad de la descomposición de un vector sobre una base.</p>
+</div>
+</details><p>Por supuesto, el cambio de base de la Ec. (\ref{ec_formalismo_cambio_de_base}) se puede <b>invertir</b> para
+obtener las coordenadas sobre la base nueva, <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>, en términos de las coordenadas sobre la base vieja,  <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-ec-formalismo-cambio-de-base-inv">
+<span class="eqno">(49)<a class="headerlink" href="#equation-ec-formalismo-cambio-de-base-inv" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{\tilde{v}_i = \sum_{j=1}^N A^{-1}_{ij} v_j ~, ~~~~~~~
+\ket{v}_{\{\ket{f_i}\}} = A^{-1} \ket{v}_{\{\ket{e_i}\}}}
+\end{equation} \]</div>
+<p>Es más, que el cambio de base sea invertible es un <b>requisito</b>. Si no lo es, no es un cambio de base.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (Los elementos de la base expresados en la propia base)</p>
+<p>Quizás la siguiente afirmación parezca contradictoria, pero veremos que no: dadas dos bases <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> y <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>, los elementos de la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> expresados en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> toman la forma</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+|e_1\rangle \sim \begin{bmatrix} 1 \\ 0 \\ \vdots
+\\ 0 \end{bmatrix}~~~~
+|e_2\rangle \sim \begin{bmatrix} 0 \\ 1 \\  \vdots
+\\ 0 \end{bmatrix}~~~~~~~~~
+\cdots ~~~~~~~~
+|e_N\rangle \sim \begin{bmatrix} 0 \\ 0 \\ \vdots
+\\ 1 \end{bmatrix}
+\end{equation*}\]</div>
+<p>mientras que los elementos de la base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> expresados en la base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> toman la forma</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+|f_1\rangle \sim \begin{bmatrix} 1 \\ 0 \\  \vdots
+\\ 0 \end{bmatrix}~~~~
+|f_2\rangle \sim \begin{bmatrix} 0 \\ 1 \\ \vdots
+\\ 0 \end{bmatrix}~~~~~~~~~
+\cdots ~~~~~~~~
+|f_N\rangle \sim \begin{bmatrix} 0 \\ 0 \\ \vdots
+\\ 1 \end{bmatrix}
+\end{equation*}\]</div>
+<p>La pregunta ahora es, ¿dónde está el truco? Lo engañoso aquí es la notación de los vectores como columnas de números. Como ya comentamos, un vector es un elemento abstracto que toma la forma de una columna de números complejos <b>cuando especificamos una base</b>. Es decir, cuando escribimos un vector como una columna de números, esa columna está expresada en una base de la forma (\ref{ec_formalismo_base_cartesina}). Es decir, si tenemos un vector <span class="math notranslate nohighlight">\(\ket{u}\)</span> y trabajamos, por ejemplo, en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> tenemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\ket{u} = u_1 \ket{e_1} + u_2 \ket{e_2} + \dots + u_n \ket{e_N} = \sum_{i=1}^{N} u_i \ket{e_i} =
+\begin{bmatrix}
+u_1 \\ u_2\\ \vdots \\ u_N
+\end{bmatrix}_{\{\ket{e_i}\}}
+\end{equation*}\]</div>
+<p>mientras que si trabajamos en la base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> tenemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\ket{u} = \tilde{u}_1 \ket{f_1} + \tilde{u}_2 \ket{f_2} + \dots + \tilde{u}_n \ket{f_N} = \sum_{i=1}^{N} \tilde{u}_i \ket{f_i} =
+\begin{bmatrix}
+\tilde{u}_1 \\ \tilde{u}_2\\ \vdots \\ \tilde{u}_N
+\end{bmatrix}_{\{\ket{f_i}\}}
+\end{equation*}\]</div>
+<p>Es decir, cuando escribimos los elementos de una base como vectores columna <b>en su propia base</b>, siempre toman la forma de vectores con todo 0’s menos un 1.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Complementando a la nota anterior, cuando elegimos una base y decimos, por ejemplo, que nuestra base es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\ket{f_1} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\ 1
+\end{bmatrix} ~~~~,~~~~
+\ket{f_2} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\ - 1
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>lo que estamos haciendo al escribirlos como vectores columna es expresar la nueva base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span>, en la base</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\ket{e_1} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\ 0
+\end{bmatrix} ~~~~,~~~~
+\ket{e_2} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+0 \\  1
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>Es decir, siempre que escribimos un vector como una columna de números, esa columna está expresada en una base de la forma (\ref{ec_formalismo_base_cartesina}). Si queremos pasar a trabajar en la base <span class="math notranslate nohighlight">\(\{\ket{f_i}\}\)</span> debemos transformar todos los vectores para expresarlos en la base donde <span class="math notranslate nohighlight">\(\ket{f_1}\)</span> y <span class="math notranslate nohighlight">\(\ket{f_2}\)</span> toman la forma</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\ket{f_1} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+1 \\ 0
+\end{bmatrix} ~~~~,~~~~
+\ket{f_2} = \frac{1}{\sqrt{2}}\begin{bmatrix}
+0 \\  1
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>Después de aplicar esta transformación (el cambio de base), los vectores <span class="math notranslate nohighlight">\(\ket{e_1}\)</span> y <span class="math notranslate nohighlight">\(\ket{e_2}\)</span> dejarán de tener la forma anterior.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Cuando escribimos la base nueva en componentes\footnote{Aquí con “en componentes” nos referimos a las componentes respecto a la base antigua, <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span>. Es decir, todos los vectores de este ejemplo están escritos en la base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3372aaf3-8523-44b6-9946-9817e170cc6d">
+<span class="eqno">(50)<a class="headerlink" href="#equation-3372aaf3-8523-44b6-9946-9817e170cc6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{bmatrix}
+a \\b
+\end{bmatrix} = a \ket{e_1} + b \ket{e_2}
+\end{equation}\]</div>
+<p>Por ejemplo, sea una nueva base <span class="math notranslate nohighlight">\(\{\ket{f_1},\ket{f_2}\}\)</span> definida en términos de la antigua mediante</p>
+<div class="amsmath math notranslate nohighlight" id="equation-affc8602-7825-49a4-9df7-ee0116b90040">
+<span class="eqno">(51)<a class="headerlink" href="#equation-affc8602-7825-49a4-9df7-ee0116b90040" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{f_1} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{e_1} + i\ket{e_2}\right)~,~~\ket{f_2} = \frac{1}{\sqrt{2}}\left( \rule{0mm}{4mm}\ket{e_1} - i\ket{e_2}\right)\, .
+\end{equation}\]</div>
+<p>En componentes, esto quiere decir que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e3736b6c-df4f-4806-a28f-2bd608d99ed0">
+<span class="eqno">(52)<a class="headerlink" href="#equation-e3736b6c-df4f-4806-a28f-2bd608d99ed0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{f_1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\i \end{bmatrix}~,
+\ket{f_2} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\-i \end{bmatrix}~.
+\end{equation}\]</div>
+<p>Poniendo las dos columnas en una sola matriz, obtenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fa3346db-7a7e-4a93-891d-d046a6cf8a24">
+<span class="eqno">(53)<a class="headerlink" href="#equation-fa3346db-7a7e-4a93-891d-d046a6cf8a24" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A_{ij} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ i &amp; -i \end{bmatrix}\, ,
+\end{equation}\]</div>
+<p>que es, efectivamente, la matriz que efectúa el cambio de los vectores de la base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-291d7d09-b647-4ce1-9200-ace92dcf864d">
+<span class="eqno">(54)<a class="headerlink" href="#equation-291d7d09-b647-4ce1-9200-ace92dcf864d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{f_j} = \sum_{i=1}^N A_{i j}\ket{e_{i}} \, ,
+\end{equation}\]</div>
+<p>así como de las componentes de los nuevos vectores en la antigua base</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c7f3cd85-f25b-46db-8b09-751267bfc538">
+<span class="eqno">(55)<a class="headerlink" href="#equation-c7f3cd85-f25b-46db-8b09-751267bfc538" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\ket{f_1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\i \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ i &amp; -i \end{bmatrix}\begin{bmatrix} 1 \\0 \end{bmatrix}~.
+\ket{f_2} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\-i \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ i &amp; -i \end{bmatrix}\begin{bmatrix} 0 \\1 \end{bmatrix}~.
+\end{equation}\]</div>
+</div>
+</section>
+</section>
+<section id="espacios-de-hilbert">
+<h2>Espacios de Hilbert<a class="headerlink" href="#espacios-de-hilbert" title="Permalink to this heading">#</a></h2>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Un <b>espacio de Hilbert</b>, <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, es un espacio vectorial (real o complejo) dotado de una operación interna denominada <b>producto escalar</b>.</p>
+</div>
+</div>
+<p>En matemáticas, los espacios de Hilbert (llamados así por David Hilbert) permiten generalizar los métodos del álgebra lineal y el cálculo de <i>espacios vectoriales euclidianos</i> (de dimensiones finitas) a espacios que pueden ser de dimensiones infinitas. Los espacios de Hilbert surgen de forma natural y frecuente en matemáticas y física, normalmente como espacios de funciones. Formalmente, un espacio de Hilbert es un espacio vectorial equipado con un producto interior que induce una función de <b>distancia</b> según la cual el espacio es un espacio métrico completo.</p>
+<section id="producto-escalar">
+<h3>Producto escalar<a class="headerlink" href="#producto-escalar" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Definicion</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">El <b>producto escalar</b> de dos vectores <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> es un <i>número complejo</i> <span class="math notranslate nohighlight">\(a\in{\mathbb C}\)</span> que denotamos con un <b>braket</b>, <span class="math notranslate nohighlight">\(a \equiv \braket{u}{v} \)</span>. El producto escalar verifica las tres propiedades siguientes</p>
+<ul class="simple">
+<li><p class="sd-card-text"><b>Linealidad</b>:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-dee67d3a-9b59-4201-bab6-eba90e8fa627">
+<span class="eqno">(56)<a class="headerlink" href="#equation-dee67d3a-9b59-4201-bab6-eba90e8fa627" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\bra{u}\big(a\ket{v}+b\ket{w}\big) = a\braket{u}{v} + b\braket{u}{w}
+\end{equation}\]</div>
+<p class="sd-card-text">para cualquier <span class="math notranslate nohighlight">\(a,b \in  \mathbb{C}\)</span> y cualquier vector <span class="math notranslate nohighlight">\(\ket{u}\)</span>, <span class="math notranslate nohighlight">\(\ket{v}\)</span> y <span class="math notranslate nohighlight">\(\ket{w}\)</span>.</p>
+<ul class="simple">
+<li><p class="sd-card-text"><b>Hermiticidad</b>:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-66d4fb54-5291-487a-a30f-60f2b4f45341">
+<span class="eqno">(57)<a class="headerlink" href="#equation-66d4fb54-5291-487a-a30f-60f2b4f45341" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{v}{u} = \braket{u}{v}^*
+\end{equation}\]</div>
+<ul class="simple">
+<li><p class="sd-card-text"><b>Positividad</b>:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-4e7a24f1-a95e-4ec3-b51b-d84aeb9fe7f8">
+<span class="eqno">(58)<a class="headerlink" href="#equation-4e7a24f1-a95e-4ec3-b51b-d84aeb9fe7f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{u}{u} &gt;0 \text{ para todo ket } \ket{u}\neq 0
+\end{equation}\]</div>
+</div>
+</div>
+<p>Combinando las dos primeras propiedades, el producto escalar también es lineal en el primer argumento</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bcb91e3e-ff00-494f-8d9d-b8b6c1f9a314">
+<span class="eqno">(59)<a class="headerlink" href="#equation-bcb91e3e-ff00-494f-8d9d-b8b6c1f9a314" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(a\bra{u}+b\bra{w})\ket{v} = a\braket{u}{v} + b\braket{w}{v}~,
+\end{equation}\]</div>
+<p>es decir, el producto escalar es <b>bilineal</b>.</p>
+</section>
+<section id="norma">
+<h3>Norma<a class="headerlink" href="#norma" title="Permalink to this heading">#</a></h3>
+<p>La positividad del producto escalar de un vector por sí mismo permite definir su <b>norma</b>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-597d22d9-2a4f-48bd-9dff-7b38ff791395">
+<span class="eqno">(60)<a class="headerlink" href="#equation-597d22d9-2a4f-48bd-9dff-7b38ff791395" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{\|\ket{v}\| = \sqrt{\braket{v}{v}}}
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Véase que:</p>
+<ul class="simple">
+<li><p>En contraste con la definición de producto escalar en espacios vectoriales reales, en el caso complejo se hace necesario conjugar (usar un  <i>bra</i>), para  que la <i>norma</i> de un vector sea siempre real y positiva. Esta es la idea detrás de la definición de la <i>conjugación adjunta</i>.</p></li>
+<li><p>El único vector que tiene norma nula en un espacio de Hilbert es el elemento neutro</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-81e345ab-7936-49c1-9627-51988453366a">
+<span class="eqno">(61)<a class="headerlink" href="#equation-81e345ab-7936-49c1-9627-51988453366a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{v}{v} = 0 ~~~ \Leftrightarrow ~~~\ket{v} = 0
+\end{equation}\]</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo (espacio Euclidiano)</p>
+<p>Uno de los ejemplos más conocidos de espacio de Hilbert es el <b>espacio vectorial euclídeo</b>\footnote{Es el espacio real de tres dimensiones, <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, habitual, el clásico de geometría.} formado por vectores tridimensionales, denotado por <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, y dotado del <b>producto punto</b>. El producto punto toma dos vectores <span class="math notranslate nohighlight">\(\vec{x}\)</span> e <span class="math notranslate nohighlight">\(\vec{y}\)</span> y produce un número real <span class="math notranslate nohighlight">\(\vec{x} \cdot \vec{y}\)</span>. Si <span class="math notranslate nohighlight">\(\vec{x}\)</span> e <span class="math notranslate nohighlight">\(\vec{y}\)</span> se representan en coordenadas cartesianas, el producto punto se define como</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+y_1 \\ y_2 \\ y_3
+\end{bmatrix}
+= x_1y_1 + x_2y_2 + x_3y_3
+\end{equation*}\]</div>
+<p>El producto punto satisface las siguientes propiedades:</p>
+<ul class="simple">
+<li><p>Es lineal en su primer argumento: <span class="math notranslate nohighlight">\((a \vec{x}_1 + b \vec{x}_2) \cdot \vec{y} = a (\vec{x}_1 \cdot \vec{y}) + b (\vec{x}_2 \cdot \vec{y})\)</span>, para cualquier escaleres <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> y vectores <span class="math notranslate nohighlight">\(\vec{x}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{x}_2\)</span> y <span class="math notranslate nohighlight">\(\vec{y}\)</span>.</p></li>
+<li><p>Es simétrico: <span class="math notranslate nohighlight">\(\vec{x} \cdot \vec{y} = \vec{y} \cdot \vec{x}\)</span></p></li>
+<li><p>Es definido positivo: para todo vector <span class="math notranslate nohighlight">\(\vec{x}\)</span>, <span class="math notranslate nohighlight">\(\vec{x} \cdot \vec{x} \geq 0\)</span>, cuya igualdad solo se satisface si <span class="math notranslate nohighlight">\(\vec{x} = 0\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="desigualdades">
+<h3>Desigualdades<a class="headerlink" href="#desigualdades" title="Permalink to this heading">#</a></h3>
+<p>En muchas ocasiones será necesario acotar cantidades.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b>Desigualdad de Cauchy-Schwarz:</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-d9934443-b6c5-4f60-ac85-dd5dff63e3f2">
+<span class="eqno">(62)<a class="headerlink" href="#equation-d9934443-b6c5-4f60-ac85-dd5dff63e3f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+|\braket{u}{v}| \leq \|\ket{u}\|\, \|\ket{v}\|
+\end{equation}\]</div>
+</div>
+</div>
+<p>Una consecuencia inmediata  de la desigualdad de Cauchy-Schwarz es la desigualdad triangular</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><b>Desigualdad triangular:</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-0356675e-8cbe-4e7c-8eb8-6a545c5c30dd">
+<span class="eqno">(63)<a class="headerlink" href="#equation-0356675e-8cbe-4e7c-8eb8-6a545c5c30dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\|\ket{u}+\ket{v}\| \leq \|\ket{u}\|+ \|\ket{v}\|
+\end{equation}\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="bases-ortogonales">
+<h2>Bases ortogonales<a class="headerlink" href="#bases-ortogonales" title="Permalink to this heading">#</a></h2>
+<p>Hasta ahora, a los vectores de una base <span class="math notranslate nohighlight">\(\{\ket{e_i}\}\)</span> sólo se les ha pedido que sean <span class="math notranslate nohighlight">\(N\)</span> vectores <i>linealmente independientes</i>, donde <span class="math notranslate nohighlight">\(N\)</span> es la dimensión del espacio vectorial <span class="math notranslate nohighlight">\(V\)</span>. En un espacio de Hilbert <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> tiene sentido calcular el producto escalar de dos elementos de una base.</p>
+<section id="base-ortonormal">
+<h3>Base ortonormal<a class="headerlink" href="#base-ortonormal" title="Permalink to this heading">#</a></h3>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Una base <b>ortornormal</b> se caracteriza por la siguiente lista de productos escalares</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d72d8672-bf11-44f4-b844-5d4bf2576f1c">
+<span class="eqno">(64)<a class="headerlink" href="#equation-d72d8672-bf11-44f4-b844-5d4bf2576f1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\braket{e_i}{e_j} = \delta_{ij}
+\end{equation}\]</div>
+<p class="sd-card-text">Es decir:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Por un lado, dos elementos distintos de la base son ortogonales <span class="math notranslate nohighlight">\(\braket{e_1}{e_2} = 0\)</span>.</p></li>
+<li><p class="sd-card-text">Por otro, todos están normalizados  <span class="math notranslate nohighlight">\( \| e_i \| = \sqrt{\braket{e_1}{e_1}} = \sqrt{1} = 1\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<p>En este curso siempre supondremos que las bases con las que trabajamos son ortonormales. Ello se justifica en base al siguiente teorema:
+<a id='teorema_formalismo_gramm_schmidt'></a></p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><b>Teorema</b>:</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Dada una base general <span class="math notranslate nohighlight">\(\{\braket{f_i}{f_j}\neq \delta_{ij}\}\)</span> de vectores no ortonormales, existe una procedimiento iterativo (de Gramm-Schmidt <span class="xref myst">[19]</span>) para construir, a partir de ella, una nueva base ortonormal <span class="math notranslate nohighlight">\(\{\braket{e_i}{e_j}\}=\delta_{ij}\)</span>.</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>Dado un vector  <span class="math notranslate nohighlight">\(\ket{v} = \sum_{i=1}^N v_i \ket{e_i}\)</span> donde <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> es una base ortonorma, la <i>componente</i> <span class="math notranslate nohighlight">\(v_k\)</span> se extrae mediante la <b>proyección</b> ortogonal</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-e78ec99f-a77a-48c5-964a-734e8ac95fc7">
+<span class="eqno">(65)<a class="headerlink" href="#equation-e78ec99f-a77a-48c5-964a-734e8ac95fc7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\boxed{v_k =\braket{e_k}{v}}
+\end{equation}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Demostración<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\braket{e_k}{v} &amp;=  \bra{e_k}\left(\sum_{j=1}^N v_j\ket{e_j}\right) \nonumber\\
+&amp;=  \sum_{j=1}^N  v_j\braket{e_k}{e_j}  \nonumber\\
+&amp;=  \sum_{j=1}^N  v_j\delta_{kj} = v_k
+\end{align*}\]</div>
+</div>
+</details><ul class="simple">
+<li><p>Calcular el valor de un <i>producto escalar</i> <span class="math notranslate nohighlight">\(a=\braket{u}{v}\)</span> es muy simple si conocemos las componentes de <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> en una base ortonormal:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+a = \braket{u}{v}
+= \left(\sum_{i}u_i^*\bra{e_i}\right)\left(\sum_{j}v_j\ket{e_j} \right)
+= \sum_{ij} u_i^* v_j  \braket{e_i}{e_j}
+= \sum_{ij} u_i^* v_j \delta_{ij} = \sum_{i} u_i^* v_i  ~~ \Rightarrow \\
+\end{equation*}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a4ca60ce-5457-4ba2-99b1-afb2c8ceba03">
+<span class="eqno">(66)<a class="headerlink" href="#equation-a4ca60ce-5457-4ba2-99b1-afb2c8ceba03" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\Rightarrow \boxed{a =  \braket{u}{v} = \begin{bmatrix} {u_1^*} &amp; {u_2^*} &amp; \cdots &amp; {u_N^*} \end{bmatrix}
+\begin{bmatrix} {v_1}\\ {v_2}\\ \vdots \\ {v_N} \end{bmatrix}}
+\end{equation}\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota (Importante)</p>
+<p>La expresión de la izquierda  <span class="math notranslate nohighlight">\(a = \braket{u}{v}\)</span> <b>no hace referencia a ninguna base</b>. Por tanto, el resultado <span class="math notranslate nohighlight">\(\sum_{i=1}^n{ u_i^* v_i} \)</span> debe ser independiente de la base que utilizamos para representar estos vectores mediante sus componentes <span class="math notranslate nohighlight">\(u_i\)</span> y <span class="math notranslate nohighlight">\(v_i\)</span>.</p>
+<p>Este resultado es <i>no trivial</i> y subrayamos su importancia: <span class="math notranslate nohighlight">\(\braket{u}{v}\)</span> puede ser calculado en la base más conveniente.</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_02/Chapter_002_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_001_numeros_complejos_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Números complejos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_003_operadores_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operadores</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-vectorial-complejo">Espacio Vectorial Complejo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion">Definición</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugacion-adjunta">Conjugación adjunta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases">Bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambio-de-base">Cambio de base</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacios-de-hilbert">Espacios de Hilbert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-escalar">Producto escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#norma">Norma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desigualdades">Desigualdades</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-ortogonales">Bases ortogonales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-ortonormal">Base ortonormal</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
