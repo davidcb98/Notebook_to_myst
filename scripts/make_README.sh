@@ -5,7 +5,7 @@ Destination_folder=../Book         # Path respecto a la carpeta scripts
 Destination_folder_aux=..\\/Book   # Path respecto a la carpeta scripts
 SKIP=".ipynb_checkpoints|\/No_"
 
-README_TOC=README_TOC.md
+#README_TOC=README_TOC.md
 
 
 print_in_readme_toc(){
@@ -73,7 +73,7 @@ mkdir -p old_READMEs
 
 fecha_actual=$(date +"%d%m%Y-%H:%M:%S")
 
-mv ../README.md ../README_$fecha_actual.md 2>/dev/null
-mv ../README_$fecha_actual.md old_READMEs 2>/dev/null
+#mv ../README.md ../README_$fecha_actual.md 2>/dev/null
+#mv ../README_$fecha_actual.md old_READMEs 2>/dev/null
 
 cat README_head.md README_TOC.md README_tail.md > ../README.md 2>/dev/null
