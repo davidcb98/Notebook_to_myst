@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi11.png"><img alt="../../../_images/Fig_logo_UMA_scbi11.png" src="../../../_images/Fig_logo_UMA_scbi11.png" style="width: 2000px;" /></a>
@@ -659,13 +659,13 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>El problema del control de sistemas cuánticos acoplados múltiples es un tema emblemático de la RMN, y puede resumirse como sigue: dado un sistema con Hamiltoniano</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea4122af-af96-486f-84df-869644ddb497">
-<span class="eqno">(459)<a class="headerlink" href="#equation-ea4122af-af96-486f-84df-869644ddb497" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bac9e692-560b-47c8-89bb-f13781cb780d">
+<span class="eqno">(453)<a class="headerlink" href="#equation-bac9e692-560b-47c8-89bb-f13781cb780d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathcal{H} = \mathcal{H}_{sys} + \mathcal{H}_{control}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\mathcal{H}_{sys}\)</span> es el Hamiltoniano del sistema en ausencia de cualquier control, y <span class="math notranslate nohighlight">\(\mathcal{H}_{control}\)</span> describe términos que están bajo control externo, ¿cómo puede aplicarse una transformación unitaria <span class="math notranslate nohighlight">\(U\)</span> deseada, en presencia de imperfecciones y utilizando un mínimo de recursos? De forma similar a otros escenarios en los que el control cuántico es una idea bien desarrollada, como en la excitación láser de reacciones químicas, <span class="math notranslate nohighlight">\(\mathcal{H}_{control}\)</span> <b>surge de secuencias sincronizadas con precisión de múltiples pulsos de radiación electromagnética, aplicados de forma coherente en fase, con diferentes anchuras, frecuencias, fases y amplitudes de pulso.</b></p>
 <p>En RMN lo que se controla con esto pulsos es el <b>espín nuclear</b>. Tenemos que ver entonces que es el espín nuclear (sección \ref{sec_sub_Harware_NMR_espin}), como se puede usar para formar qúbits (construir <span class="math notranslate nohighlight">\(\mathcal{H}_{sys}\)</span>, sección \ref{sec_subsub_Harware_NMR_H_sys}) y como se  manipulan usando pulsos electromagnéticos (construir <span class="math notranslate nohighlight">\(\mathcal{H}_{control}\)</span>, sección \ref{sec_subsub_Harware_NMR_H_control}). Finalmente, veremos más en detalle como se implementan estos pulsos (sección \ref{sec_sub_Harware_NMR_pulsos}).</p>
-<p>Para más información en general sobre física núclear, puede consultarse un libro clásico como es <span class="xref myst">[7]</span>. Para más información sobre como controlar qúbits de RMN puede consultarse <span class="xref myst">[6]</span>. Gran parte de este capítulo se basa en intentar explicar de una forma más simple este último artículo.</p>
+<p>Para más información en general sobre física núclear, puede consultarse un libro clásico como es <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id8" title="Kenneth S Krane. Introductory nuclear physics. Wiley, New York, NY, 1988. URL: https://cds.cern.ch/record/359790.">38</a>]</span>. Para más información sobre como controlar qúbits de RMN puede consultarse <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id7" title="L. M. K. Vandersypen and I. L. Chuang. Nmr techniques for quantum control and computation. Rev. Mod. Phys., 76:1037–1069, Jan 2005. URL: https://link.aps.org/doi/10.1103/RevModPhys.76.1037, doi:10.1103/RevModPhys.76.1037.">58</a>]</span>. Gran parte de este capítulo se basa en intentar explicar de una forma más simple este último artículo.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
 </figure>

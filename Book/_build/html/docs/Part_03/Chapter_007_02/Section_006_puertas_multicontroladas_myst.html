@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi8.png"><img alt="../../../_images/Fig_logo_UMA_scbi8.png" src="../../../_images/Fig_logo_UMA_scbi8.png" style="width: 2000px;" /></a>
@@ -672,8 +672,8 @@ document.write(`
 <section id="ccnot-o-toffoli">
 <h2>CCNOT o Toffoli<a class="headerlink" href="#ccnot-o-toffoli" title="Permalink to this heading">#</a></h2>
 <p>La puerta CCNOT, también llamada puerta de Toffoli,  es un operador sobre <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes 3}\)</span>, en el que dos qúbits controlan la acción de <span class="math notranslate nohighlight">\(X\)</span> sobre un tercero. <b>Sólo si ambos cúbits</b> de control están en el estado <span class="math notranslate nohighlight">\(\ket{11}\)</span> el operador <span class="math notranslate nohighlight">\(X\)</span> actuará sobre el tercero. De nuevo, su representación es muy sencilla</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ac8abd2-449c-4c59-a36b-f1a4258f25c9">
-<span class="eqno">(421)<a class="headerlink" href="#equation-3ac8abd2-449c-4c59-a36b-f1a4258f25c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efcf813c-599a-47e4-9171-724645fa8fab">
+<span class="eqno">(415)<a class="headerlink" href="#equation-efcf813c-599a-47e4-9171-724645fa8fab" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{{\rm CCNOT} = \big(\ket{00}\bra{00}+\ket{01}\bra{01}+\ket{10}\bra{10}\big)\otimes I + \ket{11}\bra{11}\otimes X}
 \end{equation}\]</div>
 <p>Podemos ver la representación gráfica asociada la puerta de Toffoli en la Fíg. \ref{Fig_multiqubit_ccX_gate}</p>
@@ -694,8 +694,8 @@ En las sección 1.5 del notebook <b>03-Circuitos_multiqubit</b> pueden verse eje
 <section id="x-multi-controlada">
 <h2><span class="math notranslate nohighlight">\(X\)</span> multi-controlada.<a class="headerlink" href="#x-multi-controlada" title="Permalink to this heading">#</a></h2>
 <p>Cuando tenemos una puerta <span class="math notranslate nohighlight">\(X\)</span> con tres o más controles, la denominamos <span class="math notranslate nohighlight">\(X\)</span> multi-controlada (<b>MCX)</b>. La puerta <span class="math notranslate nohighlight">\(X\)</span> se activa sí y solo sí los qúbits de control están en una configuración deseada. Podemos ver un ejemplo de MCX que se activa con el estado <span class="math notranslate nohighlight">\(\ket{1100}\)</span> en la Fig. \ref{Fig_multiqubit_MCX_gate}  . El operado asociado esta puerta sería</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d0b0f83-f5ba-4c87-a400-9f9a88fc5d1c">
-<span class="eqno">(422)<a class="headerlink" href="#equation-2d0b0f83-f5ba-4c87-a400-9f9a88fc5d1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f9c903d-4646-4661-b18a-c3ca606ce306">
+<span class="eqno">(416)<a class="headerlink" href="#equation-1f9c903d-4646-4661-b18a-c3ca606ce306" title="Permalink to this equation">#</a></span>\[\begin{equation}
 MCX = \ket{1100}  \bra{1100}\otimes X + (I-\ket{1100}\bra{1100}) \otimes I
 \end{equation}\]</div>
 <figure class="align-center" id="fig-multiqubit-mcx-gate">

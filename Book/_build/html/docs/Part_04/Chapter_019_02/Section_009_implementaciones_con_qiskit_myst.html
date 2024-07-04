@@ -641,7 +641,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -675,7 +675,7 @@ document.write(`
 <h2>Puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ).<a class="headerlink" href="#puerta-multicontrolada-z-mcz" title="Permalink to this heading">#</a></h2>
 <p>Vamos a empezar viendo la implementación de la puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ) en qiskit, pues la usaremos bastante el las siguientes secciones. Esta puerta podemos construirla a partir de la puerta multicontrolada Toffoli (MCT) de forma muy sencilla. Para ello, recordemos que la MCT no es más que una CNOT (es decir, una puerta <span class="math notranslate nohighlight">\(X\)</span>) con varios controles y recordemos también la propiedad</p>
 <div class="math notranslate nohighlight" id="equation-imple-hxh-z">
-<span class="eqno">(728)<a class="headerlink" href="#equation-imple-hxh-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(714)<a class="headerlink" href="#equation-imple-hxh-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 HXH = Z .
 \end{equation} \]</div>
 <p>Podemos pues construir la MCZ aplicando puertas de Hadammard en el qúbit objetivo de la MCT antes y después de la misma.
@@ -687,7 +687,7 @@ Puede en la sección 1 del  Notebook <i>12-Grover_Algorithm</i>.
 <h2>Difusor genérico.<a class="headerlink" href="#difusor-generico" title="Permalink to this heading">#</a></h2>
 <p>Como ya comentamos, habitualmente en vez de implementar <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> implementamos <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. Vimos además que podemos hacer la implementación mediante transformadas de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span>, puertas <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> y la puerta <span class="math notranslate nohighlight">\(MCZ\)</span>, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-qiskit-diff-gen-u-psi0">
-<span class="eqno">(729)<a class="headerlink" href="#equation-ec-qiskit-diff-gen-u-psi0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(715)<a class="headerlink" href="#equation-ec-qiskit-diff-gen-u-psi0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}}
 \end{equation} \]</div>
 <p>\begin{mybox_orange}{Jupyter Notebook: 12-Grover_Algorithm}

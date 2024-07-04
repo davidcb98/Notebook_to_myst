@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 3 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi18.png"><img alt="../../../_images/Fig_logo_UMA_scbi18.png" src="../../../_images/Fig_logo_UMA_scbi18.png" style="width: 2000px;" /></a>
@@ -660,13 +660,13 @@ document.write(`
 <h1>¿Y si no conocemos el autoestado?<a class="headerlink" href="#y-si-no-conocemos-el-autoestado" title="Permalink to this heading">#</a></h1>
 <p>Hemos visto que el algoritmo de estimación de fase requiere de seamos capaces de preparar un autoestado. Esto en realidad es contradictorio, pues para conocer un autoestado de un operador genérico (no diagonal), lo que tenemos que hacer es diagonizarlo. Diagonalizar un operador (una matriz) es una operación costosa y además, una vez diagonalizada la matriz, es trivial calcular los autovalores. Es decir, tal y como está planteado hasta ahora el problema de estimación de fase, no nos aporta nada debido a la restricción de conocer un autovector.</p>
 <p>Sin embargo, no es necesario conocer un autovector en concreto. El secreto está en que los autovectores de un operador forman una <b>base</b>, de forma que cualquier estado se puede escribir como combinación lineal de estos autoestado. Supongamos por ejemplo que tenemos un operador <span class="math notranslate nohighlight">\(U\)</span> con autovectores <span class="math notranslate nohighlight">\(\ket{\psi_i}\)</span> y autovalores <span class="math notranslate nohighlight">\(2 \pi \theta_i\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a76d0f7-3c27-4ede-b80f-6928370a54ab">
-<span class="eqno">(595)<a class="headerlink" href="#equation-6a76d0f7-3c27-4ede-b80f-6928370a54ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3ead38e0-5874-4390-ba4a-aaf64cd38d80">
+<span class="eqno">(581)<a class="headerlink" href="#equation-3ead38e0-5874-4390-ba4a-aaf64cd38d80" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U \ket{\psi_i} = e^{2 \pi i \theta_i} \ket{\psi_i}
 \end{equation}\]</div>
 <p>Si tenemos por ejemplo un estado genérico <span class="math notranslate nohighlight">\(\ket{b}\)</span>, podemos escribirlo en la base de autovectores de <span class="math notranslate nohighlight">\(U\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-b-generico">
-<span class="eqno">(596)<a class="headerlink" href="#equation-ec-qpe-b-generico" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(582)<a class="headerlink" href="#equation-ec-qpe-b-generico" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{b} = \sum^N_{i=1} c_i \ket{\psi_i}
 \end{equation} \]</div>
 <p>Debido a linealidad del circuito <span class="math notranslate nohighlight">\(QPE\)</span>, a la salida del mismo (antes de la medida) entraremos una combinación lineal de estados de la forma</p>
@@ -677,27 +677,27 @@ U_{QPE}\, :\,\ket{0}_t \left(\sum_{i=1}c_i\ket{\psi_i}\right) \rightarrow \ket{\
 &amp; = \sum_{i=1}^N c_i \ket{\Psi_{3,i}}
 \end{align*}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\ket{\Phi_i}\)</span> es el estado del registro de <span class="math notranslate nohighlight">\(t\)</span> qúbits antes de la media en la Ec. (\ref{ec_QPE_Psi3_2}), es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b94048b0-61f7-41d8-88a5-e4e4c383e4c4">
-<span class="eqno">(597)<a class="headerlink" href="#equation-b94048b0-61f7-41d8-88a5-e4e4c383e4c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0751e4f-67e1-4929-b7a9-3a0ada891ffa">
+<span class="eqno">(583)<a class="headerlink" href="#equation-e0751e4f-67e1-4929-b7a9-3a0ada891ffa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi_{3,i}} = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{\frac{2 \pi i y}{2^t} (2^t \theta_i - x)} |x\rangle \rc \otimes \vert\psi_i\rangle = \ket{\Phi_i} \otimes \vert\psi_i\rangle =  \ket{\Phi_i} \vert\psi_i\rangle
 \end{equation}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota (Aclaración)</p>
 <p>Para entender un poco este resultado, quedemonos primero con la expresión siguiente:</p>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-psi-3-ci">
-<span class="eqno">(599)<a class="headerlink" href="#equation-ec-qpe-psi-3-ci" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(585)<a class="headerlink" href="#equation-ec-qpe-psi-3-ci" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \ket{\Psi_3}  = \sum_{i=1}^N  c_i \ket{\Phi_i}\ket{\psi_i} \\ \rule{0mm}{7mm}
 \end{equation} \end{split}\]</div>
 <p>y comparemosla con la expresión de la Ec. (\ref{ec_QPE_Psi3_2}). Vemos que ahora lo que tenemos es una combinación lineas de los resultados para cada autovector que compone nuestro estado <span class="math notranslate nohighlight">\(\ket{b}\)</span>. Para entenderlo mejor, podemos verlo al revés. El caso de la Ec. (\ref{ec_QPE_Psi3_2}) es el caso en el que <span class="math notranslate nohighlight">\(\ket{b}\)</span> es igual a un solo autovector, es decir, en el que <b>todos los <span class="math notranslate nohighlight">\(c_i\)</span> son cero excepto uno de ellos</b>.</p>
 </div>
 <p>Como ya comentamos, si <span class="math notranslate nohighlight">\(2^t \theta_i\)</span> no es entero, el estado del primer registro será una superposición de la forma <span class="math notranslate nohighlight">\(\ket{\Phi_i} = \sum_{x=0}^{2^t-1} f_i(x) \ket{x}\)</span>, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-psi-3-ci">
-<span class="eqno">(599)<a class="headerlink" href="#equation-ec-qpe-psi-3-ci" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(585)<a class="headerlink" href="#equation-ec-qpe-psi-3-ci" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \ket{\Psi_3}  = \sum_{i=1}^N  c_i \lp \sum_{x=0}^{2^t-1} f_i(x) \ket{x} \rp  \ket{\psi_i} \\ \rule{0mm}{7mm}
 \end{equation} \end{split}\]</div>
 <p>Una medida del primer registro dará el registro binario de <i>un número entero</i> <span class="math notranslate nohighlight">\(x \to m \in [0,2^t-1)\)</span> con distribución de probabilidad</p>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-p-m-ci">
-<span class="eqno">(600)<a class="headerlink" href="#equation-ec-qpe-p-m-ci" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(586)<a class="headerlink" href="#equation-ec-qpe-p-m-ci" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 p(m) = \sum_i^N |c_i|^2 |f_i(m)|^2
 \end{equation} \]</div>
 <p>Comparando este resultado con el de la Ec. (\ref{ec_QPE_p(m)}) vemos que lo que obtenemos es una <b>suma ponderada de las distribuciones de probabilidad para cada autovalor</b>. Es decir:</p>

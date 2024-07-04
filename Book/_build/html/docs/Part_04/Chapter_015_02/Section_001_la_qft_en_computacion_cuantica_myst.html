@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 4 min read</p>
+<div><p>Jul 04, 2024 | 4 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi17.png"><img alt="../../../_images/Fig_logo_UMA_scbi17.png" src="../../../_images/Fig_logo_UMA_scbi17.png" style="width: 2000px;" /></a>
@@ -661,18 +661,18 @@ document.write(`
 <p>La transformada de Fourier aparece en muchas versiones diferentes a lo largo de la computación clásica, en ámbitos que van desde el procesamiento de señales a la compresión de datos, pasando por la teoría de la complejidad. La transformada cuántica de Fourier (QFT) es la implementación cuántica de la transformada discreta de Fourier sobre las amplitudes de una función de onda. Forma parte de muchos algoritmos cuánticos, entre los que destacan el algoritmo de factorización de Shor y la estimación cuántica de fase.</p>
 <p>En su versión clásica, la transformada actúa sobre un vector <span class="math notranslate nohighlight">\((x_0, x_1, \dots, x_{N-1})\)</span> y lo mapea a otro vector <span class="math notranslate nohighlight">\((\tilde{x}_0, \tilde{x}_1, \dots, \tilde{x}_{N-1})\)</span> de acuerdo con la fórmula</p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-clasica">
-<span class="eqno">(562)<a class="headerlink" href="#equation-ec-qft-clasica" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(551)<a class="headerlink" href="#equation-ec-qft-clasica" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \tilde{x}_k = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} \omega^{ky} x_y, \hspace{1.5cm} \text{donde } \quad \omega^{ky}= e^{2\pi i \frac{ky}{N}}
 \end{equation} \]</div>
 <p>En concreto, la transformada de Fourier aplicada sobre cada uno de los vectores de la base nos lleva esta base a otro denominada <b>base de Fourier</b>. Esta transformación es biyectiva, es decir, mapea cada vector a un único vector, con lo cual, es invertible.</p>
 <p>De forma análoga, la transformada de Fourier cuántica es un operador unitario que actúa sobre un estado cuántico <span class="math notranslate nohighlight">\( \ket{\Psi} = \sum_{j=0}^{N-1} \psi_j \ket{j}\)</span> y lo mapea a otro estado cuántico <span class="math notranslate nohighlight">\(\ket{\widetilde{\Psi}} = \sum_{y=0}^{N-1} \tilde{\psi}_y \ket{y}\)</span> de acuerdo con la fórmula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-435d227c-8e6d-482d-8484-aa4e5f748129">
-<span class="eqno">(563)<a class="headerlink" href="#equation-435d227c-8e6d-482d-8484-aa4e5f748129" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e5214c8-12ee-48ad-badf-5f6a8ffd6118">
+<span class="eqno">(552)<a class="headerlink" href="#equation-7e5214c8-12ee-48ad-badf-5f6a8ffd6118" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \widetilde{\psi}_y = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \omega^{jy} \psi_j, \hspace{1.5cm} \text{donde } \quad \omega^{jy} = e^{2\pi i \frac{jy}{N}}
 \end{equation}\]</div>
 <p>Es decir, la transformación de un estado genérico <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> sería:</p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-sobre-psi">
-<span class="eqno">(564)<a class="headerlink" href="#equation-ec-qft-sobre-psi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(553)<a class="headerlink" href="#equation-ec-qft-sobre-psi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\ket{\Psi} \to \ket{\widetilde{\Psi}} = \sum_{y=0}^{N-1} \widetilde{\psi}_y \ket{y} =  \sum_{y=0}^{N-1} \lp \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \omega^{jy} \psi_j \rp \ket{y}}
 \end{equation} \]</div>
 <p>Véase que aquí tanto <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> como <span class="math notranslate nohighlight">\(\ket{\widetilde{\psi}}\)</span> están expresados en la misma base, por ejemplo, la base computacional.</p>
@@ -684,20 +684,20 @@ la base pero en la base de Fourier) cuando les pongamos una tilde: <span class="
 <p>Por otro lado, reservamos las letras griegas para referirnos a <b>estados</b>, es decir, combinaciones lineales de elementos de la base: <span class="math notranslate nohighlight">\( \ket{\Psi} = \sum_{j=0}^{N-1} \psi_j \ket{j}\)</span></p>
 </div>
 <p>Veamos como actúa la QFT sobre los elementos de la base computacional. Para ello, solo tenemos que tomar <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> como un elemento de la base en la Ec. (\ref{ec_QFT_sobre_Psi}). Es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1aa65c92-c3da-4644-a848-353d67582f4e">
-<span class="eqno">(565)<a class="headerlink" href="#equation-1aa65c92-c3da-4644-a848-353d67582f4e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0a56be2-3683-4986-9330-e47f731d79fa">
+<span class="eqno">(554)<a class="headerlink" href="#equation-d0a56be2-3683-4986-9330-e47f731d79fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi} = \sum_{j=0}^{N-1} \psi_j \ket{j} \xrightarrow[\psi_x = 1]{\psi_j = 0 \,\,\, \forall  j \neq x} \ket{\Psi} = \ket{x}
 \end{equation}\]</div>
 <p>Haciendo esta misma sustitución en la Ec. (\ref{ec_QFT_sobre_Psi}) llegamos a</p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-sobre-base-computacional">
-<span class="eqno">(566)<a class="headerlink" href="#equation-ec-qft-sobre-base-computacional" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(555)<a class="headerlink" href="#equation-ec-qft-sobre-base-computacional" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{x} \to \ket{\widetilde{x}} = \sum_{y=0}^{N-1} \lp \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \omega^{jy} \psi_j \rp \ket{y}
 \xrightarrow[\psi_x = 1]{\psi_j = 0 \,\,\,  \forall j \neq x}
 \boxed{QFT \ket{x} = \ket{\widetilde{x}} = \frac{1}{\sqrt{N}}  \sum_{y=0}^{N-1}  \omega^{xy}   \ket{y} }
 \end{equation} \]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b988e87-b0c4-49af-98f8-82233c697342">
-<span class="eqno">(567)<a class="headerlink" href="#equation-0b988e87-b0c4-49af-98f8-82233c697342" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-398dbc60-9028-4400-bd11-2036bd774175">
+<span class="eqno">(556)<a class="headerlink" href="#equation-398dbc60-9028-4400-bd11-2036bd774175" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\omega  = e^{2\pi i  /N}} \, , \hspace{1cm}
 x   = 0,...,N-1 \, , \hspace{1cm}
 \widetilde{x}  = \widetilde{0}, \dots, \widetilde{N-1} \, ,\hspace{0.7cm}  \text{y} \hspace{0.7cm}
@@ -707,8 +707,8 @@ N=2^n.
 <div class="note admonition">
 <p class="admonition-title">Nota (QFT y Walsh-Hadamard)</p>
 <p>Comparar la Ec. (\ref{ec_QFT_sobre_base_computacional}) con la de la transformada de Walsh-Hadamard (\ref{ec_algoritmos_Walsh_H_sobre_x})</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6c936fb0-185d-43c2-97f2-e452c6327449">
-<span class="eqno">(568)<a class="headerlink" href="#equation-6c936fb0-185d-43c2-97f2-e452c6327449" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbb82f5a-3241-48f4-b96f-69468b325251">
+<span class="eqno">(557)<a class="headerlink" href="#equation-cbb82f5a-3241-48f4-b96f-69468b325251" title="Permalink to this equation">#</a></span>\[\begin{equation}
 W: \ket{x} \to \ket{\tilde x} =  \frac{1}{\sqrt{N}}\sum_{y}(-1)^{xy}\ket{y} =   \frac{1}{\sqrt{N}}\sum_{y} e^{i\pi   xy} \ket{y}
 \end{equation}\]</div>
 <p>que es formalmente igual, pero con <span class="math notranslate nohighlight">\(\omega = e^{2\pi i/2} = -1\)</span>.
@@ -716,20 +716,20 @@ Ya hemos visto cómo este factor produce <i>interferencias</i> interesantes que 
 </div>
 <p>El nuevo factor <span class="math notranslate nohighlight">\(\omega = e^{2\pi i/N}\)</span> también sirve para producir interferencias destructivas y constructivas interesantes. Esto se debe esencialmente a la importante fórmula de <b>suma nula</b></p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-suma-nula">
-<span class="eqno">(569)<a class="headerlink" href="#equation-ec-qft-suma-nula" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(558)<a class="headerlink" href="#equation-ec-qft-suma-nula" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \frac{1}{N} \sum_{y=0}^{N} e^{2\pi i xy/N} = \delta_{x \, 0 {\rm mod}N}
 \end{equation} \]</div>
 <p>Como vemos, esta suma en <span class="math notranslate nohighlight">\(y\)</span> es cero para todos los valores de <span class="math notranslate nohighlight">\(x\)</span> excepto para <span class="math notranslate nohighlight">\(x = 0, N, 2N, \dots\)</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Utiliza la Ec. (\ref{ec_QFT_suma_nula}) para demostrar que, invirtiendo los signos de las fases obtenemos la QFT inversa. Es decir, demuestra que, si</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef79942d-d591-4f31-b032-5af473d9756a">
-<span class="eqno">(570)<a class="headerlink" href="#equation-ef79942d-d591-4f31-b032-5af473d9756a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28514d4b-fef0-44ba-b527-e24754d6ed4b">
+<span class="eqno">(559)<a class="headerlink" href="#equation-28514d4b-fef0-44ba-b527-e24754d6ed4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U^{-1}_{TFC}\ket{x}  =  \frac{1}{\sqrt{N}}\sum_{y} e^{-2\pi i  xy /N} \ket{y}
 \end{equation}\]</div>
 <p>se sigue que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-747c4307-9e45-4891-bf84-e5c2dd4bfd4c">
-<span class="eqno">(571)<a class="headerlink" href="#equation-747c4307-9e45-4891-bf84-e5c2dd4bfd4c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf74701b-e2e5-463d-9efa-d02459e4bfad">
+<span class="eqno">(560)<a class="headerlink" href="#equation-cf74701b-e2e5-463d-9efa-d02459e4bfad" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_{TFC}^{-1}(U_{TFC} \ket{x}) ) \ket{x}
 \end{equation}\]</div>
 <p>Esto confirma que es un operador unitario <span class="math notranslate nohighlight">\(U_{TFC}^{-1} = U_{TFC}^\dagger\)</span>.</p>
@@ -748,28 +748,28 @@ U_{TFC}^{-1}(U_{TFC} \ket{x}) ) \ket{x}
 \end{equation*}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Ejemplos</p>
-<ul class="simple">
-<li><p>Para <span class="math notranslate nohighlight">\(n=1 \to \omega = e^{2\pi i /2^1} = -1\)</span> y la QFT no es otra que la puerta de Hadamard</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-a9391c5d-3a81-4850-b939-93411aeb5feb">
-<span class="eqno">(572)<a class="headerlink" href="#equation-a9391c5d-3a81-4850-b939-93411aeb5feb" title="Permalink to this equation">#</a></span>\[\begin{equation}
-U_{QFT} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix} = H
-\end{equation}\]</div>
+<ul>
+<li><p>Para <span class="math notranslate nohighlight">\(n=1 \to \omega = e^{2\pi i /2^1} = -1\)</span> y la QFT no es otra que la puerta de Hadamard</p>
+<div class="amsmath math notranslate nohighlight" id="equation-34f480d5-40f2-48b2-963c-73a758999f53">
+<span class="eqno">(561)<a class="headerlink" href="#equation-34f480d5-40f2-48b2-963c-73a758999f53" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    U_{QFT} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix} = H
+    \end{equation}\]</div>
 <p>Su acción es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f61eb17-519b-40f1-a51b-66684c14f4de">
-<span class="eqno">(573)<a class="headerlink" href="#equation-5f61eb17-519b-40f1-a51b-66684c14f4de" title="Permalink to this equation">#</a></span>\[\begin{equation}
-U_{QFT}\ket{0} = \ket{+}~~~~~~~~~,~~~~~~~~~~  U_{QFT}\ket{1} = \ket{-}
-\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a6b7108b-d78f-4a2d-99c9-d2e9fbbb95f3">
+<span class="eqno">(562)<a class="headerlink" href="#equation-a6b7108b-d78f-4a2d-99c9-d2e9fbbb95f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    U_{QFT}\ket{0} = \ket{+}~~~~~~~~~,~~~~~~~~~~  U_{QFT}\ket{1} = \ket{-}
+    \end{equation}\]</div>
 <p>Observamos que los vectores imagen están situados en el plano ecuatorial de la esfera de Bloch</p>
-<ul class="simple">
-<li><p>Para <span class="math notranslate nohighlight">\(n=2 \to  \omega = e^{2\pi i/2^2} = i\)</span> y entonces</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-f2dca9d3-fde9-4cc6-8d3a-e1437db2f860">
-<span class="eqno">(574)<a class="headerlink" href="#equation-f2dca9d3-fde9-4cc6-8d3a-e1437db2f860" title="Permalink to this equation">#</a></span>\[\begin{equation}
-U_{QFT} =\frac{1}{2}
-\begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; -i &amp; -1 &amp; i \\ 1 &amp; - 1 &amp; 1 &amp; - 1 \\ 1 &amp; i &amp; -1 &amp; -i  \end{bmatrix}
-\end{equation}\]</div>
+</li>
+<li><p>Para <span class="math notranslate nohighlight">\(n=2 \to  \omega = e^{2\pi i/2^2} = i\)</span> y entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ff3a4ef2-222c-41f5-a2a8-b584e02c0275">
+<span class="eqno">(563)<a class="headerlink" href="#equation-ff3a4ef2-222c-41f5-a2a8-b584e02c0275" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    U_{QFT} =\frac{1}{2}
+    \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; -i &amp; -1 &amp; i \\ 1 &amp; - 1 &amp; 1 &amp; - 1 \\ 1 &amp; i &amp; -1 &amp; -i  \end{bmatrix}
+    \end{equation}\]</div>
 <p>Observar que la suma de cualquier columna o fila que no sean las primeras da cero</p>
+</li>
+</ul>
 </div>
 <p>En el primer ejemplo es fácil de ver que los vectores de la base de Fourier se sitúan sobre el plano <span class="math notranslate nohighlight">\(xy\)</span>. En el segundo caso también es cierto, pero es más difícil de ver a primera vista. Esta es una regla de la QFT:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -791,8 +791,8 @@ x &amp; = x_{n-1} 2^{n-1} + \dots + x_1 2^1 + x_0 2^0 + x_{-1} 2^{-1} + \dots + 
 &amp; = x_{n-1} \dots x_1 x_0 + 0.x_{-1} \dots x_{-m}
 \end{align*}\]</div>
 <p>en particular, si <span class="math notranslate nohighlight">\(y\in S_n =[0,...,2^n-1]\)</span>, en base 2 tendríamos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f53e0d6e-eb62-42d2-9da6-fa39cc925eef">
-<span class="eqno">(575)<a class="headerlink" href="#equation-f53e0d6e-eb62-42d2-9da6-fa39cc925eef" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-bf75d341-51b5-462b-89f0-3975d5ae1f2a">
+<span class="eqno">(564)<a class="headerlink" href="#equation-bf75d341-51b5-462b-89f0-3975d5ae1f2a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y &amp;=&amp; y_{n-1} \ldots   y_2y_1 y_0 \nonumber\\
 y/2&amp;~=~&amp;  y_{n-1}...y_2y_1 + 0. y_0 \nonumber\\
 y/2^2 &amp;~=~&amp;  y_{n-1}...y_2 + 0.y_1 y_0 \nonumber\\
@@ -819,19 +819,19 @@ Demostración<div class="sd-summary-down docutils">
 \end{eqnarray*}\]</div>
 <p class="sd-card-text">Se ha usado que las partes enteras de <span class="math notranslate nohighlight">\(x\)</span> no contribuyen a las fases (es un número entero multiplicado por <span class="math notranslate nohighlight">\(2\pi\)</span>)</p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-demostracion-equiv-exp">
-<span class="eqno">(576)<a class="headerlink" href="#equation-ec-qft-demostracion-equiv-exp" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(565)<a class="headerlink" href="#equation-ec-qft-demostracion-equiv-exp" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 e^{2\pi i x/2} = e^{2\pi i (x_{n-1}...x_1 + 0. x_0)}= e^{2\pi i (x_{n-1}...x_1)}e^{2\pi i \, 0. x_0} = e^{2\pi i\, 0.x_0}
 \end{equation} \]</div>
 <p class="sd-card-text">Vemos que la transformada de Fourier es factorizable y cada elemento de la base vive en el ecuador de la esfera de Bloch.</p>
 </div>
 </details><p>Como acabamos de ver en la desmostración anterior, tenemos que:</p>
 <div class="math notranslate nohighlight" id="equation-ec-qft-ecuacion-desarrollada">
-<span class="eqno">(577)<a class="headerlink" href="#equation-ec-qft-ecuacion-desarrollada" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(566)<a class="headerlink" href="#equation-ec-qft-ecuacion-desarrollada" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\ket{\tilde x}  ~\equiv ~  U_{\rm TFC}\ket{x} = \frac{1}{\sqrt{N}} \left( \ket{0} + e^{2\pi i \frac{x}{2}}\ket{1}\right)\left( \ket{0} + e^{2\pi i \frac{x}{2^2}}\ket{1}\right)...\left( \ket{0} + e^{2\pi i \frac{x}{2^n}}\ket{1}\right)}
 \end{equation} \]</div>
 <p>En realidad, esta expresión es tan útil e importante que podríamos haberla tomado esta como la definición de la transformada de Fourier, pues es equivalente a la Ec. (\ref{ec_QFT_sobre_base_computacional}). Otra forma de escribirla es con la notación decimal anterior y teniendo en cuenta el resultado de la Ec. (\ref{ec_QFT_demostracion_equiv_exp}) es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3abdde2f-2bf4-472b-9cfe-8132acd7a57d">
-<span class="eqno">(578)<a class="headerlink" href="#equation-3abdde2f-2bf4-472b-9cfe-8132acd7a57d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f070ca19-82e0-4efd-b65d-8f24016d94fb">
+<span class="eqno">(567)<a class="headerlink" href="#equation-f070ca19-82e0-4efd-b65d-8f24016d94fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\ket{\tilde x}  ~\equiv ~  U_{\rm TFC}\ket{x} = \frac{1}{\sqrt{N}} \left( \ket{0} + e^{2\pi i \, 0.x_0}\ket{1}\right)\left( \ket{0} + e^{2\pi i \, 0.x_1x_0}\ket{1}\right)...\left( \ket{0} + e^{2\pi i \, 0.x_{n-1}...x_0}\ket{1}\right) }
 \end{equation}\]</div>
 <div class="note admonition">

@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi16.png"><img alt="../../../_images/Fig_logo_UMA_scbi16.png" src="../../../_images/Fig_logo_UMA_scbi16.png" style="width: 2000px;" /></a>
@@ -658,14 +658,13 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-bernstein-vazirani">
 <h1>Algoritmo de Bernstein-Vazirani<a class="headerlink" href="#algoritmo-de-bernstein-vazirani" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p><b>Promesa:</b> la función <span class="math notranslate nohighlight">\(f\)</span> es una <i>lineal</i>, definida por una cadena de bits <span class="math notranslate nohighlight">\(a \in \{0,1\}^n\)</span></p></li>
-</ul>
+<ul>
+<li><p><b>Promesa:</b> la función <span class="math notranslate nohighlight">\(f\)</span> es una <i>lineal</i>, definida por una cadena de bits <span class="math notranslate nohighlight">\(a \in \{0,1\}^n\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-f(x) = a\cdot x  = a_{n-1} x_{n-1} \oplus ....\oplus a_0 x_0
-\end{equation*}\]</div>
-<ul class="simple">
+    f(x) = a\cdot x  = a_{n-1} x_{n-1} \oplus ....\oplus a_0 x_0
+    \end{equation*}\]</div>
+</li>
 <li><p><b>Problema:</b> hallar <span class="math notranslate nohighlight">\(a = a_{n-1} \ldots a_0\)</span>. (Clásicamente necesitaríamos invocar el oráculo  <span class="math notranslate nohighlight">\(n\)</span> veces. Por ejemplo  <span class="math notranslate nohighlight">\(f(0\cdots 0 1)=0,1 \)</span> revela <span class="math notranslate nohighlight">\(a_0=0,1\)</span> respectivamente. Iterativamente  <span class="math notranslate nohighlight">\(f(0\cdots 0 1 0)\to a_1\)</span>, <span class="math notranslate nohighlight">\( f(0\cdots 1 0 0)\to a_2 \cdots\)</span>, etc.)</p></li>
 <li><p><b>Solución:</b> correr el circuito una sola vez y medir el estado final. El circuito es de la forma de la Fig. \ref{Fig_algoritmos_circuito_genérico_Deutsch-Jozsa}.</p></li>
 </ul>
@@ -691,7 +690,7 @@ Ver la sección 1 del notebook <b>08-Busqueda_Oracula</b>.
 \end{mybox_orange}</p>
 <div class="note admonition">
 <p class="admonition-title">Nota (Bernstein-Vazirani en Qiskit)</p>
-<p>Se puede ver otra explicación del algoritmo de  Bernstein-Vazirani junto con su implementación en Qiskit en el \href{<a class="reference external" href="https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm">https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm</a>}{Notebook de Qiskit}\footnote{\url{<a class="reference external" href="https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm">https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm</a>}}.</p>
+<p>Se puede ver otra explicación del algoritmo de  Bernstein-Vazirani junto con su implementación en Qiskit en el \href{<a class="reference external" href="https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm">https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm</a>}{Notebook de Qiskit (<a class="reference external" href="https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm">https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm</a>)} .</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota (Porque funciona el circuito del algoritmo de Bernstein-Vazirani?)</p>

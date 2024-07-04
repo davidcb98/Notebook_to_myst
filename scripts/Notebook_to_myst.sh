@@ -73,6 +73,6 @@ echo "  chapters:" >> $Destination_folder/_toc.yml
 echo "  - file: docs/Chapter_Bibliografia_myst.ipynb" >> $Destination_folder/_toc.yml
 
 
-jb build --all $Destination_folder | tee  
+jb build --all $Destination_folder   
 
 ./make_README.sh

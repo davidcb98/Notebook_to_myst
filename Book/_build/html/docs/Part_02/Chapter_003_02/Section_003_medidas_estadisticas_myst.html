@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi3.png"><img alt="../../../_images/Fig_logo_UMA_scbi3.png" src="../../../_images/Fig_logo_UMA_scbi3.png" style="width: 2000px;" /></a>
@@ -673,7 +673,7 @@ document.write(`
 <h2>Valor esperado<a class="headerlink" href="#valor-esperado" title="Permalink to this heading">#</a></h2>
 <p>Vamos a reescribir la Ec. (\ref{ec_fundamentos_p_para_lambda_degenerado})</p>
 <div class="math notranslate nohighlight" id="equation-ec-fundamentos-p-para-lambda-degenerado-proyector">
-<span class="eqno">(271)<a class="headerlink" href="#equation-ec-fundamentos-p-para-lambda-degenerado-proyector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray} 
+<span class="eqno">(265)<a class="headerlink" href="#equation-ec-fundamentos-p-para-lambda-degenerado-proyector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray} 
 p(\lambda_k)~
 &amp;=&amp; ~ \sum_{a=1}^{d_k}|\braket{\lambda^a_k}{\psi}|^2
 = \sum_{a=1}^{d_k} \braket{\psi}{\lambda^a_k}\braket{\lambda^a_k}{\psi}
@@ -681,14 +681,14 @@ p(\lambda_k)~
 &amp;=&amp;  \bra{\psi}P_k\ket{\psi}
 \end{eqnarray} \end{split}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f203b562-c100-4cb9-9c8b-94705acc812c">
-<span class="eqno">(272)<a class="headerlink" href="#equation-f203b562-c100-4cb9-9c8b-94705acc812c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7c61eb1d-72fd-4764-9735-f67a468b254b">
+<span class="eqno">(266)<a class="headerlink" href="#equation-7c61eb1d-72fd-4764-9735-f67a468b254b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{P_k = \sum_{a=1}^{d_k} \ket{\lambda^a_k}\bra{\lambda^a_k}}
 \end{equation}\]</div>
 <p>es el <b>proyector sobre el subespacio propio</b> (ver Ec. (\ref{ec_formalismo_proyec_subespacio_propio})).</p>
 <p>Por el <b>valor esperado</b> <span class="math notranslate nohighlight">\(\langle A\rangle\)</span> del <i>observable</i> <span class="math notranslate nohighlight">\(A\)</span> en el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>, entendemos el <i>valor medio</i> de la variable aleatoria <span class="math notranslate nohighlight">\(\lambda_n\)</span> obtenida por el método descrito.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d33dc98d-edff-4461-9105-dcbd67ad4c62">
-<span class="eqno">(273)<a class="headerlink" href="#equation-d33dc98d-edff-4461-9105-dcbd67ad4c62" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-aab6036f-5b82-458e-9c56-8cf5863a4227">
+<span class="eqno">(267)<a class="headerlink" href="#equation-aab6036f-5b82-458e-9c56-8cf5863a4227" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \langle A\rangle
 &amp;= &amp;  \sum_k \lambda_k p(\lambda_k)
 =  \sum_k \lambda_k \bra{\psi}P_k\ket{\psi}  \nonumber \\
@@ -701,26 +701,26 @@ p(\lambda_k)~
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El <b>valor esperado de un operador</b> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc9a23c9-5ac0-4d03-93aa-2efdf175bbd9">
-<span class="eqno">(274)<a class="headerlink" href="#equation-cc9a23c9-5ac0-4d03-93aa-2efdf175bbd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-642c1427-7b8a-4f5a-9c0d-7558a41e474b">
+<span class="eqno">(268)<a class="headerlink" href="#equation-642c1427-7b8a-4f5a-9c0d-7558a41e474b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle A \rangle=\bra{\psi}A \ket{\psi}
 \end{equation}\]</div>
 </div>
 </div>
-<ul class="simple">
-<li><p>En particular, las probabilidades mismas se pueden expresar como <i>valores esperados del proyector asociado</i></p></li>
+<ul>
+<li><p>En particular, las probabilidades mismas se pueden expresar como <i>valores esperados del proyector asociado</i></p>
+<div class="amsmath math notranslate nohighlight" id="equation-82a4a2b5-2765-4010-bc06-f5e07e1ca7a0">
+<span class="eqno">(269)<a class="headerlink" href="#equation-82a4a2b5-2765-4010-bc06-f5e07e1ca7a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    p(\lambda_k ) =  \bra{\psi}P_k\ket{\psi} = \langle P_k\rangle
+    \end{equation}\]</div>
+</li>
+<li><p>El valor esperado de un observable en uno de sus autoestados coincide con el autovalor asociado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c063d4f-5a25-45b5-bcdf-191cf72d421d">
+<span class="eqno">(270)<a class="headerlink" href="#equation-4c063d4f-5a25-45b5-bcdf-191cf72d421d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \bra{\lambda_i}A \ket{\lambda_i} = \bra{\lambda_i}\lambda_i \ket{\lambda_i}  = \lambda_i \braket{\lambda_i}{\lambda_i} = \lambda_i
+    \end{equation}\]</div>
+</li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-6273c966-5d1e-435e-b7ab-db4df92f1b03">
-<span class="eqno">(275)<a class="headerlink" href="#equation-6273c966-5d1e-435e-b7ab-db4df92f1b03" title="Permalink to this equation">#</a></span>\[\begin{equation}
-p(\lambda_k ) =  \bra{\psi}P_k\ket{\psi} = \langle P_k\rangle
-\end{equation}\]</div>
-<ul class="simple">
-<li><p>El valor esperado de un observable en uno de sus autoestados coincide con el autovalor asociado</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-fb18754e-a4f1-4437-8020-13407a889374">
-<span class="eqno">(276)<a class="headerlink" href="#equation-fb18754e-a4f1-4437-8020-13407a889374" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\bra{\lambda_i}A \ket{\lambda_i} = \bra{\lambda_i}\lambda_i \ket{\lambda_i}  = \lambda_i \braket{\lambda_i}{\lambda_i} = \lambda_i
-\end{equation}\]</div>
 <p>El espectro de un observable está formado por números reales que podemos ordenar <span class="math notranslate nohighlight">\(\lambda_{min}&lt;...&lt;\lambda_{max}\)</span>.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
@@ -728,8 +728,8 @@ p(\lambda_k ) =  \bra{\psi}P_k\ket{\psi} = \langle P_k\rangle
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El valor esperado de un observable <span class="math notranslate nohighlight">\(A\)</span> está acotado entre sus valores propios mínimo y máximo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae83ec18-8ab4-4ecb-96ae-f6895c5b1d2b">
-<span class="eqno">(277)<a class="headerlink" href="#equation-ae83ec18-8ab4-4ecb-96ae-f6895c5b1d2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3229b917-acb1-4bb9-a2cd-3dc13df23cdf">
+<span class="eqno">(271)<a class="headerlink" href="#equation-3229b917-acb1-4bb9-a2cd-3dc13df23cdf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lambda_{min} \leq \bra{\psi}A\ket{\psi} \leq \lambda_{max}
 \end{equation}\]</div>
 <p class="sd-card-text">y las desigualdades anteriores se saturan en los autoestados correspondientes</p>
@@ -741,13 +741,13 @@ p(\lambda_k ) =  \bra{\psi}P_k\ket{\psi} = \langle P_k\rangle
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>varianza</b> es la media de la desviación cuadrática de la variable aleatoria <span class="math notranslate nohighlight">\((\lambda,p(\lambda))\)</span> es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f66b677e-a5b2-49dc-94e8-38ddaadbfbf4">
-<span class="eqno">(278)<a class="headerlink" href="#equation-f66b677e-a5b2-49dc-94e8-38ddaadbfbf4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff54a091-f95d-4d91-bc10-198ef64157da">
+<span class="eqno">(272)<a class="headerlink" href="#equation-ff54a091-f95d-4d91-bc10-198ef64157da" title="Permalink to this equation">#</a></span>\[\begin{equation}
 ~~\sigma ^2 = \overline{(\lambda_i-\bar\lambda_i)^2}= \overline{\lambda^2} - \overline{\lambda}^2
 \end{equation}\]</div>
 <p class="sd-card-text">de aquí se sigue, para la <b>desviación estándar</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-dcb2e29a-c81a-4e10-8c8d-c9b1eea98b60">
-<span class="eqno">(279)<a class="headerlink" href="#equation-dcb2e29a-c81a-4e10-8c8d-c9b1eea98b60" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b05ab5a9-977a-4a21-9aeb-e64c6fce7910">
+<span class="eqno">(273)<a class="headerlink" href="#equation-b05ab5a9-977a-4a21-9aeb-e64c6fce7910" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma = \sqrt{\bra{\psi}A^2\ket{\psi} - \bra{\psi} A\ket{\psi}^2}
 \end{equation}\]</div>
 </div>

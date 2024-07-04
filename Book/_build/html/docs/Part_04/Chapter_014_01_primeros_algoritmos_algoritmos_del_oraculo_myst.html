@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 3 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/Fig_logo_UMA_scbi13.png"><img alt="../../_images/Fig_logo_UMA_scbi13.png" src="../../_images/Fig_logo_UMA_scbi13.png" style="width: 2000px;" /></a>
@@ -660,8 +660,8 @@ document.write(`
 <h1>Primeros algoritmos: algoritmos del oráculo.<a class="headerlink" href="#primeros-algoritmos-algoritmos-del-oraculo" title="Permalink to this heading">#</a></h1>
 <p>En esta capítulo veremos una clase de algoritmos denominados <b>algoritmos del oráculo</b>. Estos son una colección de tres algoritmos didácticos, en el sentido de que no tienen aplicación práctica más allá de ser suficientemente simples como para que sea buena idea empezar el estudio por ellos. Aún así, el tercero de estos algoritmos, el algoritmo de Simon, sirvió como inspiración para que Peter Shor construyera el famoso algoritmo que lleva su nombre, el algoritmo de factorización de Shor.</p>
 <p>Ya hemos visto que la computación cuántica destaca por su paralelismo. El ejemplo más fácil inicializar estado aplicando una puerta de Walsh-Hadammar sobre <span class="math notranslate nohighlight">\(n\)</span> qúbits. Si los <span class="math notranslate nohighlight">\(n\)</span> qúbits están en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> ya hemos visto que lo que obtenemos es la superposición uniforme de todos los estados de la base:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22ac381f-1d78-4e37-99f8-c1622fa51ba7">
-<span class="eqno">(548)<a class="headerlink" href="#equation-22ac381f-1d78-4e37-99f8-c1622fa51ba7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-40364b06-f902-4fee-ba28-e8f62ba01719">
+<span class="eqno">(542)<a class="headerlink" href="#equation-40364b06-f902-4fee-ba28-e8f62ba01719" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H^{\otimes n} \ket{0} = \ket{00\cdots0} + \ket{00\cdots1} + \cdots + \ket{11\cdots 1}
 \end{equation}\]</div>
 <p>Esto es una ventaja respecto a un cálculo clásico, pues en el caso clásico tendríamos que ir inicializando uno a uno los estados. Sin embargo, este paralelismo es, en cierta medida, una ilusión.  Si quisiéramos medir las amplitudes de todos los estados de este tipo de superposiciones, tendríamos que repetir el cálculo (es este caso, aplicar <span class="math notranslate nohighlight">\(H^{\otimes}\)</span>) un número exponencial de veces con el tamaño del registro <span class="math notranslate nohighlight">\(n\)</span>. Esto es debido a que, como ya se comento, al medir <b>destruimos</b> la superposición, así que si queremos volver a medir sobre el estado del principio, tenemos que volver a construirlo.</p>
@@ -671,8 +671,8 @@ H^{\otimes n} \ket{0} = \ket{00\cdots0} + \ket{00\cdots1} + \cdots + \ket{11\cdo
 <p class="admonition-title">Ejemplo</p>
 <p>Denotaremos el conjunto <span class="math notranslate nohighlight">\(S_n =\{0,1,...2^n-1 \}\sim \{0,1\}^n\)</span> indistintamente. Vamos a considerar una función binaria  <span class="math notranslate nohighlight">\(f:S_n \to S_1\)</span> implementada
 a través de un oráculo <span class="math notranslate nohighlight">\(O\)</span> que podemos consultar a placer. La implementación unitaria de <span class="math notranslate nohighlight">\(f\)</span> se realiza en la forma de un operador controlado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7685cd24-954a-42f5-893e-26f6caab0388">
-<span class="eqno">(549)<a class="headerlink" href="#equation-7685cd24-954a-42f5-893e-26f6caab0388" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fa22ccf-aa4e-493d-8af0-6db94f825491">
+<span class="eqno">(543)<a class="headerlink" href="#equation-4fa22ccf-aa4e-493d-8af0-6db94f825491" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {U_f} : \ket{x}_n\otimes \ket{y} \to \ket{x}_n\otimes \ket{y + f(x)}
 \end{equation}\]</div>
 <p>En particular, si <span class="math notranslate nohighlight">\(\ket{y} = \ket{-}\)</span> tendremos el oráculo <span class="math notranslate nohighlight">\(f(x)\)</span> <b>codificado en la fase</b>. Vamos a estudiar el circuito de la Fig. \ref{Fig_algoritmos_didac_Busqueda_Oraculo}</p>
@@ -698,13 +698,13 @@ a través de un oráculo <span class="math notranslate nohighlight">\(O\)</span>
 \frac{1}{2^n} \sum^{2^n -1}_{x,y=0} (-1)^{f(x)+x\cdot y}  \ket{y} \otimes \ket{-}  \hspace{0.5cm}  \text{(interferencia)} \, ,
 \end{align*}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e097219d-f509-446e-9093-d4790480080b">
-<span class="eqno">(550)<a class="headerlink" href="#equation-e097219d-f509-446e-9093-d4790480080b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72a994f5-f03a-4bed-ab4e-8aeb5a68bb52">
+<span class="eqno">(544)<a class="headerlink" href="#equation-72a994f5-f03a-4bed-ab4e-8aeb5a68bb52" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x\cdot y = x_{n-1} y_{n-1} \oplus x_{n-1} y_{n-1} \oplus \ldots \oplus x_0 y_0
 \end{equation}\]</div>
 <p>Vemos que el estado final está <b>factorizado</b>, por un lado tenemos el estado del primer registro</p>
 <div class="math notranslate nohighlight" id="equation-ec-algoritmos-psi">
-<span class="eqno">(551)<a class="headerlink" href="#equation-ec-algoritmos-psi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(545)<a class="headerlink" href="#equation-ec-algoritmos-psi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{\Phi} =  \frac{1}{2^n} \sum_{x,y=0}^{2^n-1}(-1)^{f(x)+ x \cdot y}\ket{y} \, .
 \end{equation} \]</div>
 <p>que se ha visto modificado debido al <b>retroceso de fase</b>, y por otro el estado del segundo registro, <span class="math notranslate nohighlight">\(\ket{-}\)</span>. Precisamente, como el estado de este último qúbit es independiente
@@ -716,7 +716,7 @@ de cómo sea <span class="math notranslate nohighlight">\(f(x)\)</span> podremos
 <p class="admonition-title">Nota (Recordatorio de la Walsh-Hadamard.)</p>
 <p>Ya que la vamos a usar mucho, recordemos la acción de la puerta de Walsh-Hadamard que vimos en la Ec. (\ref{ec_multiqubit_Walsh_H_sobre_x}):</p>
 <div class="math notranslate nohighlight" id="equation-ec-algoritmos-walsh-h-sobre-x">
-<span class="eqno">(552)<a class="headerlink" href="#equation-ec-algoritmos-walsh-h-sobre-x" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(546)<a class="headerlink" href="#equation-ec-algoritmos-walsh-h-sobre-x" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 H^{\otimes n} \ket{x} = \frac{1}{\sqrt{2^n}} \sum_{y \, =\, 0}^{2^n-1}(-1)^{x\cdot y} \ket{y} ~~ \text{ donde } x\cdot y = x_{n-1} y_{n-1} \oplus x_{n-1} y_{n-1} \oplus \ldots \oplus x_0 y_0
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(\oplus\)</span> se refiere a <b>suma binaria</b>, es decir, <span class="math notranslate nohighlight">\(x \cdot y\)</span> acaba valiendo 0 o 1.</p>

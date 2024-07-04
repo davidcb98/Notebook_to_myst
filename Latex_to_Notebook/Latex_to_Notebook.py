@@ -647,6 +647,7 @@ with open(file_name, 'r') as f:
             else:
                 find_itemize = True
 
+            # Esto es para que si estamos en un cuadro, temos los <br>
             if True in finds:
                 line = line.replace("\\\\begin{itemize}","<br>")
             else:
@@ -680,6 +681,11 @@ with open(file_name, 'r') as f:
                         line = "<br>\\n" + line
                     else:
                         line = " \\n" + line
+            else:
+                if find_itemize_2 == True:
+                    line = '        ' + line
+                else:
+                    line = '    ' + line
             """
             if True in finds:
                 line = line + '\\n",\n' + \

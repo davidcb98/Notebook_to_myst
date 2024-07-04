@@ -643,7 +643,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 8 min read</p>
+<div><p>Jul 04, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -678,7 +678,7 @@ document.write(`
 <h2>Estado inicial: superposición<a class="headerlink" href="#estado-inicial-superposicion" title="Permalink to this heading">#</a></h2>
 <p>Partimos de una superposición uniforme de <span class="math notranslate nohighlight">\(N\)</span> estados</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-1">
-<span class="eqno">(641)<a class="headerlink" href="#equation-ec-geo-phi-0-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(627)<a class="headerlink" href="#equation-ec-geo-phi-0-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \frac{1}{\sqrt{N}}  \sum_{i=0}^{N} | i \rangle.
 \end{equation} \]</div>
 <p>Esto no es más que decir que al inicio de la búsqueda, todas las opciones son igualmente probables (cualquier suposición de la ubicación de la solución es tan buena como cualquier otra).</p>
@@ -686,7 +686,7 @@ document.write(`
 <p class="admonition-title">Nota</p>
 <p>Recordemos que si <span class="math notranslate nohighlight">\(N=2^n\)</span>, donde <span class="math notranslate nohighlight">\(n\)</span> es el número de qúbits, este estado es fácil de construir, pues solo tenemos que aplicar puertas de Hadamard en todos los qúbits (partiendo estos del estado <span class="math notranslate nohighlight">\(|0 \rangle\)</span>):</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-h">
-<span class="eqno">(642)<a class="headerlink" href="#equation-ec-geo-phi-0-h" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(628)<a class="headerlink" href="#equation-ec-geo-phi-0-h" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi_0 \rangle = H^{\otimes n} |0 \rangle^{n} = \frac{1}{\sqrt{N}}  \sum_{i=0}^{N=2^n} | i \rangle.
 \end{equation} \]</div>
 </div>
@@ -706,17 +706,17 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 <p>El algoritmo de Grover consta de dos partes: un <b>oráculo</b> y un <b>difusor</b>. Para que el algoritmo maximice la probabilidad de la solución deseada tenemos realizar un número concreto de <b>iteraciones</b>. En cada iteración del algoritmo, primero se aplica el oráculo y después el difusor. Con cada iteración la probabilidad de medir la solución deseada va aumentando. Sin embargo, es muy importante aplicar el número correcto de iteraciones que nos maximiza la probabilidad, pues tanto si nos quedamos cortos como si nos pasamos, la probabilidad de medir <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> disminuye. Esto se va a entender muy bien a continuación, cuando veamos la explicación geométrica.</p>
 <p>Pongamos el estado inicial de la Ec. (\ref{ec_geo_phi-0_1}) de una forma más adecuada para nuestro propósito</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-2">
-<span class="eqno">(643)<a class="headerlink" href="#equation-ec-geo-phi-0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(629)<a class="headerlink" href="#equation-ec-geo-phi-0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi_0 \rangle = | \Psi (k(0),l(0)) \rangle = k(0) |\omega_0 \rangle + \sum_{i \neq \omega_0}  l(0)  |i \rangle}, \quad \text{donde} \quad \boxed{k(0) = l(0) = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
 <p>Denominaremos <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span> a los coeficientes que tendremos en la t-esima iteración del algoritmo, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j">
-<span class="eqno">(653)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(639)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle +  \sum_{i \neq \omega_0}^N l(t) |i \rangle }.
 \end{equation} \]</div>
-<p>Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> vive en un espacio de Hilbert de <span class="math notranslate nohighlight">\(N\)</span> dimensiones y los estados <span class="math notranslate nohighlight">\(| i \rangle\)</span>, con <span class="math notranslate nohighlight">\(i=0,1,\dots,N-1\)</span> , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye <span class="math notranslate nohighlight">\(\omega_0\)</span>, pues no es nada más que un valor de <span class="math notranslate nohighlight">\(i\)</span> concreto). Para entender bien esto, podemos fijamos en las Ecs. (\ref{ec_geo_phi-0_1}) y (\ref{ec_geo_phi-0_2}) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base\footnote{Esto es en esencia lo mismo que con vectores en tres dimensiones: <span class="math notranslate nohighlight">\(\vec{r} = a \hat{x} + b \hat{y} + c \hat{z}\)</span>}. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, donde este último es la suma de todos los demás elementos de la base, es decir:</p>
+<p>Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> vive en un espacio de Hilbert de <span class="math notranslate nohighlight">\(N\)</span> dimensiones y los estados <span class="math notranslate nohighlight">\(| i \rangle\)</span>, con <span class="math notranslate nohighlight">\(i=0,1,\dots,N-1\)</span> , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye <span class="math notranslate nohighlight">\(\omega_0\)</span>, pues no es nada más que un valor de <span class="math notranslate nohighlight">\(i\)</span> concreto). Para entender bien esto, podemos fijamos en las Ecs. (\ref{ec_geo_phi-0_1}) y (\ref{ec_geo_phi-0_2}) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, donde este último es la suma de todos los demás elementos de la base, es decir:</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j-s">
-<span class="eqno">(645)<a class="headerlink" href="#equation-ec-geo-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(631)<a class="headerlink" href="#equation-ec-geo-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle + l(t) \sqrt{N-1} | \omega^{\perp}  \rangle}, \quad \text{donde} \quad \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-1}}\sum_{i \neq \omega_0}^N  |i \rangle}.
 \end{equation} \]</div>
 <div class="note admonition">
@@ -724,13 +724,13 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 <p>Es importante darse cuenta de donde sale el factor <span class="math notranslate nohighlight">\(\sqrt{N-1}\)</span> en la definición de
 <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>. Este es debido a que estamos definiendo <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>
 como un vector unitario, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14d8a5e8-8e1b-440f-bf2c-4781d74e71f4">
-<span class="eqno">(646)<a class="headerlink" href="#equation-14d8a5e8-8e1b-440f-bf2c-4781d74e71f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-555402eb-f17c-432e-b064-63cca0ecab24">
+<span class="eqno">(632)<a class="headerlink" href="#equation-555402eb-f17c-432e-b064-63cca0ecab24" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle \omega^{\perp}| \omega^{\perp} \rangle = 1.
 \end{equation}\]</div>
 <p>Por otro lado, <span class="math notranslate nohighlight">\(|\Psi_0\rangle\)</span> también es unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1437c5df-e7d3-437a-a48a-cb8c3f3646eb">
-<span class="eqno">(647)<a class="headerlink" href="#equation-1437c5df-e7d3-437a-a48a-cb8c3f3646eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8b3b8231-fcef-4a2a-9464-747b4ad59b29">
+<span class="eqno">(633)<a class="headerlink" href="#equation-8b3b8231-fcef-4a2a-9464-747b4ad59b29" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \parallel |\Psi(t) \rangle \parallel^2 = \langle \Psi(t) | \Psi(t) \rangle =
 k(t)^2 + \sum_{i \neq \omega_0}^N l(t)^2 = k(t)^2 + l(t)^2 (N-1) = 1 .
 \end{equation}\]</div>
@@ -757,12 +757,12 @@ plano \)</span>XY$.</p>
 <figure class="align-center" id="fig-geo-1">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_1.png"><img alt="../../../_images/Fig_geo_1.png" src="../../../_images/Fig_geo_1.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 88 </span><span class="caption-text">Esto inicial del algoritmo de Grover: superposición uniforme de los <span class="math notranslate nohighlight">\(N\)</span> estados. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span class="xref myst">[32]</span>.</span><a class="headerlink" href="#fig-geo-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">Esto inicial del algoritmo de Grover: superposición uniforme de los <span class="math notranslate nohighlight">\(N\)</span> estados. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Sabemos también que todo vector en un plano podemos definirlo mediante su módulo y el ángulo respecto a uno de los ejes. Como el vector de estado tiene módulo uno (la suma de las probabilidades es uno), podemos escribirlo solo en función de un ángulo. Si llamamos <span class="math notranslate nohighlight">\(\theta_0\)</span> al ángulo que forman el vector de estado con el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, podemos escribir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-theta">
-<span class="eqno">(648)<a class="headerlink" href="#equation-ec-geo-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(634)<a class="headerlink" href="#equation-ec-geo-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \sin \theta_0 \, |\omega_0 \rangle + \cos \theta_0 \, | \omega^{\perp} \rangle, \qquad \text{donde} \qquad  \boxed{\sin \theta_0 =  \cos \theta_0 = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
 <p>En el gráfico de barras de la derecha en la Fig. \ref{Fig_geo_1} podemos ver las amplitudes de los estados. Recordemos que la probabilidad de un estado es el cuadrado de la amplitud.</p>
@@ -770,7 +770,7 @@ plano \)</span>XY$.</p>
 <h3>Primera parte de las iteraciones: El oráculo.<a class="headerlink" href="#primera-parte-de-las-iteraciones-el-oraculo" title="Permalink to this heading">#</a></h3>
 <p>El algoritmo de Grover usa un <b>oráculo</b> cuya función es aplicar una fase negativa al estado que buscamos, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-uw">
-<span class="eqno">(649)<a class="headerlink" href="#equation-ec-geo-uw" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(635)<a class="headerlink" href="#equation-ec-geo-uw" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{U_{\omega_0} | i \rangle =
 \lch
 \begin{matrix}
@@ -782,12 +782,12 @@ plano \)</span>XY$.</p>
 <p>Este oráculo no es más que una matriz diagonal con todo 1 en la diagonal menos en el elemento correspondiente al estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span>, donde tenemos un <span class="math notranslate nohighlight">\(-1\)</span>. Veremos más adelante ejemplos de como construir este tipo de oráculos. Podemos adelantar que, aunque no es trivial construirlos pues a priori parece que tenemos que conocer la solución de antemano, tampoco es (en muchos caso) excesivamente complicado.</p>
 <p>Una de las características importantes de este algoritmo es lo fácil que resulta convertir un problema a un oráculo de esta forma. Hay muchos problemas computacionales en los que es difícil encontrar una solución, pero relativamente fácil verificarla (problemas NP). Por ejemplo, podemos verificar fácilmente la solución de un sudoku comprobando que se cumplen todas las reglas. Para estos problemas, podemos crear una función <span class="math notranslate nohighlight">\(f\)</span> que tome una propuesta de solución <span class="math notranslate nohighlight">\(i\)</span> y nos devuelva <span class="math notranslate nohighlight">\(f(i)=0\)</span> si <span class="math notranslate nohighlight">\(i\)</span> no es solución (<span class="math notranslate nohighlight">\(i \neq  \omega_0\)</span>) y <span class="math notranslate nohighlight">\(f(i) = 1\)</span> si <span class="math notranslate nohighlight">\(i\)</span> es solución (<span class="math notranslate nohighlight">\(i \neq  \omega_0\)</span>). Podemos entonces definir el oráculo de la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-u-f">
-<span class="eqno">(650)<a class="headerlink" href="#equation-ec-geo-u-f" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(636)<a class="headerlink" href="#equation-ec-geo-u-f" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{U_{\omega_0} |i \rangle = (-1)^{f(i)} |i \rangle}.
 \end{equation} \]</div>
 <p>De esta forma, a matriz es ahora una matriz diagonal con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80b72a23-4b9a-4a52-83d5-dba140f2822e">
-<span class="eqno">(651)<a class="headerlink" href="#equation-80b72a23-4b9a-4a52-83d5-dba140f2822e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0cdff8e4-b056-4276-985c-a7b1a58e5b4b">
+<span class="eqno">(637)<a class="headerlink" href="#equation-0cdff8e4-b056-4276-985c-a7b1a58e5b4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Diag(U_{\omega_0})=\lc (-1)^{f(0)}, \, (-1)^{f(1)}, \dots , \, (-1)^{f(2^n-1)}    \rc .
 \end{equation}\]</div>
 <div class="note admonition">
@@ -817,7 +817,7 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
 <figure class="align-center" id="fig-geo-2">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_2.png"><img alt="../../../_images/Fig_geo_2.png" src="../../../_images/Fig_geo_2.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 90 </span><span class="caption-text">Primer paso del algoritmo de Grover: aplicación del <b>oráculo</b> <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> para cambiar el signo de la amplitud del estado deseado. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado, donde la línea punteada representa la media. Figura tomada de <span class="xref myst">[32]</span>.</span><a class="headerlink" href="#fig-geo-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 90 </span><span class="caption-text">Primer paso del algoritmo de Grover: aplicación del <b>oráculo</b> <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> para cambiar el signo de la amplitud del estado deseado. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado, donde la línea punteada representa la media. Figura tomada de <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -825,7 +825,7 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
 <h3>Segunda parte de las iteraciones: El difusor.<a class="headerlink" href="#segunda-parte-de-las-iteraciones-el-difusor" title="Permalink to this heading">#</a></h3>
 <p>El <b>difusor</b> consiste en aplicar el operador</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-us">
-<span class="eqno">(652)<a class="headerlink" href="#equation-ec-geo-us" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(638)<a class="headerlink" href="#equation-ec-geo-us" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I }.
 \end{equation} \]</div>
 <p>Este operador no es más que una reflexión respecto el estado inicial <span class="math notranslate nohighlight">\(|\Psi_0 \rangle\)</span>.</p>
@@ -833,24 +833,24 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
 <figure class="align-center" id="fig-geo-3">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_3.png"><img alt="../../../_images/Fig_geo_3.png" src="../../../_images/Fig_geo_3.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 91 </span><span class="caption-text">Segundo paso del algoritmo de Grover: aplicar el operador de <b>difusión</b> (o reflexión) <span class="math notranslate nohighlight">\(U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I\)</span>.  En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span class="xref myst">[32]</span>.</span><a class="headerlink" href="#fig-geo-3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 91 </span><span class="caption-text">Segundo paso del algoritmo de Grover: aplicar el operador de <b>difusión</b> (o reflexión) <span class="math notranslate nohighlight">\(U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I\)</span>.  En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Lo que estamos haciendo mediante la aplicación del oráculo y el difusor no es mas que <b>rotar el vector de estado un ángulo</b> <span class="math notranslate nohighlight">\(\bm{2 \theta_0}\)</span> (donde <span class="math notranslate nohighlight">\(\theta_0\)</span> está definido en la ec. (\ref{ec_geo_theta})) hacia el eje que representa nuestra solución, aumentando así su proyección, es decir, su amplitud, y con ello la probabilidad de medirlo.</p>
 <p>Después de <span class="math notranslate nohighlight">\(t\)</span> iteraciones hemos aumentado el ángulo en <span class="math notranslate nohighlight">\(2t\theta_0\)</span>, con lo que tenemos estado:</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j">
-<span class="eqno">(653)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(639)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = \lp U_{\Psi_0} U_{\omega_0} \rp^t | \Psi_0 \rangle} = \sin \lp (2t+1) \theta_0 \rp \, |\omega_0 \rangle + \cos \lp (2t+1) \theta_0 \rp \, | \omega^{\perp} \rangle.
 \end{equation} \]</div>
 <p>Podemos ahora definir el <b>operador de Grover</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-644659e0-5489-4d64-a2f3-3745f125ef3f">
-<span class="eqno">(654)<a class="headerlink" href="#equation-644659e0-5489-4d64-a2f3-3745f125ef3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a78c42b-8b1f-413f-86ae-876c82f78202">
+<span class="eqno">(640)<a class="headerlink" href="#equation-7a78c42b-8b1f-413f-86ae-876c82f78202" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G = U_{\Psi_0} U_{\omega_0}} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation}\]</div>
 <p>Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado <span class="math notranslate nohighlight">\(2 \theta_0\)</span> en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje <span class="math notranslate nohighlight">\(|\omega\rangle \)</span>. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es “pasarnos de largo” del eje. Discutiremos el número exacto de iteraciones en la sección \ref{sec_t-sols}, pero ya comentamos que es del orden de <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
 <p>Si comparamos las ecuaciones (\ref{ec_geo_phi-j-s}) y (\ref{ec_geo_phi-j}) vemos que</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-sin-cos">
-<span class="eqno">(655)<a class="headerlink" href="#equation-ec-geo-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(641)<a class="headerlink" href="#equation-ec-geo-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{k(t) = \sin \Lc (2t+1) \theta_0 \Rc}
 &amp; \boxed{l(t) = \frac{1}{\sqrt{N-1}}\cos \Lc (2t+1) \theta_0 \Rc}.
 \end{align} \]</div>

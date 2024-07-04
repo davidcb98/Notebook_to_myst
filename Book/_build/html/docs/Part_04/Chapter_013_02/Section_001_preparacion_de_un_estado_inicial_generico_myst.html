@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi15.png"><img alt="../../../_images/Fig_logo_UMA_scbi15.png" src="../../../_images/Fig_logo_UMA_scbi15.png" style="width: 2000px;" /></a>
@@ -659,19 +659,19 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="preparacion-de-un-estado-inicial-generico">
 <h1>Preparación de un estado inicial genérico<a class="headerlink" href="#preparacion-de-un-estado-inicial-generico" title="Permalink to this heading">#</a></h1>
 <p>En general, la preparación de un estado inicial arbitrario (así como el borrado de un estado) no es una operación, en general, eficiente. Esto es porque, en general, esta preparación implica fijar <span class="math notranslate nohighlight">\(2^n\)</span> números complejos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-211d4e30-8ef2-496b-9a27-f1c74974a2b3">
-<span class="eqno">(536)<a class="headerlink" href="#equation-211d4e30-8ef2-496b-9a27-f1c74974a2b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8b6ff952-e372-45e2-9daf-586b5465e408">
+<span class="eqno">(530)<a class="headerlink" href="#equation-8b6ff952-e372-45e2-9daf-586b5465e408" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U \, : \, \ket{0} \rightarrow \sum_{i=0}^{2^n-1} c_i \ket{i}
 \end{equation}\]</div>
 <p>Como podemos ver, la complejidad no es polinómica, sino exponencial.</p>
 <p>Veamos uno de los algoritmos más simples (los hay mas refinados) para preparar un estado inicial arbitrario. Separemos las amplitudes complejas en módulo y fase</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0b96ceb-1caf-4b19-a0e2-01f5f419eb7d">
-<span class="eqno">(537)<a class="headerlink" href="#equation-b0b96ceb-1caf-4b19-a0e2-01f5f419eb7d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-26f81517-8bfa-4c2f-90a6-bfdb7f3246df">
+<span class="eqno">(531)<a class="headerlink" href="#equation-26f81517-8bfa-4c2f-90a6-bfdb7f3246df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_i = a_i e^{\gamma_i} ~, ~~~~ \text{donde } a_i = |c_i|
 \end{equation}\]</div>
 <p>Veamos el caso <span class="math notranslate nohighlight">\(n=2\)</span>. El circuito que nos permite preparar un estado genérico es el de la Fig. \ref{Fig_InicialOracle_preparestatecircuit}, donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-556177fa-1853-499e-8da6-6f513a344973">
-<span class="eqno">(538)<a class="headerlink" href="#equation-556177fa-1853-499e-8da6-6f513a344973" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b066cd1-1fb3-48c1-a9e7-247797679a6f">
+<span class="eqno">(532)<a class="headerlink" href="#equation-6b066cd1-1fb3-48c1-a9e7-247797679a6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 R_y(\theta) = \begin{bmatrix} \cos\frac{\theta}{2} &amp; -\sin\frac{\theta}{2} \\
 \sin\frac{\theta}{2}  &amp; \cos\frac{\theta}{2} \end{bmatrix}~~~~, ~~~~~
 D(\gamma_i,\gamma_j ) = \begin{bmatrix} e^{i\gamma_i} &amp; 0 \\ 0 &amp; e^{i\gamma_j} \end{bmatrix} = K(\gamma_i) P(\gamma_j-\gamma_i)
@@ -701,8 +701,8 @@ a_4 &amp;=  \sqrt{1-a_1^3-a_2^2-a_3^2}
 \end{align*}\]</div>
 <p>sólo necesitamos 3 ángulos para representar 4 amplitudes debido a la ligadura <span class="math notranslate nohighlight">\(\sum_i a_i^2 = 1\)</span>.
 Una vez fijadas las amplitudes, la última parte del circuito es equivalente al  operador unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f0af3e2-3430-439f-80ca-54229f732a83">
-<span class="eqno">(539)<a class="headerlink" href="#equation-0f0af3e2-3430-439f-80ca-54229f732a83" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-978fc795-28b5-4618-9641-8702dc0f726d">
+<span class="eqno">(533)<a class="headerlink" href="#equation-978fc795-28b5-4618-9641-8702dc0f726d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U =
 \begin{bmatrix}
 e^{i\gamma_1} &amp; 0 &amp; 0 &amp; 0    \\
@@ -718,8 +718,8 @@ K(\gamma_1)P(\gamma_2-\gamma_1) &amp; 0   \\
 \end{equation}\]</div>
 <p>Evidentemente este circuito no puede ser eficiente puesto que es necesario ajustar un número <span class="math notranslate nohighlight">\(2\cdot 2^n-1\)</span> de parámetros (el número de puertas crece exponencialmente)</p>
 <p>Sin embargo, no todo está perdido. Como ya veremos, muchos algoritmo aprovechan que ciertos estados son más fáciles de preparar que otros.  Por ejemplo el estado inicial que es una superposición homogénea de elementos de la base</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c129592-cec2-4218-b12a-9a62fe09dc68">
-<span class="eqno">(540)<a class="headerlink" href="#equation-8c129592-cec2-4218-b12a-9a62fe09dc68" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b63fe6d1-4202-4047-a37d-fec4beeec481">
+<span class="eqno">(534)<a class="headerlink" href="#equation-b63fe6d1-4202-4047-a37d-fec4beeec481" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = W \ket{0}  = \ket{+}^{\otimes n}= \frac{1}{\sqrt{n}}\sum_{i=1}^{2^n-1} \ket{i}
 \end{equation}\]</div>
 <p>se obtiene con un circuito de  <b>coste</b> = <span class="math notranslate nohighlight">\(n~\)</span>  y <span class="math notranslate nohighlight">\(~\)</span> <b>profundidad</b>=1 (aplicando una puerta de Hadammar a cada qúbit). Este caso es el ejemplo de superposición perfecta. De una tacada estamos fijando los <span class="math notranslate nohighlight">\(2^n\)</span> números complejos.</p>

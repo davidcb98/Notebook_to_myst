@@ -640,7 +640,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 3 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -671,8 +671,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="numero-conocido-de-soluciones">
 <span id="sec-t-sols"></span><h1>Número conocido de soluciones.<a class="headerlink" href="#numero-conocido-de-soluciones" title="Permalink to this heading">#</a></h1>
 <p>Vamos a empezar el análisis formal tratando el caso en el que <b>conocemos el número <span class="math notranslate nohighlight">\(\bm M\)</span> de soluciones</b> que hay en nuestro dataset. Es decir, tenemos <span class="math notranslate nohighlight">\(M\)</span> valores diferentes <span class="math notranslate nohighlight">\(i\)</span> que cumplen <span class="math notranslate nohighlight">\(L_i=x\)</span>. Denominemos <span class="math notranslate nohighlight">\(\omega\)</span> al conjunto de los <span class="math notranslate nohighlight">\(M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que son solución, y denominemos <span class="math notranslate nohighlight">\(\omega^\perp\)</span> al conjunto de los <span class="math notranslate nohighlight">\(N-M\)</span> valores <span class="math notranslate nohighlight">\(i\)</span> que no son solución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31a3e536-d4fc-4fb6-a51e-47b699e54bce">
-<span class="eqno">(656)<a class="headerlink" href="#equation-31a3e536-d4fc-4fb6-a51e-47b699e54bce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-106ac9cf-1e5d-4ec7-a1a9-540391f955ee">
+<span class="eqno">(642)<a class="headerlink" href="#equation-106ac9cf-1e5d-4ec7-a1a9-540391f955ee" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \boxed{\omega = \lch i | L_{i} = x \rch }
 &amp; \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
 \end{align}\]</div>
@@ -691,53 +691,53 @@ Esto implica que podemos tener los siguientes casos:</p>
 <h2>Generalización de las expresiones de la sección \ref{sec_geo} para <span class="math notranslate nohighlight">\(M\)</span> soluciones.<a class="headerlink" href="#generalizacion-de-las-expresiones-de-la-seccion-ref-sec-geo-para-m-soluciones" title="Permalink to this heading">#</a></h2>
 <p>Vemos a reescribir las ecuaciones enmarcadas de la sección \ref{sec_geo} para el caso de <span class="math notranslate nohighlight">\(M\)</span> soluciones. Empecemos reescribiendo las expresiones del estado inicial de la Ec. (\ref{ec_geo_phi-0_2}) y del estado <span class="math notranslate nohighlight">\(|\Psi_j \rangle \)</span> de la Ec. (\ref{ec_geo_phi-j})</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-phi-0">
-<span class="eqno">(657)<a class="headerlink" href="#equation-ec-t-sols-phi-0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(643)<a class="headerlink" href="#equation-ec-t-sols-phi-0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi_0 \rangle = | \Psi (k(0),l(0)) \rangle = \sum_{i \in \omega} k(0) |i \rangle + \sum_{i  \in \omega^{\perp}}  l(0)  |i \rangle}, \quad \text{donde} \quad \boxed{k(0) = l(0) = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-phi-j">
-<span class="eqno">(658)<a class="headerlink" href="#equation-ec-t-sols-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(644)<a class="headerlink" href="#equation-ec-t-sols-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = \sum_{i \in \omega} k(t) |i \rangle + \sum_{i  \in \omega^{\perp}} l(t) |i \rangle }.
 \end{equation} \]</div>
 <p>Vemos que ahora el primer sumatorio tiene <span class="math notranslate nohighlight">\(M\)</span> elementos, mientras que el segundo tiene <span class="math notranslate nohighlight">\(N-M\)</span>. Por supuesto, se cumple que <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> tiene módulo 1, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-mod-1">
-<span class="eqno">(659)<a class="headerlink" href="#equation-ec-t-sols-mod-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(645)<a class="headerlink" href="#equation-ec-t-sols-mod-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \langle \Psi(t) |\Psi(t) \rangle = \boxed{ M k(t)^2 + (N-M) l(t)^2 = 1 \, \, \forall t}.
 \end{equation} \]</div>
 <p>Podemos ahora también redefinir el estado <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span> de la Ec. (\ref{ec_geo_phi-j-s}) y definir <span class="math notranslate nohighlight">\(| \omega \rangle\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-omega-omega-perp">
-<span class="eqno">(660)<a class="headerlink" href="#equation-ec-t-sols-omega-omega-perp" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(646)<a class="headerlink" href="#equation-ec-t-sols-omega-omega-perp" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-M}}\sum_{i \in \omega^{\perp}}  |i \rangle}
 &amp; \boxed{| \omega  \rangle = \frac{1}{\sqrt{M}}\sum_{i \in \omega} | i \rangle}
 \end{align} \]</div>
 <p>de forma que</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-phi-j-s">
-<span class="eqno">(661)<a class="headerlink" href="#equation-ec-t-sols-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(647)<a class="headerlink" href="#equation-ec-t-sols-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle =  k(t) \sqrt{M} |\omega \rangle + l(t) \sqrt{N-M} | \omega^{\perp}  \rangle}.
 \end{equation} \]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Nuevamente, los factores <span class="math notranslate nohighlight">\(\sqrt{N-M}\)</span> y <span class="math notranslate nohighlight">\(\sqrt{M}\)</span> en las definiciones de <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega \rangle\)</span> son para hacerlos vectores unitarios</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8625c750-0429-414d-b2fc-2c1c34cd7d47">
-<span class="eqno">(662)<a class="headerlink" href="#equation-8625c750-0429-414d-b2fc-2c1c34cd7d47" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cabcfd68-89b6-4631-81c2-47761a235dda">
+<span class="eqno">(648)<a class="headerlink" href="#equation-cabcfd68-89b6-4631-81c2-47761a235dda" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; \langle \omega^{\perp} | \omega^{\perp} \rangle = 1
 &amp; \langle \omega | \omega \rangle = 1 .
 \end{align}\]</div>
 </div>
 <p>Veamos ahora la expresión del esto inicial en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span> de la Ec. (\ref{ec_geo_theta})</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-theta">
-<span class="eqno">(663)<a class="headerlink" href="#equation-ec-t-sols-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(649)<a class="headerlink" href="#equation-ec-t-sols-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \sin \theta \, |\omega \rangle + \cos \theta \, | \omega^{\perp} \rangle, \qquad \text{donde} \qquad  \boxed{\sin \theta = \sqrt{\frac{M}{N}}}.
 \end{equation} \]</div>
 <p>Nuevamente, comparando las Ecs. (\ref{ec_t-sols_theta}) y (\ref{ec_t-sols_phi-j-s}) obtenemos las expresiones de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span> en función del ángulo <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-sin-cos">
-<span class="eqno">(664)<a class="headerlink" href="#equation-ec-t-sols-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(650)<a class="headerlink" href="#equation-ec-t-sols-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{k(t) = \frac{1}{\sqrt{M}} \sin \Lc (2t+1) \theta \Rc}
 &amp; \boxed{l(t) = \frac{1}{\sqrt{N-M}}\cos \Lc (2t+1) \theta \Rc}.
 \end{align} \]</div>
 <p>Vemos que estas expresiones cumplen la Ec. (\ref{ec_t-sols_mod_1})
 Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), tenemos que el oráculo (\ref{ec_geo_Uw}), el difusor (\ref{ec_geo_Us}) nos quedan:</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-uw-us">
-<span class="eqno">(665)<a class="headerlink" href="#equation-ec-t-sols-uw-us" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
+<span class="eqno">(651)<a class="headerlink" href="#equation-ec-t-sols-uw-us" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
 &amp; \boxed{U_\omega | i \rangle =
 \lch
 \begin{matrix}
@@ -749,7 +749,7 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 \end{align} \end{split}\]</div>
 <p>donde recordemos que denominamos operador de Grover a</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-g">
-<span class="eqno">(666)<a class="headerlink" href="#equation-ec-t-sols-g" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(652)<a class="headerlink" href="#equation-ec-t-sols-g" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{G = U_{\Psi_0} U_\omega} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation} \]</div>
 <p>Véase que el caso particular de una solución es, efectivamente, aquel con <span class="math notranslate nohighlight">\(M=1\)</span>.</p>
@@ -757,24 +757,24 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 <section id="numero-de-iteraciones">
 <h2>Número de iteraciones.<a class="headerlink" href="#numero-de-iteraciones" title="Permalink to this heading">#</a></h2>
 <p>Denominemos <span class="math notranslate nohighlight">\(\bm T\)</span> al <b>número de iteraciones para el cual la probabilidad de medir la solución correcta se maximiza</b>. Es decir, <span class="math notranslate nohighlight">\(l(T) \approx 0\)</span> y <span class="math notranslate nohighlight">\(k(T) \approx 1\)</span>. Sabemos que <span class="math notranslate nohighlight">\(l(\tilde{T}) =0\)</span> cuando el coseno es igual cero, es decir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c25d45b-7709-47a7-8ff8-64499f793bc3">
-<span class="eqno">(667)<a class="headerlink" href="#equation-4c25d45b-7709-47a7-8ff8-64499f793bc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-20a71a45-3817-4976-9b07-ff773bee3ffa">
+<span class="eqno">(653)<a class="headerlink" href="#equation-20a71a45-3817-4976-9b07-ff773bee3ffa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 l(\tilde{T}) = 0 \rqa (2\tilde{T}+1) \theta = \frac{\pi}{2} \rqa \tilde{T} = \frac{\pi}{4 \theta} - \frac{1}{2}.
 \end{equation}\]</div>
 <p>Por regla general, este valor <span class="math notranslate nohighlight">\(\tilde{T}\)</span> no será un entero. Tomemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54a3468d-e473-43fc-b4c9-2d7698a60c13">
-<span class="eqno">(668)<a class="headerlink" href="#equation-54a3468d-e473-43fc-b4c9-2d7698a60c13" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0bbc5312-5150-48a9-9cb0-9c970138e878">
+<span class="eqno">(654)<a class="headerlink" href="#equation-0bbc5312-5150-48a9-9cb0-9c970138e878" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T = \lfloor \pi / 4 \theta \rfloor
 \end{equation}\]</div>
 <p>donde la notación <span class="math notranslate nohighlight">\(\lfloor \alpha \rfloor\)</span> quiere decir que <b>redondeamos a un entero por truncamiento</b>. Véase que <span class="math notranslate nohighlight">\(|T-\tilde{T}| \leq 1/2\)</span>. Se sigue que <span class="math notranslate nohighlight">\(|(2T+1)\theta - (2\tilde{T}+1)\theta | \leq \theta \)</span>. Pero <span class="math notranslate nohighlight">\((2 \tilde{T}+1) \theta = \pi/2\)</span> por definición de <span class="math notranslate nohighlight">\(\tilde{T}\)</span>. Con lo cual <span class="math notranslate nohighlight">\(\left| \cos \Lp (2T+1) \theta \Rp \right| \leq | \sin \theta |\)</span>. Concluimos entonces que la probabilidad de fallo después de <span class="math notranslate nohighlight">\(T = \lfloor \pi / 4 \theta \rfloor\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e19a3055-3b64-44c4-8b57-ca72ce6c6563">
-<span class="eqno">(669)<a class="headerlink" href="#equation-e19a3055-3b64-44c4-8b57-ca72ce6c6563" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5dbdb4a0-0ebd-4169-953e-a35e14a47b46">
+<span class="eqno">(655)<a class="headerlink" href="#equation-5dbdb4a0-0ebd-4169-953e-a35e14a47b46" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (N-M)l^2(T) = \cos^2 \Lp (2T+1) \theta \Rp \leq \sin^2 \theta = \frac{M}{N}
 \end{equation}\]</div>
 <p>que es despreciable si <span class="math notranslate nohighlight">\(M \ll N\)</span>. Véase que el <span class="math notranslate nohighlight">\((N-M)\)</span> de la expresión anterior es porque hay <span class="math notranslate nohighlight">\((N-M)\)</span> estados incorrectos que podemos medir, cada uno de ellos con probabilidad <span class="math notranslate nohighlight">\(l^2(T)\)</span>.</p>
 <p>Véase que el algoritmo corre en un tiempo del orden de <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> ya que</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-m">
-<span class="eqno">(670)<a class="headerlink" href="#equation-ec-t-sols-m" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(656)<a class="headerlink" href="#equation-ec-t-sols-m" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 T \leq \frac{\pi}{4 \theta} \approx \frac{\pi}{4 \sin \theta} \approx \frac{\pi}{4} \sqrt{\frac{N}{M}} \rqa \boxed{T = \left\lfloor \frac{\pi}{4} \sqrt{\frac{N}{M}} \right\rfloor}.
 \end{equation} \]</div>
 </section>
@@ -782,17 +782,17 @@ T \leq \frac{\pi}{4 \theta} \approx \frac{\pi}{4 \sin \theta} \approx \frac{\pi}
 <h2>Extra: Formulación recursiva de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span>.<a class="headerlink" href="#extra-formulacion-recursiva-de-k-t-y-l-t" title="Permalink to this heading">#</a></h2>
 <p>Ya hemos comentado en cada iteración se aplican lo dos operadores de la Ec. (\ref{ec_t-sols_Uw_Us}), es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-psi-j-1-j">
-<span class="eqno">(671)<a class="headerlink" href="#equation-ec-t-sols-psi-j-1-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(657)<a class="headerlink" href="#equation-ec-t-sols-psi-j-1-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi{(t+1)} \rangle = U_{\Psi_0} U_\omega |\Psi(t) \rangle.
 \end{equation} \]</div>
 <p>Desarrollemos esta expresión para ver la relación de recursivida de los coeficientes, es decir, para ver la expresión de <span class="math notranslate nohighlight">\(k(t+1)\)</span> y <span class="math notranslate nohighlight">\(l(t+1)\)</span> en función de <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span>. Primero vamos el término <span class="math notranslate nohighlight">\(U_\omega |\Psi(t) \rangle\)</span> usando la expresión de <span class="math notranslate nohighlight">\(U_\omega\)</span> de la Ec. (\ref{ec_t-sols_Uw_Us}):</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-aux-1">
-<span class="eqno">(672)<a class="headerlink" href="#equation-ec-t-sols-aux-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(658)<a class="headerlink" href="#equation-ec-t-sols-aux-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 U_\omega |\Psi(t) \rangle =  - k(t)  \sqrt{M}|\omega \rangle + l(t) \sqrt{N-M} | \omega^{\perp} \rangle.
 \end{equation} \]</div>
 <p>Desarrollemos un poco la Ec. (\ref{ec_t-sols_Psi_j+1_j}) usando la expresión de <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> de la  Ec. (\ref{ec_t-sols_Uw_Us})</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-aux-2">
-<span class="eqno">(673)<a class="headerlink" href="#equation-ec-t-sols-aux-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(659)<a class="headerlink" href="#equation-ec-t-sols-aux-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \begin{split}
 |\Psi(t+1) \rangle &amp; =  U_{\Psi_0} U_\omega |\Psi(t) \rangle  \\
 &amp; =  \Bigl( 2 |\Psi_0 \rangle \langle \Psi_0 | - I \Bigr) U_\omega |\Psi(t) \rangle  \\
@@ -801,7 +801,7 @@ U_\omega |\Psi(t) \rangle =  - k(t)  \sqrt{M}|\omega \rangle + l(t) \sqrt{N-M} |
 \end{equation} \end{split}\]</div>
 <p>Usando la Ec. (\ref{ec_t-sols_aux_1}) el término <span class="math notranslate nohighlight">\(\langle \Psi_0 |  U_\omega |\Psi(t) \rangle\)</span> nos queda</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-aux-3">
-<span class="eqno">(674)<a class="headerlink" href="#equation-ec-t-sols-aux-3" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(660)<a class="headerlink" href="#equation-ec-t-sols-aux-3" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \langle \Psi_0 | U_\omega |\Psi(t) \rangle = \frac{1}{\sqrt{N}} \Lp -k(t) M + (N-M) l(t) \Rp.
 \end{equation} \]</div>
 <div class="tip admonition">
@@ -826,7 +826,7 @@ usando la Ec. (\ref{ec_t-sols_aux_1})</p>
 </div>
 <p>Sustituyendo (\ref{ec_t-sols_aux_1}) y (\ref{ec_t-sols_aux_3}) en (\ref{ec_t-sols_aux_2}) tenemos:</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-aux-4">
-<span class="eqno">(675)<a class="headerlink" href="#equation-ec-t-sols-aux-4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(661)<a class="headerlink" href="#equation-ec-t-sols-aux-4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi(t+1) \rangle  = \lp \frac{N-2M}{N} k(t) + \frac{2(N-M)}{N} l(t) \rp \sum_{i \in \omega} | i \rangle + \lp \frac{N-2M}{N} l(t) - \frac{2M}{N} k(t) \rp \sum_{i \in \omega^{\perp}} | i \rangle.
 \end{equation} \]</div>
 <div class="tip admonition">
@@ -847,7 +847,7 @@ Ec. (\ref{ec_t-sols_omega_omega-perp}), llegamos a la Ec. (\ref{ec_t-sols_aux_4}
 </div>
 <p>Finalmente llegamos a las relaciones:</p>
 <div class="math notranslate nohighlight" id="equation-ec-t-sols-k-l-j-1">
-<span class="eqno">(676)<a class="headerlink" href="#equation-ec-t-sols-k-l-j-1" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(662)<a class="headerlink" href="#equation-ec-t-sols-k-l-j-1" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{k(t+1) = \frac{N-2M}{N} k(t) + \frac{2(N-M)}{N} l(t)},
 &amp; \boxed{l(t+1) = \frac{N-2M}{N} l(t) - \frac{2M}{N}k(t)}.
 \end{align} \]</div>

@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi5.png"><img alt="../../../_images/Fig_logo_UMA_scbi5.png" src="../../../_images/Fig_logo_UMA_scbi5.png" style="width: 2000px;" /></a>
@@ -672,20 +672,29 @@ document.write(`
 <section id="parametrizacion-del-estado-de-un-qubit">
 <h2>Parametrización del estado de un qúbit.<a class="headerlink" href="#parametrizacion-del-estado-de-un-qubit" title="Permalink to this heading">#</a></h2>
 <p>Como ya sabemos, en un bit clásico podemos almacenar un valor, o 0 o 1. La pregunta ahora es, ¿cuánta información podemos almacenar en un qúbit? De forma genérica, el <b>estado de un qubit</b> se puede representar como</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17f96ce2-e313-4a7d-b780-3f6189c1296b">
-<span class="eqno">(340)<a class="headerlink" href="#equation-17f96ce2-e313-4a7d-b780-3f6189c1296b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e09c3889-42f5-4619-831e-52c896a89d06">
+<span class="eqno">(334)<a class="headerlink" href="#equation-e09c3889-42f5-4619-831e-52c896a89d06" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = a \ket{0} + b \ket{1}, ~~~~ \text{con } a,b \in \mathbb{C}
 \end{equation}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Habitualmente, se denomina simplemente <b>qúbit</b> al <b>estado del qúbit</b>.</p>
 </div>
-<p>En principio, como <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son complejos tenemos 4 grados de libertas. Sin embargo, tenemos una ligadura, la normalización\footnote{El estado completo de un sistema cuántico debe estar normalizada a <span class="math notranslate nohighlight">\(1\)</span>, pues la probabilidad de medir algo alguno de los estados debe de ser el 100 %} del estado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22c77c8d-c019-4434-8cbc-54e0c7a12244">
-<span class="eqno">(341)<a class="headerlink" href="#equation-22c77c8d-c019-4434-8cbc-54e0c7a12244" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>En principio, como <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son complejos tenemos 4 grados de libertas. Sin embargo, tenemos una ligadura, la normalización del estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-725b6f44-634d-4009-905d-b2f1c50e497b">
+<span class="eqno">(335)<a class="headerlink" href="#equation-725b6f44-634d-4009-905d-b2f1c50e497b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |a|^2 + |b|^2 = 1,
 \end{equation}\]</div>
-<p>lo que nos deja 3 grados de libertar. Además, como en mecánica cuántica las fases globales\footnote{Al multiplicar un estado por una fase de la forma <span class="math notranslate nohighlight">\(e^{i \phi}\)</span>, el estado es el mismo} no tienen significado, perdemos otro grado de libertad. Nos quedamos pues con dos grados de libertar (reales), es decir, solo necesitamos dos parámetros reales para parametrizar el estado estado de un qubit. La parametrización más habitual se presenta en el siguiente lemma:</p>
+<p>lo que nos deja 3 grados de libertar.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (Normalización de un estado)</p>
+<p>El estado completo de un sistema cuántico debe estar normalizada a <span class="math notranslate nohighlight">\(1\)</span>, pues la probabilidad de medir algo alguno de los estados debe de ser el 100 %</p>
+</div>
+<p>Además, como en mecánica cuántica las fases globales no tienen significado, perdemos otro grado de libertad. Nos quedamos pues con dos grados de libertar (reales), es decir, solo necesitamos dos parámetros reales para parametrizar el estado estado de un qubit. La parametrización más habitual se presenta en el siguiente lemma:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota (las fases gobales)</p>
+<p>Al multiplicar un estado por una fase de la forma <span class="math notranslate nohighlight">\(e^{i \phi}\)</span>, el estado es el mismo</p>
+</div>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><b>Lema</b>:</p>
@@ -694,7 +703,7 @@ document.write(`
 <p class="sd-card-text">El <b>qúbit</b> <span class="math notranslate nohighlight">\(\ket{u}\)</span>  <b>más general</b> se puede representar, en la base computacional
 <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1}\}\)</span>, usando dos números reales (ángulos) <span class="math notranslate nohighlight">\(\theta\in [0,\pi)\)</span> y <span class="math notranslate nohighlight">\(\varphi\in [0,2\pi)\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-qubit-caso-general">
-<span class="eqno">(342)<a class="headerlink" href="#equation-ec-qubit-caso-general" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(336)<a class="headerlink" href="#equation-ec-qubit-caso-general" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\ket{u} = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\varphi}\sin{\frac{\theta}{2}}\,|1\rangle }
 \end{equation} \]</div>
 </div>
@@ -708,8 +717,8 @@ Demostración<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Para demostrar el lema escribimos un vector de estado general usando la representación polar para
 las componentes complejas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9273aa52-8658-45c7-a897-8b56cb939eea">
-<span class="eqno">(343)<a class="headerlink" href="#equation-9273aa52-8658-45c7-a897-8b56cb939eea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-330325b8-d192-4e50-814f-cc7f03d0d066">
+<span class="eqno">(337)<a class="headerlink" href="#equation-330325b8-d192-4e50-814f-cc7f03d0d066" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{array}{rcl}
 \ket{u} &amp;=&amp; u_0\ket{0} + u_1\ket{1} \\
 &amp;=&amp; a_0 e^{i b_0}\ket{0} + a_1 e^{ib_1}\ket{1}\\
@@ -720,20 +729,20 @@ las componentes complejas</p>
 <p class="sd-card-text">donde hemos hecho uso de la irrelevancia de una fase global para descartar <span class="math notranslate nohighlight">\(e^{i b_0}\)</span> en la última línea.</p>
 <p class="sd-card-text">Ahora <span class="math notranslate nohighlight">\(a_1\)</span> y <span class="math notranslate nohighlight">\(a_0\)</span> no son números independientes sino que verifican <span class="math notranslate nohighlight">\(a_0^2 + a_1^2 = 0\)</span> para que
 <span class="math notranslate nohighlight">\(\|\ket{u}\|=1\)</span>. Esta ecuación se puede resolver en términos de un ángulo <span class="math notranslate nohighlight">\(\theta/2\)</span> tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f5b76b7-5709-46a9-a17f-80e45855676a">
-<span class="eqno">(344)<a class="headerlink" href="#equation-7f5b76b7-5709-46a9-a17f-80e45855676a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d56b86e3-33b8-417c-89f1-352ca065ffa8">
+<span class="eqno">(338)<a class="headerlink" href="#equation-d56b86e3-33b8-417c-89f1-352ca065ffa8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a_0 = \cos\frac{\theta}{2}~~~,~~~ a_1 = \sin\frac{\theta}{2}
 \end{equation}\]</div>
 <p class="sd-card-text">Por su parte, de los números <span class="math notranslate nohighlight">\(b_1, b_2\)</span> sólo la diferencia</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6401c62-c883-4294-84a0-34a5df9317c5">
-<span class="eqno">(345)<a class="headerlink" href="#equation-b6401c62-c883-4294-84a0-34a5df9317c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cdf95ef7-6c45-4250-8479-3684f7b54cae">
+<span class="eqno">(339)<a class="headerlink" href="#equation-cdf95ef7-6c45-4250-8479-3684f7b54cae" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \varphi = b_1-b_2
 \end{equation}\]</div>
 <p class="sd-card-text">es relevante para especificar <span class="math notranslate nohighlight">\(\ket{u}\)</span>.</p>
 </div>
 </details><p>En componentes escribimos equivalentemente</p>
 <div class="math notranslate nohighlight" id="equation-ec-qubit-vec-estado">
-<span class="eqno">(346)<a class="headerlink" href="#equation-ec-qubit-vec-estado" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(340)<a class="headerlink" href="#equation-ec-qubit-vec-estado" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{\ket{u} = \begin{bmatrix} &amp; \cos \frac{\theta}{2} \\ &amp; e^{i \psi}  \sin \frac{\theta}{2} \end{bmatrix}
 ~~~~ \text{con } \theta\in [0,\pi) \text{ y } \phi\in [0,2\pi)}
 \end{equation} \end{split}\]</div>
@@ -759,7 +768,7 @@ es el <b>ecuador de la esfera de Bloch</b>.</p></li>
 <figure class="align-center" id="fig-qubit-blochsphere">
 <a class="reference internal image-reference" href="../../../_images/Fig_qubit_BlochSphere.png"><img alt="../../../_images/Fig_qubit_BlochSphere.png" src="../../../_images/Fig_qubit_BlochSphere.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Esfera de Bloch. Figura tomada de <span class="xref myst">[1]</span></span><a class="headerlink" href="#fig-qubit-blochsphere" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Esfera de Bloch. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id2" title="Javier Mas Sole. Curso de formación interna del proyecto de quantumspain. 2022.">64</a>]</span></span><a class="headerlink" href="#fig-qubit-blochsphere" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Véase que no estamos representando vectores en un espacio tridimensional, sino algo completamente diferente. En el espacio <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, dos vectores son ortogonales si forman un ángulo de 90º. Sin embargo, en la esfera de Bloch <i>dos vectores son ortonales (en realidad, ortonormales) si apuntan en direcciones opuestas</i>. Por ejemplo, ya comentamos que los estados <span class="math notranslate nohighlight">\(\ket{0}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span> forman una base ortonormal. Si nos fijamos, en la esfera de Bloch el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> está en el polo norte y el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> en el polo sur. Lo mismo pasa con <span class="math notranslate nohighlight">\(\ket{0}_X\)</span> y <span class="math notranslate nohighlight">\(\ket{1}_X\)</span> y con <span class="math notranslate nohighlight">\(\ket{0}_Y\)</span> y <span class="math notranslate nohighlight">\(\ket{1}_Y\)</span>.</p>

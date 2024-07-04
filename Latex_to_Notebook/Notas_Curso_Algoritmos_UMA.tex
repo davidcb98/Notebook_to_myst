@@ -957,12 +957,7 @@ mientras que si trabajamos en la base $\{\ket{f_i}\}$ tenemos
 
 	\begin{mybox_green}{Ejemplo}
 
-Cuando escribimos la base nueva en componentes\footnote{Aquí con ``en componentes'' nos referimos a las componentes respecto a la base antigua, $\{\ket{e_i}\}$. Es decir, todos los vectores de este ejemplo están escritos en la base $\{\ket{e_i}\}$:
-\begin{equation}
-\begin{bmatrix}
-a \\b
-\end{bmatrix} = a \ket{e_1} + b \ket{e_2}
-\end{equation}}, automáticamente estamos dando el cambio de base:
+Cuando escribimos la base nueva en componentes, automáticamente estamos dando el cambio de base:
 Por ejemplo, sea una nueva base $\{\ket{f_1},\ket{f_2}\}$ definida en términos de la antigua mediante 
 \begin{equation}
 \ket{f_1} = \frac{1}{\sqrt{2}}\left(\rule{0mm}{4mm}\ket{e_1} + i\ket{e_2}\right)~,~~\ket{f_2} = \frac{1}{\sqrt{2}}\left( \rule{0mm}{4mm}\ket{e_1} - i\ket{e_2}\right)\, .
@@ -986,7 +981,17 @@ así como de las componentes de los nuevos vectores en la antigua base
 \ket{f_1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\i \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ i & -i \end{bmatrix}\begin{bmatrix} 1 \\0 \end{bmatrix}~.
 \ket{f_2} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\-i \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ i & -i \end{bmatrix}\begin{bmatrix} 0 \\1 \end{bmatrix}~.
 \end{equation}
-	\end{mybox_green}
+\end{mybox_green}
+
+\begin{mybox_blue}{Nota}
+Aquí con ``en componentes'' nos referimos a las componentes respecto a la base antigua, $\{\ket{e_i}\}$. Es decir, todos los vectores de este ejemplo están escritos en la base $\{\ket{e_i}\}$:
+\begin{equation}
+\begin{bmatrix}
+a \\b
+\end{bmatrix} = a \ket{e_1} + b \ket{e_2}
+\end{equation}
+\end{mybox_blue}
+
 
 
 		\subsection{Espacios de Hilbert}
@@ -1046,7 +1051,7 @@ La positividad del producto escalar de un vector por sí mismo permite definir s
 
 
 	\begin{mybox_green}{Ejemplo: espacio Euclidiano}
-	Uno de los ejemplos más conocidos de espacio de Hilbert es el \textbf{espacio vectorial euclídeo}\footnote{Es el espacio real de tres dimensiones, $\mathbb{R}^3$, habitual, el clásico de geometría.} formado por vectores tridimensionales, denotado por $\mathbb{R}^3$, y dotado del \textbf{producto punto}. El producto punto toma dos vectores $\vec{x}$ e $\vec{y}$ y produce un número real $\vec{x} \cdot \vec{y}$. Si $\vec{x}$ e $\vec{y}$ se representan en coordenadas cartesianas, el producto punto se define como
+	Uno de los ejemplos más conocidos de espacio de Hilbert es el \textbf{espacio vectorial euclídeo} (es el espacio real de tres dimensiones, $\mathbb{R}^3$, habitual, el clásico de geometría) formado por vectores tridimensionales, denotado por $\mathbb{R}^3$, y dotado del \textbf{producto punto}. El producto punto toma dos vectores $\vec{x}$ e $\vec{y}$ y produce un número real $\vec{x} \cdot \vec{y}$. Si $\vec{x}$ e $\vec{y}$ se representan en coordenadas cartesianas, el producto punto se define como
 		\begin{equation*}
 		\begin{bmatrix}
 		x_1 \\ x_2 \\ x_3
@@ -3939,7 +3944,12 @@ Como sabemos, la computación clásica se de basa en el \textbf{bits}, es decir,
 	Un \textbf{bit} es una variable  real $a$ que puede tomar valores en $ {\mathbb Z}_2= \{0, 1\}$.
 	}
 
-Un qúbit es el equivalen en computación cuántica de un bit. Un qúbit es un \textbf{sistema cuántico de dos niveles de energía o dos estados no degenerado\footnote{Dentro de un sistema cuántico dos estados se denominan \textbf{degenerados} si tiene la misma energía}}. El estado de menor energía será el equivalente al cero y el estado de mayor energía será equivalente al uno. Definiéndolo de forma rigurosa:
+Un qúbit es el equivalen en computación cuántica de un bit. Un qúbit es un \textbf{sistema cuántico de dos niveles de energía o dos estados no degenerado}. 
+\begin{mybox_blue}{Nota: Estado degenerado}
+Dentro de un sistema cuántico dos estados se denominan \textbf{degenerados} si tiene la misma energía
+\end{mybox_blue}
+
+El estado de menor energía será el equivalente al cero y el estado de mayor energía será equivalente al uno. Definiéndolo de forma rigurosa:
 	\Definicion{
 	Un cúbit es un \textbf{espacio de Hilbert} complejo de dimensión dos, $\ket{v} \in \mathcal{H} \sim  \mathbb{C}^2$
 	}
@@ -4029,11 +4039,22 @@ Como ya sabemos, en un bit clásico podemos almacenar un valor, o 0 o 1. La preg
 	Habitualmente, se denomina simplemente \textbf{qúbit} al \textbf{estado del qúbit}.
 	\end{mybox_blue}	
 	
-En principio, como $a$ y $b$ son complejos tenemos 4 grados de libertas. Sin embargo, tenemos una ligadura, la normalización\footnote{El estado completo de un sistema cuántico debe estar normalizada a $1$, pues la probabilidad de medir algo alguno de los estados debe de ser el 100 \%} del estado
+En principio, como $a$ y $b$ son complejos tenemos 4 grados de libertas. Sin embargo, tenemos una ligadura, la normalización del estado
 	\begin{equation}
 	|a|^2 + |b|^2 = 1,
 	\end{equation}
-lo que nos deja 3 grados de libertar. Además, como en mecánica cuántica las fases globales\footnote{Al multiplicar un estado por una fase de la forma $e^{i \phi}$, el estado es el mismo} no tienen significado, perdemos otro grado de libertad. Nos quedamos pues con dos grados de libertar (reales), es decir, solo necesitamos dos parámetros reales para parametrizar el estado estado de un qubit. La parametrización más habitual se presenta en el siguiente lemma:
+lo que nos deja 3 grados de libertar. 
+
+\begin{mybox_blue}{Nota: Normalización de un estado}
+El estado completo de un sistema cuántico debe estar normalizada a $1$, pues la probabilidad de medir algo alguno de los estados debe de ser el 100 \%
+\end{mybox_blue}
+
+Además, como en mecánica cuántica las fases globales no tienen significado, perdemos otro grado de libertad. Nos quedamos pues con dos grados de libertar (reales), es decir, solo necesitamos dos parámetros reales para parametrizar el estado estado de un qubit. La parametrización más habitual se presenta en el siguiente lemma:
+
+\begin{mybox_blue}{Nota: las fases gobales}
+Al multiplicar un estado por una fase de la forma $e^{i \phi}$, el estado es el mismo
+\end{mybox_blue}
+
 
 	\Lemma{
 	El \textbf{qúbit} $\ket{u}$  \textbf{más general} se puede representar, en la base computacional 
@@ -4201,7 +4222,7 @@ Veamos los casos particulares de las rotaciones entorno a los ejes $x$, $y$ y $z
         
         \subsection{Parametrización de Euler} \label{sec_subsub_puertas_euler}
         
-Hay otra parametrización para las rotaciones mucho más común en física y es la \textbf{parametrización de Euler}. A diferencia de la anterior, esta no necesita definir ningún eje extra usando un vector, sino que simplemente consiste en tres rotaciones, con tres ángulos, entorno a dos ejes coordenados: primero entorno al eje $z$, después en torno al eje $y$ y finalmente entorno al eje $z$ otra vez\footnote{Podría usarse otro orden de ejes, como por ejemplo $xyx$ o $yzy$.}. Es decir
+Hay otra parametrización para las rotaciones mucho más común en física y es la \textbf{parametrización de Euler}. A diferencia de la anterior, esta no necesita definir ningún eje extra usando un vector, sino que simplemente consiste en tres rotaciones, con tres ángulos, entorno a dos ejes coordenados: primero entorno al eje $z$, después en torno al eje $y$ y finalmente entorno al eje $z$ otra vez. Es decir
 	\begin{equation} \label{ec_puertas_simples_rotacion_1}
 	R_z(\phi) R_y (\theta) R_z(\varphi) = e^{- \frac{i}{2} (\phi + \varphi)} U (\theta, \phi, \varphi),
 	\end{equation}
@@ -4215,6 +4236,10 @@ donde
 	\end{equation}
 
 y donde $\theta$, $\phi$ y $\varphi$ se denominan \textbf{ángulos de Euler}. Véase que nuevamente podemos ignorar la fase global que nos sale en la Ec. (\ref{ec_puertas_simples_rotacion_1}) y quedarnos solo con la matriz $U (\theta, \phi, \varphi)$.
+
+\begin{mybox_blue}{Nota}
+Podría usarse otro orden de ejes, como por ejemplo $xyx$ o $yzy$.
+\end{mybox_blue}
 
 Podemos ver que la acción del operador (\ref{ec_puertas_simples_rotacion_U}) sobre el estado $\ket{0}$ nos da la expresión genérica del estado de un qúbit que vimos en la Ec. (\ref{ec_qubit_caso_general}):
 	\begin{equation}
@@ -5532,7 +5557,7 @@ Argumentaban así que había \textbf{variables ocultas}, es decir, variables que
 
 En este capítulo vamos a explicar el argumento que dio el golpe final a las variables ocultas y demostró el no determinismo inherente a la cuántica: \textbf{la violación de las desigualdades de Bell}.
 
-Para ello, empecemos viendo un poco en detalle a que nos referimos cuando hablamos de \textbf{realismo local}. Las teorías con realismo local asumen que los valores que adquieren las magnitudes que se miden en un experimento \textbf{pertenecen} al sistema medido. Así, en una teoría con realismo local la posición de una partícula es algo bien definido aunque no la estemos midiendo\footnote{En una teoría con realismo local, si un árbol cae en el bosque este hace ruido aunque nadie lo escuche.}. La palabra \textbf{local} hace referencia a que ningún agente puede propagar su acción a mayor velocidad que la luz. Podría usarse la palabra \textbf{causal} en su lugar. 
+Para ello, empecemos viendo un poco en detalle a que nos referimos cuando hablamos de \textbf{realismo local}. Las teorías con realismo local asumen que los valores que adquieren las magnitudes que se miden en un experimento \textbf{pertenecen} al sistema medido. Así, en una teoría con realismo local la posición de una partícula es algo bien definido aunque no la estemos midiendo. (En una teoría con realismo local, si un árbol cae en el bosque este hace ruido aunque nadie lo escuche.) La palabra \textbf{local} hace referencia a que ningún agente puede propagar su acción a mayor velocidad que la luz. Podría usarse la palabra \textbf{causal} en su lugar. 
 
 Con esta definición en mente, tanto la Mecánica Clásica como un teoría cuántica con varibles ocultas serían teorías con realismo local. Sin embargo, la Mecánica Cuántica no lo sería. Cuando hablamos del espín de un electrón, no es correcto decir que \textbf{la proyección del espín a lo largo del eje $\hat{\bf z}$ es $+\hbar/2$}. Lo correcto es decir que, \textbf{al medir} la proyección sobre el eje $\hat{\bf z}$, la medida obtenida es $+\hbar/2$.  Dicho de otro, cualquiera de los valores $\pm\hbar/2$ se \textbf{adquiere} o \textbf{pone de manifiesto}  de forma \textbf{aleatoria} al hacer una medida de la proyección elegida.
 
@@ -6043,7 +6068,7 @@ En esta sección vamos a describir como es el sistema con el que se construyen l
 
 			\SubsubiIt{Espines simples.} 
 
-Una partícula con espín constituye un \textbf{dipolo magnético}\footnote{En esencia, un pequeño imán, es decir, una fuente de campo magnético.}. El \textbf{momento dipolar magnético}, $\vec{\mu}$, es proporcional al momento angular de espín, $\vec{S}$:
+Una partícula con espín constituye un \textbf{dipolo magnético}. En esencia, dipolo magnético es un pequeño imán, es decir, una fuente de campo magnético. El \textbf{momento dipolar magnético}, $\vec{\mu}$, es proporcional al momento angular de espín, $\vec{S}$:
 	\begin{equation} \label{ec_Hardware_NMR_mu}
 	\vec{\mu} = \gamma \vec{S}\, ,
 	\end{equation}
@@ -6074,9 +6099,13 @@ Si tenemos una partícula (o un núcleo) de espín 1/2 (no consideraremos espine
 donde 
 \begin{itemize}
 	\item $\gamma$ es ratio giromagnético del núcleo (ver Ec. (\ref{ec_Hardware_NMR_gamma})),
-	\item $\omega/2 \pi = \gamma B_0 $ es la \textbf{frecuencia de Larmor}\footnote{En Física, la \textbf{frecuencia} se define como el inverso del periodo de rotación: $f = 1/T$ y se mide en Hz (1/segundos). Además, se define la \textbf{frecuencia angular} como $\omega = 2\pi f$ y se mide en radianes/segundo. Muchas veces se denomina a las dos, simplemente, frecuencia.}
+	\item $\omega/2 \pi = \gamma B_0 $ es la \textbf{frecuencia de Larmor}
 	\item e $S_z$ es el operador de espín en la dirección $\hat{z}$ (ver Ec. (\ref{ec_Hardware_NMR_Sx-Sy-Sz})).
 \end{itemize}
+
+\begin{mybox_blue}{Nota: frecuencia y frecuencia angular}
+En Física, la \textbf{frecuencia} se define como el inverso del periodo de rotación: $f = 1/T$ y se mide en Hz (1/segundos). Además, se define la \textbf{frecuencia angular} como $\omega = 2\pi f$ y se mide en radianes/segundo. Muchas veces se denomina a las dos, simplemente, frecuencia.
+\end{mybox_blue}
 
 La interpretación de la Ec. (\ref{ec_Hardware_NMR_H_sys_1}) es simple. Cuando tenemos una partícula de espín 1/2 aislada, las dos proyecciones del espín son \textbf{degeneradas}, es decir, tiene la misma energía. Esto es fácil de entender si pensamos en que no hay ninguna dirección privilegiada en el sistema. Cuando introducimos un campo magnético, ahora sí hay una dirección privilegiada: aquella con el momento dipolar magnético $\vec{\mu}$ apuntando en la misma dirección que el campo magnético. Esto es debido a que el espín es como un pequeño imán y tiende a orientarse con el campo magnéticos. En este momento, el sistema pasa a ser \textbf{no-degenerado}, y un estado tiene más energía que el otro.
 
@@ -6197,7 +6226,7 @@ Con lo cual, $\left\langle \vec{S} \right\rangle$ está inclinado un ángulo $\a
 	\begin{equation}
 	f_0 = \omega_0 / 2 \pi = \gamma B_0 / 2 \pi
 	\end{equation}
-(la frecuencia de Larmor) al igual que en el caso clásico (una peonza inclinada). No tenemos ninguna sorpresa aquí, pues el teorema de Ehrenfest nos asegura que los valores esperados evolucionan de acuerdo a las leyes clásicas del movimiento\footnote{Algunos autores limitan esta afirmación solo al par de ecuaciones $\left\langle p \right\rangle = m d \left\langle x \right\rangle / dt$ y $\left\langle - \partial V / \partial x \right\rangle = d \left\langle p \right\rangle / dt$.} (puede verse esto en el Griffiths, \cite{bib_griffiths_schroeter_2018}). 
+(la frecuencia de Larmor) al igual que en el caso clásico (una peonza inclinada). No tenemos ninguna sorpresa aquí, pues el teorema de Ehrenfest nos asegura que los valores esperados evolucionan de acuerdo a las leyes clásicas del movimiento (algunos autores limitan esta afirmación solo al par de ecuaciones $\left\langle p \right\rangle = m d \left\langle x \right\rangle / dt$ y $\left\langle - \partial V / \partial x \right\rangle = d \left\langle p \right\rangle / dt$) Puede verse esto en el Griffiths, \cite{bib_griffiths_schroeter_2018}. 
 	\begin{figure}[H]
 	\centering 
 	\includegraphics[width=0.30\linewidth]{Figuras/Fig_Harware_NMR_precession_griffiths}
@@ -6648,7 +6677,7 @@ Debemos señalar que el uso de sólo dos tiempos de relajación casi nunca propo
 	
 Dado que la decoherencia se produce en el dominio del tiempo, es natural utilizar escalas temporales para describir la fuerza de un canal de decoherencia y la intensidad con que la decoherencia afecta a una variable dinámica concreta. Si nos limitamos a un TLS simple, el problema de describir fenomenológicamente el efecto del acoplamiento débil a grados de libertad externos sobre la evolución temporal de este TLS contiene sólo unos pocos parámetros. 
 
-En particular, dos escalas de tiempo de relajación, $T_1$ y $T_2$, se introdujeron y utilizaron ampliamente en el campo de la RMN, y después se utilizaron también de forma natural en la ESR y en la óptica cuántica. En estas disciplinas, o bien el campo magnético estático aplicado (que causa el desdoblamiento de Zeeman a lo largo de la dirección del campo) o bien los TLS naturales\footnote{Por ejemplo, para fotones, donde la polarización longitudinal y transversal se produce de forma natural} definen una dirección longitudinal y otra transversal. $T_1$ y $T_2$ son entonces, respectivamente, los tiempos de relajación longitudinal y transversal para magnetizaciones en RMN y ESR, o la diferencia de población y polarización en óptica cuántica. Nótese que el uso de $T_1$ y $T_2$ para caracterizar la decoherencia sólo se aplica a la dinámica TLS.
+En particular, dos escalas de tiempo de relajación, $T_1$ y $T_2$, se introdujeron y utilizaron ampliamente en el campo de la RMN, y después se utilizaron también de forma natural en la ESR y en la óptica cuántica. En estas disciplinas, o bien el campo magnético estático aplicado (que causa el desdoblamiento de Zeeman a lo largo de la dirección del campo) o bien los TLS naturales (por ejemplo, para fotones, donde la polarización longitudinal y transversal se produce de forma natural) definen una dirección longitudinal y otra transversal. $T_1$ y $T_2$ son entonces, respectivamente, los tiempos de relajación longitudinal y transversal para magnetizaciones en RMN y ESR, o la diferencia de población y polarización en óptica cuántica. Nótese que el uso de $T_1$ y $T_2$ para caracterizar la decoherencia sólo se aplica a la dinámica TLS.
 
 La definición de $T_1$ y $T_2$ es bastante específica del sistema; de hecho, la definición estricta de $T_1$ y $T_2$ se aplica específicamente a las mediciones por resonancia magnética. Un fenómeno de decoherencia arbitrario puede requerir más o menos parámetros para describir el proceso de desfase. En general, en ausencia de campo magnético y en sistemas isótropos, $T_1 = T_2$. También hay que señalar que $T_1$ y $T_2$ son parámetros puramente fenomenológicos (que caracterizan la relajación longitudinal y transversal respectivamente), a los que podrían contribuir, en principio, muchos mecanismos de decoherencia diferentes. En general, dos parámetros pueden no ser adecuados para describir completamente la decoherencia TLS, pero la experiencia (particularmente en RMN, ESR y experimentos de bombeo óptico) sugiere que $T_1$ y $T_2$ son a menudo suficientes para caracterizar la decoherencia TLS en muchas situaciones diversas y son por tanto parámetros TLS extremadamente importantes.
 
@@ -7639,7 +7668,7 @@ Vamos a plantear los siguientes problemas del oráculo de la siguiente forma: te
 	\Ejercicio{
 	Oráculos constantes sólo hay dos, $f(x)=0~$ ó $~f(x) = 1$ para todo $x$. Oráculos equilibrados hay muchos. Construye un oráculo constante y uno
 	equilibrado. Construye el circuito de Deutsch-Josza y ponlo a prueba con estos dos oráculos. Para ello, sigue el tutorial del 
-	\href{https://learn.qiskit.org/course/ch-algorithms/deutsch-jozsa-algorithm}{Notebook de Qiskit}\footnote{\url{https://learn.qiskit.org/course/ch-algorithms/deutsch-jozsa-algorithm}}. 
+	\href{https://learn.qiskit.org/course/ch-algorithms/deutsch-jozsa-algorithm}{Notebook de Qiskit (https://learn.qiskit.org/course/ch-algorithms/deutsch-jozsa-algorithm)} . 
 	}
 
 	\begin{mybox_blue}{Nota}
@@ -7677,7 +7706,7 @@ Vamos a plantear los siguientes problemas del oráculo de la siguiente forma: te
 	\end{mybox_orange}
 
 	\begin{mybox_blue}{Nota: Bernstein-Vazirani en Qiskit}
-	Se puede ver otra explicación del algoritmo de  Bernstein-Vazirani junto con su implementación en Qiskit en el \href{https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm}{Notebook de Qiskit}\footnote{\url{https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm}}.
+	Se puede ver otra explicación del algoritmo de  Bernstein-Vazirani junto con su implementación en Qiskit en el \href{https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm}{Notebook de Qiskit (https://learn.qiskit.org/course/ch-algorithms/bernstein-vazirani-algorithm)} .
 	
 	\end{mybox_blue}
 	
@@ -7806,7 +7835,7 @@ El algoritmo de Simon fue el primer algoritmo cuántico que mostró una acelerac
 
 	\begin{mybox_blue}{Nota: Bernstein-Vazirani en Qiskit}
 	Se puede ver otra explicación del algoritmo de  Simon junto con su implementación en Qiskit en el 
-	\href{https://learn.qiskit.org/course/ch-algorithms/simons-algorithm}{Notebook de Qiskit}\footnote{\url{https://learn.qiskit.org/course/ch-algorithms/simons-algorithm}}.
+	\href{https://learn.qiskit.org/course/ch-algorithms/simons-algorithm}{Notebook de Qiskit (https://learn.qiskit.org/course/ch-algorithms/simons-algorithm)}.
 	\end{mybox_blue}
 	
 	
@@ -9232,7 +9261,7 @@ Denominaremos $k(t)$ y $l(t)$ a los coeficientes que tendremos en la t-esima ite
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle +  \sum_{i \neq \omega_0}^N l(t) |i \rangle }.
 \end{equation}
 
-Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado $|\Psi(t) \rangle$ vive en un espacio de Hilbert de $N$ dimensiones y los estados $| i \rangle$, con $i=0,1,\dots,N-1$ , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye $\omega_0$, pues no es nada más que un valor de $i$ concreto). Para entender bien esto, podemos fijamos en las Ecs. (\ref{ec_geo_phi-0_1}) y (\ref{ec_geo_phi-0_2}) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base\footnote{Esto es en esencia lo mismo que con vectores en tres dimensiones: $\vec{r} = a \hat{x} + b \hat{y} + c \hat{z}$}. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores $|\omega_0 \rangle$ y $| \omega^{\perp} \rangle$, donde este último es la suma de todos los demás elementos de la base, es decir:
+Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado $|\Psi(t) \rangle$ vive en un espacio de Hilbert de $N$ dimensiones y los estados $| i \rangle$, con $i=0,1,\dots,N-1$ , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye $\omega_0$, pues no es nada más que un valor de $i$ concreto). Para entender bien esto, podemos fijamos en las Ecs. (\ref{ec_geo_phi-0_1}) y (\ref{ec_geo_phi-0_2}) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores $|\omega_0 \rangle$ y $| \omega^{\perp} \rangle$, donde este último es la suma de todos los demás elementos de la base, es decir:
 \begin{equation} \label{ec_geo_phi-j-s}
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle + l(t) \sqrt{N-1} | \omega^{\perp}  \rangle}, \quad \text{donde} \quad \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-1}}\sum_{i \neq \omega_0}^N  |i \rangle}.
 \end{equation}
@@ -10623,7 +10652,7 @@ En el protocolo denominado coherent one way (COW) \cite{bib_Phase_gisin2004pract
 	\end{equation}
 Estos dos estados pueden discriminarse inequívocamente de forma óptima midiendo el tiempo de llegada (ver Fig. \ref{Fig_QKD_DFR}). 
 
-Tanto DPS como COW son esquemas P\&M, adaptados para fuentes láser. Aún no ha sido posible derivar un límite para la seguridad incondicional\footnote{Esta afirmación es a fecha del 2009, pues el paper en que se basa esta sección \cite{bib_QKD_resumen} data de esa fecha} porque las técnicas existentes sólo se aplican cuando $\ket{\Psi (S_n)}$ puede descomponerse en señales independientes. 
+Tanto DPS como COW son esquemas P\&M, adaptados para fuentes láser. Aún no ha sido posible derivar un límite para la seguridad incondicional porque las técnicas existentes sólo se aplican cuando $\ket{\Psi (S_n)}$ puede descomponerse en señales independientes. (Esta afirmación es a fecha del 2009, pues el paper en que se basa esta sección \cite{bib_QKD_resumen} data de esa fecha.)
 		
 %\section{Extra: Más sobre QKD}
 	

@@ -645,7 +645,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 8 min read</p>
+<div><p>Jul 04, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi19.png"><img alt="../../../_images/Fig_logo_UMA_scbi19.png" src="../../../_images/Fig_logo_UMA_scbi19.png" style="width: 2000px;" /></a>
@@ -685,7 +685,7 @@ document.write(`
 </section>
 <section id="algoritmo-de-factorizacion">
 <span id="sec-algoritmo-factorizacion"></span><h2>Algoritmo de factorización.<a class="headerlink" href="#algoritmo-de-factorizacion" title="Permalink to this heading">#</a></h2>
-<p>El algoritmo de Shor se basa en el hecho de poder reducir un problema de factorización a uno de <b>period finding (hallar el periodo -orden- de una función)</b>. Antes de hablar de nada cuántico, vamos a ver, tal y como se describe en el Nielsen-Chuang <span class="xref myst">[20]</span>,  como sería la estructura general de un algoritmo de factorización de esta forma comentando en que punto entra la computación cuántica para acelerarlo.</p>
+<p>El algoritmo de Shor se basa en el hecho de poder reducir un problema de factorización a uno de <b>period finding (hallar el periodo -orden- de una función)</b>. Antes de hablar de nada cuántico, vamos a ver, tal y como se describe en el Nielsen-Chuang <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id21" title="Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.">43</a>]</span>,  como sería la estructura general de un algoritmo de factorización de esta forma comentando en que punto entra la computación cuántica para acelerarlo.</p>
 <p>Lo primero es introducir la noción de <b>números coprimos</b>:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
@@ -703,37 +703,37 @@ document.write(`
 <li><p>Si gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span> (<span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son coprimos) y <span class="math notranslate nohighlight">\(a^{r/2} \neq -1\)</span> mod<span class="math notranslate nohighlight">\(N = (\alpha N -1)\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>, calculamos el periodo <span class="math notranslate nohighlight">\(r\)</span> de la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{ mod} N\)</span>.</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(r\)</span> es impar, volvemos al paso 3. Sino, calculamos gcd<span class="math notranslate nohighlight">\((a^{r/2}-1,N)\)</span> y gcd<span class="math notranslate nohighlight">\((a^{r/2}+1,N)\)</span>. Probamos a ver si uno de estos dos es un factor no-trivial de <span class="math notranslate nohighlight">\(N\)</span>, y devolvemos el mismo si lo es.</p></li>
 </ol>
-<p>Todos los pasos de este algoritmo, excepto el <b>paso 4</b>, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor se puede usar el Algoritmo de Euclides <span class="xref myst">[26]</span>, el cual resuelve el problema en un <b>tiempo polinómico</b> (se puede calcular en un tiempo razonable).</p>
+<p>Todos los pasos de este algoritmo, excepto el <b>paso 4</b>, se pueden implementar en un ordenador clásico y resolverse en un tiempo polinómico. Esto es debido a que para calcular el máximo común divisor se puede usar el Algoritmo de Euclides <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id27" title="Wikipedia: euclidean algorithm. https://en.wikipedia.org/wiki/Euclidean_algorithm.">2</a>]</span>, el cual resuelve el problema en un <b>tiempo polinómico</b> (se puede calcular en un tiempo razonable).</p>
 <p>El paso complicado y que, por lo menos hasta la fecha, no hay ninguna forma de implementarlo en un tiempo polinómico en un ordenador clásico (se implementa en un <b>tiempo exponencial</b>) es el <b>paso 4</b>, hallar el periodo de la función. Sin embargo, este paso puede implementarse en un ordenador cuántico en un tiempo polinómico. Tenemos pues que la forma óptima de factorizar un número consiste en <b>implementar los pasos 1, 2, 3 y 5 en un ordenador clásico, y el paso 4 en un ordenador cuántico</b>.</p>
 </section>
 <section id="explicacion-cualitativa">
 <h2>Explicación cualitativa<a class="headerlink" href="#explicacion-cualitativa" title="Permalink to this heading">#</a></h2>
 <p>Vamos a intentar entender de forma cualitativa porqué calculando el periodo de una función se pueden hallar los factores de un número. En la sección \ref{sec_Formalismo} veremos un poco más en detalle las afirmaciones que se hacen en esta sección.</p>
 <p>La función que nos interesa es la siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1074c54c-02c5-4b5d-9189-eac8c8782451">
-<span class="eqno">(601)<a class="headerlink" href="#equation-1074c54c-02c5-4b5d-9189-eac8c8782451" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91ee0073-69ad-4092-ad24-98cba9c41f98">
+<span class="eqno">(587)<a class="headerlink" href="#equation-91ee0073-69ad-4092-ad24-98cba9c41f98" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = a^x \text{ mod} N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son enteros positivos mayores que 1, siendo además <span class="math notranslate nohighlight">\(a &lt; N\)</span> y no teniendo factores comunes, es decir, que sean coprimos (gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>). La operación (<span class="math notranslate nohighlight">\(z\)</span> mod<span class="math notranslate nohighlight">\(N\)</span>) a lo que se refiere es a quedarnos con el <b>resto</b> de dividir el número que <span class="math notranslate nohighlight">\(z\)</span> por <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>La función <span class="math notranslate nohighlight">\(f(x)\)</span> se denomina  <b>exponenciales moduladas</b>. Esta se encaja dentro de la <b>aritmética modular</b> y si se cumplen las condiciones anteriores esta función es periódica. Denominaremos <span class="math notranslate nohighlight">\(r\)</span> al <b>valor del periodo de la función</b> <span class="math notranslate nohighlight">\(f(x)\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> es el mínimo valor entero para que se cumple:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-954576b4-4e72-4ad3-8604-718599c38daa">
-<span class="eqno">(602)<a class="headerlink" href="#equation-954576b4-4e72-4ad3-8604-718599c38daa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f9a2a5c-20d1-4f6d-b9d2-1e082fe28b06">
+<span class="eqno">(588)<a class="headerlink" href="#equation-2f9a2a5c-20d1-4f6d-b9d2-1e082fe28b06" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x+r) = f(x).
 \end{equation}\]</div>
 <p>Este se puede calcular mediante un circuito cuántico.</p>
 <p>Una vez se tiene el periodo <span class="math notranslate nohighlight">\(r\)</span>, si este es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>) se pueden calcular los factores de <span class="math notranslate nohighlight">\(N\)</span>. Esto es debido a que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59a68ef7-1ae7-49d2-84b0-f38b6e1f82a3">
-<span class="eqno">(603)<a class="headerlink" href="#equation-59a68ef7-1ae7-49d2-84b0-f38b6e1f82a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1b6ecf70-ad74-4b22-8ec1-64f582121258">
+<span class="eqno">(589)<a class="headerlink" href="#equation-1b6ecf70-ad74-4b22-8ec1-64f582121258" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r \text{ mod} N = 1
 \end{equation}\]</div>
 <p>con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa91f036-6508-440f-a052-1dab76600fcf">
-<span class="eqno">(604)<a class="headerlink" href="#equation-aa91f036-6508-440f-a052-1dab76600fcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-61d23bad-5288-4f06-9ef4-7e2a3ef85f2e">
+<span class="eqno">(590)<a class="headerlink" href="#equation-61d23bad-5288-4f06-9ef4-7e2a3ef85f2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a^r-1) \text{ mod} N = 0
 \end{equation}\]</div>
 <p>Con lo cual, <span class="math notranslate nohighlight">\(N\)</span> debe ser un divisor de <span class="math notranslate nohighlight">\(a^r-1\)</span>. Si <span class="math notranslate nohighlight">\(r\)</span> es par (sino hay que probar con otro valor de <span class="math notranslate nohighlight">\(a\)</span>), podemos escribir:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb41bd5d-340f-4971-a7ec-f1d01b235c25">
-<span class="eqno">(605)<a class="headerlink" href="#equation-eb41bd5d-340f-4971-a7ec-f1d01b235c25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bee3b0c5-3181-4ce9-a7f6-187b6cd2a1a7">
+<span class="eqno">(591)<a class="headerlink" href="#equation-bee3b0c5-3181-4ce9-a7f6-187b6cd2a1a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 \end{equation}\]</div>
 <p>Entonces tenemos una alta probabilidad de que el <b>máximo común divisor</b> de <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(a^{\,r/2}-1\)</span> o <span class="math notranslate nohighlight">\(a^{\,r/2}+1\)</span> sea un factor propio de <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -743,7 +743,7 @@ a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 <p>Veamos un poco el formalismo matemático detrás de las afirmaciones de la sección anterior.</p>
 <section id="periodicidad-de-f-x">
 <h3>Periodicidad de <span class="math notranslate nohighlight">\(f(x)\)</span><a class="headerlink" href="#periodicidad-de-f-x" title="Permalink to this heading">#</a></h3>
-<p>Demostrar que, dada la condición gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span> es periódica no es fácil, pues se necesitan plantear varios teoremas y la explicación se hace árida (puede verse el Appendix 4 de <span class="xref myst">[20]</span>). Aquí vamos a ver una explicación más simple partiendo del siguiente resultado (sin demostrarlos):</p>
+<p>Demostrar que, dada la condición gcd<span class="math notranslate nohighlight">\((a,N) = 1\)</span>, la función <span class="math notranslate nohighlight">\(f(x) = a^x \text{mod} N\)</span> es periódica no es fácil, pues se necesitan plantear varios teoremas y la explicación se hace árida (puede verse el Appendix 4 de <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id21" title="Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.">43</a>]</span>). Aquí vamos a ver una explicación más simple partiendo del siguiente resultado (sin demostrarlos):</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><b>Lema</b>:</p>
@@ -753,18 +753,18 @@ a^r-1 = (a^{r/2}-1)(a^{r/2}+1)
 </div>
 </div>
 <p>Vemos a ver ahora que este valor <span class="math notranslate nohighlight">\(z&gt;0\)</span> para el cual se cumple <span class="math notranslate nohighlight">\(f(z) = a^z \text{mod} N = 1\)</span> será el periodo de la función. Denominaremos a este valor <span class="math notranslate nohighlight">\(r\)</span>, es decir, <span class="math notranslate nohighlight">\(r\)</span> será el primer valor (mayor que cero) para el cual se cumple <span class="math notranslate nohighlight">\(f(r) = 1\)</span>. Tenemos que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ef67db0-41be-4a52-8298-a275d871e574">
-<span class="eqno">(606)<a class="headerlink" href="#equation-5ef67db0-41be-4a52-8298-a275d871e574" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5590a0c6-6f6a-4446-8242-b2668d804854">
+<span class="eqno">(592)<a class="headerlink" href="#equation-5590a0c6-6f6a-4446-8242-b2668d804854" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^0 =1 \rightarrow f(0) = a^0 \text{ mod} N = 1 = a^r \text{ mod} N = f(r).
 \end{equation}\]</div>
 <p>En el momento en el que llegamos a un exponente <span class="math notranslate nohighlight">\(r\)</span> tal que <span class="math notranslate nohighlight">\(a^r \text{ mod} N = 1\)</span> podemos pues escribir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32925e98-48f2-407c-9030-9fbd44417797">
-<span class="eqno">(607)<a class="headerlink" href="#equation-32925e98-48f2-407c-9030-9fbd44417797" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f99c9efa-94a9-4bab-a333-96986c9ab8b2">
+<span class="eqno">(593)<a class="headerlink" href="#equation-f99c9efa-94a9-4bab-a333-96986c9ab8b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a^r = \alpha N + 1
 \end{equation}\]</div>
 <p>con lo cual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a4ea167-4a1e-42c6-932d-a06f4a9c3e22">
-<span class="eqno">(608)<a class="headerlink" href="#equation-2a4ea167-4a1e-42c6-932d-a06f4a9c3e22" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-24a4f9fc-1dad-4e8c-b0a8-45d7d2ea5b72">
+<span class="eqno">(594)<a class="headerlink" href="#equation-24a4f9fc-1dad-4e8c-b0a8-45d7d2ea5b72" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\
 &amp; = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
 \end{align}\]</div>
@@ -772,7 +772,7 @@ f(r+z) &amp; = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a
 </section>
 <section id="factores-de-n-a-partir-del-periodo-r">
 <span id="sec-factores"></span><h3>Factores de <span class="math notranslate nohighlight">\(N\)</span> a partir del periodo <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#factores-de-n-a-partir-del-periodo-r" title="Permalink to this heading">#</a></h3>
-<p>Para entender como pasar del periodo <span class="math notranslate nohighlight">\(r\)</span> de nuestra función a tener los factores de <span class="math notranslate nohighlight">\(N\)</span> nos hace falta conocer un par de teoremas, ambos presentes en <span class="xref myst">[20]</span>.</p>
+<p>Para entender como pasar del periodo <span class="math notranslate nohighlight">\(r\)</span> de nuestra función a tener los factores de <span class="math notranslate nohighlight">\(N\)</span> nos hace falta conocer un par de teoremas, ambos presentes en <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id21" title="Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.">43</a>]</span>.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><b>Teorema</b>: </i>Teorema 5.2 del Nielsen-Chuang</i></p>
@@ -788,7 +788,7 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Ya que <span class="math notranslate nohighlight">\(x^2 \text{ mod} N = 1 \rightarrow (x^2 -1) \text{ mod} N = 0\)</span>, debe de cumplirse que <span class="math notranslate nohighlight">\(N\)</span> divida a <span class="math notranslate nohighlight">\((x^2-1) = (x+1)(x-1)\)</span>, con lo cual <span class="math notranslate nohighlight">\(N\)</span> debe de tener un factor común con <span class="math notranslate nohighlight">\((x+1)\)</span> o con <span class="math notranslate nohighlight">\((x-1)\)</span>. Como por suposición tenemos que <span class="math notranslate nohighlight">\(1 &lt;  x &lt; N-1\)</span>, con lo cual <span class="math notranslate nohighlight">\(x-1 &lt; x+1 &lt; N\)</span>, de lo cual podemos ver que el factor común no puede ser el propio <span class="math notranslate nohighlight">\(N\)</span>. Usando el Algoritmo de Euclides <span class="xref myst">[26]</span> podemos calcular gcd<span class="math notranslate nohighlight">\((x-1)\)</span> y gcd<span class="math notranslate nohighlight">\((x+1)\)</span>, y con lo cual obtener un factor no trivial de <span class="math notranslate nohighlight">\(N\)</span>, usando <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> operaciones.</p>
+<p class="sd-card-text">Ya que <span class="math notranslate nohighlight">\(x^2 \text{ mod} N = 1 \rightarrow (x^2 -1) \text{ mod} N = 0\)</span>, debe de cumplirse que <span class="math notranslate nohighlight">\(N\)</span> divida a <span class="math notranslate nohighlight">\((x^2-1) = (x+1)(x-1)\)</span>, con lo cual <span class="math notranslate nohighlight">\(N\)</span> debe de tener un factor común con <span class="math notranslate nohighlight">\((x+1)\)</span> o con <span class="math notranslate nohighlight">\((x-1)\)</span>. Como por suposición tenemos que <span class="math notranslate nohighlight">\(1 &lt;  x &lt; N-1\)</span>, con lo cual <span class="math notranslate nohighlight">\(x-1 &lt; x+1 &lt; N\)</span>, de lo cual podemos ver que el factor común no puede ser el propio <span class="math notranslate nohighlight">\(N\)</span>. Usando el Algoritmo de Euclides <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id27" title="Wikipedia: euclidean algorithm. https://en.wikipedia.org/wiki/Euclidean_algorithm.">2</a>]</span> podemos calcular gcd<span class="math notranslate nohighlight">\((x-1)\)</span> y gcd<span class="math notranslate nohighlight">\((x+1)\)</span>, y con lo cual obtener un factor no trivial de <span class="math notranslate nohighlight">\(N\)</span>, usando <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> operaciones.</p>
 </div>
 </details><div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
@@ -796,8 +796,8 @@ Demostración<div class="sd-summary-down docutils">
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Supongamos <span class="math notranslate nohighlight">\(N = p^{\alpha_1}_1 \dots p^{\alpha_m}_m \)</span> es la descomposición en factores primos de un entero impar positivo. Sea <span class="math notranslate nohighlight">\(x\)</span> un número entero elegido uniformemente al azar, sujeto a la restricción <span class="math notranslate nohighlight">\(1 \leq x \leq N-1\)</span> y <span class="math notranslate nohighlight">\(x\)</span> coprimo de <span class="math notranslate nohighlight">\(N\)</span>. Sea <span class="math notranslate nohighlight">\(r\)</span> el periodo de <span class="math notranslate nohighlight">\(x \text{ mod} N\)</span>. Entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6ad9c44-fec6-45ab-b17a-06d3a69273a8">
-<span class="eqno">(609)<a class="headerlink" href="#equation-b6ad9c44-fec6-45ab-b17a-06d3a69273a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-761add81-c471-48e1-97b1-5703c16d79f3">
+<span class="eqno">(595)<a class="headerlink" href="#equation-761add81-c471-48e1-97b1-5703c16d79f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(r \text{ es impar y } x^{r/2} \text{ mod} N \neq - 1) \geq 1 - \frac{1}{2^m}
 \end{equation}\]</div>
 <p class="sd-card-text">esto es, la probabilidad de hallar un <span class="math notranslate nohighlight">\(r\)</span> impar y que cumpla <span class="math notranslate nohighlight">\(x^{r/2} \text{ mod} N \neq - 1\)</span> es mayor que 1 - 1/<span class="math notranslate nohighlight">\(2^m\)</span>.</p>

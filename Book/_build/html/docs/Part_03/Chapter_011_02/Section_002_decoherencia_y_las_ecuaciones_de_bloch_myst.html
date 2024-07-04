@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 8 min read</p>
+<div><p>Jul 04, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi12.png"><img alt="../../../_images/Fig_logo_UMA_scbi12.png" src="../../../_images/Fig_logo_UMA_scbi12.png" style="width: 2000px;" /></a>
@@ -659,11 +659,11 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="decoherencia-y-las-ecuaciones-de-bloch">
 <h1>Decoherencia y las ecuaciones de Bloch.<a class="headerlink" href="#decoherencia-y-las-ecuaciones-de-bloch" title="Permalink to this heading">#</a></h1>
 <p>Dado que la decoherencia se produce en el dominio del tiempo, es natural utilizar escalas temporales para describir la fuerza de un canal de decoherencia y la intensidad con que la decoherencia afecta a una variable dinámica concreta. Si nos limitamos a un TLS simple, el problema de describir fenomenológicamente el efecto del acoplamiento débil a grados de libertad externos sobre la evolución temporal de este TLS contiene sólo unos pocos parámetros.</p>
-<p>En particular, dos escalas de tiempo de relajación, <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span>, se introdujeron y utilizaron ampliamente en el campo de la RMN, y después se utilizaron también de forma natural en la ESR y en la óptica cuántica. En estas disciplinas, o bien el campo magnético estático aplicado (que causa el desdoblamiento de Zeeman a lo largo de la dirección del campo) o bien los TLS naturales\footnote{Por ejemplo, para fotones, donde la polarización longitudinal y transversal se produce de forma natural} definen una dirección longitudinal y otra transversal. <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> son entonces, respectivamente, los tiempos de relajación longitudinal y transversal para magnetizaciones en RMN y ESR, o la diferencia de población y polarización en óptica cuántica. Nótese que el uso de <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> para caracterizar la decoherencia sólo se aplica a la dinámica TLS.</p>
+<p>En particular, dos escalas de tiempo de relajación, <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span>, se introdujeron y utilizaron ampliamente en el campo de la RMN, y después se utilizaron también de forma natural en la ESR y en la óptica cuántica. En estas disciplinas, o bien el campo magnético estático aplicado (que causa el desdoblamiento de Zeeman a lo largo de la dirección del campo) o bien los TLS naturales (por ejemplo, para fotones, donde la polarización longitudinal y transversal se produce de forma natural) definen una dirección longitudinal y otra transversal. <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> son entonces, respectivamente, los tiempos de relajación longitudinal y transversal para magnetizaciones en RMN y ESR, o la diferencia de población y polarización en óptica cuántica. Nótese que el uso de <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> para caracterizar la decoherencia sólo se aplica a la dinámica TLS.</p>
 <p>La definición de <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> es bastante específica del sistema; de hecho, la definición estricta de <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> se aplica específicamente a las mediciones por resonancia magnética. Un fenómeno de decoherencia arbitrario puede requerir más o menos parámetros para describir el proceso de desfase. En general, en ausencia de campo magnético y en sistemas isótropos, <span class="math notranslate nohighlight">\(T_1 = T_2\)</span>. También hay que señalar que <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> son parámetros puramente fenomenológicos (que caracterizan la relajación longitudinal y transversal respectivamente), a los que podrían contribuir, en principio, muchos mecanismos de decoherencia diferentes. En general, dos parámetros pueden no ser adecuados para describir completamente la decoherencia TLS, pero la experiencia (particularmente en RMN, ESR y experimentos de bombeo óptico) sugiere que <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> son a menudo suficientes para caracterizar la decoherencia TLS en muchas situaciones diversas y son por tanto parámetros TLS extremadamente importantes.</p>
 <p>Primero discutimos cómo se introducen <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> para un TLS particular: un espín de electrón en un campo magnético externo. Ya hemos visto en la Ec. (\ref{ec_Hardware_NMR_H_lab_single}) como es el Hamiltoniano para un partícula de espín 1/2 (como es el electrón) en un campo externo <span class="math notranslate nohighlight">\(\vec{B}_0 = B_0 \hat{z}\)</span> a la que se aplica un campo <span class="math notranslate nohighlight">\(\vec{B}_1(t)\)</span> de control que gira en el plano <span class="math notranslate nohighlight">\(\hat{x}- \hat{y}\)</span> a una frecuencia <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>. Teniendo en cuenta las expresiones de <span class="math notranslate nohighlight">\(S_z\)</span>, <span class="math notranslate nohighlight">\(S_y\)</span> y <span class="math notranslate nohighlight">\(S_z\)</span> de (\ref{ec_Hardware_NMR_Sx-Sy-Sz}), el Hamiltoniano en forma de matriz nos queda:</p>
 <div class="math notranslate nohighlight" id="equation-ec-decoherencia-h-electron">
-<span class="eqno">(510)<a class="headerlink" href="#equation-ec-decoherencia-h-electron" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(504)<a class="headerlink" href="#equation-ec-decoherencia-h-electron" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \mathcal{H} = - \omega_0 S_z - \omega_1 \Lc \cos (\omega_{rf} t+ \phi) S_x + \sin (\omega_{rf} + \phi) S_y \Rc
 = - \frac{\hbar}{2} \begin{bmatrix}
 \omega_0                               &amp;  \omega_1 e^{-i (\omega_{rf} t + \phi)} \\
@@ -671,8 +671,8 @@ document.write(`
 \end{bmatrix}
 \end{equation} \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span> y <span class="math notranslate nohighlight">\(\omega_1 = \gamma B_1\)</span>. La dinámica de espín bajo el Hamiltoniano (\ref{ec_decoherencia_H_electron}) está gobernada por la <b>Ecuación de von Neumann</b> para la matriz densidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab73a916-2b5e-4df0-8217-0b7e81a37cd2">
-<span class="eqno">(511)<a class="headerlink" href="#equation-ab73a916-2b5e-4df0-8217-0b7e81a37cd2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ba08bd5-f88e-4e49-b80e-08a51a7e08ee">
+<span class="eqno">(505)<a class="headerlink" href="#equation-9ba08bd5-f88e-4e49-b80e-08a51a7e08ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i \hbar \frac{\partial \rho}{\partial t} = \lc \mathcal{H}, \rho \rc
 \end{equation}\]</div>
 <div class="note admonition">
@@ -681,19 +681,19 @@ i \hbar \frac{\partial \rho}{\partial t} = \lc \mathcal{H}, \rho \rc
 ecuación de von Neumann (también conocida como ecuación de Liouville-von Neumann) describe cómo
 evoluciona un operador de densidad en el tiempo. Las dos ecuaciones son equivalentes, en el
 sentido de que cualquiera puede derivarse de la otra. La ecuación de von Neumann estable</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a07e904b-1ae8-4b99-b589-037ef87f0d92">
-<span class="eqno">(512)<a class="headerlink" href="#equation-a07e904b-1ae8-4b99-b589-037ef87f0d92" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-83c01509-e82a-4a4d-8802-d1d6718da8e7">
+<span class="eqno">(506)<a class="headerlink" href="#equation-83c01509-e82a-4a4d-8802-d1d6718da8e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i \hbar \frac{\partial \rho}{\partial t} = \lc \mathcal{H}, \rho \rc
 \end{equation}\]</div>
 <p>donde los corchetes denotan el <b>conmutador</b>, es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b5b56a5-d38f-46cf-962b-0b45298139fe">
-<span class="eqno">(513)<a class="headerlink" href="#equation-3b5b56a5-d38f-46cf-962b-0b45298139fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ec8a14b-a7a4-4d43-a8e8-ad75bb536280">
+<span class="eqno">(507)<a class="headerlink" href="#equation-0ec8a14b-a7a4-4d43-a8e8-ad75bb536280" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lc \mathcal{H}, \rho \rc = \mathcal{H} \rho - \rho \mathcal{H}
 \end{equation}\]</div>
 </div>
 <p>Como también vimos, podemos eliminar la dependencia temporal de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> yendo a un sistema de referencia rotante a una frecuencia <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>. En este sistema, el Hamiltoniano toma la forma de la Ec. (\ref{ec_Hardware_NMR_H_rot_single}). En forma matricial:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12622531-b23e-4a2d-b93b-524a928dda8e">
-<span class="eqno">(514)<a class="headerlink" href="#equation-12622531-b23e-4a2d-b93b-524a928dda8e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d5638a20-7c19-41b7-8a0b-0e26698dd91c">
+<span class="eqno">(508)<a class="headerlink" href="#equation-d5638a20-7c19-41b7-8a0b-0e26698dd91c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathcal{H}^{rot} = - (\omega_0 - \omega_{rf}) S_z - \omega_1 \lc \cos (\phi) S_x + \sin (\phi) S_y \rc =
 - \frac{\hbar}{2} \begin{bmatrix}
 (\omega_0 - \omega_{rf})  &amp;  \omega_1 e^{-i \phi} \\
@@ -715,8 +715,8 @@ i \hbar \frac{\partial \rho}{\partial t} = \lc \mathcal{H}, \rho \rc
 \end{matrix}
 \end{equation*}\]</div>
 <p>Con lo cual, solo nos interesan dos de las cuatro ecuaciones, una para <span class="math notranslate nohighlight">\(\rho_{\uparrow \uparrow}\)</span> y otra para <span class="math notranslate nohighlight">\(\rho_{\uparrow \downarrow}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d07024a-f7a0-4135-8d3b-f65c409e088d">
-<span class="eqno">(515)<a class="headerlink" href="#equation-3d07024a-f7a0-4135-8d3b-f65c409e088d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c9db0ffc-a328-427c-b1e4-ca6e50e06e48">
+<span class="eqno">(509)<a class="headerlink" href="#equation-c9db0ffc-a328-427c-b1e4-ca6e50e06e48" title="Permalink to this equation">#</a></span>\[\begin{align}
 i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} &amp; = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp \label{ec_decoherencia_rho_up-up}\\
 i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} &amp; =
 - \frac{\hbar}{2} \Lc 2 \Delta \omega \rho_{\uparrow \downarrow} +
@@ -765,8 +765,8 @@ i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} &amp; =
 <p>La evolución de este espín de electrón giratorio o en precesión es unitaria ya que hasta ahora estamos considerando un único espín aislado sin desfase ni decoherencia. La coherencia cuántica se mantiene siempre. Sin embargo, <b>el espín de un electrón nunca está aislado</b>. Se acopla a los grados de libertad orbitales del electrón a través del acoplamiento espín-órbita, a los espines nucleares a través de la interacción hiperfina y la interacción dipolar, a la red cristalina (y por tanto a los fonones) a través del acoplamiento espín-órbita, a cualquier impureza magnética del entorno a través del acoplamiento directo espín-dipolo, y a otros espines de electrones a través del acoplamiento dipolar y de intercambio.</p>
 <p>Con todos estos grados de libertad “ambientales” presentes en principio, las simples ecuaciones libres de decoherencia para la matriz de densidad de espín (\ref{ec_decoherencia_rho_up-up}) y (\ref{ec_decoherencia_rho_up-down}) son obviamente una idealización. Para determinar cómo de fuertes son estas influencias “externas”, necesitamos incluirlas en el Hamiltoniano de partida, y luego emplear aproximaciones para lograr una comprensión cuantitativa de cómo evoluciona el sistema y cómo el espín que nos ocupa pierde su coherencia debido a su acoplamiento al “entorno”. Obviamente, se trata de un problema muy complicado (de hecho, un problema irresoluble, ya que nunca podremos estar seguros de conocer con precisión todos los grados de libertad posibles del entorno).</p>
 <p>Un enfoque sencillo para abordar este problema consiste en añadir términos de decaimiento exponencial a los lados derechos de las dos Ecs. (\ref{ec_decoherencia_rho_up-up}) y (\ref{ec_decoherencia_rho_up-down}) anteriores:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7321ffae-c838-4640-bda0-18ea826e242a">
-<span class="eqno">(516)<a class="headerlink" href="#equation-7321ffae-c838-4640-bda0-18ea826e242a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-28db2599-06e9-4da0-8b1c-37e77c00d8bf">
+<span class="eqno">(510)<a class="headerlink" href="#equation-28db2599-06e9-4da0-8b1c-37e77c00d8bf" title="Permalink to this equation">#</a></span>\[\begin{align}
 i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} &amp; = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp - \frac{i \hbar}{T_1} \rho_{\uparrow \uparrow} \, , \label{ec_decoherencia_rho_up-up_ficcion} \\
 i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} &amp; =
 - \frac{\hbar}{2} \Lc 2 \Delta \omega \rho_{\uparrow \downarrow} +
@@ -774,20 +774,20 @@ i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} &amp; =
 \end{align}\]</div>
 <p>para imitar el comportamiento observado fenomenológicamente de la decoherencia. Esto es simular a añadir un término de fricción proporcional a la velocidad en la ecuación de newton clásica. Las dos constantes pueden calcularse en determinadas condiciones si se dispone de suficiente información sobre el entorno. Este sencillo enfoque fenomenológico resulta ser bastante exitoso en la descripción de muchos experimentos, que van desde la RMN y la ESR hasta la óptica cuántica, aunque los cálculos explícitos reales de <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> suelen ser bastante difíciles. Quizás sea más fructífero considerar <span class="math notranslate nohighlight">\(T_1\)</span> y <span class="math notranslate nohighlight">\(T_2\)</span> como parámetros puramente fenomenológicos (que caracterizan las relajaciones longitudinal y transversal respectivamente en la dinámica TLS) que deben obtenerse a partir de medidas experimentales.</p>
 <p>Recordemos que el vector unitario de magnetización está relacionado con el espín mediante</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a016410e-a52e-4142-8a97-7dcafd5256eb">
-<span class="eqno">(517)<a class="headerlink" href="#equation-a016410e-a52e-4142-8a97-7dcafd5256eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6f69f1c-71b7-44fe-876f-207aa1a81226">
+<span class="eqno">(511)<a class="headerlink" href="#equation-b6f69f1c-71b7-44fe-876f-207aa1a81226" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \vec{M} = \text{Tr} \lp \rho \vec{\sigma} \rp
 \end{equation}\]</div>
 <p>con lo que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e265be6-d4c5-4b05-8563-45c365e6d837">
-<span class="eqno">(518)<a class="headerlink" href="#equation-8e265be6-d4c5-4b05-8563-45c365e6d837" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0f500e93-ea7c-4594-b5fa-6e0e2e719e7c">
+<span class="eqno">(512)<a class="headerlink" href="#equation-0f500e93-ea7c-4594-b5fa-6e0e2e719e7c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_x = 2 \text{Re} (\rho_{\uparrow \downarrow})\, , \hspace{2cm}
 M_y = -2 \text{Im}(\rho_{\uparrow \downarrow}) \, , \hspace{2cm}
 M_z = (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \,.
 \end{equation}\]</div>
 <p>Podemos ahora reescribir las Eqs. (\ref{ec_decoherencia_rho_up-up_ficcion}) y (\ref{ec_decoherencia_rho_up-down_ficcion}) con respecto a las componentes del vector real <span class="math notranslate nohighlight">\(\vec{M}\)</span>, obteniendo las <b>ecuaciones de Bloch</b> en el sistema de referencia rotante:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-960f5aa9-b8a3-48c8-8430-5c621412ea89">
-<span class="eqno">(519)<a class="headerlink" href="#equation-960f5aa9-b8a3-48c8-8430-5c621412ea89" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e2a10ee2-b159-495e-929a-793768960a06">
+<span class="eqno">(513)<a class="headerlink" href="#equation-e2a10ee2-b159-495e-929a-793768960a06" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\partial M_x}{\partial t} &amp; = - \frac{1}{T_2} M_x - \Delta\omega M_y \, , \\
 \frac{\partial M_y}{\partial t} &amp; = \Delta\omega - \frac{1}{T_2} M_y - \omega_1 M_z\, , \\
 \frac{\partial M_z}{\partial t} &amp; = \omega_1 M_y - \frac{1}{T_1} (M_z +1) \, .

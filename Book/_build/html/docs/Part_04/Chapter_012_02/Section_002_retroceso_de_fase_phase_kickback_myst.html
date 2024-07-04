@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi14.png"><img alt="../../../_images/Fig_logo_UMA_scbi14.png" src="../../../_images/Fig_logo_UMA_scbi14.png" style="width: 2000px;" /></a>
@@ -660,12 +660,12 @@ document.write(`
 <h1>Retroceso de fase (Phase kickback)<a class="headerlink" href="#retroceso-de-fase-phase-kickback" title="Permalink to this heading">#</a></h1>
 <p>Hemos estudiado ya el operador controlado <span class="math notranslate nohighlight">\(\cg{U}\)</span>. Es un error frecuente pensar que el qúbit controlador no se modifica. Un caso importante ocurre cuando el operador <span class="math notranslate nohighlight">\(U\)</span> actúa sobre uno de sus autoestados (recuerda que los autovalores de  un operador unitario son fases puras)</p>
 <div class="math notranslate nohighlight" id="equation-ec-elementos-u-sobre-eigen">
-<span class="eqno">(520)<a class="headerlink" href="#equation-ec-elementos-u-sobre-eigen" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(514)<a class="headerlink" href="#equation-ec-elementos-u-sobre-eigen" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 U\ket{u} = e^{i\lambda} \ket{u}
 \end{equation} \]</div>
 <p>Supongamos que por el <b>qúbit controlador</b> circula una superposición <span class="math notranslate nohighlight">\((a\ket{0}+b\ket{1})\)</span> y por el <b>qúbit controlado</b> un autoestado <span class="math notranslate nohighlight">\(\ket{u}\)</span> de <span class="math notranslate nohighlight">\(U\)</span>.  La acción de <span class="math notranslate nohighlight">\(\cg{U}\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-263bfaee-044b-4cc5-a5a4-8df02eb9147c">
-<span class="eqno">(521)<a class="headerlink" href="#equation-263bfaee-044b-4cc5-a5a4-8df02eb9147c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8c8488ff-8554-4138-b1fd-b1f8d5330669">
+<span class="eqno">(515)<a class="headerlink" href="#equation-8c8488ff-8554-4138-b1fd-b1f8d5330669" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cg{U}: (a\ket{0} + b\ket{1})\otimes \ket{u} ~\to ~ a\ket{0}\ket{u} + b \ket{1}e^{i\lambda}\ket{u}  = \left( a\ket{0}\ket{u} + be^{i\lambda} \ket{1} \rule{0mm}{4mm} \right)\otimes \ket{u}
 \end{equation}\]</div>
 <p>En resultado final es que la fase <span class="math notranslate nohighlight">\(e^{i\lambda}\)</span> ha <b>modificado</b> el estado del qúbit controlador, mientras que el segundo qúbit no ha cambiado. Podemos ver esto en la Fig. \ref{Fig_elementos_phase_kickback.}</p>

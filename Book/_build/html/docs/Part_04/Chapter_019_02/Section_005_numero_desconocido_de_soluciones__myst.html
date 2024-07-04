@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 6 min read</p>
+<div><p>Jul 04, 2024 | 6 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -690,13 +690,13 @@ Esto implica que podemos tener los siguientes casos:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Para cualquier par de números <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>, y cualquier posible entero <span class="math notranslate nohighlight">\(r\)</span> tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0641d700-1b78-4b96-b52e-4280943ee4d3">
-<span class="eqno">(677)<a class="headerlink" href="#equation-0641d700-1b78-4b96-b52e-4280943ee4d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d07eab7e-e527-4202-a0fd-0b7ff05c6f9b">
+<span class="eqno">(663)<a class="headerlink" href="#equation-d07eab7e-e527-4202-a0fd-0b7ff05c6f9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{j=0}^{r-1} \cos \lp \alpha + 2 \beta j \rp = \frac{\sin \lp r \beta \rp \cos (\alpha + (r-1) \beta)}{\sin \beta}.
 \end{equation}\]</div>
 <p class="sd-card-text">En particular, si <span class="math notranslate nohighlight">\(\alpha = \beta\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b465d26a-14f3-42f6-b00d-ce630b9230df">
-<span class="eqno">(678)<a class="headerlink" href="#equation-b465d26a-14f3-42f6-b00d-ce630b9230df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a26e0578-f390-4b6b-86b8-ef2181fc0287">
+<span class="eqno">(664)<a class="headerlink" href="#equation-a26e0578-f390-4b6b-86b8-ef2181fc0287" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum^{r-1}_{j=0} \cos \lp \lp 2 j + 1 \rp \alpha \rp = \frac{\sin \lp 2 r \alpha \rp}{2 \sin \alpha}.
 \end{equation}\]</div>
 </div>
@@ -709,7 +709,7 @@ Esto implica que podemos tener los siguientes casos:</p>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(M\)</span> el número (desconocido) de soluciones de un problema tipo Grover con <span class="math notranslate nohighlight">\(N\)</span> elementos y sea <span class="math notranslate nohighlight">\(\theta\)</span> tal que <span class="math notranslate nohighlight">\(\sin^2 \theta = M/N\)</span>. Sea <span class="math notranslate nohighlight">\(r\)</span> un entero positivo aleatorio. Sea <span class="math notranslate nohighlight">\(t\)</span> un entero aleatorio (con distribución uniforme) entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(r-1\)</span>. Si observamos el registro después de <span class="math notranslate nohighlight">\(t\)</span> iteraciones del algoritmo de Grover empezando desde el estado <span class="math notranslate nohighlight">\(|\Psi_0 \rangle = \sum_i \frac{1}{\sqrt{N}} | i \rangle\)</span>, la probabilidad de obtener la solución correcta es exactamente</p>
 <div class="math notranslate nohighlight" id="equation-lemma-pm-ec">
-<span class="eqno">(679)<a class="headerlink" href="#equation-lemma-pm-ec" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(665)<a class="headerlink" href="#equation-lemma-pm-ec" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 P_r = \frac{1}{2} - \frac{\sin (4 r \theta)}{4 r \sin(2 \theta)}.
 \end{equation} \]</div>
 <p class="sd-card-text">En particular, tenemos <span class="math notranslate nohighlight">\(P_r \geq 1/4\)</span> si <span class="math notranslate nohighlight">\(r \geq 1/\sin ( 2 \theta)\)</span>.</p>
@@ -734,8 +734,8 @@ P_r = \frac{1}{r} \sum^{r-1}_{t=0}  P(t) = \frac{1}{r} \sum^{r-1}_{t=0} \sin^2 (
 \frac{1}{2r} \sum^{r-1}_{t=0} \Lp 1-\cos (2(2t+1) \theta) \Rp = \frac{1}{2} - \frac{\sin (4 r \theta)}{4 r \, \sin (2 \theta)},
 \end{equation*}\]</div>
 <p class="sd-card-text">donde en la última igualdad se ha usado el Lemma \ref{lemma_suma_cos}  y al identidad trigonométrica</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab70a894-2271-4a96-840a-87172884315f">
-<span class="eqno">(680)<a class="headerlink" href="#equation-ab70a894-2271-4a96-840a-87172884315f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04d5e35c-40da-41ac-a423-5951a2068ff2">
+<span class="eqno">(666)<a class="headerlink" href="#equation-04d5e35c-40da-41ac-a423-5951a2068ff2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sin^2 \theta = \frac{1 - cos (2\theta)}{2}\,.
 \end{equation}\]</div>
 <p class="sd-card-text">Si estamos en el caso de <span class="math notranslate nohighlight">\(r \geq 1/\sin (2\theta)\)</span> tenemos</p>
@@ -789,17 +789,17 @@ Demostración<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\theta\)</span> un ángulo tal que</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-proof-theta">
-<span class="eqno">(681)<a class="headerlink" href="#equation-teorema-no-t-proof-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(667)<a class="headerlink" href="#equation-teorema-no-t-proof-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \sin \theta = \sqrt{N/M},
 \end{equation} \]</div>
 <p class="sd-card-text">(como en la Ec. (\ref{ec_t-sols_theta})). Denominemos <span class="math notranslate nohighlight">\(r_s\)</span> al valor de <span class="math notranslate nohighlight">\(r\)</span> en la s-esima iteración del bucle principal, es decir</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-proof-r-s">
-<span class="eqno">(682)<a class="headerlink" href="#equation-teorema-no-t-proof-r-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(668)<a class="headerlink" href="#equation-teorema-no-t-proof-r-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 r_s = \lambda^{s-1}, \qquad \text{con } s = 1,2,\dots \quad \text{ y } \lambda = \frac{4}{3}.
 \end{equation} \]</div>
 <p class="sd-card-text">(No confundir las <b>iteraciones del bucle principal</b> con las <b>iteraciones de Grover</b>: en cada iteración <span class="math notranslate nohighlight">\(s\)</span> del bucle principal hacemos <span class="math notranslate nohighlight">\(t\)</span> iteraciones de Grover.) Sea <span class="math notranslate nohighlight">\(r_0\)</span> tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f8dcc4b-9b1a-4483-a1b3-581ef5ea0ffc">
-<span class="eqno">(683)<a class="headerlink" href="#equation-3f8dcc4b-9b1a-4483-a1b3-581ef5ea0ffc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3ba64317-f9e4-4a2c-aac5-00c453e2260c">
+<span class="eqno">(669)<a class="headerlink" href="#equation-3ba64317-f9e4-4a2c-aac5-00c453e2260c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r_0 = \frac{1}{\sin (2 \theta)}.
 \end{equation}\]</div>
 <p class="sd-card-text">(Véase que <span class="math notranslate nohighlight">\(r_0\)</span> no es valor inicial de <span class="math notranslate nohighlight">\(r_s\)</span>). Aplicando un poco de trigonometria</p>
@@ -811,7 +811,7 @@ r_0 = \frac{1}{\sin (2 \theta)}.
 \end{equation*}\]</div>
 <p class="sd-card-text">Desarrollando el cuadrado y teniendo en cuenta la Ec. (\ref{teorema_no-t_proof_theta}) llegamos a</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-proof-alpha">
-<span class="eqno">(684)<a class="headerlink" href="#equation-teorema-no-t-proof-alpha" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(670)<a class="headerlink" href="#equation-teorema-no-t-proof-alpha" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 r_0 = \frac{1}{\sin (2 \theta)} = \frac{N}{2 \sqrt{(N-M)M}} &lt; \sqrt{\frac{N}{M}}.
 \end{equation} \]</div>
 <p class="sd-card-text">donde en la desigualdad se ha tenido en cuenta que <span class="math notranslate nohighlight">\(M \leq 3N/4\)</span>. Veámoslo</p>
@@ -824,18 +824,18 @@ r_0 = \frac{1}{\sin (2 \theta)} = \frac{N}{2 \sqrt{(N-M)M}} &lt; \sqrt{\frac{N}{
 \end{align*}\]</div>
 <p class="sd-card-text">Debemos estimar el número esperado total de iteraciones de Grover que tenemos que hacer (sumando todas las interaciones de Grover en todas las iteraciones del bucle principal). El tiempo total será del orden de este número. Sabemos que <b>el número promedio de iteraciones de Grover que se realizan en la iteración s-esima del bucle principal es menor que</b> <span class="math notranslate nohighlight">\(\bm{r_s/2}\)</span>. Escribiéndolo de forma bonita:</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-proof-j-hat">
-<span class="eqno">(685)<a class="headerlink" href="#equation-teorema-no-t-proof-j-hat" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(671)<a class="headerlink" href="#equation-teorema-no-t-proof-j-hat" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \bar{t}_s &lt; \frac{r_s}{2} = \frac{\lambda^{s-1}}{2} \qquad \text{ donde la barra significa promedio}.
 \end{equation} \]</div>
 <p class="sd-card-text">Esto es debido a que en cada iteración del bucle principal hacemos un número aleatorio de iteraciones <span class="math notranslate nohighlight">\(t_s\)</span> de Grover con <span class="math notranslate nohighlight">\(0 \leq t_s &lt; r_s\)</span>.  Denominamos <b>fase crítica</b> al momento en el que hemos realizado suficientes iteraciones del bucle principal como para tener <span class="math notranslate nohighlight">\(r_s \geq r_0\)</span>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6546027-5dc0-4c9a-b3fe-5514d00076d3">
-<span class="eqno">(686)<a class="headerlink" href="#equation-f6546027-5dc0-4c9a-b3fe-5514d00076d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-62b617f7-e420-49af-b8d6-bf7861e63cd4">
+<span class="eqno">(672)<a class="headerlink" href="#equation-62b617f7-e420-49af-b8d6-bf7861e63cd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rqa s &gt; \lceil \log_\lambda r_0 \rceil.
 \end{equation}\]</div>
 <p class="sd-card-text">con lo cual, <b>estamos en la fase crítica cuando el número de iteraciones del bucle principal es mayor que</b> <span class="math notranslate nohighlight">\(\bm{\lceil \log_{\lambda} r_0 \rceil}\)</span> (donde esta notación significa <i>redondear hacia el siguiente entero</i>).  Si nos fijamos en el Lemma \ref{lemma_Pm}, esta fase corresponde a aquella donde <span class="math notranslate nohighlight">\(P_r &gt; 1/4\)</span>.</p>
 <p class="sd-card-text">Teniendo en cuenta la Ec. (\ref{teorema_no-t_proof_j-hat}), vemos que el número promedio total de iteraciones de Grover que se realizan antes de llegar a la fase crítica es</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-3r0">
-<span class="eqno">(687)<a class="headerlink" href="#equation-teorema-no-t-3r0" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(673)<a class="headerlink" href="#equation-teorema-no-t-3r0" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \begin{split}
 \sum_{s=1}^{\lceil \log_\lambda r_0 \rceil} \bar{t}_s
 &amp; &lt; \frac{1}{2} \sum_{s=1}^{\lceil \log_\lambda r_0 \rceil} \lambda^{s-1}
@@ -848,19 +848,19 @@ r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rq
 <div class="note admonition">
 <p class="admonition-title">Nota (Suma de serie geométrica)</p>
 <div class="math notranslate nohighlight" id="equation-ec-no-t-suma-geometrica">
-<span class="eqno">(688)<a class="headerlink" href="#equation-ec-no-t-suma-geometrica" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(674)<a class="headerlink" href="#equation-ec-no-t-suma-geometrica" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \sum_{k=0}^n r^k = \frac{1-r^{n+1}}{1-r} = \frac{r^{n+1} -1 }{r -1}.
 \end{equation} \]</div>
 </div>
 <p class="sd-card-text">Vemos que el algoritmo llega a la fase crítica en un tiempo <span class="math notranslate nohighlight">\(\mathcal{O} (r_0) &lt; \mathcal{O}(\sqrt{N/M})\)</span> (ver Ec. (\ref{teorema_no-t_proof_alpha})).</p>
 <p class="sd-card-text">Como ya comentamos, una vez alcanzado el estado crítico, por el Lemma \ref{lemma_Pm}, sabemos que en cada nueva iteración del bucle principal la <b>probabilidad de éxito</b> <span class="math notranslate nohighlight">\(\bm{P_r \geq 1/4}\)</span> ya que <span class="math notranslate nohighlight">\(r_s &gt; 1/\sin (2 \theta)\)</span>. De ello se deduce que el número esperado de iteraciones de Grover necesarias para tener éxito una vez alcanzada la fase crítica está acotado superiormente por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e02786d8-45df-4c66-8424-ded59018b812">
-<span class="eqno">(689)<a class="headerlink" href="#equation-e02786d8-45df-4c66-8424-ded59018b812" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-40958690-1fe3-48d7-b9a6-ee0e7a552269">
+<span class="eqno">(675)<a class="headerlink" href="#equation-40958690-1fe3-48d7-b9a6-ee0e7a552269" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{\tilde{u}=1}^\infty (1-P_r)^{\tilde{u}-1} P_r \, \bar{t}_{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil} &lt; \frac{1}{2} \sum_{\tilde{u}=1}^\infty \frac{3^{\tilde{u}-1}}{4^{\tilde{u}-1}} \frac{1}{4} \lambda^{\tilde{u}+1+\lceil \log_\lambda r_0 \rceil},
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1}\)</span> es la probabilidad de fallar <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span> veces, con lo que <span class="math notranslate nohighlight">\((1-P_r)^{\tilde{u}-1} P_r\)</span> es la probabilidad de haber fallado <span class="math notranslate nohighlight">\(\tilde{u}-1\)</span> veces y acertar en la <span class="math notranslate nohighlight">\(\tilde{u}\)</span>-esima. <span class="math notranslate nohighlight">\(\bar{t}_s\)</span> viene dada por (\ref{teorema_no-t_proof_j-hat}). Véase que para acotar las iteraciones nos hemos puesto en el peor caso, en el que la probabilidad de exito es la mínima y no aumenta (<span class="math notranslate nohighlight">\(P_r = 1/4\)</span>). Podemos hacer al cambio de variable <span class="math notranslate nohighlight">\(u = \tilde{u} -1\)</span> para poner la expresión anterior más acorde para realizar la suma de la serie geométrica (ver Ec. (\ref{ec_no-t_suma-geometrica}))</p>
 <div class="math notranslate nohighlight" id="equation-teorema-no-t-3r0-2">
-<span class="eqno">(690)<a class="headerlink" href="#equation-teorema-no-t-3r0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(676)<a class="headerlink" href="#equation-teorema-no-t-3r0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \frac{1}{2} \sum_{u=0}^\infty \frac{3^{u}}{4^{u}} \frac{1}{4} \lambda^{u+\lceil \log_\lambda r_0 \rceil}
 &lt;
 \frac{1}{2}  \frac{1}{4} \lambda^{1+ \log_\lambda r_0}  \sum_{u=0}^\infty \frac{3^{u}}{4^{u}} \lambda^{u}
@@ -869,8 +869,8 @@ r_s &gt; r_0 \rqa \lambda^{s-1} &gt; r_0 \rqa s &gt; 1 + \log_{\lambda} r_0  \rq
 = \frac{\lambda}{8-6 \lambda}r_0 = \boxed{ \frac{3}{2} r_0}.
 \end{equation} \]</div>
 <p class="sd-card-text">El número total esperado de iteraciones de Grover, en caso de que se alcance la fase crítica, está, por tanto, limitado por la suma de (\ref{teorema_no-t_3r0}) más (\ref{teorema_no-t_3r0/2}), es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e099ebe-d26e-4753-bc0c-29efe62927ee">
-<span class="eqno">(691)<a class="headerlink" href="#equation-7e099ebe-d26e-4753-bc0c-29efe62927ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-84483149-fe50-4df6-859f-6675e9c45628">
+<span class="eqno">(677)<a class="headerlink" href="#equation-84483149-fe50-4df6-859f-6675e9c45628" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T = r_0 + \frac{3}{2} r_0 = \frac{9}{2} r_0 &lt; \frac{9}{2} \sqrt{\frac{M}{N}},
 \end{equation}\]</div>
 <p class="sd-card-text">con lo que el tiempo esperado total es <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> siempre que <span class="math notranslate nohighlight">\(0 &lt; M \leq 3N/4\)</span>. Véase que <span class="math notranslate nohighlight">\(\frac{9}{2} r_0 \approx \frac{9}{2} \sqrt{N/M}\)</span> cuando <span class="math notranslate nohighlight">\(M \ll N\)</span>, que es menos de 4 veces el tiempo esperado en el caso de conocer <span class="math notranslate nohighlight">\(M\)</span> de antemano (ver Ec. (\ref{ec_t-sols_m})). El caso <span class="math notranslate nohighlight">\(M &gt; 3N/4\)</span> puede resolverse en tiempo esperado constante mediante muestreo clásico. El caso <span class="math notranslate nohighlight">\(M = 0\)</span> se maneja mediante un tiempo de espera apropiado en el algoritmo anterior, que permite afirmar en un tiempo en <span class="math notranslate nohighlight">\(\mathcal{O} (\sqrt{N})\)</span> que no hay soluciones cuando este es el caso, con una probabilidad de fallo arbitrariamente pequeña cuando de hecho hay una solución.</p>

@@ -658,7 +658,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 4 min read</p>
+<div><p>Jul 04, 2024 | 4 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
@@ -708,8 +708,8 @@ document.write(`
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Una <b>distribución de probabilidad</b> es una función real <span class="math notranslate nohighlight">\(x\to p(x)\)</span> que debe  verificar las dos condiciones siguientes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5007b571-12c1-4cf9-ba2a-0f66b7d044ed">
-<span class="eqno">(239)<a class="headerlink" href="#equation-5007b571-12c1-4cf9-ba2a-0f66b7d044ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e1412a52-a632-4e0d-bfaa-ca9e42a641aa">
+<span class="eqno">(233)<a class="headerlink" href="#equation-e1412a52-a632-4e0d-bfaa-ca9e42a641aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(x) \in [0,1]~~~~~~~,~~~~~~~~\sum_{x\in X }p(x) = 1
 \end{equation}\]</div>
 <p class="sd-card-text">Es decir, la suma de probabilidades de todos los sucesos posibles debe ser la unidad.</p>
@@ -721,8 +721,8 @@ p(x) \in [0,1]~~~~~~~,~~~~~~~~\sum_{x\in X }p(x) = 1
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>media</b> de una variable aleatoria  viene dada por la expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b71c0a7f-97aa-49a2-a47e-b73a0a70b3ef">
-<span class="eqno">(240)<a class="headerlink" href="#equation-b71c0a7f-97aa-49a2-a47e-b73a0a70b3ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-240fe5af-b483-4886-b35d-3ccd9a26a1d5">
+<span class="eqno">(234)<a class="headerlink" href="#equation-240fe5af-b483-4886-b35d-3ccd9a26a1d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \overline X  = \sum_i x_i p(x_i)
 \end{equation}\]</div>
 </div>
@@ -733,13 +733,13 @@ p(x) \in [0,1]~~~~~~~,~~~~~~~~\sum_{x\in X }p(x) = 1
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>varianza</b>, <span class="math notranslate nohighlight">\(\sigma_X^2\)</span>, es la  <i>media de la desviación cuadrática</i> <span class="math notranslate nohighlight">\(\overline{(x_i - \overline{X} )^2}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a46dd89a-2d76-4afa-831f-888a5bdf4876">
-<span class="eqno">(241)<a class="headerlink" href="#equation-a46dd89a-2d76-4afa-831f-888a5bdf4876" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d9b1a4bd-1d70-44f3-94d1-7993552fe5bc">
+<span class="eqno">(235)<a class="headerlink" href="#equation-d9b1a4bd-1d70-44f3-94d1-7993552fe5bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma^2_X = \sum_j (x_j-\overline{X})^2 p(x_j) = \overline{X^2} - \overline{X}^2
 \end{equation}\]</div>
 <p class="sd-card-text">La cantidad <span class="math notranslate nohighlight">\(\sigma_X\)</span> se denomina  <b>desviación estándar</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2519d920-72bd-4417-8a26-06fc5ac51191">
-<span class="eqno">(242)<a class="headerlink" href="#equation-2519d920-72bd-4417-8a26-06fc5ac51191" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c1db7df-c6bc-4154-a8d0-55dc00f6fec9">
+<span class="eqno">(236)<a class="headerlink" href="#equation-0c1db7df-c6bc-4154-a8d0-55dc00f6fec9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_X = \sqrt{\overline{X^2} - \overline{X}^2}
 \end{equation}\]</div>
 </div>
@@ -765,14 +765,14 @@ Por ejemplo, si truncamos nuestra precisión a las décimas de unidad,  <span cl
 <section id="ley-de-los-grandes-numeros">
 <h3>Ley de los grandes números<a class="headerlink" href="#ley-de-los-grandes-numeros" title="Permalink to this heading">#</a></h3>
 <p>La conexión entre estadística y teoría de la probabilidad se da mediante la <b>ley de los grandes números</b>. Lo que nos dice esta ley es que cuando el número de muestras tiende a infinito, <span class="math notranslate nohighlight">\(N\to \infty\)</span>, las fracciones relativas tienden a un número fijo que hereda, de toda la dinámica del sistema, ciertas propiedades que no se desvanecen. Este número es la probabilidad, es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-708fd31d-87f6-42a0-a310-0c6146bfa929">
-<span class="eqno">(243)<a class="headerlink" href="#equation-708fd31d-87f6-42a0-a310-0c6146bfa929" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9bffe8ab-4702-4f94-bab8-5f74948b3381">
+<span class="eqno">(237)<a class="headerlink" href="#equation-9bffe8ab-4702-4f94-bab8-5f74948b3381" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
 \end{equation}\]</div>
 <p>Un punto importante aquí es darnos cuenta de que experimentalmente sólo tenemos acceso a las frecuencias relativas <span class="math notranslate nohighlight">\(f_N(x_i)\)</span> para un <span class="math notranslate nohighlight">\(N\)</span> grande aunque <b>finito</b>.</p>
 <p>Igualmente, nuestro conocimiento de la  media <span class="math notranslate nohighlight">\(\overline X\)</span>  y la varianza <span class="math notranslate nohighlight">\(\sigma_X^2\)</span> siempre es aproximado, y se realiza a través de las medias y varianzas muestrales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37018224-4c7f-413f-93f4-2ca8bfa10f00">
-<span class="eqno">(244)<a class="headerlink" href="#equation-37018224-4c7f-413f-93f4-2ca8bfa10f00" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d8dca0f9-aedf-445e-97e6-f0553e42bbf7">
+<span class="eqno">(238)<a class="headerlink" href="#equation-d8dca0f9-aedf-445e-97e6-f0553e42bbf7" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \overline{A}_N = \sum_i x_i f_N(x_i)~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \overline{X}\\
 \sigma_{A_N}^2 = \sum_{i} (x_i - \overline{A}_N)^2 f_N(x_i) ~~~&amp;\stackrel{N\to\infty}{\longrightarrow}&amp;~~~ \sigma_X^2
 \end{eqnarray}\]</div>
@@ -793,8 +793,8 @@ f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
 </div>
 </div>
 <p>Podemos calcular fácilmente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b87bb16-ab68-429e-91b7-277222e34d0c">
-<span class="eqno">(245)<a class="headerlink" href="#equation-0b87bb16-ab68-429e-91b7-277222e34d0c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-86596368-e30e-4c26-b625-a05c3e10ed02">
+<span class="eqno">(239)<a class="headerlink" href="#equation-86596368-e30e-4c26-b625-a05c3e10ed02" title="Permalink to this equation">#</a></span>\[\begin{align}
 \overline X &amp; = \sum_i x_i p_i = 1 \cdot p +0 \cdot (1-p) = p \\
 \sigma^2 &amp; = \sum_i (x-\overline X)^2p_i = (1-p)^2p +(0-p) = p(1-p)
 \end{align}\]</div>
@@ -804,14 +804,14 @@ f_N(x_i) = \frac{n(x_i)}{N}~~~\stackrel{N\to\infty}{\longrightarrow}~~~{p(x_i)}
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>variable aleatoria binomia</b>l <span class="math notranslate nohighlight">\(X = (x,p(x))\)</span> se define como</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5a32ad70-7589-4161-9e62-e9577ec3125f">
-<span class="eqno">(246)<a class="headerlink" href="#equation-5a32ad70-7589-4161-9e62-e9577ec3125f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3dcd4e2f-2d96-4f25-af64-70450ae34a41">
+<span class="eqno">(240)<a class="headerlink" href="#equation-3dcd4e2f-2d96-4f25-af64-70450ae34a41" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x = \text{número de éxitos obtenidos en } n \text{ pruebas de Bernouilli sucesivas}
 \end{equation}\]</div>
 <p class="sd-card-text">Claramente <span class="math notranslate nohighlight">\(x \in (0,1,2,...n)\)</span>.</p>
 <p class="sd-card-text">Ahora es muy sencillo obtener la <b>probabilidad</b> de un suceso con <span class="math notranslate nohighlight">\(x\)</span> éxitos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b686808c-6ab9-4e23-a6ee-3416e62099a6">
-<span class="eqno">(247)<a class="headerlink" href="#equation-b686808c-6ab9-4e23-a6ee-3416e62099a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2a192e0f-476e-453a-870a-bca829b20b1a">
+<span class="eqno">(241)<a class="headerlink" href="#equation-2a192e0f-476e-453a-870a-bca829b20b1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(x) = \begin{pmatrix}n\\ x\end{pmatrix} p^x (1-p)^{n-x}
 \end{equation}\]</div>
 <p class="sd-card-text">donde el primer factor tiene en cuenta las posibles ordenaciones en que aparecen <span class="math notranslate nohighlight">\(x\)</span> éxitos en <span class="math notranslate nohighlight">\(n\)</span> intentos.</p>
@@ -819,8 +819,8 @@ p(x) = \begin{pmatrix}n\\ x\end{pmatrix} p^x (1-p)^{n-x}
 </div>
 <p>Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_binomial}.</p>
 <p>Un cálculo un poco más largo permite ver que, ahora</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50a0179d-8ffa-4f53-b264-37717bf68c46">
-<span class="eqno">(248)<a class="headerlink" href="#equation-50a0179d-8ffa-4f53-b264-37717bf68c46" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1d68f6c4-b4ab-4dd2-a74b-41ee219caa77">
+<span class="eqno">(242)<a class="headerlink" href="#equation-1d68f6c4-b4ab-4dd2-a74b-41ee219caa77" title="Permalink to this equation">#</a></span>\[\begin{align}
 \overline X &amp;=  np\\ \rule{0mm}{7mm}
 \sigma^2 &amp;= n p(1-p)
 \end{align}\]</div>
@@ -836,16 +836,16 @@ p(x) = \begin{pmatrix}n\\ x\end{pmatrix} p^x (1-p)^{n-x}
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>distribución normal</b> (o <b>gaussiana</b>) centrada en <span class="math notranslate nohighlight">\(\mu\)</span> y con anchura <span class="math notranslate nohighlight">\(\sigma\)</span> viene dada por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0ab115b-e4db-4df7-ad92-cfa216b0aa55">
-<span class="eqno">(249)<a class="headerlink" href="#equation-c0ab115b-e4db-4df7-ad92-cfa216b0aa55" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9cf00338-bdc5-4b30-ae1e-475d76c6f417">
+<span class="eqno">(243)<a class="headerlink" href="#equation-9cf00338-bdc5-4b30-ae1e-475d76c6f417" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp \left({-\frac{(x-\mu)^2}{2\sigma^2}}\right)
 \end{equation}\]</div>
 <p class="sd-card-text">Nos encontramos ante una variable aleatoria con un espacio muestral continuo <span class="math notranslate nohighlight">\(x\in (-\infty,+\infty)\)</span>.</p>
 </div>
 </div>
 <p>Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_normal}. Tenemos además que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f4bcdc2-a5d1-4a2e-af00-fe066157f3be">
-<span class="eqno">(250)<a class="headerlink" href="#equation-8f4bcdc2-a5d1-4a2e-af00-fe066157f3be" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c70b9af6-c341-4d98-9cb5-0f4396b906ff">
+<span class="eqno">(244)<a class="headerlink" href="#equation-c70b9af6-c341-4d98-9cb5-0f4396b906ff" title="Permalink to this equation">#</a></span>\[\begin{align}
 \overline{X} &amp;= \int_{-\infty}^{+\infty} xp(x) dx = \mu \\
 \overline{(x-\overline X)^2} &amp;= \int_{-\infty}^{+\infty} (x-\mu)^2 p(x)dx =\sigma^2
 \end{align}\]</div>
@@ -868,33 +868,33 @@ p(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp \left({-\frac{(x-\mu)^2}{2\sigma^2}}\rig
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La <b>distribución de probabilidad combinada</b> asocia un número <span class="math notranslate nohighlight">\(p(x,y)\)</span> a la probabilidad de observación conjunta de <span class="math notranslate nohighlight">\(x\)</span> <b>e</b> <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p class="sd-card-text">De esta forma, tratamos las parejas de eventos  como un solo evento  <span class="math notranslate nohighlight">\(a = (x,y)\)</span>. Por eso, la condición de normalización ahora es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d4afd3e-58d7-4c42-a18b-d3f7bab2ed57">
-<span class="eqno">(251)<a class="headerlink" href="#equation-3d4afd3e-58d7-4c42-a18b-d3f7bab2ed57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bae6a313-f578-4fda-964c-9606968d7885">
+<span class="eqno">(245)<a class="headerlink" href="#equation-bae6a313-f578-4fda-964c-9606968d7885" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_a p(a) = \sum_{xy} p(x,y) = 1\, .
 \end{equation}\]</div>
 </div>
 </div>
-<ul class="simple">
+<ul>
 <li><p><b>Distribución marginal</b>:
-La suma parcial sobre una de las dos variables conduce a sendas <b>distribuciones marginales</b></p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-0f6cbd3d-8b49-4412-9765-772987e568ed">
-<span class="eqno">(252)<a class="headerlink" href="#equation-0f6cbd3d-8b49-4412-9765-772987e568ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
-q(x) = \sum_{y} p(x,y) ~~~~~~~~~ \tilde q(y) = \sum_{x} p(x,y)
-\end{equation}\]</div>
-<ul class="simple">
+La suma parcial sobre una de las dos variables conduce a sendas <b>distribuciones marginales</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-8d01ffeb-980f-4b80-a810-589da6449f1e">
+<span class="eqno">(246)<a class="headerlink" href="#equation-8d01ffeb-980f-4b80-a810-589da6449f1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    q(x) = \sum_{y} p(x,y) ~~~~~~~~~ \tilde q(y) = \sum_{x} p(x,y)
+    \end{equation}\]</div>
+</li>
 <li><p><b>Variables independientes</b>:
-Si dos variables aleatorias no presentan <b>ninguna correlación</b>, decimos que son <b>independientes</b>. En este caso las probabilidades combinadas factorizan</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-1043baa4-3914-4f5e-be21-58d73eba6888">
-<span class="eqno">(253)<a class="headerlink" href="#equation-1043baa4-3914-4f5e-be21-58d73eba6888" title="Permalink to this equation">#</a></span>\[\begin{equation}
-p(x,y) = p(x) p(y)
-\end{equation}\]</div>
+Si dos variables aleatorias no presentan <b>ninguna correlación</b>, decimos que son <b>independientes</b>. En este caso las probabilidades combinadas factorizan</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f473efc3-e36d-4b9a-9776-fc40aba28efe">
+<span class="eqno">(247)<a class="headerlink" href="#equation-f473efc3-e36d-4b9a-9776-fc40aba28efe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    p(x,y) = p(x) p(y)
+    \end{equation}\]</div>
 <p>La distribución de cada variable coincide con la que se deduce de marginalizar la otra</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a3e112f-e58d-4e68-929c-c14195a6d32d">
-<span class="eqno">(254)<a class="headerlink" href="#equation-1a3e112f-e58d-4e68-929c-c14195a6d32d" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\sum_y p(x,y) = p(x)~~~~,~~~~\sum_x p(x,y) = p(y)
-\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-22ee6d2f-ab27-4c3d-a70c-74236393ae18">
+<span class="eqno">(248)<a class="headerlink" href="#equation-22ee6d2f-ab27-4c3d-a70c-74236393ae18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \sum_y p(x,y) = p(x)~~~~,~~~~\sum_x p(x,y) = p(y)
+    \end{equation}\]</div>
+</li>
+</ul>
 </section>
 <section id="probabilidad-condicionada">
 <h3>Probabilidad condicionada<a class="headerlink" href="#probabilidad-condicionada" title="Permalink to this heading">#</a></h3>
@@ -910,13 +910,13 @@ p(x,y) = p(x) p(y)
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Las probabilidades condicionales y combinadas se relacionan de la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07d1d4b3-bf2c-4b10-aa18-7a4f44fe39c7">
-<span class="eqno">(255)<a class="headerlink" href="#equation-07d1d4b3-bf2c-4b10-aa18-7a4f44fe39c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed6519db-a405-4878-a2b1-82ab33dbda33">
+<span class="eqno">(249)<a class="headerlink" href="#equation-ed6519db-a405-4878-a2b1-82ab33dbda33" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(x,y) = p(x|y)p(y) = p(y|x) p(x)
 \end{equation}\]</div>
 <p class="sd-card-text">La segunda igualdad conduce al <b>teorema de Bayes</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4f98cb8-1493-44cf-a68b-e5deaa54aa9c">
-<span class="eqno">(256)<a class="headerlink" href="#equation-a4f98cb8-1493-44cf-a68b-e5deaa54aa9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6f3f34d4-1b9a-4378-a3ef-1e952368c412">
+<span class="eqno">(250)<a class="headerlink" href="#equation-6f3f34d4-1b9a-4378-a3ef-1e952368c412" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p(x|y) = \frac{p(y|x)p(x)}{p(y)}
 \end{equation}\]</div>
 </div>
@@ -931,8 +931,8 @@ p(x|y) = \frac{p(y|x)p(x)}{p(y)}
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Dada una variable aleatoria <span class="math notranslate nohighlight">\((X,p(X))\)</span> definimos la <b>entropía</b> asociada mediante la expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e707331-ddf8-442a-a452-5e12bd39a387">
-<span class="eqno">(257)<a class="headerlink" href="#equation-4e707331-ddf8-442a-a452-5e12bd39a387" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6d6963b1-526d-4213-a7bc-18a6ec24bde1">
+<span class="eqno">(251)<a class="headerlink" href="#equation-6d6963b1-526d-4213-a7bc-18a6ec24bde1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H = -\sum_x p(x)\log p(x)
 \end{equation}\]</div>
 </div>
@@ -946,8 +946,8 @@ H = -\sum_x p(x)\log p(x)
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
 <p>La entropía de la distribución de Bernoulli es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c75b2065-d72b-46d3-b4de-906c84d86566">
-<span class="eqno">(258)<a class="headerlink" href="#equation-c75b2065-d72b-46d3-b4de-906c84d86566" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0a410362-f6c6-4c7f-81df-c98d24fd3013">
+<span class="eqno">(252)<a class="headerlink" href="#equation-0a410362-f6c6-4c7f-81df-c98d24fd3013" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H = - p\log p -(1-p)\log (1-p)
 \end{equation}\]</div>
 <figure class="align-center" id="fig-formalismo-binaryentropy">

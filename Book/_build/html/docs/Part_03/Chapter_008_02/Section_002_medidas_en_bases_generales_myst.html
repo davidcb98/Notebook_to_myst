@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi9.png"><img alt="../../../_images/Fig_logo_UMA_scbi9.png" src="../../../_images/Fig_logo_UMA_scbi9.png" style="width: 2000px;" /></a>
@@ -670,8 +670,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="medidas-en-bases-generales">
 <h1>Medidas en bases generales<a class="headerlink" href="#medidas-en-bases-generales" title="Permalink to this heading">#</a></h1>
 <p>Vamos a suponer que queremos medir en una base ortonormal arbitraria <span class="math notranslate nohighlight">\(\{\ket{ x}'\}\)</span>, <span class="math notranslate nohighlight">\(x=0,...,2^n-1\)</span>. Buscamos un circuito que, a la llegada de un vector  concreto de la base <span class="math notranslate nohighlight">\(\ket{x}'=\ket{a_{n-1}...a_0}'\)</span>, devuelva exactamente <b>la misma colección</b> de bits  <span class="math notranslate nohighlight">\(a_{n-1}...a_0\)</span>. Para ello, al igual que vimos en el caso de un qúbit, debemos conocer el operador <span class="math notranslate nohighlight">\(U\)</span> que relaciona esta base con la base computacional</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b03efa44-df97-44d3-94ef-5baa9aa6b3f6">
-<span class="eqno">(423)<a class="headerlink" href="#equation-b03efa44-df97-44d3-94ef-5baa9aa6b3f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bfbc28c4-5e5b-4615-bff9-c10ee850e01f">
+<span class="eqno">(417)<a class="headerlink" href="#equation-bfbc28c4-5e5b-4615-bff9-c10ee850e01f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{ x}'= U\ket{x}~~~~~~\Longrightarrow ~~~~~~   U^\dagger\ket{x}' = \ket{ x}  \, .
 \end{equation}\]</div>
 <p>Entonces es evidente que sólo tenemos que añadir el operador <span class="math notranslate nohighlight">\(U^\dagger\)</span> antes de usar el medidor estándar. Podemos ver esto en la Fig. \ref{Fig_medidas2_Multimeter_basis}.</p>
@@ -698,7 +698,7 @@ Ver la sección 1 del notebook <b>04-Medidas_II</b>.
 <h2>Medidas de Bell<a class="headerlink" href="#medidas-de-bell" title="Permalink to this heading">#</a></h2>
 <p>Podemos medir también en bases entrelazadas, por ejemplo, en la base de Bell. En la Ec. (\ref{ec_multiqubit_Bell_states}) podemos ver la base de Bell</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas2-base-bell-from-z">
-<span class="eqno">(424)<a class="headerlink" href="#equation-ec-medidas2-base-bell-from-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(418)<a class="headerlink" href="#equation-ec-medidas2-base-bell-from-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{B_{xy}} = \ket{xy}'  = U \ket{xy}.
 \end{equation} \]</div>
 <p>En esta última expresión, <span class="math notranslate nohighlight">\(\ket{xy}\)</span> está expresado en la base computacional.  El circuito que genera esta base puede verse en la Fig. \ref{Fig_medidas2_circuit_Bell_basis}. Sabemos que el circuito de medida debe de llevar antes de los medidores el inverso de este circuito. Podemos ver el circuito de medida en la base de Bell en la Fig. \ref{Fig_medidas2_Bell_meter}.</p>

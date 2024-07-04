@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi19.png"><img alt="../../../_images/Fig_logo_UMA_scbi19.png" src="../../../_images/Fig_logo_UMA_scbi19.png" style="width: 2000px;" /></a>
@@ -669,7 +669,7 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="implementacion-ad-hoc-en-qiskit-para-n-15">
 <h1>Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span><a class="headerlink" href="#implementacion-ad-hoc-en-qiskit-para-n-15" title="Permalink to this heading">#</a></h1>
-<p>En esta sección vamos a ver una implementación un poco <i>ad hoc</i> del algoritmo de Shor para factorizar el número 15. Con lo de <i>ad hoc</i> a lo que nos referimos es a que el oráculo que representa la exponencial modulada del operador <span class="math notranslate nohighlight">\(U\)</span> está construido específicamente para el caso de factorizar 15 y no se va a explicar como funciona. El objetivo de esta sección es ver como tratamos los resultados del circuito, aplicando el método de las fracciones continuas <span class="xref myst">[25]</span> para obtener <span class="math notranslate nohighlight">\(r\)</span> y no tanto ver como se construye el oráculo.</p>
+<p>En esta sección vamos a ver una implementación un poco <i>ad hoc</i> del algoritmo de Shor para factorizar el número 15. Con lo de <i>ad hoc</i> a lo que nos referimos es a que el oráculo que representa la exponencial modulada del operador <span class="math notranslate nohighlight">\(U\)</span> está construido específicamente para el caso de factorizar 15 y no se va a explicar como funciona. El objetivo de esta sección es ver como tratamos los resultados del circuito, aplicando el método de las fracciones continuas <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id26" title="Wikipedia: continued fraction. https://en.wikipedia.org/wiki/Continued_fraction.">1</a>]</span> para obtener <span class="math notranslate nohighlight">\(r\)</span> y no tanto ver como se construye el oráculo.</p>
 <p>En concreto, el caso que vamos a resolver es el de <span class="math notranslate nohighlight">\(a=7\)</span> y <span class="math notranslate nohighlight">\(N=15\)</span>. Es fácil ver que para este caso tenemos un periodo de <span class="math notranslate nohighlight">\(r = 4\)</span>, donde los cuatro posibles estados son <span class="math notranslate nohighlight">\(| 1 \rangle\)</span>, <span class="math notranslate nohighlight">\(| 7 \rangle\)</span>, <span class="math notranslate nohighlight">\(| 4 \rangle\)</span> y <span class="math notranslate nohighlight">\(| 13 \rangle\)</span>.</p>
 <section id="caso-con-muchos-shots-ineficiente-pero-didactico">
 <h2>Caso con muchos shots (ineficiente pero didáctico)<a class="headerlink" href="#caso-con-muchos-shots-ineficiente-pero-didactico" title="Permalink to this heading">#</a></h2>

@@ -644,7 +644,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 4 min read</p>
+<div><p>Jul 04, 2024 | 4 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi7.png"><img alt="../../../_images/Fig_logo_UMA_scbi7.png" src="../../../_images/Fig_logo_UMA_scbi7.png" style="width: 2000px;" /></a>
@@ -675,13 +675,13 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="valores-esperados">
 <h1>Valores esperados.<a class="headerlink" href="#valores-esperados" title="Permalink to this heading">#</a></h1>
 <p>Un estado es un objeto probabilístico que tiene una interpretación a través de los coeficientes (de las amplitudes de probabilidad) y por tanto, esa interpretación probabilística está ligada a una base. Es decir, las amplitudes de probabilidad no tiene sentido hasta que definimos una base en la que medir. Si por ejemplo, vamos a medir en la base <span class="math notranslate nohighlight">\(Z\)</span>, lo conveniente es expandir el estado en la base <span class="math notranslate nohighlight">\(Z\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-48f5cabe-dd0d-41ca-8cca-c231d973a1d2">
-<span class="eqno">(381)<a class="headerlink" href="#equation-48f5cabe-dd0d-41ca-8cca-c231d973a1d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be57fb48-55cb-4b43-87b9-c993e7e16416">
+<span class="eqno">(375)<a class="headerlink" href="#equation-be57fb48-55cb-4b43-87b9-c993e7e16416" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = c_0 \ket{0} + c_1 \ket{1}
 \end{equation}\]</div>
 <p>de forma que los coeficientes adquieren una interpretación probabilística. Puede decirse que las amplitudes “no existen” hasta que decidimos en que base medimos. El acceso experimental a estas amplitudes se da mediante estadística de las medidas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f44b0c5-4a1f-4772-975a-24d30346f14a">
-<span class="eqno">(382)<a class="headerlink" href="#equation-6f44b0c5-4a1f-4772-975a-24d30346f14a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-839f5e50-5b6a-4a19-8c89-99834408b578">
+<span class="eqno">(376)<a class="headerlink" href="#equation-839f5e50-5b6a-4a19-8c89-99834408b578" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{p_0 = \frac{n_{0}}{N} = |c_0|^2 = |\braket{0}{\psi}|^2} ~~~~~~~~~~~~~~~~ \boxed{p_1 = \frac{n_{1}}{N}=|c_1|^2 =  |\braket{1}{\psi}|^2} \, .
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_0\)</span> es el número de medidas que arrojaron el valor 0 (en realidad +1) y <span class="math notranslate nohighlight">\(n_1\)</span> es el número de medidas que arrojaron el valor 1 (en realidad -1).
@@ -691,29 +691,29 @@ Este procedimiento de reconstrucción es la base de la <b>tomografía cuántica<
 <p>Vamos a ver como se mide el valor esperado de un observable arbitrario <span class="math notranslate nohighlight">\(A\)</span> en un estado arbitrario <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span>. Estos valores esperados se denotan de la siguiente forma: <span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span>.</p>
 <p>Cualquier observable sobre un cúbit cumple <span class="math notranslate nohighlight">\(A = A^\dagger\)</span> (es hermítico) con lo que puede expresarse en la base</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-expansion-a-en-paulis">
-<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-expansion-a-en-paulis" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(377)<a class="headerlink" href="#equation-ec-medidas1-expansion-a-en-paulis" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 A = a I + n_x X + n_y Y  + n_z Z \, .
 \end{equation} \]</div>
 <p>Los coeficientes se obtienen haciendo uso de las relaciones <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> tr<span class="math notranslate nohighlight">\( (\sigma_i \sigma_j) = \delta_{ij}\)</span> y de tr<span class="math notranslate nohighlight">\((\sigma_i)=0\)</span>, de las cuales se obtiene</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c15f334c-6f71-437b-bf11-496bb6d2c936">
-<span class="eqno">(384)<a class="headerlink" href="#equation-c15f334c-6f71-437b-bf11-496bb6d2c936" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e280419-885d-46c3-8d11-44975172277f">
+<span class="eqno">(378)<a class="headerlink" href="#equation-2e280419-885d-46c3-8d11-44975172277f" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp;\boxed{a  = \frac{1}{2} \text{ tr}(A)},        &amp;         &amp;\boxed{n_i = \frac{1}{2} \text{ tr}  (A \sigma_i)},
 \end{align}\]</div>
 <p>Entonces, podremos obtener el valor esperado de <span class="math notranslate nohighlight">\(A\)</span>  si somos capaces de medir los valores esperados de <span class="math notranslate nohighlight">\(X,\)</span> <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-35776ff9-e8c3-4176-a3cb-9d57bb4cf30b">
-<span class="eqno">(385)<a class="headerlink" href="#equation-35776ff9-e8c3-4176-a3cb-9d57bb4cf30b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba401527-9642-4331-960b-baff859378ba">
+<span class="eqno">(379)<a class="headerlink" href="#equation-ba401527-9642-4331-960b-baff859378ba" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\langle A\rangle_\Psi = a + n_x \langle X\rangle_\Psi + n_y \langle Y\rangle_\Psi + n_z \langle Z\rangle_\Psi}
 \end{equation}\]</div>
 <section id="langle-z-rangle-psi">
 <h3><span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span><a class="headerlink" href="#langle-z-rangle-psi" title="Permalink to this heading">#</a></h3>
 <p>Los estados de la base computacional son autoestados del operador <span class="math notranslate nohighlight">\(Z\)</span> con autovalor <span class="math notranslate nohighlight">\(\pm 1\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3498e533-9785-4b2b-a147-5e05f24d0828">
-<span class="eqno">(386)<a class="headerlink" href="#equation-3498e533-9785-4b2b-a147-5e05f24d0828" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e04db697-69ba-42a0-95e6-3cfab7774eb5">
+<span class="eqno">(380)<a class="headerlink" href="#equation-e04db697-69ba-42a0-95e6-3cfab7774eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Z \ket{0} =+ \ket{0}   ~~~~~~~~ ~~~~~~~~~~ Z \ket{1} =-\ket{1}
 \end{equation}\]</div>
 <p>Dado un estado <span class="math notranslate nohighlight">\(\ket{\Psi} = c_0\ket{0} + c_1\ket{1}\)</span>, la medida repetida arroja de forma aleatoria los valores propios de <span class="math notranslate nohighlight">\(Z \to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^Z_{0} \)</span> y <span class="math notranslate nohighlight">\(n^Z_{1}\)</span>. Por definición, el valor esperado de dicha variable es,</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(389)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle Z \rangle_\Psi = (+1)\frac{n^Z_{0}}{N}+ (-1) \frac{ n^Z_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^Z\)</span> es el número de veces que hemos medido el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> (el autovalor <span class="math notranslate nohighlight">\(+1\)</span>) y <span class="math notranslate nohighlight">\(n_{1}^Z\)</span> es el número de veces que hemos medido el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> (el autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
@@ -724,7 +724,7 @@ Z \ket{0} =+ \ket{0}   ~~~~~~~~ ~~~~~~~~~~ Z \ket{1} =-\ket{1}
 <p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = HZH\)</span> (ver Fig. \ref{Fig_medidas1_meter_XYbasis}) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
 El valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se obtiene del promedio</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(389)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle X \rangle_\Psi = (+1)\frac{n^X_{0}}{N}+ (-1) \frac{ n^X_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^X\)</span> es el número de veces que hemos medido el valor 0 (el estado <span class="math notranslate nohighlight">\(\ket{+}\)</span> con autovalor <span class="math notranslate nohighlight">\(+1\)</span> ) y <span class="math notranslate nohighlight">\(n_{1}^X\)</span> es el número de veces que hemos medido 1 (el estado <span class="math notranslate nohighlight">\(\ket{-}\)</span> con autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
@@ -734,7 +734,7 @@ El valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se 
 <p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = SHZHS^\dagger\)</span> (ver Fig. \ref{Fig_medidas1_meter_XYbasis}) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
 El valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se obtiene del promedio</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(389)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle Y \rangle_\Psi = (+1)\frac{n^Y_{0}}{N}+ (-1) \frac{ n^Y_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^Y\)</span> es el número de veces que hemos medido el valor 0 (el estado <span class="math notranslate nohighlight">\(\ket{+i}\)</span> con autovalor <span class="math notranslate nohighlight">\(+1\)</span> ) y <span class="math notranslate nohighlight">\(n_{1}^Y\)</span> es el número de veces que hemos medido 1 (el estado <span class="math notranslate nohighlight">\(\ket{-i}\)</span> con autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
@@ -750,13 +750,13 @@ Inicializa un vector <span class="math notranslate nohighlight">\(\ket{\Psi}\)</
 <p>En la sección anterior vimos como calcular el valor esperado de un operador hermítico aprovechando que los operadores de esta clase se pueden descomponer en función de las matrices de Pauli. Cuando el operador no es hermítico, no podemos llevar a cabo esta descomposición. Veamos como podemos calcular el valor esperado de un operador unitario genérico <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <p>En general, en computación cuántica partimos teniendo los qubit inicializados en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>. Si queremos tener el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> debemos realizar una serie de operaciones sobre el qúbit para tenerlo. Estas operaciones pueden representarse por un operador  <span class="math notranslate nohighlight">\(U\)</span> tal que <span class="math notranslate nohighlight">\(\ket{\Psi} = U\ket{0}\)</span>.</p>
 <p>Supongamos ahora que queremos calcular el valor esperado de un operador <b>unitario</b> <span class="math notranslate nohighlight">\(V\)</span> en este estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span>. Podemos calcularlo de la siguiente forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3bab10f8-80ca-425f-aaa3-0529b49a7a38">
-<span class="eqno">(390)<a class="headerlink" href="#equation-3bab10f8-80ca-425f-aaa3-0529b49a7a38" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1eb64b4-0ae2-4e6c-bca3-9f7fd816e537">
+<span class="eqno">(384)<a class="headerlink" href="#equation-f1eb64b4-0ae2-4e6c-bca3-9f7fd816e537" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle V \rangle_\Psi = \bra{\Psi}V\ket{\Psi} = \bra{0} U^\dagger V U\ket{0} = \braket{0}{\tilde \Psi}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\ket{\tilde\Psi} \equiv U^\dagger V U\ket{0}\)</span> y la acción del operador unitario <span class="math notranslate nohighlight">\(U^\dagger V U\)</span> (que no tiene porqué ser hermítico) se realiza mediante un circuito inicializado en <span class="math notranslate nohighlight">\(\ket{0}\)</span>.  Midiendo <span class="math notranslate nohighlight">\(\ket{\tilde \Psi}\)</span>  en la base <span class="math notranslate nohighlight">\(Z\)</span>, la fracción relativa de resultados <span class="math notranslate nohighlight">\(+1\to  n_0/N\)</span> nos da acceso al <b>módulo del valor esperado</b>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ffc8f6c-fc5b-420a-afbb-5a2e67629e44">
-<span class="eqno">(391)<a class="headerlink" href="#equation-0ffc8f6c-fc5b-420a-afbb-5a2e67629e44" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bd49ce52-32fa-479e-917d-ec2c522eba5b">
+<span class="eqno">(385)<a class="headerlink" href="#equation-bd49ce52-32fa-479e-917d-ec2c522eba5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sqrt{ \frac{n_{0}(\tilde\Psi)}{N} } ~=~  \sqrt{p_0}  ~=~   | \braket{0}{\tilde \Psi}|  ~=~ |\bra{\Psi}V\ket{\Psi}|    = |\langle V \rangle_\Psi |
 \end{equation}\]</div>
 <p>Podemos ver el circuito necesario para calcular este valor esperado en la Fig. \ref{Fig_medidad1_vev_unitary_V}.</p>
@@ -773,7 +773,7 @@ al tratarse de una candidad real.
 Operadores de 1 cúbit unitarios y hermíticos son, por ejemplo, los operadores <span class="math notranslate nohighlight">\(V = X,Y,Z,H\)</span>.
 Este argumento nos permite calcular de otra manera</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valores-esperados-xyz">
-<span class="eqno">(392)<a class="headerlink" href="#equation-ec-medidas1-valores-esperados-xyz" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(386)<a class="headerlink" href="#equation-ec-medidas1-valores-esperados-xyz" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \left.
 \begin{array}{c} \langle Z\rangle_\psi \\ \rule{0mm}{8mm} \langle X\rangle_\psi \\ \rule{0mm}{8mm} \langle Y\rangle_\psi \end{array}
 \right\} ~=~\braket{0}{\tilde\psi} ~=~ \sqrt{\frac{n_{0}(\tilde\psi)}{N}} ~~~\hbox{con}~~~~

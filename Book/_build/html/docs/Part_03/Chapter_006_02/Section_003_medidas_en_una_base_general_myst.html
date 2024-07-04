@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi7.png"><img alt="../../../_images/Fig_logo_UMA_scbi7.png" src="../../../_images/Fig_logo_UMA_scbi7.png" style="width: 2000px;" /></a>
@@ -672,8 +672,8 @@ document.write(`
 <section id="bases-x-y-z">
 <span id="sec-subsub-medidad1-bases-xyz"></span><h2>Bases X, Y, Z<a class="headerlink" href="#bases-x-y-z" title="Permalink to this heading">#</a></h2>
 <p>A parte de la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1} \}\)</span>, es muy necesario y frecuente el uso de otras bases ortonormales como  <span class="math notranslate nohighlight">\(\{\ket{+},\ket{-} \}\)</span> o  <span class="math notranslate nohighlight">\(\{\ket{+i},\ket{-i} \}\)</span>. Todas ellas diagonalizan algún operador de Pauli y, por  tanto, puede servir para construir aparatos de medida que discriminen entre sus estados</p>
-<div class="amsmath math notranslate nohighlight" id="equation-523dec6e-c51e-4ce8-b5a9-1a984cafa5fb">
-<span class="eqno">(371)<a class="headerlink" href="#equation-523dec6e-c51e-4ce8-b5a9-1a984cafa5fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4f359b40-06cb-4d3c-a3ac-66ffcd5097c0">
+<span class="eqno">(365)<a class="headerlink" href="#equation-4f359b40-06cb-4d3c-a3ac-66ffcd5097c0" title="Permalink to this equation">#</a></span>\[\begin{align}
 Z \ket{0} &amp;=+ \ket{0}   , &amp; Z \ket{1} &amp;=-\ket{1} \\
 X \ket{+} &amp;=+ \ket{+}    ,&amp; X \ket{-} &amp;=-\ket{-} \\
 Y \ket{+i} &amp;=+ \ket{+i}  ,&amp; Y \ket{-i} &amp;=-\ket{-i}.
@@ -687,29 +687,29 @@ Y \ket{+i} &amp;=+ \ket{+i}  ,&amp; Y \ket{-i} &amp;=-\ket{-i}.
 </figcaption>
 </figure>
 <p>Análogamente, queremos los mismo para los autoestados <span class="math notranslate nohighlight">\(\ket{\pm i}\)</span> de <span class="math notranslate nohighlight">\(\sigma_y = Y\)</span>. La clave está en un cambio de base (en rotar la base en la que queremos medir a la base <span class="math notranslate nohighlight">\(\lch \ket{0}, \ket{1} \rch\)</span>).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c4ee95c-5ec9-4b45-a58d-993123c378cc">
-<span class="eqno">(372)<a class="headerlink" href="#equation-0c4ee95c-5ec9-4b45-a58d-993123c378cc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b172730d-ca23-4e7b-8e4b-c02ed37ca4ea">
+<span class="eqno">(366)<a class="headerlink" href="#equation-b172730d-ca23-4e7b-8e4b-c02ed37ca4ea" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{+}  &amp;= H\ket{0}  ,&amp;  \ket{-}  &amp;= H\ket{1}    \\
 \ket{+i}  &amp;= SH \ket{0}    ,&amp;  \ket{-i}  &amp;= SH\ket{1}   .
 \end{align}\]</div>
 <p>Estas expresiones son facilmente invertibles para deshacer el cambio de base:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e442d2d-7c76-402e-9e56-f24a8c861a13">
-<span class="eqno">(373)<a class="headerlink" href="#equation-4e442d2d-7c76-402e-9e56-f24a8c861a13" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5f4d0593-f0a3-4420-803a-0c0bff3333e2">
+<span class="eqno">(367)<a class="headerlink" href="#equation-5f4d0593-f0a3-4420-803a-0c0bff3333e2" title="Permalink to this equation">#</a></span>\[\begin{align}
 H \ket{+}  &amp;= \ket{0}                ,&amp;  H\ket{-}  &amp; = \ket{1}   \label{ec_medidas1_de_X_a_Z} \\
 H S^\dagger \ket{+i}  &amp;=  \ket{0}    ,&amp;  H S^\dagger  \ket{-i}  &amp; = \ket{1}   . \label{ec_medidas1_de_Y_a_Z}
 \end{align}\]</div>
 <p>Es decir, la idea es llevar a cabo una operación que nos lleve los elementos de la base en la que queremos medir (los elementos <span class="math notranslate nohighlight">\(\{\ket{+},\ket{-} \}\)</span> o  <span class="math notranslate nohighlight">\(\{\ket{+i},\ket{-i} \}\)</span>) a los elementos de la base computacional <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1} \}\)</span>. Esto es precisamente lo que conseguimos con los operadores <span class="math notranslate nohighlight">\(H\)</span> y <span class="math notranslate nohighlight">\(H S^\dagger\)</span> en las Ecs. (\ref{ec_medidas1_de_X_a_Z}) y (\ref{ec_medidas1_de_Y_a_Z}).
 De las relaciones anteriores se deduce que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1714ce4-7d99-4a7e-9c67-dd35b055d8c6">
-<span class="eqno">(374)<a class="headerlink" href="#equation-c1714ce4-7d99-4a7e-9c67-dd35b055d8c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8e49707d-4425-4762-967f-e274f19d4812">
+<span class="eqno">(368)<a class="headerlink" href="#equation-8e49707d-4425-4762-967f-e274f19d4812" title="Permalink to this equation">#</a></span>\[\begin{align}
 X &amp; = H Z H   \label{ec_medidas1_cambio_X-Z} \\
 Y &amp; = S  H  Z   H S^\dagger \label{ec_medidas1_cambio_Y-Z}
 \end{align}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Verifiquemos por ejemplo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29101941-8e01-47f6-9692-579c2254d14f">
-<span class="eqno">(375)<a class="headerlink" href="#equation-29101941-8e01-47f6-9692-579c2254d14f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2dba845-ed01-4be5-90c5-606253aa345e">
+<span class="eqno">(369)<a class="headerlink" href="#equation-a2dba845-ed01-4be5-90c5-606253aa345e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Y \ket{-i} = (SHZHS^\dagger )(SH\ket{0}) = SH Z\ket{1} =  SH(-\ket{1})= - SH\ket{1} = -\ket{-i}
 \end{equation}\]</div>
 </div>
@@ -728,8 +728,8 @@ Y \ket{-i} = (SHZHS^\dagger )(SH\ket{0}) = SH Z\ket{1} =  SH(-\ket{1})= - SH\ket
 <section id="base-arbitraria">
 <h2>Base arbitraria<a class="headerlink" href="#base-arbitraria" title="Permalink to this heading">#</a></h2>
 <p>Vamos a generalizar el análisis anterior. Para ello podemos usar la matriz de rotación en la parametrización de Euler de la Ec. (\ref{ec_puertas_simples_rotacion_U}), que nos lleva la base base  <span class="math notranslate nohighlight">\(\lch \ket{0}, \ket{1} \rch_{\hat{\bm n}}\)</span> asociado a un vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17a6b1c6-c8f5-449e-aefd-9e2d909121df">
-<span class="eqno">(376)<a class="headerlink" href="#equation-17a6b1c6-c8f5-449e-aefd-9e2d909121df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-71931eee-b3e3-4838-8229-b962c62877f6">
+<span class="eqno">(370)<a class="headerlink" href="#equation-71931eee-b3e3-4838-8229-b962c62877f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{\bm n} (\theta, \phi) = \sin \theta \cos \phi \hat{\bm x} + \sin \theta  \sin \phi \hat{\bm y} + \cos \theta \hat{\bm z}
 \end{equation}\]</div>
 <figure class="align-center" id="fig-medidas1-blochsphere-basis">
@@ -739,18 +739,18 @@ Y \ket{-i} = (SHZHS^\dagger )(SH\ket{0}) = SH Z\ket{1} =  SH(-\ket{1})= - SH\ket
 </figcaption>
 </figure>
 <p>Es decir, tenemos el cambio de base</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad789389-1039-49d9-b966-bbdbad3d9c6d">
-<span class="eqno">(377)<a class="headerlink" href="#equation-ad789389-1039-49d9-b966-bbdbad3d9c6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73ebe2f1-404f-4577-ad7c-e0d1a75a7cad">
+<span class="eqno">(371)<a class="headerlink" href="#equation-73ebe2f1-404f-4577-ad7c-e0d1a75a7cad" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{a}_{\hat{\bm n}} = U \lp \theta, \phi, 0 \rp \ket{a}_{\hat{\bm z}}, ~~~~ \text{con } a= 0,1
 \end{equation}\]</div>
 <p>que verifica la ecuación de autovalores</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a877692-cc99-4047-a62b-22329919fe1d">
-<span class="eqno">(378)<a class="headerlink" href="#equation-1a877692-cc99-4047-a62b-22329919fe1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b59a0a5-b12b-476c-b6ab-b95c3d244576">
+<span class="eqno">(372)<a class="headerlink" href="#equation-6b59a0a5-b12b-476c-b6ab-b95c3d244576" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_z \ket{a}_{\hat{\bm z}} = (-1)^a \rqa (\hat{\bm n} \cdot \bm \sigma ) \ket{a}_{\hat{\bm n}} = (-1)^a \ket{a}_{\hat{\bm n}}
 \end{equation}\]</div>
 <p>Por esta razón, podemos etiquetar este operado como</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3353128b-56dd-43cc-8d7f-f82063f24696">
-<span class="eqno">(379)<a class="headerlink" href="#equation-3353128b-56dd-43cc-8d7f-f82063f24696" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e3f42fb-7261-4e4f-911e-2124e34a6374">
+<span class="eqno">(373)<a class="headerlink" href="#equation-4e3f42fb-7261-4e4f-911e-2124e34a6374" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(\theta,\phi,0) ~ \equiv ~ U(z\to \hat{\bf n})
 \end{equation}\]</div>
 <p>para ver claramente que lo que hace es llevarnos de la base <span class="math notranslate nohighlight">\(Z\)</span> a una base definida por <span class="math notranslate nohighlight">\(\hat{n}\)</span>.</p>
@@ -765,8 +765,8 @@ U(\theta,\phi,0) ~ \equiv ~ U(z\to \hat{\bf n})
 <p class="admonition-title">Nota</p>
 <p>Puede verse fácilmente que el caso genérico que acabamos de ver incluye, como es lógico
 los dos casos anterior:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4ff8637-0a60-4270-a7f3-9d9a263f0725">
-<span class="eqno">(380)<a class="headerlink" href="#equation-a4ff8637-0a60-4270-a7f3-9d9a263f0725" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-13be8df9-2831-4258-a450-3b25d8bf04d3">
+<span class="eqno">(374)<a class="headerlink" href="#equation-13be8df9-2831-4258-a450-3b25d8bf04d3" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 U(\pi/2,0,\pi)=H : \ket{a}_{\hat{\bf z}} \to \ket{a}_{\hat{\bf x}} \\ \rule{0mm}{8mm}
 U(\pi/2,\pi/2,\pi)= SH  : \ket{a}_{\hat{\bf z}} \to \ket{a}_{\hat{\bf y}}
 \end{eqnarray}\]</div>

@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 3 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi8.png"><img alt="../../../_images/Fig_logo_UMA_scbi8.png" src="../../../_images/Fig_logo_UMA_scbi8.png" style="width: 2000px;" /></a>
@@ -671,8 +671,8 @@ document.write(`
 <h1>Puertas controladas<a class="headerlink" href="#puertas-controladas" title="Permalink to this heading">#</a></h1>
 <p>En las puertas controladas, un operador se aplica sobre un qúbit dependiendo del estado en el que se encuentra otro. Este segundo qúbit se denomina <b>controlador</b>, mientras que el primero es el <b>controlado</b>. Las puertas controladas son eficientes para generar entrelazamiento.
 La puerta controlada  se representa como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09c7fbe0-4dc7-4cf4-9a78-013565d39ef8">
-<span class="eqno">(413)<a class="headerlink" href="#equation-09c7fbe0-4dc7-4cf4-9a78-013565d39ef8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b2fdf48-d603-491a-a20c-9b947e767130">
+<span class="eqno">(407)<a class="headerlink" href="#equation-9b2fdf48-d603-491a-a20c-9b947e767130" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\cg{U} = \ket{0}\bra{0}\otimes I + \ket{1}\bra{1}\otimes U}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(U\)</span> es un operador unitario de 1-qúbit general. Si por el primer qúbit (el controlador)</p>
@@ -681,8 +681,8 @@ La puerta controlada  se representa como sigue</p>
 <li><p>entra <span class="math notranslate nohighlight">\(\ket{1}\)</span>, sale <span class="math notranslate nohighlight">\(\ket{1}\)</span> y en el segundo cúbit (controlado) se aplica el operador <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
 </ul>
 <p>La <b>representación matricial</b> de <span class="math notranslate nohighlight">\(CU\)</span> es fácil de obtener como suma de  <b>productos de Kronecker</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b9bbe61-0643-4f11-a0dc-427f1fcda500">
-<span class="eqno">(414)<a class="headerlink" href="#equation-5b9bbe61-0643-4f11-a0dc-427f1fcda500" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dd486555-c3de-4218-aefa-fc1fe3e7f551">
+<span class="eqno">(408)<a class="headerlink" href="#equation-dd486555-c3de-4218-aefa-fc1fe3e7f551" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cg{U} = \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 0 \end{bmatrix}\otimes  I +  \begin{bmatrix}0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \otimes U
 = \begin{bmatrix} 1\times I &amp; 0 \\ 0 &amp; 0 \end{bmatrix}  +
 \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1\times U \end{bmatrix} = \begin{bmatrix}   I &amp; 0 \\ 0 &amp;   U \end{bmatrix} =
@@ -696,8 +696,8 @@ La puerta controlada  se representa como sigue</p>
 unitarios, en general, no es  unitaria.</p>
 </div>
 <p>La acción de <span class="math notranslate nohighlight">\(\cg{U}\)</span> sobre elementos de la base <span class="math notranslate nohighlight">\(\{\ket{x}\}\)</span> donde <span class="math notranslate nohighlight">\(x=0,1\)</span> admite una forma compacta</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0a0f695-0043-4b69-b4d4-ba6566b1f184">
-<span class="eqno">(415)<a class="headerlink" href="#equation-d0a0f695-0043-4b69-b4d4-ba6566b1f184" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fb11dc6-6532-4dc1-ab28-4168b85ce9b6">
+<span class="eqno">(409)<a class="headerlink" href="#equation-4fb11dc6-6532-4dc1-ab28-4168b85ce9b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\cg{U}:\ket{x}\otimes\ket{y}  \rightarrow \ket{x} \otimes U^x\ket{y}}
 \end{equation}\]</div>
 <p>Podemos ver la representación gráfica asociada al operador <span class="math notranslate nohighlight">\(\cg{U}\)</span> en la Fíg. \ref{Fig_multiqubit_cU_gate}</p>
@@ -734,13 +734,13 @@ unitarios, en general, no es  unitaria.</p>
 <h2>CNOT<a class="headerlink" href="#cnot" title="Permalink to this heading">#</a></h2>
 <p>El caso más frecuente de una puerta binaria controlada es la puerta CNOT = <span class="math notranslate nohighlight">\(\cg{X}\)</span></p>
 <div class="math notranslate nohighlight" id="equation-ec-multiqubit-cnot">
-<span class="eqno">(416)<a class="headerlink" href="#equation-ec-multiqubit-cnot" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(410)<a class="headerlink" href="#equation-ec-multiqubit-cnot" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{\hbox{CNOT} = \cg{X} ~=~ \ket{0}\bra{0}\otimes I + \ket{1}\bra{1}\otimes X }
 ~=~ \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix}
 \end{equation} \end{split}\]</div>
 <p>Sobre elementos de la base computacional <span class="math notranslate nohighlight">\(\ket{xy}=\ket{x}\otimes\ket{y}\)</span> donde <span class="math notranslate nohighlight">\(\, x,y= 0,1\)</span>, su acción  se puede representar de manera compacta usando la suma módulo dos</p>
 <div class="math notranslate nohighlight" id="equation-ec-multiqubit-cnot-compu">
-<span class="eqno">(417)<a class="headerlink" href="#equation-ec-multiqubit-cnot-compu" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(411)<a class="headerlink" href="#equation-ec-multiqubit-cnot-compu" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\cg{X}:\ket{x}\otimes\ket{y} \rightarrow \ket{x} \otimes X^x\ket{y} = \ket{x} \otimes \ket{y\oplus x}}
 \end{equation} \]</div>
 <p>Podemos ver la representación gráfica asociada al operador CNOT en la Fíg. \ref{Fig_multiqubit_cX_gate}</p>
@@ -753,8 +753,8 @@ unitarios, en general, no es  unitaria.</p>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>El estado factorizable más general de dos cúbits es (<span class="math notranslate nohighlight">\(a\)</span> es la normalización)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e55236e0-f723-4dc0-839e-87c76dba593f">
-<span class="eqno">(418)<a class="headerlink" href="#equation-e55236e0-f723-4dc0-839e-87c76dba593f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a622550-8159-41fe-a330-4de1ee3c4f82">
+<span class="eqno">(412)<a class="headerlink" href="#equation-5a622550-8159-41fe-a330-4de1ee3c4f82" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = a \left(\ket{0} + b_1 e^{i\phi_1}\ket{1} \rp \lp \ket{0} + b_0 e^{i\phi_0} \ket{1} \right)
 \end{equation}\]</div>
 <p>Escribe la condición más general que deben satisfacer  <span class="math notranslate nohighlight">\(b_0,b_1,\phi_0\)</span> y <span class="math notranslate nohighlight">\(\phi_1\)</span> para que CNOT<span class="math notranslate nohighlight">\(\ket{\psi}\)</span>
@@ -766,8 +766,8 @@ sea un vector entrelazado. Nota: aplicar que para que un estado sea entrelazado 
 los qubits en <span class="math notranslate nohighlight">\(\ket{q_1 \, q_0}\)</span> poniendo el asociado al bit menos relevante <span class="math notranslate nohighlight">\(q_0\)</span> arriba.</p>
 <p>Cuando en un circuito en Qiskit aparece una puerta como la de ls Fig. \ref{Fig_multiqubit_cX_gate} (con el control en el qúbit de arriba y aplicándose sobre el de abajo), como Qískit pone arriba el
 bit menos significativos en realidad lo que tenemos en <i>una CNOT donde el qúbit de control es el segundo</i>, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5c85871-3553-40ed-9d25-320af0200a96">
-<span class="eqno">(419)<a class="headerlink" href="#equation-f5c85871-3553-40ed-9d25-320af0200a96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ec666c44-b879-433c-a8f6-c5c1ad3a071f">
+<span class="eqno">(413)<a class="headerlink" href="#equation-ec666c44-b879-433c-a8f6-c5c1ad3a071f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hbox{CNOT} = \cg{X} ~=~ I \otimes \ket{0}\bra{0} + X \otimes \ket{1}\bra{1}
 ~=~ \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0\end{bmatrix}
 \end{equation}\]</div>
@@ -780,7 +780,7 @@ En las secciones 1.1 y 1.2 del notebook <b>03-Circuitos_multiqubit</b> pueden ve
 <h2>Control-SWAP<a class="headerlink" href="#control-swap" title="Permalink to this heading">#</a></h2>
 <p>Si el qúbit  de control está en  el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> los dos controlados se intercambian.</p>
 <div class="math notranslate nohighlight" id="equation-fig-multiqubit-cswap-gate">
-<span class="eqno">(420)<a class="headerlink" href="#equation-fig-multiqubit-cswap-gate" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(414)<a class="headerlink" href="#equation-fig-multiqubit-cswap-gate" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{U_{\rm CSWAP} =\ket{0}\bra{0} \otimes I_4 + \ket{1}\bra{1} \otimes U_{\rm SWAP}} \, .
 \end{equation} \]</div>
 <p>Podemos verla en la Fig. \ref{Fig_multiqubit_CSWAP_gate}.</p>

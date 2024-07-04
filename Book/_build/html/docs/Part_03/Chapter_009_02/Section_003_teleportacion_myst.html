@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi10.png"><img alt="../../../_images/Fig_logo_UMA_scbi10.png" src="../../../_images/Fig_logo_UMA_scbi10.png" style="width: 2000px;" /></a>
@@ -666,44 +666,43 @@ document.write(`
 <p><span class="caption-number">Fig. 32 </span><span class="caption-text">Circuito del protocolo de teleportación.</span><a class="headerlink" href="#fig-entrelazamiento-teleportacion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="arabic simple">
-<li><p>El estado inicial es</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-e42224de-4173-41ee-adf2-dc831b631f5a">
-<span class="eqno">(454)<a class="headerlink" href="#equation-e42224de-4173-41ee-adf2-dc831b631f5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\phi} \ket{B_{00}} =  \ket{\phi}\otimes \frac{1}{\sqrt{2}}\left(\ket{0}\otimes \ket{0} + \ket{1}\otimes\ket{1}\rule{0mm}{4mm}\right)\, .
-\end{equation}\]</div>
+<ol class="arabic">
+<li><p>El estado inicial es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c6efe658-c386-4105-99a5-d16d7a7223b0">
+<span class="eqno">(448)<a class="headerlink" href="#equation-c6efe658-c386-4105-99a5-d16d7a7223b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{\phi} \ket{B_{00}} =  \ket{\phi}\otimes \frac{1}{\sqrt{2}}\left(\ket{0}\otimes \ket{0} + \ket{1}\otimes\ket{1}\rule{0mm}{4mm}\right)\, .
+    \end{equation}\]</div>
 <p>Alice tiene acceso a los dos primeros qubits y Bob al tercero. El estado que queremos teleportar es <span class="math notranslate nohighlight">\(\ket{\phi}\)</span>. De forma genérica, este estado será de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd2088b0-efa6-4f1f-8ed8-e523c38aa887">
-<span class="eqno">(455)<a class="headerlink" href="#equation-dd2088b0-efa6-4f1f-8ed8-e523c38aa887" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\phi} = a \ket{0} + b \ket{1}
-\end{equation}\]</div>
-<ol class="arabic simple" start="2">
+<div class="amsmath math notranslate nohighlight" id="equation-792e1651-db15-4a8a-ba90-8af9bce327b2">
+<span class="eqno">(449)<a class="headerlink" href="#equation-792e1651-db15-4a8a-ba90-8af9bce327b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{\phi} = a \ket{0} + b \ket{1}
+    \end{equation}\]</div>
+</li>
 <li><p>Alice realiza una  <i>medida de Bell</i> a sus dos qúbits.
 Ello  implica un desentrelazador <span class="math notranslate nohighlight">\(U_{\rm desent}= (H \otimes I)\cdot U_{\rm CNOT}.~\)</span>
-Un cálculo sencillo  da el resultado</p></li>
-</ol>
+Un cálculo sencillo  da el resultado</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-(H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}}  = &amp;  \frac{1}{2}
-\Lc \rule{0mm}{3mm} \ket{00}(a\ket{0} + b\ket{1}) + \ket{01}(a\ket{1}+ b\ket{0}) \R. \\
-\rule{0mm}{6mm}
-&amp;\L.  \rule{0mm}{3mm}+ ~\ket{10}(a\ket{0}-b\ket{1}) + \ket{11}(a\ket{1}-b\ket{0}) \Rc
-\end{align*}\]</div>
+    (H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}}  = &amp;  \frac{1}{2}
+    \Lc \rule{0mm}{3mm} \ket{00}(a\ket{0} + b\ket{1}) + \ket{01}(a\ket{1}+ b\ket{0}) \R. \\
+    \rule{0mm}{6mm}
+    &amp;\L.  \rule{0mm}{3mm}+ ~\ket{10}(a\ket{0}-b\ket{1}) + \ket{11}(a\ket{1}-b\ket{0}) \Rc
+    \end{align*}\]</div>
 <p>Podemos ver que al estar entrelazados, las operaciones sobre los qúbit de Alice afectan al estado del qúbit de Bob.</p>
-<ol class="arabic simple" start="3">
+</li>
 <li><p>Alice mide el estado que obra en su poder, y obtiene un 2-bit  clásico, <span class="math notranslate nohighlight">\(xy\)</span> de manera equiprobable para las 4 posibilidades. De forma correlacionada, el qúbit de Bob colapsa a uno de los 4 estados <span class="math notranslate nohighlight">\(\ket{\varphi_{xy}},\)</span> pero no sabe a cuál.</p></li>
 <li><p>Alice envía el resultado de su medida <span class="math notranslate nohighlight">\(xy\)</span> por un canal clásico a Bob.</p></li>
-<li><p>Bob efectúa sobre su qúbit, una operación controlada por este 2-bit, <span class="math notranslate nohighlight">\(U_{xy} =  X^y Z^x \)</span>.</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-9446b329-accf-46cc-923e-e819a4d3117e">
-<span class="eqno">(456)<a class="headerlink" href="#equation-9446b329-accf-46cc-923e-e819a4d3117e" title="Permalink to this equation">#</a></span>\[\begin{equation}
-xy ~=~ \left\{ \begin{array}{c} 00 \\ 01 \\ 10 \\ 11 \end{array} \right\}~~ \Longrightarrow
-~~~ X^y Z^x \ket{\varphi_{xy}} ~=~ \left\{  \begin{array}{rl}    I :&amp; (a\ket{0} + b\ket{1})  \\    X: &amp; (a\ket{1} + b\ket{0})  \\  Z:&amp; (a\ket{0} - b\ket{1})
-\\  XZ = -iY:&amp;   (a\ket{1} - b\ket{0}) \\
-\end{array} \right. ~~ \longrightarrow  ~~ a \ket{0} + b\ket{1}\,  = \, \ket{\phi}
-\end{equation}\]</div>
+<li><p>Bob efectúa sobre su qúbit, una operación controlada por este 2-bit, <span class="math notranslate nohighlight">\(U_{xy} =  X^y Z^x \)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-18367fd9-faa7-4f55-a5fc-9c1ea95efbc3">
+<span class="eqno">(450)<a class="headerlink" href="#equation-18367fd9-faa7-4f55-a5fc-9c1ea95efbc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    xy ~=~ \left\{ \begin{array}{c} 00 \\ 01 \\ 10 \\ 11 \end{array} \right\}~~ \Longrightarrow
+    ~~~ X^y Z^x \ket{\varphi_{xy}} ~=~ \left\{  \begin{array}{rl}    I :&amp; (a\ket{0} + b\ket{1})  \\    X: &amp; (a\ket{1} + b\ket{0})  \\  Z:&amp; (a\ket{0} - b\ket{1})
+    \\  XZ = -iY:&amp;   (a\ket{1} - b\ket{0}) \\
+    \end{array} \right. ~~ \longrightarrow  ~~ a \ket{0} + b\ket{1}\,  = \, \ket{\phi}
+    \end{equation}\]</div>
 <p>Como resultado de esta operación, el qúbit de Bob es finalmente <span class="math notranslate nohighlight">\(\ket{\phi}\)</span>.</p>
+</li>
+</ol>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Calcula <span class="math notranslate nohighlight">\((H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}}\)</span> y verifica que la ecuación del paso 2 es correcta.</p>
@@ -727,20 +726,20 @@ Ver la sección 3 del notebook <b>05-Entrelazamiento</b>.
 <p class="admonition-title">Nota (causalidad y clonación.)</p>
 <p>El protocolo de teleportación parece poner en riesgo conceptos fundamentales. Sin embargo,
 no es así:</p>
-<ul class="simple">
-<li><p><b>No clonación</b>:</p></li>
-</ul>
+<ul>
+<li><p><b>No clonación</b>:</p>
 <p>El protocolo tiene como ingrediente esencial la medida y, por tanto, la
 destrucción del estado de Alice. Como consecuencia, el estado ha sido teleportado
 pero no clonado.  De no ser así, entraríamos en conflicto con el
 <b>Teorema de No Clonación</b></p>
-<ul class="simple">
-<li><p><b>Causalidad</b>:</p></li>
-</ul>
+</li>
+<li><p><b>Causalidad</b>:</p>
 <p>El protocolo de teleportación <b>no viola causalidad</b>. Es necesario mandar
 una información clásica (como muy rápido a la velocidad de la luz) para resolver la
 ambigüedad que le queda a Bob. Esta parte es la que hace que la teleportación no sea
 un proceso instantáneo de acción a distancia.</p>
+</li>
+</ul>
 </div>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>

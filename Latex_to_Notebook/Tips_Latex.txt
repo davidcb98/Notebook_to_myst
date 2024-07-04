@@ -17,6 +17,9 @@ Las label de las secciones deben de ir en la misma linea que los \section{} y \s
 Los \begin{equation} y \end{equation} debem de ir al principio de las lineas (no pueden ir en medio)
 
 No puede haber \footnote{} --> mybox_blue
+
+No se pueden meter cajas de colores dentro de cajas de colores. Falla al hacer la web
+
 ################################################################
 
 \begin{mybox_blue}{Nota/Resumen: Subtitulo}

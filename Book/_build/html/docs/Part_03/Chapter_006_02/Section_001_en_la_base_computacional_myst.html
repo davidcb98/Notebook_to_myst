@@ -641,7 +641,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi7.png"><img alt="../../../_images/Fig_logo_UMA_scbi7.png" src="../../../_images/Fig_logo_UMA_scbi7.png" style="width: 2000px;" /></a>
@@ -674,23 +674,23 @@ document.write(`
 <section id="superposiciones-medidas-y-colapso">
 <h2>Superposiciones, medidas y colapso.<a class="headerlink" href="#superposiciones-medidas-y-colapso" title="Permalink to this heading">#</a></h2>
 <p>En mecánica cuántica podemos tener un estado que sea la <b>superposición</b> de varios estado. Por ejemplo, el estado de un qúbit puede ser la superposición de los estados <span class="math notranslate nohighlight">\(\ket{0}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span>, esto es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ccab0fa2-9367-4e60-b262-9d39425631af">
-<span class="eqno">(367)<a class="headerlink" href="#equation-ccab0fa2-9367-4e60-b262-9d39425631af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a5ce5f9-aa9c-43f0-bd38-b562e3d1b908">
+<span class="eqno">(361)<a class="headerlink" href="#equation-4a5ce5f9-aa9c-43f0-bd38-b562e3d1b908" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\ket{u} = \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\varphi}\sin{\frac{\theta}{2}}\,|1\rangle }
 \end{equation}\]</div>
 <p>Sin embargo, al medir solo obtenemos <b>uno de estos estado de la superposición</b>. La probabilidad de medir cada uno de estos estados que forman la superposición es igual <b>al módulo cuadrado del coeficiente que lo acompaña en el vector</b>  <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> (el módulo cuadrado de la amplitud de ese estado). En este caso vemos que la probabilidad de medir el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> es <span class="math notranslate nohighlight">\(|\alpha|^2\)</span> y la de medir <span class="math notranslate nohighlight">\(\ket{1}\)</span> es <span class="math notranslate nohighlight">\(|\beta|^2\)</span>.</p>
 <p>El aparato de medida estándar en computación cuántica asigna valores <span class="math notranslate nohighlight">\(\{0,1\}\)</span> a los kets <span class="math notranslate nohighlight">\(\ket{0}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span> de la base computacional. Su representación en un circuito podemos verla en la Fig. \ref{Fig_medidas1_cubit_meter}. En esta figura vemos que tenemos dos formas de medir: una destructiva y otra no destructiva. La explicación es simple: dependiendo de como esté construido el ordenador cuántico, nuestra medida destruirá o no el estado del qúbit al medirlo.</p>
 <p>En el caso en el que el estado no se destruya, lo que pasará será que el qúbit <b>colapsará</b> al estado medido. Esto es el famosos <b>colapso de la función de ondas</b> en mecánica cuántica. Si, por ejemplo, al medir nuestro qúbit obtenemos que estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>, la superposición desaparece y nuestro qubit pasa a estar en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>.</p>
-<figure class="align-center" id="id1">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../../../_images/Fig_subfig_medidas1_cubit_meter.png"><img alt="../../../_images/Fig_subfig_medidas1_cubit_meter.png" src="../../../_images/Fig_subfig_medidas1_cubit_meter.png" style="width: 700px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text"><a id='Fig_medidas1_cubit_meter'></a>
-<a id='Fig_medidas1_cubit_meter1'></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<a id='Fig_medidas1_cubit_meter1'></a></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 <div class="legend">
 <dl class="myst field-list simple">
 <dt class="field-odd">name</dt>
 <dd class="field-odd"><p>Fig_medidas1_cubit_meter2
-Medidas de un qubit en el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> en un circuito cuántico. El resultado puede ser <span class="math notranslate nohighlight">\(a = 0\)</span> o <span class="math notranslate nohighlight">\(a=1\)</span>. La linea simple representa un qubit, mientras que la linea doble representa un bit clásico. Figura tomada de <span class="xref myst">[1]</span></p>
+Medidas de un qubit en el estado <span class="math notranslate nohighlight">\(\ket{\psi}\)</span> en un circuito cuántico. El resultado puede ser <span class="math notranslate nohighlight">\(a = 0\)</span> o <span class="math notranslate nohighlight">\(a=1\)</span>. La linea simple representa un qubit, mientras que la linea doble representa un bit clásico. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id2" title="Javier Mas Sole. Curso de formación interna del proyecto de quantumspain. 2022.">64</a>]</span></p>
 </dd>
 </dl>
 </div>
@@ -700,8 +700,8 @@ Medidas de un qubit en el estado <span class="math notranslate nohighlight">\(\k
 <section id="sobre-medir-en-la-base-computaciones">
 <h2>Sobre medir en la base computaciones.<a class="headerlink" href="#sobre-medir-en-la-base-computaciones" title="Permalink to this heading">#</a></h2>
 <p>Los elementos de la base computacional <span class="math notranslate nohighlight">\(\ket{a}\in \{\ket{0},\ket{1}\}\)</span>, son autoestados del <b>observable</b> <span class="math notranslate nohighlight">\(Z = \sigma_z \)</span>, cuyos autovalores son <span class="math notranslate nohighlight">\(+1\)</span> y <span class="math notranslate nohighlight">\(-1\)</span> respectivamente, cumpliendo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de221dbc-c618-4bca-9819-aa49b6e0bfce">
-<span class="eqno">(368)<a class="headerlink" href="#equation-de221dbc-c618-4bca-9819-aa49b6e0bfce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98832b01-da82-4f7f-9ff2-928b116ff4ff">
+<span class="eqno">(362)<a class="headerlink" href="#equation-98832b01-da82-4f7f-9ff2-928b116ff4ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Z\ket{0} = +\ket{0}~~~~,~~~~~ Z\ket{1} = -\ket{1}
 \end{equation}\]</div>
 <p>Podemos unificar ambos resultados como: <span class="math notranslate nohighlight">\(Z\ket{a} = (-1)^a\ket{a}\)</span>, con  <span class="math notranslate nohighlight">\(a=\{0,1\}\)</span>. Es decir, lo que estamos haciendo es medir el observable <span class="math notranslate nohighlight">\(Z\)</span> (por ejemplo, medir el espín en el eje <span class="math notranslate nohighlight">\(z\)</span>) y si obtenemos el autovalor <span class="math notranslate nohighlight">\(+1\)</span> decimos que tenemos un 0, mientras que si medimos el autovalor <span class="math notranslate nohighlight">\(-1\)</span>, decimos que tenemos un <span class="math notranslate nohighlight">\(1\)</span>.</p>

@@ -652,7 +652,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 9 min read</p>
+<div><p>Jul 04, 2024 | 9 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -698,12 +698,12 @@ document.write(`
 <span id="subsec-prop-no-uni-ecuaciones-diff"></span><h2>Evolución de las amplitudes (<span class="math notranslate nohighlight">\(M\)</span> soluciones)<a class="headerlink" href="#evolucion-de-las-amplitudes-m-soluciones" title="Permalink to this heading">#</a></h2>
 <p>Analicemos la evolución de las amplitudes en el algoritmo modificado. Supongamos (como siempre) que tenemos <span class="math notranslate nohighlight">\(N\)</span> estados y <span class="math notranslate nohighlight">\(M\)</span> soluciones. Asumamos, sin perdida de generalidad, que <span class="math notranslate nohighlight">\(0 \leq M \leq N/2\)</span>. El estado total ahora será de la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-prob-no-uni-phi-j">
-<span class="eqno">(707)<a class="headerlink" href="#equation-ec-prob-no-uni-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(693)<a class="headerlink" href="#equation-ec-prob-no-uni-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = \sum_{i \in \omega} k_i(t) |i \rangle + \sum_{i \in \omega^\perp} l_i(t) |i \rangle }.
 \end{equation} \]</div>
 <p>Nótese que ahora las amplitudes tenemos un índices <span class="math notranslate nohighlight">\(i\)</span> que corresponde al estado al que acompañan. Esto es fácil de entender: como la distribución de partida ahora no es uniforme, cada estado tendrá su amplitud. Las medias de las amplitudes de los estados solución (<span class="math notranslate nohighlight">\(i \in \omega\)</span>) y no solución (<span class="math notranslate nohighlight">\(i \in \omega^\perp\)</span>) son</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-k-l-mean">
-<span class="eqno">(708)<a class="headerlink" href="#equation-ec-prop-no-uni-k-l-mean" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(694)<a class="headerlink" href="#equation-ec-prop-no-uni-k-l-mean" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \boxed{\bar{k}(t) = \frac{1}{M} \sum_{i \in \omega} k_i(t) }
 &amp; \boxed{\bar{l}(t) = \frac{1}{N-M} \sum_{i \in \omega^\perp} l_i(t)}.
 \end{align} \]</div>
@@ -711,76 +711,76 @@ document.write(`
 <section id="derivacion-de-las-ecuaciones-diferenciales">
 <h3>Derivación de las ecuaciones diferenciales<a class="headerlink" href="#derivacion-de-las-ecuaciones-diferenciales" title="Permalink to this heading">#</a></h3>
 <p>Comencemos viendo la expresión de la media total de las amplitudes el estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b323aa55-c4db-4196-a265-f0151356aa62">
-<span class="eqno">(709)<a class="headerlink" href="#equation-b323aa55-c4db-4196-a265-f0151356aa62" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0a6cf9cb-5694-4f1a-aa7e-a4a08a0fb201">
+<span class="eqno">(695)<a class="headerlink" href="#equation-0a6cf9cb-5694-4f1a-aa7e-a4a08a0fb201" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar{\psi}(t) = \frac{1}{N} \lc M \bar{k}(t) + (N-M) \bar{l}(t) \rc,
 \end{equation}\]</div>
 <p>y definamos la cantidad <span class="math notranslate nohighlight">\(C(t)\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cbe1c8b-7895-42a7-b61f-13129a4d5530">
-<span class="eqno">(710)<a class="headerlink" href="#equation-0cbe1c8b-7895-42a7-b61f-13129a4d5530" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc653030-ee05-4778-8446-3ac2f1415ea5">
+<span class="eqno">(696)<a class="headerlink" href="#equation-fc653030-ee05-4778-8446-3ac2f1415ea5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C(t) = \frac{2}{N} \lc (N-M) \bar{l}(t) - M \bar{k}(t) \rc.
 \end{equation}\]</div>
 <p>Veamos como evolucionan las medias de las amplitudes con cada iteracións:</p>
-<ul class="simple">
+<ul>
 <li><p>Después a aplicar el oráculo sobre el esto <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> lo que sucede es el signo de la amplitud de los estados solución se invierte, con lo que
 {
 \extrarowheight = -0.5ex
-\renewcommand{\arraystretch}{1.75}</p></li>
-</ul>
+\renewcommand{\arraystretch}{1.75}</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\lch \begin{matrix}
-&amp; \bar{k}(t) \, \rightarrow \, \bar{k^{'}}(t) = -\bar{k}(t) \\
-&amp; \bar{l}(t) \, \rightarrow \, \bar{l^{'}}(t) = \bar{l}(t)
-\end{matrix} \right.
-\rqa
-\overline{U_\omega \psi}(t) = \frac{1}{N} \lc - M\bar{k}(t) + (N-M) \bar{l}(t) \rc = \frac{C(t)}{2}.
-\end{equation*}\]</div>
+    \lch \begin{matrix}
+    &amp; \bar{k}(t) \, \rightarrow \, \bar{k^{'}}(t) = -\bar{k}(t) \\
+    &amp; \bar{l}(t) \, \rightarrow \, \bar{l^{'}}(t) = \bar{l}(t)
+    \end{matrix} \right.
+    \rqa
+    \overline{U_\omega \psi}(t) = \frac{1}{N} \lc - M\bar{k}(t) + (N-M) \bar{l}(t) \rc = \frac{C(t)}{2}.
+    \end{equation*}\]</div>
 <p>}</p>
-<ul class="simple">
-<li><p>Después a aplicar el difusor sobre el esto <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> lo que sucede es una reflexión respecto a la media <span class="math notranslate nohighlight">\(\overline{U_\omega \psi}(t)\)</span>. Esto se pude expresar de la siguiente manera</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-938015ab-e866-414f-a5d5-57fbe2d6a3f2">
-<span class="eqno">(711)<a class="headerlink" href="#equation-938015ab-e866-414f-a5d5-57fbe2d6a3f2" title="Permalink to this equation">#</a></span>\[\begin{align}
-{k}^{'}_i(t) \, &amp; \rightarrow \, {k}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {k}^{'}_i(t) =  C(t) - k^{'}_i(t) = \boxed{ C(t) + k_i(t) = k_i(t+1)}  \label{ec_prop-no-uni_k-j+1_i} \\
-{l}^{'}_i(t) \, &amp; \rightarrow \, {l}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {l}^{'}_i(t) = C(t) - l^{'}_i(t) = \boxed{C(t) - l_i(t) = l_i(t+1)}. \label{ec_prop-no-uni_l-j+1_i}
-\end{align}\]</div>
+</li>
+<li><p>Después a aplicar el difusor sobre el esto <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> lo que sucede es una reflexión respecto a la media <span class="math notranslate nohighlight">\(\overline{U_\omega \psi}(t)\)</span>. Esto se pude expresar de la siguiente manera</p>
+<div class="amsmath math notranslate nohighlight" id="equation-79d7a714-ed96-4f11-934e-bea563af1644">
+<span class="eqno">(697)<a class="headerlink" href="#equation-79d7a714-ed96-4f11-934e-bea563af1644" title="Permalink to this equation">#</a></span>\[\begin{align}
+    {k}^{'}_i(t) \, &amp; \rightarrow \, {k}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {k}^{'}_i(t) =  C(t) - k^{'}_i(t) = \boxed{ C(t) + k_i(t) = k_i(t+1)}  \label{ec_prop-no-uni_k-j+1_i} \\
+    {l}^{'}_i(t) \, &amp; \rightarrow \, {l}^{&quot;}_i(t) =  2 \overline{U_\omega \psi}(t) - {l}^{'}_i(t) = C(t) - l^{'}_i(t) = \boxed{C(t) - l_i(t) = l_i(t+1)}. \label{ec_prop-no-uni_l-j+1_i}
+    \end{align}\]</div>
 <p>Promediando</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25d57c27-ce7a-42fc-8634-55cd4d8f95ec">
-<span class="eqno">(712)<a class="headerlink" href="#equation-25d57c27-ce7a-42fc-8634-55cd4d8f95ec" title="Permalink to this equation">#</a></span>\[\begin{align}
-\Aboxed{\bar{k}(t+1) = C_j + \bar{k}(t) } \label{ec_prop-no-uni_k-j+1} \\
-\Aboxed{\bar{l}(t+1) = C_j - \bar{l}(t)}.  \label{ec_prop-no-uni_l-j+1}
-\end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c30f85dc-09ed-4cbb-b6e9-47ce937b1d75">
+<span class="eqno">(698)<a class="headerlink" href="#equation-c30f85dc-09ed-4cbb-b6e9-47ce937b1d75" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \Aboxed{\bar{k}(t+1) = C_j + \bar{k}(t) } \label{ec_prop-no-uni_k-j+1} \\
+    \Aboxed{\bar{l}(t+1) = C_j - \bar{l}(t)}.  \label{ec_prop-no-uni_l-j+1}
+    \end{align}\]</div>
+</li>
+</ul>
 <p>Las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) son las ecuaciones diferenciales que rigen la evolución de la media de las amplitudes.</p>
 </section>
 <section id="soluciones-de-las-ecuaciones-diferenciales">
 <h3>Soluciones de las ecuaciones diferenciales<a class="headerlink" href="#soluciones-de-las-ecuaciones-diferenciales" title="Permalink to this heading">#</a></h3>
 <p>Vamos a resolver de forma analítica las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1})  para ver la evolución exacta de las medias de las amplitudes de los estados solución y no solución. Procedemos a resolver las fórmulas de recursión para condiciones iniciales complejas arbitrarias. Empecemos definiendo las funciones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e085bd3a-e01e-4f1a-8253-83ea5c381fb7">
-<span class="eqno">(713)<a class="headerlink" href="#equation-e085bd3a-e01e-4f1a-8253-83ea5c381fb7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7ac27ecc-0e0a-4bb4-bbc1-95f24ccfbd64">
+<span class="eqno">(699)<a class="headerlink" href="#equation-7ac27ecc-0e0a-4bb4-bbc1-95f24ccfbd64" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Aboxed{&amp; f_{+}(t) = \bar{l}(t) + i \sqrt{\frac{M}{N-M}} \bar{k}(t)} \label{ec_prop-no-uni_f+}\\
 \Aboxed{&amp; f_{-}(t) = \bar{l}(t) - i \sqrt{\frac{M}{N-M}} \bar{k}(t)}. \label{ec_prop-no-uni_f-}
 \end{align}\]</div>
 <p>Vemos que no son más que un <b>cambio de variables</b> para facilitarnos la resolución de las ecuaciones. Empleando este cambio de variables podemos reescribir las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) de la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c5c3f6e7-a8c2-43eb-b5b2-756f66832206">
-<span class="eqno">(714)<a class="headerlink" href="#equation-c5c3f6e7-a8c2-43eb-b5b2-756f66832206" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6c5c420d-8946-45ad-886f-bd6e32bc92dc">
+<span class="eqno">(700)<a class="headerlink" href="#equation-6c5c420d-8946-45ad-886f-bd6e32bc92dc" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; f_{+}(t+1) = e^{i \beta} f_{+}(t) \\
 &amp; f_{-}(t+1) = e^{- i \beta} f_{-}(t),
 \end{align}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\beta\)</span> es <b>real</b> y cumple</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-ini-beta">
-<span class="eqno">(715)<a class="headerlink" href="#equation-ec-prop-no-ini-beta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(701)<a class="headerlink" href="#equation-ec-prop-no-ini-beta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\cos \beta = 1 - 2 \frac{M}{N}}.
 \end{equation} \]</div>
 <p>Vemos que ahora la solución de las ecuaciones es trivial:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-008bb81b-e9e4-4014-9922-5860021e109c">
-<span class="eqno">(716)<a class="headerlink" href="#equation-008bb81b-e9e4-4014-9922-5860021e109c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-30de30a6-cd5d-4b26-9fcb-f699c6f247ab">
+<span class="eqno">(702)<a class="headerlink" href="#equation-30de30a6-cd5d-4b26-9fcb-f699c6f247ab" title="Permalink to this equation">#</a></span>\[\begin{align}
 &amp; f_{+}(t) = e^{i \beta t} f_{+}(0) \\
 &amp; f_{-}(t) = e^{-i \beta t} f_{-}(0).
 \end{align}\]</div>
 <p>Vemos claramente que <span class="math notranslate nohighlight">\(| f_{+}(0) |\)</span> y <span class="math notranslate nohighlight">\(|f_{-}(0)|\)</span> son independientes de la iteración <span class="math notranslate nohighlight">\(t\)</span> en la que estemos. Podemos ahora deshacer el cambio de variable</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66ba3b18-a5d2-4532-b114-0c3415d4affc">
-<span class="eqno">(717)<a class="headerlink" href="#equation-66ba3b18-a5d2-4532-b114-0c3415d4affc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-45934a53-6170-4697-b1ce-4eaae77efe35">
+<span class="eqno">(703)<a class="headerlink" href="#equation-45934a53-6170-4697-b1ce-4eaae77efe35" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Aboxed{\bar{k}(t) &amp; = - i \sqrt{\frac{N-M}{4M}} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc}  \label{ec_prop-no-uni_sol_k} \\
 \Aboxed{\bar{l}(t) &amp; = \frac{1}{2} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc }.  \label{ec_prop-no-uni_sol_l}
 \end{align}\]</div>
@@ -798,14 +798,14 @@ k_i(t+1) - \bar{k}(t+1) &amp; = k_i(t) - \bar{k}(t) \\
 l_i(t+1) - \bar{l}(t+1) &amp; = - \lc l_i(t) - \bar{l}(t) \rc.
 \end{align*}\]</div>
 <p>Esto significa que las cantidades</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8eaa6b53-bede-4348-8ac5-ca114fe9727e">
-<span class="eqno">(718)<a class="headerlink" href="#equation-8eaa6b53-bede-4348-8ac5-ca114fe9727e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1b170eef-b22a-4296-8106-03c3bf856d67">
+<span class="eqno">(704)<a class="headerlink" href="#equation-1b170eef-b22a-4296-8106-03c3bf856d67" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Delta k_i &amp; \equiv k_i(0) - \bar{k}(0) \\
 \Delta l_i &amp; \equiv l_i(0) - \bar{l}(0)
 \end{align}\]</div>
 <p>son <i>constantes del movimiento</i>. Esto nos permite simplificar las expresiones para la dependencia temporal de las amplitudes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e14ebd13-8bc0-4489-86e5-11071192569a">
-<span class="eqno">(719)<a class="headerlink" href="#equation-e14ebd13-8bc0-4489-86e5-11071192569a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b78770cb-e361-4748-a236-3ef3e5e9a7d3">
+<span class="eqno">(705)<a class="headerlink" href="#equation-b78770cb-e361-4748-a236-3ef3e5e9a7d3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Aboxed{k_i(t) &amp; = \bar{k}(t) + \Delta k_i} \label{ec_prop-no-uni_k-delta}\\
 \Aboxed{l_i(t) &amp; = \bar{l}(t) + (-1)^t \Delta l_i}. \label{ec_prop-no-uni_l-delta}
 \end{align}\]</div>
@@ -822,25 +822,25 @@ l_i(t+1) - \bar{l}(t+1) &amp; = - \lc l_i(t) - \bar{l}(t) \rc.
 <span id="subsec-prop-no-uni-pt"></span><h3>Probabilidad de acierto.<a class="headerlink" href="#probabilidad-de-acierto" title="Permalink to this heading">#</a></h3>
 <p>Para facilitar el análisis de las soluciones, definamos las variables (complejas) <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\phi\)</span> de la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-alpha-phi">
-<span class="eqno">(720)<a class="headerlink" href="#equation-ec-prop-no-uni-alpha-phi" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(706)<a class="headerlink" href="#equation-ec-prop-no-uni-alpha-phi" title="Permalink to this equation">#</a></span>\[\begin{align} 
 &amp; \alpha = \sqrt{f_{+}(0) f_{-}(0)},
 &amp; e^{2i\phi} = f_{+}(0)/f_{-}(0).
 \end{align} \]</div>
 <p>Reescribamos las Ecs. (\ref{ec_prop-no-uni_sol_k}) y (\ref{ec_prop-no-uni_sol_l}) en función de estas variables</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3119248f-7043-4f48-bba5-b14ca7529649">
-<span class="eqno">(721)<a class="headerlink" href="#equation-3119248f-7043-4f48-bba5-b14ca7529649" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a57810bf-f795-46a2-9728-bccfbe3f109f">
+<span class="eqno">(707)<a class="headerlink" href="#equation-a57810bf-f795-46a2-9728-bccfbe3f109f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Aboxed{\bar{k}(t) &amp; = \sqrt{\frac{N-M}{M}} \alpha \sin ( \beta t + \phi)}  \label{ec_prop-no-uni_sol_k-2} \\
 \Aboxed{\bar{l}(t) &amp; = \alpha \cos (\beta t + \phi)} \label{ec_prop-no-uni_sol_l-2}
 \end{align}\]</div>
 <p>Esto nos permite ver que hay una diferencia de fase de <span class="math notranslate nohighlight">\(\pi/2\)</span> entre las medias de las amplitudes de los estados solución y los no solución. Se ve fácilmente que cuando una es máxima, la otra es mínima.</p>
 <p>La probabilidad de medir alguno de los estados solución será <span class="math notranslate nohighlight">\(P(t) = \sum_{i \in \omega} |k_i(t)|^2\)</span>. Como todos los operadores son unitarios, las amplitudes cumplen la condición de normalización:</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-unitaridad">
-<span class="eqno">(722)<a class="headerlink" href="#equation-ec-prop-no-uni-unitaridad" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(708)<a class="headerlink" href="#equation-ec-prop-no-uni-unitaridad" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \sum_{i \in \omega} |k_i(t)|^2 + \sum_{i \in \omega^\perp} |l_i(t)|^2 = 1 \quad \forall t
 \end{equation} \]</div>
 <p>Usando la identidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d568e88-bbdc-4fdf-802b-30c92304d0ab">
-<span class="eqno">(723)<a class="headerlink" href="#equation-9d568e88-bbdc-4fdf-802b-30c92304d0ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-71df7387-48f2-40fd-9997-2a4a976c5e67">
+<span class="eqno">(709)<a class="headerlink" href="#equation-71df7387-48f2-40fd-9997-2a4a976c5e67" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \overline{(y-\bar{y})^2} = \overline{y^2} - \bar{y}^2 \rqa \sigma_y^2 = \overline{y^2} - \bar{y}^2
 \rqa  \overline{y^2} = \sigma_y^2  + \bar{y}^2
 \end{equation}\]</div>
@@ -852,7 +852,7 @@ l_i(t+1) - \bar{l}(t+1) &amp; = - \lc l_i(t) - \bar{l}(t) \rc.
 \end{align*}\]</div>
 <p>Despejando <span class="math notranslate nohighlight">\(\sum_{i \in \omega} |k_i(t)|^2\)</span> en (\ref{ec_prop-no-uni_unitaridad}), sustituyendo en <span class="math notranslate nohighlight">\(P(t)\)</span>, usando la expresión anterior de <span class="math notranslate nohighlight">\(\sum_{i \in \omega} |l_i (t) |^2 \)</span> y desarrollando con cuidado, puede verse que</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-pt">
-<span class="eqno">(724)<a class="headerlink" href="#equation-ec-prop-no-uni-pt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(710)<a class="headerlink" href="#equation-ec-prop-no-uni-pt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{P(t) = P_{av} - \Delta P \cos 2\lc \beta t + \text{Re}(\phi) \rc ,}
 \end{equation} \]</div>
 <p>donde</p>
@@ -865,20 +865,20 @@ l_i(t+1) - \bar{l}(t+1) &amp; = - \lc l_i(t) - \bar{l}(t) \rc.
 <section id="numero-optimo-t-de-iteraciones">
 <span id="subsec-prop-no-uni-t"></span><h3>Número optimo, <span class="math notranslate nohighlight">\(T\)</span>, de iteraciones.<a class="headerlink" href="#numero-optimo-t-de-iteraciones" title="Permalink to this heading">#</a></h3>
 <p>El valor máximo de la probabilidad que se puede obtener durante la evolución del algoritmo es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e6a815f-bb03-42e2-b5c6-dd6f318b814a">
-<span class="eqno">(725)<a class="headerlink" href="#equation-9e6a815f-bb03-42e2-b5c6-dd6f318b814a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2be9255b-8406-47f9-862b-e34d574674f9">
+<span class="eqno">(711)<a class="headerlink" href="#equation-2be9255b-8406-47f9-862b-e34d574674f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 P_{max}=P_{av} + \Delta P
 \end{equation}\]</div>
 <p>Dada una distribución arbitraria inicial de <span class="math notranslate nohighlight">\(M\)</span> estados solución y <span class="math notranslate nohighlight">\(N-M\)</span> estados no solución, con medias <span class="math notranslate nohighlight">\(\bar{k}(0)\)</span> y <span class="math notranslate nohighlight">\(\bar{l}(0)\)</span> respectivamente, el valor máximo de la probabilidad <span class="math notranslate nohighlight">\(P_{max}\)</span> se alcanzará cuando realicemos <span class="math notranslate nohighlight">\(T\)</span> iteraciones tal que</p>
 <div class="math notranslate nohighlight" id="equation-ec-prop-no-uni-t">
-<span class="eqno">(726)<a class="headerlink" href="#equation-ec-prop-no-uni-t" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(712)<a class="headerlink" href="#equation-ec-prop-no-uni-t" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \cos 2 \lc \beta T + \text{Re} (\phi) \rc = -1 \rqa
 \boxed{T = \lc (u + 1/2)  \pi - \text{Re} (\phi) \rc/\beta}
 \end{equation} \]</div>
 <p>con <span class="math notranslate nohighlight">\(u = 0,1,2,\dots\)</span>. Una importante conclusión es que para determinar el valor óptimo de iteraciones, todo lo que necesitamos es conocer <i>las medias iniciales de las amplitudes y el número de estados marcados</i>.</p>
 <p>Si <span class="math notranslate nohighlight">\(M\)</span> es pequeño tenemos que <span class="math notranslate nohighlight">\(1-2M/N \approx 1\)</span>, así que podemos aproximar <span class="math notranslate nohighlight">\(\beta\)</span> a segundo orden en la Ec. (\ref{ec_prop-no-ini_beta})</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9321273-ba02-4589-bb26-edff263f081f">
-<span class="eqno">(727)<a class="headerlink" href="#equation-a9321273-ba02-4589-bb26-edff263f081f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-87daf3f4-3f96-422a-bde9-1c083fe3a374">
+<span class="eqno">(713)<a class="headerlink" href="#equation-87daf3f4-3f96-422a-bde9-1c083fe3a374" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cos \beta \approx 1 - \frac{1}{2} \beta^2 = 1- 2 \frac{M}{N} \rqa \beta = 2 \sqrt{\frac{M}{N}}
 \end{equation}\]</div>
 <p>Así que tenemos que <span class="math notranslate nohighlight">\(T\)</span> es del orden de <span class="math notranslate nohighlight">\(\mathcal{O}(\sqrt{N/M})\)</span> (para <span class="math notranslate nohighlight">\(u=0\)</span>).</p>

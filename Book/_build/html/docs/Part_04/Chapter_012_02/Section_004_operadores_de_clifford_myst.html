@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi14.png"><img alt="../../../_images/Fig_logo_UMA_scbi14.png" src="../../../_images/Fig_logo_UMA_scbi14.png" style="width: 2000px;" /></a>
@@ -667,15 +667,15 @@ document.write(`
 </div>
 </div>
 <p>Los propios operadores de Pauli son operadores de Clifford.  La conjugación correspondiente simplemente refleja el operador de Pauli. Por ejemplo con <span class="math notranslate nohighlight">\(U=Z\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3140f53c-6553-472f-b43c-a62b6d584bfb">
-<span class="eqno">(528)<a class="headerlink" href="#equation-3140f53c-6553-472f-b43c-a62b6d584bfb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98fa5e53-69fe-4101-9e20-c8c1adbb004a">
+<span class="eqno">(522)<a class="headerlink" href="#equation-98fa5e53-69fe-4101-9e20-c8c1adbb004a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 ZXZ = -X~~~~~~~~~ZYZ = -Y ~~~~~~~~~ZZZ = Z
 \end{equation}\]</div>
 <p>Pero vemos que también <span class="math notranslate nohighlight">\(H\)</span> y <span class="math notranslate nohighlight">\(S\)</span> son de Clifford. Por el contrario <span class="math notranslate nohighlight">\(T\)</span> no es un operador de Clifford.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota (simulaciones de circuitos con operadores de Clifford)</p>
 <p>Los circuitos cuánticos compuestos únicamente por operadores de Clifford pueden simularse de forma eficiente en ordenadores
-clásicos gracias al <b>teorema de Gottesman-Knill</b> (ver <span class="xref myst">[13]</span>).</p>
+clásicos gracias al <b>teorema de Gottesman-Knill</b> (ver <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id14" title="Scott Aaronson and Daniel Gottesman. Improved simulation of stabilizer circuits. Phys. Rev. A, 70:052328, Nov 2004. URL: https://link.aps.org/doi/10.1103/PhysRevA.70.052328, doi:10.1103/PhysRevA.70.052328.">3</a>]</span>).</p>
 </div>
 <p>Esta definición se extiende a puertas multi-cúbits. Un operador de Clifford será aquel que conjuga una cadena de Pauli para dar otra cadena de Pauli. Por ejemplo</p>
 <div class="amsmath math notranslate nohighlight">
@@ -686,13 +686,13 @@ clásicos gracias al <b>teorema de Gottesman-Knill</b> (ver <span class="xref my
 &amp;=&amp; YZZ
 \end{eqnarray*}\]</div>
 <p>También podemos conjugar operadores obtenidos por exponenciación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61d1d0f2-033b-4a9e-89e3-657df2d3c04b">
-<span class="eqno">(529)<a class="headerlink" href="#equation-61d1d0f2-033b-4a9e-89e3-657df2d3c04b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a38f79b7-3e33-4e9f-9106-7cc14bc5c18a">
+<span class="eqno">(523)<a class="headerlink" href="#equation-a38f79b7-3e33-4e9f-9106-7cc14bc5c18a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (XXH) \, e^{aYZX} \,  (XXH)^\dagger =e^{a XXH \otimes XZX \otimes XXH} =  e^{a YZZ}
 \end{equation}\]</div>
 <p>Para 2 qúbits la <b>clase de Clifford</b> admite puertas controladas.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86245648-6fc3-40b4-9be2-e3e9629957a2">
-<span class="eqno">(530)<a class="headerlink" href="#equation-86245648-6fc3-40b4-9be2-e3e9629957a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f712e37-47fb-45f6-8938-2ef3ca7922bf">
+<span class="eqno">(524)<a class="headerlink" href="#equation-9f712e37-47fb-45f6-8938-2ef3ca7922bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cg{X} \, (X\otimes I)\,  \cg{X} = X \otimes X
 \end{equation}\]</div>
 <p>que copia el operador <span class="math notranslate nohighlight">\(X\)</span> en el segundo qúbit. Esta identidad se puede demostrar gráficamente como vemos en la Fig. \ref{Fig_elementos_clone_X}.</p>

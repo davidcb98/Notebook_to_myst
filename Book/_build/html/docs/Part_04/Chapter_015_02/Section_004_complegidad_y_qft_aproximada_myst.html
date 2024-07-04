@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi17.png"><img alt="../../../_images/Fig_logo_UMA_scbi17.png" src="../../../_images/Fig_logo_UMA_scbi17.png" style="width: 2000px;" /></a>
@@ -677,8 +677,8 @@ document.write(`
 <section id="qft-aproximada">
 <h2>QFT aproximada<a class="headerlink" href="#qft-aproximada" title="Permalink to this heading">#</a></h2>
 <p>Como acabamos de comentar, cuando aplicamos al QFT exacta sobre <span class="math notranslate nohighlight">\(n\)</span> qúbits necesitamos del orden de <span class="math notranslate nohighlight">\(\mathcal{O} (n^2)\)</span> operaciones/puertas (en concreto, son <span class="math notranslate nohighlight">\(\frac{1}{2} n(n+1)\)</span> operaciones). Si nos fijamos en la puerta <span class="math notranslate nohighlight">\(\cg{R_k}\)</span> que aparece en la QFT vemos que es de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d6d13a1-2d5b-43d1-90cd-4f499ce2a3cf">
-<span class="eqno">(583)<a class="headerlink" href="#equation-4d6d13a1-2d5b-43d1-90cd-4f499ce2a3cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a30c97c9-e11f-4707-a503-566060fb1463">
+<span class="eqno">(572)<a class="headerlink" href="#equation-a30c97c9-e11f-4707-a503-566060fb1463" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cg{R_k} = \left[ \begin{matrix}
 1 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 &amp; 0 \\
@@ -686,7 +686,7 @@ document.write(`
 0 &amp; 0 &amp; 0 &amp; \exp \left( \frac{2 \pi i}{2^k} \right)
 \end{matrix} \right]
 \end{equation}\]</div>
-<p>Se puede apreciar que cuando <span class="math notranslate nohighlight">\(k\)</span> crece mucho, las puertas <span class="math notranslate nohighlight">\(\cg{R_k}\)</span> se aproximan a la Identidad. Esto hace que podamos prescindir de las puertas con un valor <span class="math notranslate nohighlight">\(k\)</span> mayor que un cierto umbral <span class="math notranslate nohighlight">\(k_{max}\)</span> y aplicar así una versión <b>aproximada</b> (con menos operaciones) de la QFT. Puede demostrarse (ver <span class="xref myst">[31]</span>) que el error introducido por ignorar todas las puertas con un valor <span class="math notranslate nohighlight">\(k &gt; k_{max}\)</span> es proporcional a <span class="math notranslate nohighlight">\(n 2^{-k_{max}}\)</span>. Podemos pues tomar <span class="math notranslate nohighlight">\(k_{max}\)</span> del orden de <span class="math notranslate nohighlight">\(\mathcal{O} (\log_2 n)\)</span>, pasando de tener del orden de <span class="math notranslate nohighlight">\(\mathcal{O} (n^2)\)</span> operaciones (puertas) a <span class="math notranslate nohighlight">\(\mathcal{O} (n \log_2(n))\)</span> operaciones (en concreto <span class="math notranslate nohighlight">\(\frac{1}{2} (2n-\log_2n)(\log_2n-1)\)</span> operaciones).</p>
+<p>Se puede apreciar que cuando <span class="math notranslate nohighlight">\(k\)</span> crece mucho, las puertas <span class="math notranslate nohighlight">\(\cg{R_k}\)</span> se aproximan a la Identidad. Esto hace que podamos prescindir de las puertas con un valor <span class="math notranslate nohighlight">\(k\)</span> mayor que un cierto umbral <span class="math notranslate nohighlight">\(k_{max}\)</span> y aplicar así una versión <b>aproximada</b> (con menos operaciones) de la QFT. Puede demostrarse (ver <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id32" title="D. Coppersmith. An approximate fourier transform useful in quantum factoring. 2002. URL: https://arxiv.org/abs/quant-ph/0201067, doi:10.48550/ARXIV.QUANT-PH/0201067.">19</a>]</span>) que el error introducido por ignorar todas las puertas con un valor <span class="math notranslate nohighlight">\(k &gt; k_{max}\)</span> es proporcional a <span class="math notranslate nohighlight">\(n 2^{-k_{max}}\)</span>. Podemos pues tomar <span class="math notranslate nohighlight">\(k_{max}\)</span> del orden de <span class="math notranslate nohighlight">\(\mathcal{O} (\log_2 n)\)</span>, pasando de tener del orden de <span class="math notranslate nohighlight">\(\mathcal{O} (n^2)\)</span> operaciones (puertas) a <span class="math notranslate nohighlight">\(\mathcal{O} (n \log_2(n))\)</span> operaciones (en concreto <span class="math notranslate nohighlight">\(\frac{1}{2} (2n-\log_2n)(\log_2n-1)\)</span> operaciones).</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
 </figure>

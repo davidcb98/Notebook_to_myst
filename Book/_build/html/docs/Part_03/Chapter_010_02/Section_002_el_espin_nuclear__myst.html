@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 3 min read</p>
+<div><p>Jul 04, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi11.png"><img alt="../../../_images/Fig_logo_UMA_scbi11.png" src="../../../_images/Fig_logo_UMA_scbi11.png" style="width: 2000px;" /></a>
@@ -661,20 +661,20 @@ document.write(`
 <p>En el núcleo, cada nucleón (protones o neutrones) posee un momento angular orbital y un momento angular intrínseco o espín. Al igual que el electrón, los nucleones son fermiones de espín <span class="math notranslate nohighlight">\(\hbar/2\)</span>.</p>
 <p>A cada <b>estado nuclear</b> se asigna un único número cuántico de espín <span class="math notranslate nohighlight">\(I\)</span>, representando el <b>momento angular total</b> (orbital más intrínseco) de todos los nucleones en el núcleo. El vector <span class="math notranslate nohighlight">\(\vec{I}\)</span> puede considerarse como la suma de las contribuciones orbital y intrínseca (espín intrínseco de protones y neutrones) de los momento angulares de los nucleones</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-i">
-<span class="eqno">(460)<a class="headerlink" href="#equation-ec-hardware-nmr-i" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
+<span class="eqno">(454)<a class="headerlink" href="#equation-ec-hardware-nmr-i" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align} 
 \vec{I} ~ &amp; =  ~ \, \sum_{i=1}^A (\vec{l_i} +  \vec{s_i}) \nonumber \\
 &amp; = ~ \,  \vec{L} + \vec{S}  \\
 &amp; = ~ \, \sum_{i=1}^A \vec{j_i} \nonumber
 \end{align} \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(A\)</span> es el <b>número másico</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-326e41d3-8ccd-4b4e-ba53-3c8c7dd1d26e">
-<span class="eqno">(461)<a class="headerlink" href="#equation-326e41d3-8ccd-4b4e-ba53-3c8c7dd1d26e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d36f8421-01bd-4ab4-b849-c49675e7078d">
+<span class="eqno">(455)<a class="headerlink" href="#equation-d36f8421-01bd-4ab4-b849-c49675e7078d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = Z + N
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(Z\)</span> es el <b>número de protones</b> y <span class="math notranslate nohighlight">\(N\)</span> el <b>número de neutrones</b>.</p>
 <p>El <i>número cuántico</i> <span class="math notranslate nohighlight">\(I\)</span> tiene la conexión  usual con el <i>vector</i> <span class="math notranslate nohighlight">\(\vec{I}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7aab8872-788e-4e1e-90ec-c0a5df22ce42">
-<span class="eqno">(462)<a class="headerlink" href="#equation-7aab8872-788e-4e1e-90ec-c0a5df22ce42" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9d2dad6a-9abd-4755-9f0d-a639cfaf5b70">
+<span class="eqno">(456)<a class="headerlink" href="#equation-9d2dad6a-9abd-4755-9f0d-a639cfaf5b70" title="Permalink to this equation">#</a></span>\[\begin{align}
 | \vec{I} | ~ = &amp; ~\,  \sqrt{I(I+1)} \hbar \\
 I_i ~ = &amp; ~\, m_i \hbar \qquad (m_i = I, I-1, \dots, -I +1, -I)
 \end{align}\]</div>
@@ -691,18 +691,18 @@ el vector de espín, <span class="math notranslate nohighlight">\(\vec{S}\)</spa
 ahora nos falta ver el <b>operador espín</b>,<span class="math notranslate nohighlight">\(\hat{S}\)</span> o simplemente <span class="math notranslate nohighlight">\(S\)</span>. Para partículas de
 espín 1/2, este toma la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-operador-s-sigma-vec">
-<span class="eqno">(463)<a class="headerlink" href="#equation-ec-hardware-nmr-operador-s-sigma-vec" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(457)<a class="headerlink" href="#equation-ec-hardware-nmr-operador-s-sigma-vec" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{S = \frac{\hbar}{2} \vec{\sigma}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(\vec{\sigma}\)</span> es el vector de matrices de Pauli <span class="math notranslate nohighlight">\((\sigma_x, \sigma_y, \sigma_z)\)</span>.
 También podemos escribirlo pues como</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-operador-s-vec-sx-sy-sz">
-<span class="eqno">(464)<a class="headerlink" href="#equation-ec-hardware-nmr-operador-s-vec-sx-sy-sz" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(458)<a class="headerlink" href="#equation-ec-hardware-nmr-operador-s-vec-sx-sy-sz" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 S = (S_x, S_y, S_z)
 \end{equation} \]</div>
 <p>donde</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-sx-sy-sz">
-<span class="eqno">(465)<a class="headerlink" href="#equation-ec-hardware-nmr-sx-sy-sz" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(459)<a class="headerlink" href="#equation-ec-hardware-nmr-sx-sy-sz" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{S_x = \frac{\hbar}{2} \sigma_x} \, , \hspace{2cm}
 \boxed{S_y = \frac{\hbar}{2} \sigma_y} \, , \hspace{2cm}
 \boxed{S_z = \frac{\hbar}{2} \sigma_z} \, .
@@ -714,11 +714,11 @@ S = (S_x, S_y, S_z)
 <b>operador de momento angular</b>. No confundirlo con el espín nuclear que vimos
 antes. Este operador es simplemente el operador de espín (\ref{ec_Hardware_NMR_operador_S_sigma_vec})
 pero sin el factor <span class="math notranslate nohighlight">\(\hbar\)</span>, es decir,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d017d504-c82b-4bba-b6e4-fd5471ed507c">
-<span class="eqno">(466)<a class="headerlink" href="#equation-d017d504-c82b-4bba-b6e4-fd5471ed507c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-786d8ee0-1a1a-46f5-a59b-0020ab9bd16b">
+<span class="eqno">(460)<a class="headerlink" href="#equation-786d8ee0-1a1a-46f5-a59b-0020ab9bd16b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I = \frac{1}{2} \vec{\sigma}
 \end{equation}\]</div>
-<p>Por ejemplo, en el paper de referencia de esta sección <span class="xref myst">[6]</span> se usa esta notación.</p>
+<p>Por ejemplo, en el paper de referencia de esta sección <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id7" title="L. M. K. Vandersypen and I. L. Chuang. Nmr techniques for quantum control and computation. Rev. Mod. Phys., 76:1037–1069, Jan 2005. URL: https://link.aps.org/doi/10.1103/RevModPhys.76.1037, doi:10.1103/RevModPhys.76.1037.">58</a>]</span> se usa esta notación.</p>
 </div>
 <p>La Ec. (\ref{ec_Hardware_NMR_I}) representa lo que en principio podría ser un acoplamiento muy complicado de muchos vectores para dar un solo resultado, y puede que no sea evidente por qué podemos despreciar esta estructura interna y tratar el núcleo como si fuera un momento angular una “partícula”. Esto es posible porque las interacciones a las que sometemos el núcleo, como los campos electromagnéticos, no son suficientemente fuertes como para cambiar la estructura interna o romper los acoplamientos de los nucleones que son responsables de la Ec. (\ref{ec_Hardware_NMR_I}).</p>
 <p>El valor del espín nuclear depende del valor del número másico:</p>

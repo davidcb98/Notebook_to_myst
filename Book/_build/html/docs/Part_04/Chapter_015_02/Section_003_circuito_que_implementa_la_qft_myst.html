@@ -638,7 +638,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 1 min read</p>
+<div><p>Jul 04, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi17.png"><img alt="../../../_images/Fig_logo_UMA_scbi17.png" src="../../../_images/Fig_logo_UMA_scbi17.png" style="width: 2000px;" /></a>
@@ -676,22 +676,25 @@ document.write(`
 </figcaption>
 </figure>
 <p>Vemos que este circuito solo incluye tres elementos:</p>
-<ul class="simple">
+<ul>
 <li><p>Puertas de Hadamard <span class="math notranslate nohighlight">\(H\)</span>,</p></li>
-<li><p>Puertas de fase discreta <span class="math notranslate nohighlight">\(R_k \equiv P (\phi = \pi/2^{k-1})\)</span></p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-f42210d2-ffcd-4db3-807d-0d02311c872a">
-<span class="eqno">(579)<a class="headerlink" href="#equation-f42210d2-ffcd-4db3-807d-0d02311c872a" title="Permalink to this equation">#</a></span>\[\begin{equation}
-R_k = \begin{bmatrix}
-1 &amp; 0 \\ 0 &amp; e^{2 \pi i \frac{1}{2^k}}
-\end{bmatrix} \quad \Leftrightarrow \quad R_k \ket{y} = e^{2 \pi i \frac{y}{2^k}} \ket{y}
-\end{equation}\]</div>
+<li><p>Puertas de fase discreta <span class="math notranslate nohighlight">\(R_k \equiv P (\phi = \pi/2^{k-1})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-dec7e1cb-73a4-4c86-8bc6-0646fbd87872">
+<span class="eqno">(568)<a class="headerlink" href="#equation-dec7e1cb-73a4-4c86-8bc6-0646fbd87872" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    R_k = \begin{bmatrix}
+    1 &amp; 0 \\ 0 &amp; e^{2 \pi i \frac{1}{2^k}}
+    \end{bmatrix} \quad \Leftrightarrow \quad R_k \ket{y} = e^{2 \pi i \frac{y}{2^k}} \ket{y}
+    \end{equation}\]</div>
 <p>pero en su forma controlada <span class="math notranslate nohighlight">\(\cg{R_k}\)</span>:</p>
+</li>
+</ul>
 <div class="math notranslate nohighlight" id="equation-ec-qft-crk">
-<span class="eqno">(580)<a class="headerlink" href="#equation-ec-qft-crk" title="Permalink to this equation">#</a></span>\[\begin{equation} 
-\cg{R_k}\ket{x}\ket{y} = \ket{x}R^{x}_{k}\ket{y}  = \ket{x}  e^{2 \pi i   \frac{y}{2^{k}}x}\ket{y}
-\end{equation} \]</div>
-<p>donde <span class="math notranslate nohighlight">\(\ket{x}\)</span> es el qúbit de control.</p>
+<span class="eqno">(569)<a class="headerlink" href="#equation-ec-qft-crk" title="Permalink to this equation">#</a></span>\[    \begin{equation} 
+    \cg{R_k}\ket{x}\ket{y} = \ket{x}R^{x}_{k}\ket{y}  = \ket{x}  e^{2 \pi i   \frac{y}{2^{k}}x}\ket{y}
+    \end{equation} \]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>donde $\ket{x}$ es el qúbit de control.
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Puertas SWAP.</p></li>
 </ul>
@@ -713,13 +716,13 @@ Demostración<div class="sd-summary-down docutils">
 &amp; \equiv \ket{\tilde x_{0}} \ket{x_{n-2}... x_1x_0}
 \end{align*}\]</div>
 <p class="sd-card-text">El primer bloque ha generado el estado ecuatorial <span class="math notranslate nohighlight">\(\ket{\tilde x_0}\)</span> pero <i>en la posición equivocada</i>. Si repetimos el mismo procedimiento con los siguientes qúbits <span class="math notranslate nohighlight">\(\ket{x_{n-2}}\)</span>, obtendremos finalmente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffcf6ba8-16dd-48b2-9785-3087df5d4b69">
-<span class="eqno">(581)<a class="headerlink" href="#equation-ffcf6ba8-16dd-48b2-9785-3087df5d4b69" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-260055ed-9c18-480b-8bbd-daadf933b6ac">
+<span class="eqno">(570)<a class="headerlink" href="#equation-260055ed-9c18-480b-8bbd-daadf933b6ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\tilde x_{0}}\ket{\tilde x_{1}}  ... \ket{\tilde{x}_{n-2}} \ket{\tilde x_{n-1}}
 \end{equation}\]</div>
 <p class="sd-card-text">La parte final del circuito introduce los operadores de SWAP que rectifican el orden de los qúbits</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dcaab36-5f30-4198-a5fe-94309d2eadc4">
-<span class="eqno">(582)<a class="headerlink" href="#equation-7dcaab36-5f30-4198-a5fe-94309d2eadc4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a899a8dd-659e-4a77-80b4-13938f36e0a0">
+<span class="eqno">(571)<a class="headerlink" href="#equation-a899a8dd-659e-4a77-80b4-13938f36e0a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hbox{SWAP}^{\otimes n} \,  (\ket{\tilde x_{0}}  ...  \ket{\tilde x_{n-1}} ) ~=~
 \ket{\tilde x_{n-1}} ... \ket{\tilde{x}_{0}} ~~ \equiv ~~ \ket{\tilde x}
 \end{equation}\]</div>

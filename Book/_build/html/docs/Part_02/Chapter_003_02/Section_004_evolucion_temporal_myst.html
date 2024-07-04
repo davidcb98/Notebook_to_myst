@@ -642,7 +642,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi3.png"><img alt="../../../_images/Fig_logo_UMA_scbi3.png" src="../../../_images/Fig_logo_UMA_scbi3.png" style="width: 2000px;" /></a>
@@ -676,7 +676,7 @@ document.write(`
 <h2>Ecuación de Schrödinger<a class="headerlink" href="#ecuacion-de-schrodinger" title="Permalink to this heading">#</a></h2>
 <p>El estado de un sistema <span class="math notranslate nohighlight">\(\ket{\psi(t)}\)</span> posee la máxima información instantánea accesible de un sistema, es decir, a un tiempo dado <span class="math notranslate nohighlight">\(t\)</span>. Dado <span class="math notranslate nohighlight">\(\ket{\psi(t_0)}\)</span> en un instante inicial <span class="math notranslate nohighlight">\(t_0\)</span>, la evolución posterior obedece a la  ecuación diferencial de Schrödinger</p>
 <div class="math notranslate nohighlight" id="equation-ec-fundamentos-ec-de-schrodinger-con-t">
-<span class="eqno">(280)<a class="headerlink" href="#equation-ec-fundamentos-ec-de-schrodinger-con-t" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(274)<a class="headerlink" href="#equation-ec-fundamentos-ec-de-schrodinger-con-t" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 i \hbar \frac{d}{d t}\ket{\psi(t)} = H(t) \ket{\psi(t)} \, .
 \end{equation} \]</div>
 <div class="note admonition">
@@ -690,8 +690,8 @@ i \hbar \frac{d}{d t}\ket{\psi(t)} = H(t) \ket{\psi(t)} \, .
 <section id="conservacion-de-la-probabilidad">
 <h2>Conservación de la probabilidad<a class="headerlink" href="#conservacion-de-la-probabilidad" title="Permalink to this heading">#</a></h2>
 <p>La hermiticidad de <span class="math notranslate nohighlight">\(H\)</span> se relaciona directamente con la interpretación probabilística de <span class="math notranslate nohighlight">\(\ket{\psi}\)</span>. Efectivamente, en <i>la evolución temporal se conserva la norma del vector de estado</i></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b64c3aa8-4cda-41d7-85c8-f1767dbd9827">
-<span class="eqno">(281)<a class="headerlink" href="#equation-b64c3aa8-4cda-41d7-85c8-f1767dbd9827" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-3f5575dc-a072-474d-bd74-fb413c26613a">
+<span class="eqno">(275)<a class="headerlink" href="#equation-3f5575dc-a072-474d-bd74-fb413c26613a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}\braket{\psi(t)}{\psi(t)} &amp;=&amp; \left(\rule{0mm}{3mm}\frac{d}{dt}\bra{\psi(t)}\right)\ket{\psi(t)} +
 \bra{\psi(t)}\left(\frac{d}{dt}\ket{\psi(t)} \right)\nonumber\\
 &amp;=&amp; \left(\bra{\psi(t)}\frac{i}{\hbar}H^\dagger\right)\ket{\psi(t)} + \bra{\psi(t)}\left(-\frac{i}{\hbar}H\ket{\psi(t)} \right) \\
@@ -702,13 +702,13 @@ i \hbar \frac{d}{d t}\ket{\psi(t)} = H(t) \ket{\psi(t)} \, .
 <section id="operador-de-evolucion">
 <h2>Operador de evolución<a class="headerlink" href="#operador-de-evolucion" title="Permalink to this heading">#</a></h2>
 <p>La conservación de la norma implica que la evolución <span class="math notranslate nohighlight">\(\|\ket{\psi(0)\|} =\|\ket{\psi(t)}\|\)</span> es un <i>proceso unitario</i>. En otras palabras, debe existir un operador unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15236474-3361-408e-bb78-030e36e65a6c">
-<span class="eqno">(282)<a class="headerlink" href="#equation-15236474-3361-408e-bb78-030e36e65a6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af2de57f-1df9-4cc7-8b8e-b215f2cfabca">
+<span class="eqno">(276)<a class="headerlink" href="#equation-af2de57f-1df9-4cc7-8b8e-b215f2cfabca" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(t,t_0)^{-1}= U(t,t_0)^\dagger
 \end{equation}\]</div>
 <p>que lleve el estado inicial al actual a tiempo <span class="math notranslate nohighlight">\(t\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2043a27c-ba1a-42b9-bd99-afeeabc96ddb">
-<span class="eqno">(283)<a class="headerlink" href="#equation-2043a27c-ba1a-42b9-bd99-afeeabc96ddb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7469686-cf3a-4f23-b96e-964c39dcaf9e">
+<span class="eqno">(277)<a class="headerlink" href="#equation-d7469686-cf3a-4f23-b96e-964c39dcaf9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(t,t_0): \ket{\psi(t_0)}~~ \to~~ \rule{0mm}{3.5mm} \ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}
 \end{equation}\]</div>
 <div class="note admonition">
@@ -727,8 +727,8 @@ U(t,t_0): \ket{\psi(t_0)}~~ \to~~ \rule{0mm}{3.5mm} \ket{\psi(t)} = U(t,t_0)\ket
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El operador de evolución satisface la siguiente ecuación de evolución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-151e41fd-fea8-4845-b593-2b327b3612fb">
-<span class="eqno">(284)<a class="headerlink" href="#equation-151e41fd-fea8-4845-b593-2b327b3612fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-752e7cd2-fc09-4124-af61-47fc0e359a58">
+<span class="eqno">(278)<a class="headerlink" href="#equation-752e7cd2-fc09-4124-af61-47fc0e359a58" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i \hbar \frac{d}{dt}U(t,t_0) = H(t)\, U(t,t_0)
 \end{equation}\]</div>
 </div>
@@ -741,8 +741,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Tomando la derivada temporal de la ecuación <span class="math notranslate nohighlight">\(\ket{\psi(t)} = U(t,t_0)\ket{\psi(t_0)}\)</span>, que define <span class="math notranslate nohighlight">\(U(t,t_0)\)</span>, tenemos para cada miembro</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0b2d3c0-ab71-49bd-a2c2-c8bc6cc55940">
-<span class="eqno">(285)<a class="headerlink" href="#equation-c0b2d3c0-ab71-49bd-a2c2-c8bc6cc55940" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8e7584b4-9bba-48f0-8564-b91da5a02b3c">
+<span class="eqno">(279)<a class="headerlink" href="#equation-8e7584b4-9bba-48f0-8564-b91da5a02b3c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 i \hbar \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp;   H(t)\ket{\psi(t)} =  H(t)U(t,t_0)\ket{\psi(t_0)}  \nonumber\\
 i \hbar \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp; i \hbar \frac{d}{dt}U(t,t_0)\ket{\psi(t_0)} = i \hbar \left(\frac{d}{dt}U(t,t_0)\right)\ket{\psi(t_0)}
 \end{eqnarray}\]</div>
@@ -758,8 +758,8 @@ i \hbar \frac{d}{dt}\ket{\psi(t)} &amp;~=~&amp; i \hbar \frac{d}{dt}U(t,t_0)\ket
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Para un hamiltoniano <span class="math notranslate nohighlight">\(H\)</span> independiente del tiempo, el operador de evolución <span class="math notranslate nohighlight">\(U(t,t_0)\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f422ea4-ea68-44c1-b135-51591e46dac0">
-<span class="eqno">(286)<a class="headerlink" href="#equation-3f422ea4-ea68-44c1-b135-51591e46dac0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6bd332bc-45be-4dd6-98b7-04a908c5f36b">
+<span class="eqno">(280)<a class="headerlink" href="#equation-6bd332bc-45be-4dd6-98b7-04a908c5f36b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(t,t_0) = \exp\left({-\frac{i}{\hbar} (t-t_0)H}\right)
 \end{equation}\]</div>
 </div>
@@ -772,8 +772,8 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Basta con demostrar que se satisface la ecuación de evolución y la condición de contorno</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cd5ed87-4955-48a3-b47f-e4533acb3e0a">
-<span class="eqno">(287)<a class="headerlink" href="#equation-5cd5ed87-4955-48a3-b47f-e4533acb3e0a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-067d32eb-3424-447d-9cf5-26daf96f24a2">
+<span class="eqno">(281)<a class="headerlink" href="#equation-067d32eb-3424-447d-9cf5-26daf96f24a2" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \frac{d}{dt}U(t,t_0) &amp;=&amp; \frac{d}{dt} \exp\left({-\frac{i}{\hbar} (t-t_0)H}\right)
 \nonumber\\ \rule{0mm}{6mm}
 &amp;=&amp; \frac{d}{dt}\left( I +(t-t_0)\left(-\frac{i}{\hbar} H\right) + \frac{1}{2!}
@@ -785,16 +785,16 @@ Demostración<div class="sd-summary-down docutils">
 &amp;=&amp; -\frac{i}{\hbar} H \,  U(t,t_0)
 \end{eqnarray}\]</div>
 <p class="sd-card-text">Además</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d302d925-9fac-43ec-9f85-ac29d0c91bb8">
-<span class="eqno">(288)<a class="headerlink" href="#equation-d302d925-9fac-43ec-9f85-ac29d0c91bb8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b8abeb9a-03e6-4ed3-8834-05ed242f446b">
+<span class="eqno">(282)<a class="headerlink" href="#equation-b8abeb9a-03e6-4ed3-8834-05ed242f446b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(t_0,t_0) =  \exp\left({-\frac{i}{\hbar} (t_0-t_0)H}\right)=\exp(0) = I
 \end{equation}\]</div>
 </div>
 </details><div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>La cantidad <span class="math notranslate nohighlight">\({-\frac{i}{\hbar} (t-t_0) H }\)</span> es adimensional</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bf1d02d-107f-46ee-9698-14392e5c8ea9">
-<span class="eqno">(289)<a class="headerlink" href="#equation-8bf1d02d-107f-46ee-9698-14392e5c8ea9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2da7db1-1314-4219-8af6-7c3f3bc946dc">
+<span class="eqno">(283)<a class="headerlink" href="#equation-e2da7db1-1314-4219-8af6-7c3f3bc946dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{\hbox{J}\cdot \hbox{s}}\hbox{s}\cdot\hbox{J} = 1
 \end{equation}\]</div>
 <p>Es decir, es un número puro. Por eso podemos exponenciarla. El operador de evolución <span class="math notranslate nohighlight">\(U(t,t_0)\)</span> es, por tanto, también, una magnitud adimensional.</p>
@@ -803,38 +803,38 @@ U(t_0,t_0) =  \exp\left({-\frac{i}{\hbar} (t_0-t_0)H}\right)=\exp(0) = I
 <section id="evolucion-en-la-base-de-eutoestados-de-h">
 <h2>Evolución en la base de eutoestados de <span class="math notranslate nohighlight">\(H\)</span><a class="headerlink" href="#evolucion-en-la-base-de-eutoestados-de-h" title="Permalink to this heading">#</a></h2>
 <p>Sea <span class="math notranslate nohighlight">\(\{\ket{n}\}\)</span> una base de autoestados de <span class="math notranslate nohighlight">\(H \, \Rightarrow \,H \ket{n} = E_n \ket{n}\)</span>, <span class="math notranslate nohighlight">\(n=1,..,N\)</span>. En esta base <span class="math notranslate nohighlight">\(H\)</span> es una matriz <span class="math notranslate nohighlight">\(H_{mn}\)</span> diagonal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e0437b3-691d-464c-b782-369fe891035b">
-<span class="eqno">(290)<a class="headerlink" href="#equation-8e0437b3-691d-464c-b782-369fe891035b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad357316-6c7e-454a-987d-ed4575f09e0d">
+<span class="eqno">(284)<a class="headerlink" href="#equation-ad357316-6c7e-454a-987d-ed4575f09e0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H_{mn} =  \begin{bmatrix} E_0 &amp;  &amp; &amp; \\  &amp; E_1 &amp;  &amp; \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; \end{bmatrix} =E_m \delta_{mn} \, .
 \end{equation}\]</div>
 <p>Entonces la matriz de evolución es también diagonal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61f6a4c4-d256-4bb7-84d0-4d8c98d880ef">
-<span class="eqno">(291)<a class="headerlink" href="#equation-61f6a4c4-d256-4bb7-84d0-4d8c98d880ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6374620e-068f-4b43-9089-d7bdfba3a580">
+<span class="eqno">(285)<a class="headerlink" href="#equation-6374620e-068f-4b43-9089-d7bdfba3a580" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U_{mn} = \exp\left(-\frac{i}{\hbar}t H_{mn}\right) =
 \begin{bmatrix} e^{-\frac{i}{\hbar}t E_0} &amp;  &amp; &amp; \\  &amp; e^{-\frac{i}{\hbar} t E_1}  &amp;  &amp; \\ &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; \end{bmatrix} = e^{-\frac{i}{\hbar} t  E_m }\delta_{mn} \, .
 \end{equation}\]</div>
 <p>En conclusión:</p>
-<ul class="simple">
-<li><p>La evolución temporal de un autoestado de la energía es trivial (es una fase global)</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-59dee70e-f39b-48ac-99f2-6c8ab98346ad">
-<span class="eqno">(292)<a class="headerlink" href="#equation-59dee70e-f39b-48ac-99f2-6c8ab98346ad" title="Permalink to this equation">#</a></span>\[\begin{equation}
-U(t,0)\ket{n} = e^{-\frac{i}{\hbar} t E_n} \ket{n}\,
-\end{equation}\]</div>
+<ul>
+<li><p>La evolución temporal de un autoestado de la energía es trivial (es una fase global)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-13837825-826e-49cc-b483-d5e4a163b50b">
+<span class="eqno">(286)<a class="headerlink" href="#equation-13837825-826e-49cc-b483-d5e4a163b50b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    U(t,0)\ket{n} = e^{-\frac{i}{\hbar} t E_n} \ket{n}\,
+    \end{equation}\]</div>
 <p>Es decir, un autoestado del hamiltoniano es un <b>estado estacionario</b>. Si nuestro sistema está en un autoestado del hamiltoniano, este no cambiará con el tiempo.</p>
-<ul class="simple">
-<li><p>Esta fase deja de ser trivial cuando afecta a una combinación lineal. La forma más eficaz de calcular la evolución de un estado arbitrario es expresarla en la base <span class="math notranslate nohighlight">\(\{\ket{n}\}\)</span>. Es decir, si a <span class="math notranslate nohighlight">\(t=0\)</span></p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-2df6a277-fa53-45e7-aaed-ad12f60d3ce6">
-<span class="eqno">(293)<a class="headerlink" href="#equation-2df6a277-fa53-45e7-aaed-ad12f60d3ce6" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\psi(t=0)} = \sum_n c_n \ket{n} \,
-\end{equation}\]</div>
+</li>
+<li><p>Esta fase deja de ser trivial cuando afecta a una combinación lineal. La forma más eficaz de calcular la evolución de un estado arbitrario es expresarla en la base <span class="math notranslate nohighlight">\(\{\ket{n}\}\)</span>. Es decir, si a <span class="math notranslate nohighlight">\(t=0\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-894e0a47-5016-471c-803d-61dc3bebcc02">
+<span class="eqno">(287)<a class="headerlink" href="#equation-894e0a47-5016-471c-803d-61dc3bebcc02" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{\psi(t=0)} = \sum_n c_n \ket{n} \,
+    \end{equation}\]</div>
 <p>entonces, a tiempo <span class="math notranslate nohighlight">\(t\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-540f0acd-da39-4413-a475-e0e249b035f5">
-<span class="eqno">(294)<a class="headerlink" href="#equation-540f0acd-da39-4413-a475-e0e249b035f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\psi(t)} = \sum_n c_n e^{-\frac{i}{\hbar}E_nt} \ket{n} \, .
-\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-db32b467-b750-431d-88ad-9253ca7fc97d">
+<span class="eqno">(288)<a class="headerlink" href="#equation-db32b467-b750-431d-88ad-9253ca7fc97d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{\psi(t)} = \sum_n c_n e^{-\frac{i}{\hbar}E_nt} \ket{n} \, .
+    \end{equation}\]</div>
 <p>En esta base, la evolución temporal lo que hace es que las fases relativas de los autoestados evolucionen a velocidades diferentes.</p>
+</li>
+</ul>
 <p>\begin{mybox_orange}{Jupyter Notebook: 00-Fundamentos_MC_evolucion_temporal}
 Puede verse el Notebook <i>00-Fundamentos_MC_evolucion_temporal</i>. En el se muestran dos ejercicios resueltos sobre como calcular la evolución temporal en python.
 Qiskit en Python.

@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi14.png"><img alt="../../../_images/Fig_logo_UMA_scbi14.png" src="../../../_images/Fig_logo_UMA_scbi14.png" style="width: 2000px;" /></a>
@@ -670,8 +670,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="universalidad-de-la-computacion-cuantica-con-puertas">
 <span id="sec-elementos-universalidad"></span><h1>Universalidad de la computación cuántica con puertas.<a class="headerlink" href="#universalidad-de-la-computacion-cuantica-con-puertas" title="Permalink to this heading">#</a></h1>
 <p>El objetivo de un <b>computador cuántico universal</b> es el de ser capaz de implementar el operador unitario más general</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55c0ed71-0530-4e21-8662-0f2571745c8f">
-<span class="eqno">(531)<a class="headerlink" href="#equation-55c0ed71-0530-4e21-8662-0f2571745c8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f8e40a3d-7f8c-4d77-a825-d2f5b9c9bf8b">
+<span class="eqno">(525)<a class="headerlink" href="#equation-f8e40a3d-7f8c-4d77-a825-d2f5b9c9bf8b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U  = \sum_x \ket{f(x)}\bra{x}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(f: x \to f(x)\)</span> es una función arbitraria invertible.</p>
@@ -729,29 +729,31 @@ de <span class="math notranslate nohighlight">\(\cg{^2U}\)</span> de la Fig. \re
 <p><span class="caption-number">Fig. 59 </span><span class="caption-text">Descomposión de la puerta Toffoli.</span><a class="headerlink" href="#fig-universal-toffolidecomposition" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="arabic simple" start="4">
-<li><p class="sd-card-text">Una puerta <span class="math notranslate nohighlight">\(\cg{U}\)</span> puede descomponerse de forma única usando tres rotaciones <span class="math notranslate nohighlight">\(A, B\)</span> y <span class="math notranslate nohighlight">\(C\)</span> que verifiquen</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-64778b44-98f7-4004-838f-d0b0f987e30d">
-<span class="eqno">(532)<a class="headerlink" href="#equation-64778b44-98f7-4004-838f-d0b0f987e30d" title="Permalink to this equation">#</a></span>\[\begin{equation}
-ABC = I ~~~~~,~~~~ e^{i\delta}  AXBXC = U\, ,
-\end{equation}\]</div>
+<ol class="arabic" start="4">
+<li><p class="sd-card-text">Una puerta <span class="math notranslate nohighlight">\(\cg{U}\)</span> puede descomponerse de forma única usando tres rotaciones <span class="math notranslate nohighlight">\(A, B\)</span> y <span class="math notranslate nohighlight">\(C\)</span> que verifiquen</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a4872a81-b100-4709-b4e7-00b5ecb509f9">
+<span class="eqno">(526)<a class="headerlink" href="#equation-a4872a81-b100-4709-b4e7-00b5ecb509f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    ABC = I ~~~~~,~~~~ e^{i\delta}  AXBXC = U\, ,
+    \end{equation}\]</div>
 <p class="sd-card-text">siguiendo el circuito de la Fig. \ref{Fig_universal_CUdecomposition}</p>
+</li>
+</ol>
 <figure class="align-center" id="fig-universal-cudecomposition">
 <a class="reference internal image-reference" href="docs/Part_04/Chapter_012_02/Figuras/Fig_universal_CUdecomposition"><img alt="docs/Part_04/Chapter_012_02/Figuras/Fig_universal_CUdecomposition" src="docs/Part_04/Chapter_012_02/Figuras/Fig_universal_CUdecomposition" style="width: 650px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 60 </span><span class="caption-text">Descomposión de <span class="math notranslate nohighlight">\(\cg{U}\)</span>.</span><a class="headerlink" href="#fig-universal-cudecomposition" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p class="sd-card-text">En efecto, si el qúbit de control es <span class="math notranslate nohighlight">\(\ket{0}\)</span> la fase <span class="math notranslate nohighlight">\(P(\delta)\)</span> no le afecta y el operador efectivo en el segundo
-qúbit es <span class="math notranslate nohighlight">\(ABC= I\)</span>. Por el contrario, si el primer qúbits es <span class="math notranslate nohighlight">\(\ket{1}\)</span>, entonces se aplica <span class="math notranslate nohighlight">\(AXBXC\)</span> al segundo qúbit, y
-el operador <span class="math notranslate nohighlight">\(P(\delta)\)</span> añade la fase global, que al ser global podemos pasársela al segundo qúbit, lo que hace
-<span class="math notranslate nohighlight">\(e^{i\delta} AXBXC = U\)</span>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>En efecto, si el qúbit de control es $\ket{0}$ la fase $P(\delta)$ no le afecta y el operador efectivo en el segundo
+qúbit es $ABC= I$. Por el contrario, si el primer qúbits es $\ket{1}$, entonces se aplica $AXBXC$ al segundo qúbit, y
+el operador $P(\delta)$ añade la fase global, que al ser global podemos pasársela al segundo qúbit, lo que hace
+$e^{i\delta} AXBXC = U$.
+</pre></div>
+</div>
 <div class="note admonition">
 <p class="admonition-title">Nota (detalles sobre la descomposición de <span class="math notranslate nohighlight">\(\cg {U}\)</span>)</p>
-<p class="sd-card-text">Las dos condiciones  algebráicas admiten una solución única para un operador unitario genérico</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Las dos condiciones  algebráicas admiten una solución única para un operador unitario genérico
+\begin{align*}
 U = &amp; e^{i\delta}
 \begin{bmatrix}
 e^{-i(\alpha+\beta)/2} \cos\frac{\theta}{2}  &amp;  - e^{i(-\alpha+\beta)/2}\sin\frac{\theta}{2}  \\  \rule{0mm}{5mm}
@@ -764,10 +766,13 @@ A = R_z(\alpha) R_y\left(\frac{\theta}{2}\right) \\
 B = R_y\left(-\frac{\theta}{2}\right) R_z\left(-\frac{\alpha + \beta}{2}\right) \\
 C = R_z\left( \frac{\beta-\alpha}{2}\right)
 \end{array} \right.
-\end{align*}\]</div>
-<p class="sd-card-text">Como <span class="math notranslate nohighlight">\(U\in U(2)\)</span>  es un operador unitario y  su determinante es una fase <span class="math notranslate nohighlight">\(\det U = e^{i\delta}\)</span>. Por su parte
-<span class="math notranslate nohighlight">\(\det(AXBXC) = 1\)</span>, y por tanto es un elemento de <span class="math notranslate nohighlight">\(SU(2)\)</span>.  Por esta razón es necesario añadir la fase <span class="math notranslate nohighlight">\(e^{i\delta}\)</span>
-para obtener un operador unitario general.</p>
+\end{align*}
+
+Como $U\in U(2)$  es un operador unitario y  su determinante es una fase $\det U = e^{i\delta}$. Por su parte
+$\det(AXBXC) = 1$, y por tanto es un elemento de $SU(2)$.  Por esta razón es necesario añadir la fase $e^{i\delta}$
+para obtener un operador unitario general.
+</pre></div>
+</div>
 </div>
 </div>
 </details></section>
@@ -778,20 +783,20 @@ para obtener un operador unitario general.</p>
 <ul class="simple">
 <li><p>Las puertas de Clifford: <span class="math notranslate nohighlight">\(\{ H\)</span>, <span class="math notranslate nohighlight">\(S\)</span>, CNOT<span class="math notranslate nohighlight">\( \}\)</span> + <span class="math notranslate nohighlight">\(T\)</span></p></li>
 </ul>
-<p>Es importante relacionar las puertas universales con <b>puertas nativas</b> (las que de verdad se implementan y se usan para construir las demás). Por ejemplo, en ordenadores de iones atrapados hay las siguientes puertas nativas <span class="xref myst">[14]</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-132ff395-c0d2-46b4-9d06-de32a9becdab">
-<span class="eqno">(533)<a class="headerlink" href="#equation-132ff395-c0d2-46b4-9d06-de32a9becdab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Es importante relacionar las puertas universales con <b>puertas nativas</b> (las que de verdad se implementan y se usan para construir las demás). Por ejemplo, en ordenadores de iones atrapados hay las siguientes puertas nativas <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id15" title="IONQ. Getting started with native gates, https://ionq.com/docs/getting-started-with-native-gates. 6 de abril de 2023. URL: https://ionq.com/docs/getting-started-with-native-gates.">63</a>]</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-948a1669-b2d2-4993-b8d6-407d7fa3d9f4">
+<span class="eqno">(527)<a class="headerlink" href="#equation-948a1669-b2d2-4993-b8d6-407d7fa3d9f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \{ \hbox{GPi},\hbox{Virtual}Z, \hbox{MS}\}
 \end{equation}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45631bb2-eed9-4895-accd-0f9c913452e0">
-<span class="eqno">(534)<a class="headerlink" href="#equation-45631bb2-eed9-4895-accd-0f9c913452e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0205729-5b0b-4a20-86dd-3b20ba3d0baf">
+<span class="eqno">(528)<a class="headerlink" href="#equation-a0205729-5b0b-4a20-86dd-3b20ba3d0baf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hbox{GPi} = \begin{bmatrix} 0 &amp; e^{-i\phi} \\e^{i\phi} &amp; 0 \end{bmatrix}~~~,~~~
 \hbox{Virtual}Z = \begin{bmatrix} e^{-i\phi} &amp; 0 \\ 0 &amp; e^{i\phi} \end{bmatrix} ~~,~~~~
 \end{equation}\]</div>
 <p>y la puerta de Mølmer-Sørensen</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cc85781-ad2d-4398-bbc5-3a56dfea0ba3">
-<span class="eqno">(535)<a class="headerlink" href="#equation-8cc85781-ad2d-4398-bbc5-3a56dfea0ba3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cdd9bd81-e87c-44d1-95df-20ff61dba6c5">
+<span class="eqno">(529)<a class="headerlink" href="#equation-cdd9bd81-e87c-44d1-95df-20ff61dba6c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 MS(\phi_1,\phi_2) = \frac{1}{\sqrt{2}}
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 &amp; e^{-i(\phi_1+\phi_2)} \\ 0 &amp; 1 &amp;-i e^{-i(\phi_1-\phi_2)} &amp; 0 \\ 0 &amp; -i e^{i(\phi_1-\phi_2)} &amp; 1 &amp; 0  \\

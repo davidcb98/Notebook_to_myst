@@ -647,7 +647,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 9 min read</p>
+<div><p>Jul 04, 2024 | 9 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi22.png"><img alt="../../../_images/Fig_logo_UMA_scbi22.png" src="../../../_images/Fig_logo_UMA_scbi22.png" style="width: 2000px;" /></a>
@@ -691,11 +691,11 @@ mensajes se pueden compartir por un <b>canal inseguro</b>.</p>
 <p>Esto que parece tan lejano, en realidad muy común a día de hoy para nosotros con las telecomunicaciones: en Internet es imposible enviar un mensaje sin que este sea susceptible de ser interceptado por una tercera persona. Además, estos mensajes pueden contener información muy sensible, como por ejemplo las claves de acceso a la aplicación del banco. Es decir, con la aparición de Internet, la criptografía se convirtió en pan de cada día.</p>
 <p>Cuando hablamos de <b>Quantum Key Distribution (QKD)</b> hablamos del hecho de usar la física cuántica para enviar las claves criptográficas entre los dos participantes de la conversación. La gracia aquí está en que las leyes de la física cuántica nos ayudan ha saber cuando la clave ha sido interceptada, pudiendo así abortar el protocolo y e probar otra vez a enviar las claves. Una vez que los dos participantes tiene las claves, ya pueden empezar a comunicarse por un canal inseguro.</p>
 <p>Cuando hablamos de criptografía, siempre se suelen usar tres personajes ficticios: Alice, Bob y Eve. Alice quiere enviarle un mensaje a Bob, mientras que Eve intenta leer el mensaje.</p>
-<p>Este capitulo se basa en gran medida en el artículo recopilatorio <span class="xref myst">[39]</span> de 2009, así como en la sección 12.6.3 del Nielsen-Chuang <span class="xref myst">[8]</span>.</p>
+<p>Este capitulo se basa en gran medida en el artículo recopilatorio <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id40" title="Valerio Scarani, Helle Bechmann-Pasquinucci, Nicolas J. Cerf, Miloslav Du\ifmmode  \check s\else  š\fi ek, Norbert Lütkenhaus, and Momtchil Peev. The security of practical quantum key distribution. Rev. Mod. Phys., 81:1301–1350, Sep 2009. URL: https://link.aps.org/doi/10.1103/RevModPhys.81.1301, doi:10.1103/RevModPhys.81.1301.">49</a>]</span> de 2009, así como en la sección 12.6.3 del Nielsen-Chuang <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id9" title="Michael A. Nielsen and Isaac L. Chuang. Quantum Computation and Quantum Information: 10th Anniversary Edition. Cambridge University Press, 2010. doi:10.1017/CBO9780511976667.">44</a>]</span>.</p>
 <section id="criptografia">
 <h2>Criptografía<a class="headerlink" href="#criptografia" title="Permalink to this heading">#</a></h2>
 <p>La <b>criptografía</b> es un campo de aplicaciones que proporciona privacidad, autenticación y confidencialidad a los usuarios. Un subcampo importante es el de la <b>comunicación segura</b>, cuyo objetivo es permitir la comunicación confidencial entre distintas partes de forma que ninguna parte no autorizada tenga acceso al contenido de los mensajes. Este campo tiene una larga historia de éxitos y fracasos, ya que a lo largo de los siglos surgieron muchos métodos para codificar mensajes, y los códigos siempre se rompían tiempo después.</p>
-<p>Sin embargo, la historia no tiene por qué repetirse eternamente. En 1917, Vernam inventó el llamado cifrado <i>one time pad</i>, que utiliza una clave secreta simétrica y aleatoria compartida entre emisor y receptor <span class="xref myst">[40]</span>. En principio, este esquema no puede romperse, siempre que las partes no reutilicen su clave. Tres décadas más tarde, Shannon demostró que el esquema Vernam es óptimo: no existe ningún método de cifrado que requiera menos clave <span class="xref myst">[41]</span>. Esto significa que la clave se agota en el proceso. Para emplear este esquema, por tanto, las partes comunicantes deben disponer de un método seguro para compartir una clave que sea tan larga como el texto que se desea cifrar. Debido a esta limitación, que se agrava cuando hay que transmitir grandes cantidades de información de forma segura, la mayoría de las aplicaciones criptográficas actuales se basan en otros esquemas, cuya seguridad no puede demostrarse en principio, sino que se basa más bien en nuestra experiencia de que algunos problemas son difíciles de resolver. En otras palabras, estos esquemas pueden romperse, pero con una cantidad sustancial de potencia de cálculo.</p>
+<p>Sin embargo, la historia no tiene por qué repetirse eternamente. En 1917, Vernam inventó el llamado cifrado <i>one time pad</i>, que utiliza una clave secreta simétrica y aleatoria compartida entre emisor y receptor <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id41" title="G. S. Vernam. Cipher printing telegraph systems: for secret wire and radio telegraphic communications. Journal of the A.I.E.E., 45(2):109-115, 1926. doi:10.1109/JAIEE.1926.6534724.">59</a>]</span>. En principio, este esquema no puede romperse, siempre que las partes no reutilicen su clave. Tres décadas más tarde, Shannon demostró que el esquema Vernam es óptimo: no existe ningún método de cifrado que requiera menos clave <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id42" title="C. E. Shannon. Communication theory of secrecy systems. The Bell System Technical Journal, 28(4):656-715, 1949. doi:10.1002/j.1538-7305.1949.tb00928.x.">50</a>]</span>. Esto significa que la clave se agota en el proceso. Para emplear este esquema, por tanto, las partes comunicantes deben disponer de un método seguro para compartir una clave que sea tan larga como el texto que se desea cifrar. Debido a esta limitación, que se agrava cuando hay que transmitir grandes cantidades de información de forma segura, la mayoría de las aplicaciones criptográficas actuales se basan en otros esquemas, cuya seguridad no puede demostrarse en principio, sino que se basa más bien en nuestra experiencia de que algunos problemas son difíciles de resolver. En otras palabras, estos esquemas pueden romperse, pero con una cantidad sustancial de potencia de cálculo.</p>
 </section>
 <section id="criptografia-de-clave-privada">
 <h2>Criptografía de clave privada<a class="headerlink" href="#criptografia-de-clave-privada" title="Permalink to this heading">#</a></h2>
@@ -715,8 +715,8 @@ mensajes se pueden compartir por un <b>canal inseguro</b>.</p>
 </section>
 <section id="distribucion-secreta-de-claves">
 <h3>Distribución secreta de claves<a class="headerlink" href="#distribucion-secreta-de-claves" title="Permalink to this heading">#</a></h3>
-<p>El (cifrado de Vernam) fue inventado por el matemático Gilbert Vernam en 1917 <span class="xref myst">[40]</span>, y es el primer ejemplo
-de código irrompible. La prueba de su inviolabilidad se debe a Claude Shannon treinta años más tarde <span class="xref myst">[41]</span>,
+<p>El (cifrado de Vernam) fue inventado por el matemático Gilbert Vernam en 1917 <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id41" title="G. S. Vernam. Cipher printing telegraph systems: for secret wire and radio telegraphic communications. Journal of the A.I.E.E., 45(2):109-115, 1926. doi:10.1109/JAIEE.1926.6534724.">59</a>]</span>, y es el primer ejemplo
+de código irrompible. La prueba de su inviolabilidad se debe a Claude Shannon treinta años más tarde <span id="id6">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id42" title="C. E. Shannon. Communication theory of secrecy systems. The Bell System Technical Journal, 28(4):656-715, 1949. doi:10.1002/j.1538-7305.1949.tb00928.x.">50</a>]</span>,
 y depende crucialmente de tres detalles: 1) que la clave sea aleatoria, 2) que la clave sea secreta (sólo
 conocida por Bob y Alice), y 3) que la clave sólo se utilice una vez (one-time pad).</p>
 <p>Sólo cuando exista la seguridad absoluta de que la clave no ha sido interceptada por un tercer agente
@@ -735,17 +735,16 @@ Una vez recibido, Bob usa la clave de desencriptar para averiguar el contenido. 
 <section id="el-protocolo-rsa">
 <h3>El protocolo RSA<a class="headerlink" href="#el-protocolo-rsa" title="Permalink to this heading">#</a></h3>
 <p>El protocolo RSA es el criptosistema más utilizado en transacciones comerciales, o para la verificación de identidad. Inventado en 1977 por Rivest, Shamir y Adleman. Funciona con el siguiente conjunto de pasos</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Bob escoge dos numeros primos <span class="math notranslate nohighlight">\(p\)</span> y <span class="math notranslate nohighlight">\(q\)</span> y calcula <span class="math notranslate nohighlight">\(N = pq\)</span> y <span class="math notranslate nohighlight">\(L = (p - 1)(q - 1)\)</span>.</p></li>
 <li><p>Escoge <span class="math notranslate nohighlight">\(e\)</span> (de encriptación), un número impar pequeño, coprimo con <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
-<li><p>Calcula <span class="math notranslate nohighlight">\(d\)</span> (de desencriptación), el inverso módulo <span class="math notranslate nohighlight">\(L\)</span> de <span class="math notranslate nohighlight">\(e\)</span>. Es decir</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-549987fa-7692-4104-a993-32bf1131c501">
-<span class="eqno">(730)<a class="headerlink" href="#equation-549987fa-7692-4104-a993-32bf1131c501" title="Permalink to this equation">#</a></span>\[\begin{equation}
-e \cdot d \text{mod }L = 1
-\end{equation}\]</div>
+<li><p>Calcula <span class="math notranslate nohighlight">\(d\)</span> (de desencriptación), el inverso módulo <span class="math notranslate nohighlight">\(L\)</span> de <span class="math notranslate nohighlight">\(e\)</span>. Es decir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6dbd576d-745b-424f-ba49-5e4e56916e86">
+<span class="eqno">(716)<a class="headerlink" href="#equation-6dbd576d-745b-424f-ba49-5e4e56916e86" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    e \cdot d \text{mod }L = 1
+    \end{equation}\]</div>
 <p>Esta tarea es fácil, conociendo <span class="math notranslate nohighlight">\(e\)</span> y <span class="math notranslate nohighlight">\(L\)</span>.</p>
-<ol class="arabic simple" start="4">
+</li>
 <li></li>
 </ol>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- La clave pública es ($e$, $N$) y cualquiera puede usarla para mandar mensajes a Bob.
@@ -753,21 +752,21 @@ e \cdot d \text{mod }L = 1
 - La clave privada es ($d$, $N$) y, a priori, sólo es conocida por Bob.
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Para encriptar, Alice divide su mensaje en bloques, <span class="math notranslate nohighlight">\(i = 1, 2, \dots,\)</span> de manera que cada bloque pueda ser identificado por un número <span class="math notranslate nohighlight">\(m_i &lt; N\)</span>. La clave permite una <i>regla de sustitución</i></p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-36d5d40e-1aa6-4c6b-9059-0f61afa15184">
-<span class="eqno">(731)<a class="headerlink" href="#equation-36d5d40e-1aa6-4c6b-9059-0f61afa15184" title="Permalink to this equation">#</a></span>\[\begin{equation}
-m_i \rightarrow \tilde{m}_i = (m_i)^e \text{mod } N
-\end{equation}\]</div>
+<ol class="arabic" start="5">
+<li><p>Para encriptar, Alice divide su mensaje en bloques, <span class="math notranslate nohighlight">\(i = 1, 2, \dots,\)</span> de manera que cada bloque pueda ser identificado por un número <span class="math notranslate nohighlight">\(m_i &lt; N\)</span>. La clave permite una <i>regla de sustitución</i></p>
+<div class="amsmath math notranslate nohighlight" id="equation-cd1d2636-8eed-4570-a1e2-0de0b0bff8b9">
+<span class="eqno">(717)<a class="headerlink" href="#equation-cd1d2636-8eed-4570-a1e2-0de0b0bff8b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    m_i \rightarrow \tilde{m}_i = (m_i)^e \text{mod } N
+    \end{equation}\]</div>
 <p>es decir el resto mod<span class="math notranslate nohighlight">\((N)\)</span> de exponenciar <span class="math notranslate nohighlight">\(m_i\)</span> a las potencia <span class="math notranslate nohighlight">\(e\)</span>.</p>
-<ol class="arabic simple" start="6">
-<li><p>Para desencriptar, Bob realiza la operación inversa sobre <span class="math notranslate nohighlight">\(\tilde{m}_i\)</span>. Se puede probar que <span class="math notranslate nohighlight">\((m_i)^{ed}|_{\text{mod }N} = m_i\)</span>. Por tanto la operación que realiza Bob es simplemente</p></li>
+</li>
+<li><p>Para desencriptar, Bob realiza la operación inversa sobre <span class="math notranslate nohighlight">\(\tilde{m}_i\)</span>. Se puede probar que <span class="math notranslate nohighlight">\((m_i)^{ed}|_{\text{mod }N} = m_i\)</span>. Por tanto la operación que realiza Bob es simplemente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-32fc68f1-9f1b-468d-ac0a-d732eb1b9e9e">
+<span class="eqno">(718)<a class="headerlink" href="#equation-32fc68f1-9f1b-468d-ac0a-d732eb1b9e9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \tilde{m}_i = (\tilde{m}_i)^d (\text{mod }N)
+    \end{equation}\]</div>
+</li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-efa9fbe3-59bf-43b6-8a79-d4ac1a8eea65">
-<span class="eqno">(732)<a class="headerlink" href="#equation-efa9fbe3-59bf-43b6-8a79-d4ac1a8eea65" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\tilde{m}_i = (\tilde{m}_i)^d (\text{mod }N)
-\end{equation}\]</div>
 <p>Las dos ventajas principales del sistema criptográfico público son</p>
 <ul class="simple">
 <li><p>No necesitan de una distribución secreta de clave.</p></li>

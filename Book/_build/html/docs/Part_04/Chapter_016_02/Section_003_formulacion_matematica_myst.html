@@ -628,7 +628,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi18.png"><img alt="../../../_images/Fig_logo_UMA_scbi18.png" src="../../../_images/Fig_logo_UMA_scbi18.png" style="width: 2000px;" /></a>
@@ -659,119 +659,117 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="formulacion-matematica">
 <h1>Formulación matemática<a class="headerlink" href="#formulacion-matematica" title="Permalink to this heading">#</a></h1>
 <p>Veamos paso a paso que hace el circuito anterior para estimar la fase <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<ol class="arabic simple">
-<li><p><b>Inicialización</b>: Por un lado tenemos un registro de qúbits que forman un autoestado <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del operador <span class="math notranslate nohighlight">\(U\)</span>. Por otro lado tenemos un conjunto de <span class="math notranslate nohighlight">\(\bm t\)</span> <b>qúbits</b> que forman un <b>registro de conteo</b> donde al final del circuito tendremos almacenado el valor <span class="math notranslate nohighlight">\(2^t \theta\)</span>:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-d12c5065-c381-42a1-b3bc-022662abab60">
-<span class="eqno">(585)<a class="headerlink" href="#equation-d12c5065-c381-42a1-b3bc-022662abab60" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\left| \Psi_0 \right\rangle = \left| 0 \right\rangle^{\otimes t} \left| \psi \right\rangle
-\end{equation}\]</div>
-<ol class="arabic simple" start="2">
-<li><p><b>Superposición</b>: Aplicamos una operación de puerta de Hadamard t-bit al registro de conteo:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-fad35983-86ef-4c2e-aff5-2a892bbbbee5">
-<span class="eqno">(586)<a class="headerlink" href="#equation-fad35983-86ef-4c2e-aff5-2a892bbbbee5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\left| \Psi_1 \right\rangle = \frac{1}{2^{t/2}}  \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right)^{\otimes t} \left| \psi \right\rangle
-\end{equation}\]</div>
-<ol class="arabic simple" start="3">
+<ol class="arabic">
+<li><p><b>Inicialización</b>: Por un lado tenemos un registro de qúbits que forman un autoestado <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del operador <span class="math notranslate nohighlight">\(U\)</span>. Por otro lado tenemos un conjunto de <span class="math notranslate nohighlight">\(\bm t\)</span> <b>qúbits</b> que forman un <b>registro de conteo</b> donde al final del circuito tendremos almacenado el valor <span class="math notranslate nohighlight">\(2^t \theta\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b7791ad5-c6a7-4346-b270-ca8afb498658">
+<span class="eqno">(574)<a class="headerlink" href="#equation-b7791ad5-c6a7-4346-b270-ca8afb498658" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \left| \Psi_0 \right\rangle = \left| 0 \right\rangle^{\otimes t} \left| \psi \right\rangle
+    \end{equation}\]</div>
+</li>
+<li><p><b>Superposición</b>: Aplicamos una operación de puerta de Hadamard t-bit al registro de conteo:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4f0ab664-34bf-48d0-8bee-42139c804e8a">
+<span class="eqno">(575)<a class="headerlink" href="#equation-4f0ab664-34bf-48d0-8bee-42139c804e8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \left| \Psi_1 \right\rangle = \frac{1}{2^{t/2}}  \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right)^{\otimes t} \left| \psi \right\rangle
+    \end{equation}\]</div>
+</li>
 <li><p><b>Operaciones unitarias controladas</b>: Aplicamos sucesivas veces el operador controlado <span class="math notranslate nohighlight">\(CU\)</span>, es decir, aplicar <span class="math notranslate nohighlight">\(U\)</span> en el registro objetivo solo si el qúbit controlador está en el estado <span class="math notranslate nohighlight">\(\left| 1 \right\rangle\)</span>. En concreto, aplicamos <span class="math notranslate nohighlight">\(2^{j}\)</span> veces <span class="math notranslate nohighlight">\(U\)</span> en el registro <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> controlado por un qúbits del registro de conteo. El número de veces <span class="math notranslate nohighlight">\(2^{j}\)</span> que aplicamos <span class="math notranslate nohighlight">\(U\)</span> depende de que qúbit es el controlador (si es el bit más significativo tenemos <span class="math notranslate nohighlight">\(j = t-1\)</span>, para el siguiente <span class="math notranslate nohighlight">\(j = t-2\)</span>, …, hasta llegar al bit menos significativo en el cual <span class="math notranslate nohighlight">\(j=0\)</span>).
 En la notación del convenio estandar, el qúbit más significativo es el primero. En Qiskit es al revés.
-Como <span class="math notranslate nohighlight">\(U\)</span> es unitaria y <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> es autovector de <span class="math notranslate nohighlight">\(U\)</span>, aplicar <span class="math notranslate nohighlight">\(2^{j}\)</span> veces <span class="math notranslate nohighlight">\(U\)</span> se traduce en:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-8f51fcbd-b292-48e1-8f0d-151ff263fcd9">
-<span class="eqno">(587)<a class="headerlink" href="#equation-8f51fcbd-b292-48e1-8f0d-151ff263fcd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
-U^{2^{j}} \left| \psi \right\rangle = U^{2^{j}-1} U \left| \psi \right\rangle = U^{2^{j}-1} e^{2 \pi i \theta} \left| \psi \right\rangle = \dots = e^{2 \pi i 2^j \theta} \left| \psi \right\rangle
-\end{equation}\]</div>
+Como <span class="math notranslate nohighlight">\(U\)</span> es unitaria y <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> es autovector de <span class="math notranslate nohighlight">\(U\)</span>, aplicar <span class="math notranslate nohighlight">\(2^{j}\)</span> veces <span class="math notranslate nohighlight">\(U\)</span> se traduce en:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7cdf3f0e-f20f-4ee3-bd6b-1fe3ef836c80">
+<span class="eqno">(576)<a class="headerlink" href="#equation-7cdf3f0e-f20f-4ee3-bd6b-1fe3ef836c80" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    U^{2^{j}} \left| \psi \right\rangle = U^{2^{j}-1} U \left| \psi \right\rangle = U^{2^{j}-1} e^{2 \pi i \theta} \left| \psi \right\rangle = \dots = e^{2 \pi i 2^j \theta} \left| \psi \right\rangle
+    \end{equation}\]</div>
 <p>Usando la relación</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-CU \Lc \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right) \otimes \left| \psi \right\rangle \Rc &amp; =
-CU \Lc \ket{0} \otimes \ket{\psi} + \ket{1} \otimes \ket{\psi} \Rc \\
-&amp; = \left| 0 \right\rangle \otimes \left | \psi \right\rangle + \left| 1 \right\rangle \otimes e^{2 \pi i \theta} \left | \psi \right\rangle  \\
-&amp; = \left( \left| 0 \right\rangle + e^{2 \pi i \theta} \left| 1 \right\rangle \right) \otimes \left| \psi \right\rangle \,  ,
-\end{align*}\]</div>
+    CU \Lc \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right) \otimes \left| \psi \right\rangle \Rc &amp; =
+    CU \Lc \ket{0} \otimes \ket{\psi} + \ket{1} \otimes \ket{\psi} \Rc \\
+    &amp; = \left| 0 \right\rangle \otimes \left | \psi \right\rangle + \left| 1 \right\rangle \otimes e^{2 \pi i \theta} \left | \psi \right\rangle  \\
+    &amp; = \left( \left| 0 \right\rangle + e^{2 \pi i \theta} \left| 1 \right\rangle \right) \otimes \left| \psi \right\rangle \,  ,
+    \end{align*}\]</div>
 <p>llegamos a</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-|\Psi_{2}\rangle &amp; =\frac {1}{2^{t/2}} \left(|0\rangle+{e^{{2\pi i} \theta 2^{t-1}}}|1\rangle \right) \otimes \cdots \otimes \left(|0\rangle+{e^{{2\pi i} \theta 2^{1}}}\vert1\rangle \right) \otimes \left(|0\rangle+{e^{2\pi i \theta 2^{0}}}\vert1\rangle \right) \otimes |\psi\rangle \\
-&amp; = \frac{1}{2^{n/2}}\sum_{y=0}^{2^{t}-1}e^{2\pi i \theta y}|y\rangle \otimes \vert\psi\rangle
-\end{align*}\]</div>
+    |\Psi_{2}\rangle &amp; =\frac {1}{2^{t/2}} \left(|0\rangle+{e^{{2\pi i} \theta 2^{t-1}}}|1\rangle \right) \otimes \cdots \otimes \left(|0\rangle+{e^{{2\pi i} \theta 2^{1}}}\vert1\rangle \right) \otimes \left(|0\rangle+{e^{2\pi i \theta 2^{0}}}\vert1\rangle \right) \otimes |\psi\rangle \\
+    &amp; = \frac{1}{2^{n/2}}\sum_{y=0}^{2^{t}-1}e^{2\pi i \theta y}|y\rangle \otimes \vert\psi\rangle
+    \end{align*}\]</div>
+</li>
+</ol>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Podemos ver que si por el registro de conteo entra un estado <span class="math notranslate nohighlight">\(|z \rangle = | z_{n-1}, z_{n-2}, \dots, z_0 \rangle\)</span>, la salida antes de aplicar la QFT<span class="math notranslate nohighlight">\(^{-1}\)</span> es de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3653f880-93fb-4770-b757-1f28161df82c">
-<span class="eqno">(588)<a class="headerlink" href="#equation-3653f880-93fb-4770-b757-1f28161df82c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Podemos ver que si por el registro de conteo entra un estado $|z \rangle = | z_{n-1}, z_{n-2}, \dots, z_0 \rangle$, la salida antes de aplicar la QFT$^{-1}$ es de la forma
+\begin{equation}
 |z \rangle |\psi \rangle \rightarrow |z \rangle U^{z_{t-1} 2^{t-1}} U^{z_{t-2}2^{t-2}} \dots U^{z_0 2^0} |\psi \rangle = | z \rangle U^{z}  |\psi \rangle
-\end{equation}\]</div>
-<p>Es decir, lo que se hace es aplicar <span class="math notranslate nohighlight">\(z\)</span> veces el operador <span class="math notranslate nohighlight">\(U\)</span> sobre el estado <span class="math notranslate nohighlight">\(|\psi \rangle\)</span>.</p>
+\end{equation}
+Es decir, lo que se hace es aplicar $z$ veces el operador $U$ sobre el estado $|\psi \rangle$.
+</pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p><b>Transformada de Fourier inversa</b>: Si nos fijamos en detalle vemos que la expresión anterior es igual al resultado de aplicar la QFT un estado de <span class="math notranslate nohighlight">\(t\)</span> qúbits <span class="math notranslate nohighlight">\(\ket{x}\)</span> (ver Ec. (\ref{ec_QFT_ecuacion_desarrollada}))</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-8fe7d9ac-4d2a-45ae-942c-dbaf8ab723c3">
-<span class="eqno">(589)<a class="headerlink" href="#equation-8fe7d9ac-4d2a-45ae-942c-dbaf8ab723c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\left( U_{QFT} \left| x \right\rangle \right) \otimes \left| \psi \right\rangle = \frac{1}{2^{t/2}} \sum_{y=0}^{2^t-1} e^{2 \pi i xy /2^t} \left| y \right\rangle \otimes \left| \psi \right\rangle
-\end{equation}\]</div>
+</div>
+<ol class="arabic" start="4">
+<li><p><b>Transformada de Fourier inversa</b>: Si nos fijamos en detalle vemos que la expresión anterior es igual al resultado de aplicar la QFT un estado de <span class="math notranslate nohighlight">\(t\)</span> qúbits <span class="math notranslate nohighlight">\(\ket{x}\)</span> (ver Ec. (\ref{ec_QFT_ecuacion_desarrollada}))</p>
+<div class="amsmath math notranslate nohighlight" id="equation-61410892-ad09-4511-b48b-3c8939a6be96">
+<span class="eqno">(577)<a class="headerlink" href="#equation-61410892-ad09-4511-b48b-3c8939a6be96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \left( U_{QFT} \left| x \right\rangle \right) \otimes \left| \psi \right\rangle = \frac{1}{2^{t/2}} \sum_{y=0}^{2^t-1} e^{2 \pi i xy /2^t} \left| y \right\rangle \otimes \left| \psi \right\rangle
+    \end{equation}\]</div>
 <p>si tomamos <span class="math notranslate nohighlight">\(x = 2^t \theta\)</span>.
 Lo que podemos hacer es aplicar la transformada de Fourier inversa en el registro de conteo para obtener el valor <span class="math notranslate nohighlight">\(2^t \theta\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\ket{\Psi_3} = \lc U_{QFT}^\dagger \lp \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y}|y\rangle \rp \rc \otimes \vert\psi\rangle &amp; =  \lc \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y} \left( U^\dagger_{QFT}|y\rangle \right) \rc \otimes \vert\psi\rangle \\ \rule{0mm}{10mm}
-&amp; = \lc \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y} \left( \sum^{2^t-1}_{x=0} e^{-2 \pi i y x /2^t} \ket{x} \right) \rc \otimes \vert\psi\rangle \\ \rule{0mm}{10mm}
-&amp; = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{-\frac{2 \pi i y}{2^t} (x-2^t \theta)} |x\rangle \rc \otimes \vert\psi\rangle
-\end{align*}\]</div>
+    \ket{\Psi_3} = \lc U_{QFT}^\dagger \lp \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y}|y\rangle \rp \rc \otimes \vert\psi\rangle &amp; =  \lc \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y} \left( U^\dagger_{QFT}|y\rangle \right) \rc \otimes \vert\psi\rangle \\ \rule{0mm}{10mm}
+    &amp; = \lc \frac{1}{2^{t/2}}\sum_{y=0}^{2^{t}-1}e^{{2\pi i} \theta y} \left( \sum^{2^t-1}_{x=0} e^{-2 \pi i y x /2^t} \ket{x} \right) \rc \otimes \vert\psi\rangle \\ \rule{0mm}{10mm}
+    &amp; = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{-\frac{2 \pi i y}{2^t} (x-2^t \theta)} |x\rangle \rc \otimes \vert\psi\rangle
+    \end{align*}\]</div>
 <p>En general, <span class="math notranslate nohighlight">\(2^t \theta\)</span> no será un número entero, así que, en general <span class="math notranslate nohighlight">\((x-2^t \theta) \neq  0\)</span> <span class="math notranslate nohighlight">\(\forall x \in \mathbb{Z}\)</span>.</p>
-<ol class="arabic simple" start="5">
-<li><p><b>Medida</b>. Aunque no parezca obvio, la expresión anterior está picada entorno a <span class="math notranslate nohighlight">\(x = 2^t \theta\)</span> incluso para el caso en el que <span class="math notranslate nohighlight">\(2^t \theta\)</span> no sea un número entero. Para verlo, primero separemos el número <span class="math notranslate nohighlight">\(2^t \theta\)</span> en su parte entera y decimal de la siguiente forma</p></li>
-</ol>
+</li>
+<li><p><b>Medida</b>. Aunque no parezca obvio, la expresión anterior está picada entorno a <span class="math notranslate nohighlight">\(x = 2^t \theta\)</span> incluso para el caso en el que <span class="math notranslate nohighlight">\(2^t \theta\)</span> no sea un número entero. Para verlo, primero separemos el número <span class="math notranslate nohighlight">\(2^t \theta\)</span> en su parte entera y decimal de la siguiente forma</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-2^t \theta = a + \delta
-\end{equation*}\]</div>
+    2^t \theta = a + \delta
+    \end{equation*}\]</div>
 <p>con <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span> y <span class="math notranslate nohighlight">\(\delta \in [0,1)\)</span>. Con esta separación, el resultado del apartado anterior nos queda</p>
+</li>
+</ol>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-psi3-2">
-<span class="eqno">(590)<a class="headerlink" href="#equation-ec-qpe-psi3-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
-\ket{\Psi_3} = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{\frac{2 \pi i y}{2^t} (a+\delta -x )} |x\rangle \rc \otimes \vert\psi\rangle
-\end{equation} \]</div>
+<span class="eqno">(578)<a class="headerlink" href="#equation-ec-qpe-psi3-2" title="Permalink to this equation">#</a></span>\[    \begin{equation} 
+    \ket{\Psi_3} = \lc \frac{1}{2^{t}} \sum_{x=0}^{2^t-1} \sum_{y=0}^{2^{t}-1}e^{\frac{2 \pi i y}{2^t} (a+\delta -x )} |x\rangle \rc \otimes \vert\psi\rangle
+    \end{equation} \]</div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Si $\delta = 0$, es decir, si $2^t \theta$ fuese un entero $a \in S_t = \{ 0, \dots, 2^t-1 \}$, entonces el resultado sería &lt;b&gt;exactamente&lt;/b&gt; $\ket{\Psi_4} = \ket{a} = \ket{2^t \theta}$
+    \begin{align*}
+    \ket{\Psi_4} &amp; = \lc \sum_{x=0}^{2^t-1} \frac{1}{2^t} \lp \sum^{2^t-1}_{y = 0} e^{\frac{2 \pi i}{2^t} y (a-x)} \rp \ket{x} \rc \otimes \ket{\psi} \\
+    &amp; = \lc \sum_{x=0}^{2^t-1} \frac{1}{2^t} \lp 2^t \delta_{x,a} \rp \ket{x} \rc \otimes \ket{\psi} \\
+    &amp; = \ket{a}
+    \end{align*}
+    En este caso, midiendo el primer registro obtendríamos un registro binario del número $a\in[0, 2^t-1]$. Con $a$ recuperaríamos la fase buscada &lt;i&gt;de forma exacta&lt;/i&gt;:
+    \begin{equation}
+    \varphi = \frac{a}{2^t}  \in [0,1)
+    \end{equation}
+
+- Si $\delta \neq 0$ (si $2^t \theta$ no es entero), el estado en el primer registro  $\ket{\Phi} = \sum_{x=0}^{2^t-1} f(x) \ket{x}$ será una superposición.
+    \begin{equation}
+    \ket{\Psi_4} = \lc \sum_{x=0}^{2^t-1} \left( \frac{1}{2^{t}}\sum_{y=0}^{2^t-1}  e^{2\pi i (a + \delta  -x) y/2^t} \right) \ket{x} \rc \otimes \ket{\psi} = \lc \sum_{x=0}^{2^t-1} f(x) \ket{x} \rc \otimes \ket{\psi}
+    \end{equation}
+    Una medida del primer registro dará el registro binario de &lt;i&gt;un número entero&lt;/i&gt; $x \to m \in [0,2^t-1)$ con distribución de probabilidad
 </pre></div>
 </div>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\ket{\Psi_4} &amp; = \lc \sum_{x=0}^{2^t-1} \frac{1}{2^t} \lp \sum^{2^t-1}_{y = 0} e^{\frac{2 \pi i}{2^t} y (a-x)} \rp \ket{x} \rc \otimes \ket{\psi} \\
-&amp; = \lc \sum_{x=0}^{2^t-1} \frac{1}{2^t} \lp 2^t \delta_{x,a} \rp \ket{x} \rc \otimes \ket{\psi} \\
-&amp; = \ket{a}
-\end{align*}\]</div>
-<p>En este caso, midiendo el primer registro obtendríamos un registro binario del número <span class="math notranslate nohighlight">\(a\in[0, 2^t-1]\)</span>. Con <span class="math notranslate nohighlight">\(a\)</span> recuperaríamos la fase buscada <i>de forma exacta</i>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6ff9e4e-d971-4406-b3ba-beacbba64213">
-<span class="eqno">(591)<a class="headerlink" href="#equation-a6ff9e4e-d971-4406-b3ba-beacbba64213" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\varphi = \frac{a}{2^t}  \in [0,1)
-\end{equation}\]</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Si $\delta \neq 0$ (si $2^t \theta$ no es entero), el estado en el primer registro  $\ket{\Phi} = \sum_{x=0}^{2^t-1} f(x) \ket{x}$ será una superposición.
-</pre></div>
-</div>
-<div class="amsmath math notranslate nohighlight" id="equation-bae9ae1c-e27f-4920-9112-e2c8c91857e8">
-<span class="eqno">(592)<a class="headerlink" href="#equation-bae9ae1c-e27f-4920-9112-e2c8c91857e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\Psi_4} = \lc \sum_{x=0}^{2^t-1} \left( \frac{1}{2^{t}}\sum_{y=0}^{2^t-1}  e^{2\pi i (a + \delta  -x) y/2^t} \right) \ket{x} \rc \otimes \ket{\psi} = \lc \sum_{x=0}^{2^t-1} f(x) \ket{x} \rc \otimes \ket{\psi}
-\end{equation}\]</div>
-<p>Una medida del primer registro dará el registro binario de <i>un número entero</i> <span class="math notranslate nohighlight">\(x \to m \in [0,2^t-1)\)</span> con distribución de probabilidad</p>
 <div class="math notranslate nohighlight" id="equation-ec-qpe-p-m">
-<span class="eqno">(593)<a class="headerlink" href="#equation-ec-qpe-p-m" title="Permalink to this equation">#</a></span>\[\begin{equation} 
-p(m) = |f(m)|^2
-\end{equation} \]</div>
-<p>picada en <span class="math notranslate nohighlight">\(m=a=[2^t\varphi]\)</span>.</p>
+<span class="eqno">(579)<a class="headerlink" href="#equation-ec-qpe-p-m" title="Permalink to this equation">#</a></span>\[        \begin{equation} 
+        p(m) = |f(m)|^2
+        \end{equation} \]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    picada en $m=a=[2^t\varphi]$.
+</pre></div>
+</div>
 <p>\begin{mybox_orange}{Jypyter Notebook: 10-QPE}
 Ver la sección 1.1 del notebook notebook <b>9-QFS</b>.
 \end{mybox_orange}</p>
-<p>La <b>anchura <span class="math notranslate nohighlight">\(t\)</span> del circuito auxiliar</b> determina la anchura de la curva de probabilidad en torno al valor medio, es decir, como de precisa será nuestra estimación de la fase. Es fácil convencerse de que cuanto mayor sea <span class="math notranslate nohighlight">\(t\)</span>, mayor será nuestra precisión. Podemos acotar la aproximación al valor real de la fase buscada según el siguiente teorema  (ver Nielsen <span class="xref myst">[20]</span> p. 224)</p>
+<p>La <b>anchura <span class="math notranslate nohighlight">\(t\)</span> del circuito auxiliar</b> determina la anchura de la curva de probabilidad en torno al valor medio, es decir, como de precisa será nuestra estimación de la fase. Es fácil convencerse de que cuanto mayor sea <span class="math notranslate nohighlight">\(t\)</span>, mayor será nuestra precisión. Podemos acotar la aproximación al valor real de la fase buscada según el siguiente teorema  (ver Nielsen <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id21" title="Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.">43</a>]</span> p. 224)</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
 <p class="sd-card-text"><b>Teorema</b>:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El algoritmo QPE (Quantum Phase Estimation) es capaz de producir una <i>estimación <span class="math notranslate nohighlight">\(m\)</span> de orden <span class="math notranslate nohighlight">\(k\)</span></i>  para la fase <span class="math notranslate nohighlight">\(\varphi\)</span> (en el sentido de que  <span class="math notranslate nohighlight">\(|\varphi- m/2^t |&lt;2^{-k}\)</span>) con una  probabilidad <span class="math notranslate nohighlight">\(1-\epsilon\)</span>,  tomando una dimensión del espacio de representación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7c3514f-9289-4acd-b681-7421acf03d9a">
-<span class="eqno">(594)<a class="headerlink" href="#equation-c7c3514f-9289-4acd-b681-7421acf03d9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ea7b5b4a-8ae8-4b23-bee1-74eca52d0341">
+<span class="eqno">(580)<a class="headerlink" href="#equation-ea7b5b4a-8ae8-4b23-bee1-74eca52d0341" title="Permalink to this equation">#</a></span>\[\begin{equation}
 t \geq k  + \left[ \log\left(1 + \frac{1}{2\epsilon}\right) \right]
 \end{equation}\]</div>
 </div>

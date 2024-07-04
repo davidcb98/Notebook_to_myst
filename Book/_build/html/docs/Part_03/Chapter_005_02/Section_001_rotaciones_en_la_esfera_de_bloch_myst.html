@@ -639,7 +639,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 2 min read</p>
+<div><p>Jul 04, 2024 | 2 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi6.png"><img alt="../../../_images/Fig_logo_UMA_scbi6.png" src="../../../_images/Fig_logo_UMA_scbi6.png" style="width: 2000px;" /></a>
@@ -685,7 +685,7 @@ sumando el 100 %.</p>
 <p class="sd-card-text">El operador que efectúa una <b>rotación de ángulo</b>  <span class="math notranslate nohighlight">\(\alpha\in [0,2\pi)\)</span> en torno al
 <b>eje que marca un vector unitario</b> <span class="math notranslate nohighlight">\(\hat{\bf n}\)</span> es el siguiente</p>
 <div class="math notranslate nohighlight" id="equation-ec-puertas-simples-rn">
-<span class="eqno">(347)<a class="headerlink" href="#equation-ec-puertas-simples-rn" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(341)<a class="headerlink" href="#equation-ec-puertas-simples-rn" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{R_{\hat{\bf n}}(\alpha)~ = ~\exp\left( -i\frac{\alpha}{2} \hat{\bf n}\cdot
 \boldsymbol{\sigma} \right) ~=~ \cos \frac{\alpha}{2} I - i \sin\frac{\alpha}{2}
 \hat{\bf n}\cdot\boldsymbol{\sigma} }
@@ -703,12 +703,12 @@ sumando el 100 %.</p>
 <figure class="align-center" id="fig-puertas-simples-blochsphere-rot-png">
 <a class="reference internal image-reference" href="../../../_images/Fig_puertas_simples_BlochSphere_rot.png"><img alt="../../../_images/Fig_puertas_simples_BlochSphere_rot.png" src="../../../_images/Fig_puertas_simples_BlochSphere_rot.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Una rotación en la esfera de Bloch representada por un eje de rotación y el ángulo que se rota entorno al mismo. Figura tomada de <span class="xref myst">[1]</span></span><a class="headerlink" href="#fig-puertas-simples-blochsphere-rot-png" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Una rotación en la esfera de Bloch representada por un eje de rotación y el ángulo que se rota entorno al mismo. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id2" title="Javier Mas Sole. Curso de formación interna del proyecto de quantumspain. 2022.">64</a>]</span></span><a class="headerlink" href="#fig-puertas-simples-blochsphere-rot-png" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>En la Ec. (\ref{ec_puertas_simples_Rn}) el término <span class="math notranslate nohighlight">\(\hat{\bf n}\cdot \boldsymbol{\sigma}\)</span> se refiere a la multiplicación de un vector por un vector de matrices. Esto es, multiplicar cada matriz por un elemento del vector y sumar las 3 matrices resultantes. Es decir, en la Ec. (\ref{ec_puertas_simples_Rn}) tenemos la suma de 4 matrices 2x2. La matriz resultante es</p>
 <div class="math notranslate nohighlight" id="equation-ec-puertas-simples-rn-matrix">
-<span class="eqno">(348)<a class="headerlink" href="#equation-ec-puertas-simples-rn-matrix" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(342)<a class="headerlink" href="#equation-ec-puertas-simples-rn-matrix" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 R_{\hat{\bf n}}(\alpha)~  ~=~ \large{\lp \begin{matrix}
 \cos \frac{\alpha}{2} - i n_z\sin\frac{\alpha}{2}
 &amp; (-in_x- n_y)\sin\frac{\alpha}{2} \\
@@ -723,8 +723,8 @@ R_{\hat{\bf n}}(\alpha)~  ~=~ \large{\lp \begin{matrix}
 <section id="rotaciones-en-x-y-z">
 <h2>Rotaciones en X, Y, Z<a class="headerlink" href="#rotaciones-en-x-y-z" title="Permalink to this heading">#</a></h2>
 <p>Veamos los casos particulares de las rotaciones entorno a los ejes <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(z\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bb3bc5e-4822-4af1-913e-aee5b06d8903">
-<span class="eqno">(349)<a class="headerlink" href="#equation-2bb3bc5e-4822-4af1-913e-aee5b06d8903" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6f15c3ca-d583-471c-b46f-9f16c83ee4af">
+<span class="eqno">(343)<a class="headerlink" href="#equation-6f15c3ca-d583-471c-b46f-9f16c83ee4af" title="Permalink to this equation">#</a></span>\[\begin{align}
 \bm \hat{n} = (0,0,1) \rqa R_z(\alpha) &amp; =
 \lp \begin{matrix}
 e^{-i \alpha/2} &amp; 0                       \\
@@ -744,30 +744,34 @@ e^{-i \alpha/2} &amp; 0                       \\
 </section>
 <section id="parametrizacion-de-euler">
 <span id="sec-subsub-puertas-euler"></span><h2>Parametrización de Euler<a class="headerlink" href="#parametrizacion-de-euler" title="Permalink to this heading">#</a></h2>
-<p>Hay otra parametrización para las rotaciones mucho más común en física y es la <b>parametrización de Euler</b>. A diferencia de la anterior, esta no necesita definir ningún eje extra usando un vector, sino que simplemente consiste en tres rotaciones, con tres ángulos, entorno a dos ejes coordenados: primero entorno al eje <span class="math notranslate nohighlight">\(z\)</span>, después en torno al eje <span class="math notranslate nohighlight">\(y\)</span> y finalmente entorno al eje <span class="math notranslate nohighlight">\(z\)</span> otra vez\footnote{Podría usarse otro orden de ejes, como por ejemplo <span class="math notranslate nohighlight">\(xyx\)</span> o <span class="math notranslate nohighlight">\(yzy\)</span>.}. Es decir</p>
+<p>Hay otra parametrización para las rotaciones mucho más común en física y es la <b>parametrización de Euler</b>. A diferencia de la anterior, esta no necesita definir ningún eje extra usando un vector, sino que simplemente consiste en tres rotaciones, con tres ángulos, entorno a dos ejes coordenados: primero entorno al eje <span class="math notranslate nohighlight">\(z\)</span>, después en torno al eje <span class="math notranslate nohighlight">\(y\)</span> y finalmente entorno al eje <span class="math notranslate nohighlight">\(z\)</span> otra vez. Es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-puertas-simples-rotacion-1">
-<span class="eqno">(350)<a class="headerlink" href="#equation-ec-puertas-simples-rotacion-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(344)<a class="headerlink" href="#equation-ec-puertas-simples-rotacion-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 R_z(\phi) R_y (\theta) R_z(\varphi) = e^{- \frac{i}{2} (\phi + \varphi)} U (\theta, \phi, \varphi),
 \end{equation} \]</div>
 <p>donde</p>
 <div class="math notranslate nohighlight" id="equation-ec-puertas-simples-rotacion-u">
-<span class="eqno">(351)<a class="headerlink" href="#equation-ec-puertas-simples-rotacion-u" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(345)<a class="headerlink" href="#equation-ec-puertas-simples-rotacion-u" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{U (\theta, \phi, \varphi) = \large{ \lp \begin{matrix}
 \cos \frac{\theta}{2}                &amp;  - e^{i\varphi} \sin \frac{\theta}{2} \\
 e^{i \phi} \sin \frac{\theta}{2}     &amp;  e^{i (\varphi + \phi)} \cos \frac{\theta}{2}
 \end{matrix} \rp}}
 \end{equation} \end{split}\]</div>
 <p>y donde <span class="math notranslate nohighlight">\(\theta\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> y <span class="math notranslate nohighlight">\(\varphi\)</span> se denominan <b>ángulos de Euler</b>. Véase que nuevamente podemos ignorar la fase global que nos sale en la Ec. (\ref{ec_puertas_simples_rotacion_1}) y quedarnos solo con la matriz <span class="math notranslate nohighlight">\(U (\theta, \phi, \varphi)\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Podría usarse otro orden de ejes, como por ejemplo <span class="math notranslate nohighlight">\(xyx\)</span> o <span class="math notranslate nohighlight">\(yzy\)</span>.</p>
+</div>
 <p>Podemos ver que la acción del operador (\ref{ec_puertas_simples_rotacion_U}) sobre el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> nos da la expresión genérica del estado de un qúbit que vimos en la Ec. (\ref{ec_qubit_caso_general}):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19e00f25-2b20-4cc7-b2e2-d40d83e4c321">
-<span class="eqno">(352)<a class="headerlink" href="#equation-19e00f25-2b20-4cc7-b2e2-d40d83e4c321" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc9fd77d-8d06-4814-a7da-e05ea7298d27">
+<span class="eqno">(346)<a class="headerlink" href="#equation-dc9fd77d-8d06-4814-a7da-e05ea7298d27" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U (\theta, \phi, \varphi) \ket{0} =
 U (\theta, \phi, \varphi) \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
 \cos{\frac{\theta}{2}}\, |0\rangle + e^{i\varphi}\sin{\frac{\theta}{2}}\,|1\rangle
 \end{equation}\]</div>
 <p>También podemos ver que la acción del operador de este operador sobre la base computacional <span class="math notranslate nohighlight">\(\lch \ket{0}, \ket{1} \rch\)</span> nos la una base alineada con el eje <span class="math notranslate nohighlight">\((\theta, \phi)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb59ad31-ffdc-42bb-aa1c-47fc0a12c7b4">
-<span class="eqno">(353)<a class="headerlink" href="#equation-eb59ad31-ffdc-42bb-aa1c-47fc0a12c7b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-998615f7-f68b-496e-be38-28b166426b97">
+<span class="eqno">(347)<a class="headerlink" href="#equation-998615f7-f68b-496e-be38-28b166426b97" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U(\theta,\phi,\varphi) \ket{0} =
 \large{\begin{bmatrix} \cos \frac{\theta}{2}  \\ e^{i\phi} \sin \frac{\theta}{2} \end{bmatrix} }
 ~~~~~~,~~~~~~~

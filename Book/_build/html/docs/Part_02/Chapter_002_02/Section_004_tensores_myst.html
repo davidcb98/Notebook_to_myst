@@ -663,7 +663,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 02, 2024 | 8 min read</p>
+<div><p>Jul 04, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
@@ -706,8 +706,8 @@ document.write(`
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Dados dos vectores <span class="math notranslate nohighlight">\(\ket{u}_1\in \mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\ket{v}_2\in \mathcal{H}_2\)</span>, denominamos <b>producto tensorial</b> al <b>par ordenado</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-98950c66-2ce4-4375-8cc5-5cb46aa66bb3">
-<span class="eqno">(194)<a class="headerlink" href="#equation-98950c66-2ce4-4375-8cc5-5cb46aa66bb3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e43b638-d8dc-4095-9d62-9fbb3db99fb6">
+<span class="eqno">(188)<a class="headerlink" href="#equation-9e43b638-d8dc-4095-9d62-9fbb3db99fb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{uv} ~\equiv \ket{u}_1\otimes \ket{v}_2
 \end{equation}\]</div>
 </div>
@@ -727,8 +727,8 @@ document.write(`
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El <b>espacio producto tensorial</b>  <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2\)</span> está formado por  <b>todas</b> las combinaciones lineales posibles de  productos tensoriales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8379ab25-6a38-478b-a12d-702bd2d1f03f">
-<span class="eqno">(195)<a class="headerlink" href="#equation-8379ab25-6a38-478b-a12d-702bd2d1f03f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af01b074-2b06-4d72-8986-bed7b3edf5e8">
+<span class="eqno">(189)<a class="headerlink" href="#equation-af01b074-2b06-4d72-8986-bed7b3edf5e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{s}= a\ket{u}_1\otimes\ket{u}_2 ~+~ b \ket{v}_1\otimes\ket{v}_2 ~+ ~...
 \end{equation}\]</div>
 <p class="sd-card-text">donde  <span class="math notranslate nohighlight">\(\ket{u}_1,\ket{v}_1,...\in \mathcal{H}_1\, ~\)</span> y <span class="math notranslate nohighlight">\(~\, \ket{u}_2,\ket{v}_2,...\in \mathcal{H}~\)</span>,
@@ -750,29 +750,30 @@ y <span class="math notranslate nohighlight">\(~a,b,... \in {\mathbb C}\)</span>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> una base de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Entonces, una base de <span class="math notranslate nohighlight">\(\mathcal{H}\otimes \mathcal{H}=\mathcal{H}^{\otimes 2}\)</span> se obtiene
 a partir de <i>todos</i> los emparejamientos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be89080d-da54-416d-9b9c-c61c08e5b4d6">
-<span class="eqno">(196)<a class="headerlink" href="#equation-be89080d-da54-416d-9b9c-c61c08e5b4d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f55f3426-0eab-4603-bcea-452e270b973f">
+<span class="eqno">(190)<a class="headerlink" href="#equation-f55f3426-0eab-4603-bcea-452e270b973f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{ij}} = \ket{e_i}\otimes \ket{e_j}~~~~~~~~~~~~~~~~~~ i,j=1....d
 \end{equation}\]</div>
 </div>
 </div>
-<ul class="simple">
+<ul>
 <li><p>El número de parejas posibles es <span class="math notranslate nohighlight">\(d^2\)</span>, que coincide con la <b>dimensión</b> de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes 2}\)</span>.</p></li>
 <li><p>Vemos que las etiquetas de los vectores de la base forman un <i>bi-índice</i> <span class="math notranslate nohighlight">\(ij=11,12,21,22,...\)</span>.</p></li>
-<li><p>Un vector general se escribirá igualmente usando un bi-índice en lugar de un índice</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-1bff7b44-5407-4541-9f21-b6df3057b8d5">
-<span class="eqno">(197)<a class="headerlink" href="#equation-1bff7b44-5407-4541-9f21-b6df3057b8d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{\omega} = \sum_{i,j=1}^{d} w_{ij} \ket{e_{ij}} ~=~
-w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
-\end{equation}\]</div>
+<li><p>Un vector general se escribirá igualmente usando un bi-índice en lugar de un índice</p>
+<div class="amsmath math notranslate nohighlight" id="equation-80139d3e-a74c-4275-9342-c5b8fbb6ad84">
+<span class="eqno">(191)<a class="headerlink" href="#equation-80139d3e-a74c-4275-9342-c5b8fbb6ad84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{\omega} = \sum_{i,j=1}^{d} w_{ij} \ket{e_{ij}} ~=~
+    w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
+    \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(w_{ij}\)</span> son <span class="math notranslate nohighlight">\(d^2\)</span> componentes complejas.</p>
+</li>
+</ul>
 </section>
 <section id="producto-de-kronecker">
 <h3>Producto de Kronecker<a class="headerlink" href="#producto-de-kronecker" title="Permalink to this heading">#</a></h3>
 <p>Como sabemos, cualquier vector admite, en una base, una representación como un vector columna con sus coeficientes como entradas. La matriz columna asociada <span class="math notranslate nohighlight">\(\ket{uv}= \ket{u}\otimes \ket{v}\)</span> se forma a partir de las matrices columna de <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> mediante el denominado <b>producto de Kronecker</b> o, también <i>producto tensorial</i></p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ab45557-8f17-4de9-b4d5-7ed8bc3c076c">
-<span class="eqno">(198)<a class="headerlink" href="#equation-6ab45557-8f17-4de9-b4d5-7ed8bc3c076c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2ab6867-c306-4d78-93e0-67fd0f5bf5b7">
+<span class="eqno">(192)<a class="headerlink" href="#equation-a2ab6867-c306-4d78-93e0-67fd0f5bf5b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{uv} = \ket{u}\otimes \ket{v} ~\sim~
 \begin{bmatrix}u_1\\ u_2 \end{bmatrix}\otimes \begin{bmatrix}v_1\\ v_2 \end{bmatrix} ~\equiv ~
 \begin{bmatrix}u_1 \begin{bmatrix}v_1\\ v_2 \end{bmatrix} \\ u_2 \begin{bmatrix}v_1\\ v_2 \end{bmatrix}  \end{bmatrix}
@@ -781,16 +782,16 @@ w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
 <p>Con <span class="math notranslate nohighlight">\(d=2\)</span> tendríamos <span class="math notranslate nohighlight">\(d^2 = 4\)</span> elementos de la base de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes 2}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-70b20e04-a1f4-4994-8625-e805b12ef488">
-<span class="eqno">(199)<a class="headerlink" href="#equation-70b20e04-a1f4-4994-8625-e805b12ef488" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0fd6d1ab-b3cd-4e9b-b89e-3f11340093e5">
+<span class="eqno">(193)<a class="headerlink" href="#equation-0fd6d1ab-b3cd-4e9b-b89e-3f11340093e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{11}}~=~ \ket{e_{1}}\otimes \ket{e_{1}}~ \sim~
 \begin{bmatrix}1\\ 0\end{bmatrix}\begin{bmatrix}1\\ 0\end{bmatrix} = \begin{bmatrix}1\\0\\0 \\ 0\end{bmatrix}
 ~~~~~~,~~~~~
 \ket{e_{12}}~=~ \ket{e_{1}}\otimes \ket{e_{2}}~\sim~
 \begin{bmatrix}1\\ 0\end{bmatrix}\begin{bmatrix}0\\ 1\end{bmatrix} = \begin{bmatrix}0\\1\\0 \\ 0\end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-3440bceb-64a0-4795-b91f-36feb8ef5f47">
-<span class="eqno">(200)<a class="headerlink" href="#equation-3440bceb-64a0-4795-b91f-36feb8ef5f47" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-569ff2aa-c56f-4360-8377-c59558cbddcf">
+<span class="eqno">(194)<a class="headerlink" href="#equation-569ff2aa-c56f-4360-8377-c59558cbddcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{21}}~=~ \ket{e_{2}}\otimes \ket{e_{1}}~\sim~
 \begin{bmatrix}0\\ 1\end{bmatrix}\begin{bmatrix}1\\ 0\end{bmatrix} = \begin{bmatrix}0\\0\\1 \\ 0\end{bmatrix}
 ~~~~~,~~~~
@@ -798,8 +799,8 @@ w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
 \begin{bmatrix}0\\ 1\end{bmatrix}\begin{bmatrix}0\\ 1\end{bmatrix} = \begin{bmatrix}0\\0\\0 \\ 1\end{bmatrix}
 \end{equation}\]</div>
 <p>El <i>vector más general</i>  <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}\otimes\mathcal{H}\)</span> admitirá una representación de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2b16d51-3c7e-4c5e-bfc4-3be1f44f03f0">
-<span class="eqno">(201)<a class="headerlink" href="#equation-a2b16d51-3c7e-4c5e-bfc4-3be1f44f03f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09773096-d33b-44c6-9fd2-d518c86a4292">
+<span class="eqno">(195)<a class="headerlink" href="#equation-09773096-d33b-44c6-9fd2-d518c86a4292" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} ~= ~ \sum_{i,j=1}^2 w_{ij} \ket{e_{ij}}=~ \begin{bmatrix}w_{11}\\ w_{12}\\ w_{21} \\ w_{22}  \end{bmatrix}  ~
 \end{equation}\]</div>
 </div>
@@ -807,19 +808,19 @@ w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
 <section id="indexacion-equivalente">
 <h3>Indexación equivalente<a class="headerlink" href="#indexacion-equivalente" title="Permalink to this heading">#</a></h3>
 <p>Podemos etiquetar las componentes (o los elementos de la base) con índices. Para ello debemos definir un mapa  entre bi-índices <span class="math notranslate nohighlight">\(i,j=1,2~\)</span> e índices <span class="math notranslate nohighlight">\(a=1,...,4\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b4dd8742-2896-4dde-92c3-b2f7475fb29e">
-<span class="eqno">(202)<a class="headerlink" href="#equation-b4dd8742-2896-4dde-92c3-b2f7475fb29e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d783e5a9-94ee-4f8d-b04f-467320ec76dc">
+<span class="eqno">(196)<a class="headerlink" href="#equation-d783e5a9-94ee-4f8d-b04f-467320ec76dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 w_{ij} =\begin{bmatrix} w_{11} \\ w_{12} \\ w_{21} \\ w_{22} \end{bmatrix} ~~~\longleftrightarrow ~~~
 w_a  = \begin{bmatrix} w_1 \\ w_2 \\ w_3 \\ w_4 \end{bmatrix} \, ,
 \end{equation}\]</div>
 <p>donde hemos querido resaltar que los vectores son los mismos, etiquetados de forma diferente. Haciendo lo mismo con los elementos de la base tenemmos que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c88124c8-52da-446b-b248-668aa8a11201">
-<span class="eqno">(203)<a class="headerlink" href="#equation-c88124c8-52da-446b-b248-668aa8a11201" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a60ec4f-2b00-45d1-b3c1-0b9366150e83">
+<span class="eqno">(197)<a class="headerlink" href="#equation-6a60ec4f-2b00-45d1-b3c1-0b9366150e83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} ~= ~ \sum_{i,j=1}^2 w_{ij} \ket{e_{ij}} ~=~ \sum_{a=1}^{4} w_{a} \ket{e_{a}}
 \end{equation}\]</div>
 <p>En el caso general, <span class="math notranslate nohighlight">\(i,j=1,...,d\)</span> el mapa es <span class="math notranslate nohighlight">\(w_{ij}  \to  w_a\)</span> con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-085426d1-e5c6-4511-a80b-88a98be8d1a6">
-<span class="eqno">(204)<a class="headerlink" href="#equation-085426d1-e5c6-4511-a80b-88a98be8d1a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f058b80c-15b3-4c48-bdaa-14111e2f7197">
+<span class="eqno">(198)<a class="headerlink" href="#equation-f058b80c-15b3-4c48-bdaa-14111e2f7197" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a = d \cdot (i-1) + j
 \end{equation}\]</div>
 </section>
@@ -839,8 +840,8 @@ a = d \cdot (i-1) + j
 </div>
 </div>
 <p>Ya hemos visto que, dada una base <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, el vector más general que pertenece al espacio producto admite una descomposición</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04c3ab81-f223-4bca-80f5-8c1f18af16fa">
-<span class="eqno">(205)<a class="headerlink" href="#equation-04c3ab81-f223-4bca-80f5-8c1f18af16fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-95343616-a851-444a-9d2b-7692e69e5f4a">
+<span class="eqno">(199)<a class="headerlink" href="#equation-95343616-a851-444a-9d2b-7692e69e5f4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i,j=1}^d w_{ij}\ket{e_{i}}\otimes \ket{e_j} = w_{11}\ket{e_1}\otimes\ket{e_1} + w_{12}\ket{e_1}\otimes\ket{e_2} + ...\, .
 \end{equation}\]</div>
 <p>Podría ocurrir que en otra base <span class="math notranslate nohighlight">\(\ket{w} = \tilde w_{11} \ket{f_1}\otimes\ket{f_1}\)</span> sólo tuviese un término y fuese factorizable. Discernir si un vector es factorizable o entrelazado no es algo que se pueda hacer a primera vista.</p>
@@ -859,8 +860,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-4d1b5983-d709-4115-82cf-829cab49898e">
-<span class="eqno">(206)<a class="headerlink" href="#equation-4d1b5983-d709-4115-82cf-829cab49898e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3baf872f-5709-400b-9f43-9538545711df">
+<span class="eqno">(200)<a class="headerlink" href="#equation-3baf872f-5709-400b-9f43-9538545711df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w}= \sum_{i,j=1}^d w_{ij} \ket{e_{ij}}  = \sum_{i,j} u_{i}v_j \ket{e_i}\otimes \ket{e_j}= \sum_{i,j} u_{i} \ket{e_i}\otimes v_j\ket{e_j}  ~ =~ \sum_i u_i\ket{e_i} \otimes \sum_j v_j\ket{e_j} ~=~   \ket{u}\otimes \ket{v}
 \end{equation}\]</div>
 <p class="sd-card-text">identidad que se puede leer en ambos sentidos</p>
@@ -871,8 +872,8 @@ como función de <span class="math notranslate nohighlight">\(d\)</span>,  <span
 <p class="admonition-title">Nota (caso con <span class="math notranslate nohighlight">\({d=2}\)</span>)</p>
 <p>En el caso  <span class="math notranslate nohighlight">\(d=2\)</span>  la condición <span class="math notranslate nohighlight">\(w_{ij} = u_i v_j\)</span> es <i>equivalente</i> a verificar
 la anulación del  determinante de la matriz <span class="math notranslate nohighlight">\(2\times 2\)</span> formada por las componentes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d00341df-29ce-44e0-9985-f2f4c9a1585f">
-<span class="eqno">(207)<a class="headerlink" href="#equation-d00341df-29ce-44e0-9985-f2f4c9a1585f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2aca2461-a2d0-4b41-8b67-01755d964061">
+<span class="eqno">(201)<a class="headerlink" href="#equation-2aca2461-a2d0-4b41-8b67-01755d964061" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \det w_{ij} =  w_{11}w_{22}- w_{12}w_{21} = u_1v_1u_2v_2-u_1v_2u_2v_1=0
 \end{equation}\]</div>
 </div>
@@ -880,14 +881,14 @@ la anulación del  determinante de la matriz <span class="math notranslate nohig
 <section id="descomposicion-de-schmidt">
 <h3>Descomposición de Schmidt<a class="headerlink" href="#descomposicion-de-schmidt" title="Permalink to this heading">#</a></h3>
 <p>Vamos a estudiar el caso general en el que los <i>espacios factor</i> no son iguales <span class="math notranslate nohighlight">\(\ket{w} \in \mathcal{H} \otimes \mathcal{H}_2\)</span>. Supongamos que, en sendas bases arbitrarias <span class="math notranslate nohighlight">\(\{\ket{e_{1,i}}, i=1,...,d_1\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{e_{2,a}},a=1,...,d_2\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span> nuestro vector se escribe</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58f12f1a-86b3-41f7-b729-c998731e60b8">
-<span class="eqno">(208)<a class="headerlink" href="#equation-58f12f1a-86b3-41f7-b729-c998731e60b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-760e179c-81e8-4d21-8d08-75f788053714">
+<span class="eqno">(202)<a class="headerlink" href="#equation-760e179c-81e8-4d21-8d08-75f788053714" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i=1}^{d_1}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
 \end{equation}\]</div>
 <p>Los valores de las <i>componentes</i> <span class="math notranslate nohighlight">\(w_{ia}\)</span> <b>dependen de las bases escogida</b>. En <i>otras</i> base <span class="math notranslate nohighlight">\(\ket{\tilde e_{1,i}}\otimes\ket{\tilde e_{2,a}}\)</span> encontraremos <i>otras</i> componentes <span class="math notranslate nohighlight">\(\tilde w_{ia}\)</span> para el <i>mismo</i> vector.</p>
 <p>Si existe una base en la que <span class="math notranslate nohighlight">\(\tilde w_{ia}=0\)</span> para todos los <span class="math notranslate nohighlight">\(i,a\)</span> menos para uno (por ejemplo <span class="math notranslate nohighlight">\(\tilde w_{11}\neq 0\)</span>), entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0108490-d304-41d1-90d4-79f0d7100ac1">
-<span class="eqno">(209)<a class="headerlink" href="#equation-c0108490-d304-41d1-90d4-79f0d7100ac1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98f9da43-8826-44a6-85f8-dc9433b98370">
+<span class="eqno">(203)<a class="headerlink" href="#equation-98f9da43-8826-44a6-85f8-dc9433b98370" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w}= \tilde w_{11}\ket{\tilde e_{1,1}}\otimes \ket{e_{2,1}}
 \end{equation}\]</div>
 <p>y, secretamente, el vector <span class="math notranslate nohighlight">\(\ket{w}\)</span> sería factorizable.</p>
@@ -899,7 +900,7 @@ la anulación del  determinante de la matriz <span class="math notranslate nohig
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Para cada vector <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}_1\otimes \mathcal{H}_2\)</span>, <b>existen  bases </b> <span class="math notranslate nohighlight">\(\{\ket{f_{1,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{f_{2,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span>, tales que, podemos expresar</p>
 <div class="math notranslate nohighlight" id="equation-ec-formalismo-teorema-schmidt">
-<span class="eqno">(210)<a class="headerlink" href="#equation-ec-formalismo-teorema-schmidt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(204)<a class="headerlink" href="#equation-ec-formalismo-teorema-schmidt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{w} = \sum_{i=1}^r s_i \ket{f_{1,i}}\otimes\ket{f_{2,i}} \, ,
 \end{equation} \]</div>
 <p class="sd-card-text">con <span class="math notranslate nohighlight">\(s_i&gt;0\)</span>, que   involucra el <b>mínimo número</b>, <span class="math notranslate nohighlight">\(r\)</span>, de términos.</p>
@@ -920,18 +921,18 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Supongamos que nuestro vector se escribe</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f77d45a-ced6-4a09-abfc-52a9ff1ecdba">
-<span class="eqno">(211)<a class="headerlink" href="#equation-3f77d45a-ced6-4a09-abfc-52a9ff1ecdba" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0af00cf-59b9-4dcf-85b6-e21e1fe71f9e">
+<span class="eqno">(205)<a class="headerlink" href="#equation-f0af00cf-59b9-4dcf-85b6-e21e1fe71f9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i=1}^{d_2}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
 \end{equation}\]</div>
 <p class="sd-card-text">La matriz de coeficientes <span class="math notranslate nohighlight">\(w_{ia}\)</span> tiene  dimension <span class="math notranslate nohighlight">\(d_1\times d_2\)</span>. El <b>teorema de descomposición en valores singulares</b> nos garantiza que podemos expresar dicha matriz en la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6552717a-a4df-4108-9c31-9545bee6d8ce">
-<span class="eqno">(212)<a class="headerlink" href="#equation-6552717a-a4df-4108-9c31-9545bee6d8ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a011ed25-e415-466f-b35d-b4991f6061bd">
+<span class="eqno">(206)<a class="headerlink" href="#equation-a011ed25-e415-466f-b35d-b4991f6061bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 w = U\Sigma V^\dagger ~~~\Rightarrow ~~~~w_{ia} = \sum_{j=1}^{d_1}\sum_{b=1}^{d_2} U_{ij}\Sigma_{jb}V_{ab}^*
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son unitarias <span class="math notranslate nohighlight">\((d_1\times d_1)\)</span> y <span class="math notranslate nohighlight">\((d_2\times d_2)\)</span> respectivamente, mientras que <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6207399-6806-4541-8dcd-8ca157ba35e8">
-<span class="eqno">(213)<a class="headerlink" href="#equation-b6207399-6806-4541-8dcd-8ca157ba35e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77464a62-156d-40e5-91d2-ed312bf1d9d4">
+<span class="eqno">(207)<a class="headerlink" href="#equation-77464a62-156d-40e5-91d2-ed312bf1d9d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Sigma =
 \overbrace{\left.
 \begin{bmatrix}
@@ -959,8 +960,8 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El espacio <span class="math notranslate nohighlight">\(\mathcal{H}_1\otimes \mathcal{H}_2 ... \otimes \mathcal{H}_n\)</span> formado por <b>todas</b> las <b>n-tuplas</b> ordenadas de vectores</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87d1f69e-c731-4f97-b075-93ca44e08086">
-<span class="eqno">(214)<a class="headerlink" href="#equation-87d1f69e-c731-4f97-b075-93ca44e08086" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f65a13bd-baf1-4f55-b5b0-0ff7e4d930df">
+<span class="eqno">(208)<a class="headerlink" href="#equation-f65a13bd-baf1-4f55-b5b0-0ff7e4d930df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = \ket{u_1u_2...u_n} \equiv\ket{u_1}\otimes\ket{u_2}\otimes ...\otimes \ket{u_n}
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\ket{u_i}\in \mathcal{H}_i\)</span> y sus combinaciones lineales <span class="math notranslate nohighlight">\(\{ a\ket{u}+ b\ket{v} + ...\}\)</span>.</p>
@@ -972,8 +973,8 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Una base de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> se obtiene a partir de cadenas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87072066-d643-4da5-b814-f1c916ddf6e8">
-<span class="eqno">(215)<a class="headerlink" href="#equation-87072066-d643-4da5-b814-f1c916ddf6e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-23dd99b7-ef66-41e8-b705-10c5abbe096f">
+<span class="eqno">(209)<a class="headerlink" href="#equation-23dd99b7-ef66-41e8-b705-10c5abbe096f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{i_1 i_2.... i_n} =
 \ket{i_1}\ket{i_2}  ... \ket{i_n}
 \end{equation}\]</div>
@@ -984,66 +985,65 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 <p class="admonition-title">Nota (los multi-indices)</p>
 <p>Con la notación <span class="math notranslate nohighlight">\(i_1,..,i_n=0,...,d-1\)</span> queremos decir que <b>cada uno de los índices</b> <span class="math notranslate nohighlight">\(i_1,..,i_n\)</span> toma valores de <span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(d-1\)</span>.</p>
 </div>
-<ul class="simple">
-<li><p>El número de posibles cadenas es <span class="math notranslate nohighlight">\(d\, d\, ... \, d = d^n\)</span> que  es la dimensión de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span>.</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-1e0c9a64-884c-495d-b7b8-dfb76fd0209b">
-<span class="eqno">(216)<a class="headerlink" href="#equation-1e0c9a64-884c-495d-b7b8-dfb76fd0209b" title="Permalink to this equation">#</a></span>\[\begin{equation}
-{\rm dim}_{\mathbb C} \mathcal{H}^{\otimes n} = d^n
-\end{equation}\]</div>
-<ul class="simple">
-<li><p>Podemos cambiar de etiqueta</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-c428c425-f3c2-4ef2-82fe-b9fc23af579e">
-<span class="eqno">(217)<a class="headerlink" href="#equation-c428c425-f3c2-4ef2-82fe-b9fc23af579e" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\ket{i_1...i_n} \to \ket{a}
-\end{equation}\]</div>
+<ul>
+<li><p>El número de posibles cadenas es <span class="math notranslate nohighlight">\(d\, d\, ... \, d = d^n\)</span> que  es la dimensión de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e3bfa8a2-57fc-45c2-80e1-dc508059dfd9">
+<span class="eqno">(210)<a class="headerlink" href="#equation-e3bfa8a2-57fc-45c2-80e1-dc508059dfd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    {\rm dim}_{\mathbb C} \mathcal{H}^{\otimes n} = d^n
+    \end{equation}\]</div>
+</li>
+<li><p>Podemos cambiar de etiqueta</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f0c101fb-6043-4e17-88ef-b701a3834d28">
+<span class="eqno">(211)<a class="headerlink" href="#equation-f0c101fb-6043-4e17-88ef-b701a3834d28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \ket{i_1...i_n} \to \ket{a}
+    \end{equation}\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78f510eb-2726-4fca-b193-73f252fbce14">
-<span class="eqno">(218)<a class="headerlink" href="#equation-78f510eb-2726-4fca-b193-73f252fbce14" title="Permalink to this equation">#</a></span>\[\begin{equation}
-a = i_n + d i_{n-1} + d^2 i_{n-2}+...+d^{n-1} i_1~\in ~(0,d^n-1)
-\end{equation}\]</div>
-<ul class="simple">
-<li><p>Si cada base <span class="math notranslate nohighlight">\(\{\ket{i}\}\)</span> es ortonormal, tendremos que la base producto también lo será</p></li>
+<div class="amsmath math notranslate nohighlight" id="equation-d9a04dab-e10b-475f-b81d-6ed3fb6f4e07">
+<span class="eqno">(212)<a class="headerlink" href="#equation-d9a04dab-e10b-475f-b81d-6ed3fb6f4e07" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    a = i_n + d i_{n-1} + d^2 i_{n-2}+...+d^{n-1} i_1~\in ~(0,d^n-1)
+    \end{equation}\]</div>
+</li>
+<li><p>Si cada base <span class="math notranslate nohighlight">\(\{\ket{i}\}\)</span> es ortonormal, tendremos que la base producto también lo será</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c576afd9-837b-49be-b16d-160b4e7e601d">
+<span class="eqno">(213)<a class="headerlink" href="#equation-c576afd9-837b-49be-b16d-160b4e7e601d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \braket{i_1 i_2... i_n}{j_1j_2...j_n} = \delta_{i_1j_1}\delta_{i_2j_2}...\delta_{i_nj_n} ~~~~\leftrightarrow ~~~~
+    \braket{a}{b} = \delta_{ab}
+    \end{equation}\]</div>
+</li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-849ed1c5-da48-42a7-ae98-cf74bf40a665">
-<span class="eqno">(219)<a class="headerlink" href="#equation-849ed1c5-da48-42a7-ae98-cf74bf40a665" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\braket{i_1 i_2... i_n}{j_1j_2...j_n} = \delta_{i_1j_1}\delta_{i_2j_2}...\delta_{i_nj_n} ~~~~\leftrightarrow ~~~~
-\braket{a}{b} = \delta_{ab}
-\end{equation}\]</div>
 </section>
 <section id="estado-entrelazado">
 <h3>Estado entrelazado<a class="headerlink" href="#estado-entrelazado" title="Permalink to this heading">#</a></h3>
 <p>Un <b>vector general</b> admitirá una expansión en esta base mediante <span class="math notranslate nohighlight">\(d^n\)</span> <b>componentes complejas</b>
 <span class="math notranslate nohighlight">\(u_{i_1 i_2...i_n}\)</span> en la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5927f034-3634-420d-831a-e52cd0e048b3">
-<span class="eqno">(220)<a class="headerlink" href="#equation-5927f034-3634-420d-831a-e52cd0e048b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7aa4bba-d234-4c11-8a88-544e56733488">
+<span class="eqno">(214)<a class="headerlink" href="#equation-d7aa4bba-d234-4c11-8a88-544e56733488" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = \sum_{i_1,...,i_n=0}^{d-1} u_{i_1i_2...i_n} \ket{i_1i_2...i_n} = \sum_{a=0}^{d^n-1} u_a\ket{a}\, .
 \end{equation}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota (notación de multi-indices en el sumatorio)</p>
 <p>Véase que en el sumatorio anterior <b>cada uno de los indice</b> se suma de 0 a <span class="math notranslate nohighlight">\(d-1\)</span>. Es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd25c1fa-45e0-40e2-ab0e-813f9860e27b">
-<span class="eqno">(221)<a class="headerlink" href="#equation-dd25c1fa-45e0-40e2-ab0e-813f9860e27b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e864689b-ce10-48fa-b396-4a0fcece3e61">
+<span class="eqno">(215)<a class="headerlink" href="#equation-e864689b-ce10-48fa-b396-4a0fcece3e61" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{i_1,...,i_n=0}^{d-1} = \sum_{i_1}^{d-1} \sum_{i_2}^{d-1} \cdots \sum_{i_n}^{d-1}
 \end{equation}\]</div>
 </div>
 <p>Podemos obtener cualquier componente compleja proyectando sobre el elemento correspondiente de la base</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e66bedf3-9d47-4de7-8362-8204f040e1e6">
-<span class="eqno">(222)<a class="headerlink" href="#equation-e66bedf3-9d47-4de7-8362-8204f040e1e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b871bcc7-8f0b-4f64-a01c-e1d527a2555a">
+<span class="eqno">(216)<a class="headerlink" href="#equation-b871bcc7-8f0b-4f64-a01c-e1d527a2555a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{i_1i_2...i_n} = \braket{i_1 i_2... i_n}{u}~~~~~~\leftrightarrow~~~~~~~~u_a = \braket{a}{u}
 \end{equation}\]</div>
 </section>
 <section id="estado-factorizable">
 <h3>Estado factorizable<a class="headerlink" href="#estado-factorizable" title="Permalink to this heading">#</a></h3>
 <p>Como ya comentamos, de lo más común es que un vector sea entrelazado. Lo que son casos particulares son los <b>estados factorizables</b>. Un vector de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> se podrá escribir en forma factorizada</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8953c3da-f7a5-4a84-aed9-7d4b08d412e7">
-<span class="eqno">(223)<a class="headerlink" href="#equation-8953c3da-f7a5-4a84-aed9-7d4b08d412e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28175a70-5932-4bad-986a-5f5bf7e292d1">
+<span class="eqno">(217)<a class="headerlink" href="#equation-28175a70-5932-4bad-986a-5f5bf7e292d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \ket{v_1}\ket{v_2}\ldots\ket{v_n} \equiv \ket{v_1 v_2 \ldots v_n}
 \end{equation}\]</div>
 <p>Escribiendo <span class="math notranslate nohighlight">\(\ket{v_k} = \sum_{i_k=1}^d v_{i_k}\ket{i_k}\)</span> vemos que un <i>vector factorizable</i> admite una expansión general en la que los coeficientes son factorizables</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb4c4a9e-4a6a-47ec-b1d7-b33b2030d785">
-<span class="eqno">(224)<a class="headerlink" href="#equation-cb4c4a9e-4a6a-47ec-b1d7-b33b2030d785" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1ea64463-8709-4765-935c-8d10f97c614d">
+<span class="eqno">(218)<a class="headerlink" href="#equation-1ea64463-8709-4765-935c-8d10f97c614d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{i_1i_2...i_n}  = v_{i_1} v_{i_2}.... v_{i_n}
 \end{equation}\]</div>
 <p>están parametrizados por <span class="math notranslate nohighlight">\(nd\)</span> cantidades <span class="math notranslate nohighlight">\(v_{i_k}, \, i_k=1,...,d, \, k=1,...,n\)</span>.</p>
@@ -1062,8 +1062,8 @@ u_{i_1i_2...i_n}  = v_{i_1} v_{i_2}.... v_{i_n}
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El espacio <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> admite, como cualquier espacio vectorial, la acción de <i>operadores lineales</i> <span class="math notranslate nohighlight">\(A: \mathcal{H}^{\otimes n} \to \mathcal{H}^{\otimes n}\)</span> donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93a31c6f-5531-4262-b43f-fb0bb9ee078b">
-<span class="eqno">(225)<a class="headerlink" href="#equation-93a31c6f-5531-4262-b43f-fb0bb9ee078b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a517b483-8816-45d6-823a-61eb90b95ea0">
+<span class="eqno">(219)<a class="headerlink" href="#equation-a517b483-8816-45d6-823a-61eb90b95ea0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A:\ket{u} \to \ket{v} \equiv A\ket{u}
 \end{equation}\]</div>
 <p class="sd-card-text">El conjunto de todos los operadores lineales forman el espacio vectorial <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^{\otimes n})\)</span>.</p>
@@ -1071,26 +1071,24 @@ A:\ket{u} \to \ket{v} \equiv A\ket{u}
 </div>
 <section id="matrices">
 <h3>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
+<ul>
 <li><p>A cada operador, <span class="math notranslate nohighlight">\(A\)</span>, le podemos asociadar una <i>matriz</i>, una vez elijamos nuestra base  <span class="math notranslate nohighlight">\(\{ \ket{i_1 i_2... i_n}\}\)</span> donde, <span class="math notranslate nohighlight">\(i_a = 1,...,d\)</span>.</p></li>
-<li><p>Los <i>elementos de matriz</i> ahora vendrán etiquetados por dos <i>multi-índices</i>.</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-4a849ec3-247d-4a4e-acb4-96d5f5b49fe1">
-<span class="eqno">(226)<a class="headerlink" href="#equation-4a849ec3-247d-4a4e-acb4-96d5f5b49fe1" title="Permalink to this equation">#</a></span>\[\begin{equation}
-A_{i_1...i_n, \, j_1...j_n} = \bra{i_1...i_n}A\ket{j_1...j_n}  ~~~~~\leftrightarrow ~~~~~~ A_{ab}= \bra{a}A\ket{b}
-\end{equation}\]</div>
+<li><p>Los <i>elementos de matriz</i> ahora vendrán etiquetados por dos <i>multi-índices</i>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-54fb584f-a7c2-4bbf-87b0-10329db8e920">
+<span class="eqno">(220)<a class="headerlink" href="#equation-54fb584f-a7c2-4bbf-87b0-10329db8e920" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    A_{i_1...i_n, \, j_1...j_n} = \bra{i_1...i_n}A\ket{j_1...j_n}  ~~~~~\leftrightarrow ~~~~~~ A_{ab}= \bra{a}A\ket{b}
+    \end{equation}\]</div>
 <p>donde hemos re-etiquetado los multi-índices como un solo índice</p>
-<ul class="simple">
-<li><p>Con la matriz, el operador se reconstruye de la forma usual</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-b3edf9fb-7bc5-40ea-b7d8-04dc05ed132a">
-<span class="eqno">(227)<a class="headerlink" href="#equation-b3edf9fb-7bc5-40ea-b7d8-04dc05ed132a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
-A &amp;=&amp;
-\sum_{i_1,...,i_n,\, j_1,...,j_n=0}^{d-1} A_{i_1...i_n, \, j_1...j_n} \ketbra{i_1...i_n}{j_1...j_n}
-~~=~~
-\sum_{a,b=a}^{d^{N}-1} A_{ab} \ketbra{a}{b}
-\end{eqnarray}\]</div>
-<ul class="simple">
+</li>
+<li><p>Con la matriz, el operador se reconstruye de la forma usual</p>
+<div class="amsmath math notranslate nohighlight" id="equation-29adf6eb-2a8e-472c-a327-ab7ae0d9febf">
+<span class="eqno">(221)<a class="headerlink" href="#equation-29adf6eb-2a8e-472c-a327-ab7ae0d9febf" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+    A &amp;=&amp;
+    \sum_{i_1,...,i_n,\, j_1,...,j_n=0}^{d-1} A_{i_1...i_n, \, j_1...j_n} \ketbra{i_1...i_n}{j_1...j_n}
+    ~~=~~
+    \sum_{a,b=a}^{d^{N}-1} A_{ab} \ketbra{a}{b}
+    \end{eqnarray}\]</div>
+</li>
 <li><p>En <span class="math notranslate nohighlight">\(A_{i_1...i_n,\,j_1...j_n} = A_{ab}\)</span> hay <span class="math notranslate nohighlight">\(d^n\times d^n = d^{2n}\)</span> grados de libertad. Esta sería la dimensión del espacio  <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^{\otimes n})\)</span>.</p></li>
 </ul>
 </section>
@@ -1103,65 +1101,64 @@ A &amp;=&amp;
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La acción del producto tensorial de operadores  <span class="math notranslate nohighlight">\(A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span> sobre un vector <span class="math notranslate nohighlight">\(\ket{v} = \ket{v}_1\otimes ...\otimes \ket{v_n}\in \mathcal{H}~\)</span>   viene dada por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa6587b7-700d-4b44-9ff1-fb2bfc288360">
-<span class="eqno">(228)<a class="headerlink" href="#equation-fa6587b7-700d-4b44-9ff1-fb2bfc288360" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f78d2608-0dba-4ca6-92a7-feaaf7e4af5e">
+<span class="eqno">(222)<a class="headerlink" href="#equation-f78d2608-0dba-4ca6-92a7-feaaf7e4af5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A\ket{v} = A^{(1)}\ket{v_1}\otimes ... \otimes A^{(n)} \ket{v_n}\, .
 \end{equation}\]</div>
 <p class="sd-card-text">La acción sobre vectores generales se sigue imponiento linealidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-774f9836-741c-44f6-9e00-216c52e91c27">
-<span class="eqno">(229)<a class="headerlink" href="#equation-774f9836-741c-44f6-9e00-216c52e91c27" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bbb005ab-6df5-4f09-aa4f-7ac9f4aa5f5b">
+<span class="eqno">(223)<a class="headerlink" href="#equation-bbb005ab-6df5-4f09-aa4f-7ac9f4aa5f5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A(\ket{v} + \ket{w}) = A\ket{v} + A\ket{w}\, .
 \end{equation}\]</div>
 </div>
 </div>
 <p>Se sigue automáticamente de la definición que:</p>
-<ul class="simple">
-<li><p>El adjunto de un producto tensorial de operadores es el producto de los adjuntos (no se permuta el orden)</p></li>
+<ul>
+<li><p>El adjunto de un producto tensorial de operadores es el producto de los adjuntos (no se permuta el orden)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-33df8edd-11db-4e36-b07c-cdba4ed43f2e">
+<span class="eqno">(224)<a class="headerlink" href="#equation-33df8edd-11db-4e36-b07c-cdba4ed43f2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    A^\dagger = A^{(1)\dagger} \otimes ... \otimes A^{(n)\dagger}
+    \end{equation}\]</div>
+</li>
+<li><p>El producto tensorial de operadores hermíticos es hermítico</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb15603e-b9a2-479b-84d6-c49705642a44">
+<span class="eqno">(225)<a class="headerlink" href="#equation-eb15603e-b9a2-479b-84d6-c49705642a44" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    A^{(a)\dagger} = A^{(a)} ~~\Longrightarrow A^{\dagger} = A
+    \end{equation}\]</div>
+</li>
+<li><p>El producto tensorial de operadores unitarios, es unitario</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aa2de597-67f3-486b-b639-bb5480528dc3">
+<span class="eqno">(226)<a class="headerlink" href="#equation-aa2de597-67f3-486b-b639-bb5480528dc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    A^{(a)\dagger} = A^{(a)\, -1} \,  ~~\Longrightarrow ~~A^{\dagger} = A^{-1}
+    \end{equation}\]</div>
+</li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-df905375-63a8-4741-a62b-a082b04ad62e">
-<span class="eqno">(230)<a class="headerlink" href="#equation-df905375-63a8-4741-a62b-a082b04ad62e" title="Permalink to this equation">#</a></span>\[\begin{equation}
-A^\dagger = A^{(1)\dagger} \otimes ... \otimes A^{(n)\dagger}
-\end{equation}\]</div>
-<ul class="simple">
-<li><p>El producto tensorial de operadores hermíticos es hermítico</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-c0734369-1440-47b4-a4f5-08e34c833bc5">
-<span class="eqno">(231)<a class="headerlink" href="#equation-c0734369-1440-47b4-a4f5-08e34c833bc5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-A^{(a)\dagger} = A^{(a)} ~~\Longrightarrow A^{\dagger} = A
-\end{equation}\]</div>
-<ul class="simple">
-<li><p>El producto tensorial de operadores unitarios, es unitario</p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-76e7c26c-2d1a-45d0-8783-7adc5fda2b61">
-<span class="eqno">(232)<a class="headerlink" href="#equation-76e7c26c-2d1a-45d0-8783-7adc5fda2b61" title="Permalink to this equation">#</a></span>\[\begin{equation}
-A^{(a)\dagger} = A^{(a)\, -1} \,  ~~\Longrightarrow ~~A^{\dagger} = A^{-1}
-\end{equation}\]</div>
 </section>
 <section id="producto-de-kronecker-de-matrices-operadores-factorizables">
 <h3>Producto de Kronecker de matrices. Operadores factorizables.<a class="headerlink" href="#producto-de-kronecker-de-matrices-operadores-factorizables" title="Permalink to this heading">#</a></h3>
 <p>¿Cómo será la matriz <span class="math notranslate nohighlight">\(A_{i_1...i_n, \, j_1...j_n}\)</span> de un operador factorizable, <span class="math notranslate nohighlight">\( A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span>, en términos de las matrices  <span class="math notranslate nohighlight">\( A^{(a)}_{ij}\)</span> de sus factores? Vamos a tomar  <span class="math notranslate nohighlight">\(n=2\)</span> por simplicidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1204ae9f-8e93-4a9f-8be9-de46974e0347">
-<span class="eqno">(233)<a class="headerlink" href="#equation-1204ae9f-8e93-4a9f-8be9-de46974e0347" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-dce43f7a-6674-4424-98ea-52359edc89ad">
+<span class="eqno">(227)<a class="headerlink" href="#equation-dce43f7a-6674-4424-98ea-52359edc89ad" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 A = A^{(1)}\otimes  A^{(2)} &amp;=&amp;\left( \sum_{i_1i_2}A^{(1)}_{i_1 j_1} \ket{i_1}\bra{j_1}\right)\left( \sum_{i_2j_2}A^{(2)}_{i_2 j_2} \ket{i_2}\bra{j_2}\right)\\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A^{(1)}_{i_1 j_1}A^{(2)}_{i_2 j_2}\ket{i_1 i_2}\bra{j_1j_2} \\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A_{i_1i_2,\, j_1j_2}\ket{i_1 i_2}\bra{j_1j_2}
 \end{eqnarray}\]</div>
 <p>Vemos que la matriz asociada a <span class="math notranslate nohighlight">\(A\)</span> se obtiene  a partir de las matrices de <span class="math notranslate nohighlight">\(A^{(a)}\)</span> mediante el  <i>producto exterior de las matrices</i>, o <b>producto de Kronecker</b>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20da6380-f77d-46e4-aa87-66ad5450958c">
-<span class="eqno">(234)<a class="headerlink" href="#equation-20da6380-f77d-46e4-aa87-66ad5450958c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7861f389-07d0-4f82-9cb4-8795a22b7985">
+<span class="eqno">(228)<a class="headerlink" href="#equation-7861f389-07d0-4f82-9cb4-8795a22b7985" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A_{i_1i_2,\,j_1j_2} = A^{(1)}_{i_1j_1}A^{(2)}_{i_2 j_2}
 \end{equation}\]</div>
 <p>El método para de <b>representar</b> matricialmente el producto de Kronecker de dos matrices <span class="math notranslate nohighlight">\(A\otimes B\)</span> es sencillo. Supongamos que <span class="math notranslate nohighlight">\(d=2\)</span> y tenemos un operador producto <span class="math notranslate nohighlight">\(A\otimes B\)</span>. Entonces su matriz</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0f3bf13-b317-4646-bd2a-a8942b3f7b40">
-<span class="eqno">(235)<a class="headerlink" href="#equation-d0f3bf13-b317-4646-bd2a-a8942b3f7b40" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-630f4d93-5dea-4c5e-ac0e-612f1e57dae3">
+<span class="eqno">(229)<a class="headerlink" href="#equation-630f4d93-5dea-4c5e-ac0e-612f1e57dae3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (A\otimes B)_{ab} = \begin{pmatrix} A_{00}B &amp; A_{01}B \\ A_{10}B &amp; A_{11}B \end{pmatrix} = \begin{pmatrix} A_{00}B_{00} &amp; A_{00}B_{01} &amp; A_{01}B_{00} &amp; A_{01}B_{01} \\
 A_{00}B_{10} &amp; A_{00}B_{11} &amp; A_{01}B_{10} &amp; A_{01}B_{11} \\
 A_{10}B_{00} &amp; A_{10}B_{01} &amp; A_{11}B_{00} &amp; A_{11}B_{01} \\
 A_{10}B_{10} &amp; A_{10}B_{11} &amp; A_{11}B_{10} &amp; A_{11}B_{11} \end{pmatrix}.
 \end{equation}\]</div>
 <p>El producto de Kronecker verifica las siguientes propiedades para dos matrices <span class="math notranslate nohighlight">\(A\)</span>  y <span class="math notranslate nohighlight">\(B\)</span> de dimensiones <span class="math notranslate nohighlight">\(d_A\)</span> y <span class="math notranslate nohighlight">\(d_B\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da6610a1-a8f1-4808-a7cd-36503b2fe14e">
-<span class="eqno">(236)<a class="headerlink" href="#equation-da6610a1-a8f1-4808-a7cd-36503b2fe14e" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9ff8575b-c513-4c96-81a6-fc0fe73e7adb">
+<span class="eqno">(230)<a class="headerlink" href="#equation-9ff8575b-c513-4c96-81a6-fc0fe73e7adb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (A\otimes B)(C\otimes D) &amp;=&amp; (AC)\otimes (BD) \nonumber\\ \rule{0mm}{6mm}
 {\rm tr}(A\otimes B) &amp;=&amp; ({\rm tr} A)({\rm tr} B) \nonumber\\ \rule{0mm}{6mm}
 A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
@@ -1175,8 +1172,8 @@ A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
 <p>Demuestra estos resultados.</p>
 </div>
 <p>La generalización a todo <span class="math notranslate nohighlight">\(n\)</span> es obvia. El producto de Kronecker de <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\( A^{(a)}_{i_aj_a}\)</span> asociadas a operadores <span class="math notranslate nohighlight">\(A^{(a)}\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26b8820e-cba9-4854-9540-c63cae0bc903">
-<span class="eqno">(237)<a class="headerlink" href="#equation-26b8820e-cba9-4854-9540-c63cae0bc903" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b7a356fb-43e4-48e6-b46c-a98d942a1662">
+<span class="eqno">(231)<a class="headerlink" href="#equation-b7a356fb-43e4-48e6-b46c-a98d942a1662" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A_{i_1...i_n,\,j_1...j_n} = A^{(1)}_{i_1j_1}...A^{(n)}_{i_n j_n}
 \end{equation}\]</div>
 <div class="tip admonition">
@@ -1200,8 +1197,8 @@ Por tanto, los <i>operadores factorizables</i> forman un subconjunto muy pequeñ
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Considera la base <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1} \}\)</span> del espacio <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> de dimensión 2. Sea <span class="math notranslate nohighlight">\(A= B + C\)</span> un operador que actúa sobre el producto <span class="math notranslate nohighlight">\(\mathcal{H}\otimes \mathcal{H}\)</span>,  donde <span class="math notranslate nohighlight">\(B\)</span> y <span class="math notranslate nohighlight">\(C\)</span> son operadores factorizables dados por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d3dceac-3b87-41cc-82f5-63e9591e61c3">
-<span class="eqno">(238)<a class="headerlink" href="#equation-5d3dceac-3b87-41cc-82f5-63e9591e61c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2fe697ec-73f9-4eb9-bdfc-189005c21654">
+<span class="eqno">(232)<a class="headerlink" href="#equation-2fe697ec-73f9-4eb9-bdfc-189005c21654" title="Permalink to this equation">#</a></span>\[\begin{equation}
 B = \ketbra{0}{0}\otimes I ~~~, ~~~~
 C = \ketbra{1}{1}\otimes (\ketbra{0}{1} + \ketbra{1}{0})
 \end{equation}\]</div>
