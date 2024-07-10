@@ -4,7 +4,7 @@ import numpy as np
 import re
 
 from finds_and_others import grep_file_index
-from finds_and_others import my_replace
+from finds_and_others import my_replace, find_start_line
 
 
 def number_cells(i_pattern_code_list, i_start_all_cells):
@@ -104,10 +104,13 @@ def build_admonition_box(i, f_data, index_list_list, titles_list_list, Class):
                 my_replace(f_data, i_start_p[j], ''+'\\n",\n')
 
     #### <div class...> o <div class...><p style...>
+
+    num_spaces = find_start_line(f_data, i_start)
+
     if subtitle == None:
-        my_replace(f_data, i_start, '::::::{admonition} '+ title+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
+        my_replace(f_data, i_start, '::::::{admonition} '+ title+'\\n",\n' + '    "' + ' '*num_spaces + ':class: '+Class+'\\n",\n')
     else:
-        my_replace(f_data, i_start, '::::::{admonition} '+ title + ' (' + subtitle + ') '+'\\n",\n' + '    ":class: '+Class+'\\n",\n')
+        my_replace(f_data, i_start, '::::::{admonition} '+ title + ' (' + subtitle + ') '+'\\n",\n' + '    "' + ' '*num_spaces + ':class: '+Class+'\\n",\n')
 
     #print("")
     #for i in range(i_end-i_start+1):
@@ -180,11 +183,13 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
     ##############################
     ######## TITLE and <div class...> o <div class...><p style...>
     
+    num_spaces = find_start_line(f_data, i_start)
+
     if title != "":
         if subtitle == None:
-            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "<b>'+title+'</b>: '+' \\n",\n')
+            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "' + ' '*num_spaces + '<b>'+title+'</b>: '+' \\n",\n')
         else:
-            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
+            my_replace(f_data, i_start, '::::::{card} \\n",\n'+'    "' + ' '*num_spaces + '<b>'+title+'</b>: </i>'+ subtitle + '</i> '+'\\n",\n')
     else:
         my_replace(f_data, i_start, '::::::{card} \\n",\n')
 
@@ -192,6 +197,90 @@ def build_card_box(i, f_data, index_list_list, titles_list_list):
     #for i in range(i_end-i_start+1):
     #    print({f_data[i_start+i]})
     #print("")
+
+
+def build_prf_box(i, f_data, index_list_list, titles_list_list, Class):
+
+    i_start         = index_list_list[0][i]
+    i_end           = index_list_list[1][i]
+    i_start_p       = index_list_list[2][i]
+    i_end_p         = index_list_list[3][i]
+    i_start_details = index_list_list[4][i]
+    i_end_details   = index_list_list[5][i]
+    i_title         = index_list_list[6][i]
+
+    i_label         = i_start - 1
+    find_label      = False
+
+    title_details   = titles_list_list[0][i]
+    title           = titles_list_list[1][i]
+    #title_lowercase = titles_list_list[2][i]
+    subtitle        = titles_list_list[3][i]
+
+    #for i in range(i_end-i_start+1):
+    #    print({f_data[i_start+i]})
+    #print("")
+
+    ############################################################################
+    ###### Empezamos a sustituir por el final
+
+    ### </div>
+    if f_data[i_end + 1] == "   ]\n":
+        my_replace(f_data, i_end, '::::::'+'\\n"\n' )
+    else:
+        my_replace(f_data, i_end, '::::::'+'\\n",\n' )
+
+    ### </p>
+    if len(i_end_p) > 0:
+        for j in range(len(i_end_p)):
+            if i_end > i_end_p[j]:
+                my_replace(f_data, i_end_p[j], ''+'\\n",\n' )
+
+    ### </details>
+    if i_end_details > 0:
+        if i_end > i_end_details:
+            my_replace(f_data, i_end_details, ':::'+'\\n",\n')
+
+    ### <detail>
+    if i_start_details > 0:
+        my_replace(f_data, i_start_details, ':::{dropdown} '+ title_details+'\\n",\n')
+
+    #### TITLE
+    my_replace(f_data, i_title,''+'\\n",\n')
+
+    ### <p style=...>
+    if len(i_start_p) > 0:
+        for j in range(len(i_start_p)):
+            if i_start < i_start_p[j]:
+                my_replace(f_data, i_start_p[j], ''+'\\n",\n')
+
+    #### <div class...> o <div class...><p style...>
+
+    if "<a id=" in f_data[i_label]:
+
+        label = f_data[i_label].split("<a id='")[1].split("'></a>")[0]
+
+        my_replace(f_data, i_label, ''+'\\n",\n')
+        find_label = True
+
+    num_spaces = find_start_line(f_data, i_start)
+
+    if subtitle == None:
+        if find_label == True:
+            my_replace(f_data, i_start, '::::::{prf:'+Class+'} \\n",\n' + '    "' + ' '*num_spaces + ':label: '+ label +'\\n",\n')
+        else:
+            my_replace(f_data, i_start, '::::::{prf:'+Class+'} \\n",\n')
+    else:
+        if find_label == True:
+            my_replace(f_data, i_start, '::::::{prf:'+Class+'} ' + subtitle + ' \\n",\n' + '    "' + ' '*num_spaces + ':label: '+label+'\\n",\n')
+        else:
+            my_replace(f_data, i_start, '::::::{prf:'+Class+'} ' + subtitle + '\\n",\n')
+
+    #print("")
+    #for i in range(i_end-i_start+1):
+    #    print({f_data[i_start+i]})
+    #print("")
+
 
 def build_figure(i, f_data, index_fig_list_list, datos_list_list):
 
@@ -220,9 +309,11 @@ def build_figure(i, f_data, index_fig_list_list, datos_list_list):
     if i_caption != 0 and caption_fig != None:
         my_replace(f_data, i_caption, caption_fig +'\\n",\n')
     
+
+    num_spaces = find_start_line(f_data, i_img)
     my_replace(f_data, i_img, 
                ':width: ' + width_fig + '\\n",\n' + 
-               '    ":align: ' + align_fig + '\\n",\n')
+               '    "' + ' '*num_spaces + ':align: ' + align_fig + '\\n",\n')
         
     if i_label_a != 0 and label_fig != None:
         my_replace(f_data, i_label_a, ':name: ' + label_fig +'\\n",\n')
@@ -293,7 +384,7 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells)
     if pattern_ref == 'bib_' :
         pattern_ref_grep = '#'+pattern_ref
 
-        command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+        command_i_pattern_ref = 'grep -ni "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
         i_pattern_ref_list = grep_file_index(command_i_pattern_ref)
 
         
@@ -311,7 +402,7 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells)
 
     elif pattern_ref == 'sec_':
         pattern_ref_grep = '#'+pattern_ref
-        command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+        command_i_pattern_ref = 'grep -ni "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '
         i_pattern_ref_list = grep_file_index(command_i_pattern_ref)
 
         for i_pattern_ref in i_pattern_ref_list:
@@ -323,14 +414,14 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells)
     elif pattern_ref == 'ec_':
         # Eliminamos las referencias con <a id='ec_... 
         pattern_a_grep = '<a id=\''+pattern_ref
-        command_i_pattern_a = 'grep -n "'+pattern_a_grep+'" '+ file_name + ' |  cut -d":" -f1 '
+        command_i_pattern_a = 'grep -ni "'+pattern_a_grep+'" '+ file_name + ' |  cut -d":" -f1 '
         i_pattern_a_list = grep_file_index(command_i_pattern_a)
         for i_pattern_a in i_pattern_a_list:
             f_data[i_pattern_a] = re.sub(r'<a id=\'ec_[^>]+></a>', '', f_data[i_pattern_a])
 
         # Añadimos las ecuaciones con \begin{...} \label{...} e un bloque ```{math}
         
-        command_i_begin_label = 'grep -n "begin{" ' + file_name + ' | grep "label{" |  cut -d":" -f1 ' 
+        command_i_begin_label = 'grep -n "begin{" ' + file_name + ' | grep "label{" |  cut -d":" -f1 '
         i_begin_label_list = grep_file_index(command_i_begin_label)
 
         for i_begin_label in i_begin_label_list:
@@ -348,8 +439,10 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells)
 
             label = f_data[i_begin_label].split('label{')[1].split('}')[0]
         
-            f_data[i_begin_label] = '    "```{math}\\n",\n' + \
-                                    '    ":label: ' + label +' \\n",\n' + \
+            num_spaces = find_start_line(f_data, i_begin_label)
+
+            f_data[i_begin_label] = '    "' + ' '*num_spaces + '```{math}\\n",\n' + \
+                                    '    "' + ' '*num_spaces + ':label: ' + label +' \\n",\n' + \
                                     f_data[i_begin_label].split('}')[0] + '} \\n",\n'
             
 
@@ -357,7 +450,7 @@ def bluid_references(f_data, pattern_ref, file_name, out_ref, i_start_all_cells)
             end_part_2 = f_data[i_end].split('}')[1]
             
             f_data[i_end] = end + '} \\n",\n' + \
-                            '    "```' + end_part_2
+                            '    "' + ' '*num_spaces + '```' + end_part_2
 
         pattern_ref_grep = '#'+pattern_ref
         command_i_pattern_ref = 'grep -n "'+pattern_ref_grep+'" '+ file_name + ' |  cut -d":" -f1 '

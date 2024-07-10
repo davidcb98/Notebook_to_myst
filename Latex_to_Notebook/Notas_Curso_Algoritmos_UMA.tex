@@ -204,7 +204,7 @@
 
 %Cosas útiles
 
-\def\Nabla{\bm \nabla}
+\def\Nabla{\bm{\nabla}}
 
 \def\rqa{\quad \Rightarrow \quad}
 
@@ -295,7 +295,7 @@
 
 	%\begin{figure}[H]
 	%\centering 
-	%\includegraphics[width=1\linewidth]{Figuras/Fig_ordenador_cuantico.png}
+	%\includegraphics[width=1\linewidth]{Figuras/Fig_ordenador_cuantico.jpg}
 	%\end{figure}
 
 
@@ -340,13 +340,13 @@
 
 En estas notas vamos a ver una introducción a la Computación Cuántica y los algoritmos cuánticos más famosos. En las mismas, se presentará todo lo necesario para entender estos algoritmos suponiendo que el lector no tiene conocimiento alguno sobre Mecánica Cuántica ni Computación Cuántica. 
 
-La parte \ref{part_conceptos_basicos} de estas notas se dedica a introducir los Conceptos Básicos necesarios para entender el resto de las mismas. Esto incluye una introducción al formalismo matemático (capítulo \ref{cap_formalismo}), donde se verán los conceptos matemáticos necesarios para abordar el segundo capítulo de esta parte, una introducción a la Mecánica Cuántica (capitulo \ref{cap_fundamentos}). 
+La parte \ref{part_conceptos_basicos} de estas notas se dedica a introducir los Conceptos Básicos necesarios para entender el resto de las mismas. Esto incluye una introducción al formalismo matemático (capítulo \ref{sec_chapter_formalismo}), donde se verán los conceptos matemáticos necesarios para abordar el segundo capítulo de esta parte, una introducción a la Mecánica Cuántica (capitulo \ref{sec_chapter_fundamentos}). 
 
 
 Después de estos dos capítulos introductorios, pasamos a la parte \ref{part_fundamentos_cc}, donde damos una introducción a las Fundamentos de la Computación Cuántica: qúbits, puertas, medidas, circuitos, hardware, decoherencia, $\dots$.
 
 
-Finalmente, cerramos las notas con la parte \ref{part_algoritmos}, donde presentando de forma detallada los algoritmos más famosos. Esto incluye el algoritmo de Quantum Fourier Transform (capítulo \ref{chapter_QFT}), el de Estimación Cuántica de Fase (capítulo \ref{chapter_QPE}) y los archiconocidos algoritmos de Grover (capítulo \ref{chapter_Grover}) y Shor (capitulo \ref{chapter_Shor}). Además hablaremos también de Criptografía y Quantum Key Distribution (capítulo \ref{chapter_QKD}). 
+Finalmente, cerramos las notas con la parte \ref{part_algoritmos}, donde presentando de forma detallada los algoritmos más famosos. Esto incluye el algoritmo de Quantum Fourier Transform (capítulo \ref{sec_chapter_QFT}), el de Estimación Cuántica de Fase (capítulo \ref{sec_chapter_QPE}) y los archiconocidos algoritmos de Grover (capítulo \ref{sec_chapter_Grover}) y Shor (capitulo \ref{sec_chapter_Shor}). Además hablaremos también de Criptografía y Quantum Key Distribution (capítulo \ref{sec_chapter_QKD}). 
 
 Como veremos a lo largo de estas notas, los algoritmo en computación cuántica se basan en construir \textbf{circuitos cuánticos} a los que añadimos \textbf{puertas cuánticas}. A estos circuito se les pasa como entrada un \textbf{estado cuántico}. Las puertas de circuito operan sobre el estado y nos devuelven otro estado cuántico. Este último representará la solución de nuestro problema, mientras que el circuito representa el \textbf{algoritmo cuántico} que se usa para hallar la solución. La idea es bastante similar a la de la computación clásica, donde se parte de una cadena bit, se aplican una serie de puertas lógicas (AND, OR, NOT,...) y se obtiene otra cadena de bits que codifica la solución. 
 
@@ -393,7 +393,7 @@ Referencias a cuadernos de Jupyter Notebook
 
 \part{Conceptos básicos}	 \label{part_conceptos_basicos}
 
-\chapter{Formalismo matemático} \label{cap_formalismo}
+\chapter{Formalismo matemático} \label{sec_chapter_formalismo}
 
 La Mecánica Cuántica (así como la Computación Cuántica) hace uso de unas matemáticas con las que es necesario familiarizarse. En esta capítulo vamos a repasar el formalismo matemático básico para el resto del curso.
  
@@ -814,7 +814,8 @@ Existen \textit{infinitas bases} en un espacio vectorial. Podemos escoger una de
 
 
 De esta forma, cualquier vector, escrito como una combinación lineal de sus elementos adquiere la representación usual
-	\begin{align}
+	\begin{equation}
+	\begin{aligned}
 	|u\rangle ~&=~ {u_1} |e_1 \rangle + {u_2} | e_2\rangle +... + {u_{ N}}|e_{ N}\rangle~=~ \sum_{i=1}^N {u_ i} |e_i\rangle \,\sim \\
 	\sim &~ {u_1} \begin{bmatrix} 1 \\ 0 \\ 0\\ \vdots 
 \\ 0 \\ 0 \end{bmatrix} \,+\,{u_2} \begin{bmatrix} 0 \\ 1 \\ 0\\ \vdots \\ 0 \\ 0 \end{bmatrix}~+~ ... ~+ ~
@@ -824,7 +825,8 @@ De esta forma, cualquier vector, escrito como una combinación lineal de sus ele
 \\ 0 \\ 1 \end{bmatrix}~~~= ~~~
   \begin{bmatrix} {u_1} \\ {u_2} \\{u_3}\\ \vdots 
 \\ \,{u_{N-1}}\, \\ {u_{N}} \end{bmatrix}
-	\end{align}
+	\end{aligned}
+	\end{equation}
 
 		
 			\SubsubiIt{Cambio de base}
@@ -1828,10 +1830,12 @@ A diferencia de los números, el orden en el que se componen dos operadores es r
 	}
 
 El conmutador tiene las dos siguientes propiedades algebraicas, elementales de probar
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 {\rm Derivacion} ~~~& \to  ~ [A,BC] = B[A,C] + [A,B]C \nonumber\\ \rule{0mm}{9mm}
 {\rm Identidad \ de \, Jacobi}~~~~ & \to  ~ [A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0 
-\end{align}	
+\end{aligned}	
+\end{equation}
 	
 La conmutatividad de dos operadores $[A,B]=0$ es una propiedad algebraica muy deseable que, cuando se da, implica propiedades  muy ventajosas.
 
@@ -2292,8 +2296,8 @@ A &=&  a_0 I + a_1 \sigma_1 + a_2 \sigma_2 + a_3 \sigma_3  \\
 			\SubsubiIt{Composición}
 
 La \textbf{composición} de dos matrices de Pauli es otra matriz de Pauli (o la identidad $I$) que cumple la siguiente propiedad
-	\begin{equation}
-	\sigma_i \sigma_j = \delta_{ij} I + i \varepsilon_{ijk} \sigma_k,  \label{ec_qubit_pauli_sigma_ijk}
+	\begin{equation} \label{ec_qubit_pauli_sigma_ijk}
+	\sigma_i \sigma_j = \delta_{ij} I + i \varepsilon_{ijk} \sigma_k,  
 	\end{equation}
 donde 
 	\begin{equation}
@@ -2302,15 +2306,15 @@ donde
 y el resto son cero. La propiedad (\ref{ec_qubit_pauli_sigma_ijk}) se refiere a que las matrices de Pauli forman un grupo cerrado, es decir, al multiplicar dos matrices nos da otra matriz de Pauli (o la identidad). 
 
 De la Ec. (\ref{ec_qubit_pauli_sigma_ijk}) se deduce que
-	\begin{equation}
-	\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = - i \sigma_x \sigma_y \sigma_z = I \,.   \label{ec_qubit_pauli_sigma^2}
+	\begin{equation} \label{ec_qubit_pauli_sigma^2}
+	\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = - i \sigma_x \sigma_y \sigma_z = I \,.   
 	\end{equation}
 
 			\SubsubiIt{Traza y ortogonalidad}
 
 Las matrices de Pauli tiene \textbf{traza nula}
-	\begin{equation}
-	\text{tr} ~ \sigma_j = 0 \label{ec_qubit_sigma_tr} 
+	\begin{equation} \label{ec_qubit_sigma_tr} 
+	\text{tr} ~ \sigma_j = 0 
 	\end{equation}
 Tomando la traza de la relación de composición obtenemos que las matrices de Pauli son \textbf{ortogonales} en el sentido siguiente
 	\begin{equation}
@@ -2373,19 +2377,23 @@ donde
 \end{align*}
 
 Estas matrices podrían escribirse en otras bases, como por ejemplo la base de autoestados de $\sigma_x$, i.e. $\ket{x_+}, \ket{x_-}$, que diagonalizaría la matriz $\sigma_x$ o en la base de autoestados de $\sigma_y$, i.e. $\ket{y_+}, \ket{y_-}$, que diagonalizaría la matriz $\sigma_y$. Cabe destacar que solo podemos tener a la vez una de las tres matrices en forma diagonal (puesto que no conmutan). Por completitud, podemos ver la expresión de estos autoestados en función de los de $ \sigma_z$:
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 & \boxed{\ket{x_+}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} + \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ 1  \end{bmatrix}},
 & \boxed{\ket{x_-}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} - \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -1  \end{bmatrix}},   \\ \rule{0mm}{10mm}
 & \boxed{\ket{y_+}  = \frac{1}{\sqrt{2}} \lp \ket{z_+} + i \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ i  \end{bmatrix}}, 
 & \boxed{\ket{y_-}   = \frac{1}{\sqrt{2}} \lp \ket{z_+} - i \ket{z_-} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -i \end{bmatrix}}.
-\end{align}
+\end{aligned}
+\end{equation}
 donde
-\begin{align}
+\begin{equation} 
+\begin{aligned}
  \sigma_x \ket{x_+} & = + \ket{x_+},
  &&\sigma_x \ket{x_-}  =  - \ket{x_-}  \\ \rule{0mm}{3mm}
  \sigma_y \ket{y_+} & = + \ket{y_+},
  &&\sigma_y \ket{y_-}   = - \ket{y_-}.
-\end{align}
+\end{aligned}
+\end{equation}
 
 
 
@@ -2997,10 +3005,12 @@ Una \textbf{variable aleatoria de Bernouilli} $X=(x,p(x))$ tiene dos posibles re
 \end{mybox_gray2}
 
 Podemos calcular fácilmente 
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\overline X & = \sum_i x_i p_i = 1 \cdot p +0 \cdot (1-p) = p \\
 	\sigma^2 & = \sum_i (x-\overline X)^2p_i = (1-p)^2p +(0-p) = p(1-p)
-	\end{align}
+	\end{aligned}
+\end{equation}
 
 
 
@@ -3023,10 +3033,12 @@ donde el primer factor tiene en cuenta las posibles ordenaciones en que aparecen
 Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_binomial}.
 
 Un cálculo un poco más largo permite ver que, ahora
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\overline X &=  np\\ \rule{0mm}{7mm}
 	\sigma^2 &= n p(1-p)
-	\end{align}
+	\end{aligned}
+\end{equation}
 
 	\begin{figure}[H]
 	\centering 
@@ -3047,10 +3059,12 @@ Nos encontramos ante una variable aleatoria con un espacio muestral continuo $x\
 
 Podemos ver esta distribución en la Fig. \ref{Fig_formalismo_dist_normal}. Tenemos además que
 
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\overline{X} &= \int_{-\infty}^{+\infty} xp(x) dx = \mu \\
 	\overline{(x-\overline X)^2} &= \int_{-\infty}^{+\infty} (x-\mu)^2 p(x)dx =\sigma^2
-	\end{align}
+	\end{aligned}
+\end{equation}
 
 	\begin{figure}[H]
 	\centering 
@@ -3172,7 +3186,7 @@ La segunda igualdad conduce al \textbf{teorema de Bayes}
 
 
 
-\chapter{Fundamentos de Mecánica Cuántica} \label{cap_fundamentos}
+\chapter{Fundamentos de Mecánica Cuántica} \label{sec_chapter_fundamentos}
 
 En este capítulo vamos a hacer una introducción a los fundamentos de la Mecánica Cuántica. Este capitulo se basa en \cite{bib_Curso-JMas}, que a su vez toma como referencias los capítulos 1 y 3 de \cite{bib_Claude}, los capítulos 1, 3 y 4 de \cite{bib_le_bellac_2006} y los capítulos 1-6 de \cite{bib_fayngold2013quantum}. 
 
@@ -3696,13 +3710,15 @@ Este estado \textbf{no es el mismo} que el estado puro
 	\ket{\psi} = \sqrt{0.9} \ket{+} + \sqrt{0.1} \ket{-}
 	\end{equation}
 Es más, podemos escribir la matriz densidad de este segundo estado para ver que es diferente:
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\rho_{\ket{\psi}} 
 	& =	\ketbra{\psi}{\psi} 
 	  = \lp \sqrt{0.9} \ket{+} + \sqrt{0.1} \ket{-} \rp 
 		\lp \sqrt{0.9} \bra{+} + \sqrt{0.1} \bra{-} \rp \\
 	& = \Lc 0.9 \ketbra{+}{+} \Rc + \Lc 0.1 \ketbra{-}{-} \Rc + \Lc \sqrt{0.9}\sqrt{0.1} \ketbra{+}{-} \Rc  + \Lc \sqrt{0.9}\sqrt{0.1} \ketbra{-}{+} \Rc
-	\end{align}
+	\end{aligned}
+\end{equation}
 \end{mybox_blue}
 
 
@@ -3999,27 +4015,34 @@ La base que se usa habitualmente en computación cuántica se denomina \textbf{b
 	\end{equation}
 
 Una manera de especificar una base es decir cuál es el operador que diagonaliza. A la base computacional se la suele denominar habitualmente como \textbf{base $Z$}, pues es la base que diagonaliza la matriz de Pauli $\sigma_z$
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	& \ket{+} = \ket{0}_Z \equiv \boxed{\ket{0} = \begin{bmatrix}  1\\ 0\end{bmatrix}},  
 	& \ket{-} = \ket{1}_Z \equiv \boxed{\ket{1} =  \begin{bmatrix}  0\\ 1\end{bmatrix}} 
-	\end{align}
+	\end{aligned}
+\end{equation}
 Es decir, esta base la forman los autoestados del operador $Z = \sigma_z = \lp \begin{matrix} 1& 0 \\ 0 & -1 \end{matrix} \rp $ con autovalores $\pm 1$. 
  
 			\SubsubiIt{Base $X$} 
 			
 También podemos usar la base de autoestados del operador $X = \sigma_x = \lp \begin{matrix} 0 & 1 \\ 1 & 0 \end{matrix} \rp $ con autovalores $\pm 1$:
-	\begin{align}
-	& \ket{x_+} = \ket{0}_X \equiv \boxed{\ket{+} = \frac{1}{\sqrt{2}} \lp \ket{0} + \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ 1  \end{bmatrix}}, \label{ec_qubit_x+} \\
-	& \ket{x_-} = \ket{1}_X \equiv \boxed{\ket{-} =  \frac{1}{\sqrt{2}} \lp \ket{0} - \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -1  \end{bmatrix}}. \label{ec_qubit_x-}
-	\end{align}
+	\begin{equation} \label{ec_qubit_x+}
+	\begin{split}
+	& \ket{x_+} = \ket{0}_X \equiv \boxed{\ket{+} = \frac{1}{\sqrt{2}} \lp \ket{0} + \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ 1  \end{bmatrix}}, \\
+	& \ket{x_-} = \ket{1}_X \equiv \boxed{\ket{-} =  \frac{1}{\sqrt{2}} \lp \ket{0} - \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -1  \end{bmatrix}}. 
+	\end{split}
+	\end{equation}	
+
 
 			\SubsubiIt{Base $Y$} 
 			
 También podemos usar la base de autoestados del operador $Y = \sigma_y = \lp \begin{matrix} 0 & -i \\ i & 0 \end{matrix} \rp $ con autovalores $\pm 1$:
-	\begin{align}
-	& \ket{y_+} = \ket{0}_Y \equiv \boxed{\ket{+i} = \frac{1}{\sqrt{2}} \lp \ket{0} + i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ i  \end{bmatrix}}, \label{ec_qubit_y-} \\
-	& \ket{y_-} = \ket{1}_Y \equiv \boxed{\ket{-i} =  \frac{1}{\sqrt{2}} \lp \ket{0} - i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -i  \end{bmatrix}}. \label{ec_qubit_y-}
-	\end{align}
+	\begin{equation} \label{ec_qubit_y+}
+	\begin{split}
+	& \ket{y_+} = \ket{0}_Y \equiv \boxed{\ket{+i} = \frac{1}{\sqrt{2}} \lp \ket{0} + i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ i  \end{bmatrix}},  \\
+	& \ket{y_-} = \ket{1}_Y \equiv \boxed{\ket{-i} =  \frac{1}{\sqrt{2}} \lp \ket{0} - i \ket{1} \rp = \frac{1}{\sqrt{2}} \begin{bmatrix}  1 \\ -i  \end{bmatrix}}. 
+	\end{split}
+	\end{equation}	
    	
 	\Ejercicio{
 	Escribe las matrices de cambio de la base $Z\to X$, $Z\to Y$ y $X\to Y$.
@@ -4202,24 +4225,27 @@ Calcular la matriz (\ref{ec_puertas_simples_Rn_matrix}) a partir de (\ref{ec_pue
         \subsection{Rotaciones en X, Y, Z}
 
 Veamos los casos particulares de las rotaciones entorno a los ejes $x$, $y$ y $z$.        
-\begin{align}
-\bm \hat{n} = (0,0,1) \rqa R_z(\alpha) & = 
+        
+	\begin{equation} \label{ec_puertas_simples_Rz_Ry_Rx}
+	\begin{split}
+	\bm{\hat{n}} = (0,0,1) \rqa R_z(\alpha) & = 
 	 \lp \begin{matrix}
 	 e^{-i \alpha/2} & 0                       \\
 	 0               & e^{i \alpha/2} 
-	 \end{matrix} \rp   \label{ec_puertas_simples_Rz} \\
-\bm \hat{n} = (0,1,0) \rqa R_y(\alpha) & =
+	 \end{matrix} \rp    \\
+\bm{\hat{n}} = (0,1,0) \rqa R_y(\alpha) & =
 	 \lp \begin{matrix}
 	 \cos \alpha/2     &  -\sin \alpha/2       \\
 	 \sin \alpha/2     &  \cos \alpha/2 
-	 \end{matrix} \rp  \label{ec_puertas_simples_Ry} \\
-\bm \hat{n} = (1,0,0) \rqa R_x(\alpha) & = 
+	 \end{matrix} \rp   \\
+\bm{\hat{n}} = (1,0,0) \rqa R_x(\alpha) & = 
 	 \lp \begin{matrix}
 	 \cos \alpha/2       &   -i \sin \alpha     \\
 	 -i \sin \alpha/2    &   \cos \alpha/2 
-	 \end{matrix} \rp \label{ec_puertas_simples_Rx}
-\end{align} 
-        
+	 \end{matrix} \rp 
+	\end{split}
+	\end{equation}
+   
         \subsection{Parametrización de Euler} \label{sec_subsub_puertas_euler}
         
 Hay otra parametrización para las rotaciones mucho más común en física y es la \textbf{parametrización de Euler}. A diferencia de la anterior, esta no necesita definir ningún eje extra usando un vector, sino que simplemente consiste en tres rotaciones, con tres ángulos, entorno a dos ejes coordenados: primero entorno al eje $z$, después en torno al eje $y$ y finalmente entorno al eje $z$ otra vez. Es decir
@@ -4308,7 +4334,7 @@ Aplicando sobre un estado genérico tenemos
 	 \ket{v}
 	\end{equation*}
 
-Ya vimos en la Ec. (\ref{ec_puertas_simples_Rz}) una puerta para rotar entorno al eje $z$. Podemos ver que a efectos prácticos la puerta $P_\alpha$ es lo mismo que la puerta $R_z(\alpha)$, pues se diferencian solo en una fase global
+Ya vimos en la Ec. (\ref{ec_puertas_simples_Rz_Ry_Rx}) una puerta para rotar entorno al eje $z$. Podemos ver que a efectos prácticos la puerta $P_\alpha$ es lo mismo que la puerta $R_z(\alpha)$, pues se diferencian solo en una fase global
 	\begin{equation*}
 	P_\alpha \equiv e^{i \alpha/2} R_z (\alpha)
 	\end{equation*}
@@ -4327,11 +4353,13 @@ Esta puerta es trivial pero a veces se usa en algunas demostraciones. Se trata s
             \SubsubiIt{$X$, $Y$, $Z$}
 
 Tres puertas muy usadas en computación cuántica con las siguientes
-\begin{align}
-&\boxed{X = \lp  \begin{matrix}0&1\\1&0\end{matrix} \rp = \sigma_x = \ketbra{1}{0} + \ketbra{0}{1}}~, ~~~  \label{ec_puertas_simples_X} \\ \rule{0mm}{7mm}
-&\boxed{Y = \lp \begin{matrix}0&-i\\i&0\end{matrix} \rp = \sigma_y  =  i \ketbra{1}{0} - i \ketbra{0}{1}}~, ~~~ \label{ec_puertas_simples_Y}\\ \rule{0mm}{7mm}
-&\boxed{Z = \lp  \begin{matrix}1&0\\0&-1\end{matrix} \rp = \sigma_z = \ketbra{0}{0} - \ketbra{1}{1}}  ~, ~~~ \label{ec_puertas_simples_Z}
-\end{align}
+\begin{equation} \label{ec_puertas_simples_X_Y_Z}
+\begin{split}
+&\boxed{X = \lp  \begin{matrix}0&1\\1&0\end{matrix} \rp = \sigma_x = \ketbra{1}{0} + \ketbra{0}{1}}~, ~~~   \\ \rule{0mm}{7mm}
+&\boxed{Y = \lp \begin{matrix}0&-i\\i&0\end{matrix} \rp = \sigma_y  =  i \ketbra{1}{0} - i \ketbra{0}{1}}~, ~~~ \\ \rule{0mm}{7mm}
+&\boxed{Z = \lp  \begin{matrix}1&0\\0&-1\end{matrix} \rp = \sigma_z = \ketbra{0}{0} - \ketbra{1}{1}}  ~, ~~~ 
+\end{split}
+\end{equation}
 donde hemos remarcado la igualdad con las \textit{matrices de Pauli} (ver sección \ref{sec_qubit_matrices_Pauli}).
 
 \Ejercicio{
@@ -4342,7 +4370,7 @@ Relacionar  $X,Y,Z$ con   $R_x(\alpha),R_y(\alpha)$ y $R_z(\alpha)$ par algún v
 	Como las puertas $X$, $Y$ y $Z$ son las matrices de Pauli, estas son hermíticas ($A = A^\dagger$) y 
 	además cumplen que son iguales a su inversa (ver Ec. (\ref{ec_qubit_pauli_sigma^2})). 
 	Esto implica que aplicar dos veces seguidas una de estas puertas es lo mismo que aplicar la identidad. 
-	Además, los autovalores de las matrices de Pauli son $\pm 1$ (ver Ecs. (\ref{ec_qubit_sigma_det}) y (\ref{ec_qubit_sigma_tr})).
+	Además, los autovalores de las matrices de Pauli son $\pm 1$ (ver Ec. (\ref{ec_qubit_sigma_tr})).
 	\end{mybox_blue}
 
 
@@ -4433,7 +4461,7 @@ el mismo se representan como cajas que contiene los datos del operador asociado.
 se representa mediante el circuito siguiente
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.3\linewidth]{Figuras/Fig_puertas_simples}
+	\includegraphics[width=0.3\linewidth]{Figuras/Fig_puertas_simples.png}
 	\caption{Circuito para la operación $\ket{\psi} \to  U(\theta,\phi,\varphi)\ket{\psi}$. Figura tomada de \cite{bib_Curso-JMas}}
 	\label{Fig_puertas_simples}
 	\end{figure}
@@ -4508,8 +4536,6 @@ En el caso en el que el estado no se destruya, lo que pasará será que el qúbi
 	\includegraphics[width=0.7\linewidth]{Figuras/Fig_subfig_medidas1_cubit_meter.png}
 	\caption{Medidas de un qubit en el estado $\ket{\psi}$ en un circuito cuántico. El resultado puede ser $a = 0$ o $a=1$. La linea simple representa un qubit, mientras que la linea doble representa un bit clásico. Figura tomada de \cite{bib_Curso-JMas}}
 	\label{Fig_medidas1_cubit_meter}
-	\label{Fig_medidas1_cubit_meter1}
-	\label{Fig_medidas1_cubit_meter2}
 	\end{figure}
 
 		\subsection{Sobre medir en la base computaciones.}
@@ -4523,7 +4549,7 @@ Podemos unificar ambos resultados como: $Z\ket{a} = (-1)^a\ket{a}$, con  $a=\{0,
 
 		\subsection{Código de Qiskit: simulación de un estado y medida.}  \label{sec_medidas_subsub_codigo}
 
-	\begin{mybox_orange}{Jypyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 1}
+	\begin{mybox_orange}{Jupyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 1}
 	En la primera parte del notebook \textbf{02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware} puede verse como construir circuitos de un qúbit en qiskit, 
 	como añadir puertas de un qúbit, como añadir los medidores y como hacer la simulación. Además de como guardar figuras de los
 	circuitos y de como generar histogramas con los resultados.
@@ -4531,7 +4557,7 @@ Podemos unificar ambos resultados como: $Z\ket{a} = (-1)^a\ket{a}$, con  $a=\{0,
 	
 		\subsection{Código de Qiskit: ejecución en un ordenador real.}
 		
-	\begin{mybox_orange}{Jypyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 2}
+	\begin{mybox_orange}{Jupyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 2}
 	En la segunda parte del notebook \textbf{02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware} puede verse como mandar circuitos a ejecutar en ordenadores 
 	cuánticos reales de IBM.
 	\end{mybox_orange}
@@ -4560,7 +4586,7 @@ El objetivo de este experimento es simplemente ver que ciertas puertas son sus p
 
 		\subsection{Código de Qiskit.}
 		
-	\begin{mybox_orange}{Jypyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 3}
+	\begin{mybox_orange}{Jupyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 3}
 	En la tercera parte del notebook \textbf{02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware} puede verse el experimento de la moneda cuántica.
 	\end{mybox_orange}
     
@@ -4569,36 +4595,46 @@ El objetivo de este experimento es simplemente ver que ciertas puertas son sus p
         \subsection{Bases X, Y, Z} \label{sec_subsub_medidad1_bases_xyz}
        
 A parte de la base computacional $\{\ket{0},\ket{1} \}$, es muy necesario y frecuente el uso de otras bases ortonormales como  $\{\ket{+},\ket{-} \}$ o  $\{\ket{+i},\ket{-i} \}$. Todas ellas diagonalizan algún operador de Pauli y, por  tanto, puede servir para construir aparatos de medida que discriminen entre sus estados       
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 Z \ket{0} &=+ \ket{0}   , & Z \ket{1} &=-\ket{1} \\ 
 X \ket{+} &=+ \ket{+}    ,& X \ket{-} &=-\ket{-} \\ 
 Y \ket{+i} &=+ \ket{+i}  ,& Y \ket{-i} &=-\ket{-i}.
-\end{align}    
+\end{aligned}
+\end{equation}    
 En la práctica, solo solemos contar con un aparato de medida en la base computacional de autoestados de $\sigma_z$. La pregunta ahora es cómo podríamos utilizar  dicho aparato para efectuar medidas en las bases de autoestados de $\sigma_x$ y $\sigma_y$.
 
 Por ejemplo desearíamos definir un aparato de medida que ``leyese'' los valores $0$ y $1$ para los autoestados $\ket{\pm}$ del opeador $\sigma_x =  X$ (ver Fig. \ref{Fig_medidas1_meter_xbasis2}).
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas1_meter_xbasis2}
+	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas1_meter_xbasis2.png}
 	\caption{Medidor en la base $X$.}
 	\label{Fig_medidas1_meter_xbasis2}
 	\end{figure}
 Análogamente, queremos los mismo para los autoestados $\ket{\pm i}$ de $\sigma_y = Y$. La clave está en un cambio de base (en rotar la base en la que queremos medir a la base $\lch \ket{0}, \ket{1} \rch$). 
-\begin{align}
+\begin{equation}
+\begin{aligned}
 \ket{+}  &= H\ket{0}  ,&  \ket{-}  &= H\ket{1}    \\ 
 \ket{+i}  &= SH \ket{0}    ,&  \ket{-i}  &= SH\ket{1}   .
-\end{align}
+\end{aligned}
+\end{equation}
 Estas expresiones son facilmente invertibles para deshacer el cambio de base:
-\begin{align}
-H \ket{+}  &= \ket{0}                ,&  H\ket{-}  & = \ket{1}   \label{ec_medidas1_de_X_a_Z} \\ 
-H S^\dagger \ket{+i}  &=  \ket{0}    ,&  H S^\dagger  \ket{-i}  & = \ket{1}   . \label{ec_medidas1_de_Y_a_Z}
-\end{align}
-Es decir, la idea es llevar a cabo una operación que nos lleve los elementos de la base en la que queremos medir (los elementos $\{\ket{+},\ket{-} \}$ o  $\{\ket{+i},\ket{-i} \}$) a los elementos de la base computacional $\{\ket{0},\ket{1} \}$. Esto es precisamente lo que conseguimos con los operadores $H$ y $H S^\dagger$ en las Ecs. (\ref{ec_medidas1_de_X_a_Z}) y (\ref{ec_medidas1_de_Y_a_Z}).
+\begin{equation} \label{ec_medidas1_de_X_a_Z_Y_a_Z}
+\begin{aligned}
+H \ket{+}  &= \ket{0}                ,&  H\ket{-}  & = \ket{1}   \\ 
+H S^\dagger \ket{+i}  &=  \ket{0}    ,&  H S^\dagger  \ket{-i}  & = \ket{1} 
+\end{aligned}
+\end{equation}
+
+Es decir, la idea es llevar a cabo una operación que nos lleve los elementos de la base en la que queremos medir (los elementos $\{\ket{+},\ket{-} \}$ o  $\{\ket{+i},\ket{-i} \}$) a los elementos de la base computacional $\{\ket{0},\ket{1} \}$. Esto es precisamente lo que conseguimos con los operadores $H$ y $H S^\dagger$ en las Ecs. (\ref{ec_medidas1_de_X_a_Z_Y_a_Z}).
 De las relaciones anteriores se deduce que
-\begin{align}
-X & = H Z H   \label{ec_medidas1_cambio_X-Z} \\
-Y & = S  H  Z   H S^\dagger \label{ec_medidas1_cambio_Y-Z}
-\end{align}
+\begin{equation} \label{ec_medidas1_cambio_X-Z_Y-Z}
+\begin{split}
+X & = H Z H  \\
+Y & = S  H  Z   H S^\dagger 
+\end{split}
+\end{equation}
+
 
 	\begin{mybox_blue}{Nota}
 	Verifiquemos por ejemplo
@@ -4608,14 +4644,14 @@ Y & = S  H  Z   H S^\dagger \label{ec_medidas1_cambio_Y-Z}
 	\end{mybox_blue}
 
 	\Ejercicio{
-	Comprueba estos cambios de base (las Ecs. (\ref{ec_medidas1_de_X_a_Z}), (\ref{ec_medidas1_de_Y_a_Z}), (\ref{ec_medidas1_cambio_X-Z}) y (\ref{ec_medidas1_cambio_Y-Z})).
+	Comprueba estos cambios de base (las Ecs. (\ref{ec_medidas1_de_X_a_Z_Y_a_Z}) y (\ref{ec_medidas1_cambio_X-Z_Y-Z})).
 	}
 	
 Estas relaciones nos permite definir el aparato de medida efectivo en las direcciones $x$ e $y$. Podemos verlos en la Fig. \ref{Fig_medidas1_meter_XYbasis}. 
     
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.8\linewidth]{Figuras/Fig_medidas1_meter_XYbasis}
+	\includegraphics[width=0.8\linewidth]{Figuras/Fig_medidas1_meter_XYbasis.png}
 	\caption{Equivalencias de los medidores en las bases $X$ e $Y$ con el medidor en $Z$. Cuando la medida es destructiva (la inmensa mayoría de las veces), no hace falta añadir los operadores después del aparato de medida.}
 	\label{Fig_medidas1_meter_XYbasis}
 	\end{figure}
@@ -4623,7 +4659,7 @@ Estas relaciones nos permite definir el aparato de medida efectivo en las direcc
      
         \subsection{Base arbitraria}
 
-Vamos a generalizar el análisis anterior. Para ello podemos usar la matriz de rotación en la parametrización de Euler de la Ec. (\ref{ec_puertas_simples_rotacion_U}), que nos lleva la base base  $\lch \ket{0}, \ket{1} \rch_{\hat{\bm n}}$ asociado a un vector
+Vamos a generalizar el análisis anterior. Para ello podemos usar la matriz de rotación en la parametrización de Euler de la Ec. (\ref{ec_puertas_simples_rotacion_U}), que nos lleva la base base  $\lch \ket{0}, \ket{1} \rch_{\hat{\bm{n}}}$ asociado a un vector
 
 \begin{equation}
 \hat{\bm n} (\theta, \phi) = \sin \theta \cos \phi \hat{\bm x} + \sin \theta  \sin \phi \hat{\bm y} + \cos \theta \hat{\bm z}
@@ -4631,7 +4667,7 @@ Vamos a generalizar el análisis anterior. Para ello podemos usar la matriz de r
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas1_BlochSphere_basis}
+	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas1_BlochSphere_basis.png}
 	\caption{Base computacional y base $\hat{\bm n}$ en la esfera de Bloch}
 	\label{Fig_medidas1_BlochSphere_basis}
 	\end{figure}
@@ -4642,7 +4678,7 @@ Es decir, tenemos el cambio de base
 	\end{equation}
 que verifica la ecuación de autovalores
 	\begin{equation}
-	\sigma_z \ket{a}_{\hat{\bm z}} = (-1)^a \rqa (\hat{\bm n} \cdot \bm \sigma ) \ket{a}_{\hat{\bm n}} = (-1)^a \ket{a}_{\hat{\bm n}}
+	\sigma_z \ket{a}_{\hat{\bm z}} = (-1)^a \rqa (\hat{\bm n} \cdot \bm{\sigma} ) \ket{a}_{\hat{\bm n}} = (-1)^a \ket{a}_{\hat{\bm n}}
 	\end{equation}
 Por esta razón, podemos etiquetar este operado como
 	\begin{equation}
@@ -4654,7 +4690,7 @@ El circuito de la Fig. \ref{Fig_medidas2_nbasis_measure2}  simula un aparato de 
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.7\linewidth]{Figuras/Fig_medidas2_nbasis_measure2}
+	\includegraphics[width=0.7\linewidth]{Figuras/Fig_medidas2_nbasis_measure2.png}
 	\caption{Medida en un eje arbitrario $\hat{ \bm n}$.}
 	\label{Fig_medidas2_nbasis_measure2}
 	\end{figure}
@@ -4696,9 +4732,11 @@ Cualquier observable sobre un cúbit cumple $A = A^\dagger$ (es hermítico) con 
 	A = a I + n_x X + n_y Y  + n_z Z \, .
 	\end{equation}
 Los coeficientes se obtienen haciendo uso de las relaciones $\frac{1}{2}$ tr$ (\sigma_i \sigma_j) = \delta_{ij}$ y de tr$(\sigma_i)=0$, de las cuales se obtiene
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	&\boxed{a  = \frac{1}{2} \text{ tr}(A)},        &         &\boxed{n_i = \frac{1}{2} \text{ tr}  (A \sigma_i)},
-	\end{align} 
+	\end{aligned}
+\end{equation} 
 Entonces, podremos obtener el valor esperado de $A$  si somos capaces de medir los valores esperados de $X,$ $Y$ y $Z$.
 	\begin{equation}
 	\boxed{\langle A\rangle_\Psi = a + n_x \langle X\rangle_\Psi + n_y \langle Y\rangle_\Psi + n_z \langle Z\rangle_\Psi}
@@ -4717,7 +4755,7 @@ Dado un estado $\ket{\Psi} = c_0\ket{0} + c_1\ket{1}$, la medida repetida arroja
 	\end{equation}
 donde $N$ es el número total de medidas, $n_{0}^Z$ es el número de veces que hemos medido el estado $\ket{0}$ (el autovalor $+1$) y $n_{1}^Z$ es el número de veces que hemos medido el estado $\ket{1}$ (el autovalor $-1$).
 
-Para medir $\langle Z\rangle_\psi$ necesitamos el \textbf{medidor habitual en computación cuántica} (ver Fig. \ref{Fig_medidas1_cubit_meter2})
+Para medir $\langle Z\rangle_\psi$ necesitamos el \textbf{medidor habitual en computación cuántica} (ver Fig. \ref{Fig_medidas1_cubit_meter})
 			
 			\SubsubiIt{$\langle X \rangle_\Psi$} 
 			
@@ -4786,7 +4824,7 @@ Podemos ver el circuito necesario para calcular este valor esperado en la Fig. \
 	\end{mybox_blue}
 	
 	
-	\begin{mybox_orange}{Jypyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 3}
+	\begin{mybox_orange}{Jupyter Notebook: 02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware parte 3}
 	En la cuarta parte del notebook \textbf{02-Circuitos\_1\_qubit\_medidas\_y\_RealHardware} pueden verse cálculos de valores esperados con Qiskit.
 	\end{mybox_orange}
     
@@ -4866,7 +4904,7 @@ El multi-ínidice $i_{n-1}i_{n-2}....i_0$ interpretarse como un número entero e
 	\end{equation}
 que tomará  $2^n$ valores $p = 0,1,...,2^{n}-1$. El cambio de notación 
 \begin{equation}
-\textit{multi-índice} ~ \leftrightarrow ~ \textit{entero en notación decimal} 
+\text{\textit{multi-índice}} ~ \leftrightarrow ~ \text{\textit{entero en notación decimal}}
 \end{equation}
 será frecuente y se aplicará a cualquier elemento. Por ejemplo $\ket{000} = \ket{0}, \ket{111} = \ket{7}$ etc.	
 	
@@ -5056,7 +5094,7 @@ La asignación que se hace en \textbf{Qiskit }coloca el qúbit \textbf{menos rel
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion.png}
 	\caption{Convenios de ordenación de los qúbits en la forma estándar, resaltando que Qiskit decide usar el convenio al revés.}
 	\label{Fig_multiqubits_convenios_ordenacion}
 	\end{figure}
@@ -5117,7 +5155,7 @@ Podemos ver la representación gráfica asociada al operador SWAP en la Fíg. \r
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.23\linewidth]{Figuras/Fig_multiqubit_SWAP_gate}
+	\includegraphics[width=0.23\linewidth]{Figuras/Fig_multiqubit_SWAP_gate.png}
 	\caption{Puerta SWAP}
 	\label{Fig_multiqubit_SWAP_gate}
 	\end{figure}
@@ -5157,7 +5195,7 @@ Podemos ver la representación gráfica asociada al operador $\cg{U}$ en la Fíg
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.25\linewidth]{Figuras/Fig_multiqubit_cU_gate}
+	\includegraphics[width=0.25\linewidth]{Figuras/Fig_multiqubit_cU_gate.png}
 	\caption{Puerta controlada}
 	\label{Fig_multiqubit_cU_gate}
 	\end{figure}
@@ -5184,7 +5222,7 @@ Vemos que, efectivamente, el resultado es un estado entrelazado. Podemos ver est
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.5\linewidth]{Figuras/Fig_multiqúbit_entangling_CU_circuit}
+	\includegraphics[width=0.5\linewidth]{Figuras/Fig_multiqúbit_entangling_CU_circuit.png}
 	\caption{Entrelazamiento a partir de una puerta controlada.}
 	\label{Fig_multiqúbit_entangling_CU_circuit}
 	\end{figure}
@@ -5204,7 +5242,7 @@ Sobre elementos de la base computacional $\ket{xy}=\ket{x}\otimes\ket{y}$ donde 
 Podemos ver la representación gráfica asociada al operador CNOT en la Fíg. \ref{Fig_multiqubit_cX_gate}
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.25\linewidth]{Figuras/Fig_multiqubit_cX_gate}
+	\includegraphics[width=0.25\linewidth]{Figuras/Fig_multiqubit_cX_gate.png}
 	\caption{Puerta CNOT, CX o control-X}
 	\label{Fig_multiqubit_cX_gate}
 	\end{figure}
@@ -5231,7 +5269,7 @@ Podemos ver la representación gráfica asociada al operador CNOT en la Fíg. \r
 		\end{equation}
 	\end{mybox_blue}
 	
-	\begin{mybox_orange}{Jypyter Notebook: 03-Circuitos\_multiqubit secciones 1.1 y 1.2}
+	\begin{mybox_orange}{Jupyter Notebook: 03-Circuitos\_multiqubit secciones 1.1 y 1.2}
 	En las secciones 1.1 y 1.2 del notebook \textbf{03-Circuitos\_multiqubit} pueden verse ejemplos de CNOTs y como crear entrelazamiento con ellas.
 	\end{mybox_orange}
     
@@ -5245,12 +5283,12 @@ Si el qúbit  de control está en  el estado $\ket{1}$ los dos controlados se in
 Podemos verla en la Fig. \ref{Fig_multiqubit_CSWAP_gate}. 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.13\linewidth]{Figuras/Fig_multiqubit_CSWAP_gate}
+	\includegraphics[width=0.13\linewidth]{Figuras/Fig_multiqubit_CSWAP_gate.png}
 	\caption{Puerta CSWAP}
 	\label{Fig_multiqubit_CSWAP_gate}
 	\end{figure}
 
-	\begin{mybox_orange}{Jypyter Notebook: 03-Circuitos\_multiqubit secciones 1.3 y 1.4}
+	\begin{mybox_orange}{Jupyter Notebook: 03-Circuitos\_multiqubit secciones 1.3 y 1.4}
 	En las secciones 1.3 y 1.4 del notebook \textbf{03-Circuitos\_multiqubit} pueden verse ejemplos de SWAPs y CSWAPs
 	\end{mybox_orange}
 
@@ -5264,12 +5302,12 @@ La puerta CCNOT, también llamada puerta de Toffoli,  es un operador sobre $\mat
 Podemos ver la representación gráfica asociada la puerta de Toffoli en la Fíg. \ref{Fig_multiqubit_ccX_gate}
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.22\linewidth]{Figuras/Fig_multiqubit_ccX_gate}
+	\includegraphics[width=0.22\linewidth]{Figuras/Fig_multiqubit_ccX_gate.png}
 	\caption{Puerta de Toffoli o CCX.}
 	\label{Fig_multiqubit_ccX_gate}
 	\end{figure}
 	
-	\begin{mybox_orange}{Jypyter Notebook: 03-Circuitos\_multiqubit secciones 1.5}
+	\begin{mybox_orange}{Jupyter Notebook: 03-Circuitos\_multiqubit secciones 1.5}
 	En las sección 1.5 del notebook \textbf{03-Circuitos\_multiqubit} pueden verse ejemplos de puertas Toffoli.
 	\end{mybox_orange}
 
@@ -5286,7 +5324,7 @@ MCX = \ket{1100}  \bra{1100}\otimes X + (I-\ket{1100}\bra{1100}) \otimes I
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.1\linewidth]{Figuras/Fig_multiqubit_MCX_gate}
+	\includegraphics[width=0.1\linewidth]{Figuras/Fig_multiqubit_MCX_gate.png}
 	\caption{Puerta MCX (multi-controled X) para el estado de control $\bra{1100}$. Recordemos que con Qiskit sería el revés.}
 	\label{Fig_multiqubit_MCX_gate}
 	\end{figure}
@@ -5296,7 +5334,7 @@ MCX = \ket{1100}  \bra{1100}\otimes X + (I-\ket{1100}\bra{1100}) \otimes I
 	a un controlador negro con una puerta $X$ antes y otra después.
 	\end{mybox_blue}
 
-	\begin{mybox_orange}{Jypyter Notebook: 03-Circuitos\_multiqubit secciones 1.6}
+	\begin{mybox_orange}{Jupyter Notebook: 03-Circuitos\_multiqubit secciones 1.6}
 	En las sección 1.6 del notebook \textbf{03-Circuitos\_multiqubit} pueden verse ejemplos de puertas MCX.
 	\end{mybox_orange}
 
@@ -5328,7 +5366,7 @@ Un aparato de medida en la base asociada al operador hermítico $\sigma_z^{\otim
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.5\linewidth]{Figuras/Fig_medidas2_Multimeter_zbasis}
+	\includegraphics[width=0.5\linewidth]{Figuras/Fig_medidas2_Multimeter_zbasis.png}
 	\caption{Medidor en la base $Z$. En este caso, midiendo destructivamente. Podría no ser el caso.}
 	\label{Fig_medidas2_Multimeter_zbasis}
 	\end{figure}
@@ -5346,7 +5384,7 @@ Entonces es evidente que sólo tenemos que añadir el operador $U^\dagger$ antes
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.6\linewidth]{Figuras/Fig_medidas2_Multimeter_basis}
+	\includegraphics[width=0.6\linewidth]{Figuras/Fig_medidas2_Multimeter_basis.png}
 	\caption{Medidor en una base arbitraria.}
 	\label{Fig_medidas2_Multimeter_basis}
 	\end{figure}
@@ -5359,13 +5397,13 @@ En caso más frecuente consiste en medir diferentes qúbits en diferentes bases 
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas2_XYZ_multimeter}
+	\includegraphics[width=0.3\linewidth]{Figuras/Fig_medidas2_XYZ_multimeter.png}
 	\caption{Ejemplo de un circuito que mide en la base $Z_0X_1Y_2$ (el qúbit de arriba se mide en la base $Z$, el de en medio e la base $X$ y el de abajo en la base $Y$).}
 	\label{Fig_medidas2_XYZ_multimeter}
 	\end{figure}
 
 
-	\begin{mybox_orange}{Jypyter Notebook: 04-Medidas\_II  seccion 1}
+	\begin{mybox_orange}{Jupyter Notebook: 04-Medidas\_II  seccion 1}
 	Ver la sección 1 del notebook \textbf{04-Medidas\_II}.
 	\end{mybox_orange}
 
@@ -5380,19 +5418,19 @@ En esta última expresión, $\ket{xy}$ está expresado en la base computacional.
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.25\linewidth]{Figuras/Fig_medidas2_circuit_Bell_basis}
+	\includegraphics[width=0.25\linewidth]{Figuras/Fig_medidas2_circuit_Bell_basis.png}
 	\caption{Circuito que genera la base de Bell a partir de la base computacional (ver Ec. (\ref{ec_medidas2_base_Bell_from_Z}).}
 	\label{Fig_medidas2_circuit_Bell_basis}
 	\end{figure}
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_medidas2_Bell_meter}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_medidas2_Bell_meter.png}
 	\caption{Medidor en la base de Bell. }
 	\label{Fig_medidas2_Bell_meter}
 	\end{figure}
 
-	\begin{mybox_orange}{Jypyter Notebook: 04-Medidas\_II seccion 2}
+	\begin{mybox_orange}{Jupyter Notebook: 04-Medidas\_II seccion 2}
 	Ver la sección 2 del notebook \textbf{04-Medidas\_II}.
 	\end{mybox_orange}
 
@@ -5413,7 +5451,7 @@ Por lo tanto, para hallar el valor esperado de un operador $A$, solo tenemos que
 	\langle A \rangle_{\psi} =  \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \langle \sigma_{i_1}\otimes \ldots   \otimes\sigma_{i_n}\rangle
 	\end{equation}
 
-	\begin{mybox_orange}{Jypyter Notebook: 04-Medidas\_II seccion 3}
+	\begin{mybox_orange}{Jupyter Notebook: 04-Medidas\_II seccion 3}
 	Ver la sección 3 del notebook \textbf{04-Medidas\_II}.
 	\end{mybox_orange}
 
@@ -5502,7 +5540,7 @@ Vemos que aquí estamos usando el poder del entrelazamiento, pues midiendo en un
 	circuito el medidor de Hadamard asociado.
 	}
 	
-	\begin{mybox_orange}{Jypyter Notebook: 04-Medidas\_II seccion 4}
+	\begin{mybox_orange}{Jupyter Notebook: 04-Medidas\_II seccion 4}
 	Ver la sección 4 del notebook \textbf{04-Medidas\_II}.
 	\end{mybox_orange}
 
@@ -5523,7 +5561,7 @@ Podemos ver esto en la Fig. \ref{Fig_medidas2_HadamardProjection}  Al igual que 
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_medidas2_HadamardProjection}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_medidas2_HadamardProjection.png}
 	\caption{Proyección de Hadammar}
 	\label{Fig_medidas2_HadamardProjection}
 	\end{figure}
@@ -5613,7 +5651,7 @@ En definitiva hay una anticorrelación perfecta que se pone de manifiesto en el 
 
 La cosa se pone más divertida cuando los dos polarizadores de Stern Gerlach \textbf{no se orientan en la misma dirección}. Es decir, cuando medimos las proyecciones del spín en dos direcciones diferentes. El observable asociado ahora a la dirección $\hat{\bf n}$  será  $\hat{\bf n}\cdot \boldsymbol{\sigma}$. Aun así, los autovalores de este operador y, por ello, la proyección del espín seguirá siendo $\pm 1$. Como ya comentamos, da igual en que eje se mida, los valores de la proyección del espín que podemos medir son los mismos. Sin embargo, ahora el valor esperado cambia:
 
-	\Teorema{ \label{Teo_entrelazamiento_bell}
+	\Teorema{ \label{teorema_entrelazamiento_bell}
 	El valor medio del producto de las proyecciones de espín a lo largo de sendos ejes $\hat{\bf m}$ y 
 	$\hat{\bf n}$ viene dada por el coseno del ángulo $\theta$  que forman los  ejes de los dos detectores     
 	\begin{equation}
@@ -5623,7 +5661,7 @@ La cosa se pone más divertida cuando los dos polarizadores de Stern Gerlach \te
 	}
 	
 	\Ejercicio{
-	Prueba el resultado del teorema \ref{Teo_entrelazamiento_bell}
+	Prueba el resultado del teorema \ref{teorema_entrelazamiento_bell}
 	}
 
 Cuando los ejes son paralelos recuperamos la  anticorrelación, independientemente de la dirección
@@ -5702,7 +5740,7 @@ Ahora sólo hace falta jugar un poco con los detectores. Por ejemplo, podemos si
 
 	\begin{figure}[t]
 	\centering 
-	\includegraphics[width=0.35\linewidth]{Figuras/Fig_entrelazamiento_CHSH_basis}
+	\includegraphics[width=0.35\linewidth]{Figuras/Fig_entrelazamiento_CHSH_basis.png}
 	\caption{Ejemplo particular de unas orientaciones de los medidores de Alice y Bob}
 	\label{Fig_entrelazamiento_CHSH_basis}
 	\end{figure}
@@ -5713,7 +5751,7 @@ R = |1 +  2 \cos\varphi  - \cos 2\varphi|\, .
 \end{equation}
 Derivando vemos que esta expresión alcanza su máximo cuando $\sin\varphi = \sin 2\varphi$ lo cual tiene solución $\varphi = \pi/3 = 60^\circ$. Sustituyendo encontramos $R= 2.5>2$, violando la desigualdad CHSH de la Ec. (\ref{ec_entrelazamiento_CHSH_R}).
 
-	\begin{mybox_orange}{Jypyter Notebook: 05-Entrelazamiento sección 1}
+	\begin{mybox_orange}{Jupyter Notebook: 05-Entrelazamiento sección 1}
 	Ver la sección 1 del notebook \textbf{05-Entrelazamiento}.
 	\end{mybox_orange}
 	
@@ -5773,13 +5811,13 @@ Podemos ver en la Fig. \ref{Fig_entrelazamiento_GHZ} el circuito que genera el e
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_entrelazamiento_GHZ}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_entrelazamiento_GHZ.png}
 	\caption{Circuito que genera el estado GHZ de la Ec. (\ref{ec_medidad_GHZ})}
 	\label{Fig_entrelazamiento_GHZ}
 	\end{figure}
 
 
-	\begin{mybox_orange}{Jypyter Notebook: 05-Entrelazamiento sección 2}
+	\begin{mybox_orange}{Jupyter Notebook: 05-Entrelazamiento sección 2}
 	Ver la sección 2 del notebook \textbf{05-Entrelazamiento}.
 	\end{mybox_orange}
 
@@ -5796,7 +5834,7 @@ Supongamos que Alice y Bob tiene dos qúbits que se encuentran en el estado entr
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.45\linewidth]{Figuras/Fig_entrelazamiento_teleportacion}
+	\includegraphics[width=0.45\linewidth]{Figuras/Fig_entrelazamiento_teleportacion.png}
 	\caption{Circuito del protocolo de teleportación.}
 	\label{Fig_entrelazamiento_teleportacion}
 	\end{figure}
@@ -5841,7 +5879,7 @@ Como resultado de esta operación, el qúbit de Bob es finalmente $\ket{\phi}$.
 	Calcula $(H \otimes I\otimes I)(U_{\rm CNOT}\otimes I)\, \ket{\phi}\ket{B_{00}}$ y verifica que la ecuación del paso 2 es correcta.
 	}
 
-	\begin{mybox_orange}{Jypyter Notebook: 05-Entrelazamiento sección 3}
+	\begin{mybox_orange}{Jupyter Notebook: 05-Entrelazamiento sección 3}
 	Ver la sección 3 del notebook \textbf{05-Entrelazamiento}.
 	\end{mybox_orange}
 	
@@ -5899,7 +5937,7 @@ Consideremos el circuito de la Fig. \ref{Fig_entrelazamiento_entanglement_swap}.
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.45\linewidth]{Figuras/Fig_entrelazamiento_entanglement_swap}
+	\includegraphics[width=0.45\linewidth]{Figuras/Fig_entrelazamiento_entanglement_swap.png}
 	\caption{Circuito para el intercambio de entrelazamiento (entanglement swapping)}
 	\label{Fig_entrelazamiento_entanglement_swap}
 	\end{figure}
@@ -5988,11 +6026,13 @@ Para más información en general sobre física núclear, puede consultarse un l
 En el núcleo, cada nucleón (protones o neutrones) posee un momento angular orbital y un momento angular intrínseco o espín. Al igual que el electrón, los nucleones son fermiones de espín $\hbar/2$. 
 
 A cada \textbf{estado nuclear} se asigna un único número cuántico de espín $I$, representando el \textbf{momento angular total} (orbital más intrínseco) de todos los nucleones en el núcleo. El vector $\vec{I}$ puede considerarse como la suma de las contribuciones orbital y intrínseca (espín intrínseco de protones y neutrones) de los momento angulares de los nucleones
-\begin{align} \label{ec_Hardware_NMR_I}
+\begin{equation} \label{ec_Hardware_NMR_I}
+\begin{aligned} 
 \vec{I} ~ & =  ~ \, \sum_{i=1}^A (\vec{l_i} +  \vec{s_i}) \nonumber \\
 & = ~ \,  \vec{L} + \vec{S}  \\
 & = ~ \, \sum_{i=1}^A \vec{j_i} \nonumber
-\end{align}
+\end{aligned}
+\end{equation}
 donde $A$ es el \textbf{número másico} 
 	\begin{equation}
 	A = Z + N 
@@ -6000,10 +6040,12 @@ donde $A$ es el \textbf{número másico}
 donde $Z$ es el \textbf{número de protones} y $N$ el \textbf{número de neutrones}.
 
 El \textit{número cuántico} $I$ tiene la conexión  usual con el \textit{vector} $\vec{I}$:
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 | \vec{I} | ~ = & ~\,  \sqrt{I(I+1)} \hbar \\
 I_i ~ = & ~\, m_i \hbar \qquad (m_i = I, I-1, \dots, -I +1, -I)
-\end{align}
+\end{aligned}
+\end{equation}
 Al vector $\vec{I}$ se lo denomina \textbf{espín nuclear}.
 
 	\begin{mybox_blue}{Nota: $S_z$ e $I_Z$}
@@ -6113,7 +6155,7 @@ Esto último se traduce matemáticamente en la Ec. (\ref{ec_Hardware_NMR_H_sys_1
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.15\linewidth]{Figuras/Fig_Harware_NMR_split_Zeeman}
+	\includegraphics[width=0.15\linewidth]{Figuras/Fig_Harware_NMR_split_Zeeman.png}
 	\caption{Diagrama de energías de una partícula de espín 1/2 en un campo magnético.}
 	\label{Fig_Harware_NMR_split_Zeeman}
 	\end{figure}
@@ -6203,7 +6245,8 @@ Tenemos entonces
 	\end{bmatrix}
 	\end{equation}
 Para ver que está pasando con el espín bajo la evolución de este Hamiltoniano, calculemos el calor esperado del espín $\vec{S}$ como función del tiempo.
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\left\langle S_x \right\rangle = & \, \bra{\Psi(t)} S_x \ket{\Psi(t)} = 
 	\nonumber \\
 	= & \, \Lc \psi_0^* \quad \psi_1^* \Rc 
@@ -6215,12 +6258,15 @@ Para ver que está pasando con el espín bajo la evolución de este Hamiltoniano
 	\begin{bmatrix} \cos (\alpha/2) e^{i \gamma B_0 t/2} \\ \sin (\alpha/2) e^{-i \gamma B_0 t/2} \end{bmatrix} 
 	\nonumber \\
 	= & \, \frac{\hbar}{2} \sin \alpha \cos (\gamma B_0 t ) 
-	\end{align}
+	\end{aligned}
+\end{equation}
 De forma análoga,
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\left\langle S_y \right\rangle = & \, - \frac{\hbar}{2} \sin \alpha \sin (\gamma B_0 t )  \\
 	\left\langle S_z \right\rangle = & \frac{\hbar}{2} \cos \alpha
-	\end{align}
+	\end{aligned}
+\end{equation}
 
 Con lo cual, $\left\langle \vec{S} \right\rangle$ está inclinado un ángulo $\alpha$ respecto al eje $\hat{z}$, y precesa al rededor del campo con una frecuencia 
 	\begin{equation}
@@ -6229,7 +6275,7 @@ Con lo cual, $\left\langle \vec{S} \right\rangle$ está inclinado un ángulo $\a
 (la frecuencia de Larmor) al igual que en el caso clásico (una peonza inclinada). No tenemos ninguna sorpresa aquí, pues el teorema de Ehrenfest nos asegura que los valores esperados evolucionan de acuerdo a las leyes clásicas del movimiento (algunos autores limitan esta afirmación solo al par de ecuaciones $\left\langle p \right\rangle = m d \left\langle x \right\rangle / dt$ y $\left\langle - \partial V / \partial x \right\rangle = d \left\langle p \right\rangle / dt$) Puede verse esto en el Griffiths, \cite{bib_griffiths_schroeter_2018}. 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.30\linewidth]{Figuras/Fig_Harware_NMR_precession_griffiths}
+	\includegraphics[width=0.30\linewidth]{Figuras/Fig_Harware_NMR_precession_griffiths.png}
 	\caption{Precesión de Larmor en un campo magnético uniforme.}
 	\label{Fig_Harware_NMR_precession_griffiths}
 	\end{figure}
@@ -6282,7 +6328,7 @@ La interpretación del término de acoplamiento escalar de la Ec. (\ref{ec_Hardw
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_Harware_NMR_diagrama}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_Harware_NMR_diagrama.png}
 	\caption{Diagrama de niveles de energía para dos espines desacoplados (líneas discontinuas) y dos espines acoplados (líneas continuas) por un Hamiltoniano de la forma de la Ec.	(\ref{ec_Hardware_NMR_J_coupling}) (en unidades de $\hbar$). Marcadas en rojo están las dos transiciones en las que el espín que no cambia está en el estado $\ket{0}$, mientras que en azul están en las que el espín que no cambia está en el estado $\ket{1}$. Vemos que la energía de transición de las primera disminuye, mientras que de las segundas aumenta.}
 	\label{Fig_Harware_NMR_diagrama}
 	\end{figure}
@@ -6351,7 +6397,7 @@ Naturalmente, el campo de RF se encuentra a lo largo de un eje fijo en el sistem
 
 	\begin{figure}[t]
 	\centering 
-	\includegraphics[width=0.55\linewidth]{Figuras/Fig_Harware_NMR_espiral_bloch}
+	\includegraphics[width=0.55\linewidth]{Figuras/Fig_Harware_NMR_espiral_bloch.png}
 	\caption{Nutación de un espín sometido a un campo de RF transversal observada en el marco de rotación (a) y observada en el marco de laboratorio (b).}
 	\label{Fig_Harware_NMR_espiral_bloch}
 	\end{figure}
@@ -6372,7 +6418,7 @@ como se ilustra en la Fig. \ref{Fig_Harware_NMR_nutacion_inclinada}.
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.35\linewidth]{Figuras/Fig_Harware_NMR_nutacion_inclinada}
+	\includegraphics[width=0.35\linewidth]{Figuras/Fig_Harware_NMR_nutacion_inclinada.png}
 	\caption{Eje de rotación (en el marco giratorio) durante un pulso de radiofrecuencia fuera de resonancia.}
 	\label{Fig_Harware_NMR_nutacion_inclinada}
 	\end{figure}
@@ -6394,7 +6440,7 @@ Los pulsos moderadamente fuera de resonancia ($|\Delta \omega| \approx \omega_1$
 	\label{Fig_Harware_NMR_espiral_bloch_2}
 	\end{figure}
 
-Por otro lado, podemos elegir trabajar en \textbf{un sistema de referencia que rote a} $\bm \omega_0$ (en vez de a $\omega_{rf}$, donde
+Por otro lado, podemos elegir trabajar en \textbf{un sistema de referencia que rote a} $\bm{\omega_0}$ (en vez de a $\omega_{rf}$, donde
 	\begin{equation}
 	\boxed{\mathcal{H}^{rot} = - \omega_1 \Lc \cos ((\omega_{rf} - \omega_0)t + \phi) S_x + \sin ((\omega_{rf} - \omega_0)t + \phi) S_y \Rc}
 	\end{equation}
@@ -6412,10 +6458,12 @@ donde las amplitudes $\omega_i^r$ y las fases $\phi^r$ están bajo control.
 El Hamiltoniano del sistema de la Ec. (\ref{ec_Hardware_NMR_H_sys_final}) se simplifica en el sistema de referencia multi-rotante de la Ec. (\ref{ec_Hardware_NMR_psi_rot_multi}): el termino $S_z^i$ desparece dejando solo el término de acoplamiento $J_{ij} S_z^i S_z^j$, que permanecen invariantes.
 
 En resumen, en el sistema de referencia multi-rotante, el Hamiltoniano de $NMR$ $\mathcal{H} = \mathcal{H}_{sys} + \mathcal{H}_{control}$ toma la forma
-	\begin{align} 
-	& ~~~~ \boxed{ \mathcal{H}_{sys} =  \, \frac{1}{\hbar} \sum_{i<j} 2 \pi J_{ij} S_z^i S_z^j} \label{ec_Hardware_NMR_H_sys_final_multi_rot} \\
-	&\boxed{\mathcal{H}_{control} =  \, \sum_{i,j} - \omega_1^r \Lc \cos ((\omega_{rf}^r - \omega_0^i)t +\phi^r) S_x^i + \sin ((\omega_{rf}^r-\omega_0^i)t +\phi^r) S^i_y \Rc} \label{ec_Hardware_NMR_H_control_final_multi_rot}
-	\end{align}
+	\begin{equation} \label{ec_Hardware_NMR_H_sys_control_final_multi_rot} 
+	\begin{aligned}
+	& ~~~~ \boxed{ \mathcal{H}_{sys} =  \, \frac{1}{\hbar} \sum_{i<j} 2 \pi J_{ij} S_z^i S_z^j} \\
+	&\boxed{\mathcal{H}_{control} =  \, \sum_{i,j} - \omega_1^r \Lc \cos ((\omega_{rf}^r - \omega_0^i)t +\phi^r) S_x^i + \sin ((\omega_{rf}^r-\omega_0^i)t +\phi^r) S^i_y \Rc} 
+	\end{aligned}
+	\end{equation}
 
 
 
@@ -6451,7 +6499,7 @@ Un teorema básico de la computación cuántica es que salvo una fase global irr
 
 			\SubsubiIt{Implementación de puertas de un qúbit.}
 
-Las rotaciones en qúbits individuales pueden implementarse directamente en el sistema de referencia rotante utilizando pulsos de RF. Del Hamiltoniano de control, Ec. (\ref{ec_Hardware_NMR_H_sys_final_multi_rot}), se deduce que cuando se aplica un campo de RF de amplitud $\omega_1$ a un sistema de un único espín con $\omega_{rf} = \omega_0$, el espín evoluciona bajo la transformación
+Las rotaciones en qúbits individuales pueden implementarse directamente en el sistema de referencia rotante utilizando pulsos de RF. Del Hamiltoniano de control, Ec. (\ref{ec_Hardware_NMR_H_sys_control_final_multi_rot}), se deduce que cuando se aplica un campo de RF de amplitud $\omega_1$ a un sistema de un único espín con $\omega_{rf} = \omega_0$, el espín evoluciona bajo la transformación
 	\begin{equation} \label{ec_Hardware_NMR_U_arbitrario}
 	U = e^{i \frac{\mathcal{H}_{control}}{\hbar}} = \exp \Lc i \omega_1 \lp  \cos \phi S_x + \sin \phi S_y \rp \frac{t_{p \omega}}{\hbar} \Rc
 	\end{equation}
@@ -6497,7 +6545,8 @@ Si se permite que esta evolución ocurra durante un tiempo $t = 1/2J$ se obtiene
 	\end{bmatrix}	 
 	\end{equation}
 Esta puerta es equivalente a la conocida puerta CNOT salvo un cambio de base del qúbit objetivo y un desplazamiento de fase en el qúbit de control:
-	\begin{align} \label{ec_Hardware_NMR_implementacion_CNOT}
+	\begin{equation} \label{ec_Hardware_NMR_implementacion_CNOT}
+\begin{aligned} 
 	U_{CNOT} = & \, i Z_1 \sqrt{Y^\dagger_2} U_{CPHASE} \sqrt{Y_2} \nonumber \\
 	= & \, i Z_1 \sqrt{Y^\dagger_2} \Lc \sqrt{-i} \sqrt{Z^\dagger_1} \sqrt{Z^\dagger_2} U_J (1/2J)  \Rc \sqrt{Y_2} \nonumber \\
 	= & \, \sqrt{i} \sqrt{Z_1} \sqrt{Z_2^\dagger} \sqrt{X_2} U_j (1/2J) \sqrt{Y_2}  \nonumber \\
@@ -6508,13 +6557,14 @@ Esta puerta es equivalente a la conocida puerta CNOT salvo un cambio de base del
 	0 & 0 & 0 & 1 \\
 	0 & 0 & 1  & 0 
 	\end{bmatrix}
-	\end{align}
+	\end{aligned}
+\end{equation}
 
 El núcleo de esta secuencia, $\sqrt{X_2} U_j (1/2J) \sqrt{Y_2}$, puede entenderse gráficamente mediante la Fig. \ref{Fig_Harware_NMR_implementacion_CNOT}, suponiendo que los espines comienzan a lo largo de $\pm \hat{z}$. Primero, un pulso en el espín 2 que lo rota de $\hat{z}$ a $\hat{y}$. A continuación, se deja que el sistema de espín evolucione libremente durante $1/2J_{12}$ segundos. Como \textbf{la frecuencia de precesión del espín 2 se desplaza $\pm J_{12}/2$ dependiendo de si el espín 1 está en $\ket{1}$ o $\ket{0}$} (ver Fig. \ref{Fig_Harware_NMR_diagrama}), el espín 2 llegará en $1/2J_{12}$ segundos a $+\hat{y}$ o $- \hat{y}$, dependiendo del estado del espín 1. Finalmente, un pulso de 90º sobre el espín 2 alrededor del eje $\hat{x}$ hace girar el espín 2 de nuevo a $+\hat{z}$ si el espín 1 está en $\ket {0}$, o a $-\hat{z}$ si el espín 1 está en $\ket{1}$.
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.7\linewidth]{Figuras/Fig_Harware_NMR_implementacion_CNOT}
+	\includegraphics[width=0.7\linewidth]{Figuras/Fig_Harware_NMR_implementacion_CNOT.png}
 	\caption{Representación en esfera de Bloch del funcionamiento de la puerta CNOT$_{12}$ entre dos qubits 1 y 2 acoplados por $2 \pi J S_z^1S_z^2/\hbar$ . Aquí se reprensenta el estado del qúbit 2 (el qúbit objetivo de la CNOT), que comienza en $\ket{0}$ (a lo largo de $\hat{z}$) y se representa en un marco de referencia que gira alrededor de $\hat{z}$ a $\omega_0^2/2 \pi$. Las flechas continuas y discontinuas corresponden al caso en que el qúibit 1 (de controlo) está en $\ket{0}$ y $\ket{1}$ respectivamente. Figura tomada de \cite{bib_NMR_hardware}.}
 	\label{Fig_Harware_NMR_implementacion_CNOT}
 	\end{figure}
@@ -6564,14 +6614,14 @@ que nos lleva a
 	\end{equation}
 
 	\Ejercicio{
-	Partiendo de los estados de las primeras esferas de Bloch de las figuras  \ref{Fig_Harware_NMR_refocusing}a y \ref{Fig_Harware_NMR_refocusing}b, (sería el estado $\ket{y-}$ de la Ec.    (\ref{ec_qubit_y-})), aplica una a una las puertas de las figuras, comprobando que estas son correctas. (Nota: no hace falta darle un valor a $\tau$, simplemente dejarlo como parámetro libre)
+	Partiendo de los estados de las primeras esferas de Bloch de las figuras  \ref{Fig_Harware_NMR_refocusing}a y \ref{Fig_Harware_NMR_refocusing}b, (sería el estado $\ket{y-}$ de la Ec.    (\ref{ec_qubit_y+})), aplica una a una las puertas de las figuras, comprobando que estas son correctas. (Nota: no hace falta darle un valor a $\tau$, simplemente dejarlo como parámetro libre)
 	}
 
 
 
 	\begin{figure}[t]
 	\centering 
-	\includegraphics[width=0.7\linewidth]{Figuras/Fig_Harware_NMR_refocusing}
+	\includegraphics[width=0.7\linewidth]{Figuras/Fig_Harware_NMR_refocusing.png}
 	\caption{Representación en esfera de Bloch del funcionamiento de dos esquemas sencillos para reenfocar el acoplamiento entre dos qúbits acoplados. El diagrama muestra la evolución del \textbf{qúbit 1} (en el sistema rotante) inicialmente a lo largo de $- \hat{y}$, cuando el qúbit 2 está en $\ket{0}$ (sólido) o en $\ket{1}$ (discontinuo). Los pulsos de reenfoque puede aplicarse tanto al  qúbit 2 (a) como al qúbit 1 (b).}
 	\label{Fig_Harware_NMR_refocusing}
 	\end{figure}
@@ -6584,7 +6634,7 @@ La Fig. \ref{Fig_Harware_NMR_refocuse_1} da una idea de las técnicas de reenfoq
 
 	\begin{figure}[t]
 	\centering 
-	\includegraphics[width=0.5\linewidth]{Figuras/Fig_Harware_NMR_refocuse_1}
+	\includegraphics[width=0.5\linewidth]{Figuras/Fig_Harware_NMR_refocuse_1.png}
 	\caption{Esquema de reenfoque para un sistema de 4 espines, diseñado para preservar el efecto de la interacción $J_{12}$ todo el tiempo pero neutralizando el efecto del resto de las $J_{ij}$. El intervalo está dividido en segmentos de igual duración, y los signos ``$+$'' y ``$-$'' indican si un espín está en suposición original o del revés. Los rectángulos negros representan pulsos de 180º, que dan la vuelta al correspondiente espín.}
 	\label{Fig_Harware_NMR_refocuse_1}
 	\end{figure}
@@ -6622,7 +6672,7 @@ En primer lugar, cada qúbit estará generalmente acoplado a no más de un núme
 En segundo lugar, si las evoluciones hacia delante y hacia atrás bajo
 $J_{ij}$ no son iguales en duración, se produce una evolución neta acoplada correspondiente al exceso de evolución hacia delante o hacia atrás. En principio, por tanto, podemos organizar cualquier esquema de reenfoque de forma que incorpore cualquier cantidad deseada de evolución acoplada para cada par de qúbits.
 
-En tercer lugar, las secuencias de reenfoque también pueden utilizarse para eliminar el efecto de los términos $S_{z}^i$ en el Hamiltoniano. Por supuesto, estos términos desaparecen en principio si trabajamos en el marco de rotación múltiple (véase la Ec. (\ref{ec_Hardware_NMR_H_sys_final_multi_rot})). Sin embargo, puede haber cierta dispersión en las frecuencias de Larmor, por ejemplo debido a inhomogeneidades del campo magnético. Este efecto puede invertirse utilizando pulsos de reenfoque.
+En tercer lugar, las secuencias de reenfoque también pueden utilizarse para eliminar el efecto de los términos $S_{z}^i$ en el Hamiltoniano. Por supuesto, estos términos desaparecen en principio si trabajamos en el marco de rotación múltiple (véase la Ec. (\ref{ec_Hardware_NMR_H_sys_control_final_multi_rot})). Sin embargo, puede haber cierta dispersión en las frecuencias de Larmor, por ejemplo debido a inhomogeneidades del campo magnético. Este efecto puede invertirse utilizando pulsos de reenfoque.
 
 
 
@@ -6731,15 +6781,17 @@ Además, tenemos dos restricciones en la matriz densidad:
 	\end{matrix}
 	\end{equation*}
 Con lo cual, solo nos interesan dos de las cuatro ecuaciones, una para $\rho_{\uparrow \uparrow}$ y otra para $\rho_{\uparrow \downarrow}$
-	\begin{align}
-	i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} & = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp \label{ec_decoherencia_rho_up-up}\\
+	\begin{equation} \label{ec_decoherencia_rho_up-up_up-down} 
+	\begin{aligned}
+	i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} & = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp \\
 	i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} & = 
 	- \frac{\hbar}{2} \Lc 2 \Delta \omega \rho_{\uparrow \downarrow} + 
-	\omega_1 e^{-i \phi} (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \Rc \label{ec_decoherencia_rho_up-down}
-	\end{align}
+	\omega_1 e^{-i \phi} (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \Rc 
+	\end{aligned}
+	\end{equation}
 donde $\Delta \omega = (\omega_0 - \omega_{rf})$.
 
-	\begin{mybox_blue}{Nota: Derivación de (\ref{ec_decoherencia_rho_up-up}) y  (\ref{ec_decoherencia_rho_up-down})}
+	\begin{mybox_blue}{Nota: Derivación de (\ref{ec_decoherencia_rho_up-up_up-down})}
 		\begin{align*}
 		\frac{2}{\hbar}\lc \mathcal{H} , \rho \rc & = - 
 		\begin{bmatrix}
@@ -6779,15 +6831,17 @@ donde $\Delta \omega = (\omega_0 - \omega_{rf})$.
 
 La evolución de este espín de electrón giratorio o en precesión es unitaria ya que hasta ahora estamos considerando un único espín aislado sin desfase ni decoherencia. La coherencia cuántica se mantiene siempre. Sin embargo, \textbf{el espín de un electrón nunca está aislado}. Se acopla a los grados de libertad orbitales del electrón a través del acoplamiento espín-órbita, a los espines nucleares a través de la interacción hiperfina y la interacción dipolar, a la red cristalina (y por tanto a los fonones) a través del acoplamiento espín-órbita, a cualquier impureza magnética del entorno a través del acoplamiento directo espín-dipolo, y a otros espines de electrones a través del acoplamiento dipolar y de intercambio. 
 
-Con todos estos grados de libertad ``ambientales'' presentes en principio, las simples ecuaciones libres de decoherencia para la matriz de densidad de espín (\ref{ec_decoherencia_rho_up-up}) y (\ref{ec_decoherencia_rho_up-down}) son obviamente una idealización. Para determinar cómo de fuertes son estas influencias ``externas'', necesitamos incluirlas en el Hamiltoniano de partida, y luego emplear aproximaciones para lograr una comprensión cuantitativa de cómo evoluciona el sistema y cómo el espín que nos ocupa pierde su coherencia debido a su acoplamiento al ``entorno''. Obviamente, se trata de un problema muy complicado (de hecho, un problema irresoluble, ya que nunca podremos estar seguros de conocer con precisión todos los grados de libertad posibles del entorno). 
+Con todos estos grados de libertad ``ambientales'' presentes en principio, las simples ecuaciones libres de decoherencia para la matriz de densidad de espín (\ref{ec_decoherencia_rho_up-up_up-down}) son obviamente una idealización. Para determinar cómo de fuertes son estas influencias ``externas'', necesitamos incluirlas en el Hamiltoniano de partida, y luego emplear aproximaciones para lograr una comprensión cuantitativa de cómo evoluciona el sistema y cómo el espín que nos ocupa pierde su coherencia debido a su acoplamiento al ``entorno''. Obviamente, se trata de un problema muy complicado (de hecho, un problema irresoluble, ya que nunca podremos estar seguros de conocer con precisión todos los grados de libertad posibles del entorno). 
 
-Un enfoque sencillo para abordar este problema consiste en añadir términos de decaimiento exponencial a los lados derechos de las dos Ecs. (\ref{ec_decoherencia_rho_up-up}) y (\ref{ec_decoherencia_rho_up-down}) anteriores:
-	\begin{align}
-	i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} & = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp - \frac{i \hbar}{T_1} \rho_{\uparrow \uparrow} \, , \label{ec_decoherencia_rho_up-up_ficcion} \\
+Un enfoque sencillo para abordar este problema consiste en añadir términos de decaimiento exponencial a los lados derechos de las dos Ecs. (\ref{ec_decoherencia_rho_up-up_up-down})  anteriores:
+	\begin{equation} \label{ec_decoherencia_rho_up-up_up-down_ficcion} 
+	\begin{aligned}
+	i \hbar \frac{\partial \rho_{\uparrow \uparrow}}{\partial t} & = \frac{\hbar}{2} \lp \rho_{\uparrow \downarrow} e^{-i \phi} - \rho_{\downarrow \uparrow} e^{i \phi} \rp - \frac{i \hbar}{T_1} \rho_{\uparrow \uparrow} \, , \\
 	i \hbar \frac{\partial \rho_{\uparrow \downarrow}}{\partial t} & = 
 	- \frac{\hbar}{2} \Lc 2 \Delta \omega \rho_{\uparrow \downarrow} + 
-	\omega_1 e^{-i \phi} (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \Rc - \frac{i \hbar}{T_2}  \rho_{\uparrow \downarrow} \, , \label{ec_decoherencia_rho_up-down_ficcion}
-	\end{align}
+	\omega_1 e^{-i \phi} (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \Rc - \frac{i \hbar}{T_2}  \rho_{\uparrow \downarrow} \, , 
+	\end{aligned}
+	\end{equation}
 para imitar el comportamiento observado fenomenológicamente de la decoherencia. Esto es simular a añadir un término de fricción proporcional a la velocidad en la ecuación de newton clásica. Las dos constantes pueden calcularse en determinadas condiciones si se dispone de suficiente información sobre el entorno. Este sencillo enfoque fenomenológico resulta ser bastante exitoso en la descripción de muchos experimentos, que van desde la RMN y la ESR hasta la óptica cuántica, aunque los cálculos explícitos reales de $T_1$ y $T_2$ suelen ser bastante difíciles. Quizás sea más fructífero considerar $T_1$ y $T_2$ como parámetros puramente fenomenológicos (que caracterizan las relajaciones longitudinal y transversal respectivamente en la dinámica TLS) que deben obtenerse a partir de medidas experimentales.
 
 Recordemos que el vector unitario de magnetización está relacionado con el espín mediante
@@ -6800,12 +6854,14 @@ con lo que
 	M_y = -2 \text{Im}(\rho_{\uparrow \downarrow}) \, , \hspace{2cm}	
 	M_z = (\rho_{\uparrow \uparrow} - \rho_{\downarrow \downarrow}) \,.
 	\end{equation}
-Podemos ahora reescribir las Eqs. (\ref{ec_decoherencia_rho_up-up_ficcion}) y (\ref{ec_decoherencia_rho_up-down_ficcion}) con respecto a las componentes del vector real $\vec{M}$, obteniendo las \textbf{ecuaciones de Bloch} en el sistema de referencia rotante:
-	\begin{align}
+Podemos ahora reescribir las Eqs. (\ref{ec_decoherencia_rho_up-up_up-down_ficcion}) con respecto a las componentes del vector real $\vec{M}$, obteniendo las \textbf{ecuaciones de Bloch} en el sistema de referencia rotante:
+	\begin{equation} 
+\begin{aligned}
 	\frac{\partial M_x}{\partial t} & = - \frac{1}{T_2} M_x - \Delta\omega M_y \, , \\
 	\frac{\partial M_y}{\partial t} & = \Delta\omega - \frac{1}{T_2} M_y - \omega_1 M_z\, , \\
 	\frac{\partial M_z}{\partial t} & = \omega_1 M_y - \frac{1}{T_1} (M_z +1) \, .
-	\end{align}
+	\end{aligned}
+\end{equation}
 Vemos fácilmente que $T_2$ \textbf{es el tiempo de relajación para la magnetización $xy$ (transversal) de los electrones, mientras que $T_1$ es el tiempo de decaimiento para la magnetización en dirección $z$ (longitudinal)}. 
 
 Para describir un conjunto de espines, que en general pueden poseer diferentes desdoblamientos Zeeman $\hbar \omega$ (por ejemplo, en virtud de inhomogeneidades en el campo magnético aplicado y/o en el factor $g$ del electrón) y por lo tanto tener diferentes valor de $\Delta\omega$, es necesario realizar un promedio adicional del conjunto. Este promediado conduce a una constante de tiempo $T^{*}_2$ $(\leq T_2)$ diferente para describir la anchura de la señal de resonancia magnética (el ensanchamiento no homogéneo), pero no afecta a la dirección longitudinal. Obsérvese que $T_2$ (o $T^{*}_2$) describe el proceso de desfase ($T_2$ suele denominarse \textbf{tiempo de desfase}), y $T_1$ $(\geq  T_2)$ es el \textbf{tiempo de relajación inelástica de inversión de espín (spin-flip)}. A menudo $T_2$ también se denomina \textbf{tiempo de relajación espín-espín} por razones que se discutirán más adelante. 
@@ -6863,7 +6919,7 @@ Se dice que un conjunto de puertas cuánticas es \textbf{universal} si cualquier
 	uno de los principales agentes en este medio, IBM, usa un convenio distinto en su software Qiskit
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion.png}
 	\caption{Convenios de ordenación de los qúbits en la forma estándar, resaltando que Qiskit decide usar el convenio al revés.}
 	\label{Fig_elementos_convenios_ordenacion}
 	\end{figure}
@@ -6928,7 +6984,7 @@ En resultado final es que la fase $e^{i\lambda}$ ha \textbf{modificado} el estad
 
 		\begin{figure}[H]
 		\centering 
-		\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_phase_kickback}
+		\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_phase_kickback.png}
 		\caption{Ejemplo de \textit{phase kickback}.}
 		\label{Fig_elementos_phase_kickback.}
 		\end{figure}
@@ -7039,7 +7095,7 @@ Para el caso $A = \hat{\bf n}\cdot \boldsymbol{\sigma} $  la conjugación es
 	\end{eqnarray*}
 		\begin{figure}[H]
 		\centering 
-		\includegraphics[width=0.70\linewidth]{Figuras/Fig_elementos_HRzHconjugation}
+		\includegraphics[width=0.70\linewidth]{Figuras/Fig_elementos_HRzHconjugation.png}
 		\caption{La conjugación con $H$ de una rotación en $Z$ nos da una rotación en $X$.}
 		\label{Fig_elementos_HRzHconjugation}
 		\end{figure}
@@ -7053,7 +7109,7 @@ Para el caso $A = \hat{\bf n}\cdot \boldsymbol{\sigma} $  la conjugación es
 La puerta  controlada $\cg{Z} =  {\rm diag}(1,1,1,-1)$   es simétrica ya que lo único que hace, es cambiar de signo al estado $\ket{11}$. Podemos ver esto en la Fig. \ref{Fig_elementos_Equiv_Z}.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.35\linewidth]{Figuras/Fig_elementos_Equiv_Z}
+	\includegraphics[width=0.35\linewidth]{Figuras/Fig_elementos_Equiv_Z.png}
 	\caption{Equivalencia entre $\cg{Z}$s cambiando el qúbit controlador y el controlado.}
 	\label{Fig_elementos_Equiv_Z}
 	\end{figure}
@@ -7065,7 +7121,7 @@ La puerta  controlada $\cg{Z} =  {\rm diag}(1,1,1,-1)$   es simétrica ya que lo
 Otra equivalencia importante es la de la Fig. \ref{Fig_elementos_Equiv_HH}. Para probarla, observemos que las tres puertas del segundo qúbit se pueden componer para dar $HXH=Z$. Por el contrario, las dos puertas de Hadamard en el primer qúbit no se pueden multiplicar al haber un control entre ellas. Sin embargo, usando la  equivalencia de la Fig. \ref{Fig_elementos_Equiv_Z} podemos invertir la puerta $\cg{Z}$ y, finalmente, conjugar en el primer qúbit $HZH=X$.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_Equiv_HH}
+	\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_Equiv_HH.png}
 	\caption{Equivalencia entre CNOTs cambiando el qúbit controlador y el controlado}
 	\label{Fig_elementos_Equiv_HH}
 	\end{figure}
@@ -7076,12 +7132,12 @@ Otra equivalencia importante es la de la Fig. \ref{Fig_elementos_Equiv_HH}. Para
 Otra  equivalencia nada intuitiva pero muy importante relaciona tres operaciones CNOT con la permutación U$_{\rm SWAP}$ de la Fig. \ref{Fig_elementos_Equiv_CNOTs}. No hay una forma sencilla de probar esta identidad, así que lo recomendable es escribir las matrices asociadas a cada miembro y comprobar que son iguales. Vemos que gracias a esta equivalencia, la SWAP no es una puerta fundamental.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_Equiv_CNOTs}
+	\includegraphics[width=0.45\linewidth]{Figuras/Fig_elementos_Equiv_CNOTs.png}
 	\caption{Construcción de la puerta SWAP mediante CNOTs.}
 	\label{Fig_elementos_Equiv_CNOTs}
 	\end{figure}
 
-	\begin{mybox_orange}{Jypyter Notebook: 06-Elementos\_Basicos sección 1}
+	\begin{mybox_orange}{Jupyter Notebook: 06-Elementos\_Basicos sección 1}
 	Ver la sección 1 del notebook \textbf{06-Elementos\_Basicos}.
 	\end{mybox_orange}
 
@@ -7092,7 +7148,7 @@ Otra  equivalencia nada intuitiva pero muy importante relaciona tres operaciones
 La puerta de phase global controlada, $\cg{K_\phi} = {\rm diag} (1,1,e^{i\phi}, e^{i\phi})$, secretamente, no es una puerta controlada
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.35\linewidth]{Figuras/Fig_elementos_Equiv_Kphase}
+	\includegraphics[width=0.35\linewidth]{Figuras/Fig_elementos_Equiv_Kphase.png}
 	\caption{La puerta controlada de fase global no es una puerta controlada.}
 	\label{Fig_elementos_Equiv_Kphase}
 	\end{figure}
@@ -7111,7 +7167,7 @@ La puerta de phase global controlada, $\cg{K_\phi} = {\rm diag} (1,1,e^{i\phi}, 
 	Comprueba la equivalencia de los dos circuitos siguientes, siempre que se verifique que $V^2 = U$
 		\begin{figure}[H]
 		\centering 
-		\includegraphics[width=0.60\linewidth]{Figuras/Fig_elementos_CCUdecomposition}
+		\includegraphics[width=0.60\linewidth]{Figuras/Fig_elementos_CCUdecomposition.png}
 		\caption{Desconposición de una puerta con dos controles}
 		\label{Fig_elementos_CCUdecomposition}
 		\end{figure}
@@ -7156,7 +7212,7 @@ Para 2 qúbits la \textbf{clase de Clifford} admite puertas controladas.
 que copia el operador $X$ en el segundo qúbit. Esta identidad se puede demostrar gráficamente como vemos en la Fig. \ref{Fig_elementos_clone_X}.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.9\linewidth]{Figuras/Fig_elementos_clone_X}
+	\includegraphics[width=0.9\linewidth]{Figuras/Fig_elementos_clone_X.png}
 	\caption{Clonación de la puerta $X$.}
 	\label{Fig_elementos_clone_X}
 	\end{figure}
@@ -7186,7 +7242,7 @@ donde $f: x \to f(x)$ es una función arbitraria invertible.
 Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase}.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.60\linewidth]{Figuras/Fig_elementos_Equiv_Phase}
+	\includegraphics[width=0.60\linewidth]{Figuras/Fig_elementos_Equiv_Phase.png}
 	\caption{Descomposión de la puerta $\cg{P_\phi}$ en puertas de un qúbit y CNOTs}
 	\label{Fig_elementos_Equiv_Phase}
 	\end{figure}
@@ -7201,7 +7257,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 		En general para $\cg{^kU}$ necesitamos $k-1$ ancillas, como podemos ver en la Fig. \ref{Fig_universal_CkUdecomposition}.
 			\begin{figure}[H]
 			\centering 
-			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_CkUdecomposition}
+			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_CkUdecomposition.png}
 			\caption{Descomposión de una puerta $U$ multicontrolada.}
 			\label{Fig_universal_CkUdecomposition}
 			\end{figure}
@@ -7213,7 +7269,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 		$U = X = HZH=HSSH =  (HSH)(HSH)= V^2 ~~\Rightarrow ~~V = HSH$.
 			\begin{figure}[H]
 			\centering 
-			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_Toffolidecomposition}
+			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_Toffolidecomposition.png}
 			\caption{Descomposión de la puerta Toffoli.}
 			\label{Fig_universal_Toffolidecomposition}
 			\end{figure}
@@ -7225,7 +7281,7 @@ Podemos ver un ejemplo de este teorema en la Fig. \ref{Fig_elementos_Equiv_Phase
 		siguiendo el circuito de la Fig. \ref{Fig_universal_CUdecomposition}
 			\begin{figure}[H]
 			\centering 
-			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_CUdecomposition}
+			\includegraphics[width=0.65\linewidth]{Figuras/Fig_universal_CUdecomposition.png}
 			\caption{Descomposión de $\cg{U}$.}
 			\label{Fig_universal_CUdecomposition}
 			\end{figure}
@@ -7300,7 +7356,7 @@ Alguna medidas cuantitativas  permiten comparar la calidad de distintos circuito
 	\item \textbf{Profundidad}: para evaluar la \textbf{profundidad} es necesario agrupar todas las puertas que se puedan realizar en paralelo en cortes temporales de duración $\Delta$ (pulso). En particular puertas que actúen sobre registros diferentes no interferirán y se podrán paralelizar. Por ejemplo, el circuito de la Fig. \ref{Fig_universal_CkUdecomposition} tiene un coste igual a 6, pero una profundidad igual a 5. 
 \end{itemize}
 
-	\begin{mybox_orange}{Jypyter Notebook: 06-Elementos\_Basicos sección 2}
+	\begin{mybox_orange}{Jupyter Notebook: 06-Elementos\_Basicos sección 2}
 	Ver la sección 2 del notebook \textbf{06-Elementos\_Basicos}.
 	\end{mybox_orange}
 	
@@ -7340,7 +7396,7 @@ D(\gamma_i,\gamma_j ) = \begin{bmatrix} e^{i\gamma_i} & 0 \\ 0 & e^{i\gamma_j} \
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.65\linewidth]{Figuras/Fig_InicialOracle_preparestatecircuit}
+	\includegraphics[width=0.65\linewidth]{Figuras/Fig_InicialOracle_preparestatecircuit.png}
 	\caption{Preparación de un estado inicial genérico de 2 qúbits.}
 	\label{Fig_InicialOracle_preparestatecircuit}
 	\end{figure}
@@ -7443,7 +7499,7 @@ $x_2$ & $x_1$ & $x_0$ & & $f(x)$ \\ \hline
 La idea es considerar exclusivamente los términos que tienen como salida la variable 1, que denominaremos \textbf{min-términos}. Por ejemplo hay un min-término de la forma $101 \to 1$ que se puede obtener mediante una puerta de la Fig. \ref{Fig_InitialOracle_ctrl5}.
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.13\linewidth]{Figuras/Fig_InitialOracle_ctrl5}
+	\includegraphics[width=0.13\linewidth]{Figuras/Fig_InitialOracle_ctrl5.png}
 	\caption{Uno de los min-términos de la función de la tabla \ref{Tab_InitialOracle_f_bin_1}}
 	\label{Fig_InitialOracle_ctrl5}
 	\end{figure}
@@ -7472,7 +7528,7 @@ donde  $\oplus$ es la suma módulo 2. Por ejemplo, el circuito que implementa es
 
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.35\linewidth]{Figuras/Fig_InitialOracle_linear_function}
+	\includegraphics[width=0.35\linewidth]{Figuras/Fig_InitialOracle_linear_function.png}
 	\caption{Ejemplo de función binaria lineal para $a=11010$.}
 	\label{Fig_InitialOracle_linear_function}
 	\end{figure}
@@ -7488,7 +7544,7 @@ donde  $\oplus$ es la suma módulo 2. Por ejemplo, el circuito que implementa es
 
 
 
-	\begin{mybox_orange}{Jypyter Notebook: 07-Estado\_inicial\_y\_oraculo sección 2}
+	\begin{mybox_orange}{Jupyter Notebook: 07-Estado\_inicial\_y\_oraculo sección 2}
 	Ver la sección 2 del notebook \textbf{07-Estado\_inicial\_y\_oraculo}.
 	\end{mybox_orange}
 	
@@ -7607,7 +7663,7 @@ Los problemas de \textbf{búsqueda de oráculo} consisten en desvelar alguna pro
 	uno de los principales agentes en este medio, IBM, usa un convenio distinto en su software Qiskit
 	\begin{figure}[H]
 	\centering 
-	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion}
+	\includegraphics[width=0.4\linewidth]{Figuras/Fig_multiqubits_convenios_ordenacion.png}
 	\caption{Convenios de ordenación de los qúbits en la forma estándar, resaltando que Qiskit decide usar el convenio al revés.}
 	\label{Fig_elementos_convenios_ordenacion}
 	\end{figure}
@@ -7701,7 +7757,7 @@ Vamos a plantear los siguientes problemas del oráculo de la siguiente forma: te
 	En el primer paso (de la primera linea a la segunda) usamos la igualdad trivial $ (-1)^a = (-1)^{-a}$. Entender el segundo paso y la aparición de la  delta es un poco más complicado. Para ello, tenemos que darnos cuenta de que en el sumatorio en $x$ vamos a tener tantos 1 como $-1$, con lo cual va a ser $0$ excepto para el valor de $y$ para el cual el término $(-a+y) = 0$. Para este último, independientemente del valor de $x$, todos los exponentes serán cero, así que tendremos una suma de unos.
 	\end{proof}
 
-	\begin{mybox_orange}{Jypyter Notebook: 08-Busqueda\_Oracula sección 1}
+	\begin{mybox_orange}{Jupyter Notebook: 08-Busqueda\_Oracula sección 1}
 	Ver la sección 1 del notebook \textbf{08-Busqueda\_Oracula}.
 	\end{mybox_orange}
 
@@ -7819,7 +7875,7 @@ El algoritmo de Simon fue el primer algoritmo cuántico que mostró una acelerac
 
 \end{itemize}
 
-	\begin{mybox_orange}{Jypyter Notebook: 08-Busqueda\_Oracula sección 2}
+	\begin{mybox_orange}{Jupyter Notebook: 08-Busqueda\_Oracula sección 2}
 	Ver la sección 2 del notebook \textbf{08-Busqueda\_Oracula}.
 	\end{mybox_orange}
 
@@ -7851,7 +7907,7 @@ El algoritmo de Simon fue el primer algoritmo cuántico que mostró una acelerac
 
 
 
-\chapter{QFT: Quantum Fourier Transform} \label{chapter_QFT}
+\chapter{QFT: Quantum Fourier Transform} \label{sec_chapter_QFT}
 
 	\section{La QFT en computación cuántica}
 	
@@ -8115,7 +8171,7 @@ Obsérvese que sólo el último qúbit depende de los valores de todos los demá
 
 Además, a medida que el circuito QFT se hace grande, se emplea una cantidad de tiempo cada vez mayor en realizar rotaciones cada vez más ligeras (hay rotaciones de hasta $2\pi/2^n$). Resulta que podemos ignorar las rotaciones por debajo de un cierto umbral y seguir obteniendo resultados decentes, lo que se conoce como \textbf{QFT aproximada}. Esto también es importante en las implementaciones físicas, ya que reducir el número de operaciones puede reducir en gran medida la decoherencia y los posibles errores de puerta.
  
-	\begin{mybox_orange}{Jypyter Notebook: 09-QFT}
+	\begin{mybox_orange}{Jupyter Notebook: 09-QFT}
 	Ver el notebook \textbf{9-QFT}.
 	\end{mybox_orange}
 
@@ -8143,7 +8199,7 @@ Como acabamos de comentar, cuando aplicamos al QFT exacta sobre $n$ qúbits nece
 Se puede apreciar que cuando $k$ crece mucho, las puertas $\cg{R_k}$ se aproximan a la Identidad. Esto hace que podamos prescindir de las puertas con un valor $k$ mayor que un cierto umbral $k_{max}$ y aplicar así una versión \textbf{aproximada} (con menos operaciones) de la QFT. Puede demostrarse (ver \cite{bib_QFT-aprox}) que el error introducido por ignorar todas las puertas con un valor $k > k_{max}$ es proporcional a $n 2^{-k_{max}}$. Podemos pues tomar $k_{max}$ del orden de $\mathcal{O} (\log_2 n)$, pasando de tener del orden de $\mathcal{O} (n^2)$ operaciones (puertas) a $\mathcal{O} (n \log_2(n))$ operaciones (en concreto $\frac{1}{2} (2n-\log_2n)(\log_2n-1)$ operaciones).
 
 
-\chapter{QPE: Estimación de Fase Cuántica} \label{chapter_QPE}
+\chapter{QPE: Estimación de Fase Cuántica} \label{sec_chapter_QPE}
 
 
 \section{Introducción}
@@ -8166,7 +8222,7 @@ El algoritmo lo que hace es estimar el valor de $\theta$. Es decir:
 
 \section{Circuito}
 
-En la Fig. \ref{Fig-QPE} podemos ver el circuito que implementa el algoritmo de estimación de fases. Podemos ver que el circuito consta de tres partes. El primer registro tiene dimensión $t$, mientras que el segundo registro tiene dimensión $n$. La entrada es el estado $\ket{0}_t \otimes \ket{\psi}$:
+En la Fig. \ref{Fig_QPE} podemos ver el circuito que implementa el algoritmo de estimación de fases. Podemos ver que el circuito consta de tres partes. El primer registro tiene dimensión $t$, mientras que el segundo registro tiene dimensión $n$. La entrada es el estado $\ket{0}_t \otimes \ket{\psi}$:
 \begin{itemize}
 	\item La dimensión $t$ del primer registro controlará la \textit{precisión de nuestra aproximación} a $\theta$. 
 	\item La dimensión $n$ del espacio al que pertenece $\ket{\varphi}$  es la necesaria para servir de espacio de representación para $U$.
@@ -8177,7 +8233,7 @@ Vemos que aparece también la \textbf{inversa de la transformada de Fourier}, es
 \centering 
 \includegraphics[width=0.8\linewidth]{Figuras/Fig-QPE-Circuito.png}
 \caption{Implementación del algoritmo de estimación de fase cuántica (en el convenio estándar)}
-\label{Fig-QPE}
+\label{Fig_QPE}
 \end{figure}
 
 
@@ -8280,7 +8336,7 @@ con $a \in \mathbb{Z}$ y $\delta \in [0,1)$. Con esta separación, el resultado 
 
 \end{itemize}
 
-	\begin{mybox_orange}{Jypyter Notebook: 10-QPE}
+	\begin{mybox_orange}{Jupyter Notebook: 10-QPE}
 	Ver la sección 1.1 del notebook notebook \textbf{9-QFS}.
 	\end{mybox_orange}
 
@@ -8353,7 +8409,7 @@ Comparando este resultado con el de la Ec. (\ref{ec_QPE_p(m)}) vemos que lo que 
 	\end{mybox_blue}
 
 	
-	\begin{mybox_orange}{Jypyter Notebook: 10-QPE}
+	\begin{mybox_orange}{Jupyter Notebook: 10-QPE}
 	Ver secciones 1.2 y 1.3 del notebook \textbf{10-QPE}.
 	\end{mybox_orange}
 
@@ -8371,7 +8427,7 @@ Comparando este resultado con el de la Ec. (\ref{ec_QPE_p(m)}) vemos que lo que 
 
 
 
-\chapter{Algoritmo de Shor (Periodicity Finding)} \label{chapter_Shor}
+\chapter{Algoritmo de Shor (Periodicity Finding)} \label{sec_chapter_Shor}
 
 El algoritmo de Shor se basa en el algoritmo de \textbf{Estimación de Fase Cuántica (Quantum Phase Estimation)}, que a su vez usa la \textbf{Transformada de Fourier Cuántica (Quantum Fourier Transform)}. El algoritmo de Shor lo que hace es convertir el problema de la factorización  de un número en un problema de \textbf{encontrar el periodo de una función}, el cual puede ser implementado en un tiempo polinómico. 
 
@@ -8482,10 +8538,12 @@ En el momento en el que llegamos a un exponente $r$ tal que $a^r \text{ mod} N =
 	a^r = \alpha N + 1
 	\end{equation}
 con lo cual
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 f(r+z) & = a^{r+z} \text{ mod} N   = a^r a^z \text{ mod} N = (\alpha N + 1)a^z \text{ mod} N = \\ 
 & = \alpha N a^z \text{ mod} N + a^z \text{ mod} N  = a^z \text{ mod} N = f(z)
-\end{align}
+\end{aligned}
+\end{equation}
 
 Hemos visto pues que $f(x)$ es periódica.
 
@@ -8527,7 +8585,7 @@ Los teoremas 5.2 y 5.3 pueden combinarse para dar un algoritmo que, con alta pro
 
 \section{Hallar del periodo de una función (Period Finding)}
 
-Como hemos comentado, el paso 4 (el de la búsqueda de periodo) descrito en la sección \ref{sec_algoritmo_factorizacion} se puede implementar en un ordenador cuántico. Para ello lo que se hace es reducir el problema a un problema de \textbf{QPE (Estimación de Fase Cuántica)} vista en el capítulo \ref{chapter_QPE}.
+Como hemos comentado, el paso 4 (el de la búsqueda de periodo) descrito en la sección \ref{sec_algoritmo_factorizacion} se puede implementar en un ordenador cuántico. Para ello lo que se hace es reducir el problema a un problema de \textbf{QPE (Estimación de Fase Cuántica)} vista en el capítulo \ref{sec_chapter_QPE}.
 
 
 
@@ -8543,14 +8601,14 @@ Denominaremos $r$ al valor del periodo de la función $f(x)$, es decir, $r$ es e
 	\begin{equation}
 	f(x+r) = f(x)
 	\end{equation}
-En la Fig. \ref{Fig-Ejemplo-Funcion-Periodica} vemos un ejemplo de este tipo de funciones con $a = 3$ y $N=35$. Vemos que para este caso el periodo es $r = 12$.
+En la Fig. \ref{Fig_Ejemplo-Funcion-Periodica} vemos un ejemplo de este tipo de funciones con $a = 3$ y $N=35$. Vemos que para este caso el periodo es $r = 12$.
 
 
 \begin{figure}[h]
 \centering 
-\includegraphics[width=0.7\linewidth]{Figuras/Fig-Ejemplo-Funcion-Periodica}
+\includegraphics[width=0.7\linewidth]{Figuras/Fig-Ejemplo-Funcion-Periodica.png}
 \caption{Gráfica de los primeros valores de la función periódica $f(x) = a^x \text{ mod} N$ con $a=3$ y $N=15$. Véase que las lineas puntuadas que unen las cruces son solo por estética.}
-\label{Fig-Ejemplo-Funcion-Periodica}
+\label{Fig_Ejemplo-Funcion-Periodica}
 \end{figure}
 
 
@@ -8623,13 +8681,13 @@ Si ahora aplicamos el algoritmo de estimación de fase cuántico (QPS) al estado
 	|0 \rangle|1 \rangle \xrightarrow{QPS} \frac{1}{\sqrt{r}} \left( \left|2^t \frac{1}{r} \right\rangle + \left|2^t \frac{2}{r} \right\rangle + \dots + \left|2^t \frac{r-1}{r} \right\rangle \right) |1 \rangle
 	\end{equation}
 donde $t$ es el número de qubits del registro de conteo.
-Usando el algoritmo de las fracciones continuas \cite{bib_Continued_fraction} podemos calcular $r$ a partir de los cocientes $s/r$. En Fig. \ref{Fig-QPE-qiskit} podemos ver el circuito (en el orden de Qiskit para los qubits) que implementa la estimación de fase cuántica
+Usando el algoritmo de las fracciones continuas \cite{bib_Continued_fraction} podemos calcular $r$ a partir de los cocientes $s/r$. En Fig. \ref{Fig_QPE-qiskit} podemos ver el circuito (en el orden de Qiskit para los qubits) que implementa la estimación de fase cuántica
 
 \begin{figure}[H]
 \centering 
 \includegraphics[width=1\linewidth]{Figuras/Fig-3_QPE-Shor.png}
 \caption{Implementación del algoritmo de estimación de fase cuántica (en el convenio de Qiskit).}
-\label{Fig-QPE-qiskit}
+\label{Fig_QPE-qiskit}
 \end{figure}
 
 
@@ -8650,7 +8708,7 @@ En concreto, el caso que vamos a resolver es el de $a=7$ y $N=15$. Es fácil ver
 
 \subsection{Caso con muchos shots (ineficiente pero didáctico)}
 
-	\begin{mybox_orange}{Jypyter Notebook: 11-Shor\_Algorithm\_simple}
+	\begin{mybox_orange}{Jupyter Notebook: 11-Shor\_Algorithm\_simple}
 	Ver secciones 1 del notebook \textbf{11-Shor\_Algorithm\_simple}.
 	\end{mybox_orange}
 
@@ -8658,7 +8716,7 @@ En concreto, el caso que vamos a resolver es el de $a=7$ y $N=15$. Es fácil ver
 
 \subsection{Caso shot a shot (óptimo)} \label{sec_shot-a-shot}
 
-	\begin{mybox_orange}{Jypyter Notebook: 11-Shor\_Algorithm\_simple}
+	\begin{mybox_orange}{Jupyter Notebook: 11-Shor\_Algorithm\_simple}
 	Ver secciones 2 del notebook \textbf{11-Shor\_Algorithm\_simple}.
 	\end{mybox_orange}
 
@@ -9136,7 +9194,7 @@ Ya vimos en el capítulo \ref{Fig_QFT_circuit} la implementación de la trasform
 
 \begin{figure}[t]
 \centering 
-\includegraphics[width=0.75\linewidth]{Figuras/Fig-qft.png}
+\includegraphics[width=0.75\linewidth]{Figuras/Fig-qft.PNG}
 \caption{Implementación de la trasformada de Fourier (exacta).}
 \label{Fig_2n+3_QFT_exacta}
 \end{figure}
@@ -9156,7 +9214,7 @@ Vemos que la puertas \textit{SWAP} controlada no es las que la puerta \textit{SW
 
 \begin{figure}[h]
 \centering 
-\includegraphics[width=0.3\linewidth]{Figuras/Fig-swap.png}
+\includegraphics[width=0.3\linewidth]{Figuras/Fig-swap.PNG}
 \caption{Puerta SWAP}
 \label{Fig_2n+3_swap}
 \end{figure}
@@ -9167,7 +9225,7 @@ Vemos que la puertas \textit{SWAP} controlada no es las que la puerta \textit{SW
 
 
 
-\chapter{Algoritmo de Grover (Amplificación de amplitud)} \label{chapter_Grover}
+\chapter{Algoritmo de Grover (Amplificación de amplitud)} \label{sec_chapter_Grover}
 
 
 
@@ -9178,7 +9236,7 @@ Vemos que la puertas \textit{SWAP} controlada no es las que la puerta \textit{SW
 \begin{tabular}{ll}
 \hline
 \textbf{$\mathcal{O}(z)$}     & Esta notación quiere decir ``del orden de $z$''.                 \\ \hline
-\textbf{$N$}                  & Número de elemento del dataset en el que buscamos                \\ \hline\
+\textbf{$N$}                  & Número de elemento del dataset en el que buscamos                \\ \hline
 \textbf{$n$}                  & Número de qúbits que nos hacen falta                             \\ \hline
 \textbf{$M$}                  & Número de soluciones que buscamos en el dataset de $N$ elementos \\ \hline
 \textbf{$t$}                  & Número de iteraciones del algoritmo de Grover                    \\ \hline
@@ -9205,7 +9263,7 @@ El algoritmo de Grover no hace uso de la estructura interna del dataset en el qu
 
 En este capítulo vamos a ver todo lo necesario para entender el algoritmo de Grover, hablando tanto de matemática como de implementaciones. La estructura de las notas es la siguiente. En la sección \ref{sec_geo} veremos una explicación geométrica del algoritmo, donde se usará como ejemplo el caso más simple (una solución, $N=2^n$ y distribución uniforme) y se verán las diferentes partes del algoritmo. 
 
-En las siguientes secciones iremos generalizando el algoritmo a medida que relajamos las condiciones del ejemplo anterior. En la sección \ref{sec_t-sols} veremos que pasa cuando tenemos un número $M$ de soluciones (conocido $M$). En la sección \ref{sec_t_no_conocido} relajaremos la condición de conocer el número $M$ de soluciones y veremos que el algoritmo sigue siendo eficiente. Como continuación lógica de la sección anterior, en la sección \ref{sec_quantum_counting} veremos un algoritmo inspirado en el algoritmo de Shor que usa el operador de Grover para contar el número de soluciones (obtener $M$). En la sección \ref{sec_cons_imple} hablaremos sobre la implementación del difusor y como la formulación más habitual del mismo es la responsable de imponer la condición $N=2^n$. Veremos en la subseción \ref{subsec-N_neq_2n} como podemos eliminar también esta condición. Por último, en la sección \ref{sec_arbitrary_distribition} veremos que también es posible relajar la condición de partir de una distribución de probabilidad uniforme. 
+En las siguientes secciones iremos generalizando el algoritmo a medida que relajamos las condiciones del ejemplo anterior. En la sección \ref{sec_t-sols} veremos que pasa cuando tenemos un número $M$ de soluciones (conocido $M$). En la sección \ref{sec_t_no_conocido} relajaremos la condición de conocer el número $M$ de soluciones y veremos que el algoritmo sigue siendo eficiente. Como continuación lógica de la sección anterior, en la sección \ref{sec_quantum_counting} veremos un algoritmo inspirado en el algoritmo de Shor que usa el operador de Grover para contar el número de soluciones (obtener $M$). En la sección \ref{sec_cons_imple} hablaremos sobre la implementación del difusor y como la formulación más habitual del mismo es la responsable de imponer la condición $N=2^n$. Veremos en la subseción \ref{sec_subsec_N_neq_2n} como podemos eliminar también esta condición. Por último, en la sección \ref{sec_arbitrary_distribition} veremos que también es posible relajar la condición de partir de una distribución de probabilidad uniforme. 
 
 
 
@@ -9414,10 +9472,12 @@ Podemos ahora definir el \textbf{operador de Grover}
 Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado $2 \theta_0$ en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje $|\omega\rangle $. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es ``pasarnos de largo'' del eje. Discutiremos el número exacto de iteraciones en la sección \ref{sec_t-sols}, pero ya comentamos que es del orden de $\sqrt{N}$.
 
 Si comparamos las ecuaciones (\ref{ec_geo_phi-j-s}) y (\ref{ec_geo_phi-j}) vemos que
-\begin{align} \label{ec_geo_sin-cos}
+\begin{equation}  \label{ec_geo_sin-cos}
+\begin{aligned}
 & \boxed{k(t) = \sin \Lc (2t+1) \theta_0 \Rc}
 & \boxed{l(t) = \frac{1}{\sqrt{N-1}}\cos \Lc (2t+1) \theta_0 \Rc}.
-\end{align}
+\end{aligned}
+\end{equation}
 
 
 
@@ -9425,10 +9485,12 @@ Si comparamos las ecuaciones (\ref{ec_geo_phi-j-s}) y (\ref{ec_geo_phi-j}) vemos
 \section{Número conocido de soluciones.} \label{sec_t-sols}
 
 Vamos a empezar el análisis formal tratando el caso en el que \textbf{conocemos el número $\bm M$ de soluciones} que hay en nuestro dataset. Es decir, tenemos $M$ valores diferentes $i$ que cumplen $L_i=x$. Denominemos $\omega$ al conjunto de los $M$ valores $i$ que son solución, y denominemos $\omega^\perp$ al conjunto de los $N-M$ valores $i$ que no son solución
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 & \boxed{\omega = \lch i | L_{i} = x \rch }
 & \boxed{\omega^{\perp} = \lch i | L_{i} \neq x \rch}.
-\end{align}
+\end{aligned}
+\end{equation}
 
 Supondremos también que \textbf{estamos en el caso en el que} $N = 2^n$ y que además partimos del estado de la Ec. (\ref{ec_geo_phi-0_1}), es decir, de una \textbf{superposición uniforme}. 
 
@@ -9458,10 +9520,12 @@ Vemos que ahora el primer sumatorio tiene $M$ elementos, mientras que el segundo
 \langle \Psi(t) |\Psi(t) \rangle = \boxed{ M k(t)^2 + (N-M) l(t)^2 = 1 \, \, \forall t}.
 \end{equation}
 Podemos ahora también redefinir el estado $|\omega^{\perp} \rangle$ de la Ec. (\ref{ec_geo_phi-j-s}) y definir $| \omega \rangle$
-\begin{align} \label{ec_t-sols_omega_omega-perp}
+\begin{equation}  \label{ec_t-sols_omega_omega-perp}
+\begin{aligned}
 & \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-M}}\sum_{i \in \omega^{\perp}}  |i \rangle}
 & \boxed{| \omega  \rangle = \frac{1}{\sqrt{M}}\sum_{i \in \omega} | i \rangle}
-\end{align}
+\end{aligned}
+\end{equation}
 de forma que
 \begin{equation} \label{ec_t-sols_phi-j-s}
 \boxed{|\Psi(t) \rangle =  k(t) \sqrt{M} |\omega \rangle + l(t) \sqrt{N-M} | \omega^{\perp}  \rangle}.
@@ -9469,10 +9533,12 @@ de forma que
 
 	\begin{mybox_blue}{Nota}
 	Nuevamente, los factores $\sqrt{N-M}$ y $\sqrt{M}$ en las definiciones de $| \omega^{\perp} \rangle$ y $| \omega \rangle$ son para hacerlos vectores unitarios
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	& \langle \omega^{\perp} | \omega^{\perp} \rangle = 1 
 	& \langle \omega | \omega \rangle = 1 .
-	\end{align}
+	\end{aligned}
+\end{equation}
 	\end{mybox_blue}
 
 Veamos ahora la expresión del esto inicial en función del ángulo $\theta$ de la Ec. (\ref{ec_geo_theta})
@@ -9480,13 +9546,16 @@ Veamos ahora la expresión del esto inicial en función del ángulo $\theta$ de 
 | \Psi_0 \rangle = \sin \theta \, |\omega \rangle + \cos \theta \, | \omega^{\perp} \rangle, \qquad \text{donde} \qquad  \boxed{\sin \theta = \sqrt{\frac{M}{N}}}.
 \end{equation}
 Nuevamente, comparando las Ecs. (\ref{ec_t-sols_theta}) y (\ref{ec_t-sols_phi-j-s}) obtenemos las expresiones de $k(t)$ y $l(t)$ en función del ángulo $\theta$
-\begin{align} \label{ec_t-sols_sin-cos}
+\begin{equation} \label{ec_t-sols_sin-cos}
+\begin{aligned} 
 & \boxed{k(t) = \frac{1}{\sqrt{M}} \sin \Lc (2t+1) \theta \Rc}
 & \boxed{l(t) = \frac{1}{\sqrt{N-M}}\cos \Lc (2t+1) \theta \Rc}.
-\end{align}
+\end{aligned}
+\end{equation}
 Vemos que estas expresiones cumplen la Ec. (\ref{ec_t-sols_mod_1}) 
 Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), tenemos que el oráculo (\ref{ec_geo_Uw}), el difusor (\ref{ec_geo_Us}) nos quedan:
-\begin{align} \label{ec_t-sols_Uw_Us}
+\begin{equation} \label{ec_t-sols_Uw_Us}
+\begin{aligned} 
 & \boxed{U_\omega | i \rangle = 
 	\lch
 		\begin{matrix}
@@ -9495,7 +9564,8 @@ Finalmente, por ser rigurosos (y por recopilar todas las ecuaciones juntas), ten
 		\end{matrix}
 	\right.}
 & \boxed{U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I}.
-\end{align}
+\end{aligned}
+\end{equation}
 donde recordemos que denominamos operador de Grover a
 \begin{equation} \label{ec_t-sols_G}
 \boxed{G = U_{\Psi_0} U_\omega} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
@@ -9590,10 +9660,12 @@ Sustituyendo (\ref{ec_t-sols_aux_1}) y (\ref{ec_t-sols_aux_3}) en (\ref{ec_t-sol
 	\end{mybox_green}
 
 Finalmente llegamos a las relaciones:
-\begin{align} \label{ec_t-sols_k-l_j+1}
+\begin{equation} \label{ec_t-sols_k-l_j+1}
+\begin{aligned} 
 & \boxed{k(t+1) = \frac{N-2M}{N} k(t) + \frac{2(N-M)}{N} l(t)},
 & \boxed{l(t+1) = \frac{N-2M}{N} l(t) - \frac{2M}{N}k(t)}.
-\end{align}
+\end{aligned}
+\end{equation}
 %No es difícil comprobar que estas relaciones se cumplen si tomamos las expresiones de la Ec. (\ref{ec_t-sols_sin-cos}).
 
 
@@ -9799,7 +9871,7 @@ $$
 U \left| \psi \right\rangle = e^{2 \pi i \alpha}  \left| \psi \right\rangle
 $$
 El \textbf{algoritmo de estimación de fase cuántica} lo que hace es calcular un valor aproximado del ángulo $\alpha$.
-En la Fig. \ref{Fig_QC_QPE} podemos ver el circuito que implementa este algoritmo. No vamos a entrar a hablar en detalle del mismo (puede verse una explicación más detallada en el capítulo \ref{chapter_QPE}). Simplemente comentar dos cosas:
+En la Fig. \ref{Fig_QC_QPE} podemos ver el circuito que implementa este algoritmo. No vamos a entrar a hablar en detalle del mismo (puede verse una explicación más detallada en el capítulo \ref{sec_chapter_QPE}). Simplemente comentar dos cosas:
 \begin{itemize}
 	\item Por el registro de qúbits de abajo en la Fig. \ref{Fig_QC_QPE} debe de entrar el autoestado de $U$ del cual queremos medir la fase.
 	
@@ -9841,7 +9913,7 @@ Como acabamos de comentar, al aplicar QPE mediremos un valor $\tilde{f} = 2^p\ti
 donde las $\tilde{\theta}$, $\tilde{f}$ y $\tilde{M}$ llevan una tilde para diferenciarlos de los valores reales. Esto es, porque dependiendo del como de grande sea $p$ (cuantos qúbits tengamos en el registro de conteo) más nos acercaremos a medir el valor real del ángulo $\theta$. 
 
 	\begin{mybox_blue}{Nota}
-	Como veremos en la sección \ref{sub-sec_U_s}, muchas veces en vez de implementar el operador de 
+	Como veremos en la sección \ref{sec_subsec_U_s}, muchas veces en vez de implementar el operador de 
 	difusión $U_{\Psi_0}$ (ver Ec. (\ref{ec_t-sols_Uw_Us})) en realidad se implementa $-U_{\Psi_0}$. 
 	En una búsqueda de Grover normal, esta fase es global 
 	y no afecta al resultado, pero ahora estamos aplicando versiones controladas del operador de Grover 
@@ -9909,7 +9981,7 @@ Para más detalles sobre el tema, puede verse \cite{bib_Approximate_QC}.
 
 \section{Consideraciones sobre la implementacion} \label{sec_cons_imple}
 
-\subsection{Creación de un difusor $U_{\Psi_0}$.} \label{sub-sec_U_s}
+\subsection{Creación de un difusor $U_{\Psi_0}$.} \label{sec_subsec_U_s}
 
 Vamos a ver como podemos hacer para crear de forma genérica un difusor de la forma de (\ref{ec_t-sols_Uw_Us}). Refrescando un poco la memoria, el difusor es un operador que realiza una reflexión respecto al estado inicial $| \Psi_0 \rangle$, es decir, \textbf{le cambia el signo a las componentes perpendiculares a} $\bm{| \Psi_0 \rangle}$. Lo que vamos a hacer para construir el difusor es, en realidad, construir un operador que  \textbf{le cambia el signo a las componentes paralelas a} $\bm{| \Psi_0 \rangle}$, es decir, vamos a implementar $-U_{\Psi_0}$. 
 
@@ -9924,10 +9996,12 @@ Empecemos definiendo la familia de \textbf{operadores de reflexión} $S_A$
 	\right.}
 \end{equation}
 Es fácil ver que podemos escribir tanto el oráculo como el difusor en función de los operadores $S_A$
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 & U_\omega = S_\omega
 & \boxed{U_{\Psi_0} = - S_{\Psi_0}}
-\end{align}
+\end{aligned}
+\end{equation}
 Nosotros lo que vamos a construir y implementar es $S_{\Psi_0}$, no $U_{\Psi_0}$
 
 \SubsubiIt{Caso con $N = 2^n$.}
@@ -9979,14 +10053,15 @@ De esta forma, lo que hace $S_{0}$ es:
 	\end{mybox_blue}
 
 Como ya comentamos,\textbf{ el operador que se implementa es} $\bm{-U_{\Psi_0}}$, es decir
-\begin{align}
-& \boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}} \Rightarrow \label{ec_cons-imple_U_Psi0} \\ 
+\begin{equation} \label{ec_cons-imple_U_Psi0}
+\begin{aligned} 
+& \boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}} \Rightarrow  \\ 
 & \boxed{G_{imple}  =  - U_{\Psi_0} U_\omega = - H^{\otimes n} S_0 H^{\otimes n} U_\omega}
-\end{align}
+\end{aligned}
+\end{equation}
 
 
-
-\SubsubiIt{Caso con $N \neq 2^n$.} \label{sub-sec_N-no-2^n} \label{subsec-N_neq_2n}
+\SubsubiIt{Caso con $N \neq 2^n$.} \label{sub-sec_N-no-2^n} \label{sec_subsec_N_neq_2n}
 
 Las limitación que hemos impuesto hasta ahora diciendo que $N$ debía ser una potencia de $2$ viene de la transformación de Walsh-Hadammard 
 \begin{equation}
@@ -10032,17 +10107,19 @@ En realidad, el algoritmo no tiene ningún misterio. Consiste simplemente en sal
 \end{itemize}
 
 
-\subsection{Evolución de las amplitudes ($M$ soluciones)} \label{subsec_prop-no-uni_ecuaciones-diff}
+\subsection{Evolución de las amplitudes ($M$ soluciones)} \label{sec_sec_subsec_prop-no-uni_ecuaciones-diff}
 
 Analicemos la evolución de las amplitudes en el algoritmo modificado. Supongamos (como siempre) que tenemos $N$ estados y $M$ soluciones. Asumamos, sin perdida de generalidad, que $0 \leq M \leq N/2$. El estado total ahora será de la forma
 \begin{equation} \label{ec_prob-no-uni_phi-j}
 \boxed{|\Psi(t) \rangle = \sum_{i \in \omega} k_i(t) |i \rangle + \sum_{i \in \omega^\perp} l_i(t) |i \rangle }.
 \end{equation}
 Nótese que ahora las amplitudes tenemos un índices $i$ que corresponde al estado al que acompañan. Esto es fácil de entender: como la distribución de partida ahora no es uniforme, cada estado tendrá su amplitud. Las medias de las amplitudes de los estados solución ($i \in \omega$) y no solución ($i \in \omega^\perp$) son
-\begin{align} \label{ec_prop-no-uni_k-l-mean}
+\begin{equation} \label{ec_prop-no-uni_k-l-mean}
+\begin{aligned} 
 & \boxed{\bar{k}(t) = \frac{1}{M} \sum_{i \in \omega} k_i(t) }
 & \boxed{\bar{l}(t) = \frac{1}{N-M} \sum_{i \in \omega^\perp} l_i(t)}.
-\end{align}
+\end{aligned}
+\end{equation}
 Una de las conclusiones clave del desarrollo que vamos a ver a continuación es que \textit{la dinámica dictada por el algoritmo de Grover se puede describir por completo basándose en la dependencia de las medias de las amplitudes con las iteraciones}.
 
 \SubsubiIt{Derivación de las ecuaciones diferenciales} 
@@ -10073,45 +10150,58 @@ Veamos como evolucionan las medias de las amplitudes con cada iteracións:
 }
 	
 	\item Después a aplicar el difusor sobre el esto $|\Psi(t) \rangle$ lo que sucede es una reflexión respecto a la media $\overline{U_\omega \psi}(t)$. Esto se pude expresar de la siguiente manera
-\begin{align}
-{k}^{'}_i(t) \, & \rightarrow \, {k}^{''}_i(t) =  2 \overline{U_\omega \psi}(t) - {k}^{'}_i(t) =  C(t) - k^{'}_i(t) = \boxed{ C(t) + k_i(t) = k_i(t+1)}  \label{ec_prop-no-uni_k-j+1_i} \\
-{l}^{'}_i(t) \, & \rightarrow \, {l}^{''}_i(t) =  2 \overline{U_\omega \psi}(t) - {l}^{'}_i(t) = C(t) - l^{'}_i(t) = \boxed{C(t) - l_i(t) = l_i(t+1)}. \label{ec_prop-no-uni_l-j+1_i} 
-\end{align}
+\begin{equation} \label{ec_prop-no-uni_kl-j+1_i} 
+\begin{aligned}
+{k}^{'}_i(t) \, & \rightarrow \, {k}^{''}_i(t) =  2 \overline{U_\omega \psi}(t) - {k}^{'}_i(t) =  C(t) - k^{'}_i(t) = \boxed{ C(t) + k_i(t) = k_i(t+1)}   \\
+{l}^{'}_i(t) \, & \rightarrow \, {l}^{''}_i(t) =  2 \overline{U_\omega \psi}(t) - {l}^{'}_i(t) = C(t) - l^{'}_i(t) = \boxed{C(t) - l_i(t) = l_i(t+1)}. 
+\end{aligned}
+\end{equation}
+
 Promediando
-\begin{align}
-\Aboxed{\bar{k}(t+1) = C_j + \bar{k}(t) } \label{ec_prop-no-uni_k-j+1} \\
-\Aboxed{\bar{l}(t+1) = C_j - \bar{l}(t)}.  \label{ec_prop-no-uni_l-j+1} 
-\end{align}
+\begin{equation} \label{ec_prop-no-uni_kl-j+1}
+\begin{aligned}
+\Aboxed{\bar{k}(t+1) = C_j + \bar{k}(t) }  \\
+\Aboxed{\bar{l}(t+1) = C_j - \bar{l}(t)}.  
+\end{aligned}
+\end{equation}
 \end{itemize}
-Las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) son las ecuaciones diferenciales que rigen la evolución de la media de las amplitudes.
+Las Ecs. (\ref{ec_prop-no-uni_kl-j+1}) son las ecuaciones diferenciales que rigen la evolución de la media de las amplitudes.
 
 
 \SubsubiIt{Soluciones de las ecuaciones diferenciales} 
 
-Vamos a resolver de forma analítica las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1})  para ver la evolución exacta de las medias de las amplitudes de los estados solución y no solución. Procedemos a resolver las fórmulas de recursión para condiciones iniciales complejas arbitrarias. Empecemos definiendo las funciones
-\begin{align}
-\Aboxed{& f_{+}(t) = \bar{l}(t) + i \sqrt{\frac{M}{N-M}} \bar{k}(t)} \label{ec_prop-no-uni_f+}\\
-\Aboxed{& f_{-}(t) = \bar{l}(t) - i \sqrt{\frac{M}{N-M}} \bar{k}(t)}. \label{ec_prop-no-uni_f-}
-\end{align}
-Vemos que no son más que un \textbf{cambio de variables} para facilitarnos la resolución de las ecuaciones. Empleando este cambio de variables podemos reescribir las Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1}) de la siguiente forma
-\begin{align}
+Vamos a resolver de forma analítica las Ecs. (\ref{ec_prop-no-uni_kl-j+1}) para ver la evolución exacta de las medias de las amplitudes de los estados solución y no solución. Procedemos a resolver las fórmulas de recursión para condiciones iniciales complejas arbitrarias. Empecemos definiendo las funciones
+\begin{equation} \label{ec_prop-no-uni_f+-} 
+\begin{aligned}
+\Aboxed{& f_{+}(t) = \bar{l}(t) + i \sqrt{\frac{M}{N-M}} \bar{k}(t)} \\
+\Aboxed{& f_{-}(t) = \bar{l}(t) - i \sqrt{\frac{M}{N-M}} \bar{k}(t)}. 
+\end{aligned}
+\end{equation}
+Vemos que no son más que un \textbf{cambio de variables} para facilitarnos la resolución de las ecuaciones. Empleando este cambio de variables podemos reescribir las Ecs. (\ref{ec_prop-no-uni_kl-j+1}) de la siguiente forma
+\begin{equation} 
+\begin{aligned}
 & f_{+}(t+1) = e^{i \beta} f_{+}(t) \\
 & f_{-}(t+1) = e^{- i \beta} f_{-}(t),
-\end{align}
+\end{aligned}
+\end{equation}
 donde $\beta$ es \textbf{real} y cumple
 \begin{equation} \label{ec_prop-no-ini_beta}
 \boxed{\cos \beta = 1 - 2 \frac{M}{N}}.
 \end{equation}
 Vemos que ahora la solución de las ecuaciones es trivial:
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 & f_{+}(t) = e^{i \beta t} f_{+}(0) \\
 & f_{-}(t) = e^{-i \beta t} f_{-}(0).
-\end{align}
+\end{aligned}
+\end{equation}
 Vemos claramente que $| f_{+}(0) |$ y $|f_{-}(0)|$ son independientes de la iteración $t$ en la que estemos. Podemos ahora deshacer el cambio de variable 
-\begin{align}
-\Aboxed{\bar{k}(t) & = - i \sqrt{\frac{N-M}{4M}} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc}  \label{ec_prop-no-uni_sol_k} \\
-\Aboxed{\bar{l}(t) & = \frac{1}{2} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc }.  \label{ec_prop-no-uni_sol_l}
-\end{align}
+\begin{equation} \label{ec_prop-no-uni_sol_kl} 
+\begin{aligned}
+\Aboxed{\bar{k}(t) & = - i \sqrt{\frac{N-M}{4M}} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc}   \\
+\Aboxed{\bar{l}(t) & = \frac{1}{2} \lc e^{i \beta t} f_{+}(0) - e^{-i \beta t} f_{-}(0)  \rc }.  
+\end{aligned}
+\end{equation}
 
 
 \subsection{Propiedades de las soluciones: Probabilidad de acierto.}
@@ -10120,24 +10210,28 @@ Vemos claramente que $| f_{+}(0) |$ y $|f_{-}(0)|$ son independientes de la iter
 \SubsubiIt{Evolución de las amplitudes en función de la evolución de las medias.} 
 
 Lo primero que vamos a hacer es ver que, efectivamente, solo con la evolución de las medias podemos describir la evolución. 
-Para ello, restemos a la Ec. (\ref{ec_prop-no-uni_k-j+1_i}) la Ec. (\ref{ec_prop-no-uni_k-j+1}) y a la Ec. (\ref{ec_prop-no-uni_l-j+1_i}) restémosle la Ec. (\ref{ec_prop-no-uni_l-j+1})
+Para ello, restemos a las Ecs. (\ref{ec_prop-no-uni_kl-j+1_i}) a las Ecs. (\ref{ec_prop-no-uni_kl-j+1}) 
 \begin{align*}
 k_i(t+1) - \bar{k}(t+1) & = k_i(t) - \bar{k}(t) \\
 l_i(t+1) - \bar{l}(t+1) & = - \lc l_i(t) - \bar{l}(t) \rc.
 \end{align*}
 Esto significa que las cantidades
-\begin{align}
+\begin{equation} 
+\begin{aligned}
 \Delta k_i & \equiv k_i(0) - \bar{k}(0) \\
 \Delta l_i & \equiv l_i(0) - \bar{l}(0) 
-\end{align}
+\end{aligned}
+\end{equation}
 son \textit{constantes del movimiento}. Esto nos permite simplificar las expresiones para la dependencia temporal de las amplitudes:
-\begin{align}
-\Aboxed{k_i(t) & = \bar{k}(t) + \Delta k_i} \label{ec_prop-no-uni_k-delta}\\
-\Aboxed{l_i(t) & = \bar{l}(t) + (-1)^t \Delta l_i}. \label{ec_prop-no-uni_l-delta}
-\end{align}
+\begin{equation} \label{ec_prop-no-uni_kl-delta} 
+\begin{aligned}
+\Aboxed{k_i(t) & = \bar{k}(t) + \Delta k_i} \\
+\Aboxed{l_i(t) & = \bar{l}(t) + (-1)^t \Delta l_i}. 
+\end{aligned}
+\end{equation}
 Vemos que  la distribución de las amplitudes de los estados solución $k_i(t)$ respecto a su medias $\bar{k}(t)$ es constante. Es decir, las amplitudes varían al unísono entorno a la medias. De esta forma, con saber las distribución inicial respecto a las medía ($\Delta k_i$) podemos describir la evolución de las amplitudes solo conociendo la evolución de las medias. Lo mismo sucede para los estados no solución $l_i(t)$, salvo que estos se invierten entorno a su media en cada iteración.
 
-De las Ecs. (\ref{ec_prop-no-uni_k-delta}) y (\ref{ec_prop-no-uni_l-delta}) se ve inmediatamente que las varianzas
+De las Ecs. (\ref{ec_prop-no-uni_kl-delta}) se ve inmediatamente que las varianzas
 \begin{align*}
 \sigma_k^2 (t) & = \frac{1}{M} \sum_{i \in \omega} |k_i(t) - \bar{k}(t)|^2   \\
 \sigma_l^2 (t) & = \frac{1}{N-M} \sum_{i \in \omega^\perp} |l_i(t) - \bar{l}(t)|^2 
@@ -10146,18 +10240,22 @@ son independientes del tiempo [$\sigma_k^2 (t) = \sigma_k^2 (0)$ y $\sigma_l^2 (
 
 
 
-\SubsubiIt{Probabilidad de acierto.} \label{subsec_prop-no-uni_Pt}
+\SubsubiIt{Probabilidad de acierto.} \label{sec_sec_subsec_prop-no-uni_Pt}
 
 Para facilitar el análisis de las soluciones, definamos las variables (complejas) $\alpha$ y $\phi$ de la forma
-\begin{align} \label{ec_prop-no-uni_alpha_phi}
+\begin{equation}  \label{ec_prop-no-uni_alpha_phi}
+\begin{aligned}
 & \alpha = \sqrt{f_{+}(0) f_{-}(0)},
 & e^{2i\phi} = f_{+}(0)/f_{-}(0).
-\end{align}
-Reescribamos las Ecs. (\ref{ec_prop-no-uni_sol_k}) y (\ref{ec_prop-no-uni_sol_l}) en función de estas variables
-\begin{align}
-\Aboxed{\bar{k}(t) & = \sqrt{\frac{N-M}{M}} \alpha \sin ( \beta t + \phi)}  \label{ec_prop-no-uni_sol_k-2} \\
-\Aboxed{\bar{l}(t) & = \alpha \cos (\beta t + \phi)} \label{ec_prop-no-uni_sol_l-2}
-\end{align}
+\end{aligned}
+\end{equation}
+Reescribamos las Ecs. (\ref{ec_prop-no-uni_sol_kl}) en función de estas variables
+\begin{equation} 
+\begin{aligned}
+\Aboxed{\bar{k}(t) & = \sqrt{\frac{N-M}{M}} \alpha \sin ( \beta t + \phi)}  \\
+\Aboxed{\bar{l}(t) & = \alpha \cos (\beta t + \phi)} 
+\end{aligned}
+\end{equation}
 Esto nos permite ver que hay una diferencia de fase de $\pi/2$ entre las medias de las amplitudes de los estados solución y los no solución. Se ve fácilmente que cuando una es máxima, la otra es mínima. 
 
 La probabilidad de medir alguno de los estados solución será $P(t) = \sum_{i \in \omega} |k_i(t)|^2$. Como todos los operadores son unitarios, las amplitudes cumplen la condición de normalización:
@@ -10184,7 +10282,7 @@ donde
 & \Delta P = \frac{1}{2} \Bigl| (N-M) \bar{l}(0)^2 + M \bar{k}(0)^2 \Bigr|
 \end{align*}
 
-\SubsubiIt{Número optimo, $T$, de iteraciones.} \label{subsec_prop-no-uni_T}
+\SubsubiIt{Número optimo, $T$, de iteraciones.} \label{sec_sec_subsec_prop-no-uni_T}
 
 El valor máximo de la probabilidad que se puede obtener durante la evolución del algoritmo es
 \begin{equation}
@@ -10203,7 +10301,7 @@ Si $M$ es pequeño tenemos que $1-2M/N \approx 1$, así que podemos aproximar $\
 \end{equation}
 Así que tenemos que $T$ es del orden de $\mathcal{O}(\sqrt{N/M})$ (para $u=0$).
 
-\SubsubiIt{Casos particulares.} \label{subsec_prop-no-uni_casos-particulares}
+\SubsubiIt{Casos particulares.} \label{sec_sec_subsec_prop-no-uni_casos-particulares}
 
 El valor máximo de la probabilidad puede variar mucho dependiendo de las propiedades estáticas (medias y varianzas) de las distribución inicial de amplitudes. Como es lógico, cuanto mayor sea $P_{max}$ menos repeticiones del algoritmo tendremos que hacer para encontrar una solución (donde cada repetición son $m$ iteraciones). Es fácil darse cuenta de que el número esperado de repeticiones del algoritmo hasta encontrar un estado solución es $1/P_{max}$.
 
@@ -10224,7 +10322,7 @@ Veamos los diferentes casos:
 	
 \end{itemize}
 
-\SubsubiIt{Distribución de probabilidad desconocida.} \label{subsec_prop-no-uni_desconocida}
+\SubsubiIt{Distribución de probabilidad desconocida.} \label{sec_sec_subsec_prop-no-uni_desconocida}
 
 Veamos que sucede si no conocemos de antemano las medias y las varianzas de la distribución inicial de amplitudes. 
 %De las Ec. (\ref{ec_prop-no-ini_beta}) y (\ref{ec_prop-no-uni_Pt}) se ve que el periodo de oscilación de la probabilidad $P(t)$ depende solo de $M/N$, mientras que los detalles de la distribución inicial de amplitudes están en la fase $\phi$. 
@@ -10237,13 +10335,13 @@ Uno de los puntos importantes del análisis de esta sección es el hecho de demo
 
 Otra de las conclusiones clave del desarrollo es que la dinámica dictada por el algoritmo de Grover se puede describir por completo basándose en la dependencia de las medias de las amplitudes $\bar{k}(t)$ y $\bar{l}(t)$ (definidas en la Ec. (\ref{ec_prop-no-uni_k-l-mean})).
 
-Para estudiar la dependencia con las iteraciones de las medias $\bar{k}(t)$ y $\bar{l}(t)$, en la sección \ref{subsec_prop-no-uni_ecuaciones-diff} deducimos las ecuaciones diferenciales que rigen su evolución (Ecs. (\ref{ec_prop-no-uni_k-j+1}) y (\ref{ec_prop-no-uni_l-j+1})) y las resolvemos. Para ello primero hacemos un cambio de variable de $\bar{k}(t)$ y $\bar{l}(t)$ a $f_+(t)$ y $f_-(t)$ (Ecs. (\ref{ec_prop-no-uni_f+}) y (\ref{ec_prop-no-uni_f-})).  Resolvemos usando estas variables y deshacemos el cambio. Nos quedan pues $\bar{k}(t)$ y $\bar{l}(t)$ en función de $f_+(0)$, $f_-(0)$ y $\beta$ (definido $\beta$ en la Ec. (\ref{ec_prop-no-ini_beta}), que solo depende de $N$ y $M$). 
+Para estudiar la dependencia con las iteraciones de las medias $\bar{k}(t)$ y $\bar{l}(t)$, en la sección \ref{sec_sec_subsec_prop-no-uni_ecuaciones-diff} deducimos las ecuaciones diferenciales que rigen su evolución (Ecs. (\ref{ec_prop-no-uni_kl-j+1})) y las resolvemos. Para ello primero hacemos un cambio de variable de $\bar{k}(t)$ y $\bar{l}(t)$ a $f_+(t)$ y $f_-(t)$ (Ecs. (\ref{ec_prop-no-uni_f+-})). Resolvemos usando estas variables y deshacemos el cambio. Nos quedan pues $\bar{k}(t)$ y $\bar{l}(t)$ en función de $f_+(0)$, $f_-(0)$ y $\beta$ (definido $\beta$ en la Ec. (\ref{ec_prop-no-ini_beta}), que solo depende de $N$ y $M$). 
 
-Una vez tenemos las soluciones, en las Ecs. (\ref{ec_prop-no-uni_k-delta}) y (\ref{ec_prop-no-uni_l-delta}) demostramos que las amplitudes mantienen su distribución respecto a las medias invariante (con una salvedad en $\bar{l}(t)$). De esta forma, confirmamos que solo tenemos que conocer la distribución inicial respecto a las medias para describir la evolución de las amplitudes usando solo la evolución de las medias. 
+Una vez tenemos las soluciones, en las Ecs. (\ref{ec_prop-no-uni_kl-delta}) demostramos que las amplitudes mantienen su distribución respecto a las medias invariante (con una salvedad en $\bar{l}(t)$). De esta forma, confirmamos que solo tenemos que conocer la distribución inicial respecto a las medias para describir la evolución de las amplitudes usando solo la evolución de las medias. 
 
-En la sección \ref{subsec_prop-no-uni_Pt}  definimos dos parámetros más, $\alpha$ y $\phi$ (Ec. (\ref{ec_prop-no-uni_alpha_phi})), que depende de $f_+(0)$ y $f_-(0)$. Tras unas líneas de cálculo podemos llegar a la Ec. (\ref{ec_prop-no-uni_Pt}) que nos da la probabilidad $P(t)$ de medir un estado solución en función del número de iteraciones. Una vez tenemos esta expresión, en la sección \ref{subsec_prop-no-uni_T} buscamos el número $T$ de iteraciones que nos maximizan la probabilidad (Ec. (\ref{ec_prop-no-uni_T})). Una importante conclusión es que para determinar el valor óptimo de iteraciones, todo lo que necesitamos es conocer las medias iniciales de las amplitudes y el número de estados marcados. Concluimos también que si $M$ es pequeño, tenemos que $T$ es del orden de $\mathcal{O}(\sqrt{N/M})$.
+En la sección \ref{sec_sec_subsec_prop-no-uni_Pt}  definimos dos parámetros más, $\alpha$ y $\phi$ (Ec. (\ref{ec_prop-no-uni_alpha_phi})), que depende de $f_+(0)$ y $f_-(0)$. Tras unas líneas de cálculo podemos llegar a la Ec. (\ref{ec_prop-no-uni_Pt}) que nos da la probabilidad $P(t)$ de medir un estado solución en función del número de iteraciones. Una vez tenemos esta expresión, en la sección \ref{sec_sec_subsec_prop-no-uni_T} buscamos el número $T$ de iteraciones que nos maximizan la probabilidad (Ec. (\ref{ec_prop-no-uni_T})). Una importante conclusión es que para determinar el valor óptimo de iteraciones, todo lo que necesitamos es conocer las medias iniciales de las amplitudes y el número de estados marcados. Concluimos también que si $M$ es pequeño, tenemos que $T$ es del orden de $\mathcal{O}(\sqrt{N/M})$.
 
-Finalmente, analizamos casos particulares de distribuciones iniciales favorables y desfavorables (sección \ref{subsec_prop-no-uni_casos-particulares}) y vemos que pasa si no conocemos las distribución de probabilidad inicial. Es este último caso, nuevamente podemos hallar una solución en tiempo $\mathcal{O}(N/M)$ conociendo solo $M$. 
+Finalmente, analizamos casos particulares de distribuciones iniciales favorables y desfavorables (sección \ref{sec_sec_subsec_prop-no-uni_casos-particulares}) y vemos que pasa si no conocemos las distribución de probabilidad inicial. Es este último caso, nuevamente podemos hallar una solución en tiempo $\mathcal{O}(N/M)$ conociendo solo $M$. 
 
 
 
@@ -10309,7 +10407,7 @@ En esta sección vamos a ver como se puede usar el algoritmo de Grover para busc
 
 
 
-\chapter{Criptografía y Quantum Key Distribution (QKD)} \label{chapter_QKD}
+\chapter{Criptografía y Quantum Key Distribution (QKD)} \label{sec_chapter_QKD}
 
 
 \section{Introducción}
@@ -10424,7 +10522,7 @@ $d$ fácilmente. La fiabilidad del sistema reside en la inexistencia de métodos
 
 El panorama ha cambiado en las últimas décadas, gracias a las inesperadas aportaciones de la física cuántica. A principios de los años 80, Bennett y Brassard propusieron una solución al problema de la distribución de claves basada en la física cuántica \cite{bib_BB84}; esta idea, redescubierta independientemente por Ekert unos años más tarde \cite{bib_Ekert-1991}, fue el comienzo de la \textbf{Quantum Key Distribution (QKD)}.
 
-En un intrigante avance independiente, diez años después de la aparición de la QKD, Peter Shor descubrió que, en principio, los números grandes pueden factorizarse eficientemente si se pueden realizar manipulaciones coherentes en muchos sistemas cuánticos (ver capítulo \ref{chapter_Shor}). La factorización de grandes números es un ejemplo de tarea matemática considerada clásicamente difícil de resolver y, por este motivo, está relacionada con una clase de esquemas criptográficos muy utilizados en la actualidad (el protocolo RSA visto anteriormente). Aunque todavía no se han construido ordenadores cuánticos con suficientes qúbits como para factorizar claves del tamaño de las que se usan en el protocolo RSA, la computación cuántica representa una amenaza para este tipo de criptografía. 
+En un intrigante avance independiente, diez años después de la aparición de la QKD, Peter Shor descubrió que, en principio, los números grandes pueden factorizarse eficientemente si se pueden realizar manipulaciones coherentes en muchos sistemas cuánticos (ver capítulo \ref{sec_chapter_Shor}). La factorización de grandes números es un ejemplo de tarea matemática considerada clásicamente difícil de resolver y, por este motivo, está relacionada con una clase de esquemas criptográficos muy utilizados en la actualidad (el protocolo RSA visto anteriormente). Aunque todavía no se han construido ordenadores cuánticos con suficientes qúbits como para factorizar claves del tamaño de las que se usan en el protocolo RSA, la computación cuántica representa una amenaza para este tipo de criptografía. 
 
 
 	La QKD es un protocolo de seguridad demostrable que permite crear bits de clave privada entre dos partes a través de un canal público. Los bits de clave pueden utilizarse para aplicar un criptosistema clásico de clave privada que permita a las partes comunicarse de forma segura. El único requisito del protocolo QKD es que los qúbits puedan comunicarse a través del canal público con una tasa de error inferior a un determinado umbral. La seguridad de la clave resultante está garantizada por las propiedades de la información cuántica y, por tanto, sólo está condicionada a que las leyes fundamentales de la física sean correctas. 
@@ -10482,10 +10580,12 @@ El primer paso de un protocolo QKD es el intercambio y la medición de señales 
 
 	\begin{proof}
 	Sean $\ket{\psi}$ y $\ket{\varphi}$ los estados cuánticos no ortogonales sobre los que Eve intenta obtener información. Podemos suponer sin pérdida de generalidad que el proceso que utiliza para obtener información es interactuar unitariamente el estado ($\ket{\psi}$ o $\ket{\varphi}$) con una ancilla preparada en un estado estándar $\ket{u}$. Suponiendo que este proceso no perturba los estados, en los dos casos se obtiene
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\ket{\psi} \ket{u} & \rightarrow \ket{\psi} \ket{v} \\
 	\ket{\varphi} \ket{u} & \rightarrow \ket{\varphi} \ket{v'}
-	\end{align}
+	\end{aligned}
+\end{equation}
 	A Eve le gustaría que $\ket{v}$ y $\ket{v'}$ fueran diferentes, de tal forma que pudiera adquirir información sobre la identidad de los estados. Sin embargo, como el producto interno se conserva respecto a las transformaciones unitarias, debe de seguirse que
 	\begin{equation}
 	\braket{v}{v'} \braket{\psi}{\varphi} = \braket{u}{u} \braket{\psi}{\varphi} \rqa \braket{v}{v'} = \braket{u}{u} = 1	
@@ -10504,13 +10604,13 @@ donde $d_n$ es el número de posibles secuencias $S_n$ y $\ket{S_n}_A$ forma una
 		
 	\section{Protocolos de QKD: Tres familias}
 	
-El número de protocolos QKD explícitos es prácticamente infinito: después de todo, Bennett ha demostrado que se puede obtener seguridad cuando un bit se codifica en sólo dos estados cuánticos no ortogonales \cite{bib_BB84_E91_iguales}. Pero, de hecho, esta posible variedad se ha cristalizado en tres familias principales: codificación de \textbf{variable discreta} (sección \ref{subsec_QKD_discreta}), codificación de \textbf{variable continua} (sección \ref{subsec_QKD_continua}) y, más recientemente, codificación \textbf{distributed-phase-referenc}e (sección \ref{subsec_QKD_phase}). La diferencia crucial es el esquema de detección: la codificación discreta-variable y la codificación distribuida-fase-referencia utilizan el \textbf{recuento de fotones} y postseleccionan los eventos en los que se ha producido efectivamente una detección, mientras que la codificación continua-variable se define por el uso de \textbf{detección homodina}.
+El número de protocolos QKD explícitos es prácticamente infinito: después de todo, Bennett ha demostrado que se puede obtener seguridad cuando un bit se codifica en sólo dos estados cuánticos no ortogonales \cite{bib_BB84_E91_iguales}. Pero, de hecho, esta posible variedad se ha cristalizado en tres familias principales: codificación de \textbf{variable discreta} (sección \ref{sec_sec_subsec_QKD_discreta}), codificación de \textbf{variable continua} (sección \ref{sec_sec_subsec_QKD_continua}) y, más recientemente, codificación \textbf{distributed-phase-referenc}e (sección \ref{sec_sec_subsec_QKD_phase}). La diferencia crucial es el esquema de detección: la codificación discreta-variable y la codificación distribuida-fase-referencia utilizan el \textbf{recuento de fotones} y postseleccionan los eventos en los que se ha producido efectivamente una detección, mientras que la codificación continua-variable se define por el uso de \textbf{detección homodina}.
 
 La codificación variable discreta es la original. Su principal ventaja es que los protocolos pueden diseñarse de forma que, en ausencia de errores, Alice y Bob compartan inmediatamente una clave secreta perfecta. Siguen siendo los protocolos QKD más frecuentemente implementados. Los argumentos a favor de la codificación de variable continua se derivan de la observación de que los contadores de fotones presentan normalmente bajas eficiencias cuánticas, altas tasas de recuento oscuro y tiempos muertos bastante largos, mientras que estos inconvenientes pueden superarse utilizando la detección homodina. El precio que hay que pagar es que el protocolo proporciona a Alice y Bob una realización correlacionada pero bastante ruidosa de una variable aleatoria continua, porque las pérdidas se traducen en ruido: como consecuencia, hay que utilizar una cantidad significativa de corrección de errores. En cuanto a la codificación distributed-phase-reference, su origen se encuentra en los esfuerzos de algunos grupos experimentales hacia una implementación más práctica. Desde el punto de vista de la detección, estos protocolos producen un resultado de variable discreta; pero la naturaleza de las señales cuánticas es muy diferente a la de la codificación de variable discreta, y esto motiva un tratamiento aparte.
 
 A pesar de las diferencias originadas por el uso de un dispositivo de detección distinto, existe una fuerte unidad conceptual subyacente en la QKD discreta y continua. Por poner sólo un ejemplo, en ambos casos la capacidad de distribuir una clave cuántica está estrechamente relacionada con la capacidad de distribuir entrelazamiento, independientemente del esquema de detección utilizado e incluso si no hay entrelazamiento real. Estas similitudes no son muy sorprendentes, ya que se sabe desde hace tiempo que las características cuánticas de la luz pueden revelarse mediante el recuento de fotones (por ejemplo, experimentos antibunching o anticorrelación) o mediante la detección homodina (por ejemplo, experimentos de squeezing). Dado que la QKD es una técnica que explota estas características cuánticas de la luz, no hay razón para que se restrinja al régimen de recuento de fotones. Sorprendentemente, al igual que el antibunching (o una fuente monofotónica) ni siquiera es necesario en la QKD basada en el recuento de fotones, el squeezing tampoco es necesario en la QKD basada en la detección homodina. La única característica cuántica que resulta necesaria es la no ortogonalidad de los estados de luz.
 
-		\subsection{Protocolos de variable discreta} \label{subsec_QKD_discreta}
+		\subsection{Protocolos de variable discreta} \label{sec_sec_subsec_QKD_discreta}
 
 			\SubsubiIt{BB84-BBM}
 
@@ -10527,10 +10627,12 @@ Supongamos que Alicia tiene una fuente de fotones individuales. Las propiedades 
 	\end{equation}	
 
 Vemos que ambos valores de bit 0 y 1 se codifican de dos formas posibles, o más exactamente en estados no ortogonales porque
-	\begin{align}
+	\begin{equation} 
+\begin{aligned}
 	\ket{0_\times} & = \frac{1}{\sqrt{2}} \lp \ket{0_+} + \ket{0_-} \rp \\
 	\ket{1_\times} & = \frac{1}{\sqrt{2}} \lp \ket{0_+} - \ket{0_-} \rp
-	\end{align}
+\end{aligned}
+\end{equation}
 
 \begin{mybox_blue}{Nota: caso con qúbits}
 Estamos hablando de polarizaciones de la luz porque, como ya comentamos, se usan fotones para las transmisiones en el canal cuántico. Sin embargo, podríamos plantear el mismo protocolo tratando con qúbit. Por ejemplo, con qúbits podemos usar los siguientes cuatro estados:
@@ -10590,7 +10692,7 @@ Por último, mencionamos el protocolo B92 \cite{bib_B92}, que utiliza sólo dos 
 
 
 
-		\subsection{Protocolos de variable continua} \label{subsec_QKD_continua}
+		\subsection{Protocolos de variable continua} \label{sec_sec_subsec_QKD_continua}
 		
 La codificación de variables discretas puede aplicarse con varias fuentes, pero requiere técnicas de recuento de fotones. Se ha sugerido un enfoque alternativo a la QKD, en el que los contadores de fotones se sustituyen por fotodiodos $p$-$i$-$n$ estándar de telecomunicaciones, que son más rápidos (gigahercios en lugar de megahercios) y más eficientes (normalmente el 80\% en lugar del 10\%). Los esquemas de medición correspondientes se basan entonces en la \textbf{detección homodina} e implican la medición de datos que son amplitudes reales en lugar de eventos discretos; de ahí que estos esquemas se denominen QKD de variable continua (\textbf{CV}).
 
@@ -10628,7 +10730,7 @@ Las intensidades se miden mediante diodos $p$-$i$-$n$, que proporcionan una alta
 Desgraciadamente, el uso de una técnica de detección homodina de tan alta velocidad tiene un precio. Debido al principio de incertidumbre, la medición de cuadraturas complementarias es intrínsecamente ruidosa. El ruido de vacío (o ruido intrínseco) es el ruido que se obtiene cuando hay vacío en el puerto de señal (sólo está presente el oscilador local). Ahora bien, las inevitables pérdidas de transmisión en la línea óptica, que simplemente causan ``clics perdidos'' en los esquemas basados en el recuento de fotones, provocan una disminución de la relación señal/ruido en los esquemas basados en la detección homodina. El ruido del vacío es responsable de un ruido añadido bastante significativo en la QKD de variación continua, que debe corregirse durante la etapa clásica de postprocesamiento: un esfuerzo informático adicional en la QKD de variación continua.
 
 
-		\subsection{Protocolos Distributed-phase-reference} \label{subsec_QKD_phase}
+		\subsection{Protocolos Distributed-phase-reference} \label{sec_subsec_QKD_phase}
 		
 Tanto los protocolos de variable discreta como los de variable continua fueron inventados por teóricos. Algunos grupos experimentales, en sus desarrollos hacia sistemas QKD prácticos, han concebido nuevos protocolos, que no encajan en las categorías anteriores. En ellos, al igual que en los protocolos de variable discreta, las claves brutas están formadas por realizaciones de una variable discreta (un bit) y ya están perfectamente correlacionadas en ausencia de errores. Sin embargo, el canal cuántico se controla utilizando las propiedades de los estados coherentes, más concretamente, observando la coherencia de fase de los impulsos subsiguientes; de ahí el nombre de protocolos distributed-phase-reference.
 

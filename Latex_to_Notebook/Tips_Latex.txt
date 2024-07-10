@@ -11,6 +11,43 @@ Contenido del segundo parágrafo del cuadro
 El subtitulo y la label son opcionales.
 Puede haber lineas en blando dentro.
 
+Sobre las label, deben empezar con:
+    - teorema_
+    - definicion_
+    - lemma_
+    - lema_
+    - corolario_
+    - post_
+    - prop_
+    - axioma_
+#################################################################
+
+Los \bm deben ir como \bm{texto en negrita}
+
+################################################################
+Sobre las ecuaciones:
+    - Las label siempre en la misma linea que el \begin{equation}:
+    \begin{equation} \label{...}
+    ...
+    \end{equation}
+
+Para meter texto dentro de una ecuación, usar \text{...}.
+Si se quiere, por ejemplo, meter cursiva, usar: \text{\textit{...}}
+
+Sobre los align:
+
+No usar \begin{align}!!! Usar:
+
+\begin{equation} \label{...}
+\begin{aligned}
+...
+\end{aligned}
+\end{equation}
+
+No se pueden refereciar por separado las ecuaciones en un aligned,
+referenciar siempre el begin{equation}
+
+################################################################
 
 Las label de las secciones deben de ir en la misma linea que los \section{} y \subsection.
 
@@ -20,6 +57,12 @@ No puede haber \footnote{} --> mybox_blue
 
 No se pueden meter cajas de colores dentro de cajas de colores. Falla al hacer la web
 
+
+Las labels de los capitulos, secciones y subseciones deben de empezar con sec_. Pueden ser
+de la forma:
+- Capitulos: sec_chapter_...
+- Seccion: sec_...
+- Subseccion: sec_subsec_...
 ################################################################
 
 \begin{mybox_blue}{Nota/Resumen: Subtitulo}
@@ -38,6 +81,7 @@ No se aceptan las \subfigure: poner una única imagen con un único pie de foto
 
 
 Las caption de las figuras deben de ir en una linea: \caption{.....}
+Los nombres de las figuras deben llevar la extensión
 
 ################################################################
 
@@ -57,6 +101,23 @@ Las caption de las figuras deben de ir en una linea: \caption{.....}
 - Los mybox_orange
 - Añadir colortex a plantilla
 
-- Lidiar con los \ref{}
+- Lidiar con refs a partes y tablas
+- Pasar de dropdown a proof??? No se yo
 
-- Tratar los \footnote
+- Tratar las tablas:
+    Eliminar los \begin, \end, \centering.
+    Añadir "* -" al principio de las lineas y sustituir "&" por "\n  -", y eliminar \\ y \hline
+    Tratar caption
+    Tratar label como en figs
+
+    ```{list-table} Table caption
+    :header-rows: 1
+    :name: ref_table
+    * -
+      -
+    * -
+      -
+    ```
+
+    Referencias: {numref}`label`      --> Table 2
+                 {numref}`%s <label>` --> 2

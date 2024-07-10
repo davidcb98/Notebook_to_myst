@@ -5,7 +5,7 @@ Destination_folder=../Book         # Path respecto a la carpeta scripts
 Destination_folder_aux=..\\/Book   # Path respecto a la carpeta scripts
 SKIP=".ipynb_checkpoints|\/No_"
 
-#README_TOC=README_TOC.md
+README_TOC=README_TOC.md
 
 
 print_in_readme_toc(){
@@ -69,7 +69,7 @@ for i in $part_folders_orig; do
 done
 
 
-mkdir -p old_READMEs
+#mkdir -p old_READMEs
 
 fecha_actual=$(date +"%d%m%Y-%H:%M:%S")
 

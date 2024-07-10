@@ -62,12 +62,13 @@ class ErrorUnrecognizedBox(Exception):
 ## Las dos siguientes funciones son para reemplazar las \label por <a id='..
 
 
-def reemplazo_label(line):
+def reemplazo_label(line, pre_text = "<a id='", post_text = "'></a>"):
     patron_lab = r"\\\\label\{(.+?)\}"
 
     def reemplazo_label_aux(match):
         titulo = match.group(1)
-        return f"<a id='{titulo}'></a>"
+        #return f"<a id='{titulo}'></a>"
+        return f"{pre_text}{titulo}{post_text}"
 
     return re.sub(patron_lab, reemplazo_label_aux, line)
 
@@ -195,11 +196,11 @@ def reemplazo_SubsubiiIt(line):
 
 # =============================================================================
 ## Las dos siguientes funciones son para reemplazar \caption por <center> <center>
-def reemplazo_caption(line):
+def reemplazo_caption(line, pre_text, post_text):
 
     def reemplazo_caption_aux(match):
         titulo = match.group(1)
-        return f"<center>{titulo}</center>"
+        return f"{pre_text}{titulo}{post_text}"
 
     patron_caption = r"\\\\caption\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
     return reemplazo_label(re.sub(patron_caption, reemplazo_caption_aux, line))
@@ -308,6 +309,78 @@ def reemplazo_textit(line):
         return re.sub(patron_textit, reemplazo_textit_aux, line)
 
 # =============================================================================
+## Reemplazar \ref{}
+
+def reemplazo_ref(line):
+
+    def reemplazo_ref_aux(match):
+        palabra_previa = match.group(1) or ""
+        par_abierto = match.group(2) or ""
+        label = match.group(3)
+        par_cerrado = match.group(4) or ""
+        label_lw = label.lower()
+
+        if label_lw.startswith("ec_"):
+            if par_abierto == "" and par_cerrado !="":
+                return palabra_previa +" {eq}`%s " + f"<{label}>`)"
+            else:
+                return palabra_previa +" {eq}`%s " + f"<{label}>`"
+
+        elif label_lw.startswith("teorema_") or label_lw.startswith("definicion_") or label_lw.startswith("lemma_") or label_lw.startswith("lema_") or label_lw.startswith("corolario_") or label_lw.startswith("post_") or label_lw.startswith("prop_") or label_lw.startswith("axioma_"):
+            if par_abierto == "" and par_cerrado !="":
+                return "{prf:ref}`"+label +"`)"
+            else:
+                return "{prf:ref}`"+label +"`"
+
+        else:
+            if par_abierto == "" and par_cerrado !="":
+                return palabra_previa +" {numref}`%s " + f"<{label}>`)"
+            else:
+                return palabra_previa +" {numref}`%s " + f"<{label}>`"
+
+    # Modificar la expresión regular para capturar la palabra previa
+    #patron_ref = r"\b(\w*\s*)?\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    #patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+    #patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?(\()?(\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\})(\))?"
+    patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?(\()?\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}(\))?"
+    #patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?(\()?\s*\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}\s*(\))?"
+    #patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?(\()?(\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\})(\))?"
+
+    # Usar re.sub con la función auxiliar
+
+    return re.sub(patron_ref, reemplazo_ref_aux, line)
+
+"""
+def reemplazo_ref(line):
+
+    def reemplazo_ref_aux(match):
+        label = match.group(1)
+        label_lw = label.lower()
+        if label_lw.startswith("ec_"):
+            return "{eq}`%s " + f"<{label}>`"
+        elif label_lw.startswith("teorema_") or label_lw.startswith("definicion_") or label_lw.startswith("lemma_") or label_lw.startswith("lema_") or label_lw.startswith("corolario_") or label_lw.startswith("post_") or label_lw.startswith("prop_") or label_lw.startswith("axioma_"):
+            return "{prf:ref}`"+label +"`"
+        else:
+            return "{numref}`%s " + f"<{label}>`"
+
+
+    patron_ref = r"\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+
+    return re.sub(patron_ref, reemplazo_ref_aux, line)
+"""
+"""
+    line = re.sub(patron_ref, reemplazo_ref_aux, line)
+    line_split = line.split(" ")
+
+    pre_word = ""
+    for i in len(line_split)
+        if "{prf:ref}" in line_split[i]:
+
+            if line_split[i-1].lower() ==
+
+        pre_word = line_split[i]
+"""
+# =============================================================================
 ## Reemplazar \\begin{figure}[...] por <figure><center>
 def reemplazo_begin_figure(line):
 
@@ -323,7 +396,30 @@ def reemplazo_begin_figure(line):
     # Aplicar la sustitución
     return patron_beg_fig.sub(reemplazo_begin_figure_aux, line)
 
+# =============================================================================
+## Reemplazar \\begin{table}[...] por <
+def reemplazo_begin_table(line, title, label):
 
+    patron_beg_table = re.compile(r'\\\\begin{table}(\[.*?\])?')
+
+    # Función para reemplazar el patrón encontrado
+    def reemplazo_begin_table_aux(match):
+        #if match.group(1):  # Si hay opciones entre corchetes
+        #    return '``````{list-table} ' + title
+        #else:  # Si no hay opciones entre corchetes
+        #    return '``````{list-table} ' + title
+        if label != "":
+            return '``````{list-table} ' + title + '\\n",\n' + \
+                   '    ":widths: auto \\n",\n' + \
+                   '    ":header-rows: 1 \\n",\n' + \
+                   '    ":name: ' + label
+        else:
+            return '``````{list-table} ' + title + '\\n",\n' + \
+                   '    ":widths: auto \\n",\n' + \
+                   '    ":header-rows: 1 '
+
+    # Aplicar la sustitución
+    return patron_beg_table.sub(reemplazo_begin_table_aux, line)
 
 # =============================================================================
 ## Reemplazar \item por - y \item[1.] por 1.

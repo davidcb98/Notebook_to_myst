@@ -1,10 +1,14 @@
 format: jb-book
 root: docs/index
+options:
+  numbered: true
 parts:
 - caption: 
+  numbered: true
   chapters:
   - file:  docs/Part_01/Chapter_001_01_introduccion_myst.ipynb
 - caption:  Conceptos básicos
+  numbered: true
   chapters:
   - file:  docs/Part_02/Chapter_002_01_formalismo_matematico__myst.ipynb
     sections:
@@ -21,6 +25,7 @@ parts:
     - file:  docs/Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.ipynb
     - file:  docs/Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.ipynb
 - caption:  Fundamentos de Computación Cuántica
+  numbered: true
   chapters:
   - file:  docs/Part_03/Chapter_004_01_qubits_myst.ipynb
     sections:
@@ -70,6 +75,7 @@ parts:
     - file:  docs/Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.ipynb
     - file:  docs/Part_03/Chapter_011_02/Section_003_resumen_myst.ipynb
 - caption:  Algoritmos Cuánticos
+  numbered: true
   chapters:
   - file:  docs/Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.ipynb
     sections:

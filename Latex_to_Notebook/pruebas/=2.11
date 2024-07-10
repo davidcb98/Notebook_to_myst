@@ -1,0 +1,3 @@
+Requirement already satisfied: Pandoc in /home/dcb/Programs/miniconda/miniconda3/envs/LtN/lib/python3.12/site-packages (2.3)
+Requirement already satisfied: plumbum in /home/dcb/Programs/miniconda/miniconda3/envs/LtN/lib/python3.12/site-packages (from Pandoc) (1.8.3)
+Requirement already satisfied: ply in /home/dcb/Programs/miniconda/miniconda3/envs/LtN/lib/python3.12/site-packages (from Pandoc) (3.11)

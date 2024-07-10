@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tensores &#8212; Curso de Introducción a la Computación Cuántica</title>
+    <title>2.4. Tensores &#8212; Curso de Introducción a la Computación Cuántica</title>
   
   
   
@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -105,8 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Probabilidades" href="Section_005_probabilidades_myst.html" />
-    <link rel="prev" title="Operadores" href="Section_003_operadores_myst.html" />
+    <link rel="next" title="2.5. Probabilidades" href="Section_005_probabilidades_myst.html" />
+    <link rel="prev" title="2.3. Operadores" href="Section_003_operadores_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,150 +215,150 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Section_001_numeros_complejos_myst.html">Números complejos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_002_vectores_myst.html">Vectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_003_operadores_myst.html">Operadores</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_005_probabilidades_myst.html">Probabilidades</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
 </ul>
 </li>
 </ul>
@@ -625,30 +626,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">Producto tensorial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">Definiciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">Base y dimension</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">Producto de Kronecker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">Indexación equivalente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">2.4.1. Producto tensorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">2.4.1.1. Definiciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">2.4.1.2. Base y dimension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">2.4.1.3. Producto de Kronecker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">2.4.1.4. Indexación equivalente</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">Factorización y entrelazamiento</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable-o-entrelazado">Estado factorizable o entrelazado</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizacion">Criterio de factorización</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">Descomposición de Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">2.4.2. Factorización y entrelazamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable-o-entrelazado">2.4.2.1. Estado factorizable o entrelazado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizacion">2.4.2.2. Criterio de factorización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">2.4.2.3. Descomposición de Schmidt</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">Producto tensorial múltiple</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado">Estado entrelazado</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">Estado factorizable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">2.4.3. Producto tensorial múltiple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">2.4.3.1. Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado">2.4.3.2. Estado entrelazado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">2.4.3.3. Estado factorizable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-rm-l-mathcal-h-otimes">Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">Producto tensorial de operadores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices-operadores-factorizables">Producto de Kronecker de matrices. Operadores factorizables.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">Generación de entrelazamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-rm-l-mathcal-h-otimes">2.4.4. Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">2.4.4.1. Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">2.4.4.2. Producto tensorial de operadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices-operadores-factorizables">2.4.4.3. Producto de Kronecker de matrices. Operadores factorizables.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">2.4.4.4. Generación de entrelazamiento</a></li>
 </ul>
 </li>
 </ul>
@@ -663,7 +664,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 04, 2024 | 8 min read</p>
+<div><p>Jul 10, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi2.png"><img alt="../../../_images/Fig_logo_UMA_scbi2.png" src="../../../_images/Fig_logo_UMA_scbi2.png" style="width: 2000px;" /></a>
@@ -692,22 +693,22 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="tensores">
-<h1>Tensores<a class="headerlink" href="#tensores" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.4. </span>Tensores<a class="headerlink" href="#tensores" title="Permalink to this heading">#</a></h1>
 <section id="producto-tensorial">
-<h2>Producto tensorial<a class="headerlink" href="#producto-tensorial" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.1. </span>Producto tensorial<a class="headerlink" href="#producto-tensorial" title="Permalink to this heading">#</a></h2>
 <p>Llegados a este punto, un lector con ciertos conocimientos de Computación Cuántica podría plantearse la siguiente pregunta: ¿por qué durante toda la explicación anterior estamos tratando con espacios de Hilbert de dimensión arbitraria, si los qúbits tiene dimensión dos?</p>
 <p>Esto es muy sencillo de explicar. Con lo que vamos a trabajar no es con un solo qúbit, sino con un conjunto de qúbits. Cada qúbit vivirá en un espacio de Hilbelt de dimensión dos, pero el estado total del sistema de muchos qúbits vivirá en un espacio de dimensión mayor. Este espacio estará formado por el <b>producto tensorial</b> de los espacios de Hilbert de cada qúbit.</p>
 <p>Es decir, el producto tensorial es una herramienta matemática que describe los <b>sistemas compuestos</b> (en nuestro caso, sistemas compuestos por varios qúbits).</p>
 <section id="definiciones">
-<h3>Definiciones<a class="headerlink" href="#definiciones" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1.1. </span>Definiciones<a class="headerlink" href="#definiciones" title="Permalink to this heading">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
-<p class="sd-card-text"><b>Definicion</b>:</p>
+<p class="sd-card-text"><b>Definición</b>:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Dados dos vectores <span class="math notranslate nohighlight">\(\ket{u}_1\in \mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\ket{v}_2\in \mathcal{H}_2\)</span>, denominamos <b>producto tensorial</b> al <b>par ordenado</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e43b638-d8dc-4095-9d62-9fbb3db99fb6">
-<span class="eqno">(188)<a class="headerlink" href="#equation-9e43b638-d8dc-4095-9d62-9fbb3db99fb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecbccce8-a228-44ea-8945-1cdbd6bb2a3e">
+<span class="eqno">(2.194)<a class="headerlink" href="#equation-ecbccce8-a228-44ea-8945-1cdbd6bb2a3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{uv} ~\equiv \ket{u}_1\otimes \ket{v}_2
 \end{equation}\]</div>
 </div>
@@ -723,12 +724,12 @@ document.write(`
 <p>Ahora viene la segunda definición clave:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
-<p class="sd-card-text"><b>Definicion</b>:</p>
+<p class="sd-card-text"><b>Definición</b>:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El <b>espacio producto tensorial</b>  <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2\)</span> está formado por  <b>todas</b> las combinaciones lineales posibles de  productos tensoriales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af01b074-2b06-4d72-8986-bed7b3edf5e8">
-<span class="eqno">(189)<a class="headerlink" href="#equation-af01b074-2b06-4d72-8986-bed7b3edf5e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2943aff-8fa3-4008-86c2-2d308b188078">
+<span class="eqno">(2.195)<a class="headerlink" href="#equation-d2943aff-8fa3-4008-86c2-2d308b188078" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{s}= a\ket{u}_1\otimes\ket{u}_2 ~+~ b \ket{v}_1\otimes\ket{v}_2 ~+ ~...
 \end{equation}\]</div>
 <p class="sd-card-text">donde  <span class="math notranslate nohighlight">\(\ket{u}_1,\ket{v}_1,...\in \mathcal{H}_1\, ~\)</span> y <span class="math notranslate nohighlight">\(~\, \ket{u}_2,\ket{v}_2,...\in \mathcal{H}~\)</span>,
@@ -745,13 +746,13 @@ y <span class="math notranslate nohighlight">\(~a,b,... \in {\mathbb C}\)</span>
 </div>
 </section>
 <section id="base-y-dimension">
-<h3>Base y dimension<a class="headerlink" href="#base-y-dimension" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1.2. </span>Base y dimension<a class="headerlink" href="#base-y-dimension" title="Permalink to this heading">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Sea <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> una base de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Entonces, una base de <span class="math notranslate nohighlight">\(\mathcal{H}\otimes \mathcal{H}=\mathcal{H}^{\otimes 2}\)</span> se obtiene
 a partir de <i>todos</i> los emparejamientos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f55f3426-0eab-4603-bcea-452e270b973f">
-<span class="eqno">(190)<a class="headerlink" href="#equation-f55f3426-0eab-4603-bcea-452e270b973f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2673044d-06ba-4525-a2d9-0fae97e86fb7">
+<span class="eqno">(2.196)<a class="headerlink" href="#equation-2673044d-06ba-4525-a2d9-0fae97e86fb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{ij}} = \ket{e_i}\otimes \ket{e_j}~~~~~~~~~~~~~~~~~~ i,j=1....d
 \end{equation}\]</div>
 </div>
@@ -760,8 +761,8 @@ a partir de <i>todos</i> los emparejamientos</p>
 <li><p>El número de parejas posibles es <span class="math notranslate nohighlight">\(d^2\)</span>, que coincide con la <b>dimensión</b> de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes 2}\)</span>.</p></li>
 <li><p>Vemos que las etiquetas de los vectores de la base forman un <i>bi-índice</i> <span class="math notranslate nohighlight">\(ij=11,12,21,22,...\)</span>.</p></li>
 <li><p>Un vector general se escribirá igualmente usando un bi-índice en lugar de un índice</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80139d3e-a74c-4275-9342-c5b8fbb6ad84">
-<span class="eqno">(191)<a class="headerlink" href="#equation-80139d3e-a74c-4275-9342-c5b8fbb6ad84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-659f1de8-8fc7-4d8e-8a14-41df5cf919fb">
+<span class="eqno">(2.197)<a class="headerlink" href="#equation-659f1de8-8fc7-4d8e-8a14-41df5cf919fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \ket{\omega} = \sum_{i,j=1}^{d} w_{ij} \ket{e_{ij}} ~=~
     w_{11}\ket{e_{11}} + w_{12}\ket{e_{12}} +\ldots
     \end{equation}\]</div>
@@ -770,10 +771,10 @@ a partir de <i>todos</i> los emparejamientos</p>
 </ul>
 </section>
 <section id="producto-de-kronecker">
-<h3>Producto de Kronecker<a class="headerlink" href="#producto-de-kronecker" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1.3. </span>Producto de Kronecker<a class="headerlink" href="#producto-de-kronecker" title="Permalink to this heading">#</a></h3>
 <p>Como sabemos, cualquier vector admite, en una base, una representación como un vector columna con sus coeficientes como entradas. La matriz columna asociada <span class="math notranslate nohighlight">\(\ket{uv}= \ket{u}\otimes \ket{v}\)</span> se forma a partir de las matrices columna de <span class="math notranslate nohighlight">\(\ket{u}\)</span> y <span class="math notranslate nohighlight">\(\ket{v}\)</span> mediante el denominado <b>producto de Kronecker</b> o, también <i>producto tensorial</i></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2ab6867-c306-4d78-93e0-67fd0f5bf5b7">
-<span class="eqno">(192)<a class="headerlink" href="#equation-a2ab6867-c306-4d78-93e0-67fd0f5bf5b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0a0c6e1-04f5-4654-9096-c37d3defb388">
+<span class="eqno">(2.198)<a class="headerlink" href="#equation-a0a0c6e1-04f5-4654-9096-c37d3defb388" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{uv} = \ket{u}\otimes \ket{v} ~\sim~
 \begin{bmatrix}u_1\\ u_2 \end{bmatrix}\otimes \begin{bmatrix}v_1\\ v_2 \end{bmatrix} ~\equiv ~
 \begin{bmatrix}u_1 \begin{bmatrix}v_1\\ v_2 \end{bmatrix} \\ u_2 \begin{bmatrix}v_1\\ v_2 \end{bmatrix}  \end{bmatrix}
@@ -782,16 +783,16 @@ a partir de <i>todos</i> los emparejamientos</p>
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
 <p>Con <span class="math notranslate nohighlight">\(d=2\)</span> tendríamos <span class="math notranslate nohighlight">\(d^2 = 4\)</span> elementos de la base de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes 2}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fd6d1ab-b3cd-4e9b-b89e-3f11340093e5">
-<span class="eqno">(193)<a class="headerlink" href="#equation-0fd6d1ab-b3cd-4e9b-b89e-3f11340093e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b6b8a36-8fff-4f12-8eaf-37c70f741190">
+<span class="eqno">(2.199)<a class="headerlink" href="#equation-4b6b8a36-8fff-4f12-8eaf-37c70f741190" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{11}}~=~ \ket{e_{1}}\otimes \ket{e_{1}}~ \sim~
 \begin{bmatrix}1\\ 0\end{bmatrix}\begin{bmatrix}1\\ 0\end{bmatrix} = \begin{bmatrix}1\\0\\0 \\ 0\end{bmatrix}
 ~~~~~~,~~~~~
 \ket{e_{12}}~=~ \ket{e_{1}}\otimes \ket{e_{2}}~\sim~
 \begin{bmatrix}1\\ 0\end{bmatrix}\begin{bmatrix}0\\ 1\end{bmatrix} = \begin{bmatrix}0\\1\\0 \\ 0\end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-569ff2aa-c56f-4360-8377-c59558cbddcf">
-<span class="eqno">(194)<a class="headerlink" href="#equation-569ff2aa-c56f-4360-8377-c59558cbddcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-17db1b03-33d5-4534-8a9b-da0492e094a4">
+<span class="eqno">(2.200)<a class="headerlink" href="#equation-17db1b03-33d5-4534-8a9b-da0492e094a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{e_{21}}~=~ \ket{e_{2}}\otimes \ket{e_{1}}~\sim~
 \begin{bmatrix}0\\ 1\end{bmatrix}\begin{bmatrix}1\\ 0\end{bmatrix} = \begin{bmatrix}0\\0\\1 \\ 0\end{bmatrix}
 ~~~~~,~~~~
@@ -799,40 +800,40 @@ a partir de <i>todos</i> los emparejamientos</p>
 \begin{bmatrix}0\\ 1\end{bmatrix}\begin{bmatrix}0\\ 1\end{bmatrix} = \begin{bmatrix}0\\0\\0 \\ 1\end{bmatrix}
 \end{equation}\]</div>
 <p>El <i>vector más general</i>  <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}\otimes\mathcal{H}\)</span> admitirá una representación de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09773096-d33b-44c6-9fd2-d518c86a4292">
-<span class="eqno">(195)<a class="headerlink" href="#equation-09773096-d33b-44c6-9fd2-d518c86a4292" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-974837c1-6143-44fb-b19a-014d00801c2e">
+<span class="eqno">(2.201)<a class="headerlink" href="#equation-974837c1-6143-44fb-b19a-014d00801c2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} ~= ~ \sum_{i,j=1}^2 w_{ij} \ket{e_{ij}}=~ \begin{bmatrix}w_{11}\\ w_{12}\\ w_{21} \\ w_{22}  \end{bmatrix}  ~
 \end{equation}\]</div>
 </div>
 </section>
 <section id="indexacion-equivalente">
-<h3>Indexación equivalente<a class="headerlink" href="#indexacion-equivalente" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1.4. </span>Indexación equivalente<a class="headerlink" href="#indexacion-equivalente" title="Permalink to this heading">#</a></h3>
 <p>Podemos etiquetar las componentes (o los elementos de la base) con índices. Para ello debemos definir un mapa  entre bi-índices <span class="math notranslate nohighlight">\(i,j=1,2~\)</span> e índices <span class="math notranslate nohighlight">\(a=1,...,4\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d783e5a9-94ee-4f8d-b04f-467320ec76dc">
-<span class="eqno">(196)<a class="headerlink" href="#equation-d783e5a9-94ee-4f8d-b04f-467320ec76dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-855618b8-6681-4246-9bca-10b91929d29c">
+<span class="eqno">(2.202)<a class="headerlink" href="#equation-855618b8-6681-4246-9bca-10b91929d29c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 w_{ij} =\begin{bmatrix} w_{11} \\ w_{12} \\ w_{21} \\ w_{22} \end{bmatrix} ~~~\longleftrightarrow ~~~
 w_a  = \begin{bmatrix} w_1 \\ w_2 \\ w_3 \\ w_4 \end{bmatrix} \, ,
 \end{equation}\]</div>
 <p>donde hemos querido resaltar que los vectores son los mismos, etiquetados de forma diferente. Haciendo lo mismo con los elementos de la base tenemmos que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a60ec4f-2b00-45d1-b3c1-0b9366150e83">
-<span class="eqno">(197)<a class="headerlink" href="#equation-6a60ec4f-2b00-45d1-b3c1-0b9366150e83" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-192cf5c0-8b3c-4335-a145-acfd2fdc2d4f">
+<span class="eqno">(2.203)<a class="headerlink" href="#equation-192cf5c0-8b3c-4335-a145-acfd2fdc2d4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} ~= ~ \sum_{i,j=1}^2 w_{ij} \ket{e_{ij}} ~=~ \sum_{a=1}^{4} w_{a} \ket{e_{a}}
 \end{equation}\]</div>
 <p>En el caso general, <span class="math notranslate nohighlight">\(i,j=1,...,d\)</span> el mapa es <span class="math notranslate nohighlight">\(w_{ij}  \to  w_a\)</span> con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f058b80c-15b3-4c48-bdaa-14111e2f7197">
-<span class="eqno">(198)<a class="headerlink" href="#equation-f058b80c-15b3-4c48-bdaa-14111e2f7197" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14544835-8c43-42d9-af74-b9fcb27f081b">
+<span class="eqno">(2.204)<a class="headerlink" href="#equation-14544835-8c43-42d9-af74-b9fcb27f081b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 a = d \cdot (i-1) + j
 \end{equation}\]</div>
 </section>
 </section>
 <section id="factorizacion-y-entrelazamiento">
-<h2>Factorización y entrelazamiento<a class="headerlink" href="#factorizacion-y-entrelazamiento" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.2. </span>Factorización y entrelazamiento<a class="headerlink" href="#factorizacion-y-entrelazamiento" title="Permalink to this heading">#</a></h2>
 <section id="estado-factorizable-o-entrelazado">
-<h3>Estado factorizable o entrelazado<a class="headerlink" href="#estado-factorizable-o-entrelazado" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.2.1. </span>Estado factorizable o entrelazado<a class="headerlink" href="#estado-factorizable-o-entrelazado" title="Permalink to this heading">#</a></h3>
 <p>Llegamos a uno de los conceptos clave en Teoría Cuántica de la Información.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
-<p class="sd-card-text"><b>Definicion</b>:</p>
+<p class="sd-card-text"><b>Definición</b>:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Decimos que, un vector <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}\otimes\mathcal{H}\)</span> es <b>factorizable</b> cuando es posible encontrar vectores <span class="math notranslate nohighlight">\(\ket{u},\ket{v}\in \mathcal{H}\)</span> tales que <span class="math notranslate nohighlight">\( \ket{w} = \ket{u}\otimes\ket{v}\)</span>.</p>
@@ -840,14 +841,14 @@ a = d \cdot (i-1) + j
 </div>
 </div>
 <p>Ya hemos visto que, dada una base <span class="math notranslate nohighlight">\(\ket{e_i}\)</span> de <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, el vector más general que pertenece al espacio producto admite una descomposición</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95343616-a851-444a-9d2b-7692e69e5f4a">
-<span class="eqno">(199)<a class="headerlink" href="#equation-95343616-a851-444a-9d2b-7692e69e5f4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-234de82f-e78a-49f9-8aa5-05010d39e3aa">
+<span class="eqno">(2.205)<a class="headerlink" href="#equation-234de82f-e78a-49f9-8aa5-05010d39e3aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i,j=1}^d w_{ij}\ket{e_{i}}\otimes \ket{e_j} = w_{11}\ket{e_1}\otimes\ket{e_1} + w_{12}\ket{e_1}\otimes\ket{e_2} + ...\, .
 \end{equation}\]</div>
 <p>Podría ocurrir que en otra base <span class="math notranslate nohighlight">\(\ket{w} = \tilde w_{11} \ket{f_1}\otimes\ket{f_1}\)</span> sólo tuviese un término y fuese factorizable. Discernir si un vector es factorizable o entrelazado no es algo que se pueda hacer a primera vista.</p>
 </section>
 <section id="criterio-de-factorizacion">
-<h3>Criterio de factorización<a class="headerlink" href="#criterio-de-factorizacion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.2.2. </span>Criterio de factorización<a class="headerlink" href="#criterio-de-factorizacion" title="Permalink to this heading">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El estado es <span class="math notranslate nohighlight">\(\ket{w}\)</span> es factorizable si y sólo si las componentes <span class="math notranslate nohighlight">\(w_{ij}\)</span> son factorizables en la forma <span class="math notranslate nohighlight">\(w_{ij} = u_i v_j~\)</span> con <span class="math notranslate nohighlight">\(i,j=1,...,d\)</span>.</p>
@@ -860,8 +861,8 @@ Demostración<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<div class="amsmath math notranslate nohighlight" id="equation-3baf872f-5709-400b-9f43-9538545711df">
-<span class="eqno">(200)<a class="headerlink" href="#equation-3baf872f-5709-400b-9f43-9538545711df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86348cc9-910a-42a8-b8a2-c223ca162fdf">
+<span class="eqno">(2.206)<a class="headerlink" href="#equation-86348cc9-910a-42a8-b8a2-c223ca162fdf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w}= \sum_{i,j=1}^d w_{ij} \ket{e_{ij}}  = \sum_{i,j} u_{i}v_j \ket{e_i}\otimes \ket{e_j}= \sum_{i,j} u_{i} \ket{e_i}\otimes v_j\ket{e_j}  ~ =~ \sum_i u_i\ket{e_i} \otimes \sum_j v_j\ket{e_j} ~=~   \ket{u}\otimes \ket{v}
 \end{equation}\]</div>
 <p class="sd-card-text">identidad que se puede leer en ambos sentidos</p>
@@ -872,41 +873,38 @@ como función de <span class="math notranslate nohighlight">\(d\)</span>,  <span
 <p class="admonition-title">Nota (caso con <span class="math notranslate nohighlight">\({d=2}\)</span>)</p>
 <p>En el caso  <span class="math notranslate nohighlight">\(d=2\)</span>  la condición <span class="math notranslate nohighlight">\(w_{ij} = u_i v_j\)</span> es <i>equivalente</i> a verificar
 la anulación del  determinante de la matriz <span class="math notranslate nohighlight">\(2\times 2\)</span> formada por las componentes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2aca2461-a2d0-4b41-8b67-01755d964061">
-<span class="eqno">(201)<a class="headerlink" href="#equation-2aca2461-a2d0-4b41-8b67-01755d964061" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-92ed7412-467d-4136-a2e0-b41b570088c5">
+<span class="eqno">(2.207)<a class="headerlink" href="#equation-92ed7412-467d-4136-a2e0-b41b570088c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \det w_{ij} =  w_{11}w_{22}- w_{12}w_{21} = u_1v_1u_2v_2-u_1v_2u_2v_1=0
 \end{equation}\]</div>
 </div>
 </section>
 <section id="descomposicion-de-schmidt">
-<h3>Descomposición de Schmidt<a class="headerlink" href="#descomposicion-de-schmidt" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.2.3. </span>Descomposición de Schmidt<a class="headerlink" href="#descomposicion-de-schmidt" title="Permalink to this heading">#</a></h3>
 <p>Vamos a estudiar el caso general en el que los <i>espacios factor</i> no son iguales <span class="math notranslate nohighlight">\(\ket{w} \in \mathcal{H} \otimes \mathcal{H}_2\)</span>. Supongamos que, en sendas bases arbitrarias <span class="math notranslate nohighlight">\(\{\ket{e_{1,i}}, i=1,...,d_1\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{e_{2,a}},a=1,...,d_2\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span> nuestro vector se escribe</p>
-<div class="amsmath math notranslate nohighlight" id="equation-760e179c-81e8-4d21-8d08-75f788053714">
-<span class="eqno">(202)<a class="headerlink" href="#equation-760e179c-81e8-4d21-8d08-75f788053714" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acda5de8-f39a-4edf-95ad-5ab270e040aa">
+<span class="eqno">(2.208)<a class="headerlink" href="#equation-acda5de8-f39a-4edf-95ad-5ab270e040aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i=1}^{d_1}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
 \end{equation}\]</div>
 <p>Los valores de las <i>componentes</i> <span class="math notranslate nohighlight">\(w_{ia}\)</span> <b>dependen de las bases escogida</b>. En <i>otras</i> base <span class="math notranslate nohighlight">\(\ket{\tilde e_{1,i}}\otimes\ket{\tilde e_{2,a}}\)</span> encontraremos <i>otras</i> componentes <span class="math notranslate nohighlight">\(\tilde w_{ia}\)</span> para el <i>mismo</i> vector.</p>
 <p>Si existe una base en la que <span class="math notranslate nohighlight">\(\tilde w_{ia}=0\)</span> para todos los <span class="math notranslate nohighlight">\(i,a\)</span> menos para uno (por ejemplo <span class="math notranslate nohighlight">\(\tilde w_{11}\neq 0\)</span>), entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-98f9da43-8826-44a6-85f8-dc9433b98370">
-<span class="eqno">(203)<a class="headerlink" href="#equation-98f9da43-8826-44a6-85f8-dc9433b98370" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fee8fafa-6ce8-41ff-9e61-90718f27d824">
+<span class="eqno">(2.209)<a class="headerlink" href="#equation-fee8fafa-6ce8-41ff-9e61-90718f27d824" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w}= \tilde w_{11}\ket{\tilde e_{1,1}}\otimes \ket{e_{2,1}}
 \end{equation}\]</div>
 <p>y, secretamente, el vector <span class="math notranslate nohighlight">\(\ket{w}\)</span> sería factorizable.</p>
 <p>El siguiente teorema nos dice <b>cuánto nos podemos acercar a esta situación</b>.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text"><b>Teorema</b>: </i>de Schmidt</i></p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Para cada vector <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}_1\otimes \mathcal{H}_2\)</span>, <b>existen  bases </b> <span class="math notranslate nohighlight">\(\{\ket{f_{1,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{f_{2,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span>, tales que, podemos expresar</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 2.12 </span> (de Schmidt)</p>
+<section class="theorem-content" id="proof-content">
+<p>Para cada vector <span class="math notranslate nohighlight">\(\ket{w}\in \mathcal{H}_1\otimes \mathcal{H}_2\)</span>, <b>existen  bases </b> <span class="math notranslate nohighlight">\(\{\ket{f_{1,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y  <span class="math notranslate nohighlight">\(\{\ket{f_{2,i}}\}\)</span>  de <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span>, tales que, podemos expresar</p>
 <div class="math notranslate nohighlight" id="equation-ec-formalismo-teorema-schmidt">
-<span class="eqno">(204)<a class="headerlink" href="#equation-ec-formalismo-teorema-schmidt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(2.210)<a class="headerlink" href="#equation-ec-formalismo-teorema-schmidt" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{w} = \sum_{i=1}^r s_i \ket{f_{1,i}}\otimes\ket{f_{2,i}} \, ,
 \end{equation} \]</div>
-<p class="sd-card-text">con <span class="math notranslate nohighlight">\(s_i&gt;0\)</span>, que   involucra el <b>mínimo número</b>, <span class="math notranslate nohighlight">\(r\)</span>, de términos.</p>
-</div>
-</div>
-<p>Es importante darse cuenta de que en la descomposición de la Ec. (\ref{ec_formalismo_teorema_schmidt}) se está sumado solo sobre un índice. Este es igual en los dos elementos de la base en cada término. Es decir, si representamos <span class="math notranslate nohighlight">\(\ket{\omega}\)</span> como una <b>matriz</b> (en vez de como un vector), esta sería diagonal y rectangular, con los lados iguales a las dimensiones de los dos espacios <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span>.</p>
+<p>con <span class="math notranslate nohighlight">\(s_i&gt;0\)</span>, que   involucra el <b>mínimo número</b>, <span class="math notranslate nohighlight">\(r\)</span>, de términos.</p>
+</section>
+</div><p>Es importante darse cuenta de que en la descomposición de la Ec.  <a class="reference internal" href="#equation-ec-formalismo-teorema-schmidt">(2.210)</a> se está sumado solo sobre un índice. Este es igual en los dos elementos de la base en cada término. Es decir, si representamos <span class="math notranslate nohighlight">\(\ket{\omega}\)</span> como una <b>matriz</b> (en vez de como un vector), esta sería diagonal y rectangular, con los lados iguales a las dimensiones de los dos espacios <span class="math notranslate nohighlight">\(\mathcal{H}_1\)</span> y <span class="math notranslate nohighlight">\(\mathcal{H}_2\)</span>.</p>
 <p>El número <span class="math notranslate nohighlight">\(1\leq r\leq {\rm min}(d_1,d_2)\)</span> se denomina <b>Número de Schmidt</b> y  es la información relevante  porque:</p>
 <ul class="simple">
 <li><p>Cuando <span class="math notranslate nohighlight">\(r=1\)</span>, el estado <span class="math notranslate nohighlight">\(\ket{w}\)</span> será <i>factorizable</i>.</p></li>
@@ -921,18 +919,18 @@ Demostración<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Supongamos que nuestro vector se escribe</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0af00cf-59b9-4dcf-85b6-e21e1fe71f9e">
-<span class="eqno">(205)<a class="headerlink" href="#equation-f0af00cf-59b9-4dcf-85b6-e21e1fe71f9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fd2d671a-63dd-4ba5-92dd-7a2daf1c673b">
+<span class="eqno">(2.211)<a class="headerlink" href="#equation-fd2d671a-63dd-4ba5-92dd-7a2daf1c673b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \sum_{i=1}^{d_2}\sum_{a=1}^{d_2} w_{ia} \ket{e_{1,i}}\otimes \ket{e_{2,a}}
 \end{equation}\]</div>
 <p class="sd-card-text">La matriz de coeficientes <span class="math notranslate nohighlight">\(w_{ia}\)</span> tiene  dimension <span class="math notranslate nohighlight">\(d_1\times d_2\)</span>. El <b>teorema de descomposición en valores singulares</b> nos garantiza que podemos expresar dicha matriz en la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a011ed25-e415-466f-b35d-b4991f6061bd">
-<span class="eqno">(206)<a class="headerlink" href="#equation-a011ed25-e415-466f-b35d-b4991f6061bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-358658ef-daf8-441d-88ea-e5564578fb3a">
+<span class="eqno">(2.212)<a class="headerlink" href="#equation-358658ef-daf8-441d-88ea-e5564578fb3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 w = U\Sigma V^\dagger ~~~\Rightarrow ~~~~w_{ia} = \sum_{j=1}^{d_1}\sum_{b=1}^{d_2} U_{ij}\Sigma_{jb}V_{ab}^*
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son unitarias <span class="math notranslate nohighlight">\((d_1\times d_1)\)</span> y <span class="math notranslate nohighlight">\((d_2\times d_2)\)</span> respectivamente, mientras que <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77464a62-156d-40e5-91d2-ed312bf1d9d4">
-<span class="eqno">(207)<a class="headerlink" href="#equation-77464a62-156d-40e5-91d2-ed312bf1d9d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6eaccffd-3db4-4031-921e-be9f85760bb1">
+<span class="eqno">(2.213)<a class="headerlink" href="#equation-6eaccffd-3db4-4031-921e-be9f85760bb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Sigma =
 \overbrace{\left.
 \begin{bmatrix}
@@ -955,13 +953,13 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 </section>
 </section>
 <section id="producto-tensorial-multiple">
-<h2>Producto tensorial múltiple<a class="headerlink" href="#producto-tensorial-multiple" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.3. </span>Producto tensorial múltiple<a class="headerlink" href="#producto-tensorial-multiple" title="Permalink to this heading">#</a></h2>
 <p>El producto tensorial se puede generalizar a más de un factor:</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El espacio <span class="math notranslate nohighlight">\(\mathcal{H}_1\otimes \mathcal{H}_2 ... \otimes \mathcal{H}_n\)</span> formado por <b>todas</b> las <b>n-tuplas</b> ordenadas de vectores</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f65a13bd-baf1-4f55-b5b0-0ff7e4d930df">
-<span class="eqno">(208)<a class="headerlink" href="#equation-f65a13bd-baf1-4f55-b5b0-0ff7e4d930df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-199ba8fa-c43e-4730-9e24-c266b643a905">
+<span class="eqno">(2.214)<a class="headerlink" href="#equation-199ba8fa-c43e-4730-9e24-c266b643a905" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = \ket{u_1u_2...u_n} \equiv\ket{u_1}\otimes\ket{u_2}\otimes ...\otimes \ket{u_n}
 \end{equation}\]</div>
 <p class="sd-card-text">donde <span class="math notranslate nohighlight">\(\ket{u_i}\in \mathcal{H}_i\)</span> y sus combinaciones lineales <span class="math notranslate nohighlight">\(\{ a\ket{u}+ b\ket{v} + ...\}\)</span>.</p>
@@ -969,12 +967,12 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 </div>
 <p>Salvo mención, en adelante asumiremos que todos los <span class="math notranslate nohighlight">\(\mathcal{H}_j=\mathcal{H}\)</span> son iguales y de dimension <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <section id="base">
-<h3>Base<a class="headerlink" href="#base" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.1. </span>Base<a class="headerlink" href="#base" title="Permalink to this heading">#</a></h3>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">Una base de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> se obtiene a partir de cadenas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23dd99b7-ef66-41e8-b705-10c5abbe096f">
-<span class="eqno">(209)<a class="headerlink" href="#equation-23dd99b7-ef66-41e8-b705-10c5abbe096f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e05feca2-e302-4d5f-b95c-845ce9fa7c57">
+<span class="eqno">(2.215)<a class="headerlink" href="#equation-e05feca2-e302-4d5f-b95c-845ce9fa7c57" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{i_1 i_2.... i_n} =
 \ket{i_1}\ket{i_2}  ... \ket{i_n}
 \end{equation}\]</div>
@@ -987,25 +985,25 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 </div>
 <ul>
 <li><p>El número de posibles cadenas es <span class="math notranslate nohighlight">\(d\, d\, ... \, d = d^n\)</span> que  es la dimensión de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3bfa8a2-57fc-45c2-80e1-dc508059dfd9">
-<span class="eqno">(210)<a class="headerlink" href="#equation-e3bfa8a2-57fc-45c2-80e1-dc508059dfd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-deaf2e3b-007d-4cc6-802f-dea2007a3d00">
+<span class="eqno">(2.216)<a class="headerlink" href="#equation-deaf2e3b-007d-4cc6-802f-dea2007a3d00" title="Permalink to this equation">#</a></span>\[\begin{equation}
     {\rm dim}_{\mathbb C} \mathcal{H}^{\otimes n} = d^n
     \end{equation}\]</div>
 </li>
 <li><p>Podemos cambiar de etiqueta</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0c101fb-6043-4e17-88ef-b701a3834d28">
-<span class="eqno">(211)<a class="headerlink" href="#equation-f0c101fb-6043-4e17-88ef-b701a3834d28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbb7acfe-758a-4e87-b06b-b7d99289bf92">
+<span class="eqno">(2.217)<a class="headerlink" href="#equation-cbb7acfe-758a-4e87-b06b-b7d99289bf92" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \ket{i_1...i_n} \to \ket{a}
     \end{equation}\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9a04dab-e10b-475f-b81d-6ed3fb6f4e07">
-<span class="eqno">(212)<a class="headerlink" href="#equation-d9a04dab-e10b-475f-b81d-6ed3fb6f4e07" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7019294-bd69-4e65-87e9-26640c3d8c7a">
+<span class="eqno">(2.218)<a class="headerlink" href="#equation-d7019294-bd69-4e65-87e9-26640c3d8c7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     a = i_n + d i_{n-1} + d^2 i_{n-2}+...+d^{n-1} i_1~\in ~(0,d^n-1)
     \end{equation}\]</div>
 </li>
 <li><p>Si cada base <span class="math notranslate nohighlight">\(\{\ket{i}\}\)</span> es ortonormal, tendremos que la base producto también lo será</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c576afd9-837b-49be-b16d-160b4e7e601d">
-<span class="eqno">(213)<a class="headerlink" href="#equation-c576afd9-837b-49be-b16d-160b4e7e601d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f8746633-0a63-4e8d-ba9f-052ec3f6a99a">
+<span class="eqno">(2.219)<a class="headerlink" href="#equation-f8746633-0a63-4e8d-ba9f-052ec3f6a99a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \braket{i_1 i_2... i_n}{j_1j_2...j_n} = \delta_{i_1j_1}\delta_{i_2j_2}...\delta_{i_nj_n} ~~~~\leftrightarrow ~~~~
     \braket{a}{b} = \delta_{ab}
     \end{equation}\]</div>
@@ -1013,37 +1011,37 @@ s_1 &amp;\cdots  &amp;    &amp;  &amp; &amp; &amp;  0  \\  \vdots &amp; \ddots &
 </ul>
 </section>
 <section id="estado-entrelazado">
-<h3>Estado entrelazado<a class="headerlink" href="#estado-entrelazado" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.2. </span>Estado entrelazado<a class="headerlink" href="#estado-entrelazado" title="Permalink to this heading">#</a></h3>
 <p>Un <b>vector general</b> admitirá una expansión en esta base mediante <span class="math notranslate nohighlight">\(d^n\)</span> <b>componentes complejas</b>
 <span class="math notranslate nohighlight">\(u_{i_1 i_2...i_n}\)</span> en la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7aa4bba-d234-4c11-8a88-544e56733488">
-<span class="eqno">(214)<a class="headerlink" href="#equation-d7aa4bba-d234-4c11-8a88-544e56733488" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-55e043d6-9689-45da-a50e-73c2a667efca">
+<span class="eqno">(2.220)<a class="headerlink" href="#equation-55e043d6-9689-45da-a50e-73c2a667efca" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{u} = \sum_{i_1,...,i_n=0}^{d-1} u_{i_1i_2...i_n} \ket{i_1i_2...i_n} = \sum_{a=0}^{d^n-1} u_a\ket{a}\, .
 \end{equation}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota (notación de multi-indices en el sumatorio)</p>
 <p>Véase que en el sumatorio anterior <b>cada uno de los indice</b> se suma de 0 a <span class="math notranslate nohighlight">\(d-1\)</span>. Es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e864689b-ce10-48fa-b396-4a0fcece3e61">
-<span class="eqno">(215)<a class="headerlink" href="#equation-e864689b-ce10-48fa-b396-4a0fcece3e61" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5b95d807-40f9-4124-8d9f-9494b00c5b5e">
+<span class="eqno">(2.221)<a class="headerlink" href="#equation-5b95d807-40f9-4124-8d9f-9494b00c5b5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{i_1,...,i_n=0}^{d-1} = \sum_{i_1}^{d-1} \sum_{i_2}^{d-1} \cdots \sum_{i_n}^{d-1}
 \end{equation}\]</div>
 </div>
 <p>Podemos obtener cualquier componente compleja proyectando sobre el elemento correspondiente de la base</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b871bcc7-8f0b-4f64-a01c-e1d527a2555a">
-<span class="eqno">(216)<a class="headerlink" href="#equation-b871bcc7-8f0b-4f64-a01c-e1d527a2555a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-562adcee-7d9f-497b-8954-3e480f2bd7d8">
+<span class="eqno">(2.222)<a class="headerlink" href="#equation-562adcee-7d9f-497b-8954-3e480f2bd7d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{i_1i_2...i_n} = \braket{i_1 i_2... i_n}{u}~~~~~~\leftrightarrow~~~~~~~~u_a = \braket{a}{u}
 \end{equation}\]</div>
 </section>
 <section id="estado-factorizable">
-<h3>Estado factorizable<a class="headerlink" href="#estado-factorizable" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3.3. </span>Estado factorizable<a class="headerlink" href="#estado-factorizable" title="Permalink to this heading">#</a></h3>
 <p>Como ya comentamos, de lo más común es que un vector sea entrelazado. Lo que son casos particulares son los <b>estados factorizables</b>. Un vector de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> se podrá escribir en forma factorizada</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28175a70-5932-4bad-986a-5f5bf7e292d1">
-<span class="eqno">(217)<a class="headerlink" href="#equation-28175a70-5932-4bad-986a-5f5bf7e292d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d48d1fdf-f116-49e9-a6a0-6fa9fadc4c36">
+<span class="eqno">(2.223)<a class="headerlink" href="#equation-d48d1fdf-f116-49e9-a6a0-6fa9fadc4c36" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{w} = \ket{v_1}\ket{v_2}\ldots\ket{v_n} \equiv \ket{v_1 v_2 \ldots v_n}
 \end{equation}\]</div>
 <p>Escribiendo <span class="math notranslate nohighlight">\(\ket{v_k} = \sum_{i_k=1}^d v_{i_k}\ket{i_k}\)</span> vemos que un <i>vector factorizable</i> admite una expansión general en la que los coeficientes son factorizables</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ea64463-8709-4765-935c-8d10f97c614d">
-<span class="eqno">(218)<a class="headerlink" href="#equation-1ea64463-8709-4765-935c-8d10f97c614d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f978dd35-e7f4-41e2-933f-7a6e7c4c0def">
+<span class="eqno">(2.224)<a class="headerlink" href="#equation-f978dd35-e7f4-41e2-933f-7a6e7c4c0def" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u_{i_1i_2...i_n}  = v_{i_1} v_{i_2}.... v_{i_n}
 \end{equation}\]</div>
 <p>están parametrizados por <span class="math notranslate nohighlight">\(nd\)</span> cantidades <span class="math notranslate nohighlight">\(v_{i_k}, \, i_k=1,...,d, \, k=1,...,n\)</span>.</p>
@@ -1058,31 +1056,31 @@ u_{i_1i_2...i_n}  = v_{i_1} v_{i_2}.... v_{i_n}
 </section>
 </section>
 <section id="espacio-rm-l-mathcal-h-otimes">
-<h2>Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span><a class="headerlink" href="#espacio-rm-l-mathcal-h-otimes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4.4. </span>Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span><a class="headerlink" href="#espacio-rm-l-mathcal-h-otimes" title="Permalink to this heading">#</a></h2>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text">El espacio <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> admite, como cualquier espacio vectorial, la acción de <i>operadores lineales</i> <span class="math notranslate nohighlight">\(A: \mathcal{H}^{\otimes n} \to \mathcal{H}^{\otimes n}\)</span> donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a517b483-8816-45d6-823a-61eb90b95ea0">
-<span class="eqno">(219)<a class="headerlink" href="#equation-a517b483-8816-45d6-823a-61eb90b95ea0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6c30a886-ce49-4694-b778-6c8d98174ae9">
+<span class="eqno">(2.225)<a class="headerlink" href="#equation-6c30a886-ce49-4694-b778-6c8d98174ae9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A:\ket{u} \to \ket{v} \equiv A\ket{u}
 \end{equation}\]</div>
 <p class="sd-card-text">El conjunto de todos los operadores lineales forman el espacio vectorial <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^{\otimes n})\)</span>.</p>
 </div>
 </div>
 <section id="matrices">
-<h3>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.4.1. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>A cada operador, <span class="math notranslate nohighlight">\(A\)</span>, le podemos asociadar una <i>matriz</i>, una vez elijamos nuestra base  <span class="math notranslate nohighlight">\(\{ \ket{i_1 i_2... i_n}\}\)</span> donde, <span class="math notranslate nohighlight">\(i_a = 1,...,d\)</span>.</p></li>
 <li><p>Los <i>elementos de matriz</i> ahora vendrán etiquetados por dos <i>multi-índices</i>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54fb584f-a7c2-4bbf-87b0-10329db8e920">
-<span class="eqno">(220)<a class="headerlink" href="#equation-54fb584f-a7c2-4bbf-87b0-10329db8e920" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0627ba0-2d6c-4afe-b695-9f8af577f3f7">
+<span class="eqno">(2.226)<a class="headerlink" href="#equation-b0627ba0-2d6c-4afe-b695-9f8af577f3f7" title="Permalink to this equation">#</a></span>\[\begin{equation}
     A_{i_1...i_n, \, j_1...j_n} = \bra{i_1...i_n}A\ket{j_1...j_n}  ~~~~~\leftrightarrow ~~~~~~ A_{ab}= \bra{a}A\ket{b}
     \end{equation}\]</div>
 <p>donde hemos re-etiquetado los multi-índices como un solo índice</p>
 </li>
 <li><p>Con la matriz, el operador se reconstruye de la forma usual</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29adf6eb-2a8e-472c-a327-ab7ae0d9febf">
-<span class="eqno">(221)<a class="headerlink" href="#equation-29adf6eb-2a8e-472c-a327-ab7ae0d9febf" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-b28c0b3c-1c86-49ca-aaab-c91c2df6c7cd">
+<span class="eqno">(2.227)<a class="headerlink" href="#equation-b28c0b3c-1c86-49ca-aaab-c91c2df6c7cd" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
     A &amp;=&amp;
     \sum_{i_1,...,i_n,\, j_1,...,j_n=0}^{d-1} A_{i_1...i_n, \, j_1...j_n} \ketbra{i_1...i_n}{j_1...j_n}
     ~~=~~
@@ -1093,21 +1091,21 @@ A:\ket{u} \to \ket{v} \equiv A\ket{u}
 </ul>
 </section>
 <section id="producto-tensorial-de-operadores">
-<h3>Producto tensorial de operadores<a class="headerlink" href="#producto-tensorial-de-operadores" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.4.2. </span>Producto tensorial de operadores<a class="headerlink" href="#producto-tensorial-de-operadores" title="Permalink to this heading">#</a></h3>
 <p>En <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^{\otimes n})\)</span> hay un análogo de los vectores factorizables de <span class="math notranslate nohighlight">\(\mathcal{H}^{\otimes n}\)</span> que ahora serán <i>operadores factorizables</i>. Supongamos que existen <span class="math notranslate nohighlight">\(n\)</span> operadores lineales <span class="math notranslate nohighlight">\(A^{(a)}\, ,\, a=1,...,n\)</span> definidos sobre cada espacio factor <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-header docutils">
-<p class="sd-card-text"><b>Definicion</b>:</p>
+<p class="sd-card-text"><b>Definición</b>:</p>
 </div>
 <div class="sd-card-body docutils">
 <p class="sd-card-text">La acción del producto tensorial de operadores  <span class="math notranslate nohighlight">\(A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span> sobre un vector <span class="math notranslate nohighlight">\(\ket{v} = \ket{v}_1\otimes ...\otimes \ket{v_n}\in \mathcal{H}~\)</span>   viene dada por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f78d2608-0dba-4ca6-92a7-feaaf7e4af5e">
-<span class="eqno">(222)<a class="headerlink" href="#equation-f78d2608-0dba-4ca6-92a7-feaaf7e4af5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-22bee1ac-30ce-4c55-a677-7da98ea0fc52">
+<span class="eqno">(2.228)<a class="headerlink" href="#equation-22bee1ac-30ce-4c55-a677-7da98ea0fc52" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A\ket{v} = A^{(1)}\ket{v_1}\otimes ... \otimes A^{(n)} \ket{v_n}\, .
 \end{equation}\]</div>
 <p class="sd-card-text">La acción sobre vectores generales se sigue imponiento linealidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbb005ab-6df5-4f09-aa4f-7ac9f4aa5f5b">
-<span class="eqno">(223)<a class="headerlink" href="#equation-bbb005ab-6df5-4f09-aa4f-7ac9f4aa5f5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73227862-c232-443f-a982-d93488feff35">
+<span class="eqno">(2.229)<a class="headerlink" href="#equation-73227862-c232-443f-a982-d93488feff35" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A(\ket{v} + \ket{w}) = A\ket{v} + A\ket{w}\, .
 \end{equation}\]</div>
 </div>
@@ -1115,50 +1113,50 @@ A(\ket{v} + \ket{w}) = A\ket{v} + A\ket{w}\, .
 <p>Se sigue automáticamente de la definición que:</p>
 <ul>
 <li><p>El adjunto de un producto tensorial de operadores es el producto de los adjuntos (no se permuta el orden)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33df8edd-11db-4e36-b07c-cdba4ed43f2e">
-<span class="eqno">(224)<a class="headerlink" href="#equation-33df8edd-11db-4e36-b07c-cdba4ed43f2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a77c80a4-fa3f-49ae-a8c9-b2e24aba0b30">
+<span class="eqno">(2.230)<a class="headerlink" href="#equation-a77c80a4-fa3f-49ae-a8c9-b2e24aba0b30" title="Permalink to this equation">#</a></span>\[\begin{equation}
     A^\dagger = A^{(1)\dagger} \otimes ... \otimes A^{(n)\dagger}
     \end{equation}\]</div>
 </li>
 <li><p>El producto tensorial de operadores hermíticos es hermítico</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb15603e-b9a2-479b-84d6-c49705642a44">
-<span class="eqno">(225)<a class="headerlink" href="#equation-eb15603e-b9a2-479b-84d6-c49705642a44" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a7cec9ec-7d1c-4291-aabd-42ab85d77771">
+<span class="eqno">(2.231)<a class="headerlink" href="#equation-a7cec9ec-7d1c-4291-aabd-42ab85d77771" title="Permalink to this equation">#</a></span>\[\begin{equation}
     A^{(a)\dagger} = A^{(a)} ~~\Longrightarrow A^{\dagger} = A
     \end{equation}\]</div>
 </li>
 <li><p>El producto tensorial de operadores unitarios, es unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa2de597-67f3-486b-b639-bb5480528dc3">
-<span class="eqno">(226)<a class="headerlink" href="#equation-aa2de597-67f3-486b-b639-bb5480528dc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-96d17070-641e-4324-8077-231c74fc9df8">
+<span class="eqno">(2.232)<a class="headerlink" href="#equation-96d17070-641e-4324-8077-231c74fc9df8" title="Permalink to this equation">#</a></span>\[\begin{equation}
     A^{(a)\dagger} = A^{(a)\, -1} \,  ~~\Longrightarrow ~~A^{\dagger} = A^{-1}
     \end{equation}\]</div>
 </li>
 </ul>
 </section>
 <section id="producto-de-kronecker-de-matrices-operadores-factorizables">
-<h3>Producto de Kronecker de matrices. Operadores factorizables.<a class="headerlink" href="#producto-de-kronecker-de-matrices-operadores-factorizables" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.4.3. </span>Producto de Kronecker de matrices. Operadores factorizables.<a class="headerlink" href="#producto-de-kronecker-de-matrices-operadores-factorizables" title="Permalink to this heading">#</a></h3>
 <p>¿Cómo será la matriz <span class="math notranslate nohighlight">\(A_{i_1...i_n, \, j_1...j_n}\)</span> de un operador factorizable, <span class="math notranslate nohighlight">\( A = A^{(1)}\otimes A^{(2)} \otimes ...A^{(n)}\)</span>, en términos de las matrices  <span class="math notranslate nohighlight">\( A^{(a)}_{ij}\)</span> de sus factores? Vamos a tomar  <span class="math notranslate nohighlight">\(n=2\)</span> por simplicidad</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dce43f7a-6674-4424-98ea-52359edc89ad">
-<span class="eqno">(227)<a class="headerlink" href="#equation-dce43f7a-6674-4424-98ea-52359edc89ad" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-511afeaf-6ec0-43cf-be0e-40a07fccbfec">
+<span class="eqno">(2.233)<a class="headerlink" href="#equation-511afeaf-6ec0-43cf-be0e-40a07fccbfec" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 A = A^{(1)}\otimes  A^{(2)} &amp;=&amp;\left( \sum_{i_1i_2}A^{(1)}_{i_1 j_1} \ket{i_1}\bra{j_1}\right)\left( \sum_{i_2j_2}A^{(2)}_{i_2 j_2} \ket{i_2}\bra{j_2}\right)\\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A^{(1)}_{i_1 j_1}A^{(2)}_{i_2 j_2}\ket{i_1 i_2}\bra{j_1j_2} \\
 &amp;=&amp; \sum_{i_1 i_2 , j_1 j_2} A_{i_1i_2,\, j_1j_2}\ket{i_1 i_2}\bra{j_1j_2}
 \end{eqnarray}\]</div>
 <p>Vemos que la matriz asociada a <span class="math notranslate nohighlight">\(A\)</span> se obtiene  a partir de las matrices de <span class="math notranslate nohighlight">\(A^{(a)}\)</span> mediante el  <i>producto exterior de las matrices</i>, o <b>producto de Kronecker</b>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7861f389-07d0-4f82-9cb4-8795a22b7985">
-<span class="eqno">(228)<a class="headerlink" href="#equation-7861f389-07d0-4f82-9cb4-8795a22b7985" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-127a964a-db30-4864-91fc-ed07ba23cf2e">
+<span class="eqno">(2.234)<a class="headerlink" href="#equation-127a964a-db30-4864-91fc-ed07ba23cf2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A_{i_1i_2,\,j_1j_2} = A^{(1)}_{i_1j_1}A^{(2)}_{i_2 j_2}
 \end{equation}\]</div>
 <p>El método para de <b>representar</b> matricialmente el producto de Kronecker de dos matrices <span class="math notranslate nohighlight">\(A\otimes B\)</span> es sencillo. Supongamos que <span class="math notranslate nohighlight">\(d=2\)</span> y tenemos un operador producto <span class="math notranslate nohighlight">\(A\otimes B\)</span>. Entonces su matriz</p>
-<div class="amsmath math notranslate nohighlight" id="equation-630f4d93-5dea-4c5e-ac0e-612f1e57dae3">
-<span class="eqno">(229)<a class="headerlink" href="#equation-630f4d93-5dea-4c5e-ac0e-612f1e57dae3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af22a459-7e8a-40bf-861b-9a083ed63925">
+<span class="eqno">(2.235)<a class="headerlink" href="#equation-af22a459-7e8a-40bf-861b-9a083ed63925" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (A\otimes B)_{ab} = \begin{pmatrix} A_{00}B &amp; A_{01}B \\ A_{10}B &amp; A_{11}B \end{pmatrix} = \begin{pmatrix} A_{00}B_{00} &amp; A_{00}B_{01} &amp; A_{01}B_{00} &amp; A_{01}B_{01} \\
 A_{00}B_{10} &amp; A_{00}B_{11} &amp; A_{01}B_{10} &amp; A_{01}B_{11} \\
 A_{10}B_{00} &amp; A_{10}B_{01} &amp; A_{11}B_{00} &amp; A_{11}B_{01} \\
 A_{10}B_{10} &amp; A_{10}B_{11} &amp; A_{11}B_{10} &amp; A_{11}B_{11} \end{pmatrix}.
 \end{equation}\]</div>
 <p>El producto de Kronecker verifica las siguientes propiedades para dos matrices <span class="math notranslate nohighlight">\(A\)</span>  y <span class="math notranslate nohighlight">\(B\)</span> de dimensiones <span class="math notranslate nohighlight">\(d_A\)</span> y <span class="math notranslate nohighlight">\(d_B\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ff8575b-c513-4c96-81a6-fc0fe73e7adb">
-<span class="eqno">(230)<a class="headerlink" href="#equation-9ff8575b-c513-4c96-81a6-fc0fe73e7adb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-efed0a04-32fa-4445-844f-6f497a806853">
+<span class="eqno">(2.236)<a class="headerlink" href="#equation-efed0a04-32fa-4445-844f-6f497a806853" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 (A\otimes B)(C\otimes D) &amp;=&amp; (AC)\otimes (BD) \nonumber\\ \rule{0mm}{6mm}
 {\rm tr}(A\otimes B) &amp;=&amp; ({\rm tr} A)({\rm tr} B) \nonumber\\ \rule{0mm}{6mm}
 A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
@@ -1172,8 +1170,8 @@ A\otimes(B+D) &amp;=&amp; A\otimes B + A\otimes D \nonumber\\ \rule{0mm}{6mm}
 <p>Demuestra estos resultados.</p>
 </div>
 <p>La generalización a todo <span class="math notranslate nohighlight">\(n\)</span> es obvia. El producto de Kronecker de <span class="math notranslate nohighlight">\(n\)</span> matrices <span class="math notranslate nohighlight">\( A^{(a)}_{i_aj_a}\)</span> asociadas a operadores <span class="math notranslate nohighlight">\(A^{(a)}\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7a356fb-43e4-48e6-b46c-a98d942a1662">
-<span class="eqno">(231)<a class="headerlink" href="#equation-b7a356fb-43e4-48e6-b46c-a98d942a1662" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eab49864-d801-4f32-b917-c8fa86d941d8">
+<span class="eqno">(2.237)<a class="headerlink" href="#equation-eab49864-d801-4f32-b917-c8fa86d941d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A_{i_1...i_n,\,j_1...j_n} = A^{(1)}_{i_1j_1}...A^{(n)}_{i_n j_n}
 \end{equation}\]</div>
 <div class="tip admonition">
@@ -1188,7 +1186,7 @@ Por tanto, los <i>operadores factorizables</i> forman un subconjunto muy pequeñ
 </div>
 </section>
 <section id="generacion-de-entrelazamiento">
-<h3>Generación de entrelazamiento<a class="headerlink" href="#generacion-de-entrelazamiento" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.4.4. </span>Generación de entrelazamiento<a class="headerlink" href="#generacion-de-entrelazamiento" title="Permalink to this heading">#</a></h3>
 <p>Supongamos que <span class="math notranslate nohighlight">\(\ket{u} = \ket{u_1}\otimes\ket{u_2}\)</span> es factorizable.</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(A=A_1\otimes A_2\)</span> es un operador factorizable, el resultado <span class="math notranslate nohighlight">\(\ket{v} = A\ket{u} = A_1\ket{u_1}\otimes A_2\ket{u_2}\)</span> también es factorizable.</p></li>
@@ -1197,8 +1195,8 @@ Por tanto, los <i>operadores factorizables</i> forman un subconjunto muy pequeñ
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Considera la base <span class="math notranslate nohighlight">\(\{\ket{0},\ket{1} \}\)</span> del espacio <span class="math notranslate nohighlight">\(\mathcal{H}\)</span> de dimensión 2. Sea <span class="math notranslate nohighlight">\(A= B + C\)</span> un operador que actúa sobre el producto <span class="math notranslate nohighlight">\(\mathcal{H}\otimes \mathcal{H}\)</span>,  donde <span class="math notranslate nohighlight">\(B\)</span> y <span class="math notranslate nohighlight">\(C\)</span> son operadores factorizables dados por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fe697ec-73f9-4eb9-bdfc-189005c21654">
-<span class="eqno">(232)<a class="headerlink" href="#equation-2fe697ec-73f9-4eb9-bdfc-189005c21654" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-07aee032-de70-4778-960e-688a2bedfa83">
+<span class="eqno">(2.238)<a class="headerlink" href="#equation-07aee032-de70-4778-960e-688a2bedfa83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 B = \ketbra{0}{0}\otimes I ~~~, ~~~~
 C = \ketbra{1}{1}\otimes (\ketbra{0}{1} + \ketbra{1}{0})
 \end{equation}\]</div>
@@ -1249,7 +1247,7 @@ C = \ketbra{1}{1}\otimes (\ketbra{0}{1} + \ketbra{1}{0})
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Operadores</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Operadores</p>
       </div>
     </a>
     <a class="right-next"
@@ -1257,7 +1255,7 @@ C = \ketbra{1}{1}\otimes (\ketbra{0}{1} + \ketbra{1}{0})
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Probabilidades</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Probabilidades</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1277,30 +1275,30 @@ C = \ketbra{1}{1}\otimes (\ketbra{0}{1} + \ketbra{1}{0})
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">Producto tensorial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">Definiciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">Base y dimension</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">Producto de Kronecker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">Indexación equivalente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial">2.4.1. Producto tensorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">2.4.1.1. Definiciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-y-dimension">2.4.1.2. Base y dimension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker">2.4.1.3. Producto de Kronecker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-equivalente">2.4.1.4. Indexación equivalente</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">Factorización y entrelazamiento</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable-o-entrelazado">Estado factorizable o entrelazado</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizacion">Criterio de factorización</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">Descomposición de Schmidt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizacion-y-entrelazamiento">2.4.2. Factorización y entrelazamiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable-o-entrelazado">2.4.2.1. Estado factorizable o entrelazado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-factorizacion">2.4.2.2. Criterio de factorización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-schmidt">2.4.2.3. Descomposición de Schmidt</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">Producto tensorial múltiple</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">Base</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado">Estado entrelazado</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">Estado factorizable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-multiple">2.4.3. Producto tensorial múltiple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base">2.4.3.1. Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-entrelazado">2.4.3.2. Estado entrelazado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-factorizable">2.4.3.3. Estado factorizable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-rm-l-mathcal-h-otimes">Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">Producto tensorial de operadores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices-operadores-factorizables">Producto de Kronecker de matrices. Operadores factorizables.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">Generación de entrelazamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-rm-l-mathcal-h-otimes">2.4.4. Espacio <span class="math notranslate nohighlight">\({\rm L}(\mathcal{H}^\otimes)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">2.4.4.1. Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-tensorial-de-operadores">2.4.4.2. Producto tensorial de operadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-de-kronecker-de-matrices-operadores-factorizables">2.4.4.3. Producto de Kronecker de matrices. Operadores factorizables.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-entrelazamiento">2.4.4.4. Generación de entrelazamiento</a></li>
 </ul>
 </li>
 </ul>

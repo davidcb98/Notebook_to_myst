@@ -59,7 +59,7 @@ import unicodedata
 
 from make_bib_in_ipynb import write_bib_notebook
 
-from LtN_replaces_and_others import reemplazo_label
+from LtN_replaces_and_others import reemplazo_label, reemplazo_ref
 from LtN_replaces_and_others import reemplazo_sec
 from LtN_replaces_and_others import reemplazo_subsec
 from LtN_replaces_and_others import reemplazo_chapter
@@ -69,7 +69,7 @@ from LtN_replaces_and_others import reemplazo_includegraphics
 from LtN_replaces_and_others import reemplazo_textbf
 from LtN_replaces_and_others import reemplazo_textit
 from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_full
-from LtN_replaces_and_others import reemplazo_begin_figure
+from LtN_replaces_and_others import reemplazo_begin_figure, reemplazo_begin_table
 from LtN_replaces_and_others import reemplazo_item
 from LtN_replaces_and_others import find_title_subtitle_BeginBox, find_title_part
 from LtN_replaces_and_others import delete_vspace, delete_hspace
@@ -219,11 +219,13 @@ find_Corolario = False
 find_Definicion = False
 find_Proposicion = False
 find_Ejercicio = False
+find_table = False
 
 find_mybox_green = False
 find_mybox_gray2 = False
 find_mybox_blue = False
 find_mybox_gray = False
+find_mybox_orange = False
 
 num_line_text_file = 0
 
@@ -258,7 +260,9 @@ with open(file_name, 'r') as f:
                  find_Definicion,
                  find_Proposicion,
                  find_Ejercicio,
-                 find_mybox_green
+                 find_mybox_green,
+                 find_mybox_orange,
+                 find_table
                  ]
 
         finds_2 = [find_itemize,
@@ -442,7 +446,7 @@ with open(file_name, 'r') as f:
             find_mybox_blue = False
             line = '</p></div>'
 
-        #################### mybox_greeb / Ejemplos #######################
+        #################### mybox_green / Ejemplos #######################
 
         elif "\\\\begin{mybox_green}" in line:
             find_mybox_green = True
@@ -467,6 +471,30 @@ with open(file_name, 'r') as f:
             find_mybox_green = False
             line = '</p></div>'
 
+        #################### mybox_orange / Ref a Notebooks #######################
+
+        elif "\\\\begin{mybox_orange}" in line:
+            find_mybox_orange = True
+            try:
+                title, subtitle = find_title_subtitle_BeginBox(line)
+            except:
+                message = "Error al buscar el titulo y subtitulo de una mybox_green"
+                raise ErrorGenerico(f_data, line,num_line_text_file , message)
+
+            if subtitle == None:
+                line = '<div class=\\"alert alert-block alert-warning\\">\\n",\n' + \
+                        '    "<p style=\\"color: #4B5320;\\">\\n",\n' + \
+                        '    "<b>'+title+'</b>:\\n",\n' + \
+                        '    "<br>'
+            else:
+                line = '<div class=\\"alert alert-block alert-warning\\">\\n",\n' + \
+                        '    "<p style=\\"color: #4B5320;\\">\\n",\n' + \
+                        '    "<b>'+title+'</b>: <i>('+subtitle+')</i>\\n",\n' + \
+                        '    "<br>'
+
+        elif "\\\\end{mybox_orange}" in line:
+            find_mybox_orange = False
+            line = '</p></div>'
 
         ########################### Teoremas  #############################
         elif "\\\\Teorema{" in line:
@@ -478,28 +506,7 @@ with open(file_name, 'r') as f:
 
             line = replace_start_newtheorem(f_data, line, "Teorema", "Teorema", "info")
 
-            '''
-            if "\\\\label{" in line:
-                line = reemplazo_label(line)
 
-                pre_label = line.split("<a id='")[0]
-                label     = "<a id='" + line.split("<a id='")[1]
-
-                line = label + '\\n",\n' + \
-                        pre_label
-
-                new_line = '    "<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
-                            '    "<p style=\\"color: navy;\\">\\n",\n' + \
-                            '    "<b>Teorema</b>:'
-                line = line.replace("\\\\Teorema{", new_line)
-
-            else:
-
-                new_line = '<div class=\\"alert alert-block alert-info\\">\\n",\n' + \
-                            '    "<p style=\\"color: navy;\\">\\n",\n' + \
-                            '    "<b>Teorema</b>:'
-                line = line.replace("\\\\Teorema{", new_line)
-            '''
 
         elif find_Teorema == True:
             num_start_braket_teorema = len(re.findall(r'(?<!\\)\{', line)) + num_start_braket_teorema
@@ -508,23 +515,7 @@ with open(file_name, 'r') as f:
             line, find_Teorema = \
                 replace_end_newtheorem(f_data, line, find_Teorema, i_start_teorema_in_tex, num_start_braket_teorema, num_end_braket_teorema, "Teorema")
 
-            '''
-            if line == "}":
-                find_Teorema = False
 
-                if num_start_braket_teorema != num_end_braket_teorema:
-
-                    message = "El numero de \"{{\" y \"}}\" diferentes."
-                    raise ErrorGenerico(f_data, line, i_start_teorema_in_tex, message)
-
-                line = '</p></div>'
-
-
-            elif num_start_braket_teorema == num_end_braket_teorema:
-
-                message = "El numero de \"{\" y \"}\" iguales, pero no se ha encontrado el final del teorema (linea con solo un \"}\")"
-                raise ErrorGenerico(f_data, line, i_start_teorema_in_tex, message)
-            '''
 
         ########################### Definicion  #############################
         elif "\\\\Definicion{" in line:
@@ -535,7 +526,7 @@ with open(file_name, 'r') as f:
             num_start_braket_definicion = len(re.findall(r'(?<!\\)\{', line))
             num_end_braket_definicion   = len(re.findall(r'(?<!\\)\}', line))
 
-            line = replace_start_newtheorem(f_data, line, "Definicion", "Definicion", "info")
+            line = replace_start_newtheorem(f_data, line, "Definicion", "Definición", "info")
 
 
         elif find_Definicion == True:
@@ -594,7 +585,7 @@ with open(file_name, 'r') as f:
             num_start_braket_proposicion = len(re.findall(r'(?<!\\)\{', line))
             num_end_braket_proposicion   = len(re.findall(r'(?<!\\)\}', line))
 
-            line = replace_start_newtheorem(f_data, line, "Proposicion", "Proposicion", "info")
+            line = replace_start_newtheorem(f_data, line, "Proposicion", "Proposición", "info")
 
 
         elif find_Proposicion == True:
@@ -623,15 +614,77 @@ with open(file_name, 'r') as f:
             line, find_Corolario = \
                 replace_end_newtheorem(f_data, line, find_Corolario, i_start_corolario_in_tex, num_start_braket_corolario, num_end_braket_corolario, "Corolario")
 
+        ########################### Tablas  #############################
+        elif "\\\\begin{table}" in line:
+            find_table = True
+            title = ""
+            label = ""
+            start_table = False
+            num_line_begin_table = i
 
+
+        elif find_table == True:
+            if "\\\\end{table}" in line:
+                find_table = False
+                line = line.replace("\\\\end{table}",'``````\\n')
+                f_data[num_line_begin_table] = reemplazo_begin_table(f_data[num_line_begin_table], title, label)
+
+            elif "\\\\begin{tabular}" in line:
+                start_table = True
+                continue
+            elif "\\\\end{tabular}" in line:
+                start_table = False
+                continue
+
+            elif start_table == True:
+                line_list = line.replace("\\\\hline","").replace("\\\\\\\\","").split("&")
+
+                if len(line_list) == 1 and line_list[0].lstrip().rstrip() == "":
+                    continue
+
+                line = ""
+                for item in line_list:
+                    line += '    "  - ' + item.lstrip().rstrip() + '\\n",\n'
+                line = "*" + line[6:-5]
+                #print({line})
+
+            else:
+
+                if "\\\\caption{" in line:
+                    num_start_braket_caption = len(re.findall(r'(?<!\\)\{', line))
+                    num_end_braket_caption   = len(re.findall(r'(?<!\\)\}', line))
+
+
+                    if num_start_braket_caption != num_end_braket_caption:
+                        message = "El numero de \"{\" y \"}\" diferentes en caption de una tabla. \nLa caption debe de ir en una sola linea."
+                        raise ErrorGenerico(f_data, line, num_line_text_file, message)
+
+                    title = reemplazo_caption(line,"","")
+                    continue
+
+                        #line = ""
+
+                elif "\\\\label{" in line:
+                    label = reemplazo_label(line,"","")
+                    continue
+                elif "\\\\centering" in line:
+                    continue
         ##################### end document #######################
         elif "\\\\end{document}" in line:
             end_doc_bool = True
 
 
+
+
         ###############################################################################################################
         ##### Otros if
         ###############################################################################################################
+
+        ############################ Referencias #############################
+
+        if "\\\\ref{" in line:
+            line = reemplazo_ref(line)
+
 
         ############################ Enumerate ##############################
         if "\\\\begin{enumerate}" in line:
@@ -751,13 +804,13 @@ with open(file_name, 'r') as f:
                     num_end_braket_caption   = len(re.findall(r'(?<!\\)\}', line))
 
                     if num_start_braket_caption != num_end_braket_caption:
-                        message = "El numero de \"{\" y \"}\" diferentes en caption de un figura."
+                        message = "El numero de \"{\" y \"}\" diferentes en caption de una figura. \nLa caption debe de ir en una sola linea."
                         raise ErrorGenerico(f_data, line, num_line_text_file, message)
 
                     caption_find = True
 
                     if label_writed == False:
-                        line_caption = reemplazo_caption(line)
+                        line_caption = reemplazo_caption(line,"<center>","</center>")
                         continue
                         line = ""
                     else:

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Qúbits de RMN &#8212; Curso de Introducción a la Computación Cuántica</title>
+    <title>10.3. Qúbits de RMN &#8212; Curso de Introducción a la Computación Cuántica</title>
   
   
   
@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -105,8 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Técnicas de pulsos elementales." href="Section_004_tecnicas_de_pulsos_elementales__myst.html" />
-    <link rel="prev" title="El espín nuclear" href="Section_002_el_espin_nuclear__myst.html" />
+    <link rel="next" title="10.4. Técnicas de pulsos elementales." href="Section_004_tecnicas_de_pulsos_elementales__myst.html" />
+    <link rel="prev" title="10.2. El espín nuclear" href="Section_002_el_espin_nuclear__myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,150 +215,150 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Qúbits de RMN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
 </ul>
 </li>
 </ul>
@@ -625,15 +626,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-del-sistema">Hamiltoniano del sistema</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-simples">Espines simples.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-que-interactuan">Espines que interactúan.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-completo">Hamiltoniano completo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-del-sistema">10.3.1. Hamiltoniano del sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-simples">10.3.1.1. Espines simples.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-que-interactuan">10.3.1.2. Espines que interactúan.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-completo">10.3.1.3. Hamiltoniano completo.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-de-control">Hamiltoniano de control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-radiofrecuencia">Campos de radiofrecuencia</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-referencia-rotante-rotating-frame">Sistema de referencia rotante (<i>rotating frame</i>).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-de-control">10.3.2. Hamiltoniano de control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-radiofrecuencia">10.3.2.1. Campos de radiofrecuencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-referencia-rotante-rotating-frame">10.3.2.2. Sistema de referencia rotante (<i>rotating frame</i>).</a></li>
 </ul>
 </li>
 </ul>
@@ -648,7 +649,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 04, 2024 | 11 min read</p>
+<div><p>Jul 10, 2024 | 12 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi11.png"><img alt="../../../_images/Fig_logo_UMA_scbi11.png" src="../../../_images/Fig_logo_UMA_scbi11.png" style="width: 2000px;" /></a>
@@ -677,37 +678,37 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="qubits-de-rmn">
-<h1>Qúbits de RMN<a class="headerlink" href="#qubits-de-rmn" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10.3. </span>Qúbits de RMN<a class="headerlink" href="#qubits-de-rmn" title="Permalink to this heading">#</a></h1>
 <p>En esta sección vamos a describir como es el sistema con el que se construyen los qúbits en RNM, basándonos en su <b>Hamiltoniano del sistema</b> y su <b>Hamiltoniano de control</b>. El Hamiltoniano del sistema da la energía de los espines simples y acoplados en un campo magnético estático, y el Hamiltoniano de control surge de la aplicación de pulsos de radiofrecuencia al sistema en, o cerca de, sus frecuencias resonantes. Veremos que para describir el efecto de los pulsos es más conveniente usar un <b>sistema de referencia giratorio</b>.</p>
 <section id="hamiltoniano-del-sistema">
-<span id="sec-subsub-harware-nmr-h-sys"></span><h2>Hamiltoniano del sistema<a class="headerlink" href="#hamiltoniano-del-sistema" title="Permalink to this heading">#</a></h2>
+<span id="sec-subsub-harware-nmr-h-sys"></span><h2><span class="section-number">10.3.1. </span>Hamiltoniano del sistema<a class="headerlink" href="#hamiltoniano-del-sistema" title="Permalink to this heading">#</a></h2>
 <section id="espines-simples">
-<h3>Espines simples.<a class="headerlink" href="#espines-simples" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.1.1. </span>Espines simples.<a class="headerlink" href="#espines-simples" title="Permalink to this heading">#</a></h3>
 <p>Una partícula con espín constituye un <b>dipolo magnético</b>. En esencia, dipolo magnético es un pequeño imán, es decir, una fuente de campo magnético. El <b>momento dipolar magnético</b>, <span class="math notranslate nohighlight">\(\vec{\mu}\)</span>, es proporcional al momento angular de espín, <span class="math notranslate nohighlight">\(\vec{S}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-mu">
-<span class="eqno">(461)<a class="headerlink" href="#equation-ec-hardware-nmr-mu" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.9)<a class="headerlink" href="#equation-ec-hardware-nmr-mu" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \vec{\mu} = \gamma \vec{S}\, ,
 \end{equation} \]</div>
 <p>donde la constate de proporcionalidad, <span class="math notranslate nohighlight">\(\gamma\)</span>, se denomina ratio giromagnético (<b>gyromagnetic ratio</b>). Este toma la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-gamma">
-<span class="eqno">(462)<a class="headerlink" href="#equation-ec-hardware-nmr-gamma" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.10)<a class="headerlink" href="#equation-ec-hardware-nmr-gamma" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \gamma = g \frac{q}{2m} \, ,
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(q\)</span> es la carga eléctrica de la partícula, <span class="math notranslate nohighlight">\(m\)</span> su masa y <span class="math notranslate nohighlight">\(g\)</span> se denomina <b>factor <span class="math notranslate nohighlight">\(g\)</span> (<span class="math notranslate nohighlight">\(g\)</span>-factor)</b>.</p>
 <p>Cuando un dipolo magnético se sitúa en un campo magnético <span class="math notranslate nohighlight">\(\vec{B}\)</span>, este dipolo experimenta un torque, <span class="math notranslate nohighlight">\(\vec{\mu} \times \vec{B}\)</span>, que tiende a alinearlo paralelo al campo (como la aguja de una brújula). La energía asociada con este torque es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74a84582-4339-41a3-97b5-ea68a6842301">
-<span class="eqno">(463)<a class="headerlink" href="#equation-74a84582-4339-41a3-97b5-ea68a6842301" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-df3a308b-372a-41ac-9f41-10d9ef06ec78">
+<span class="eqno">(10.11)<a class="headerlink" href="#equation-df3a308b-372a-41ac-9f41-10d9ef06ec78" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E = - \vec{\mu} \cdot \vec{B}
 \end{equation}\]</div>
 <p>con lo que el Hamiltoniano para una partícula cargada con espín, en reposo en un campo magnético <span class="math notranslate nohighlight">\(\vec{B}\)</span>, es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af6b04c1-2f18-4b98-af0d-b4e2d81ea86d">
-<span class="eqno">(464)<a class="headerlink" href="#equation-af6b04c1-2f18-4b98-af0d-b4e2d81ea86d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb04f06f-198e-4e5d-b5a0-826aa31b1b42">
+<span class="eqno">(10.12)<a class="headerlink" href="#equation-fb04f06f-198e-4e5d-b5a0-826aa31b1b42" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathcal{H} = - \gamma \vec{B} \cdot S
 \end{equation}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(S\)</span> es el operador de espín (ver Ec. (\ref{ec_Hardware_NMR_operador_S_sigma_vec}) para el caso de partículad de espín 1/2).</p>
+<p>donde <span class="math notranslate nohighlight">\(S\)</span> es el operador de espín (ver Ec.  <a class="reference internal" href="Section_002_el_espin_nuclear__myst.html#equation-ec-hardware-nmr-operador-s-sigma-vec">(10.5)</a> para el caso de partículad de espín 1/2).</p>
 <p>Si tenemos una partícula (o un núcleo) de espín 1/2 (no consideraremos espines de mayor orden en estas notas) en un campo magnético <span class="math notranslate nohighlight">\(\vec{B}_0\)</span> a lo largo del eje <span class="math notranslate nohighlight">\(\hat{z}\)</span>, entonces su evolución temporal está gobernada por el Hamiltoniano</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-sys-1">
-<span class="eqno">(465)<a class="headerlink" href="#equation-ec-hardware-nmr-h-sys-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(10.13)<a class="headerlink" href="#equation-ec-hardware-nmr-h-sys-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{\mathcal{H} = -  \gamma B_0 S_z = - \omega_0 S_z =
 \begin{bmatrix}
 - \hbar \omega_0/2  &amp; 0 \\
@@ -716,27 +717,27 @@ E = - \vec{\mu} \cdot \vec{B}
 \end{equation} \end{split}\]</div>
 <p>donde</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> es ratio giromagnético del núcleo (ver Ec. (\ref{ec_Hardware_NMR_gamma})),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> es ratio giromagnético del núcleo (ver Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-gamma">(10.10)</a>),</p></li>
 <li><p><span class="math notranslate nohighlight">\(\omega/2 \pi = \gamma B_0 \)</span> es la <b>frecuencia de Larmor</b></p></li>
-<li><p>e <span class="math notranslate nohighlight">\(S_z\)</span> es el operador de espín en la dirección <span class="math notranslate nohighlight">\(\hat{z}\)</span> (ver Ec. (\ref{ec_Hardware_NMR_Sx-Sy-Sz})).</p></li>
+<li><p>e <span class="math notranslate nohighlight">\(S_z\)</span> es el operador de espín en la dirección <span class="math notranslate nohighlight">\(\hat{z}\)</span> (ver Ec.  <a class="reference internal" href="Section_002_el_espin_nuclear__myst.html#equation-ec-hardware-nmr-sx-sy-sz">(10.7)</a>).</p></li>
 </ul>
 <div class="note admonition">
 <p class="admonition-title">Nota (frecuencia y frecuencia angular)</p>
 <p>En Física, la <b>frecuencia</b> se define como el inverso del periodo de rotación: <span class="math notranslate nohighlight">\(f = 1/T\)</span> y se mide en Hz (1/segundos). Además, se define la <b>frecuencia angular</b> como <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> y se mide en radianes/segundo. Muchas veces se denomina a las dos, simplemente, frecuencia.</p>
 </div>
-<p>La interpretación de la Ec. (\ref{ec_Hardware_NMR_H_sys_1}) es simple. Cuando tenemos una partícula de espín 1/2 aislada, las dos proyecciones del espín son <b>degeneradas</b>, es decir, tiene la misma energía. Esto es fácil de entender si pensamos en que no hay ninguna dirección privilegiada en el sistema. Cuando introducimos un campo magnético, ahora sí hay una dirección privilegiada: aquella con el momento dipolar magnético <span class="math notranslate nohighlight">\(\vec{\mu}\)</span> apuntando en la misma dirección que el campo magnético. Esto es debido a que el espín es como un pequeño imán y tiende a orientarse con el campo magnéticos. En este momento, el sistema pasa a ser <b>no-degenerado</b>, y un estado tiene más energía que el otro.</p>
-<p>Esto último se traduce matemáticamente en la Ec. (\ref{ec_Hardware_NMR_H_sys_1}). Como el Hamiltoniano es diagonal, los elementos de la diagonal son las energías de los estados. Vemos que el estado con el espín apuntando en la misma dirección (es estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> o <span class="math notranslate nohighlight">\(\ket{\uparrow}\)</span>) que el campo magnético tiene menos energía que el estado que apunta en la dirección contraria (el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> o <span class="math notranslate nohighlight">\(\ket{\downarrow}\)</span>). La diferencia de energía entre los estados es de <span class="math notranslate nohighlight">\(\hbar \omega_0\)</span>, como se puede ver en la Fig. \ref{Fig_Harware_NMR_split_Zeeman}. Esta separación de energías (<i>energy splitting</i>) se conoce como <b>Zeeman spliting</b>.</p>
+<p>La interpretación de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-1">(10.13)</a> es simple. Cuando tenemos una partícula de espín 1/2 aislada, las dos proyecciones del espín son <b>degeneradas</b>, es decir, tiene la misma energía. Esto es fácil de entender si pensamos en que no hay ninguna dirección privilegiada en el sistema. Cuando introducimos un campo magnético, ahora sí hay una dirección privilegiada: aquella con el momento dipolar magnético <span class="math notranslate nohighlight">\(\vec{\mu}\)</span> apuntando en la misma dirección que el campo magnético. Esto es debido a que el espín es como un pequeño imán y tiende a orientarse con el campo magnéticos. En este momento, el sistema pasa a ser <b>no-degenerado</b>, y un estado tiene más energía que el otro.</p>
+<p>Esto último se traduce matemáticamente en la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-1">(10.13)</a>. Como el Hamiltoniano es diagonal, los elementos de la diagonal son las energías de los estados. Vemos que el estado con el espín apuntando en la misma dirección (es estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> o <span class="math notranslate nohighlight">\(\ket{\uparrow}\)</span>) que el campo magnético tiene menos energía que el estado que apunta en la dirección contraria (el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> o <span class="math notranslate nohighlight">\(\ket{\downarrow}\)</span>). La diferencia de energía entre los estados es de <span class="math notranslate nohighlight">\(\hbar \omega_0\)</span>, como se puede ver en la Fig.  <a class="reference internal" href="#fig-harware-nmr-split-zeeman"><span class="std std-numref">10.1</span></a>. Esta separación de energías (<i>energy splitting</i>) se conoce como <b>Zeeman spliting</b>.</p>
 <figure class="align-center" id="fig-harware-nmr-split-zeeman">
-<a class="reference internal image-reference" href="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_split_Zeeman"><img alt="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_split_Zeeman" src="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_split_Zeeman" style="width: 150px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_split_Zeeman.png"><img alt="../../../_images/Fig_Harware_NMR_split_Zeeman.png" src="../../../_images/Fig_Harware_NMR_split_Zeeman.png" style="width: 150px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Diagrama de energías de una partícula de espín 1/2 en un campo magnético.</span><a class="headerlink" href="#fig-harware-nmr-split-zeeman" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Diagrama de energías de una partícula de espín 1/2 en un campo magnético.</span><a class="headerlink" href="#fig-harware-nmr-split-zeeman" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Podemos entender gráficamente la evolución temporal <span class="math notranslate nohighlight">\(U = e^{-i \mathcal{H} t/ \hbar}\)</span> bajo el Hamiltoniano de la Ec. (\ref{ec_Hardware_NMR_H_sys_1}) como un movimiento de precesión en la esfera de Bloch al rededor de <span class="math notranslate nohighlight">\(\vec{B}_0\)</span>, como se muestra en la Fig. \ref{Fig_Harware_NMR_precesion}. Como es habitual, definimos el eje <span class="math notranslate nohighlight">\(\hat{z}\)</span> de la esfera de Bloch como el eje de cuantización del Hamiltoniano, con <span class="math notranslate nohighlight">\(\ket{0}\)</span> a lo largo de <span class="math notranslate nohighlight">\(+\hat{z}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span> a lo largo de <span class="math notranslate nohighlight">\(-\hat{z}\)</span>.</p>
+<p>Podemos entender gráficamente la evolución temporal <span class="math notranslate nohighlight">\(U = e^{-i \mathcal{H} t/ \hbar}\)</span> bajo el Hamiltoniano de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-1">(10.13)</a> como un movimiento de precesión en la esfera de Bloch al rededor de <span class="math notranslate nohighlight">\(\vec{B}_0\)</span>, como se muestra en la Fig.  <a class="reference internal" href="#fig-harware-nmr-precesion"><span class="std std-numref">10.2</span></a>. Como es habitual, definimos el eje <span class="math notranslate nohighlight">\(\hat{z}\)</span> de la esfera de Bloch como el eje de cuantización del Hamiltoniano, con <span class="math notranslate nohighlight">\(\ket{0}\)</span> a lo largo de <span class="math notranslate nohighlight">\(+\hat{z}\)</span> y <span class="math notranslate nohighlight">\(\ket{1}\)</span> a lo largo de <span class="math notranslate nohighlight">\(-\hat{z}\)</span>.</p>
 <figure class="align-center" id="fig-harware-nmr-precesion">
 <a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_precesion.png"><img alt="../../../_images/Fig_Harware_NMR_precesion.png" src="../../../_images/Fig_Harware_NMR_precesion.png" style="width: 450px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Precesión del valor esperado del espín entorno al campo magnético.</span><a class="headerlink" href="#fig-harware-nmr-precesion" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Precesión del valor esperado del espín entorno al campo magnético.</span><a class="headerlink" href="#fig-harware-nmr-precesion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="note admonition">
@@ -746,18 +747,18 @@ en 3D del vector de espín.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota (orientación del espín)</p>
-<p>En las Ecs. (\ref{ec_Hardware_NMR_mu}) y (\ref{ec_Hardware_NMR_gamma}) vemos que el vector de espín
+<p>En las Ecs.  <a class="reference internal" href="#equation-ec-hardware-nmr-mu">(10.9)</a> y  <a class="reference internal" href="#equation-ec-hardware-nmr-gamma">(10.10)</a> vemos que el vector de espín
 y el momento dipolar magnético se relacionan por una constate que <span class="math notranslate nohighlight">\(\gamma\)</span> que puede ser positiva o
 negativa, dependiendo del valor de la carga eléctrica de la partícula. Es decir, estos vectores pueden
 apuntar en la misma dirección o en dirección opuesta.</p>
 <p>Hemos comentado que cuando tenemos un campo magnético, el
 estado de menor energía es aquel con el <b>momento dipolar magnético</b> apuntando en la dirección
-del campo. Como podemos ver en la Fig. \ref{Fig_Hardware_NMR_espines_en_B}, tenemos dos opciones
+del campo. Como podemos ver en la Fig.  <a class="reference internal" href="#fig-hardware-nmr-espines-en-b"><span class="std std-numref">10.3</span></a>, tenemos dos opciones
 dependiendo de la carga de la partícula.</p>
 <figure class="align-center" id="fig-hardware-nmr-espines-en-b">
 <a class="reference internal image-reference" href="../../../_images/Fig_Hardware_NMR_espines_en_B.png"><img alt="../../../_images/Fig_Hardware_NMR_espines_en_B.png" src="../../../_images/Fig_Hardware_NMR_espines_en_B.png" style="width: 1000px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Momentos dipolares magnéticos en presencia de un campo magnético externo. En las dos figuras de la derecha vemos que, dependiendo de la carga de la partícula, el momento dipolar puede apuntar en la misma dirección o en la contraria al espín. Figura tomada de \url{<a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/nmr.html">http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/nmr.html</a>}</span><a class="headerlink" href="#fig-hardware-nmr-espines-en-b" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Momentos dipolares magnéticos en presencia de un campo magnético externo. En las dos figuras de la derecha vemos que, dependiendo de la carga de la partícula, el momento dipolar puede apuntar en la misma dirección o en la contraria al espín. Figura tomada de \url{<a class="reference external" href="http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/nmr.html">http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/nmr.html</a>}</span><a class="headerlink" href="#fig-hardware-nmr-espines-en-b" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -771,14 +772,14 @@ Demostración<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text"><b>(Precesión de Larmor, Griffiths <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id10" title="David J. Griffiths and Darrell F. Schroeter. Introduction to Quantum Mechanics. Cambridge University Press, 3 edition, 2018. doi:10.1017/9781316995433.">27</a>]</span> ejemplo 4.3)</b></p>
 <p class="sd-card-text">Supongamos una partícula con espín 1/2 sometida a un campo magnético en la dirección <span class="math notranslate nohighlight">\(\vec{z}\)</span>, i.e. <span class="math notranslate nohighlight">\(\vec{B}_0 = B_0 \hat{z}\)</span>. El Hamiltoniano estará dado por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4815277e-4cb2-4e15-9daa-789be3849b12">
-<span class="eqno">(466)<a class="headerlink" href="#equation-4815277e-4cb2-4e15-9daa-789be3849b12" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb7a95aa-2ebe-457a-b390-cf3d89f29866">
+<span class="eqno">(10.14)<a class="headerlink" href="#equation-cb7a95aa-2ebe-457a-b390-cf3d89f29866" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathcal{H} = - \gamma B_0 S_z = - \frac{\gamma B_0 \hbar}{2}
 \begin{bmatrix}1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}
 \end{equation}\]</div>
 <p class="sd-card-text">Los autovectores y autovalores (energías) de este Hamiltoniano son</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c127f77-afac-420a-8c3b-ddf6d8e9967c">
-<span class="eqno">(467)<a class="headerlink" href="#equation-2c127f77-afac-420a-8c3b-ddf6d8e9967c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ea971bf7-1ddd-41c6-b3a4-a3de86fe2541">
+<span class="eqno">(10.15)<a class="headerlink" href="#equation-ea971bf7-1ddd-41c6-b3a4-a3de86fe2541" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lch
 \begin{matrix}
 \ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \,
@@ -791,12 +792,12 @@ Demostración<div class="sd-summary-down docutils">
 <p class="sd-card-text">La energía es menor cando el momento dipolar es paralelo al campo magnético, al igual que en el caso clásico.</p>
 <p class="sd-card-text">Como el Hamiltoniano es independiente del tiempo, la solución general para la ecuación de Schrödinger dependiente de tiempo,</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-schrodinger">
-<span class="eqno">(468)<a class="headerlink" href="#equation-ec-hardware-nmr-schrodinger" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.16)<a class="headerlink" href="#equation-ec-hardware-nmr-schrodinger" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 i \hbar \frac{\partial \ket{\Psi}}{\partial t} = \mathcal{H} \ket{\Psi}
 \end{equation} \]</div>
 <p class="sd-card-text">puede expresarse en función de estados estacionarios:</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-schrodinger-sol">
-<span class="eqno">(469)<a class="headerlink" href="#equation-ec-hardware-nmr-schrodinger-sol" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(10.17)<a class="headerlink" href="#equation-ec-hardware-nmr-schrodinger-sol" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \ket{\Psi (t)} = a  e^{-i E_{\ket{0}} t/ \hbar} \ket{0} + b  e^{-i E_{\ket{1}} t/ \hbar} \ket{1}  =
 \begin{bmatrix}
 a e ^{i \gamma B_0 t/2} \\
@@ -804,14 +805,14 @@ b e ^{i \gamma B_0 t/2}
 \end{bmatrix}
 \end{equation} \end{split}\]</div>
 <p class="sd-card-text">Las constantes <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> se pueden determinar mediante las condiciones iniciales:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73a9bd92-9e4d-4180-97e8-bec4a7ac37f7">
-<span class="eqno">(470)<a class="headerlink" href="#equation-73a9bd92-9e4d-4180-97e8-bec4a7ac37f7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a340b4f-10dd-49a5-a6ca-1baea07251b8">
+<span class="eqno">(10.18)<a class="headerlink" href="#equation-3a340b4f-10dd-49a5-a6ca-1baea07251b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi (t = 0)} = \begin{bmatrix} a \\ b\end{bmatrix}
 \end{equation}\]</div>
 <p class="sd-card-text">(por supuesto, <span class="math notranslate nohighlight">\(|a|^2 + |b|^2 = 1\)</span>). Sin perdida de generalidad, podemos elegir <span class="math notranslate nohighlight">\(a = \cos (\alpha/2)\)</span> y <span class="math notranslate nohighlight">\(b = \sin (\alpha/2)\)</span>, donde <span class="math notranslate nohighlight">\(\alpha\)</span> es un ángulo fijo cuyo significado físico veremos dentro de poco.
 Tenemos entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-476e87d1-3960-4391-8ff4-9373f96413e5">
-<span class="eqno">(471)<a class="headerlink" href="#equation-476e87d1-3960-4391-8ff4-9373f96413e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f353421-0757-4b8d-86ac-00a2a9ccfa22">
+<span class="eqno">(10.19)<a class="headerlink" href="#equation-9f353421-0757-4b8d-86ac-00a2a9ccfa22" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\Psi (t)} =
 \begin{bmatrix}
 \cos (\alpha/2) e^{i \gamma B_0 t/2} \\
@@ -819,8 +820,9 @@ Tenemos entonces</p>
 \end{bmatrix}
 \end{equation}\]</div>
 <p class="sd-card-text">Para ver que está pasando con el espín bajo la evolución de este Hamiltoniano, calculemos el calor esperado del espín <span class="math notranslate nohighlight">\(\vec{S}\)</span> como función del tiempo.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-048e2f08-14da-4fb4-a03d-46711219358e">
-<span class="eqno">(472)<a class="headerlink" href="#equation-048e2f08-14da-4fb4-a03d-46711219358e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a9a5053-c807-4b8a-aefa-6ccb3033fdbf">
+<span class="eqno">(10.20)<a class="headerlink" href="#equation-3a9a5053-c807-4b8a-aefa-6ccb3033fdbf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{aligned}
 \left\langle S_x \right\rangle = &amp; \, \bra{\Psi(t)} S_x \ket{\Psi(t)} =
 \nonumber \\
 = &amp; \, \Lc \psi_0^* \quad \psi_1^* \Rc
@@ -832,101 +834,99 @@ Tenemos entonces</p>
 \begin{bmatrix} \cos (\alpha/2) e^{i \gamma B_0 t/2} \\ \sin (\alpha/2) e^{-i \gamma B_0 t/2} \end{bmatrix}
 \nonumber \\
 = &amp; \, \frac{\hbar}{2} \sin \alpha \cos (\gamma B_0 t )
-\end{align}\]</div>
+\end{aligned}
+\end{equation}\]</div>
 <p class="sd-card-text">De forma análoga,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77cfb0d0-16d7-42fa-aa75-3d6ac8c97a12">
-<span class="eqno">(473)<a class="headerlink" href="#equation-77cfb0d0-16d7-42fa-aa75-3d6ac8c97a12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a633160b-c60d-4e9b-ba3b-c795ef4b6267">
+<span class="eqno">(10.21)<a class="headerlink" href="#equation-a633160b-c60d-4e9b-ba3b-c795ef4b6267" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{aligned}
 \left\langle S_y \right\rangle = &amp; \, - \frac{\hbar}{2} \sin \alpha \sin (\gamma B_0 t )  \\
 \left\langle S_z \right\rangle = &amp; \frac{\hbar}{2} \cos \alpha
-\end{align}\]</div>
+\end{aligned}
+\end{equation}\]</div>
 <p class="sd-card-text">Con lo cual, <span class="math notranslate nohighlight">\(\left\langle \vec{S} \right\rangle\)</span> está inclinado un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> respecto al eje <span class="math notranslate nohighlight">\(\hat{z}\)</span>, y precesa al rededor del campo con una frecuencia</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7253953a-dcd3-4240-a415-063ed6fb7149">
-<span class="eqno">(474)<a class="headerlink" href="#equation-7253953a-dcd3-4240-a415-063ed6fb7149" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e09eb28-3696-4b5a-9fbd-bc2ab622e819">
+<span class="eqno">(10.22)<a class="headerlink" href="#equation-6e09eb28-3696-4b5a-9fbd-bc2ab622e819" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_0 = \omega_0 / 2 \pi = \gamma B_0 / 2 \pi
 \end{equation}\]</div>
 <p class="sd-card-text">(la frecuencia de Larmor) al igual que en el caso clásico (una peonza inclinada). No tenemos ninguna sorpresa aquí, pues el teorema de Ehrenfest nos asegura que los valores esperados evolucionan de acuerdo a las leyes clásicas del movimiento (algunos autores limitan esta afirmación solo al par de ecuaciones <span class="math notranslate nohighlight">\(\left\langle p \right\rangle = m d \left\langle x \right\rangle / dt\)</span> y <span class="math notranslate nohighlight">\(\left\langle - \partial V / \partial x \right\rangle = d \left\langle p \right\rangle / dt\)</span>) Puede verse esto en el Griffiths, <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id10" title="David J. Griffiths and Darrell F. Schroeter. Introduction to Quantum Mechanics. Cambridge University Press, 3 edition, 2018. doi:10.1017/9781316995433.">27</a>]</span>.</p>
 <figure class="align-center" id="fig-harware-nmr-precession-griffiths">
-<a class="reference internal image-reference" href="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_precession_griffiths"><img alt="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_precession_griffiths" src="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_precession_griffiths" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_precession_griffiths.png"><img alt="../../../_images/Fig_Harware_NMR_precession_griffiths.png" src="../../../_images/Fig_Harware_NMR_precession_griffiths.png" style="width: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Precesión de Larmor en un campo magnético uniforme.</span><a class="headerlink" href="#fig-harware-nmr-precession-griffiths" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Precesión de Larmor en un campo magnético uniforme.</span><a class="headerlink" href="#fig-harware-nmr-precession-griffiths" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </details><div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
-<p>Verifica que la Ec. (\ref{ec_Hardware_NMR_schrodinger_sol}) es solución de la ecuación de Schrödinger, Ec. (\ref{ec_Hardware_NMR_schrodinger})</p>
+<p>Verifica que la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-schrodinger-sol">(10.17)</a> es solución de la ecuación de Schrödinger, Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-schrodinger">(10.16)</a></p>
 </div>
 <p>El Hamiltoniano de espín para una molécula con <span class="math notranslate nohighlight">\(n\)</span> núcleos desacoplados viene dado por</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-single">
-<span class="eqno">(475)<a class="headerlink" href="#equation-ec-hardware-nmr-h-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.23)<a class="headerlink" href="#equation-ec-hardware-nmr-h-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \mathcal{H}_0 = - \sum_{i=1}^n  \omega_0^i S_z^i
 \end{equation} \]</div>
 <p>Véase que, los espines de especies nucleares diferentes (espines heteronucleares) tendrán diferentes valores de <span class="math notranslate nohighlight">\(\omega_0^i\)</span>, así como también es posibles que los espines de la misma especie nuclear (espines homonucleares) que formen una molécula  tengan también diferentes valores de esta frecuencia.</p>
 </section>
 <section id="espines-que-interactuan">
-<h3>Espines que interactúan.<a class="headerlink" href="#espines-que-interactuan" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.1.2. </span>Espines que interactúan.<a class="headerlink" href="#espines-que-interactuan" title="Permalink to this heading">#</a></h3>
 <p>Para espines nucleares en moléculas, la naturaleza nos proporciona dos mecanismos de interacción diferentes que vamos a describir:</p>
-<ul class="simple">
-<li><p><b>Interacción directa dipolo-dipolo.</b>
-La interacción magnética dipolo-dipolo es similar a la interacción entre dos barras magnéticas cercanas. Tiene lugar puramente a través del espacio (no se requiere ningún medio para esta interacción) y depende del vector internuclear <span class="math notranslate nohighlight">\(\vec{r}_{ij}\)</span> que conecta los dos núcleos <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>, tal y como describe el Hamiltoniano</p></li>
-</ul>
-<div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-dipolo-dipolo">
-<span class="eqno">(476)<a class="headerlink" href="#equation-ec-hardware-nmr-h-dipolo-dipolo" title="Permalink to this equation">#</a></span>\[    \begin{equation} 
-    \mathcal{H}_D = \sum_{i&lt;j} \frac{\mu_0 \gamma_i \gamma_j}{4 \pi | \vec{r}_{ij}|^3 \hbar}
-    \lc \vec{S}^i \cdot \vec{S}^j - \frac{3}{| \vec{r}_{ij}|^2} \lp \vec{S}^i \cdot \vec{r}_{ij} \rp \lp \vec{S}^j \cdot \vec{r}_{ij} \rp \rc
-    \end{equation} \]</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>donde $\mu_0$ es la permeabilidad magnética habitual del espacio libre.
-No vamos a entrar en dalles sobre esta interacción, pues usualmente se promedia y no tiene efecto.
-</pre></div>
-</div>
 <ul>
+<li><p><b>Interacción directa dipolo-dipolo.</b>
+La interacción magnética dipolo-dipolo es similar a la interacción entre dos barras magnéticas cercanas. Tiene lugar puramente a través del espacio (no se requiere ningún medio para esta interacción) y depende del vector internuclear <span class="math notranslate nohighlight">\(\vec{r}_{ij}\)</span> que conecta los dos núcleos <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>, tal y como describe el Hamiltoniano</p>
+<div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-dipolo-dipolo">
+<span class="eqno">(10.24)<a class="headerlink" href="#equation-ec-hardware-nmr-h-dipolo-dipolo" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\mathcal{H}_D = \sum_{i&lt;j} \frac{\mu_0 \gamma_i \gamma_j}{4 \pi | \vec{r}_{ij}|^3 \hbar}
+\lc \vec{S}^i \cdot \vec{S}^j - \frac{3}{| \vec{r}_{ij}|^2} \lp \vec{S}^i \cdot \vec{r}_{ij} \rp \lp \vec{S}^j \cdot \vec{r}_{ij} \rp \rc
+\end{equation} \]</div>
+<p>donde <span class="math notranslate nohighlight">\(\mu_0\)</span> es la permeabilidad magnética habitual del espacio libre.
+No vamos a entrar en dalles sobre esta interacción, pues usualmente se promedia y no tiene efecto.</p>
+</li>
 <li><p><b>Interacción del contrato de Fermi mediada por electrones (acoplamiento J).</b>
 El segundo mecanismo de interacción entre los espines nucleares de una molécula es el acoplamiento <span class="math notranslate nohighlight">\(J\)</span> o acoplamiento escalar. Esta interacción está mediada por los electrones compartidos en los enlaces químicos entre los átomos, y es debido al solapamiento de la función de onda del electrón compartido con los dos núcleos acoplados. Es decir, una interacción de contacto de Fermi. La fuerza de acoplamiento de enlace J depende de la especie nuclear respectiva y disminuye con el número de enlaces químicos que separan los núcleos.
 El Hamiltoniano es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b271ce6-8df4-4069-8f36-42eafb745827">
-<span class="eqno">(477)<a class="headerlink" href="#equation-3b271ce6-8df4-4069-8f36-42eafb745827" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de1cbe69-ed3f-4d6e-9eec-1e16c3d77e8f">
+<span class="eqno">(10.25)<a class="headerlink" href="#equation-de1cbe69-ed3f-4d6e-9eec-1e16c3d77e8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{H} = \frac{1}{\hbar} \sum_{i &lt;j} 2 \pi J_{ij} S^i S^j =
     \frac{1}{\hbar} \sum_{i &lt; j} 2 \pi J_{ij} \lp S_x^i S_x^j + S_y^i S_y^j + S_z^i S_z^j  \rp
     \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(J_{ij}\)</span> es la fuerza de acoplamiento entre los espines <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>. Cuando <span class="math notranslate nohighlight">\(| \omega_0^i - \omega_0^j |\)</span> es mucho más grande que el acoplamiento <span class="math notranslate nohighlight">\(J_{ij}\)</span> (<span class="math notranslate nohighlight">\(| \omega_0^i - \omega_0^j | \gg 2 \pi |J_{ij}|\)</span>), los acoplamiento transversos se pueden despreciar. De esta forma, el Hamiltoniano se simplifica</p>
-</li>
-</ul>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-j-coupling">
-<span class="eqno">(478)<a class="headerlink" href="#equation-ec-hardware-nmr-j-coupling" title="Permalink to this equation">#</a></span>\[    \begin{equation} 
-    \boxed{\mathcal{H}_j = \frac{1}{\hbar} \sum_{i &lt; j}^n 2 \pi J_{ij} S_z^{i} S_z^{j}}
-    \end{equation} \]</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Esta condición ($| \omega_0^i - \omega_0^j | \gg 2 \pi |J_{ij}|$) se cumple fácilmente para los espines heteronucleares y que también puede cumplirse para las moléculas homonucleares pequeñas.
-La interpretación del término de acoplamiento escalar de la Ec. (\ref{ec_Hardware_NMR_J_coupling})&lt;i&gt; es que un espín &quot;siente&quot; un campo magnético estático a lo largo de $\pm z$ producido por los espines vecinos&lt;/i&gt;, además del campo $\vec{B}_0$ aplicado externamente. Este campo adicional desplaza los niveles de energía como podemos ver en la Fig. \ref{Fig_Harware_NMR_diagrama}. Como resultado, la frecuencia de Larmor del espín $i$ se mueve en una cantidad $-J_{ij}/2$ si el espín $j$ está en el estado $\ket{0}$ (lineas rojas) y una cantidad $+J_{ij}/2$ si está en el estado $\ket{1}$ (líneas azules).
-</pre></div>
-</div>
+<span class="eqno">(10.26)<a class="headerlink" href="#equation-ec-hardware-nmr-j-coupling" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{\mathcal{H}_j = \frac{1}{\hbar} \sum_{i &lt; j}^n 2 \pi J_{ij} S_z^{i} S_z^{j}}
+\end{equation} \]</div>
+<p>Esta condición (<span class="math notranslate nohighlight">\(| \omega_0^i - \omega_0^j | \gg 2 \pi |J_{ij}|\)</span>) se cumple fácilmente para los espines heteronucleares y que también puede cumplirse para las moléculas homonucleares pequeñas.
+La interpretación del término de acoplamiento escalar de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-j-coupling">(10.26)</a><i> es que un espín “siente” un campo magnético estático a lo largo de <span class="math notranslate nohighlight">\(\pm z\)</span> producido por los espines vecinos</i>, además del campo <span class="math notranslate nohighlight">\(\vec{B}_0\)</span> aplicado externamente. Este campo adicional desplaza los niveles de energía como podemos ver en la Fig.  <a class="reference internal" href="#fig-harware-nmr-diagrama"><span class="std std-numref">10.5</span></a>. Como resultado, la frecuencia de Larmor del espín <span class="math notranslate nohighlight">\(i\)</span> se mueve en una cantidad <span class="math notranslate nohighlight">\(-J_{ij}/2\)</span> si el espín <span class="math notranslate nohighlight">\(j\)</span> está en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> (lineas rojas) y una cantidad <span class="math notranslate nohighlight">\(+J_{ij}/2\)</span> si está en el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> (líneas azules).</p>
 <figure class="align-center" id="fig-harware-nmr-diagrama">
-<a class="reference internal image-reference" href="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_diagrama"><img alt="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_diagrama" src="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_diagrama" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_diagrama.png"><img alt="../../../_images/Fig_Harware_NMR_diagrama.png" src="../../../_images/Fig_Harware_NMR_diagrama.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Diagrama de niveles de energía para dos espines desacoplados (líneas discontinuas) y dos espines acoplados (líneas continuas) por un Hamiltoniano de la forma de la Ec.(\ref{ec_Hardware_NMR_J_coupling}) (en unidades de <span class="math notranslate nohighlight">\(\hbar\)</span>). Marcadas en rojo están las dos transiciones en las que el espín que no cambia está en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>, mientras que en azul están en las que el espín que no cambia está en el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span>. Vemos que la energía de transición de las primera disminuye, mientras que de las segundas aumenta.</span><a class="headerlink" href="#fig-harware-nmr-diagrama" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">Diagrama de niveles de energía para dos espines desacoplados (líneas discontinuas) y dos espines acoplados (líneas continuas) por un Hamiltoniano de la forma de la Ec. <a class="reference internal" href="#equation-ec-hardware-nmr-j-coupling">(10.26)</a> (en unidades de <span class="math notranslate nohighlight">\(\hbar\)</span>). Marcadas en rojo están las dos transiciones en las que el espín que no cambia está en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>, mientras que en azul están en las que el espín que no cambia está en el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span>. Vemos que la energía de transición de las primera disminuye, mientras que de las segundas aumenta.</span><a class="headerlink" href="#fig-harware-nmr-diagrama" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</li>
+</ul>
 </section>
 <section id="hamiltoniano-completo">
-<h3>Hamiltoniano completo.<a class="headerlink" href="#hamiltoniano-completo" title="Permalink to this heading">#</a></h3>
-<p>En resumen, la forma más simple del Hamiltoniano para un sistema de <span class="math notranslate nohighlight">\(n\)</span> espines nucleares acoplados es, pues (de las Ecs. (\ref{ec_Hardware_NMR_H_single}) y (\ref{ec_Hardware_NMR_J_coupling}))</p>
+<h3><span class="section-number">10.3.1.3. </span>Hamiltoniano completo.<a class="headerlink" href="#hamiltoniano-completo" title="Permalink to this heading">#</a></h3>
+<p>En resumen, la forma más simple del Hamiltoniano para un sistema de <span class="math notranslate nohighlight">\(n\)</span> espines nucleares acoplados es, pues (de las Ecs.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-single">(10.23)</a> y  <a class="reference internal" href="#equation-ec-hardware-nmr-j-coupling">(10.26)</a>)</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-sys-final">
-<span class="eqno">(479)<a class="headerlink" href="#equation-ec-hardware-nmr-h-sys-final" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.27)<a class="headerlink" href="#equation-ec-hardware-nmr-h-sys-final" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\mathcal{H}_{sys} = - \sum_{i}^n \omega_0^i S_z^{i}  + \frac{1}{\hbar} \sum_{i&lt;j} 2 \pi J_{ij} S_z^i S_z^j}
 \end{equation} \]</div>
 </section>
 </section>
 <section id="hamiltoniano-de-control">
-<span id="sec-subsub-harware-nmr-h-control"></span><h2>Hamiltoniano de control<a class="headerlink" href="#hamiltoniano-de-control" title="Permalink to this heading">#</a></h2>
+<span id="sec-subsub-harware-nmr-h-control"></span><h2><span class="section-number">10.3.2. </span>Hamiltoniano de control<a class="headerlink" href="#hamiltoniano-de-control" title="Permalink to this heading">#</a></h2>
 <section id="campos-de-radiofrecuencia">
-<h3>Campos de radiofrecuencia<a class="headerlink" href="#campos-de-radiofrecuencia" title="Permalink to this heading">#</a></h3>
-<p>Pasemos ahora a los mecanismos físicos para controlar el sistema de RMN. El estado de una partícula de espín <span class="math notranslate nohighlight">\(1/2\)</span> en un campo magnético estático <span class="math notranslate nohighlight">\(\vec{B}_0\)</span> a lo largo del eje <span class="math notranslate nohighlight">\(\hat{z}\)</span> puede manipularse aplicando un campo electromagnético <span class="math notranslate nohighlight">\(\vec{B}_1(t)\)</span> que gira en el plano <span class="math notranslate nohighlight">\(\hat{x}-\hat{y}\)</span> a frecuencia <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>, en o cerca de la frecuencia de precesión del espín <span class="math notranslate nohighlight">\(\omega_0\)</span>. El Hamiltoniano de espín  correspondiente al campo de radiofrecuencia (RF) es, análogo a la Ec. (\ref{ec_Hardware_NMR_H_sys_1}) para el campo estático <span class="math notranslate nohighlight">\(B_0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40c4f60f-eb57-4775-9ac1-6fe18c01ca77">
-<span class="eqno">(480)<a class="headerlink" href="#equation-40c4f60f-eb57-4775-9ac1-6fe18c01ca77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3><span class="section-number">10.3.2.1. </span>Campos de radiofrecuencia<a class="headerlink" href="#campos-de-radiofrecuencia" title="Permalink to this heading">#</a></h3>
+<p>Pasemos ahora a los mecanismos físicos para controlar el sistema de RMN. El estado de una partícula de espín <span class="math notranslate nohighlight">\(1/2\)</span> en un campo magnético estático <span class="math notranslate nohighlight">\(\vec{B}_0\)</span> a lo largo del eje <span class="math notranslate nohighlight">\(\hat{z}\)</span> puede manipularse aplicando un campo electromagnético <span class="math notranslate nohighlight">\(\vec{B}_1(t)\)</span> que gira en el plano <span class="math notranslate nohighlight">\(\hat{x}-\hat{y}\)</span> a frecuencia <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>, en o cerca de la frecuencia de precesión del espín <span class="math notranslate nohighlight">\(\omega_0\)</span>. El Hamiltoniano de espín  correspondiente al campo de radiofrecuencia (RF) es, análogo a la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-1">(10.13)</a> para el campo estático <span class="math notranslate nohighlight">\(B_0\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-59a4f943-f6db-48e9-ada7-fc4a64f2915f">
+<span class="eqno">(10.28)<a class="headerlink" href="#equation-59a4f943-f6db-48e9-ada7-fc4a64f2915f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathcal{H}_{rf} = - \gamma B_1 \Lc \cos (\omega_{rf} + \phi) S_x + \sin (\omega_{rf} + \phi) S_y \Rc \,
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\phi\)</span> es la fase del campo de RF, y <span class="math notranslate nohighlight">\(B_1\)</span> su amplitud. Para <span class="math notranslate nohighlight">\(n\)</span> espines tenemos</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-rf">
-<span class="eqno">(481)<a class="headerlink" href="#equation-ec-hardware-nmr-h-rf" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.29)<a class="headerlink" href="#equation-ec-hardware-nmr-h-rf" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\mathcal{H}_{rf} = - \sum_{i}^n \gamma_i B_1 \Lc \cos (\omega_{rf} t + \phi) S_x^i + \sin (\omega_{rf} t+ \phi ) S_y^i \Rc} \, ,
 \end{equation} \]</div>
 <div class="note admonition">
@@ -941,93 +941,94 @@ desplazamiento insignificante de la frecuencia de Larmor, llamado desplazamiento
 </div>
 </section>
 <section id="sistema-de-referencia-rotante-rotating-frame">
-<h3>Sistema de referencia rotante (<i>rotating frame</i>).<a class="headerlink" href="#sistema-de-referencia-rotante-rotating-frame" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.3.2.2. </span>Sistema de referencia rotante (<i>rotating frame</i>).<a class="headerlink" href="#sistema-de-referencia-rotante-rotating-frame" title="Permalink to this heading">#</a></h3>
 <p>El movimiento de un espín nuclear individual sometido a un campo magnético estático y giratorio es bastante complejo cuando se describe en el sistema de coordenadas habitual del laboratorio (el marco del laboratorio). Sin embargo, se simplifica mucho describiendo el movimiento en un <b>sistema de coordenadas que gira</b> alrededor de <span class="math notranslate nohighlight">\(\hat{z}\)</span> a frecuencia <span class="math notranslate nohighlight">\(\omega_{rf}\)</span> (el <b>rotating frame</b>):</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-psi-rot">
-<span class="eqno">(482)<a class="headerlink" href="#equation-ec-hardware-nmr-psi-rot" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.30)<a class="headerlink" href="#equation-ec-hardware-nmr-psi-rot" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{\psi}^{rot} = \exp \lp -i \omega_{rf} t S_z/\hbar \rp \ket{\psi}
 \end{equation} \]</div>
-<p>Para un solo espín libre, el Hamiltoniano será la suma (\ref{ec_Hardware_NMR_H_single}) y (\ref{ec_Hardware_NMR_H_rf}) (con <span class="math notranslate nohighlight">\(n=1\)</span>), es decir,</p>
+<p>Para un solo espín libre, el Hamiltoniano será la suma  <a class="reference internal" href="#equation-ec-hardware-nmr-h-single">(10.23)</a> y  <a class="reference internal" href="#equation-ec-hardware-nmr-h-rf">(10.29)</a> (con <span class="math notranslate nohighlight">\(n=1\)</span>), es decir,</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-lab-single">
-<span class="eqno">(483)<a class="headerlink" href="#equation-ec-hardware-nmr-h-lab-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.31)<a class="headerlink" href="#equation-ec-hardware-nmr-h-lab-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \mathcal{H} = - \omega_0 S_z - \omega_1 \Lc \cos (\omega_{rf} t+ \phi) S_x + \sin (\omega_{rf} t + \phi) S_y \Rc
 \end{equation} \]</div>
 <p>Este Hamiltoniano junto con el estado en el sistema de referencia estático cumplen la ecuación de Schrödinger</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffdcac4b-4af5-4703-a22c-be67f863dfde">
-<span class="eqno">(484)<a class="headerlink" href="#equation-ffdcac4b-4af5-4703-a22c-be67f863dfde" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-abc8baa1-7e43-467d-8cf6-ead997b927fc">
+<span class="eqno">(10.32)<a class="headerlink" href="#equation-abc8baa1-7e43-467d-8cf6-ead997b927fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i \hbar \frac{d \ket{\psi}}{dt} = \mathcal{H} \ket{\psi}
 \end{equation}\]</div>
-<p>Sustituyendo el cambio de variable de la Ec. (\ref{ec_Hardware_NMR_H_sys_final}) en la ecuación de Schrödinger, podemos calcular como tendría que ser el <span class="math notranslate nohighlight">\(\mathcal{H}^{rot}\)</span> que cumpla</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6e46d1b5-2c1c-4941-af9c-feb509003ba2">
-<span class="eqno">(485)<a class="headerlink" href="#equation-6e46d1b5-2c1c-4941-af9c-feb509003ba2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Sustituyendo el cambio de variable de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-final">(10.27)</a> en la ecuación de Schrödinger, podemos calcular como tendría que ser el <span class="math notranslate nohighlight">\(\mathcal{H}^{rot}\)</span> que cumpla</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7b5597cf-4214-457a-8a5b-e1c5b7608441">
+<span class="eqno">(10.33)<a class="headerlink" href="#equation-7b5597cf-4214-457a-8a5b-e1c5b7608441" title="Permalink to this equation">#</a></span>\[\begin{equation}
 i \hbar \frac{d \ket{\psi}^{rot}}{dt} = \mathcal{H}^{rot} \ket{\psi}^{rot}
 \end{equation}\]</div>
 <p>Puede ver que el resultado es</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-rot-single">
-<span class="eqno">(486)<a class="headerlink" href="#equation-ec-hardware-nmr-h-rot-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.34)<a class="headerlink" href="#equation-ec-hardware-nmr-h-rot-single" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\mathcal{H}^{rot} = - (\omega_0 - \omega_{rf}) S_z - \omega_1 \Lc \cos (\phi) S_x + \sin  (\phi) S_y \Rc}
 \end{equation} \]</div>
 <p>Naturalmente, el campo de RF se encuentra a lo largo de un eje fijo en el sistema de referencia que gira a <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>. El movimiento del espín visto desde un sistema de referencia o el otro es diferente.</p>
-<ul class="simple">
-<li><p>En el <b>sistema laboratorio (en reposo)</b>, al aplicar el campo magnético rotante <span class="math notranslate nohighlight">\(\vec{B}_1\)</span> lo que sucede es que <i>el valor esperado del espín rota en espiral, bajando por la esfera</i>, como podemos ver en la Fig. \ref{Fig_Harware_NMR_espiral_bloch}b.</p></li>
-</ul>
+<ul>
+<li><p>En el <b>sistema laboratorio (en reposo)</b>, al aplicar el campo magnético rotante <span class="math notranslate nohighlight">\(\vec{B}_1\)</span> lo que sucede es que <i>el valor esperado del espín rota en espiral, bajando por la esfera</i>, como podemos ver en la Fig.  <a class="reference internal" href="#fig-harware-nmr-espiral-bloch"><span class="std std-numref">10.6</span></a>b.</p>
 <figure class="align-center" id="fig-harware-nmr-espiral-bloch">
-<a class="reference internal image-reference" href="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_espiral_bloch"><img alt="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_espiral_bloch" src="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_espiral_bloch" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_espiral_bloch.png"><img alt="../../../_images/Fig_Harware_NMR_espiral_bloch.png" src="../../../_images/Fig_Harware_NMR_espiral_bloch.png" style="width: 550px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Nutación de un espín sometido a un campo de RF transversal observada en el marco de rotación (a) y observada en el marco de laboratorio (b).</span><a class="headerlink" href="#fig-harware-nmr-espiral-bloch" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Nutación de un espín sometido a un campo de RF transversal observada en el marco de rotación (a) y observada en el marco de laboratorio (b).</span><a class="headerlink" href="#fig-harware-nmr-espiral-bloch" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ul>
+</li>
 <li><p>En el <b>sistema rotante</b>, tenemos dos casos:</p>
 <ul>
-<li><p>Caso <b>resonante</b> (<span class="math notranslate nohighlight">\(\omega_{rf} = \omega_0\)</span>): en este caso el primer término de la Ec. (\ref{ec_Hardware_NMR_H_rot_single}) desaparece. En este caso, un observador en el sistema rotante verá el espín simplemente <i>precesar</i> alrededor de <span class="math notranslate nohighlight">\(\vec{B}_1\)</span> (Fig. \ref{Fig_Harware_NMR_espiral_bloch}a), un movimiento llamado nutación. La elección de <span class="math notranslate nohighlight">\(\phi\)</span> controla el eje de nutación.</p></li>
+<li><p>Caso <b>resonante</b> (<span class="math notranslate nohighlight">\(\omega_{rf} = \omega_0\)</span>): en este caso el primer término de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-rot-single">(10.34)</a> desaparece. En este caso, un observador en el sistema rotante verá el espín simplemente <i>precesar</i> alrededor de <span class="math notranslate nohighlight">\(\vec{B}_1\)</span> (Fig.  <a class="reference internal" href="#fig-harware-nmr-espiral-bloch"><span class="std std-numref">10.6</span></a>a), un movimiento llamado nutación. La elección de <span class="math notranslate nohighlight">\(\phi\)</span> controla el eje de nutación.</p></li>
 <li><p>Caso <b>fuera de resonancia</b>: Si el campo de RF está fuera de resonancia con respecto a la frecuencia de espín en <span class="math notranslate nohighlight">\(\Delta \omega = \omega_0 - \omega_{rf}\)</span>, el espín precesa en el marco de rotación alrededor de un eje inclinado con respecto al eje <span class="math notranslate nohighlight">\(\vec{z}\)</span> en un ángulo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f76a187f-50ce-4820-a348-96ec169d8257">
-<span class="eqno">(487)<a class="headerlink" href="#equation-f76a187f-50ce-4820-a348-96ec169d8257" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a7aef830-a38b-4421-8658-b4045e2d7292">
+<span class="eqno">(10.35)<a class="headerlink" href="#equation-a7aef830-a38b-4421-8658-b4045e2d7292" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \alpha = \arctan (\omega_1 / \Delta \omega)
         \end{equation}\]</div>
-<p>como se ilustra en la Fig. \ref{Fig_Harware_NMR_nutacion_inclinada}.</p>
-</li>
-</ul>
-</li>
-</ul>
+<p>como se ilustra en la Fig.  <a class="reference internal" href="#fig-harware-nmr-nutacion-inclinada"><span class="std std-numref">10.7</span></a>.</p>
 <figure class="align-center" id="fig-harware-nmr-nutacion-inclinada">
-<a class="reference internal image-reference" href="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_nutacion_inclinada"><img alt="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_nutacion_inclinada" src="docs/Part_03/Chapter_010_02/Figuras/Fig_Harware_NMR_nutacion_inclinada" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_nutacion_inclinada.png"><img alt="../../../_images/Fig_Harware_NMR_nutacion_inclinada.png" src="../../../_images/Fig_Harware_NMR_nutacion_inclinada.png" style="width: 350px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Eje de rotación (en el marco giratorio) durante un pulso de radiofrecuencia fuera de resonancia.</span><a class="headerlink" href="#fig-harware-nmr-nutacion-inclinada" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.7 </span><span class="caption-text">Eje de rotación (en el marco giratorio) durante un pulso de radiofrecuencia fuera de resonancia.</span><a class="headerlink" href="#fig-harware-nmr-nutacion-inclinada" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En este último caso se deduce que <b>el campo de RF no tiene prácticamente ningún efecto sobre espines que están lejos de la resonancia</b>, ya que <span class="math notranslate nohighlight">\(\alpha\)</span> es muy pequeño cuando <span class="math notranslate nohighlight">\(|\Delta \omega | \gg \omega_1\)</span> (ver Fig. \ref{Fig_Harware_NMR_espiral_bloch_2}). Si todos los espines tienen frecuencias de Larmor bien separadas, en principio podemos <b>rotar selectivamente</b> cualquier qúbit sin rotar los otros espines.</p>
-<p>Los pulsos moderadamente fuera de resonancia (<span class="math notranslate nohighlight">\(|\Delta \omega| \approx \omega_1\)</span>) hacen girar el espín, pero debido a la inclinación del eje de rotación, un solo pulso de este tipo no puede, por ejemplo, voltear un espín de <span class="math notranslate nohighlight">\(|0 \rangle\)</span> a <span class="math notranslate nohighlight">\(|1 \rangle\)</span> (véase de nuevo la Fig. \ref{Fig_Harware_NMR_espiral_bloch_2}). Por supuesto, los pulsos fuera de resonancia también pueden ser útiles, por ejemplo para la implementación directa de rotaciones sobre un eje fuera del plano <span class="math notranslate nohighlight">\(\hat{x} - \hat{y}\)</span>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>En este último caso se deduce que <b>el campo de RF no tiene prácticamente ningún efecto sobre espines que están lejos de la resonancia</b>, ya que <span class="math notranslate nohighlight">\(\alpha\)</span> es muy pequeño cuando <span class="math notranslate nohighlight">\(|\Delta \omega | \gg \omega_1\)</span> (ver Fig.  <a class="reference internal" href="#fig-harware-nmr-espiral-bloch-2"><span class="std std-numref">10.8</span></a>). Si todos los espines tienen frecuencias de Larmor bien separadas, en principio podemos <b>rotar selectivamente</b> cualquier qúbit sin rotar los otros espines.</p>
+<p>Los pulsos moderadamente fuera de resonancia (<span class="math notranslate nohighlight">\(|\Delta \omega| \approx \omega_1\)</span>) hacen girar el espín, pero debido a la inclinación del eje de rotación, un solo pulso de este tipo no puede, por ejemplo, voltear un espín de <span class="math notranslate nohighlight">\(|0 \rangle\)</span> a <span class="math notranslate nohighlight">\(|1 \rangle\)</span> (véase de nuevo la Fig.  <a class="reference internal" href="#fig-harware-nmr-espiral-bloch-2"><span class="std std-numref">10.8</span></a>). Por supuesto, los pulsos fuera de resonancia también pueden ser útiles, por ejemplo para la implementación directa de rotaciones sobre un eje fuera del plano <span class="math notranslate nohighlight">\(\hat{x} - \hat{y}\)</span>.</p>
 <figure class="align-center" id="fig-harware-nmr-espiral-bloch-2">
 <a class="reference internal image-reference" href="../../../_images/Fig_Harware_NMR_espiral_bloch_2.png"><img alt="../../../_images/Fig_Harware_NMR_espiral_bloch_2.png" src="../../../_images/Fig_Harware_NMR_espiral_bloch_2.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Trayectoria en la esfera de Bloch (en el sistema de referencia rotante) descrita por un qubit inicialmente en <span class="math notranslate nohighlight">\(\ket{0}\)</span> (a lo largo de <span class="math notranslate nohighlight">\(+\hat{z}\)</span>), después de aplicar un pulso de 250 <span class="math notranslate nohighlight">\(\mu s\)</span> de intensidad <span class="math notranslate nohighlight">\(\omega_1 = 1\)</span> kHz fuera de resonancia en <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(0.5\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span> 4 kHz. En resonancia, el pulso produce una rotación <span class="math notranslate nohighlight">\(90º\)</span>. Lejos de la resonancia, el qúbit apenas rota alejándose de <span class="math notranslate nohighlight">\(\ket{0}\)</span>.</span><a class="headerlink" href="#fig-harware-nmr-espiral-bloch-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">Trayectoria en la esfera de Bloch (en el sistema de referencia rotante) descrita por un qubit inicialmente en <span class="math notranslate nohighlight">\(\ket{0}\)</span> (a lo largo de <span class="math notranslate nohighlight">\(+\hat{z}\)</span>), después de aplicar un pulso de 250 <span class="math notranslate nohighlight">\(\mu s\)</span> de intensidad <span class="math notranslate nohighlight">\(\omega_1 = 1\)</span> kHz fuera de resonancia en <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(0.5\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span> 4 kHz. En resonancia, el pulso produce una rotación <span class="math notranslate nohighlight">\(90º\)</span>. Lejos de la resonancia, el qúbit apenas rota alejándose de <span class="math notranslate nohighlight">\(\ket{0}\)</span>.</span><a class="headerlink" href="#fig-harware-nmr-espiral-bloch-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Por otro lado, podemos elegir trabajar en <b>un sistema de referencia que rote a</b> <span class="math notranslate nohighlight">\(\bm \omega_0\)</span> (en vez de a <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>, donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-044d6476-71b2-44eb-9db7-53ee9d919c35">
-<span class="eqno">(488)<a class="headerlink" href="#equation-044d6476-71b2-44eb-9db7-53ee9d919c35" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Por otro lado, podemos elegir trabajar en <b>un sistema de referencia que rote a</b> <span class="math notranslate nohighlight">\(\bm{\omega_0}\)</span> (en vez de a <span class="math notranslate nohighlight">\(\omega_{rf}\)</span>, donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-542ec84f-d62a-4219-b255-2ffba40a34ac">
+<span class="eqno">(10.36)<a class="headerlink" href="#equation-542ec84f-d62a-4219-b255-2ffba40a34ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\mathcal{H}^{rot} = - \omega_1 \Lc \cos ((\omega_{rf} - \omega_0)t + \phi) S_x + \sin ((\omega_{rf} - \omega_0)t + \phi) S_y \Rc}
 \end{equation}\]</div>
-<p>Esta transformación no da un Hamiltoniano de RF independiente del tiempo (a menos que <span class="math notranslate nohighlight">\(\omega_{rf} = \omega_0\)</span>), como fue el caso para <span class="math notranslate nohighlight">\(\mathcal{H}^{rot}\)</span> en la Ec. \ref{ec_Hardware_NMR_H_rot_single}). Sin embargo, es un punto de partida natural para la extensión al caso de <b>múltiples espines</b>, donde puede introducirse un marco de rotación separado para cada espín:</p>
+<p>Esta transformación no da un Hamiltoniano de RF independiente del tiempo (a menos que <span class="math notranslate nohighlight">\(\omega_{rf} = \omega_0\)</span>), como fue el caso para <span class="math notranslate nohighlight">\(\mathcal{H}^{rot}\)</span> en la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-rot-single">(10.34)</a>). Sin embargo, es un punto de partida natural para la extensión al caso de <b>múltiples espines</b>, donde puede introducirse un marco de rotación separado para cada espín:</p>
 <div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-psi-rot-multi">
-<span class="eqno">(489)<a class="headerlink" href="#equation-ec-hardware-nmr-psi-rot-multi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(10.37)<a class="headerlink" href="#equation-ec-hardware-nmr-psi-rot-multi" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \ket{\psi}^{rot} = \Lc \prod_i \exp (-i \omega_0^i t S^i_z/\hbar ) \Rc \ket{\psi}
 \end{equation} \]</div>
 <p>En presencia de múltiples campos de RF indexados con <span class="math notranslate nohighlight">\(r\)</span>, el Hamiltoniano en este marco de referencia rotante e <span class="math notranslate nohighlight">\(\omega_0\)</span> nos queda</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9b0bf58-5ab5-44c4-b903-cd2ab4115770">
-<span class="eqno">(490)<a class="headerlink" href="#equation-c9b0bf58-5ab5-44c4-b903-cd2ab4115770" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb2db7e4-61f0-4837-a18f-ec671a88c440">
+<span class="eqno">(10.38)<a class="headerlink" href="#equation-cb2db7e4-61f0-4837-a18f-ec671a88c440" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\mathcal{H}^{rot} = \sum_{i,r} - \omega_1^r \Lc \cos ((\omega_{rf}^r - \omega_0^i)t + \phi^r) S_x^i + \sin ((\omega_{rf}^r - \omega_0^i) t +\phi^r) S_y^i  \Rc}
 \end{equation}\]</div>
 <p>donde las amplitudes <span class="math notranslate nohighlight">\(\omega_i^r\)</span> y las fases <span class="math notranslate nohighlight">\(\phi^r\)</span> están bajo control.</p>
-<p>El Hamiltoniano del sistema de la Ec. (\ref{ec_Hardware_NMR_H_sys_final}) se simplifica en el sistema de referencia multi-rotante de la Ec. (\ref{ec_Hardware_NMR_psi_rot_multi}): el termino <span class="math notranslate nohighlight">\(S_z^i\)</span> desparece dejando solo el término de acoplamiento <span class="math notranslate nohighlight">\(J_{ij} S_z^i S_z^j\)</span>, que permanecen invariantes.</p>
+<p>El Hamiltoniano del sistema de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-h-sys-final">(10.27)</a> se simplifica en el sistema de referencia multi-rotante de la Ec.  <a class="reference internal" href="#equation-ec-hardware-nmr-psi-rot-multi">(10.37)</a>: el termino <span class="math notranslate nohighlight">\(S_z^i\)</span> desparece dejando solo el término de acoplamiento <span class="math notranslate nohighlight">\(J_{ij} S_z^i S_z^j\)</span>, que permanecen invariantes.</p>
 <p>En resumen, en el sistema de referencia multi-rotante, el Hamiltoniano de <span class="math notranslate nohighlight">\(NMR\)</span> <span class="math notranslate nohighlight">\(\mathcal{H} = \mathcal{H}_{sys} + \mathcal{H}_{control}\)</span> toma la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bad2ed9-36f1-4229-8d2e-6dfc12d0d32a">
-<span class="eqno">(491)<a class="headerlink" href="#equation-8bad2ed9-36f1-4229-8d2e-6dfc12d0d32a" title="Permalink to this equation">#</a></span>\[\begin{align}
-&amp; ~~~~ \boxed{ \mathcal{H}_{sys} =  \, \frac{1}{\hbar} \sum_{i&lt;j} 2 \pi J_{ij} S_z^i S_z^j} \label{ec_Hardware_NMR_H_sys_final_multi_rot} \\
-&amp;\boxed{\mathcal{H}_{control} =  \, \sum_{i,j} - \omega_1^r \Lc \cos ((\omega_{rf}^r - \omega_0^i)t +\phi^r) S_x^i + \sin ((\omega_{rf}^r-\omega_0^i)t +\phi^r) S^i_y \Rc} \label{ec_Hardware_NMR_H_control_final_multi_rot}
-\end{align}\]</div>
+<div class="math notranslate nohighlight" id="equation-ec-hardware-nmr-h-sys-control-final-multi-rot">
+<span class="eqno">(10.39)<a class="headerlink" href="#equation-ec-hardware-nmr-h-sys-control-final-multi-rot" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+\begin{aligned}
+&amp; ~~~~ \boxed{ \mathcal{H}_{sys} =  \, \frac{1}{\hbar} \sum_{i&lt;j} 2 \pi J_{ij} S_z^i S_z^j} \\
+&amp;\boxed{\mathcal{H}_{control} =  \, \sum_{i,j} - \omega_1^r \Lc \cos ((\omega_{rf}^r - \omega_0^i)t +\phi^r) S_x^i + \sin ((\omega_{rf}^r-\omega_0^i)t +\phi^r) S^i_y \Rc}
+\end{aligned}
+\end{equation} \end{split}\]</div>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
 </figure>
@@ -1073,7 +1074,7 @@ i \hbar \frac{d \ket{\psi}^{rot}}{dt} = \mathcal{H}^{rot} \ket{\psi}^{rot}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">El espín nuclear</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>El espín nuclear</p>
       </div>
     </a>
     <a class="right-next"
@@ -1081,7 +1082,7 @@ i \hbar \frac{d \ket{\psi}^{rot}}{dt} = \mathcal{H}^{rot} \ket{\psi}^{rot}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Técnicas de pulsos elementales.</p>
+        <p class="prev-next-title"><span class="section-number">10.4. </span>Técnicas de pulsos elementales.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1101,15 +1102,15 @@ i \hbar \frac{d \ket{\psi}^{rot}}{dt} = \mathcal{H}^{rot} \ket{\psi}^{rot}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-del-sistema">Hamiltoniano del sistema</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-simples">Espines simples.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-que-interactuan">Espines que interactúan.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-completo">Hamiltoniano completo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-del-sistema">10.3.1. Hamiltoniano del sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-simples">10.3.1.1. Espines simples.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espines-que-interactuan">10.3.1.2. Espines que interactúan.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-completo">10.3.1.3. Hamiltoniano completo.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-de-control">Hamiltoniano de control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-radiofrecuencia">Campos de radiofrecuencia</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-referencia-rotante-rotating-frame">Sistema de referencia rotante (<i>rotating frame</i>).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltoniano-de-control">10.3.2. Hamiltoniano de control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-radiofrecuencia">10.3.2.1. Campos de radiofrecuencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-referencia-rotante-rotating-frame">10.3.2.2. Sistema de referencia rotante (<i>rotating frame</i>).</a></li>
 </ul>
 </li>
 </ul>

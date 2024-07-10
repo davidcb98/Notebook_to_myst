@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Valores esperados. &#8212; Curso de Introducción a la Computación Cuántica</title>
+    <title>6.4. Valores esperados. &#8212; Curso de Introducción a la Computación Cuántica</title>
   
   
   
@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -105,8 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Multi-qubit: definiciones y puertas." href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html" />
-    <link rel="prev" title="Medidas en una base general" href="Section_003_medidas_en_una_base_general_myst.html" />
+    <link rel="next" title="7. Multi-qubit: definiciones y puertas." href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html" />
+    <link rel="prev" title="6.3. Medidas en una base general" href="Section_003_medidas_en_una_base_general_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,150 +215,150 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Valores esperados.</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Valores esperados.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">Explicación geométrica del algoritmo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
 </ul>
 </li>
 </ul>
@@ -625,13 +626,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-z-rangle-psi"><span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-x-rangle-psi"><span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-y-rangle-psi"><span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">6.4.1. Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-z-rangle-psi">6.4.1.1. <span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-x-rangle-psi">6.4.1.2. <span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-y-rangle-psi">6.4.1.3. <span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">6.4.2. Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
 </ul>
             </nav>
         </div>
@@ -644,7 +645,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 04, 2024 | 4 min read</p>
+<div><p>Jul 10, 2024 | 4 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi7.png"><img alt="../../../_images/Fig_logo_UMA_scbi7.png" src="../../../_images/Fig_logo_UMA_scbi7.png" style="width: 2000px;" /></a>
@@ -673,68 +674,70 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="valores-esperados">
-<h1>Valores esperados.<a class="headerlink" href="#valores-esperados" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6.4. </span>Valores esperados.<a class="headerlink" href="#valores-esperados" title="Permalink to this heading">#</a></h1>
 <p>Un estado es un objeto probabilístico que tiene una interpretación a través de los coeficientes (de las amplitudes de probabilidad) y por tanto, esa interpretación probabilística está ligada a una base. Es decir, las amplitudes de probabilidad no tiene sentido hasta que definimos una base en la que medir. Si por ejemplo, vamos a medir en la base <span class="math notranslate nohighlight">\(Z\)</span>, lo conveniente es expandir el estado en la base <span class="math notranslate nohighlight">\(Z\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-be57fb48-55cb-4b43-87b9-c993e7e16416">
-<span class="eqno">(375)<a class="headerlink" href="#equation-be57fb48-55cb-4b43-87b9-c993e7e16416" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e08938fc-bd79-4770-9086-69d71cc19a8a">
+<span class="eqno">(6.15)<a class="headerlink" href="#equation-e08938fc-bd79-4770-9086-69d71cc19a8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = c_0 \ket{0} + c_1 \ket{1}
 \end{equation}\]</div>
 <p>de forma que los coeficientes adquieren una interpretación probabilística. Puede decirse que las amplitudes “no existen” hasta que decidimos en que base medimos. El acceso experimental a estas amplitudes se da mediante estadística de las medidas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-839f5e50-5b6a-4a19-8c89-99834408b578">
-<span class="eqno">(376)<a class="headerlink" href="#equation-839f5e50-5b6a-4a19-8c89-99834408b578" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-017a3cd5-106f-4814-b6a3-bebb2214704c">
+<span class="eqno">(6.16)<a class="headerlink" href="#equation-017a3cd5-106f-4814-b6a3-bebb2214704c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{p_0 = \frac{n_{0}}{N} = |c_0|^2 = |\braket{0}{\psi}|^2} ~~~~~~~~~~~~~~~~ \boxed{p_1 = \frac{n_{1}}{N}=|c_1|^2 =  |\braket{1}{\psi}|^2} \, .
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_0\)</span> es el número de medidas que arrojaron el valor 0 (en realidad +1) y <span class="math notranslate nohighlight">\(n_1\)</span> es el número de medidas que arrojaron el valor 1 (en realidad -1).
 Este procedimiento de reconstrucción es la base de la <b>tomografía cuántica</b>.</p>
 <section id="valor-esperado-de-un-observable-arbitrario-operador-hermitico">
-<h2>Valor esperado de un observable arbitrario (operador hermítico).<a class="headerlink" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4.1. </span>Valor esperado de un observable arbitrario (operador hermítico).<a class="headerlink" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico" title="Permalink to this heading">#</a></h2>
 <p>Vamos a ver como se mide el valor esperado de un observable arbitrario <span class="math notranslate nohighlight">\(A\)</span> en un estado arbitrario <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span>. Estos valores esperados se denotan de la siguiente forma: <span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span>.</p>
 <p>Cualquier observable sobre un cúbit cumple <span class="math notranslate nohighlight">\(A = A^\dagger\)</span> (es hermítico) con lo que puede expresarse en la base</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-expansion-a-en-paulis">
-<span class="eqno">(377)<a class="headerlink" href="#equation-ec-medidas1-expansion-a-en-paulis" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(6.17)<a class="headerlink" href="#equation-ec-medidas1-expansion-a-en-paulis" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 A = a I + n_x X + n_y Y  + n_z Z \, .
 \end{equation} \]</div>
 <p>Los coeficientes se obtienen haciendo uso de las relaciones <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> tr<span class="math notranslate nohighlight">\( (\sigma_i \sigma_j) = \delta_{ij}\)</span> y de tr<span class="math notranslate nohighlight">\((\sigma_i)=0\)</span>, de las cuales se obtiene</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e280419-885d-46c3-8d11-44975172277f">
-<span class="eqno">(378)<a class="headerlink" href="#equation-2e280419-885d-46c3-8d11-44975172277f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08082912-33aa-4d64-bd80-91b77638db5a">
+<span class="eqno">(6.18)<a class="headerlink" href="#equation-08082912-33aa-4d64-bd80-91b77638db5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{aligned}
 &amp;\boxed{a  = \frac{1}{2} \text{ tr}(A)},        &amp;         &amp;\boxed{n_i = \frac{1}{2} \text{ tr}  (A \sigma_i)},
-\end{align}\]</div>
+\end{aligned}
+\end{equation}\]</div>
 <p>Entonces, podremos obtener el valor esperado de <span class="math notranslate nohighlight">\(A\)</span>  si somos capaces de medir los valores esperados de <span class="math notranslate nohighlight">\(X,\)</span> <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba401527-9642-4331-960b-baff859378ba">
-<span class="eqno">(379)<a class="headerlink" href="#equation-ba401527-9642-4331-960b-baff859378ba" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-419d968a-ff8e-4313-b539-57068a465fa0">
+<span class="eqno">(6.19)<a class="headerlink" href="#equation-419d968a-ff8e-4313-b539-57068a465fa0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{\langle A\rangle_\Psi = a + n_x \langle X\rangle_\Psi + n_y \langle Y\rangle_\Psi + n_z \langle Z\rangle_\Psi}
 \end{equation}\]</div>
 <section id="langle-z-rangle-psi">
-<h3><span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span><a class="headerlink" href="#langle-z-rangle-psi" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.1.1. </span><span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span><a class="headerlink" href="#langle-z-rangle-psi" title="Permalink to this heading">#</a></h3>
 <p>Los estados de la base computacional son autoestados del operador <span class="math notranslate nohighlight">\(Z\)</span> con autovalor <span class="math notranslate nohighlight">\(\pm 1\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e04db697-69ba-42a0-95e6-3cfab7774eb5">
-<span class="eqno">(380)<a class="headerlink" href="#equation-e04db697-69ba-42a0-95e6-3cfab7774eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8677806b-9aee-4567-86f9-926f2f3f7286">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-8677806b-9aee-4567-86f9-926f2f3f7286" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Z \ket{0} =+ \ket{0}   ~~~~~~~~ ~~~~~~~~~~ Z \ket{1} =-\ket{1}
 \end{equation}\]</div>
 <p>Dado un estado <span class="math notranslate nohighlight">\(\ket{\Psi} = c_0\ket{0} + c_1\ket{1}\)</span>, la medida repetida arroja de forma aleatoria los valores propios de <span class="math notranslate nohighlight">\(Z \to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^Z_{0} \)</span> y <span class="math notranslate nohighlight">\(n^Z_{1}\)</span>. Por definición, el valor esperado de dicha variable es,</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(6.23)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle Z \rangle_\Psi = (+1)\frac{n^Z_{0}}{N}+ (-1) \frac{ n^Z_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^Z\)</span> es el número de veces que hemos medido el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span> (el autovalor <span class="math notranslate nohighlight">\(+1\)</span>) y <span class="math notranslate nohighlight">\(n_{1}^Z\)</span> es el número de veces que hemos medido el estado <span class="math notranslate nohighlight">\(\ket{1}\)</span> (el autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
-<p>Para medir <span class="math notranslate nohighlight">\(\langle Z\rangle_\psi\)</span> necesitamos el <b>medidor habitual en computación cuántica</b> (ver Fig. \ref{Fig_medidas1_cubit_meter2})</p>
+<p>Para medir <span class="math notranslate nohighlight">\(\langle Z\rangle_\psi\)</span> necesitamos el <b>medidor habitual en computación cuántica</b> (ver Fig.  <a class="reference internal" href="Section_001_en_la_base_computacional_myst.html#fig-medidas1-cubit-meter"><span class="std std-numref">6.1</span></a>)</p>
 </section>
 <section id="langle-x-rangle-psi">
-<h3><span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span><a class="headerlink" href="#langle-x-rangle-psi" title="Permalink to this heading">#</a></h3>
-<p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = HZH\)</span> (ver Fig. \ref{Fig_medidas1_meter_XYbasis}) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
+<h3><span class="section-number">6.4.1.2. </span><span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span><a class="headerlink" href="#langle-x-rangle-psi" title="Permalink to this heading">#</a></h3>
+<p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = HZH\)</span> (ver Fig.  <a class="reference internal" href="Section_003_medidas_en_una_base_general_myst.html#fig-medidas1-meter-xybasis"><span class="std std-numref">6.3</span></a>) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
 El valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se obtiene del promedio</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(6.23)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle X \rangle_\Psi = (+1)\frac{n^X_{0}}{N}+ (-1) \frac{ n^X_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^X\)</span> es el número de veces que hemos medido el valor 0 (el estado <span class="math notranslate nohighlight">\(\ket{+}\)</span> con autovalor <span class="math notranslate nohighlight">\(+1\)</span> ) y <span class="math notranslate nohighlight">\(n_{1}^X\)</span> es el número de veces que hemos medido 1 (el estado <span class="math notranslate nohighlight">\(\ket{-}\)</span> con autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
 </section>
 <section id="langle-y-rangle-psi">
-<h3><span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span><a class="headerlink" href="#langle-y-rangle-psi" title="Permalink to this heading">#</a></h3>
-<p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = SHZHS^\dagger\)</span> (ver Fig. \ref{Fig_medidas1_meter_XYbasis}) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
+<h3><span class="section-number">6.4.1.3. </span><span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span><a class="headerlink" href="#langle-y-rangle-psi" title="Permalink to this heading">#</a></h3>
+<p>Igualmente, si medimos el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> con un <b>medidor asociado al operador</b> <span class="math notranslate nohighlight">\(X = SHZHS^\dagger\)</span> (ver Fig.  <a class="reference internal" href="Section_003_medidas_en_una_base_general_myst.html#fig-medidas1-meter-xybasis"><span class="std std-numref">6.3</span></a>) la repetición arrojará igualmente una muestra aleatoria de valores propios de <span class="math notranslate nohighlight">\(X\to \pm 1\)</span> con frecuencias relativas <span class="math notranslate nohighlight">\(n^X_0\)</span> y <span class="math notranslate nohighlight">\(n^X_1\)</span>.
 El valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se obtiene del promedio</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valor-esperado-z">
-<span class="eqno">(383)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(6.23)<a class="headerlink" href="#equation-ec-medidas1-valor-esperado-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{\langle Y \rangle_\Psi = (+1)\frac{n^Y_{0}}{N}+ (-1) \frac{ n^Y_{1}}{N}}
 \end{equation} \]</div>
 <p>donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de medidas, <span class="math notranslate nohighlight">\(n_{0}^Y\)</span> es el número de veces que hemos medido el valor 0 (el estado <span class="math notranslate nohighlight">\(\ket{+i}\)</span> con autovalor <span class="math notranslate nohighlight">\(+1\)</span> ) y <span class="math notranslate nohighlight">\(n_{1}^Y\)</span> es el número de veces que hemos medido 1 (el estado <span class="math notranslate nohighlight">\(\ket{-i}\)</span> con autovalor <span class="math notranslate nohighlight">\(-1\)</span>).</p>
@@ -746,24 +749,24 @@ Inicializa un vector <span class="math notranslate nohighlight">\(\ket{\Psi}\)</
 </section>
 </section>
 <section id="valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">
-<h2>Valor esperado de un operador unitario (no necesariamente hermítico)<a class="headerlink" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4.2. </span>Valor esperado de un operador unitario (no necesariamente hermítico)<a class="headerlink" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico" title="Permalink to this heading">#</a></h2>
 <p>En la sección anterior vimos como calcular el valor esperado de un operador hermítico aprovechando que los operadores de esta clase se pueden descomponer en función de las matrices de Pauli. Cuando el operador no es hermítico, no podemos llevar a cabo esta descomposición. Veamos como podemos calcular el valor esperado de un operador unitario genérico <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <p>En general, en computación cuántica partimos teniendo los qubit inicializados en el estado <span class="math notranslate nohighlight">\(\ket{0}\)</span>. Si queremos tener el estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span> debemos realizar una serie de operaciones sobre el qúbit para tenerlo. Estas operaciones pueden representarse por un operador  <span class="math notranslate nohighlight">\(U\)</span> tal que <span class="math notranslate nohighlight">\(\ket{\Psi} = U\ket{0}\)</span>.</p>
 <p>Supongamos ahora que queremos calcular el valor esperado de un operador <b>unitario</b> <span class="math notranslate nohighlight">\(V\)</span> en este estado <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span>. Podemos calcularlo de la siguiente forma:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1eb64b4-0ae2-4e6c-bca3-9f7fd816e537">
-<span class="eqno">(384)<a class="headerlink" href="#equation-f1eb64b4-0ae2-4e6c-bca3-9f7fd816e537" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c1beefe6-0866-43c7-ad67-2f4912bd39d3">
+<span class="eqno">(6.24)<a class="headerlink" href="#equation-c1beefe6-0866-43c7-ad67-2f4912bd39d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle V \rangle_\Psi = \bra{\Psi}V\ket{\Psi} = \bra{0} U^\dagger V U\ket{0} = \braket{0}{\tilde \Psi}
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\ket{\tilde\Psi} \equiv U^\dagger V U\ket{0}\)</span> y la acción del operador unitario <span class="math notranslate nohighlight">\(U^\dagger V U\)</span> (que no tiene porqué ser hermítico) se realiza mediante un circuito inicializado en <span class="math notranslate nohighlight">\(\ket{0}\)</span>.  Midiendo <span class="math notranslate nohighlight">\(\ket{\tilde \Psi}\)</span>  en la base <span class="math notranslate nohighlight">\(Z\)</span>, la fracción relativa de resultados <span class="math notranslate nohighlight">\(+1\to  n_0/N\)</span> nos da acceso al <b>módulo del valor esperado</b>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd49ce52-32fa-479e-917d-ec2c522eba5b">
-<span class="eqno">(385)<a class="headerlink" href="#equation-bd49ce52-32fa-479e-917d-ec2c522eba5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3560218e-5eca-48c5-8500-f7472d9f1911">
+<span class="eqno">(6.25)<a class="headerlink" href="#equation-3560218e-5eca-48c5-8500-f7472d9f1911" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sqrt{ \frac{n_{0}(\tilde\Psi)}{N} } ~=~  \sqrt{p_0}  ~=~   | \braket{0}{\tilde \Psi}|  ~=~ |\bra{\Psi}V\ket{\Psi}|    = |\langle V \rangle_\Psi |
 \end{equation}\]</div>
-<p>Podemos ver el circuito necesario para calcular este valor esperado en la Fig. \ref{Fig_medidad1_vev_unitary_V}.</p>
+<p>Podemos ver el circuito necesario para calcular este valor esperado en la Fig.  <a class="reference internal" href="#fig-medidad1-vev-unitary-v"><span class="std std-numref">6.6</span></a>.</p>
 <figure class="align-center" id="fig-medidad1-vev-unitary-v">
 <a class="reference internal image-reference" href="../../../_images/Fig_medidas1_vev_unitary_V.png"><img alt="../../../_images/Fig_medidas1_vev_unitary_V.png" src="../../../_images/Fig_medidas1_vev_unitary_V.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Circuito necesario para medir <span class="math notranslate nohighlight">\(\langle V\rangle_{\Psi} \)</span> donde <span class="math notranslate nohighlight">\(\ket{\Psi} = U\ket{0}\)</span> es un estado preparable.</span><a class="headerlink" href="#fig-medidad1-vev-unitary-v" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Circuito necesario para medir <span class="math notranslate nohighlight">\(\langle V\rangle_{\Psi} \)</span> donde <span class="math notranslate nohighlight">\(\ket{\Psi} = U\ket{0}\)</span> es un estado preparable.</span><a class="headerlink" href="#fig-medidad1-vev-unitary-v" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="note admonition">
@@ -773,7 +776,7 @@ al tratarse de una candidad real.
 Operadores de 1 cúbit unitarios y hermíticos son, por ejemplo, los operadores <span class="math notranslate nohighlight">\(V = X,Y,Z,H\)</span>.
 Este argumento nos permite calcular de otra manera</p>
 <div class="math notranslate nohighlight" id="equation-ec-medidas1-valores-esperados-xyz">
-<span class="eqno">(386)<a class="headerlink" href="#equation-ec-medidas1-valores-esperados-xyz" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(6.26)<a class="headerlink" href="#equation-ec-medidas1-valores-esperados-xyz" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \left.
 \begin{array}{c} \langle Z\rangle_\psi \\ \rule{0mm}{8mm} \langle X\rangle_\psi \\ \rule{0mm}{8mm} \langle Y\rangle_\psi \end{array}
 \right\} ~=~\braket{0}{\tilde\psi} ~=~ \sqrt{\frac{n_{0}(\tilde\psi)}{N}} ~~~\hbox{con}~~~~
@@ -783,9 +786,10 @@ Este argumento nos permite calcular de otra manera</p>
 \right.
 \end{equation} \end{split}\]</div>
 </div>
-<p>\begin{mybox_orange}{Jypyter Notebook: 02-Circuitos_1_qubit_medidas_y_RealHardware parte 3}
-En la cuarta parte del notebook <b>02-Circuitos_1_qubit_medidas_y_RealHardware</b> pueden verse cálculos de valores esperados con Qiskit.
-\end{mybox_orange}</p>
+<div class="attention admonition">
+<p class="admonition-title">Jupyter Notebook (02-Circuitos_1_qubit_medidas_y_RealHardware parte 3)</p>
+<p>En la cuarta parte del notebook <b>02-Circuitos_1_qubit_medidas_y_RealHardware</b> pueden verse cálculos de valores esperados con Qiskit.</p>
+</div>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
 </figure>
@@ -830,7 +834,7 @@ En la cuarta parte del notebook <b>02-Circuitos_1_qubit_medidas_y_RealHardware</
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Medidas en una base general</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Medidas en una base general</p>
       </div>
     </a>
     <a class="right-next"
@@ -838,7 +842,7 @@ En la cuarta parte del notebook <b>02-Circuitos_1_qubit_medidas_y_RealHardware</
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multi-qubit: definiciones y puertas.</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Multi-qubit: definiciones y puertas.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -858,13 +862,13 @@ En la cuarta parte del notebook <b>02-Circuitos_1_qubit_medidas_y_RealHardware</
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-z-rangle-psi"><span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-x-rangle-psi"><span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-y-rangle-psi"><span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">6.4.1. Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-z-rangle-psi">6.4.1.1. <span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-x-rangle-psi">6.4.1.2. <span class="math notranslate nohighlight">\(\langle X \rangle_\Psi\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langle-y-rangle-psi">6.4.1.3. <span class="math notranslate nohighlight">\(\langle Y \rangle_\Psi\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">6.4.2. Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
 </ul>
   </nav></div>
 

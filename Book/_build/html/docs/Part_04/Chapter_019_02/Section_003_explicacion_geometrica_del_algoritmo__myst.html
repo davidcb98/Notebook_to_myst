@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Explicación geométrica del algoritmo &#8212; Curso de Introducción a la Computación Cuántica</title>
+    <title>19.3. Explicación geométrica del algoritmo &#8212; Curso de Introducción a la Computación Cuántica</title>
   
   
   
@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -105,8 +106,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Número conocido de soluciones." href="Section_004_numero_conocido_de_soluciones__myst.html" />
-    <link rel="prev" title="Introducción" href="Section_002_introduccion_myst.html" />
+    <link rel="next" title="19.4. Número conocido de soluciones." href="Section_004_numero_conocido_de_soluciones__myst.html" />
+    <link rel="prev" title="19.2. Introducción" href="Section_002_introduccion_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,150 +215,150 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">Números complejos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">Vectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">Operadores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">Tensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">Probabilidades</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">Axiomas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">Bases ortogonales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">Medidas Estadísticas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">Evolución temporal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">Estados Mezcla y Matriz Densidad</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">Definición y bases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">El estado de un qúbit y la esfera de Bloch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">Rotaciones en la esfera de Bloch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">Puertas simples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">Circuitos Cuánticos (1 qubit)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">En la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">La moneda cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">Medidas en una base general</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">Valores esperados.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">Algunas definiciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">Circuitos Multiqubit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">Puertas (multi-qubit) no controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">Puertas controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">Puertas multicontroladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">Medidas en la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">Medidas en bases generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">Valores esperados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">Medida de Hadamard</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">Desigualdades de Bell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">Experimento GHZ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">Teleportación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">Intercambio de Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">Teorema de no-clonación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">El espín nuclear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">Qúbits de RMN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">Técnicas de pulsos elementales.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">Decoherencia y las ecuaciones de Bloch.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">Resumen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_circuitos_myst.html">Circuitos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">Retroceso de fase (Phase kickback)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">Circuitos equivalentes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_operadores_de_clifford_myst.html">Operadores de Clifford</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">Universalidad de la computación cuántica con puertas.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">Medidas de calidad de un Circuitos.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_estado_inicial_y_oraculos_myst.html">Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">Preparación de un estado inicial genérico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">Algoritmo de Deutsch-Jozsa.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">Algoritmo de Bernstein-Vazirani</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">Algoritmo de Simon</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_qft_quantum_fourier_transform__myst.html">QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">La QFT en computación cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_intuicion_myst.html">Intuición</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">Circuito que implementa la QFT.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">Complegidad y QFT aproximada</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_circuito_myst.html">Circuito</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_003_formulacion_matematica_myst.html">Formulación matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">¿Y si no conocemos el autoestado?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_001_introduccion_myst.html">Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">Hallar del periodo de una función (Period Finding)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_idea__myst.html">La idea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_explicacion_desgranada_myst.html">Explicación desgranada</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">Implementación aproximada de la QFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">Implementación de las SWAP controladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">Algoritmo de Grover (Amplificación de amplitud)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Section_001_diccionario_de_notaciones_myst.html">Diccionario de notaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_002_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Explicación geométrica del algoritmo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_004_numero_conocido_de_soluciones__myst.html">Número conocido de soluciones.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_005_numero_desconocido_de_soluciones__myst.html">Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_006_conteo_de_soluciones_quantum_counting__myst.html">Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_007_consideraciones_sobre_la_implementacion__myst.html">Consideraciones sobre la implementacion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Section_009_implementaciones_con_qiskit_myst.html">Implementaciones con qiskit.</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_001_introduccion_myst.html">Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">Fundamentos de QKD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">Protocolos de QKD: Tres familias</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
 </ul>
 </li>
 </ul>
@@ -625,10 +626,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-inicial-superposicion">Estado inicial: superposición</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo">Amplificación de amplitud mediante iteraciones del algoritmo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-parte-de-las-iteraciones-el-oraculo">Primera parte de las iteraciones: El oráculo.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segunda-parte-de-las-iteraciones-el-difusor">Segunda parte de las iteraciones: El difusor.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-inicial-superposicion">19.3.1. Estado inicial: superposición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo">19.3.2. Amplificación de amplitud mediante iteraciones del algoritmo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-parte-de-las-iteraciones-el-oraculo">19.3.2.1. Primera parte de las iteraciones: El oráculo.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segunda-parte-de-las-iteraciones-el-difusor">19.3.2.2. Segunda parte de las iteraciones: El difusor.</a></li>
 </ul>
 </li>
 </ul>
@@ -643,7 +644,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 04, 2024 | 8 min read</p>
+<div><p>Jul 10, 2024 | 8 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi21.png"><img alt="../../../_images/Fig_logo_UMA_scbi21.png" src="../../../_images/Fig_logo_UMA_scbi21.png" style="width: 2000px;" /></a>
@@ -672,13 +673,13 @@ document.write(`
 <span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
 <span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
 <section class="tex2jax_ignore mathjax_ignore" id="explicacion-geometrica-del-algoritmo">
-<span id="sec-geo"></span><h1>Explicación geométrica del algoritmo<a class="headerlink" href="#explicacion-geometrica-del-algoritmo" title="Permalink to this heading">#</a></h1>
+<span id="sec-geo"></span><h1><span class="section-number">19.3. </span>Explicación geométrica del algoritmo<a class="headerlink" href="#explicacion-geometrica-del-algoritmo" title="Permalink to this heading">#</a></h1>
 <p>Para facilitar la explicación y sin perdida de generalidad, pongámonos en el caso más simple de todos: queremos encontrar una única solución <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span> y tenemos <span class="math notranslate nohighlight">\(N=2^n\)</span>. Supongamos también que podemos partir del caso más simple, de una superposión uniforme de todos los estados. Más adelante iremos viendo generalizaciones del algoritmo para casos más complicados, como el caso de varias soluciones o el caso en el que partimos de una distribución de probabilidad aleatoria.</p>
 <section id="estado-inicial-superposicion">
-<h2>Estado inicial: superposición<a class="headerlink" href="#estado-inicial-superposicion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.3.1. </span>Estado inicial: superposición<a class="headerlink" href="#estado-inicial-superposicion" title="Permalink to this heading">#</a></h2>
 <p>Partimos de una superposición uniforme de <span class="math notranslate nohighlight">\(N\)</span> estados</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-1">
-<span class="eqno">(627)<a class="headerlink" href="#equation-ec-geo-phi-0-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.1)<a class="headerlink" href="#equation-ec-geo-phi-0-1" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \frac{1}{\sqrt{N}}  \sum_{i=0}^{N} | i \rangle.
 \end{equation} \]</div>
 <p>Esto no es más que decir que al inicio de la búsqueda, todas las opciones son igualmente probables (cualquier suposición de la ubicación de la solución es tan buena como cualquier otra).</p>
@@ -686,7 +687,7 @@ document.write(`
 <p class="admonition-title">Nota</p>
 <p>Recordemos que si <span class="math notranslate nohighlight">\(N=2^n\)</span>, donde <span class="math notranslate nohighlight">\(n\)</span> es el número de qúbits, este estado es fácil de construir, pues solo tenemos que aplicar puertas de Hadamard en todos los qúbits (partiendo estos del estado <span class="math notranslate nohighlight">\(|0 \rangle\)</span>):</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-h">
-<span class="eqno">(628)<a class="headerlink" href="#equation-ec-geo-phi-0-h" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.2)<a class="headerlink" href="#equation-ec-geo-phi-0-h" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 |\Psi_0 \rangle = H^{\otimes n} |0 \rangle^{n} = \frac{1}{\sqrt{N}}  \sum_{i=0}^{N=2^n} | i \rangle.
 \end{equation} \]</div>
 </div>
@@ -701,22 +702,22 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 </div>
 </section>
 <section id="amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo">
-<h2>Amplificación de amplitud mediante iteraciones del algoritmo<a class="headerlink" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">19.3.2. </span>Amplificación de amplitud mediante iteraciones del algoritmo<a class="headerlink" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo" title="Permalink to this heading">#</a></h2>
 <p>Como vamos a ver a continuación, el algoritmo de Grover tiene una interpretación geométrica muy simple: dos reflexiones que rotan el vector de estado en un plano bidimensional.</p>
 <p>El algoritmo de Grover consta de dos partes: un <b>oráculo</b> y un <b>difusor</b>. Para que el algoritmo maximice la probabilidad de la solución deseada tenemos realizar un número concreto de <b>iteraciones</b>. En cada iteración del algoritmo, primero se aplica el oráculo y después el difusor. Con cada iteración la probabilidad de medir la solución deseada va aumentando. Sin embargo, es muy importante aplicar el número correcto de iteraciones que nos maximiza la probabilidad, pues tanto si nos quedamos cortos como si nos pasamos, la probabilidad de medir <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> disminuye. Esto se va a entender muy bien a continuación, cuando veamos la explicación geométrica.</p>
-<p>Pongamos el estado inicial de la Ec. (\ref{ec_geo_phi-0_1}) de una forma más adecuada para nuestro propósito</p>
+<p>Pongamos el estado inicial de la Ec.  <a class="reference internal" href="#equation-ec-geo-phi-0-1">(19.1)</a> de una forma más adecuada para nuestro propósito</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-0-2">
-<span class="eqno">(629)<a class="headerlink" href="#equation-ec-geo-phi-0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.3)<a class="headerlink" href="#equation-ec-geo-phi-0-2" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi_0 \rangle = | \Psi (k(0),l(0)) \rangle = k(0) |\omega_0 \rangle + \sum_{i \neq \omega_0}  l(0)  |i \rangle}, \quad \text{donde} \quad \boxed{k(0) = l(0) = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
 <p>Denominaremos <span class="math notranslate nohighlight">\(k(t)\)</span> y <span class="math notranslate nohighlight">\(l(t)\)</span> a los coeficientes que tendremos en la t-esima iteración del algoritmo, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j">
-<span class="eqno">(639)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.13)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle +  \sum_{i \neq \omega_0}^N l(t) |i \rangle }.
 \end{equation} \]</div>
-<p>Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> vive en un espacio de Hilbert de <span class="math notranslate nohighlight">\(N\)</span> dimensiones y los estados <span class="math notranslate nohighlight">\(| i \rangle\)</span>, con <span class="math notranslate nohighlight">\(i=0,1,\dots,N-1\)</span> , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye <span class="math notranslate nohighlight">\(\omega_0\)</span>, pues no es nada más que un valor de <span class="math notranslate nohighlight">\(i\)</span> concreto). Para entender bien esto, podemos fijamos en las Ecs. (\ref{ec_geo_phi-0_1}) y (\ref{ec_geo_phi-0_2}) y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, donde este último es la suma de todos los demás elementos de la base, es decir:</p>
+<p>Véase que aquí ya estamos adelantando que los coeficientes de todos los estados que no son el deseado son iguales en cada iteración. Nuestro vector de estado <span class="math notranslate nohighlight">\(|\Psi(t) \rangle\)</span> vive en un espacio de Hilbert de <span class="math notranslate nohighlight">\(N\)</span> dimensiones y los estados <span class="math notranslate nohighlight">\(| i \rangle\)</span>, con <span class="math notranslate nohighlight">\(i=0,1,\dots,N-1\)</span> , forman una base ortogonal del espacio de Hilbert (véase que aquí se incluye <span class="math notranslate nohighlight">\(\omega_0\)</span>, pues no es nada más que un valor de <span class="math notranslate nohighlight">\(i\)</span> concreto). Para entender bien esto, podemos fijamos en las Ecs.  <a class="reference internal" href="#equation-ec-geo-phi-0-1">(19.1)</a> y  <a class="reference internal" href="#equation-ec-geo-phi-0-2">(19.3)</a> y ver que estas no son más que la expresión de un vector como la multiplicación de unos coeficientes por los elementos de la base. Como no podemos dibujar un vectores de más de 3 dimensiones, para explicar geométricamente el algoritmo vamos a recurrir a un truco: vamos a descomponer nuestro vector de estado en la suma de dos vectores <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, donde este último es la suma de todos los demás elementos de la base, es decir:</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j-s">
-<span class="eqno">(631)<a class="headerlink" href="#equation-ec-geo-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.5)<a class="headerlink" href="#equation-ec-geo-phi-j-s" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = | \Psi (k(t),l(t)) \rangle = k(t) |\omega_0 \rangle + l(t) \sqrt{N-1} | \omega^{\perp}  \rangle}, \quad \text{donde} \quad \boxed{| \omega^{\perp}  \rangle = \frac{1}{\sqrt{N-1}}\sum_{i \neq \omega_0}^N  |i \rangle}.
 \end{equation} \]</div>
 <div class="note admonition">
@@ -724,19 +725,19 @@ cuadrado de la amplitud). Este caso, vemos que todos los estados tiene probabili
 <p>Es importante darse cuenta de donde sale el factor <span class="math notranslate nohighlight">\(\sqrt{N-1}\)</span> en la definición de
 <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>. Este es debido a que estamos definiendo <span class="math notranslate nohighlight">\(|\omega^{\perp}\rangle\)</span>
 como un vector unitario, es decir</p>
-<div class="amsmath math notranslate nohighlight" id="equation-555402eb-f17c-432e-b064-63cca0ecab24">
-<span class="eqno">(632)<a class="headerlink" href="#equation-555402eb-f17c-432e-b064-63cca0ecab24" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d98fcfeb-91b2-4095-b5fa-1f0733d36ada">
+<span class="eqno">(19.6)<a class="headerlink" href="#equation-d98fcfeb-91b2-4095-b5fa-1f0733d36ada" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle \omega^{\perp}| \omega^{\perp} \rangle = 1.
 \end{equation}\]</div>
 <p>Por otro lado, <span class="math notranslate nohighlight">\(|\Psi_0\rangle\)</span> también es unitario</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b3b8231-fcef-4a2a-9464-747b4ad59b29">
-<span class="eqno">(633)<a class="headerlink" href="#equation-8b3b8231-fcef-4a2a-9464-747b4ad59b29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-458bba32-b8af-49cc-9f98-1cab0fd6a716">
+<span class="eqno">(19.7)<a class="headerlink" href="#equation-458bba32-b8af-49cc-9f98-1cab0fd6a716" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \parallel |\Psi(t) \rangle \parallel^2 = \langle \Psi(t) | \Psi(t) \rangle =
 k(t)^2 + \sum_{i \neq \omega_0}^N l(t)^2 = k(t)^2 + l(t)^2 (N-1) = 1 .
 \end{equation}\]</div>
 <p>Con lo cual, ese factor es necesario.</p>
 </div>
-<p>Teniendo en cuenta que <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> es un elemento de la base, eso quiere decir que es ortogonal al resto de elementos de la base. Concluimos entonces que <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> son ortogonales. Podemos pues dibujar nuestro vector de estado en un plano cuyos ejes son <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span>. La imagen de la izquierda de la Fig. \ref{Fig_geo_1} podemos ver el estado inicial <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> dibujado en este plano.</p>
+<p>Teniendo en cuenta que <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> es un elemento de la base, eso quiere decir que es ortogonal al resto de elementos de la base. Concluimos entonces que <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> son ortogonales. Podemos pues dibujar nuestro vector de estado en un plano cuyos ejes son <span class="math notranslate nohighlight">\(|\omega_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(|\omega^{\perp} \rangle\)</span>. La imagen de la izquierda de la Fig.  <a class="reference internal" href="#fig-geo-1"><span class="std std-numref">19.1</span></a> podemos ver el estado inicial <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> dibujado en este plano.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Veamos un ejemplo sencillo para ver a que nos referimos con esta descomposición. Pongamos que
@@ -757,20 +758,20 @@ plano \)</span>XY$.</p>
 <figure class="align-center" id="fig-geo-1">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_1.png"><img alt="../../../_images/Fig_geo_1.png" src="../../../_images/Fig_geo_1.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 88 </span><span class="caption-text">Esto inicial del algoritmo de Grover: superposición uniforme de los <span class="math notranslate nohighlight">\(N\)</span> estados. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19.1 </span><span class="caption-text">Esto inicial del algoritmo de Grover: superposición uniforme de los <span class="math notranslate nohighlight">\(N\)</span> estados. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Sabemos también que todo vector en un plano podemos definirlo mediante su módulo y el ángulo respecto a uno de los ejes. Como el vector de estado tiene módulo uno (la suma de las probabilidades es uno), podemos escribirlo solo en función de un ángulo. Si llamamos <span class="math notranslate nohighlight">\(\theta_0\)</span> al ángulo que forman el vector de estado con el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>, podemos escribir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-theta">
-<span class="eqno">(634)<a class="headerlink" href="#equation-ec-geo-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.8)<a class="headerlink" href="#equation-ec-geo-theta" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 | \Psi_0 \rangle = \sin \theta_0 \, |\omega_0 \rangle + \cos \theta_0 \, | \omega^{\perp} \rangle, \qquad \text{donde} \qquad  \boxed{\sin \theta_0 =  \cos \theta_0 = \frac{1}{\sqrt{N}}}.
 \end{equation} \]</div>
-<p>En el gráfico de barras de la derecha en la Fig. \ref{Fig_geo_1} podemos ver las amplitudes de los estados. Recordemos que la probabilidad de un estado es el cuadrado de la amplitud.</p>
+<p>En el gráfico de barras de la derecha en la Fig.  <a class="reference internal" href="#fig-geo-1"><span class="std std-numref">19.1</span></a> podemos ver las amplitudes de los estados. Recordemos que la probabilidad de un estado es el cuadrado de la amplitud.</p>
 <section id="primera-parte-de-las-iteraciones-el-oraculo">
-<h3>Primera parte de las iteraciones: El oráculo.<a class="headerlink" href="#primera-parte-de-las-iteraciones-el-oraculo" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">19.3.2.1. </span>Primera parte de las iteraciones: El oráculo.<a class="headerlink" href="#primera-parte-de-las-iteraciones-el-oraculo" title="Permalink to this heading">#</a></h3>
 <p>El algoritmo de Grover usa un <b>oráculo</b> cuya función es aplicar una fase negativa al estado que buscamos, es decir</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-uw">
-<span class="eqno">(635)<a class="headerlink" href="#equation-ec-geo-uw" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
+<span class="eqno">(19.9)<a class="headerlink" href="#equation-ec-geo-uw" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{equation} 
 \boxed{U_{\omega_0} | i \rangle =
 \lch
 \begin{matrix}
@@ -782,24 +783,24 @@ plano \)</span>XY$.</p>
 <p>Este oráculo no es más que una matriz diagonal con todo 1 en la diagonal menos en el elemento correspondiente al estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span>, donde tenemos un <span class="math notranslate nohighlight">\(-1\)</span>. Veremos más adelante ejemplos de como construir este tipo de oráculos. Podemos adelantar que, aunque no es trivial construirlos pues a priori parece que tenemos que conocer la solución de antemano, tampoco es (en muchos caso) excesivamente complicado.</p>
 <p>Una de las características importantes de este algoritmo es lo fácil que resulta convertir un problema a un oráculo de esta forma. Hay muchos problemas computacionales en los que es difícil encontrar una solución, pero relativamente fácil verificarla (problemas NP). Por ejemplo, podemos verificar fácilmente la solución de un sudoku comprobando que se cumplen todas las reglas. Para estos problemas, podemos crear una función <span class="math notranslate nohighlight">\(f\)</span> que tome una propuesta de solución <span class="math notranslate nohighlight">\(i\)</span> y nos devuelva <span class="math notranslate nohighlight">\(f(i)=0\)</span> si <span class="math notranslate nohighlight">\(i\)</span> no es solución (<span class="math notranslate nohighlight">\(i \neq  \omega_0\)</span>) y <span class="math notranslate nohighlight">\(f(i) = 1\)</span> si <span class="math notranslate nohighlight">\(i\)</span> es solución (<span class="math notranslate nohighlight">\(i \neq  \omega_0\)</span>). Podemos entonces definir el oráculo de la forma</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-u-f">
-<span class="eqno">(636)<a class="headerlink" href="#equation-ec-geo-u-f" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.10)<a class="headerlink" href="#equation-ec-geo-u-f" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{U_{\omega_0} |i \rangle = (-1)^{f(i)} |i \rangle}.
 \end{equation} \]</div>
 <p>De esta forma, a matriz es ahora una matriz diagonal con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cdff8e4-b056-4276-985c-a7b1a58e5b4b">
-<span class="eqno">(637)<a class="headerlink" href="#equation-0cdff8e4-b056-4276-985c-a7b1a58e5b4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3e3e632-662e-4ae1-94d8-e9904d7d2893">
+<span class="eqno">(19.11)<a class="headerlink" href="#equation-b3e3e632-662e-4ae1-94d8-e9904d7d2893" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Diag(U_{\omega_0})=\lc (-1)^{f(0)}, \, (-1)^{f(1)}, \dots , \, (-1)^{f(2^n-1)}    \rc .
 \end{equation}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Podemos usar el retorno de fase (<i>phase kickback</i>) para construir este tipo de oráculos.
 Si tenemos nuestra función clásica <span class="math notranslate nohighlight">\(f(x)\)</span>,   podemos convertirla en un circuito reversible de la
-forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
+forma (ver Fig.  <a class="reference internal" href="#fig-geo-phase-kick"><span class="std std-numref">19.2</span></a>(a))</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 |x \rangle |0 \rangle \rightarrow |x \rangle | 0 \oplus f(x) \rangle  = |x \rangle | f(x) \rangle .
 \end{equation*}\]</div>
-<p>Si inicializamos la ancilla en el estado <span class="math notranslate nohighlight">\(| -\rangle\)</span>, tenemos (ver Fig. \ref{Fig_geo_phase_kick}(b))</p>
+<p>Si inicializamos la ancilla en el estado <span class="math notranslate nohighlight">\(| -\rangle\)</span>, tenemos (ver Fig.  <a class="reference internal" href="#fig-geo-phase-kick"><span class="std std-numref">19.2</span></a>(b))</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 |x \rangle |- \rangle = \frac{1}{\sqrt{2}} |x \rangle \lp | 0 \rangle - | 1 \rangle \rp
@@ -809,51 +810,53 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
 <figure class="align-center" id="fig-geo-phase-kick">
 <a class="reference internal image-reference" href="../../../_images/Fig_subfig_geo_phase_kick.png"><img alt="../../../_images/Fig_subfig_geo_phase_kick.png" src="../../../_images/Fig_subfig_geo_phase_kick.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 89 </span><span class="caption-text">Retorno de fase (<i>phase kickback</i>) para construir un oráculo de la forma de la Ec. (\ref{ec_geo_U_f}).</span><a class="headerlink" href="#fig-geo-phase-kick" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19.2 </span><span class="caption-text">Retorno de fase (<i>phase kickback</i>) para construir un oráculo de la forma de la Ec.  <a class="reference internal" href="#equation-ec-geo-u-f">(19.10)</a>.</span><a class="headerlink" href="#fig-geo-phase-kick" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
-<p>En la Fig. \ref{Fig_geo_2} podemos ver el efecto del oráculo <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> sobre el vector y las amplitudes. El cambio de signo en la amplitud del estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span> se traduce en un cambio de signo en la proyección del vector de estado sobre este eje. A efectos prácticos, esto no es más que una reflexión del vector de estado respecto al eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>. Como las probabilidades son el cuadrado de las amplitudes, este cambio de signo no se traduce en un cambio en la probabilidades. A efectos de las medidas, nada ha cambiado. En esta figura también se representa la <b>media de las amplitudes</b> (linea punteada). Vemos que ha disminuido la media al cambiar el signo de la amplitud del estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span>.</p>
+<p>En la Fig.  <a class="reference internal" href="#fig-geo-2"><span class="std std-numref">19.3</span></a> podemos ver el efecto del oráculo <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> sobre el vector y las amplitudes. El cambio de signo en la amplitud del estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span> se traduce en un cambio de signo en la proyección del vector de estado sobre este eje. A efectos prácticos, esto no es más que una reflexión del vector de estado respecto al eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span>. Como las probabilidades son el cuadrado de las amplitudes, este cambio de signo no se traduce en un cambio en la probabilidades. A efectos de las medidas, nada ha cambiado. En esta figura también se representa la <b>media de las amplitudes</b> (linea punteada). Vemos que ha disminuido la media al cambiar el signo de la amplitud del estado <span class="math notranslate nohighlight">\(| \omega_0 \rangle\)</span>.</p>
 <figure class="align-center" id="fig-geo-2">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_2.png"><img alt="../../../_images/Fig_geo_2.png" src="../../../_images/Fig_geo_2.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 90 </span><span class="caption-text">Primer paso del algoritmo de Grover: aplicación del <b>oráculo</b> <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> para cambiar el signo de la amplitud del estado deseado. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado, donde la línea punteada representa la media. Figura tomada de <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19.3 </span><span class="caption-text">Primer paso del algoritmo de Grover: aplicación del <b>oráculo</b> <span class="math notranslate nohighlight">\(U_{\omega_0}\)</span> para cambiar el signo de la amplitud del estado deseado. En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado, donde la línea punteada representa la media. Figura tomada de <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="segunda-parte-de-las-iteraciones-el-difusor">
-<h3>Segunda parte de las iteraciones: El difusor.<a class="headerlink" href="#segunda-parte-de-las-iteraciones-el-difusor" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">19.3.2.2. </span>Segunda parte de las iteraciones: El difusor.<a class="headerlink" href="#segunda-parte-de-las-iteraciones-el-difusor" title="Permalink to this heading">#</a></h3>
 <p>El <b>difusor</b> consiste en aplicar el operador</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-us">
-<span class="eqno">(638)<a class="headerlink" href="#equation-ec-geo-us" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.12)<a class="headerlink" href="#equation-ec-geo-us" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I }.
 \end{equation} \]</div>
 <p>Este operador no es más que una reflexión respecto el estado inicial <span class="math notranslate nohighlight">\(|\Psi_0 \rangle\)</span>.</p>
-<p>En la Fig. \ref{Fig_geo_3} podemos ver el efecto del difusor.  En el diagrama de barras de la amplitud, podemos entender esta transformación como una reflexión respecto a la media de las amplitudes (la media queda igual). Como habíamos disminuido la media al aplicar el oráculo, lo que tenemos ahora es una amplificación de la amplitud del estado deseado. Esto se ve también en el plano de la izquierda, pues las amplitudes no son más que las proyecciones del vector sobre los ejes.</p>
+<p>En la Fig.  <a class="reference internal" href="#fig-geo-3"><span class="std std-numref">19.4</span></a> podemos ver el efecto del difusor.  En el diagrama de barras de la amplitud, podemos entender esta transformación como una reflexión respecto a la media de las amplitudes (la media queda igual). Como habíamos disminuido la media al aplicar el oráculo, lo que tenemos ahora es una amplificación de la amplitud del estado deseado. Esto se ve también en el plano de la izquierda, pues las amplitudes no son más que las proyecciones del vector sobre los ejes.</p>
 <figure class="align-center" id="fig-geo-3">
 <a class="reference internal image-reference" href="../../../_images/Fig_geo_3.png"><img alt="../../../_images/Fig_geo_3.png" src="../../../_images/Fig_geo_3.png" style="width: 850px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 91 </span><span class="caption-text">Segundo paso del algoritmo de Grover: aplicar el operador de <b>difusión</b> (o reflexión) <span class="math notranslate nohighlight">\(U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I\)</span>.  En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19.4 </span><span class="caption-text">Segundo paso del algoritmo de Grover: aplicar el operador de <b>difusión</b> (o reflexión) <span class="math notranslate nohighlight">\(U_{\Psi_0} = 2 |\Psi_0 \rangle \langle \Psi_0 | - I\)</span>.  En la figura de la izquierda, <span class="math notranslate nohighlight">\(| \Psi_0 \rangle\)</span> representa el estado inicial, el eje <span class="math notranslate nohighlight">\(|\omega_0 \rangle \)</span> representa la solución y el eje <span class="math notranslate nohighlight">\(| \omega^{\perp} \rangle\)</span> el resto de estados de espacio de Hilbert. En la figura de la derecha vemos la <b>amplitud</b> de cada estado. Recordemos que la probabilidad de cada estado es el cuadrado de la amplitud. Figura tomada de <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id33" title="Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: https://qiskit.org/textbook/ch-algorithms/grover.html.">65</a>]</span>.</span><a class="headerlink" href="#fig-geo-3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Lo que estamos haciendo mediante la aplicación del oráculo y el difusor no es mas que <b>rotar el vector de estado un ángulo</b> <span class="math notranslate nohighlight">\(\bm{2 \theta_0}\)</span> (donde <span class="math notranslate nohighlight">\(\theta_0\)</span> está definido en la ec. (\ref{ec_geo_theta})) hacia el eje que representa nuestra solución, aumentando así su proyección, es decir, su amplitud, y con ello la probabilidad de medirlo.</p>
+<p>Lo que estamos haciendo mediante la aplicación del oráculo y el difusor no es mas que <b>rotar el vector de estado un ángulo</b> <span class="math notranslate nohighlight">\(\bm{2 \theta_0}\)</span> (donde <span class="math notranslate nohighlight">\(\theta_0\)</span> está definido en la ec.  <a class="reference internal" href="#equation-ec-geo-theta">(19.8)</a>) hacia el eje que representa nuestra solución, aumentando así su proyección, es decir, su amplitud, y con ello la probabilidad de medirlo.</p>
 <p>Después de <span class="math notranslate nohighlight">\(t\)</span> iteraciones hemos aumentado el ángulo en <span class="math notranslate nohighlight">\(2t\theta_0\)</span>, con lo que tenemos estado:</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-phi-j">
-<span class="eqno">(639)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<span class="eqno">(19.13)<a class="headerlink" href="#equation-ec-geo-phi-j" title="Permalink to this equation">#</a></span>\[\begin{equation} 
 \boxed{|\Psi(t) \rangle = \lp U_{\Psi_0} U_{\omega_0} \rp^t | \Psi_0 \rangle} = \sin \lp (2t+1) \theta_0 \rp \, |\omega_0 \rangle + \cos \lp (2t+1) \theta_0 \rp \, | \omega^{\perp} \rangle.
 \end{equation} \]</div>
 <p>Podemos ahora definir el <b>operador de Grover</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a78c42b-8b1f-413f-86ae-876c82f78202">
-<span class="eqno">(640)<a class="headerlink" href="#equation-7a78c42b-8b1f-413f-86ae-876c82f78202" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e238a63-a055-4021-abda-bc4dd42e026c">
+<span class="eqno">(19.14)<a class="headerlink" href="#equation-5e238a63-a055-4021-abda-bc4dd42e026c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boxed{G = U_{\Psi_0} U_{\omega_0}} \rqa |\Psi(t) \rangle =  G^t | \Psi_0 \rangle.
 \end{equation}\]</div>
-<p>Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado <span class="math notranslate nohighlight">\(2 \theta_0\)</span> en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje <span class="math notranslate nohighlight">\(|\omega\rangle \)</span>. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es “pasarnos de largo” del eje. Discutiremos el número exacto de iteraciones en la sección \ref{sec_t-sols}, pero ya comentamos que es del orden de <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
-<p>Si comparamos las ecuaciones (\ref{ec_geo_phi-j-s}) y (\ref{ec_geo_phi-j}) vemos que</p>
+<p>Ahora es fácil entender porqué tenemos que aplicar un número concreto de iteraciones y porqué si nos pasamos, la probabilidad disminuye. Como acabamos de ver, el resultado después de cada iteración es que rotamos el vector de estado <span class="math notranslate nohighlight">\(2 \theta_0\)</span> en el sentido contrario de las agujas del reloj. Lo que queremos es que el vector quede lo más vertical posible, es decir, que quede lo más cerca posible del eje <span class="math notranslate nohighlight">\(|\omega\rangle \)</span>. Si hacemos demasiadas iteraciones, lo que vamos a conseguir es “pasarnos de largo” del eje. Discutiremos el número exacto de iteraciones en la sección  <a class="reference internal" href="Section_004_numero_conocido_de_soluciones__myst.html#sec-t-sols"><span class="std std-numref">19.4</span></a>, pero ya comentamos que es del orden de <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
+<p>Si comparamos las ecuaciones  <a class="reference internal" href="#equation-ec-geo-phi-j-s">(19.5)</a> y  <a class="reference internal" href="#equation-ec-geo-phi-j">(19.13)</a> vemos que</p>
 <div class="math notranslate nohighlight" id="equation-ec-geo-sin-cos">
-<span class="eqno">(641)<a class="headerlink" href="#equation-ec-geo-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<span class="eqno">(19.15)<a class="headerlink" href="#equation-ec-geo-sin-cos" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\begin{aligned}
 &amp; \boxed{k(t) = \sin \Lc (2t+1) \theta_0 \Rc}
 &amp; \boxed{l(t) = \frac{1}{\sqrt{N-1}}\cos \Lc (2t+1) \theta_0 \Rc}.
-\end{align} \]</div>
+\end{aligned}
+\end{equation} \]</div>
 <figure class="align-center">
 <a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
 </figure>
@@ -899,7 +902,7 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introducción</p>
+        <p class="prev-next-title"><span class="section-number">19.2. </span>Introducción</p>
       </div>
     </a>
     <a class="right-next"
@@ -907,7 +910,7 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Número conocido de soluciones.</p>
+        <p class="prev-next-title"><span class="section-number">19.4. </span>Número conocido de soluciones.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -927,10 +930,10 @@ forma (ver Fig. \ref{Fig_geo_phase_kick}(a))</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-inicial-superposicion">Estado inicial: superposición</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo">Amplificación de amplitud mediante iteraciones del algoritmo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-parte-de-las-iteraciones-el-oraculo">Primera parte de las iteraciones: El oráculo.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segunda-parte-de-las-iteraciones-el-difusor">Segunda parte de las iteraciones: El difusor.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estado-inicial-superposicion">19.3.1. Estado inicial: superposición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplificacion-de-amplitud-mediante-iteraciones-del-algoritmo">19.3.2. Amplificación de amplitud mediante iteraciones del algoritmo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primera-parte-de-las-iteraciones-el-oraculo">19.3.2.1. Primera parte de las iteraciones: El oráculo.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segunda-parte-de-las-iteraciones-el-difusor">19.3.2.2. Segunda parte de las iteraciones: El difusor.</a></li>
 </ul>
 </li>
 </ul>

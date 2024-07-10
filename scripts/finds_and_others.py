@@ -21,7 +21,37 @@ class ErrorParametrosFig(Exception):
 
         super().__init__(self.message)
 
-def my_replace(f_data, i_line, new_text):
+def find_start_line(f_data, i_line):
+
+    index_firts_quote = f_data[i_line].find('"')
+    match = re.search(r'\S', f_data[i_line][index_firts_quote+1:])
+    num_spaces = match.start()
+    return num_spaces
+
+
+def my_replace(f_data, i_line, new_text, respect_spaces = True):
+
+    #print("------> ", new_text)
+
+    # Encontrar la posición de la primera comilla doble
+    index_firts_quote = f_data[i_line].find('"')
+
+
+    if respect_spaces == True:
+        # Encontramos donde empieza el texto después de la "
+        match = re.search(r'\S', f_data[i_line][index_firts_quote+1:])
+
+        position = match.start()
+        # Realizar la sustitución
+        f_data[i_line]= f_data[i_line][:index_firts_quote + 1 + position] + new_text
+
+    else:
+        # Realizar la sustitución
+        f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text
+            #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):]
+
+"""
+def my_replace_old(f_data, i_line, new_text):
 
     #print("------> ", new_text)
 
@@ -29,9 +59,9 @@ def my_replace(f_data, i_line, new_text):
     index_firts_quote = f_data[i_line].find('"')
 
     # Realizar la sustitución
-    f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text 
-        #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):] 
-    
+    f_data[i_line]= f_data[i_line][:index_firts_quote + 1] +new_text
+        #f_data[i_start_p][f_data[i_start_p].find('\n', indice_primera_comilla + 1):]
+"""
 
 def remove_capital_accents(string):
     # Normalizar y eliminar acentos
