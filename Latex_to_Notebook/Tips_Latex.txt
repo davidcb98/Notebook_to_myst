@@ -84,6 +84,29 @@ Las caption de las figuras deben de ir en una linea: \caption{.....}
 Los nombres de las figuras deben llevar la extensión
 
 ################################################################
+Sobre las tablas. Sintaxis (los \hline son opcionales):
+
+\begin{table}[...]
+\centering
+\begin{tabular}{...}
+.... \\ \hline
+.... \\ \hline
+\end{tabular}
+\caption{....}
+\label{Tab_...}
+\end{table}
+
+Cada linea de la tabla debe de ser una sola linea en el .txt !!!!
+Es decir, no se acepta:
+\begin{tabular}{...}
+....
+....
+.... \\ \hline
+....
+....
+.... \\ \hline
+\end{tabular}
+################################################################
 
 ## Bibliografia: poner esto antes
 
@@ -103,21 +126,10 @@ Los nombres de las figuras deben llevar la extensión
 
 - Lidiar con refs a partes y tablas
 - Pasar de dropdown a proof??? No se yo
+- Lidiar con los \href
+
 
 - Tratar las tablas:
-    Eliminar los \begin, \end, \centering.
-    Añadir "* -" al principio de las lineas y sustituir "&" por "\n  -", y eliminar \\ y \hline
-    Tratar caption
-    Tratar label como en figs
-
-    ```{list-table} Table caption
-    :header-rows: 1
-    :name: ref_table
-    * -
-      -
-    * -
-      -
-    ```
 
     Referencias: {numref}`label`      --> Table 2
                  {numref}`%s <label>` --> 2
