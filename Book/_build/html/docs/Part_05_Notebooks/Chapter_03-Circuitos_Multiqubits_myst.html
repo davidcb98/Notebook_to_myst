@@ -1,0 +1,1323 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>24. Circuitos multiqúbit &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_05_Notebooks/Chapter_03-Circuitos_Multiqubits_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="25. Medidas II" href="Chapter_04-Medidas_II_myst.html" />
+    <link rel="prev" title="23. Circuitos de un qúbit y HardWare real" href="Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks con ejemplos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_00-Fundamentos_MC_evolucion_temporal_myst.html">21. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html">22. Vectores de estado y la esfera de Bloch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html">23. Circuitos de un qúbit y HardWare real</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Circuitos multiqúbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04-Medidas_II_myst.html">25. Medidas II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05-Entrelazamiento_myst.html">26. Entrelazamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06-Elementos_Basicos_myst.html">27. Elementos básicos de los algoritmos cuánticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07-Estado_inicial_y_oraculo_myst.html">28. Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08-Busqueda_Oracula_myst.html">29. Algoritmos del Oráculo</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Chapter_09-QFT_myst.html">32. Quantum Fourier Transform (QFT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_10-QPE_myst.html">33. Quantum Phase Estimation (QPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_11-Shor_Algorithm_simple_myst.html">34. Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_12-Grover_Algorithm_myst.html">35. Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_13_QKD_myst.html">36. Quantum Key Distribution - BB84</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_05_Notebooks/Chapter_03-Circuitos_Multiqubits_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_05_Notebooks/Chapter_03-Circuitos_Multiqubits_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_05_Notebooks/Chapter_03-Circuitos_Multiqubits_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Part_05_Notebooks/Chapter_03-Circuitos_Multiqubits_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Circuitos multiqúbit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuitos-de-dos-qubits-con-una-cnot">24.1. Circuitos de dos qúbits con una CNOT</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnot-con-el-control-abajo">24.1.1. CNOT con el control abajo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-el-control-arriba">24.1.2. Con el control arriba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnot-en-accion-ejemplos">24.1.3. CNOT en acción. Ejemplos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrelazamiento-crear-estados-entrelazados-con-la-cnot-y-la-h">24.2. Entrelazamiento: Crear estados entrelazados con la CNOT y la <span class="math notranslate nohighlight">\(H\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-swap">24.3. Puerta Swap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-cswap">24.4. Puerta CSWAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ccnot-o-toffoli">24.5. CCNOT o Toffoli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-mcx-multicontrolada-x">24.6. Puerta MCX (multicontrolada X)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="circuitos-multiqubit">
+<span id="sec-notebooks-circ-multiqubit"></span><h1><span class="section-number">24. </span>Circuitos multiqúbit<a class="headerlink" href="#circuitos-multiqubit" title="Permalink to this heading">#</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#circuitos-de-dos-qubits-con-una-cnot" id="id1">Circuitos de dos qúbits con una CNOT</a></p></li>
+<li><p><a class="reference internal" href="#entrelazamiento-crear-estados-entrelazados-con-la-cnot-y-la-h" id="id2">Entrelazamiento: Crear estados entrelazados con la CNOT y la <span class="math notranslate nohighlight">\(H\)</span></a></p></li>
+<li><p><a class="reference internal" href="#puerta-swap" id="id3">Puerta Swap</a></p></li>
+<li><p><a class="reference internal" href="#puerta-cswap" id="id4">Puerta CSWAP</a></p></li>
+<li><p><a class="reference internal" href="#ccnot-o-toffoli" id="id5">CCNOT o Toffoli</a></p></li>
+<li><p><a class="reference internal" href="#puerta-mcx-multicontrolada-x" id="id6">Puerta MCX (multicontrolada X)</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos las librerías y clases necesarias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerSimulator</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+
+<span class="c1"># Import para visualización</span>
+<span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span><span class="p">,</span> <span class="n">plot_bloch_multivector</span><span class="p">,</span> <span class="n">array_to_latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Importemos el simulador que vamos a usar en este notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos los simuladores. Con &quot;method&quot; le especificamos el método de simulación</span>
+<span class="n">simulador</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">Aer</span>
+<span class="n">U_simulator</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;unitary_simulator&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="circuitos-de-dos-qubits-con-una-cnot">
+<span id="sec-notebooks-circ-multiqubit-1"></span><h2><a class="toc-backref" href="#id1"><span class="section-number">24.1. </span>Circuitos de dos qúbits con una CNOT</a><a class="headerlink" href="#circuitos-de-dos-qubits-con-una-cnot" title="Permalink to this heading">#</a></h2>
+<p>Primero vamos a ver las matrices para la CNOT con el control abajo y arriba (en Qiskit). Después veremos varias ejecucciones de circuitos con CNOTs</p>
+<section id="cnot-con-el-control-abajo">
+<span id="sec-notebooks-circ-multiqubit-1-1"></span><h3><span class="section-number">24.1.1. </span>CNOT con el control abajo<a class="headerlink" href="#cnot-con-el-control-abajo" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Registros</span>
+<span class="n">quantum_reg_2_qubits</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Circuito</span>
+<span class="n">circuit_CNOT</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">)</span><span class="c1">#, classic_reg_2_bits)</span>
+<span class="c1"># Añadimos la CNOT</span>
+<span class="n">circuit_CNOT</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#(control, target)</span>
+<span class="n">circuit_CNOT</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/94a7e7325e6a4adbbc3d408cc3d4716aaccba8c022e028b771ef449d4869a760.png" src="../../_images/94a7e7325e6a4adbbc3d408cc3d4716aaccba8c022e028b771ef449d4869a760.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CNOT</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CNOT</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">U_simulator</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CNOT</span> <span class="o">=</span> <span class="n">U_simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CNOT</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">matrix_CNOT</span> <span class="o">=</span> <span class="n">result_CNOT</span><span class="o">.</span><span class="n">get_unitary</span><span class="p">()</span>
+
+<span class="n">array_to_latex</span><span class="p">(</span><span class="n">matrix_CNOT</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">text{CNOT = }</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\text{CNOT = }\\\begin{split}\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0  \\
+ 0 &amp; 1 &amp; 0 &amp; 0  \\
+ 0 &amp; 0 &amp; 0 &amp; 1  \\
+ 0 &amp; 0 &amp; 1 &amp; 0  \\
+ \end{bmatrix}
+\end{split}\end{aligned}\end{align} \]</div>
+</div>
+</div>
+</section>
+<section id="con-el-control-arriba">
+<span id="sec-notebooks-circ-multiqubit-1-2"></span><h3><span class="section-number">24.1.2. </span>Con el control arriba<a class="headerlink" href="#con-el-control-arriba" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Circuito</span>
+<span class="n">circuit_CNOT_2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">)</span><span class="c1">#, classic_reg_2_bits)</span>
+<span class="c1"># Añadimos la CNOT</span>
+<span class="n">circuit_CNOT_2</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#(control, target)</span>
+<span class="n">circuit_CNOT_2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/2e50a74c2f737c8651a9dc0e9bcf931d1c24a78b71f27c3a1883e93b46a6a581.png" src="../../_images/2e50a74c2f737c8651a9dc0e9bcf931d1c24a78b71f27c3a1883e93b46a6a581.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CNOT_2</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CNOT_2</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">U_simulator</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CNOT_2</span> <span class="o">=</span> <span class="n">U_simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CNOT_2</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">matrix_CNOT_2</span> <span class="o">=</span> <span class="n">result_CNOT_2</span><span class="o">.</span><span class="n">get_unitary</span><span class="p">()</span>
+
+<span class="n">array_to_latex</span><span class="p">(</span><span class="n">matrix_CNOT_2</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">text{CNOT = }</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\text{CNOT = }\\\begin{split}\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0  \\
+ 0 &amp; 0 &amp; 0 &amp; 1  \\
+ 0 &amp; 0 &amp; 1 &amp; 0  \\
+ 0 &amp; 1 &amp; 0 &amp; 0  \\
+ \end{bmatrix}
+\end{split}\end{aligned}\end{align} \]</div>
+</div>
+</div>
+</section>
+<section id="cnot-en-accion-ejemplos">
+<span id="sec-notebooks-circ-multiqubit-1-3"></span><h3><span class="section-number">24.1.3. </span>CNOT en acción. Ejemplos<a class="headerlink" href="#cnot-en-accion-ejemplos" title="Permalink to this heading">#</a></h3>
+<p>Definimos los registros</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Registros</span>
+<span class="n">quantum_reg_2_qubits</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Registros</span>
+<span class="n">classic_reg_2_bits</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_CNOT_3</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar:</span>
+<span class="n">circuit_CNOT_3</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#circuit_CNOT_3.x(1)</span>
+<span class="c1">#################################</span>
+
+<span class="n">circuit_CNOT_3</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_CNOT_3</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CNOT_3</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/eb6d109c1baddcde6b5244612f78573afe488ce61c24f29a6d1fc70257b0d769.png" src="../../_images/eb6d109c1baddcde6b5244612f78573afe488ce61c24f29a6d1fc70257b0d769.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CNOT_3</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CNOT_3</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CNOT_3</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CNOT_3</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+<span class="n">counts_CNOT_3</span> <span class="o">=</span> <span class="n">result_CNOT_3</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_CNOT_3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="entrelazamiento-crear-estados-entrelazados-con-la-cnot-y-la-h">
+<span id="sec-notebooks-circ-multiqubit-2"></span><h2><a class="toc-backref" href="#id2"><span class="section-number">24.2. </span>Entrelazamiento: Crear estados entrelazados con la CNOT y la <span class="math notranslate nohighlight">\(H\)</span></a><a class="headerlink" href="#entrelazamiento-crear-estados-entrelazados-con-la-cnot-y-la-h" title="Permalink to this heading">#</a></h2>
+<p>Cuando aplicamos una puerta <span class="math notranslate nohighlight">\(H\)</span> sobre un qúbit ponemos este qúbit en una superposisción de <span class="math notranslate nohighlight">\(| 0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| 1 \rangle\)</span>:
+$<span class="math notranslate nohighlight">\(
+H | 0 \rangle = \frac{1}{2} \left( | 0 \rangle + | 1 \rangle \right) 
+\)</span>$</p>
+<p>Si ahora pasamos este estado como <strong>controlador</strong> de una puerta CNOT, podemos generar un estado entrelazado. Veamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_CNOT_H</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2d5f8f92594e9a44afb7f96d1f61efb044a9f1cc13b1c270b6c14070f426fdd3.png" src="../../_images/2d5f8f92594e9a44afb7f96d1f61efb044a9f1cc13b1c270b6c14070f426fdd3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CNOT_H</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CNOT_H</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CNOT_H</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CNOT_H</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_CNOT_H</span> <span class="o">=</span> <span class="n">result_CNOT_H</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_CNOT_H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;00&#39;: 516, &#39;11&#39;: 484}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_CNOT_H</span><span class="p">)</span>
+<span class="c1">#Fig.savefig(&#39;Fig_circuit_CNOT_H_hist&#39;)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e84b13f93fdad08da21b30f9624e493cf1c511002ee0e39760f0439aa07947df.png" src="../../_images/e84b13f93fdad08da21b30f9624e493cf1c511002ee0e39760f0439aa07947df.png" />
+</div>
+</div>
+<p>Podemos genera más estados entrelazados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_CNOT_H</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CNOT_H</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/b5d45234593d3b96a3b63450d3cf9dfc80103f0dd7cd34946c8894a188fbfd84.png" src="../../_images/b5d45234593d3b96a3b63450d3cf9dfc80103f0dd7cd34946c8894a188fbfd84.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CNOT_H</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CNOT_H</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CNOT_H</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CNOT_H</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_CNOT_H</span> <span class="o">=</span> <span class="n">result_CNOT_H</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_CNOT_H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;10&#39;: 472, &#39;01&#39;: 528}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="puerta-swap">
+<span id="sec-notebooks-circ-multiqubit-3"></span><h2><a class="toc-backref" href="#id3"><span class="section-number">24.3. </span>Puerta Swap</a><a class="headerlink" href="#puerta-swap" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_SWAP</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_SWAP</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_SWAP</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_SWAP</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_2_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_SWAP</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bc3085f8afed884cfa7df2d644ae526668677d7502c34571a5617d6b79dc05d5.png" src="../../_images/bc3085f8afed884cfa7df2d644ae526668677d7502c34571a5617d6b79dc05d5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_SWAP</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_SWAP</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_SWAP</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_SWAP</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_SWAP</span> <span class="o">=</span> <span class="n">result_SWAP</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_SWAP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;01&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que se han invertido los estados</p>
+</section>
+<section id="puerta-cswap">
+<span id="sec-notebooks-circ-multiqubit-4"></span><h2><a class="toc-backref" href="#id4"><span class="section-number">24.4. </span>Puerta CSWAP</a><a class="headerlink" href="#puerta-cswap" title="Permalink to this heading">#</a></h2>
+<p>En este ejemplo también vemos que no es necesario que haya los mismos qúbits en registro cuántico que en el clásico. Además, si queremos podemos medir solo unos cuantos qúbit, no todo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Registros</span>
+<span class="n">quantum_reg_3_qubits</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
+
+<span class="c1"># Registros</span>
+<span class="n">classic_reg_2_bits</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_CSWAP</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_3_qubits</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar:</span>
+<span class="n">circuit_CSWAP</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#################################</span>
+
+<span class="n">circuit_CSWAP</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit_CSWAP</span><span class="o">.</span><span class="n">cswap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit_CSWAP</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_3_qubits</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_CSWAP</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e2118407999dae25f9b8053824c195919cfaca8e933573acc1c1fd705d055eec.png" src="../../_images/e2118407999dae25f9b8053824c195919cfaca8e933573acc1c1fd705d055eec.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_CSWAP</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_CSWAP</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_CSWAP</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_CSWAP</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_CSWAP</span> <span class="o">=</span> <span class="n">result_CSWAP</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_CSWAP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;10&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ccnot-o-toffoli">
+<span id="sec-notebooks-circ-multiqubit-5"></span><h2><a class="toc-backref" href="#id5"><span class="section-number">24.5. </span>CCNOT o Toffoli</a><a class="headerlink" href="#ccnot-o-toffoli" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Registros</span>
+<span class="n">quantum_reg_3_qubits</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
+
+<span class="c1"># Registros</span>
+<span class="n">classic_reg_3_bits</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_tof</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg_3_qubits</span><span class="p">,</span> <span class="n">classic_reg_3_bits</span><span class="p">)</span>
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar una o varias lias:</span>
+<span class="n">circuit_tof</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_tof</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#################################</span>
+
+<span class="n">circuit_tof</span><span class="o">.</span><span class="n">toffoli</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit_tof</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg_3_qubits</span><span class="p">,</span> <span class="n">classic_reg_3_bits</span><span class="p">)</span>
+<span class="n">circuit_tof</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_78281/2537261642.py:9: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.toffoli()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.ccx as direct replacement.
+  circuit_tof.toffoli(0,1,2)
+</pre></div>
+</div>
+<img alt="../../_images/e3a1741263b83790341b9b70c7c3846b124b875ce9078f369ba8f568d1cc2146.png" src="../../_images/e3a1741263b83790341b9b70c7c3846b124b875ce9078f369ba8f568d1cc2146.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_tof</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_tof</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_tof</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_tof</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_tof</span> <span class="o">=</span> <span class="n">result_tof</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_tof</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="puerta-mcx-multicontrolada-x">
+<span id="sec-notebooks-circ-multiqubit-6"></span><h2><a class="toc-backref" href="#id6"><span class="section-number">24.6. </span>Puerta MCX (multicontrolada X)</a><a class="headerlink" href="#puerta-mcx-multicontrolada-x" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Registros</span>
+<span class="n">control_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> 
+<span class="n">target_qubit</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Registros</span>
+<span class="n">classic_reg_1_bits</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_mcx</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">control_reg</span><span class="p">,</span> <span class="n">target_qubit</span><span class="p">,</span> <span class="n">classic_reg_1_bits</span><span class="p">)</span>
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar una o varias lias:</span>
+<span class="c1"># Inicializacion</span>
+
+<span class="c1">#circuit_mcx.x(control_reg[0])</span>
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">#circuit_mcx.x(control_reg[2])</span>
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1">#################################</span>
+
+
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar una o varias lias:</span>
+<span class="c1"># Respetar que en un mismo qubit debe de haber o </span>
+<span class="c1"># ninguna X o una antes y otra despues de la mcx</span>
+
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#circuit_mcx.x(control_reg[1])</span>
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1">#circuit_mcx.x(control_reg[3])</span>
+<span class="c1">#################################</span>
+
+
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">mcx</span><span class="p">(</span><span class="n">control_reg</span><span class="p">,</span> <span class="n">target_qubit</span><span class="p">)</span>
+
+
+<span class="c1">#################################</span>
+<span class="c1"># Jugar a comentar y descomentar una o varias lias:</span>
+<span class="c1"># Respetar que en un mismo qubit debe de haber o </span>
+<span class="c1"># ninguna X o una antes y otra despues de la mcx</span>
+
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#circuit_mcx.x(control_reg[1])</span>
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">control_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1">#circuit_mcx.x(control_reg[3])</span>
+<span class="c1">#################################</span>
+
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">target_qubit</span><span class="p">,</span> <span class="n">classic_reg_1_bits</span><span class="p">)</span>
+<span class="n">circuit_mcx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/becfbafb5f8c5cbbf0670d3419fbddb0cc60ae7022bdc3b71a06e1fd678785d4.png" src="../../_images/becfbafb5f8c5cbbf0670d3419fbddb0cc60ae7022bdc3b71a06e1fd678785d4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_mcx</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_mcx</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_mcx</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_mcx</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_mcx</span> <span class="o">=</span> <span class="n">result_mcx</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_mcx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;1&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_05_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Circuitos de un qúbit y HardWare real</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_04-Medidas_II_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Medidas II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circuitos-de-dos-qubits-con-una-cnot">24.1. Circuitos de dos qúbits con una CNOT</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnot-con-el-control-abajo">24.1.1. CNOT con el control abajo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#con-el-control-arriba">24.1.2. Con el control arriba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cnot-en-accion-ejemplos">24.1.3. CNOT en acción. Ejemplos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrelazamiento-crear-estados-entrelazados-con-la-cnot-y-la-h">24.2. Entrelazamiento: Crear estados entrelazados con la CNOT y la <span class="math notranslate nohighlight">\(H\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-swap">24.3. Puerta Swap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-cswap">24.4. Puerta CSWAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ccnot-o-toffoli">24.5. CCNOT o Toffoli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-mcx-multicontrolada-x">24.6. Puerta MCX (multicontrolada X)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

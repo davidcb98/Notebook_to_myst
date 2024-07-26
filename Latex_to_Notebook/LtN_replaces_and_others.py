@@ -309,6 +309,22 @@ def reemplazo_textit(line):
         return re.sub(patron_textit, reemplazo_textit_aux, line)
 
 # =============================================================================
+## Reemplazar \\href{link}{texto} por [texto](#link)
+
+def reemplazo_href(line):
+
+    def reemplazo_href_aux(match):
+        link  = match.group(1)
+        texto = match.group(2)
+        return f"[{texto}]({link})"
+
+
+    patron_href = r"\\\\href\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\}"
+
+    # Este if es para lidiar con los \text{ en las ecuaciones
+    return re.sub(patron_href, reemplazo_href_aux, line)
+
+# =============================================================================
 ## Reemplazar \ref{}
 
 def reemplazo_ref(line):

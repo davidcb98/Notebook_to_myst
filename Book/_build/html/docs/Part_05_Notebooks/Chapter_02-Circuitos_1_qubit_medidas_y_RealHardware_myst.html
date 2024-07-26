@@ -1,0 +1,1768 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>23. Circuitos de un qúbit y HardWare real &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_05_Notebooks/Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. Circuitos multiqúbit" href="Chapter_03-Circuitos_Multiqubits_myst.html" />
+    <link rel="prev" title="22. Vectores de estado y la esfera de Bloch" href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks con ejemplos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_00-Fundamentos_MC_evolucion_temporal_myst.html">21. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html">22. Vectores de estado y la esfera de Bloch</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Circuitos de un qúbit y HardWare real</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03-Circuitos_Multiqubits_myst.html">24. Circuitos multiqúbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04-Medidas_II_myst.html">25. Medidas II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05-Entrelazamiento_myst.html">26. Entrelazamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06-Elementos_Basicos_myst.html">27. Elementos básicos de los algoritmos cuánticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07-Estado_inicial_y_oraculo_myst.html">28. Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08-Busqueda_Oracula_myst.html">29. Algoritmos del Oráculo</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Chapter_09-QFT_myst.html">32. Quantum Fourier Transform (QFT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_10-QPE_myst.html">33. Quantum Phase Estimation (QPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_11-Shor_Algorithm_simple_myst.html">34. Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_12-Grover_Algorithm_myst.html">35. Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_13_QKD_myst.html">36. Quantum Key Distribution - BB84</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_05_Notebooks/Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_05_Notebooks/Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_05_Notebooks/Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Part_05_Notebooks/Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Circuitos de un qúbit y HardWare real</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-y-medicion-de-circuitos-de-1-qubit-con-qiskit">23.1. Creación y medición de circuitos de 1 qúbit con Qiskit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-puertas">23.1.1. Sin puertas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-x">23.1.2. Puerta <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-h">23.1.3. Puerta H</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializar-el-circuito-a-partir-de-un-vector-de-estado">23.1.4. Inicializar el circuito a partir de un vector de estado</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandar-trabajos-a-un-ordenador-real-de-ibm">23.2. Mandar trabajos a un ordenador real de IBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-resultados-de-trabajos-anteriores-con-el-job-id">23.2.1. Recuperar resultados de trabajos anteriores con el job id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-moneda-cuantica">23.3. La moneda cuántica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-esperados">23.4. Valores esperados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">23.4.1. Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializando-estado-psi-rangle">23.4.1.1. Inicializando estado <span class="math notranslate nohighlight">\(| \Psi \rangle \)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-z-rangle">23.4.1.2. Midiendo <span class="math notranslate nohighlight">\(\langle Z \rangle\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-x-rangle">23.4.1.3. Midiendo <span class="math notranslate nohighlight">\(\langle X \rangle\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-y-rangle">23.4.1.4. Midiendo <span class="math notranslate nohighlight">\(\langle Y \rangle\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">23.4.2. Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="circuitos-de-un-qubit-y-hardware-real">
+<span id="sec-notebooks-circ-1-qubit"></span><h1><span class="section-number">23. </span>Circuitos de un qúbit y HardWare real<a class="headerlink" href="#circuitos-de-un-qubit-y-hardware-real" title="Permalink to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(\newcommand{\ket}[1]{|#1\rangle}\)</span></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#creacion-y-medicion-de-circuitos-de-1-qubit-con-qiskit" id="id1">Creación y medición de circuitos de 1 qúbit con Qiskit</a></p></li>
+<li><p><a class="reference internal" href="#mandar-trabajos-a-un-ordenador-real-de-ibm" id="id2">Mandar trabajos a un ordenador real de IBM</a></p></li>
+<li><p><a class="reference internal" href="#la-moneda-cuantica" id="id3">La moneda cuántica</a></p></li>
+<li><p><a class="reference internal" href="#valores-esperados" id="id4">Valores esperados</a></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos las librerías y clases necesarias</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span><span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerSimulator</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Statevector</span>
+
+<span class="c1"># Import para visualización</span>
+<span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span><span class="p">,</span> <span class="n">plot_bloch_multivector</span><span class="p">,</span> <span class="n">array_to_latex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos un registro cuántico con un qúbit</span>
+<span class="n">quantum_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+
+<span class="c1"># Definimos un registro clásico con un bit</span>
+<span class="n">classic_reg</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En Qiskit no es necesario definir los registros, pero cuando veamos algoritmo más complejos veremos lo útil que es tener los qúbits separados en registros.</p>
+<p>Importemos el simulador que vamos a usar en este notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el simulador. Con &quot;method&quot; le especificamos el método de simulación</span>
+<span class="n">simulador</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos llamar primero a la clase del simulador sin pasarle argumentos y después añadir las opciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#simulador = AerSimulator()</span>
+<span class="c1">#sim.set_options(method = &#39;statevector&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creacion-y-medicion-de-circuitos-de-1-qubit-con-qiskit">
+<span id="sec-notebooks-circ-1-qubit-1"></span><h2><a class="toc-backref" href="#id1"><span class="section-number">23.1. </span>Creación y medición de circuitos de 1 qúbit con Qiskit</a><a class="headerlink" href="#creacion-y-medicion-de-circuitos-de-1-qubit-con-qiskit" title="Permalink to this heading">#</a></h2>
+<section id="sin-puertas">
+<span id="sec-notebooks-circ-1-qubit-1-1"></span><h3><span class="section-number">23.1.1. </span>Sin puertas<a class="headerlink" href="#sin-puertas" title="Permalink to this heading">#</a></h3>
+<p>Creamos un primer circuito. En este solo vamos a poner un medidor. De esta forma vamos a verificar que por defecto Qiskit (y la mayoría de libreas de quantum) inicializan los estados en <span class="math notranslate nohighlight">\(| 0 \rangle\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos el circuito pasandole los registros. </span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Añadimos el medidor</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+<span class="c1"># Lo que le estamos diciendo es que medida los qúbits del &quot;quantum_reg&quot;</span>
+<span class="c1"># y almacene los resultados de la medida en los bits del &quot;classic_reg&quot;</span>
+
+
+<span class="c1"># Dibujamos el circuito</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span> <span class="c1"># mpl es de Matplolib</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/3fedd7c9ec15dad6b1f75bcc1015bccc909509c869b6204cdf442f4f0301ff5b.png" src="../../_images/3fedd7c9ec15dad6b1f75bcc1015bccc909509c869b6204cdf442f4f0301ff5b.png" />
+</div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">circuit.draw('mpl')</span></code> genera una figura de Matplotlib, así que podemos almacenarla en una variable y usar los métodos típicos de Matplotlib como el <code class="docutils literal notranslate"><span class="pre">savefig()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_1&quot;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3fedd7c9ec15dad6b1f75bcc1015bccc909509c869b6204cdf442f4f0301ff5b.png" src="../../_images/3fedd7c9ec15dad6b1f75bcc1015bccc909509c869b6204cdf442f4f0301ff5b.png" />
+</div>
+</div>
+<p>También se puede dibujar el circuito como texto para imprimirlo por terminal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      ┌─┐
+  q1: ┤M├
+      └╥┘
+c0: 1/═╩═
+       0 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transpilamos el circuito. Veremos más adelante lo que es la transpilación cuando hablemos de sets de puertas universales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora podemos ejecutar la simulación</p>
+<p>Ejecutamos la simulación con 1000 shots (es decir, corremos el circuito 1000 veces)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(backend_name=&#39;aer_simulator&#39;, backend_version=&#39;0.13.2&#39;, qobj_id=&#39;&#39;, job_id=&#39;ba72e243-51a7-40e6-beca-b0416cec10cc&#39;, success=True, results=[ExperimentResult(shots=1000, success=True, meas_level=2, data=ExperimentResultData(counts={&#39;0x0&#39;: 1000}), header=QobjExperimentHeader(creg_sizes=[[&#39;c0&#39;, 1]], global_phase=0.0, memory_slots=1, n_qubits=1, name=&#39;circuit-158&#39;, qreg_sizes=[[&#39;q1&#39;, 1]], metadata={}), status=DONE, seed_simulator=2888422027, metadata={&#39;time_taken&#39;: 0.000530631, &#39;num_bind_params&#39;: 1, &#39;parallel_state_update&#39;: 20, &#39;parallel_shots&#39;: 1, &#39;required_memory_mb&#39;: 1, &#39;input_qubit_map&#39;: [[0, 0]], &#39;method&#39;: &#39;statevector&#39;, &#39;device&#39;: &#39;CPU&#39;, &#39;num_qubits&#39;: 1, &#39;sample_measure_time&#39;: 6.3858e-05, &#39;active_input_qubits&#39;: [0], &#39;num_clbits&#39;: 1, &#39;remapped_qubits&#39;: False, &#39;runtime_parameter_bind&#39;: False, &#39;max_memory_mb&#39;: 64112, &#39;noise&#39;: &#39;ideal&#39;, &#39;measure_sampling&#39;: True, &#39;batched_shots_optimization&#39;: False, &#39;fusion&#39;: {&#39;applied&#39;: False, &#39;max_fused_qubits&#39;: 5, &#39;threshold&#39;: 14, &#39;enabled&#39;: True}}, time_taken=0.000530631)], date=2024-07-11T14:15:02.211267, status=COMPLETED, header=None, metadata={&#39;time_taken_parameter_binding&#39;: 5.806e-06, &#39;time_taken_execute&#39;: 0.000547614, &#39;omp_enabled&#39;: True, &#39;max_gpu_memory_mb&#39;: 0, &#39;max_memory_mb&#39;: 64112, &#39;parallel_experiments&#39;: 1}, time_taken=0.0008368492126464844)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que la salida tiene mucha información. Lo más importante las cuentas, es decir, cuantas veces se ha medido cada solución:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vemos que, como era de esperar, las 1000 ejecuciones del circuito nos han dado <span class="math notranslate nohighlight">\(| 0 \rangle\)</span></p>
+<p>Podemos hacer un histograma con las cuentas.</p>
+<p>Nuevamente, el histograma es una figura de Matplotlib, así que podemos usar <code class="docutils literal notranslate"><span class="pre">savefig()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_1_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/40c481f768fd4ce4eb040a88aec4a5bf55085fe2bd8fe8d897685d2e923e4ba6.png" src="../../_images/40c481f768fd4ce4eb040a88aec4a5bf55085fe2bd8fe8d897685d2e923e4ba6.png" />
+</div>
+</div>
+</section>
+<section id="puerta-x">
+<span id="sec-notebooks-circ-1-qubit-1-2"></span><h3><span class="section-number">23.1.2. </span>Puerta <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#puerta-x" title="Permalink to this heading">#</a></h3>
+<p>Veamos ahora un ejemplo de un circuito con la puerta <span class="math notranslate nohighlight">\(X\)</span> para ver su acción</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos el circuito pasandole los registros. </span>
+<span class="n">circuit_X</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Añadimos la puerta X al primer (y único) qúbit</span>
+<span class="n">circuit_X</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Añadimos el medidor</span>
+<span class="n">circuit_X</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Podemos dibujarlo en modo texto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit_X</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">))</span>
+
+<span class="c1"># Podemos dibujarlo como figura de matplolib</span>
+<span class="n">Fig</span> <span class="o">=</span> <span class="n">circuit_X</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span> <span class="c1"># mpl es de Matplolib</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_X&quot;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      ┌───┐┌─┐
+  q1: ┤ X ├┤M├
+      └───┘└╥┘
+c0: 1/══════╩═
+            0 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/e9995fe4288a3a62a0a5a6d1ba09e1f8abbe97bc4f7cee129c7ea46c02a283e3.png" src="../../_images/e9995fe4288a3a62a0a5a6d1ba09e1f8abbe97bc4f7cee129c7ea46c02a283e3.png" />
+</div>
+</div>
+<p>Como ya hemos definido el simulador <code class="docutils literal notranslate"><span class="pre">simulador</span> <span class="pre">=</span> <span class="pre">AerSimulator(method</span> <span class="pre">=</span> <span class="pre">&quot;statevector&quot;)</span></code> no hace falta que lo volvamos a hacer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulador = AerSimulator(method = &#39;statevector&#39;)</span>
+<span class="c1"># transpilamos</span>
+<span class="n">t_circuit_X</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_X</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_X</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_X</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_X</span> <span class="o">=</span> <span class="n">result_X</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_X</span><span class="p">)</span>
+
+<span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_X</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_X_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;1&#39;: 1000}
+</pre></div>
+</div>
+<img alt="../../_images/35d963c042a6036a69301436f656231e2f4e2fbd3b7da1db888de0ad6b37cee1.png" src="../../_images/35d963c042a6036a69301436f656231e2f4e2fbd3b7da1db888de0ad6b37cee1.png" />
+</div>
+</div>
+</section>
+<section id="puerta-h">
+<span id="sec-notebooks-circ-1-qubit-1-3"></span><h3><span class="section-number">23.1.3. </span>Puerta H<a class="headerlink" href="#puerta-h" title="Permalink to this heading">#</a></h3>
+<p>Veamos ahora un ejemplo de un circuito con la puerta <span class="math notranslate nohighlight">\(H\)</span> para ver su acción</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos el circuito pasandole los registros. </span>
+<span class="n">circuit_H</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Añadimos la puerta X al primer (y único) qúbit</span>
+<span class="n">circuit_H</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Añadimos el medidor</span>
+<span class="n">circuit_H</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Podemos dibujarlo en modo texto</span>
+<span class="c1">#print(circuit_H.draw(output=&#39;text&#39;))</span>
+
+<span class="c1"># Podemos dibujarlo como figura de matplolib</span>
+<span class="n">Fig</span> <span class="o">=</span> <span class="n">circuit_H</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span> <span class="c1"># mpl es de Matplolib</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_H&quot;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/23a40b30fed403c06f137e5229c728e4c9688e7bf2419bf53f63473e679f552a.png" src="../../_images/23a40b30fed403c06f137e5229c728e4c9688e7bf2419bf53f63473e679f552a.png" />
+</div>
+</div>
+<p>Como ya hemos definido el simulador <code class="docutils literal notranslate"><span class="pre">simulador</span> <span class="pre">=</span> <span class="pre">AerSimulator(method</span> <span class="pre">=</span> <span class="pre">&quot;statevector&quot;)</span></code> no hace falta que lo volvamos a hacer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulador = AerSimulator(method = &#39;statevector&#39;)</span>
+<span class="c1"># transpilamos</span>
+<span class="n">t_circuit_H</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_H</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_H</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_H</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_H</span> <span class="o">=</span> <span class="n">result_H</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_H</span><span class="p">)</span>
+
+<span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_H</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_H_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;1&#39;: 504, &#39;0&#39;: 496}
+</pre></div>
+</div>
+<img alt="../../_images/c639c7d6ad1063ddef233492166d46b119f2219d85d1c33b121a6c8629b74318.png" src="../../_images/c639c7d6ad1063ddef233492166d46b119f2219d85d1c33b121a6c8629b74318.png" />
+</div>
+</div>
+<p>Como podemos ver, ahora aproximadamente la mitad de las veces obtenemos <span class="math notranslate nohighlight">\(| 0 \rangle\)</span> y la otra mitad obtenemos <span class="math notranslate nohighlight">\(| 1 \rangle\)</span>. Esto es debido a que
+$<span class="math notranslate nohighlight">\(
+H |0  \rangle = \frac{1}{\sqrt{2}} \left(| 0 \rangle + | 1 \rangle \right)
+\)</span>$
+Recordemos que la probabilidad de medir cada estado es igual al módulo cuadrado de su amplitud (del coeficiente que acompaña al estado)</p>
+</section>
+<section id="inicializar-el-circuito-a-partir-de-un-vector-de-estado">
+<span id="sec-notebooks-circ-1-qubit-1-4"></span><h3><span class="section-number">23.1.4. </span>Inicializar el circuito a partir de un vector de estado<a class="headerlink" href="#inicializar-el-circuito-a-partir-de-un-vector-de-estado" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_state</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># inicializamos un estado arbitrario en la esfera de Bloch</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1">#rad</span>
+<span class="n">phi</span>   <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1">#rad</span>
+<span class="n">psi_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">),(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+
+<span class="c1"># Veamos el vector de estado</span>
+<span class="n">statevector_plus</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="n">psi_state</span><span class="p">)</span>
+<span class="n">statevector_plus</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[0.9689124217 |0\rangle+(0.2363540298 + 0.0731128692 i) |1\rangle\]</div>
+</div>
+</div>
+<p>Veamos las probabilidades teóricas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p_0=&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi_state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39;, p_1=&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi_state</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p_0= 0.939 , p_1= 0.061
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inicializamos el circuito y medimos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inicializamos el estado de entrada  </span>
+<span class="n">circuit_state</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">psi_state</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_state</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.circuit.instructionset.InstructionSet at 0x7f1ff0b11090&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simulador = AerSimulator(method = &#39;statevector&#39;)</span>
+<span class="c1"># transpilamos</span>
+<span class="n">t_circuit_state</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_state</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_state</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_state</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_state</span> <span class="o">=</span> <span class="n">result_state</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_state</span><span class="p">)</span>
+
+<span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_state</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_state_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;0&#39;: 93885, &#39;1&#39;: 6115}
+</pre></div>
+</div>
+<img alt="../../_images/c7b81a7cefc55fd275760a5563f4e778f58cce0399418a385753a1f582a942bb.png" src="../../_images/c7b81a7cefc55fd275760a5563f4e778f58cce0399418a385753a1f582a942bb.png" />
+</div>
+</div>
+<p>vamos a recuperar las probabilidades haciendo estadística</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_prob_dist</span><span class="p">(</span><span class="n">counts</span><span class="p">):</span> <span class="c1"># counts es un diccionario </span>
+    <span class="n">N</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span> <span class="c1"># numero de shots</span>
+    <span class="n">prob_dist</span> <span class="o">=</span> <span class="p">{</span><span class="n">bit</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">bit</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="c1"># this is a modified dictionary</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prob_dist</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># we are two amplitudes (one qubit), so in this case, pad with a 0</span>
+        <span class="n">prob_dist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prob_dist</span>
+
+<span class="n">prob_distr_state</span> <span class="o">=</span> <span class="n">get_prob_dist</span><span class="p">(</span><span class="n">counts_state</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;probability distribution =&quot;</span><span class="p">,</span> <span class="n">prob_distr_state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>probability distribution = {&#39;0&#39;: 0.9388, &#39;1&#39;: 0.0612}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mandar-trabajos-a-un-ordenador-real-de-ibm">
+<span id="sec-notebooks-circ-1-qubit-2"></span><h2><a class="toc-backref" href="#id2"><span class="section-number">23.2. </span>Mandar trabajos a un ordenador real de IBM</a><a class="headerlink" href="#mandar-trabajos-a-un-ordenador-real-de-ibm" title="Permalink to this heading">#</a></h2>
+<p>Para mandar trabajos usaremos la librería <code class="docutils literal notranslate"><span class="pre">qiskit_ibm_provider</span></code>. Hasta hace no mucho se usaba la librería <code class="docutils literal notranslate"><span class="pre">qiskit_ibmq_provider</span></code>, pero esta se ha marcado como deprecated.</p>
+<p>Para mas información sobre <code class="docutils literal notranslate"><span class="pre">qiskit_ibm_provider</span></code> y las diferencias con la anterior librería, puede consultarse la <a class="reference external" href="https://qiskit.org/ecosystem/ibm-provider/tutorials/Migration_Guide_from_qiskit-ibmq-provider.html">documentación de Qiskit</a></p>
+<p>Para mandar trabajos a los ordenadores cuánticos de IBM, lo primero que necesitamos es una cuenta en <a class="reference external" href="https://quantum-computing.ibm.com/">IBMid</a>.
+Una vez creada la cuenta, hay que copiar el token que aparece en la página principal. Este lo pegamos en la línea comentada en el siguiente cuadro de código (descomentando la linea)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit_ibm_provider</span> <span class="kn">import</span> <span class="n">IBMProvider</span>
+<span class="kn">from</span> <span class="nn">qiskit.providers.ibmq</span> <span class="kn">import</span> <span class="n">least_busy</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.monitor</span> <span class="kn">import</span> <span class="n">job_monitor</span>
+
+
+<span class="c1"># Save account credentials.</span>
+<span class="c1">#IBMProvider.save_account(token=MY_API_TOKEN)</span>
+
+<span class="c1"># Load a previously saved account.</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">IBMProvider</span><span class="p">()</span>
+
+<span class="c1"># Select a different hub/group/project.</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">IBMProvider</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="s2">&quot;ibm-q/open/main&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">qiskit_ibm_provider</span> <span class="kn">import</span> <span class="n">IBMProvider</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">qiskit.providers.ibmq</span> <span class="kn">import</span> <span class="n">least_busy</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">qiskit.tools.monitor</span> <span class="kn">import</span> <span class="n">job_monitor</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Save account credentials.</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#IBMProvider.save_account(token=MY_API_TOKEN)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Load a previously saved account.</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;qiskit.providers.ibmq&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a mandar a ejecutar en hardware real el circuito de la puerta H</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span> <span class="o">=</span> <span class="n">least_busy</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">backends</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">n_qubits</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span>
+                                   <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">simulator</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">status</span><span class="p">()</span><span class="o">.</span><span class="n">operational</span><span class="o">==</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">t_circuit_H</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_H</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_H</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">job_id</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">job_id</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">least_busy</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">backends</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">n_qubits</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                                    <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">simulator</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">status</span><span class="p">()</span><span class="o">.</span><span class="n">operational</span><span class="o">==</span><span class="kc">True</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">t_circuit_H</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_H</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">job</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_H</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;least_busy&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos monitorizar desde el notebook en que estado está nuestro trabajo. Otra obción es hacerlo desde la <a class="reference external" href="https://quantum-computing.ibm.com/jobs">web</a>. La celda siguiente podemos correrla tantas veces como queramos para ver como está nuestro trabajo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">job</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;job&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos usar el job_monitor, que se actualiza solo sin tener que ejecutar varias veces la celda.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#job_monitor(job, interval = 1, line_discipline = &#39;\n&#39;) </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos en que ordenador se ha ejecutado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">backend</span>
+
+<span class="ne">NameError</span>: name &#39;backend&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_IBM</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_IBM</span> <span class="o">=</span> <span class="n">result_IBM</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_IBM</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">result_IBM</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">counts_IBM</span> <span class="o">=</span> <span class="n">result_IBM</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">counts_IBM</span>
+
+<span class="ne">NameError</span>: name &#39;job&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="recuperar-resultados-de-trabajos-anteriores-con-el-job-id">
+<span id="sec-notebooks-circ-1-qubit-2-1"></span><h3><span class="section-number">23.2.1. </span>Recuperar resultados de trabajos anteriores con el job id<a class="headerlink" href="#recuperar-resultados-de-trabajos-anteriores-con-el-job-id" title="Permalink to this heading">#</a></h3>
+<p>Es importante guardar el Job Id, pues con el podemos recuperar los resultados de un trabajo anterior. Por ejemplo, lo que podemos hacer es ejecutar un circuito y si vemos usando <code class="docutils literal notranslate"><span class="pre">job.status()</span></code> que tarda mucho en entrar en ejecución, podemos anotarnos el id y otro ver los resultado, sin tener que dejar el Notebook abierto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_id</span><span class="o">=</span><span class="s2">&quot;cjrjkq4ieg62g9od3jk0&quot;</span>
+<span class="n">retrieve_job</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">retrieve_job</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+<span class="n">retrieve_job</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">job_id</span><span class="o">=</span><span class="s2">&quot;cjrjkq4ieg62g9od3jk0&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">retrieve_job</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">retrieve_job</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">retrieve_job</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;provider&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_ret</span> <span class="o">=</span> <span class="n">retrieve_job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_ret</span> <span class="o">=</span> <span class="n">result_ret</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">counts_ret</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">result_ret</span> <span class="o">=</span> <span class="n">retrieve_job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">counts_ret</span> <span class="o">=</span> <span class="n">result_ret</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">counts_ret</span>
+
+<span class="ne">NameError</span>: name &#39;retrieve_job&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_ret</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_ret</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Fig</span>
+
+<span class="ne">NameError</span>: name &#39;counts_ret&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="la-moneda-cuantica">
+<span id="sec-notebooks-circ-1-qubit-3"></span><h2><a class="toc-backref" href="#id3"><span class="section-number">23.3. </span>La moneda cuántica</a><a class="headerlink" href="#la-moneda-cuantica" title="Permalink to this heading">#</a></h2>
+<p>Vamos a ver aquí a modo de ejemplo un experimento simple: \textbf{la moneda cuántica.}</p>
+<p>El resultado de tirar una moneda al aire es una variable aleatoria con dos resultados equiprobables:  cara y cruz.  Es irrelevante si analizamos el resultado cada tirada o cada dos, o tres tiradas. Las frecuencias relativas de caras y cruces, siempre serán próximas a <span class="math notranslate nohighlight">\(1/2\)</span>. Es decir, podemos tirar la moneda, recogerla sin mirarla, volver a tirar, y las probabilidades no cambian.</p>
+<p>Podemos imaginar un experimento similar con un qúbit, donde cara <span class="math notranslate nohighlight">\(\to 0\)</span> y cruz <span class="math notranslate nohighlight">\(\to 1\)</span> son los resultados posibles de la medida en la base <span class="math notranslate nohighlight">\(Z\)</span>. Como al tirar la moneda, mientras esta está en el aire podemos pensar que está en ``una superposición equiprobable del cara y cruz’’, el hecho de \textbf{tirar la moneda} en computación cuántica será aplicar el operador <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<p>Haciendo esta consideración, podemos ver que no es lo mismo tirar la moneda 1 vez y mirar
+$<span class="math notranslate nohighlight">\(
+\ket{0}~ \stackrel{\rm tirar}{\longrightarrow} ~ H \ket{0}= \ket{+} ~ \stackrel{\rm medir}{\longrightarrow} ~p(0) = p(1) = 0.5
+\)</span><span class="math notranslate nohighlight">\(
+que tirarla dos veces y mirar
+\)</span><span class="math notranslate nohighlight">\(
+\ket{0}~ \stackrel{\rm tirar}{\longrightarrow} ~ H \ket{0}~ \stackrel{\rm tirar}{\longrightarrow} H^2\ket{0} = \ket{0} ~ \stackrel{\rm medir}{\longrightarrow} ~p(0) = 1 ~,~p(1) = 0
+\)</span>$
+El objetivo de este experimento es simplemente ver que ciertas puertas son sus propias inversas y que cuando aplicamos las aplicamos un número par de veces seguidas, es como si no aplicáramos nada.</p>
+<p>Hagamos dos circuitos para hacer dos pruebas. Veamos que pasa si medimos después de la primero <span class="math notranslate nohighlight">\(H\)</span> y si no:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classic_reg_2_bits</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">circuit_coin_1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">)</span>
+<span class="n">circuit_coin_1</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_coin_1</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Añadimos una medida intermedia.</span>
+<span class="n">circuit_coin_1</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_coin_1</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg_2_bits</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">circuit_coin_2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+<span class="n">circuit_coin_2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_coin_2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_coin_2</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.circuit.instructionset.InstructionSet at 0x7f1f7a5020b0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig_coin_1</span> <span class="o">=</span> <span class="n">circuit_coin_1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span> <span class="c1"># mpl es de Matplolib</span>
+<span class="n">Fig_coin_1</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_coin_1&quot;</span><span class="p">)</span>
+<span class="n">Fig_coin_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/e71ef1b9582473655ee6a5427031b882827c67135264bc544abdf791012b6bd5.png" src="../../_images/e71ef1b9582473655ee6a5427031b882827c67135264bc544abdf791012b6bd5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig_coin_2</span> <span class="o">=</span> <span class="n">circuit_coin_2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span> <span class="c1"># mpl es de Matplolib</span>
+<span class="n">Fig_coin_2</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_coin_1&quot;</span><span class="p">)</span>
+<span class="n">Fig_coin_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/580d43bb191e322e87f553ca619fbf2c480bc255037f3fa5928167bb64911c67.png" src="../../_images/580d43bb191e322e87f553ca619fbf2c480bc255037f3fa5928167bb64911c67.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_coin_1</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_coin_1</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+<span class="n">t_circuit_coin_2</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_coin_2</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_coin_1</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_coin_1</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_coin_1</span> <span class="o">=</span> <span class="n">result_coin_1</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_coin_1</span><span class="p">)</span>
+
+<span class="n">result_coin_2</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_coin_2</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_coin_2</span> <span class="o">=</span> <span class="n">result_coin_2</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_coin_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;01&#39;: 238, &#39;11&#39;: 271, &#39;00&#39;: 233, &#39;10&#39;: 258}
+Resultado:  {&#39;0&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_coin_1</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_coin_1_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bf30ed10b1abca25d51c097da7e141a50e047ca3492bd1ace5a631b5d015062a.png" src="../../_images/bf30ed10b1abca25d51c097da7e141a50e047ca3492bd1ace5a631b5d015062a.png" />
+</div>
+</div>
+<p>Lo resultados <span class="math notranslate nohighlight">\(00\)</span> y<span class="math notranslate nohighlight">\(11\)</span> son aquellos en los que hemos medido los mismo en los dos medidores, es decir, en los dos tiradas ha salido cara o cruz.
+En los otros casos, no hemos medido lo mismo, es decir, en una tirada ha salido cara y en la otra cruz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_coin_2</span><span class="p">)</span>
+<span class="n">Fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Figuras_Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware/Fig_circuit_coin_2_hist&#39;</span><span class="p">)</span>
+<span class="n">Fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/40c481f768fd4ce4eb040a88aec4a5bf55085fe2bd8fe8d897685d2e923e4ba6.png" src="../../_images/40c481f768fd4ce4eb040a88aec4a5bf55085fe2bd8fe8d897685d2e923e4ba6.png" />
+</div>
+</div>
+<p>Vemos que <strong>medir altera nuestro resultado</strong></p>
+</section>
+<section id="valores-esperados">
+<span id="sec-notebooks-circ-1-qubit-4"></span><h2><a class="toc-backref" href="#id4"><span class="section-number">23.4. </span>Valores esperados</a><a class="headerlink" href="#valores-esperados" title="Permalink to this heading">#</a></h2>
+<section id="valor-esperado-de-un-observable-arbitrario-operador-hermitico">
+<span id="sec-notebooks-circ-1-qubit-4-1"></span><h3><span class="section-number">23.4.1. </span>Valor esperado de un observable arbitrario (operador hermítico).<a class="headerlink" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico" title="Permalink to this heading">#</a></h3>
+<p>Vamos a ver como se mide el valor esperado de un observable arbitrario <span class="math notranslate nohighlight">\(A\)</span> en un estado arbitrario <span class="math notranslate nohighlight">\(\ket{\Psi}\)</span>. Estos valores esperados se denotan de la siguiente forma: <span class="math notranslate nohighlight">\(\langle Z \rangle_\Psi\)</span>.</p>
+<p>Cualquier observable sobre un cúbit cumple <span class="math notranslate nohighlight">\(A = A^\dagger\)</span> (es hermítico) con lo que puede expresarse en la base</p>
+<div class="math notranslate nohighlight" id="equation-ec-medidas1-expansion-a-en-paulis">
+<span class="eqno">(23.1)<a class="headerlink" href="#equation-ec-medidas1-expansion-a-en-paulis" title="Permalink to this equation">#</a></span>\[	\begin{equation} 
+	A = a I + n_x X + n_y Y  + n_z Z \, .
+	\end{equation} \]</div>
+<p>Los coeficientes se obtienen haciendo uso de las relaciones <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> tr<span class="math notranslate nohighlight">\( (\sigma_i \sigma_j) = \delta_{ij}\)</span> y de tr<span class="math notranslate nohighlight">\((\sigma_i)=0\)</span>, de las cuales se obtiene
+\begin{align}
+&amp;\boxed{a  = \frac{1}{2} \text{ tr}(A)},        &amp;         &amp;\boxed{n_i = \frac{1}{2} \text{ tr}  (A \sigma_i)},
+\end{align}
+Entonces, podremos obtener el valor esperado de <span class="math notranslate nohighlight">\(A\)</span>  si somos capaces de medir los valores esperados de <span class="math notranslate nohighlight">\(X,\)</span> <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(Z\)</span>.
+\begin{equation}
+\boxed{\langle A\rangle_\Psi = a + n_x \langle X\rangle_\Psi + n_y \langle Y\rangle_\Psi + n_z \langle Z\rangle_\Psi}
+\end{equation}</p>
+<section id="inicializando-estado-psi-rangle">
+<span id="sec-notebooks-circ-1-qubit-4-1-1"></span><h4><span class="section-number">23.4.1.1. </span>Inicializando estado <span class="math notranslate nohighlight">\(| \Psi \rangle \)</span><a class="headerlink" href="#inicializando-estado-psi-rangle" title="Permalink to this heading">#</a></h4>
+<p>Vamos a usar el resultado del circuito de la <span class="xref std std-ref">sec_1.1.4</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statevector_plus</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[0.9689124217 |0\rangle+(0.2363540298 + 0.0731128692 i) |1\rangle\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p_0=&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi_state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39;, p_1=&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi_state</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;probability distribution =&quot;</span><span class="p">,</span> <span class="n">prob_distr_state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p_0= 0.939 , p_1= 0.061
+probability distribution = {&#39;0&#39;: 0.9388, &#39;1&#39;: 0.0612}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="midiendo-langle-z-rangle">
+<span id="sec-notebooks-circ-1-qubit-4-1-2"></span><h4><span class="section-number">23.4.1.2. </span>Midiendo <span class="math notranslate nohighlight">\(\langle Z \rangle\)</span><a class="headerlink" href="#midiendo-langle-z-rangle" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Circuito</span>
+<span class="n">circuit_Z_mean</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+<span class="n">circuit_Z_mean</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">psi_state</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_Z_mean</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Transpilamos</span>
+<span class="n">t_circuit_Z_mean</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_Z_mean</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_Z_mean</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_Z_mean</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_Z_mean</span> <span class="o">=</span> <span class="n">result_Z_mean</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_Z_mean</span><span class="p">)</span>
+
+<span class="c1"># Distribución de probabilidad</span>
+<span class="n">prob_distr_Z_mean</span> <span class="o">=</span> <span class="n">get_prob_dist</span><span class="p">(</span><span class="n">counts_Z_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;probability distribution =&quot;</span><span class="p">,</span> <span class="n">prob_distr_Z_mean</span><span class="p">)</span>
+
+<span class="c1"># Calculamos &lt;Z&gt;</span>
+<span class="n">mean_Z</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">bits</span><span class="p">,</span> <span class="n">probs</span>  <span class="ow">in</span> <span class="n">prob_distr_Z_mean</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">mean_Z</span> <span class="o">+=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">bits</span><span class="p">))</span> <span class="o">*</span> <span class="n">probs</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;Z&gt; =&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_Z</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;1&#39;: 6249, &#39;0&#39;: 93751}
+probability distribution = {&#39;1&#39;: 0.0625, &#39;0&#39;: 0.9375}
+&lt;Z&gt; = 0.875
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="midiendo-langle-x-rangle">
+<span id="sec-notebooks-circ-1-qubit-4-1-3"></span><h4><span class="section-number">23.4.1.3. </span>Midiendo <span class="math notranslate nohighlight">\(\langle X \rangle\)</span><a class="headerlink" href="#midiendo-langle-x-rangle" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Circuito</span>
+<span class="n">circuit_X_mean</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+<span class="n">circuit_X_mean</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">psi_state</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_X_mean</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_X_mean</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Transpilamos</span>
+<span class="n">t_circuit_X_mean</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_X_mean</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_X_mean</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_X_mean</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_X_mean</span> <span class="o">=</span> <span class="n">result_X_mean</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_X_mean</span><span class="p">)</span>
+
+<span class="c1"># Distribución de probabilidad</span>
+<span class="n">prob_distr_X_mean</span> <span class="o">=</span> <span class="n">get_prob_dist</span><span class="p">(</span><span class="n">counts_X_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;probability distribution =&quot;</span><span class="p">,</span> <span class="n">prob_distr_X_mean</span><span class="p">)</span>
+
+<span class="c1"># Calculamos &lt;X&gt;</span>
+<span class="n">mean_X</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">bits</span><span class="p">,</span> <span class="n">probs</span>  <span class="ow">in</span> <span class="n">prob_distr_X_mean</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">mean_X</span> <span class="o">+=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">bits</span><span class="p">))</span> <span class="o">*</span> <span class="n">probs</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;X&gt; =&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_X</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;1&#39;: 26969, &#39;0&#39;: 73031}
+probability distribution = {&#39;1&#39;: 0.2697, &#39;0&#39;: 0.7303}
+&lt;X&gt; = 0.4606
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="midiendo-langle-y-rangle">
+<span id="sec-notebooks-circ-1-qubit-4-1-4"></span><h4><span class="section-number">23.4.1.4. </span>Midiendo <span class="math notranslate nohighlight">\(\langle Y \rangle\)</span><a class="headerlink" href="#midiendo-langle-y-rangle" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Circuito</span>
+<span class="n">circuit_Y_mean</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+<span class="n">circuit_Y_mean</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">psi_state</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit_Y_mean</span><span class="o">.</span><span class="n">sdg</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_Y_mean</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_Y_mean</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Transpilamos</span>
+<span class="n">t_circuit_Y_mean</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_Y_mean</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">result_Y_mean</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_Y_mean</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_Y_mean</span> <span class="o">=</span> <span class="n">result_Y_mean</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_Y_mean</span><span class="p">)</span>
+
+<span class="c1"># Distribución de probabilidad</span>
+<span class="n">prob_distr_Y_mean</span> <span class="o">=</span> <span class="n">get_prob_dist</span><span class="p">(</span><span class="n">counts_Y_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;probability distribution =&quot;</span><span class="p">,</span> <span class="n">prob_distr_Y_mean</span><span class="p">)</span>
+
+<span class="c1"># Calculamos &lt;Y&gt;</span>
+<span class="n">mean_Y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">bits</span><span class="p">,</span> <span class="n">probs</span>  <span class="ow">in</span> <span class="n">prob_distr_Y_mean</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">mean_Y</span> <span class="o">+=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">bits</span><span class="p">))</span> <span class="o">*</span> <span class="n">probs</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&lt;Y&gt; =&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_Y</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;0&#39;: 56902, &#39;1&#39;: 43098}
+probability distribution = {&#39;0&#39;: 0.569, &#39;1&#39;: 0.431}
+&lt;Y&gt; = 0.138
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">
+<span id="sec-notebooks-circ-1-qubit-4-2"></span><h3><span class="section-number">23.4.2. </span>Valor esperado de un operador unitario (no necesariamente hermítico)<a class="headerlink" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico" title="Permalink to this heading">#</a></h3>
+<p>Vamos a construir dos operadores U y V y calcular
+$<span class="math notranslate nohighlight">\(
+\langle V \rangle_\Psi = \langle \Psi | V| \Psi \rangle = \langle 0 | U^\dagger V U |0\rangle = \langle 0 | {\tilde \Psi} \rangle
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">U3Gate</span>
+
+<span class="n">circuit_V_mean</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="n">theta_U</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span>
+<span class="n">phi_U</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">varphi_U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="n">theta_V</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">phi_V</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">varphi_V</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span>
+
+<span class="n">U</span>        <span class="o">=</span> <span class="n">U3Gate</span><span class="p">(</span><span class="n">theta_U</span><span class="p">,</span> <span class="n">phi_U</span><span class="p">,</span> <span class="n">varphi_U</span><span class="p">)</span>
+<span class="n">U_dagger</span> <span class="o">=</span> <span class="n">U3Gate</span><span class="p">(</span><span class="n">theta_U</span><span class="p">,</span> <span class="n">phi_U</span><span class="p">,</span> <span class="n">varphi_U</span><span class="p">)</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span>
+<span class="n">V</span>        <span class="o">=</span> <span class="n">U3Gate</span><span class="p">(</span><span class="n">theta_V</span><span class="p">,</span> <span class="n">phi_V</span><span class="p">,</span> <span class="n">varphi_V</span><span class="p">)</span>
+
+<span class="n">circuit_V_mean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_V_mean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_V_mean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U_dagger</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">)</span>
+<span class="n">circuit_V_mean</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Transpilamos</span>
+<span class="n">t_circuit_V_mean</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_V_mean</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos</span>
+<span class="n">shots</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">result_V_mean</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_V_mean</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="n">shots</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_V_mean</span> <span class="o">=</span> <span class="n">result_V_mean</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultado: &quot;</span><span class="p">,</span> <span class="n">counts_V_mean</span><span class="p">)</span>
+
+<span class="c1"># Media</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &lt;V&gt; = &quot;</span><span class="p">,</span> <span class="n">counts_V_mean</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">shots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado:  {&#39;1&#39;: 5297, &#39;0&#39;: 44703}
+ &lt;V&gt; =  0.89406
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_05_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Vectores de estado y la esfera de Bloch</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_03-Circuitos_Multiqubits_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Circuitos multiqúbit</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-y-medicion-de-circuitos-de-1-qubit-con-qiskit">23.1. Creación y medición de circuitos de 1 qúbit con Qiskit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-puertas">23.1.1. Sin puertas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-x">23.1.2. Puerta <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-h">23.1.3. Puerta H</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializar-el-circuito-a-partir-de-un-vector-de-estado">23.1.4. Inicializar el circuito a partir de un vector de estado</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandar-trabajos-a-un-ordenador-real-de-ibm">23.2. Mandar trabajos a un ordenador real de IBM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-resultados-de-trabajos-anteriores-con-el-job-id">23.2.1. Recuperar resultados de trabajos anteriores con el job id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-moneda-cuantica">23.3. La moneda cuántica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-esperados">23.4. Valores esperados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-observable-arbitrario-operador-hermitico">23.4.1. Valor esperado de un observable arbitrario (operador hermítico).</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializando-estado-psi-rangle">23.4.1.1. Inicializando estado <span class="math notranslate nohighlight">\(| \Psi \rangle \)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-z-rangle">23.4.1.2. Midiendo <span class="math notranslate nohighlight">\(\langle Z \rangle\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-x-rangle">23.4.1.3. Midiendo <span class="math notranslate nohighlight">\(\langle X \rangle\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#midiendo-langle-y-rangle">23.4.1.4. Midiendo <span class="math notranslate nohighlight">\(\langle Y \rangle\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-de-un-operador-unitario-no-necesariamente-hermitico">23.4.2. Valor esperado de un operador unitario (no necesariamente hermítico)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

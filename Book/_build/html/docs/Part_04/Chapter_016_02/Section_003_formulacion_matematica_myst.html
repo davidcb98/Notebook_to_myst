@@ -78,7 +78,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("repo", "davidcb98/CICC_UMA");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -196,8 +196,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
-    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+    <img src="../../../_static/Logo_UMA.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/Logo_UMA.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
   
   
 </a></div>
@@ -411,55 +411,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -468,7 +419,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -485,7 +436,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.ipynb" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/edit/master/Book/docs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -502,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -629,7 +580,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 10, 2024 | 2 min read</p>
+<div><p>Jul 23, 2024 | 3 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi18.png"><img alt="../../../_images/Fig_logo_UMA_scbi18.png" src="../../../_images/Fig_logo_UMA_scbi18.png" style="width: 2000px;" /></a>
@@ -662,22 +613,22 @@ document.write(`
 <p>Veamos paso a paso que hace el circuito anterior para estimar la fase <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <ol class="arabic">
 <li><p><b>Inicialización</b>: Por un lado tenemos un registro de qúbits que forman un autoestado <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del operador <span class="math notranslate nohighlight">\(U\)</span>. Por otro lado tenemos un conjunto de <span class="math notranslate nohighlight">\(\bm t\)</span> <b>qúbits</b> que forman un <b>registro de conteo</b> donde al final del circuito tendremos almacenado el valor <span class="math notranslate nohighlight">\(2^t \theta\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74cdbb37-0e23-4a68-ac85-c4b502890497">
-<span class="eqno">(16.2)<a class="headerlink" href="#equation-74cdbb37-0e23-4a68-ac85-c4b502890497" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d72d06d-1cc8-42c1-bd3c-b9feb598be4f">
+<span class="eqno">(16.2)<a class="headerlink" href="#equation-5d72d06d-1cc8-42c1-bd3c-b9feb598be4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \left| \Psi_0 \right\rangle = \left| 0 \right\rangle^{\otimes t} \left| \psi \right\rangle
     \end{equation}\]</div>
 </li>
 <li><p><b>Superposición</b>: Aplicamos una operación de puerta de Hadamard t-bit al registro de conteo:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ddf9a25d-0c11-4a50-a701-c20cee6197bf">
-<span class="eqno">(16.3)<a class="headerlink" href="#equation-ddf9a25d-0c11-4a50-a701-c20cee6197bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0576a11-ce13-4e91-9770-72868284ace6">
+<span class="eqno">(16.3)<a class="headerlink" href="#equation-f0576a11-ce13-4e91-9770-72868284ace6" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \left| \Psi_1 \right\rangle = \frac{1}{2^{t/2}}  \left( \left| 0 \right\rangle + \left| 1 \right\rangle \right)^{\otimes t} \left| \psi \right\rangle
     \end{equation}\]</div>
 </li>
 <li><p><b>Operaciones unitarias controladas</b>: Aplicamos sucesivas veces el operador controlado <span class="math notranslate nohighlight">\(CU\)</span>, es decir, aplicar <span class="math notranslate nohighlight">\(U\)</span> en el registro objetivo solo si el qúbit controlador está en el estado <span class="math notranslate nohighlight">\(\left| 1 \right\rangle\)</span>. En concreto, aplicamos <span class="math notranslate nohighlight">\(2^{j}\)</span> veces <span class="math notranslate nohighlight">\(U\)</span> en el registro <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> controlado por un qúbits del registro de conteo. El número de veces <span class="math notranslate nohighlight">\(2^{j}\)</span> que aplicamos <span class="math notranslate nohighlight">\(U\)</span> depende de que qúbit es el controlador (si es el bit más significativo tenemos <span class="math notranslate nohighlight">\(j = t-1\)</span>, para el siguiente <span class="math notranslate nohighlight">\(j = t-2\)</span>, …, hasta llegar al bit menos significativo en el cual <span class="math notranslate nohighlight">\(j=0\)</span>).
 En la notación del convenio estandar, el qúbit más significativo es el primero. En Qiskit es al revés.
 Como <span class="math notranslate nohighlight">\(U\)</span> es unitaria y <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> es autovector de <span class="math notranslate nohighlight">\(U\)</span>, aplicar <span class="math notranslate nohighlight">\(2^{j}\)</span> veces <span class="math notranslate nohighlight">\(U\)</span> se traduce en:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bd85c48-884f-419c-b3ac-76fcc743a039">
-<span class="eqno">(16.4)<a class="headerlink" href="#equation-9bd85c48-884f-419c-b3ac-76fcc743a039" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8b46a807-f033-4f9c-bd0e-c2a635d5f762">
+<span class="eqno">(16.4)<a class="headerlink" href="#equation-8b46a807-f033-4f9c-bd0e-c2a635d5f762" title="Permalink to this equation">#</a></span>\[\begin{equation}
     U^{2^{j}} \left| \psi \right\rangle = U^{2^{j}-1} U \left| \psi \right\rangle = U^{2^{j}-1} e^{2 \pi i \theta} \left| \psi \right\rangle = \dots = e^{2 \pi i 2^j \theta} \left| \psi \right\rangle
     \end{equation}\]</div>
 <p>Usando la relación</p>
@@ -697,16 +648,16 @@ Como <span class="math notranslate nohighlight">\(U\)</span> es unitaria y <span
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
 <p>Podemos ver que si por el registro de conteo entra un estado <span class="math notranslate nohighlight">\(|z \rangle = | z_{n-1}, z_{n-2}, \dots, z_0 \rangle\)</span>, la salida antes de aplicar la QFT<span class="math notranslate nohighlight">\(^{-1}\)</span> es de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00b34f87-0aee-412e-8267-133941d3f429">
-<span class="eqno">(16.5)<a class="headerlink" href="#equation-00b34f87-0aee-412e-8267-133941d3f429" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-021cc92c-8c55-4344-ae39-40fe01d80c9e">
+<span class="eqno">(16.5)<a class="headerlink" href="#equation-021cc92c-8c55-4344-ae39-40fe01d80c9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |z \rangle |\psi \rangle \rightarrow |z \rangle U^{z_{t-1} 2^{t-1}} U^{z_{t-2}2^{t-2}} \dots U^{z_0 2^0} |\psi \rangle = | z \rangle U^{z}  |\psi \rangle
 \end{equation}\]</div>
 <p>Es decir, lo que se hace es aplicar <span class="math notranslate nohighlight">\(z\)</span> veces el operador <span class="math notranslate nohighlight">\(U\)</span> sobre el estado <span class="math notranslate nohighlight">\(|\psi \rangle\)</span>.</p>
 </div>
 </li>
 <li><p><b>Transformada de Fourier inversa</b>: Si nos fijamos en detalle vemos que la expresión anterior es igual al resultado de aplicar la QFT un estado de <span class="math notranslate nohighlight">\(t\)</span> qúbits <span class="math notranslate nohighlight">\(\ket{x}\)</span> (ver Ec.  <a class="reference internal" href="../Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html#equation-ec-qft-ecuacion-desarrollada">(15.16)</a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9ac2fb5-8dd4-40cc-832a-aecf3a2a305f">
-<span class="eqno">(16.6)<a class="headerlink" href="#equation-f9ac2fb5-8dd4-40cc-832a-aecf3a2a305f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d926b60e-d4ec-41c7-aae3-b66b8fff7e2c">
+<span class="eqno">(16.6)<a class="headerlink" href="#equation-d926b60e-d4ec-41c7-aae3-b66b8fff7e2c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \left( U_{QFT} \left| x \right\rangle \right) \otimes \left| \psi \right\rangle = \frac{1}{2^{t/2}} \sum_{y=0}^{2^t-1} e^{2 \pi i xy /2^t} \left| y \right\rangle \otimes \left| \psi \right\rangle
     \end{equation}\]</div>
 <p>si tomamos <span class="math notranslate nohighlight">\(x = 2^t \theta\)</span>.
@@ -738,14 +689,14 @@ Lo que podemos hacer es aplicar la transformada de Fourier inversa en el registr
         &amp; = \ket{a}
         \end{align*}\]</div>
 <p>En este caso, midiendo el primer registro obtendríamos un registro binario del número <span class="math notranslate nohighlight">\(a\in[0, 2^t-1]\)</span>. Con <span class="math notranslate nohighlight">\(a\)</span> recuperaríamos la fase buscada <i>de forma exacta</i>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea633f09-51b4-4ce4-a0f3-9b5da1cccfec">
-<span class="eqno">(16.8)<a class="headerlink" href="#equation-ea633f09-51b4-4ce4-a0f3-9b5da1cccfec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e450c17c-cd0e-488d-b66e-4820fd88858a">
+<span class="eqno">(16.8)<a class="headerlink" href="#equation-e450c17c-cd0e-488d-b66e-4820fd88858a" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \varphi = \frac{a}{2^t}  \in [0,1)
         \end{equation}\]</div>
 </li>
 <li><p>Si <span class="math notranslate nohighlight">\(\delta \neq 0\)</span> (si <span class="math notranslate nohighlight">\(2^t \theta\)</span> no es entero), el estado en el primer registro  <span class="math notranslate nohighlight">\(\ket{\Phi} = \sum_{x=0}^{2^t-1} f(x) \ket{x}\)</span> será una superposición.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d4d6810-2e1a-4f2a-b09e-a813c650ab01">
-<span class="eqno">(16.9)<a class="headerlink" href="#equation-6d4d6810-2e1a-4f2a-b09e-a813c650ab01" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6eb72212-1b61-4170-95fa-6ba00e9ab914">
+<span class="eqno">(16.9)<a class="headerlink" href="#equation-6eb72212-1b61-4170-95fa-6ba00e9ab914" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \ket{\Psi_4} = \lc \sum_{x=0}^{2^t-1} \left( \frac{1}{2^{t}}\sum_{y=0}^{2^t-1}  e^{2\pi i (a + \delta  -x) y/2^t} \right) \ket{x} \rc \otimes \ket{\psi} = \lc \sum_{x=0}^{2^t-1} f(x) \ket{x} \rc \otimes \ket{\psi}
         \end{equation}\]</div>
 <p>Una medida del primer registro dará el registro binario de <i>un número entero</i> <span class="math notranslate nohighlight">\(x \to m \in [0,2^t-1)\)</span> con distribución de probabilidad</p>
@@ -759,16 +710,17 @@ p(m) = |f(m)|^2
 </li>
 </ol>
 <div class="attention admonition">
-<p class="admonition-title">Jupyter Notebook (10-QPE)</p>
-<p>Ver la sección 1.1 del notebook notebook <b>9-QFS</b>.</p>
+<p class="admonition-title">Jupyter Notebook (<a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_11-QPE_myst.html">11. Quantum Phase Estimation (QPE)</a></p>
+<p>Ver la sección <a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_11-QPE_myst.html#sec-notebooks-qpe-1">11.1. Ejemplo: Un solo autoestado en la ancilla</a> del notebook <a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_11-QPE_myst.html">11. Quantum Phase Estimation (QPE)</a>.</p>
+<p>El Notebook puede descargarse de <a class="reference external" href="https://github.com/davidcb98/CICC_UMA/blob/master/Notebooks/Part_01/Chapter_11-QPE.ipynb">Github</a>.</p>
 </div>
 <p>La <b>anchura <span class="math notranslate nohighlight">\(t\)</span> del circuito auxiliar</b> determina la anchura de la curva de probabilidad en torno al valor medio, es decir, como de precisa será nuestra estimación de la fase. Es fácil convencerse de que cuanto mayor sea <span class="math notranslate nohighlight">\(t\)</span>, mayor será nuestra precisión. Podemos acotar la aproximación al valor real de la fase buscada según el siguiente teorema  (ver Nielsen <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id21" title="Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.">43</a>]</span> p. 224)</p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 16.1 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>El algoritmo QPE (Quantum Phase Estimation) es capaz de producir una <i>estimación <span class="math notranslate nohighlight">\(m\)</span> de orden <span class="math notranslate nohighlight">\(k\)</span></i>  para la fase <span class="math notranslate nohighlight">\(\varphi\)</span> (en el sentido de que  <span class="math notranslate nohighlight">\(|\varphi- m/2^t |&lt;2^{-k}\)</span>) con una  probabilidad <span class="math notranslate nohighlight">\(1-\epsilon\)</span>,  tomando una dimensión del espacio de representación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7657c56a-d1e1-4554-9091-a296bae982b5">
-<span class="eqno">(16.11)<a class="headerlink" href="#equation-7657c56a-d1e1-4554-9091-a296bae982b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7897057-23af-4787-8df5-197eb164c6e7">
+<span class="eqno">(16.11)<a class="headerlink" href="#equation-d7897057-23af-4787-8df5-197eb164c6e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 t \geq k  + \left[ \log\left(1 + \frac{1}{2\epsilon}\right) \right]
 \end{equation}\]</div>
 </section>
@@ -783,7 +735,7 @@ t \geq k  + \left[ \log\left(1 + \frac{1}{2\epsilon}\right) \right]
     {
         requestKernel: true,
         binderOptions: {
-            repo: "davidcb98/JupyterBook_plantilla",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -845,7 +797,7 @@ t \geq k  + \left[ \log\left(1 + \frac{1}{2\epsilon}\right) \right]
   <div class="footer-item">
     
 <p class="component-author">
-By Javier Mas Solé
+By David Castaño Bandín
 </p>
 
   </div>

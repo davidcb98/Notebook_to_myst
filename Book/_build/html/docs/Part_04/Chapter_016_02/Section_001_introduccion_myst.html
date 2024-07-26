@@ -78,7 +78,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("repo", "davidcb98/CICC_UMA");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -196,8 +196,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
-    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+    <img src="../../../_static/Logo_UMA.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/Logo_UMA.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
   
   
 </a></div>
@@ -411,55 +411,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_04/Chapter_016_02/Section_001_introduccion_myst.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -468,7 +419,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -485,7 +436,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_04/Chapter_016_02/Section_001_introduccion_myst.ipynb" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/edit/master/Book/docs/Part_04/Chapter_016_02/Section_001_introduccion_myst.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -502,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_016_02/Section_001_introduccion_myst.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_016_02/Section_001_introduccion_myst.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -629,7 +580,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 10, 2024 | 1 min read</p>
+<div><p>Jul 23, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi18.png"><img alt="../../../_images/Fig_logo_UMA_scbi18.png" src="../../../_images/Fig_logo_UMA_scbi18.png" style="width: 2000px;" /></a>
@@ -661,8 +612,8 @@ document.write(`
 <h1><span class="section-number">16.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>La estimación de fase cuántica (Quantum Phase Estimation - <b>QPE</b>) es una pieza fundamental de algoritmos más complejos, como por ejemplo el de Shor.</p>
 <p>Este algoritmo sirve para calcular los autovalores de un <b>operador unitario</b>. Como sabemos, los operadores unitarios son los únicos que podemos aplicar a un estado cuántico (son las puertas en los circuitos), pues son los únicos que preservan la normalización de los estados cuánticos, es decir, que las probabilidades sumen la unidad. Esto se manifiesta en que los autovalores de los operadores unitarios tiene módulo 1, es decir, son <b>fases</b>. Dado un operador unitario <span class="math notranslate nohighlight">\(U\)</span> y un autovector <span class="math notranslate nohighlight">\(\left| \psi \right\rangle\)</span> del mismo, tenemos:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-965c56da-c7c7-4a85-b169-8e8aaaa9ec45">
-<span class="eqno">(16.1)<a class="headerlink" href="#equation-965c56da-c7c7-4a85-b169-8e8aaaa9ec45" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9246f82b-b25d-4d99-96b3-6caa186cd92a">
+<span class="eqno">(16.1)<a class="headerlink" href="#equation-9246f82b-b25d-4d99-96b3-6caa186cd92a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U \left| \psi \right\rangle = e^{2 \pi i \theta} \left| \psi \right\rangle
 \end{equation}\]</div>
 <p>El algoritmo lo que hace es estimar el valor de <span class="math notranslate nohighlight">\(\theta\)</span>. Es decir:</p>
@@ -685,7 +636,7 @@ U \left| \psi \right\rangle = e^{2 \pi i \theta} \left| \psi \right\rangle
     {
         requestKernel: true,
         binderOptions: {
-            repo: "davidcb98/JupyterBook_plantilla",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -747,7 +698,7 @@ U \left| \psi \right\rangle = e^{2 \pi i \theta} \left| \psi \right\rangle
   <div class="footer-item">
     
 <p class="component-author">
-By Javier Mas Solé
+By David Castaño Bandín
 </p>
 
   </div>

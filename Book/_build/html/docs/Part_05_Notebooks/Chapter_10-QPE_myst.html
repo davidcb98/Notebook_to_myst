@@ -1,0 +1,1240 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>33. Quantum Phase Estimation (QPE) &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_05_Notebooks/Chapter_10-QPE_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="34. Shor: Implementación (ad hoc) en Qiskit para \(N=15\)" href="Chapter_11-Shor_Algorithm_simple_myst.html" />
+    <link rel="prev" title="32. Quantum Fourier Transform (QFT)" href="Chapter_09-QFT_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks con ejemplos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_00-Fundamentos_MC_evolucion_temporal_myst.html">21. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html">22. Vectores de estado y la esfera de Bloch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html">23. Circuitos de un qúbit y HardWare real</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03-Circuitos_Multiqubits_myst.html">24. Circuitos multiqúbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04-Medidas_II_myst.html">25. Medidas II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05-Entrelazamiento_myst.html">26. Entrelazamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06-Elementos_Basicos_myst.html">27. Elementos básicos de los algoritmos cuánticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07-Estado_inicial_y_oraculo_myst.html">28. Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08-Busqueda_Oracula_myst.html">29. Algoritmos del Oráculo</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Chapter_09-QFT_myst.html">32. Quantum Fourier Transform (QFT)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">33. Quantum Phase Estimation (QPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_11-Shor_Algorithm_simple_myst.html">34. Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_12-Grover_Algorithm_myst.html">35. Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_13_QKD_myst.html">36. Quantum Key Distribution - BB84</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_05_Notebooks/Chapter_10-QPE_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_05_Notebooks/Chapter_10-QPE_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_05_Notebooks/Chapter_10-QPE_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Part_05_Notebooks/Chapter_10-QPE_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quantum Phase Estimation (QPE)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-un-solo-autoestado-en-la-ancilla">33.1. Ejemplo: Un solo autoestado en la ancilla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-si-no-podemos-preparar-un-autoestado">33.2. ¿y si no podemos preparar  un autoestado?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">33.3. Precisión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">33.3.1. Solución</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Jul 11, 2024 | 1 min read</p>
+</div></blockquote>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-phase-estimation-qpe">
+<span id="sec-notebooks-qpe"></span><h1><span class="section-number">33. </span>Quantum Phase Estimation (QPE)<a class="headerlink" href="#quantum-phase-estimation-qpe" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="#sec-notebooks-qpe-1"><span class="std std-ref">Ejemplo: Un solo autoestado en la ancilla</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-qpe-2"><span class="std std-ref">¿y si no podemos preparar  un autoestado?</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-qpe-3"><span class="std std-ref">Precisión</span></a></strong></p>
+<ul>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-qpe-3-1"><span class="std std-ref">Solución</span></a></strong></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">QFT</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerSimulator</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el simulador. Con &quot;method&quot; le especificamos el método de simulación</span>
+<span class="n">simulador</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Fig-QPE-Circuito1.png"><img alt="../../_images/Fig-QPE-Circuito1.png" src="../../_images/Fig-QPE-Circuito1.png" style="width: 1000px;" /></a>
+</figure>
+<section id="ejemplo-un-solo-autoestado-en-la-ancilla">
+<span id="sec-notebooks-qpe-1"></span><h2><span class="section-number">33.1. </span>Ejemplo: Un solo autoestado en la ancilla<a class="headerlink" href="#ejemplo-un-solo-autoestado-en-la-ancilla" title="Permalink to this heading">#</a></h2>
+<p>Vamos a estudiar esta distribución analizando el operador unitario de fase</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U =  \begin{bmatrix} e^{2\pi i \phi_0} &amp; 0 \\ 0 &amp; e^{2\pi i\phi_1}\end{bmatrix} 
+\end{split}\]</div>
+<p>que tiene por autoestados  <span class="math notranslate nohighlight">\(| 0 \rangle \)</span> y <span class="math notranslate nohighlight">\(| 1\rangle \)</span> con autovalores <span class="math notranslate nohighlight">\(e^{2\pi\phi_0}\)</span> y <span class="math notranslate nohighlight">\(e^{2\pi \phi_1}\)</span> respectivamente.</p>
+<p>Para programar este operador notamos que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U =  
+\begin{bmatrix} e^{2\pi \phi_0} &amp; 0 \\ 0 &amp; e^{-2\pi i\phi_0}\end{bmatrix}
+\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; e^{2\pi i(\phi_0+\phi_1)}\end{bmatrix} = 
+R_z(\theta = -4\pi \phi_0) \cdot P(\theta = 2\pi (\phi_1+\phi_0))
+\end{split}\]</div>
+<p>El circuito requiere la versión <em>controlada</em> <span class="math notranslate nohighlight">\(CU^k\)</span> de potencias de este operador</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">c_U_gate</span><span class="p">(</span><span class="n">phi0</span><span class="p">,</span> <span class="n">phi1</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>        
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">power</span><span class="p">):</span>
+        <span class="n">U</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="o">-</span><span class="n">phi0</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">U</span><span class="o">.</span><span class="n">p</span><span class="p">((</span><span class="n">phi1</span><span class="o">+</span><span class="n">phi0</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span>
+    <span class="n">U</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;c_U(</span><span class="si">%f</span><span class="s2"> ,</span><span class="si">%f</span><span class="s2">)^</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">phi0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">phi1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">power</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">control</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">U</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para poner a prueba el algoritmo vamos a seleccionar unos valores de <span class="math notranslate nohighlight">\(\theta_i\)</span> de la forma</p>
+<div class="math notranslate nohighlight">
+\[
+2^t \theta_i  = (a_i + \delta_i)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_seed</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="n">a0</span> <span class="o">=</span> <span class="mf">2.</span>
+<span class="n">delta0</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="p">(</span><span class="n">a0</span><span class="o">+</span><span class="n">delta0</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t_seed</span><span class="p">)</span> 
+
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">3.</span>
+<span class="n">delta1</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">theta1</span> <span class="o">=</span><span class="p">(</span><span class="n">a1</span><span class="o">+</span> <span class="n">delta1</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t_seed</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;theta0=&#39;</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="s1">&#39; -&gt;  2^t*theta0 = a0 + delta0 = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta0</span> <span class="p">,</span> <span class="s1">&#39; , a0 =&#39;</span> <span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta0</span><span class="p">),</span> <span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta0</span><span class="p">),</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">t_seed</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;theta1=&#39;</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="s1">&#39; -&gt;  2^t*theta1 = a1 + delta1 = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta1</span> <span class="p">,</span> <span class="s1">&#39; , a1 =&#39;</span> <span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta1</span><span class="p">),</span> <span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">theta1</span><span class="p">),</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">t_seed</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>theta0= 0.275  -&gt;  2^t*theta0 = a0 + delta0 =  2.2  , a0 = 2 =&gt; 010
+theta1= 0.375  -&gt;  2^t*theta1 = a1 + delta1 =  3.0  , a1 = 3 =&gt; 011
+</pre></div>
+</div>
+</div>
+</div>
+<p>Construimos el circuito QPE</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># la dimensión del registro de evaluación </span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># la dimensiónd el espacio de representación del opeador U</span>
+
+<span class="n">qr_t</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">qr_n</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;qr_U&quot;</span><span class="p">)</span> <span class="c1"># aquí 1 es la dimensión del espacio en el que opera U</span>
+<span class="n">cr_t</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">circuit_QPE</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr_t</span><span class="p">,</span> <span class="n">qr_n</span><span class="p">,</span> <span class="n">cr_t</span><span class="p">)</span>   
+
+<span class="c1">##########################################################################</span>
+<span class="c1">#inicializamos la ancilla en un autoestado |u&gt; =|0&gt; o |u&gt; = |1&gt;</span>
+<span class="c1">#circuit_QPE.x(qra)   </span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+<span class="c1"># aplicamos los operadores controlados c-U^j </span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_U_gate</span><span class="p">(</span><span class="n">theta0</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">j</span><span class="p">),</span> <span class="p">[</span><span class="n">qr_t</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="o">+</span><span class="n">qr_n</span><span class="p">[:])</span>
+    
+
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+<span class="c1"># aplicamos la QFT^-1 que está definida en macro.py </span>
+<span class="n">QFT_gate</span> <span class="o">=</span> <span class="n">QFT</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span> 
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QFT_gate</span><span class="p">,</span> <span class="n">qr_t</span><span class="p">)</span>
+
+
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr_t</span><span class="p">,</span><span class="n">cr_t</span><span class="p">)</span>
+
+<span class="n">circuit_QPE</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/21a068ebb942cdecc62e874cde48004ffdbaefce38f902f81c4b270607ef675d.png" src="../../_images/21a068ebb942cdecc62e874cde48004ffdbaefce38f902f81c4b270607ef675d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_QPE</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_QPE</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_QPE</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f1420882c4299be9b2574e2b8a95932664773f44dd5c780ae4341ed043862a35.png" src="../../_images/f1420882c4299be9b2574e2b8a95932664773f44dd5c780ae4341ed043862a35.png" />
+</div>
+</div>
+<p>De aquí extraemos la aproximación que hemos obtenido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;010010&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_resultante</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Seleccionamos el autovalor asociado a |u&gt; </span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>  <span class="c1"># si |0&gt;</span>
+<span class="c1">#theta = tetha1   # si |1&gt;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;el valor de phi original era =&#39;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;la mejor aproximación al valor verdadero es a/2^t =&#39;</span><span class="p">,</span> <span class="n">a_resultante</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;el error relativo es delta/(2^t phi) =&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">theta</span> <span class="o">-</span><span class="n">a_resultante</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="n">theta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>el valor de phi original era = 0.275
+la mejor aproximación al valor verdadero es a/2^t = 0.28125
+el error relativo es delta/(2^t phi) = -0.022727272727272645
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="y-si-no-podemos-preparar-un-autoestado">
+<span id="sec-notebooks-qpe-2"></span><h2><span class="section-number">33.2. </span>¿y si no podemos preparar  un autoestado?<a class="headerlink" href="#y-si-no-podemos-preparar-un-autoestado" title="Permalink to this heading">#</a></h2>
+<p>Si no podemos preparar un autovector para inicializar el qúbit ancilla en este estado, lo que podemos hacer es tener en cuenta que todo estado se puede expandir en la base de autovectores de un operador.</p>
+<p>Si <span class="math notranslate nohighlight">\(| \phi_0 \rangle\)</span> y <span class="math notranslate nohighlight">\(| \phi_1 \rangle\)</span> son los autovectores de nuestro operador <span class="math notranslate nohighlight">\(U\)</span>, cualquier estado <span class="math notranslate nohighlight">\(|\psi \rangle\)</span> que metamos por el qúbit ancilla puede escribirse de la forma:</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi \rangle = c_0 |\phi_0 \rangle + c_1 | \phi_1 \rangle
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_seed</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">a0</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">delta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">phi0</span> <span class="o">=</span> <span class="p">(</span><span class="n">a0</span><span class="o">+</span> <span class="n">delta0</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t_seed</span><span class="p">)</span> 
+
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">3.</span>
+<span class="n">delta1</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">phi1</span> <span class="o">=</span><span class="p">(</span><span class="n">a1</span><span class="o">+</span> <span class="n">delta1</span><span class="p">)</span><span class="o">*</span><span class="mf">2.</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t_seed</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;phi0=&#39;</span><span class="p">,</span> <span class="n">phi0</span><span class="p">,</span> <span class="s1">&#39; -&gt;   2^t*phi0 = a0 + delta0 = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi0</span> <span class="p">,</span> <span class="s1">&#39; , a0 =&#39;</span> <span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi0</span><span class="p">),</span> <span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi0</span><span class="p">),</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">t_seed</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;phi1=&#39;</span><span class="p">,</span> <span class="n">phi1</span><span class="p">,</span> <span class="s1">&#39; -&gt;   2^t*phi1 = a1 + delta1 = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi1</span> <span class="p">,</span> <span class="s1">&#39; , a1 =&#39;</span> <span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi0</span><span class="p">),</span> <span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">t_seed</span><span class="o">*</span><span class="n">phi1</span><span class="p">),</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">t_seed</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>phi0= 0.1375  -&gt;   2^t*phi0 = a0 + delta0 =  1.1  , a0 = 1 =&gt; 001
+phi1= 0.3875  -&gt;   2^t*phi1 = a1 + delta1 =  3.1  , a1 = 1 =&gt; 011
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">ClassicalRegister</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># la dimensión del registro de evaluación </span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># la dimensiónd el espacio de representación del opeador U</span>
+
+<span class="n">qr_t</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">qr_n</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;qr_U&quot;</span><span class="p">)</span> <span class="c1"># aquí 1 es la dimensión del espacio en el que opera U</span>
+<span class="n">cr_t</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">circuit_QPE_2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr_t</span><span class="p">,</span> <span class="n">qr_n</span><span class="p">,</span> <span class="n">cr_t</span><span class="p">)</span>   
+
+<span class="c1">##########################################################################</span>
+<span class="c1">#inicializamos la ancilla en una combinación cos(th/2)|0&gt; + sin(th/2)|1&gt;</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.15</span> 
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">ry</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">qr_n</span><span class="p">)</span> 
+<span class="c1">##########################################################################</span>
+
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+<span class="c1"># aplicamos los operadores controlados c-U^j </span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_U_gate</span><span class="p">(</span><span class="n">phi0</span><span class="p">,</span> <span class="n">phi1</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">j</span><span class="p">),[</span><span class="n">qr_t</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="o">+</span><span class="n">qr_n</span><span class="p">[:])</span>
+<span class="c1">#    circuit_QPE_2.cp(2*np.pi*phi1*(2**j), qr_t[j], qr_a); # This is C-U</span>
+    
+
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+<span class="c1"># aplicamos la QFT^-1 que está definida en macro.py </span>
+<span class="n">QFT_gate</span> <span class="o">=</span> <span class="n">QFT</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span> 
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QFT_gate</span><span class="p">,</span> <span class="n">qr_t</span><span class="p">)</span>
+
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr_t</span><span class="p">,</span><span class="n">cr_t</span><span class="p">)</span>
+
+<span class="n">circuit_QPE_2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/66a5c12bf62edf91015bd9c37f6aaeb5f46ea26d270689593fb240a3669d4993.png" src="../../_images/66a5c12bf62edf91015bd9c37f6aaeb5f46ea26d270689593fb240a3669d4993.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_QPE_2</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_QPE_2</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_2</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_QPE_2</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_2</span> <span class="o">=</span> <span class="n">result_2</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1c29bcf318d9673aafd8641f73defbd4da6e78766858cc3c43306019862e0fcd.png" src="../../_images/1c29bcf318d9673aafd8641f73defbd4da6e78766858cc3c43306019862e0fcd.png" />
+</div>
+</div>
+<p>Vemos que tenemos dos picos correspondientes a los dos autovalores. La altura de los picos está ponderada por el cuadrado del coeficiente correspondiente de la expansión del estado del qúbit ancilla en la base de autovectores (por <span class="math notranslate nohighlight">\(|c_0|^2\)</span> y <span class="math notranslate nohighlight">\(|c_1|^2\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi \rangle = c_0 |\phi_0 \rangle + c_1 | \phi_1 \rangle
+\]</div>
+</section>
+<section id="precision">
+<span id="sec-notebooks-qpe-3"></span><h2><span class="section-number">33.3. </span>Precisión<a class="headerlink" href="#precision" title="Permalink to this heading">#</a></h2>
+<p>Veamos otro ejemplo más. En este caso cojamos como nuestro operador <span class="math notranslate nohighlight">\(U\)</span>, una puerta <span class="math notranslate nohighlight">\(P\)</span> con <span class="math notranslate nohighlight">\(\theta = 1/3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+U =  P(\theta = 2\pi /3 ) =  
+\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; e^{2\pi/3}\end{bmatrix} 
+\end{split}\]</div>
+<p>Es decir, si tomamos el qúbit ancilla en el estado <span class="math notranslate nohighlight">\(| 1 \rangle\)</span> tendremos que obtener <span class="math notranslate nohighlight">\(\theta = 1/3\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and set up circuit</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># la dimensión del registro de evaluación </span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># la dimensiónd el espacio de representación del opeador U</span>
+<span class="n">circuit_QPE_P</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Apply H-Gates to counting qubits:</span>
+<span class="k">for</span> <span class="n">qubit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">qubit</span><span class="p">)</span>
+
+<span class="c1"># Prepare our eigenstate |psi&gt;:</span>
+<span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Do the controlled-U operations:</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">counting_qubit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+        <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">cp</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">counting_qubit</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="n">repetitions</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="c1"># Do the inverse QFT:</span>
+<span class="n">circuit_QPE_P</span> <span class="o">=</span> <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">QFT</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span>
+
+<span class="c1"># Measure of course!</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/010e13c5addc2bdef8fe99fdbd90eff71030d063fe644f908516383654aed2b9.png" src="../../_images/010e13c5addc2bdef8fe99fdbd90eff71030d063fe644f908516383654aed2b9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_QPE_P</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_QPE_P</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_p</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_QPE_P</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_p</span> <span class="o">=</span> <span class="n">result_p</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e4e1574e50335a6ffa18a752bbdd9d44b084e97a41f65bee5695f7bdd283b76d.png" src="../../_images/e4e1574e50335a6ffa18a752bbdd9d44b084e97a41f65bee5695f7bdd283b76d.png" />
+</div>
+</div>
+<p>Esperamos el resultado <span class="math notranslate nohighlight">\(\theta\)</span> = 0.3333… y vemos que nuestros resultados más probables son 010(bin) = 2(dec) y 011(bin) = 3(dec). Estos dos resultados nos dirían que <span class="math notranslate nohighlight">\(\theta\)</span> = 0,25 (desviación del 25%) y <span class="math notranslate nohighlight">\(\theta\)</span> = 0,375 (desviación del 13%) respectivamente. El verdadero valor de <span class="math notranslate nohighlight">\(\theta\)</span> se encuentra entre los valores que podemos obtener de nuestros bits de conteo, y esto nos da incertidumbre e imprecisión.</p>
+<section id="solucion">
+<span id="sec-notebooks-qpe-3-1"></span><h3><span class="section-number">33.3.1. </span>Solución<a class="headerlink" href="#solucion" title="Permalink to this heading">#</a></h3>
+<p>Para obtener más precisión simplemente añadimos más qubits contadores. Vamos a añadir dos qubits contadores más:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># la dimensión del registro de evaluación </span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># la dimensiónd el espacio de representación del opeador U</span>
+<span class="n">circuit_QPE_P</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Apply H-Gates to counting qubits:</span>
+<span class="k">for</span> <span class="n">qubit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">qubit</span><span class="p">)</span>
+
+<span class="c1"># Prepare our eigenstate |psi&gt;:</span>
+<span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Do the controlled-U operations:</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">counting_qubit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+        <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">cp</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">counting_qubit</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="n">repetitions</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="c1"># Do the inverse QFT:</span>
+<span class="n">circuit_QPE_P</span> <span class="o">=</span> <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">QFT</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span>
+
+<span class="c1"># Measure of course!</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">circuit_QPE_P</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/3c07795a00eb3d11743584c3b46f50f4c41e56fbb9c83d53a1f1725e94ebb01a.png" src="../../_images/3c07795a00eb3d11743584c3b46f50f4c41e56fbb9c83d53a1f1725e94ebb01a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpilamos</span>
+<span class="n">t_circuit_QPE_P</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_QPE_P</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">simulador</span><span class="p">)</span>
+
+<span class="c1"># Ejecutamos la simulación con 1000 shots </span>
+<span class="n">result_p</span> <span class="o">=</span> <span class="n">simulador</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_QPE_P</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">counts_p</span> <span class="o">=</span> <span class="n">result_p</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts_p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1ce77d723a56f2c55a4754da46a594c2e3f140a640720dc2cd14c03049a6b896.png" src="../../_images/1ce77d723a56f2c55a4754da46a594c2e3f140a640720dc2cd14c03049a6b896.png" />
+</div>
+</div>
+<p>Las dos medidas más probables son ahora 01011 (11 decimal) y
+01010 (decimal 10). Medir estos resultados nos diría es:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\theta = 11/2^5 = 0.344 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\theta = 10/2^5 = 0.313 
+\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_05_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_09-QFT_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>Quantum Fourier Transform (QFT)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_11-Shor_Algorithm_simple_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-un-solo-autoestado-en-la-ancilla">33.1. Ejemplo: Un solo autoestado en la ancilla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-si-no-podemos-preparar-un-autoestado">33.2. ¿y si no podemos preparar  un autoestado?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">33.3. Precisión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">33.3.1. Solución</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

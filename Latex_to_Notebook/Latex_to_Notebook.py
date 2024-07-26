@@ -67,7 +67,7 @@ from LtN_replaces_and_others import reemplazo_SubsubiIt, reemplazo_SubsubiiIt
 from LtN_replaces_and_others import reemplazo_caption
 from LtN_replaces_and_others import reemplazo_includegraphics
 from LtN_replaces_and_others import reemplazo_textbf
-from LtN_replaces_and_others import reemplazo_textit
+from LtN_replaces_and_others import reemplazo_textit, reemplazo_href
 from LtN_replaces_and_others import reemplazo_cite, split_cites, reemplazo_cite_full
 from LtN_replaces_and_others import reemplazo_begin_figure, reemplazo_begin_table
 from LtN_replaces_and_others import reemplazo_item
@@ -685,6 +685,10 @@ with open(file_name, 'r') as f:
         if "\\\\ref{" in line:
             line = reemplazo_ref(line)
 
+        ############################### href #################################
+
+        if "\\\\href{" in line:
+            line = reemplazo_href(line)
 
         ############################ Enumerate ##############################
         if "\\\\begin{enumerate}" in line:

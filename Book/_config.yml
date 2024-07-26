@@ -1,10 +1,10 @@
 title : Curso de Introducción a la Computación Cuántica
-author: Javier Mas Solé
-logo: 'TalentQ_LogoNegNegro.png'
+author: David Castaño Bandín
+logo: 'Logo_UMA.png'
 
 # Short description about the book
 description: >-
-  A brief introduction to Python programming for scientific applications.
+  Parte del material de este curso se imparte en Curso de extensión universitaria en Computación Cuántica de la Universidad de Málaga
 
 
 only_build_toc_files          : true  # Only build files in _toc
@@ -35,21 +35,21 @@ html:
   use_edit_page_button        : true
   comments:
     utterances:
-      repo: "jamasole/Curso-TalentQ-Book"
+      repo: "davidcb98/CICC_UMA"
 
 # Interact link settings
 notebook_interface            : "notebook"
 
 # Launch button settings
 repository:
-  url                         : https://github.com/davidcb98/JupyterBook_plantilla
+  url                         : https://github.com/davidcb98/CICC_UMA
   path_to_book                : "Book"    # Optional path to your book, relative to the repository root
   branch                      : master  # Which branch of the repository should be used when creating links (optional)
 
-launch_buttons:
-  notebook_interface     : "jupyterlab"  # or "classic"
-  binderhub_url          : "https://mybinder.org"
-  thebe                  : true    # para ejecución interactiva
+#launch_buttons:
+#  notebook_interface     : "jupyterlab"  # or "classic"
+#  binderhub_url          : "https://mybinder.org"
+#  thebe                  : true    # para ejecución interactiva
 
 
 

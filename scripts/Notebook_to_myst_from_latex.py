@@ -343,7 +343,7 @@ if len(i_ToC_pattern) == 1:
 
     my_replace(f_data, i_ToC_start, ':::{contents}\\n",\n'+
                                         '    ":local:\\n",\n'
-                                        '    ":depth: 1\\n",\n'
+                                        '    ":depth: 2\\n",\n'
                                         '    ":::\\n",\n')
     for i in range(i_ToC_start+1, i_ToC_end):
         my_replace(f_data, i, '",\n')

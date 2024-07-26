@@ -1,0 +1,1358 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>35. Algoritmo de Grover &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_05_Notebooks/Chapter_12-Grover_Algorithm_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="36. Quantum Key Distribution - BB84" href="Chapter_13_QKD_myst.html" />
+    <link rel="prev" title="34. Shor: Implementación (ad hoc) en Qiskit para \(N=15\)" href="Chapter_11-Shor_Algorithm_simple_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks con ejemplos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_00-Fundamentos_MC_evolucion_temporal_myst.html">21. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01-Estados_y_Esfera_de_Bloch_myst.html">22. Vectores de estado y la esfera de Bloch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02-Circuitos_1_qubit_medidas_y_RealHardware_myst.html">23. Circuitos de un qúbit y HardWare real</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03-Circuitos_Multiqubits_myst.html">24. Circuitos multiqúbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04-Medidas_II_myst.html">25. Medidas II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05-Entrelazamiento_myst.html">26. Entrelazamiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06-Elementos_Basicos_myst.html">27. Elementos básicos de los algoritmos cuánticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07-Estado_inicial_y_oraculo_myst.html">28. Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08-Busqueda_Oracula_myst.html">29. Algoritmos del Oráculo</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Chapter_09-QFT_myst.html">32. Quantum Fourier Transform (QFT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_10-QPE_myst.html">33. Quantum Phase Estimation (QPE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_11-Shor_Algorithm_simple_myst.html">34. Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Algoritmo de Grover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_13_QKD_myst.html">36. Quantum Key Distribution - BB84</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_05_Notebooks/Chapter_12-Grover_Algorithm_myst.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_05_Notebooks/Chapter_12-Grover_Algorithm_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_05_Notebooks/Chapter_12-Grover_Algorithm_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/Part_05_Notebooks/Chapter_12-Grover_Algorithm_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Algoritmo de Grover</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-multicontrolada-z-mcz">35.1. Puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difusor-generico">35.2. Difusor genérico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculo-trivial">35.3. Oráculo Trivial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculos-que-verifican-condiciones-sudoku-2-times-2">35.4. Oráculos que verifican condiciones: Sudoku <span class="math notranslate nohighlight">\(2\times 2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-sudoku">35.4.1. El sudoku</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condiciones-y-puerta-xor">35.4.2. Condiciones y puerta XOR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculo">35.4.3. Oráculo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuito-final">35.4.4. Circuito final</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="algoritmo-de-grover">
+<span id="sec-notebooks-grover"></span><h1><span class="section-number">35. </span>Algoritmo de Grover<a class="headerlink" href="#algoritmo-de-grover" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-1"><span class="std std-ref">Puerta multicontrolada Z (MCZ).</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-2"><span class="std std-ref">Difusor genérico</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-3"><span class="std std-ref">Oráculo Trivial</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-4"><span class="std std-ref">Oráculos que verifican condiciones: Sudoku 2\times 2</span></a></strong></p>
+<ul>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-4-1"><span class="std std-ref">El sudoku</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-4-2"><span class="std std-ref">Condiciones y puerta XOR</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-4-3"><span class="std std-ref">Oráculo</span></a></strong></p></li>
+<li><p><strong><a class="reference internal" href="#sec-notebooks-grover-4-4"><span class="std std-ref">Circuito final</span></a></strong></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span>
+<span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">QFT</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">AerSimulator</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el simulador. Con &quot;method&quot; le especificamos el método de simulación</span>
+<span class="n">simulador</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="puerta-multicontrolada-z-mcz">
+<span id="sec-notebooks-grover-1"></span><h2><span class="section-number">35.1. </span>Puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ).<a class="headerlink" href="#puerta-multicontrolada-z-mcz" title="Permalink to this heading">#</a></h2>
+<p>Vamos a empezar viendo la implementación de la puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ) en qiskit, pues la usaremos bastante el las siguientes secciones. Esta puerta podemos construirla a partir de la puerta multicontrolada Toffoli (MCT) de forma muy sencilla. Para ello, recordemos que la MCT no es más que una CNOT (es decir, una puerta <span class="math notranslate nohighlight">\(X\)</span>) con varios controles y recordemos también la propiedad</p>
+<div class="math notranslate nohighlight" id="equation-imple-hxh-z">
+<span class="eqno">(35.1)<a class="headerlink" href="#equation-imple-hxh-z" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+HXH = Z .
+\end{equation} \]</div>
+<p>Podemos pues construir la MCZ aplicando puertas de Hadammard en el qúbit objetivo de la MCT antes y después de la misma. En código de qiskit esto nos queda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mcz</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">control_qubits</span><span class="p">,</span> <span class="n">target_qubit</span><span class="p">):</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">target_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">mct</span><span class="p">(</span><span class="n">control_qubits</span><span class="p">,</span> <span class="n">target_qubit</span><span class="p">)</span>  <span class="c1"># multi-controlled-toffoli</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">target_qubit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quamtum_reg_5</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">circuit_mcz</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quamtum_reg_5</span><span class="p">)</span>
+<span class="n">mcz</span><span class="p">(</span><span class="n">circuit_mcz</span><span class="p">,</span> <span class="n">quamtum_reg_5</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">quamtum_reg_5</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">circuit_mcz</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_104226/1101216745.py:3: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.mct()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.mcx as direct replacement.
+  circuit.mct(control_qubits, target_qubit)  # multi-controlled-toffoli
+/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/27138873dd97e3fc3bcbc299b755e2526f2e3e32a7c1fbef5ab1756ede962278.png" src="../../_images/27138873dd97e3fc3bcbc299b755e2526f2e3e32a7c1fbef5ab1756ede962278.png" />
+</div>
+</div>
+</section>
+<section id="difusor-generico">
+<span id="sec-notebooks-grover-2"></span><h2><span class="section-number">35.2. </span>Difusor genérico<a class="headerlink" href="#difusor-generico" title="Permalink to this heading">#</a></h2>
+<p>Como ya comentamos, habitualmente en vez de implementar <span class="math notranslate nohighlight">\(U_{\Psi_0}\)</span> implementamos <span class="math notranslate nohighlight">\(-U_{\Psi_0}\)</span>. Vimos además que podemos hacer la implementación mediante transformadas de Walsh-Hadamard <span class="math notranslate nohighlight">\(H^{\otimes n}\)</span>, puertas <span class="math notranslate nohighlight">\(X^{\otimes n}\)</span> y la puerta <span class="math notranslate nohighlight">\(MCZ\)</span>, es decir</p>
+<div class="math notranslate nohighlight" id="equation-ec-qiskit-diff-gen-u-psi0">
+<span class="eqno">(35.2)<a class="headerlink" href="#equation-ec-qiskit-diff-gen-u-psi0" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+\boxed{-U_{\Psi_0}  = S_{\Psi_0}  = H^{\otimes n} S_0 H^{\otimes n} = H^{\otimes n} X^{\otimes n} (MCZ) X^{\otimes n} H^{\otimes n}} 
+\end{equation} \]</div>
+<p>Veamos como traducir esta ecuación a código qiskit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Grover_Diffuser</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">target_reg</span><span class="p">):</span>
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="n">target_reg</span><span class="o">.</span><span class="n">size</span>
+
+    <span class="c1"># Apply transformation |s&gt; -&gt; |00..0&gt; (H-gates)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Apply transformation |00..0&gt; -&gt; |11..1&gt; (X-gates)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Do multi-controlled-Z gate</span>
+    <span class="n">mcz</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">target_reg</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))],</span> <span class="n">target_reg</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Apply transformation |11..1&gt; -&gt; |00..0&gt;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Apply transformation |00..0&gt; -&gt; |s&gt;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función anterior es genérica: dado un circuito y un registro cuántico, esta función aplica un difusor de Grover en el registro. Veamos un ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="n">quantum_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">classic_reg</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">circuit_difuser</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="n">Grover_Diffuser</span><span class="p">(</span><span class="n">circuit_difuser</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">)</span>
+
+<span class="n">circuit_difuser</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_104226/1101216745.py:3: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.mct()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.mcx as direct replacement.
+  circuit.mct(control_qubits, target_qubit)  # multi-controlled-toffoli
+</pre></div>
+</div>
+<img alt="../../_images/1bc951a1ebe02bce04a4199d6a701df4208b4279ce0da5b8f48489de9a7eb7dc.png" src="../../_images/1bc951a1ebe02bce04a4199d6a701df4208b4279ce0da5b8f48489de9a7eb7dc.png" />
+</div>
+</div>
+</section>
+<section id="oraculo-trivial">
+<span id="sec-notebooks-grover-3"></span><h2><span class="section-number">35.3. </span>Oráculo Trivial<a class="headerlink" href="#oraculo-trivial" title="Permalink to this heading">#</a></h2>
+<p>Vamos a presentar en esta sección un código de qiskit para construir un oráculo que cambie el signo de los estados que nosotros le digamos. Este es uno de esos ejemplo típicos que se plantean cuando se habla de Grover, esos en los que sabemos con antelación los estados concretos que queremos buscar. De esta forma, el oráculo que construimos está hecho “ad hoc” para marcar ciertos estado.</p>
+<p>(Precisamente elegí llamarle a este caso “trivial” porque no entraña ningún misterio, sino que como comento es un caso académico.)</p>
+<p>El código que se presenta a continuación es muy simple. Partimos de una lista de cadenas binarias de n bits que llamamos <em>M_list_bin_qiskit</em>. Por ejemplo, para <span class="math notranslate nohighlight">\(n=5\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+M\_list\_bin\_qiskit = [\text{'} 01101 \text{'}, \text{'} 11000 \text{'}, ...]
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Recordemos que en qiskit el bit menos significativo es que va arriaba en el circuito, así que en “qiskit” en el nombre de la lista <b>M_list_bin_qiskit</b> hace referencia que estamos
+mandando las cadenas el revés. Es decir, para pasarlas a decimal las invertimos:</p>
+<div class="math notranslate nohighlight">
+\[
+01101 \quad \rightarrow \quad 10110 = 22, \qquad
+11000 \quad \rightarrow \quad 00011 = 3
+\]</div>
+</div>
+<p>Para cambiar el signo de un estado lo que tenemos que hacer es aplicar una MCZ. Como esta solo aplica sobre el estado <span class="math notranslate nohighlight">\(|11\dots 1 \rangle\)</span>, lo que hay que hacer es aplicar puertas <span class="math notranslate nohighlight">\(X\)</span> antes y después del la MCZ en los qúbit correspondientes a las posiciones donde tenemos un 0 en las cadenas bits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Grover_Oracle_trivial</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">target_reg</span><span class="p">,</span> <span class="n">M_list_bin_qiskit</span><span class="p">):</span> <span class="c1"># n, M_list_bin):</span>
+<span class="w">	</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">	This function implements a Grover oracle. We call it &quot;trivial&quot; because this</span>
+<span class="sd">	oracle change the sign of some given states. That is, we know the solution </span>
+<span class="sd">	in advance. (For example, we want to find the states |101&gt; and |110&gt; among </span>
+<span class="sd">	the 8 possible ones. We know from the begining the states we want to find.)</span>
+
+<span class="sd">	We can use the multicontrolled Z gate (mcz) we defined earlier to change the</span>
+<span class="sd">	sign of any M_list_bin[i] state. Simply apply X gates before and after the </span>
+<span class="sd">	mcz on the qubits that are worth zero in M_list_bin[i].</span>
+
+<span class="sd">	IMPORTANT !!!: Remember that if we deal with qiskit, the binary strings have</span>
+<span class="sd">	to 	come upside	down (with the LEASTE SIGNIFICANT BIT AT THE BEGINNING !!!).</span>
+
+<span class="sd">	Inputs:</span>
+<span class="sd">		- circuit: Quantum Circuit</span>
+
+<span class="sd">		- target_reg: Quantum Register (with n qubits) in which we are going to </span>
+<span class="sd">			search and change the sign of some given states. It must be one </span>
+<span class="sd">			Quantum Register of the previus circuit.</span>
+<span class="sd">		</span>
+<span class="sd">		- M_list_bin: Python List with the states that we want to find. The </span>
+<span class="sd">			states must be in binary and must have length n.</span>
+
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="n">target_reg</span><span class="o">.</span><span class="n">size</span>
+
+	<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">M_list_bin_qiskit</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+			<span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+				<span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+		<span class="n">mcz</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">target_reg</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))],</span> <span class="n">target_reg</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+	    
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)):</span>
+			<span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+				<span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">target_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos también una función que nos da el numero de iteraciones de Grover en función del número de soluciones <span class="math notranslate nohighlight">\(M\)</span> y el número total de estados <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Iterations_T</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="c1"># Total number of states</span>
+<span class="n">M_list_bin_qiskit</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;0101&#39;</span><span class="p">,</span> <span class="s1">&#39;1100&#39;</span><span class="p">]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">M_list_bin_qiskit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We build the citcuit with the quantum registers</span>
+<span class="n">quantum_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">classic_reg</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">circuit_t</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+    
+<span class="c1"># ======================================================</span>
+<span class="c1"># We apply the initialization function. This time we use H^n</span>
+<span class="k">for</span> <span class="n">qubit</span> <span class="ow">in</span> <span class="n">quantum_reg</span><span class="p">:</span>
+    <span class="n">circuit_t</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">qubit</span><span class="p">)</span>
+
+<span class="n">circuit_t</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+  
+<span class="c1"># ======================================================</span>
+<span class="c1"># Number of iterations</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">Iterations_T</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+       
+<span class="c1"># ======================================================</span>
+<span class="c1"># We add the grover oracle and diffuser T times</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">Grover_Oracle_trivial</span><span class="p">(</span><span class="n">circuit_t</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">,</span> <span class="n">M_list_bin_qiskit</span><span class="p">)</span>
+    <span class="n">circuit_t</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+    <span class="n">Grover_Diffuser</span><span class="p">(</span><span class="n">circuit_t</span><span class="p">,</span> <span class="n">quantum_reg</span><span class="p">)</span>
+    <span class="n">circuit_t</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># Measure all qubits on the quantum_reg into the classic_reg</span>
+
+<span class="n">circuit_t</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">quantum_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># ======================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The circuit has been built (</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> qubits)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Number of Grover iteration: </span><span class="si">{</span><span class="n">T</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;====================================================&#39;</span><span class="p">)</span>
+<span class="n">circuit_t</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">fold</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_104226/1101216745.py:3: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.mct()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.mcx as direct replacement.
+  circuit.mct(control_qubits, target_qubit)  # multi-controlled-toffoli
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The circuit has been built (4 qubits)
+
+Number of Grover iteration: 2
+====================================================
+</pre></div>
+</div>
+<img alt="../../_images/50232680e32179c903e105c53734cf528e02fa7a0c12a1bd46f886f09e5becb9.png" src="../../_images/50232680e32179c903e105c53734cf528e02fa7a0c12a1bd46f886f09e5becb9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span> 
+
+<span class="n">t_circuit_t</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_t</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">sim</span><span class="p">)</span> <span class="c1">#, optimization_level = 3)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_t</span><span class="p">,</span> <span class="n">shots</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+
+<span class="c1"># ======================================================</span>
+<span class="c1"># We order the states from most counts to least</span>
+
+<span class="c1"># keys = list(counts.keys())</span>
+
+<span class="n">keys_bin</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="n">keys_bin</span>
+<span class="c1">#keys = [int(keys_bin[i],2) for i in range(len(keys_bin))] </span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">zip_list</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span><span class="n">values</span><span class="p">)</span>
+<span class="n">zip_sorted</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">zip_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">keys</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">))</span>
+        
+<span class="n">num_sols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">))</span>
+        
+<span class="n">print_range</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">2</span> 
+<span class="k">if</span> <span class="n">num_sols</span> <span class="o">&lt;</span> <span class="n">print_range</span><span class="p">:</span>
+    <span class="n">print_range</span> <span class="o">=</span> <span class="n">num_sols</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The algorithm found </span><span class="si">{</span><span class="n">num_sols</span><span class="si">}</span><span class="s1"> results.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The </span><span class="si">{</span><span class="n">print_range</span><span class="si">}</span><span class="s1"> results with more counts are:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   Result | Counts&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">print_range</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The algorithm found 16 results.
+The 4 results with more counts are:
+
+   Result | Counts
+    (&#39;1010&#39;, 4802)
+    (&#39;0011&#39;, 4671)
+    (&#39;0100&#39;, 47)
+    (&#39;1011&#39;, 46)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Si nos fijamos, vemos que nos devuelve las lista binarias el revés (1010 en vez de 0101)</p>
+</div>
+</section>
+<section id="oraculos-que-verifican-condiciones-sudoku-2-times-2">
+<span id="sec-notebooks-grover-4"></span><h2><span class="section-number">35.4. </span>Oráculos que verifican condiciones: Sudoku <span class="math notranslate nohighlight">\(2\times 2\)</span><a class="headerlink" href="#oraculos-que-verifican-condiciones-sudoku-2-times-2" title="Permalink to this heading">#</a></h2>
+<p>En esta sección vamos a ver como se puede usar el algoritmo de Grover para buscar cadenas de bits que satisfacen unas ciertas condiciones. En concreto vamos a ver dos caso: como solucionar un <strong>sudoku</strong> <span class="math notranslate nohighlight">\(2 \times 2\)</span></p>
+<section id="el-sudoku">
+<span id="sec-notebooks-grover-4-1"></span><h3><span class="section-number">35.4.1. </span>El sudoku<a class="headerlink" href="#el-sudoku" title="Permalink to this heading">#</a></h3>
+<p>Vamos a ver en esta sección como construir un oráculo que resuelva un sudoku 2x2 de la forma:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7368aa44-ccdb-49ef-a8c9-19951d061c07">
+<span class="eqno">(35.3)<a class="headerlink" href="#equation-7368aa44-ccdb-49ef-a8c9-19951d061c07" title="Permalink to this equation">#</a></span>\[\begin{equation}
+	\left(
+	\begin{matrix}
+	V_0 &amp; V_1 \\
+	V_2 &amp; V_3
+	\end{matrix}
+	\right)
+\end{equation}\]</div>
+</section>
+<section id="condiciones-y-puerta-xor">
+<span id="sec-notebooks-grover-4-2"></span><h3><span class="section-number">35.4.2. </span>Condiciones y puerta XOR<a class="headerlink" href="#condiciones-y-puerta-xor" title="Permalink to this heading">#</a></h3>
+<p>En un sudoku tiene que cumplirse que no se repitan números en las filas ni en las columnas, así que las condiciones que tienen que verificar las variables de sudoku 2x2 son:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4e60f72a-513b-4bfa-a5c2-c66673c034c3">
+<span class="eqno">(35.4)<a class="headerlink" href="#equation-4e60f72a-513b-4bfa-a5c2-c66673c034c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_0 \neq V_1, \qquad 
+V_0 \neq V_2, \qquad
+V_2 \neq V_3, \qquad
+V_1 \neq V_3.
+\end{equation}\]</div>
+<p>Por comodidad, podemos compilar este conjunto de comparaciones en una lista de cláusulas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conditions_list</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>  <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para verificar estas condiciones podemos usar un qúbit ancilla y usar la puerta XOR (se puede ver el código a continuación). Como el qúbit ancilla parte del estado <span class="math notranslate nohighlight">\(|0\rangle\)</span>, esta puerta lo que hace ponerlo a en el estado <span class="math notranslate nohighlight">\(|1\rangle\)</span> si la condición se verifica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">XOR_2qubits</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_qubits</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">out_qubit</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">in_qubits</span><span class="p">,</span> <span class="n">out_qubit</span><span class="p">)</span>
+<span class="n">XOR_2qubits</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">in_qubits</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">in_qubits</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_qubit</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dcb/Programs/miniconda/miniconda3/envs/qiskit_qibo_penny_2/lib/python3.11/site-packages/qiskit/visualization/circuit/matplotlib.py:266: FutureWarning: The default matplotlib drawer scheme will be changed to &quot;iqp&quot; in a following release. To silence this warning, specify the current default explicitly as style=&quot;clifford&quot;, or the new default as style=&quot;iqp&quot;.
+  self._style, def_font_ratio = load_style(self._style)
+</pre></div>
+</div>
+<img alt="../../_images/6651d363894e2955ca96c0427e517f0cdb7861844d3685f45ce339dcc10d1126.png" src="../../_images/6651d363894e2955ca96c0427e517f0cdb7861844d3685f45ce339dcc10d1126.png" />
+</div>
+</div>
+</section>
+<section id="oraculo">
+<span id="sec-notebooks-grover-4-3"></span><h3><span class="section-number">35.4.3. </span>Oráculo<a class="headerlink" href="#oraculo" title="Permalink to this heading">#</a></h3>
+<p>Para generar el oráculo del sudoku podemos usar 4 qúbits ancila (uno por condición a verificar) y usar la puerta XOR 4 veces. Pero con esto aún no tenemos el oráculo, pues nos falta verificar si todas las condiciones se cumplen y cambiar el signo del estado.</p>
+<p>Para ello, podemos usar una puerta MCT que tenga como controles los 4 qúbits ancilla y que se aplique sobre un quinto qúbit que esté en el estado <span class="math notranslate nohighlight">\(|-\rangle\)</span>. De esta forma, la puerta MCT solo se aplicará si se cumplen las 4 condiciones.</p>
+<p>Por último, solo nos faltaría volver a aplicar las puertas XOR para limpiar los qúbits ancilla. El resultado final sería el siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Grover_Oracle_Sudoku_2x2</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">conditions_list</span><span class="p">,</span> <span class="n">ancilla_reg</span><span class="p">,</span> 
+			                 <span class="n">output_qubit</span><span class="p">,</span> <span class="n">print_oracle</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">	This oracle solves the problem of a Sudoku 2x2. </span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="c1"># Compute clauses</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="n">conditions_list</span><span class="p">:</span>
+		<span class="n">XOR_2qubits</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">clause</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">clause</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ancilla_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+	<span class="c1"># Flip &#39;output&#39; bit if all clauses are satisfied</span>
+	<span class="n">circuit</span><span class="o">.</span><span class="n">mct</span><span class="p">(</span><span class="n">ancilla_reg</span><span class="p">,</span> <span class="n">output_qubit</span><span class="p">)</span>
+
+	<span class="c1"># Uncompute clauses to reset clause-checking bits to 0</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="n">conditions_list</span><span class="p">:</span>
+		<span class="n">XOR_2qubits</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">clause</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">clause</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ancilla_reg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+	<span class="k">if</span> <span class="n">print_oracle</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">fold</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;3-Fig_Oracle_Sudoku_2x2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="circuito-final">
+<span id="sec-notebooks-grover-4-4"></span><h3><span class="section-number">35.4.4. </span>Circuito final<a class="headerlink" href="#circuito-final" title="Permalink to this heading">#</a></h3>
+<p>Veamos también una función que nos da el numero de iteraciones de Grover en función del número de soluciones <span class="math notranslate nohighlight">\(M\)</span> y el número total de estados <span class="math notranslate nohighlight">\(N\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Iterations_T</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conditions_list</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>  <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">]</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="c1"># Total number of states</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c1"># Number of solutions</span>
+
+<span class="c1"># Registers</span>
+<span class="n">var_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">ancilla_reg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conditions_list</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">output_qubit</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;out&#39;</span><span class="p">)</span>
+<span class="n">classic_reg</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cbits&#39;</span><span class="p">)</span>
+
+<span class="c1"># Circuit</span>
+<span class="n">circuit_sudo</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">var_reg</span><span class="p">,</span> <span class="n">ancilla_reg</span><span class="p">,</span> <span class="n">output_qubit</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+<span class="c1"># Initialize &#39;out0&#39; in state |-&gt;</span>
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">output_qubit</span><span class="p">)</span>
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">output_qubit</span><span class="p">)</span>
+
+<span class="c1"># Initialize qubits in state |s&gt;</span>
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">var_reg</span><span class="p">)</span>
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>  <span class="c1"># for visual separation</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">Iterations_T</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">Grover_Oracle_Sudoku_2x2</span><span class="p">(</span><span class="n">circuit_sudo</span><span class="p">,</span> <span class="n">conditions_list</span><span class="p">,</span> <span class="n">ancilla_reg</span><span class="p">,</span> 
+                  <span class="n">output_qubit</span><span class="p">,</span> <span class="n">print_oracle</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">circuit_sudo</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>  <span class="c1"># for visual separation</span>
+    <span class="n">Grover_Diffuser</span><span class="p">(</span><span class="n">circuit_sudo</span><span class="p">,</span> <span class="n">var_reg</span><span class="p">)</span>
+    <span class="n">circuit_sudo</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>  <span class="c1"># for visual separation</span>
+
+
+
+<span class="c1"># Measure the variable qubits</span>
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">var_reg</span><span class="p">,</span> <span class="n">classic_reg</span><span class="p">)</span>
+
+
+<span class="n">circuit_sudo</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">fold</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_104226/4069349661.py:13: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.mct()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.mcx as direct replacement.
+  circuit.mct(ancilla_reg, output_qubit)
+/tmp/ipykernel_104226/1101216745.py:3: DeprecationWarning: The method ``qiskit.circuit.quantumcircuit.QuantumCircuit.mct()`` is deprecated as of qiskit 0.45.0. It will be removed no earlier than 3 months after the release date. Use QuantumCircuit.mcx as direct replacement.
+  circuit.mct(control_qubits, target_qubit)  # multi-controlled-toffoli
+</pre></div>
+</div>
+<img alt="../../_images/5ebc5029d55c928ba1c69fffa2c1932e1eac87d44d87373ea3b29be80e633f71.png" src="../../_images/5ebc5029d55c928ba1c69fffa2c1932e1eac87d44d87373ea3b29be80e633f71.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;statevector&#39;</span><span class="p">)</span>
+<span class="n">t_circuit_sudo</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit_sudo</span><span class="p">,</span> <span class="n">sim</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_circuit_sudo</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+
+<span class="n">keys_bin</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+
+<span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">zip_list</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys_bin</span><span class="p">,</span><span class="n">values</span><span class="p">)</span>
+<span class="n">zip_sorted</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">zip_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">keys_bin</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">))</span>
+
+<span class="n">num_sols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">))</span>
+
+<span class="n">print_range</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> 
+<span class="k">if</span> <span class="n">num_sols</span> <span class="o">&lt;</span> <span class="n">print_range</span><span class="p">:</span>
+    <span class="n">print_range</span> <span class="o">=</span> <span class="n">num_sols</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Solving the sudoku 2x2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    v0  v1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    v2  v3&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The results takes the form: v0v1v2v3&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The algorithm found </span><span class="si">{</span><span class="n">num_sols</span><span class="si">}</span><span class="s1"> results.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The </span><span class="si">{</span><span class="n">print_range</span><span class="si">}</span><span class="s1"> results with more counts are:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   Result | Counts&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">print_range</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">zip_sorted</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solving the sudoku 2x2:
+    v0  v1
+    v2  v3
+The results takes the form: v0v1v2v3
+
+The algorithm found 16 results.
+The 4 results with more counts are:
+
+   Result | Counts
+   (&#39;1001&#39;, 500)
+   (&#39;0110&#39;, 465)
+   (&#39;0001&#39;, 9)
+   (&#39;0101&#39;, 9)
+</pre></div>
+</div>
+<img alt="../../_images/a197b982a69383dc9090197fda0b04182b3e1b4c3199bdd9936012233b24bdd1.png" src="../../_images/a197b982a69383dc9090197fda0b04182b3e1b4c3199bdd9936012233b24bdd1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "davidcb98/JupyterBook_plantilla",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_05_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_11-Shor_Algorithm_simple_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Shor: Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_13_QKD_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Quantum Key Distribution - BB84</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puerta-multicontrolada-z-mcz">35.1. Puerta multicontrolada <span class="math notranslate nohighlight">\(Z\)</span> (MCZ).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difusor-generico">35.2. Difusor genérico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculo-trivial">35.3. Oráculo Trivial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculos-que-verifican-condiciones-sudoku-2-times-2">35.4. Oráculos que verifican condiciones: Sudoku <span class="math notranslate nohighlight">\(2\times 2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-sudoku">35.4.1. El sudoku</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condiciones-y-puerta-xor">35.4.2. Condiciones y puerta XOR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oraculo">35.4.3. Oráculo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuito-final">35.4.4. Circuito final</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Javier Mas Solé
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

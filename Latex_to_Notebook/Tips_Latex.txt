@@ -121,15 +121,14 @@ Es decir, no se acepta:
 
 ######### Cosas para hacer
 
-- Los mybox_orange
 - Añadir colortex a plantilla
+- Corregir los \underline{}
 
 - Lidiar con refs a partes y tablas
 - Pasar de dropdown a proof??? No se yo
-- Lidiar con los \href
 
 
-- Tratar las tablas:
 
-    Referencias: {numref}`label`      --> Table 2
-                 {numref}`%s <label>` --> 2
+
+
+

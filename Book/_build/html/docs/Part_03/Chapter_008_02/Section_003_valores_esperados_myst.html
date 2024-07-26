@@ -78,7 +78,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "jamasole/Curso-TalentQ-Book");
+    script.setAttribute("repo", "davidcb98/CICC_UMA");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -196,8 +196,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
-    <script>document.write(`<img src="../../../_static/TalentQ_LogoNegNegro.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+    <img src="../../../_static/Logo_UMA.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/Logo_UMA.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
   
   
 </a></div>
@@ -411,55 +411,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/davidcb98/JupyterBook_plantilla/master?urlpath=lab/tree/Book/docs/Part_03/Chapter_008_02/Section_003_valores_esperados_myst.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -468,7 +419,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -485,7 +436,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/edit/master/Book/docs/Part_03/Chapter_008_02/Section_003_valores_esperados_myst.ipynb" target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/edit/master/Book/docs/Part_03/Chapter_008_02/Section_003_valores_esperados_myst.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -502,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/davidcb98/JupyterBook_plantilla/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/davidcb98/CICC_UMA/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -629,7 +580,7 @@ document.write(`
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>Jul 10, 2024 | 0 min read</p>
+<div><p>Jul 23, 2024 | 1 min read</p>
 </div></blockquote>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi9.png"><img alt="../../../_images/Fig_logo_UMA_scbi9.png" src="../../../_images/Fig_logo_UMA_scbi9.png" style="width: 2000px;" /></a>
@@ -670,19 +621,20 @@ A = \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \sigma_{i_1}\otimes \ldots \otimes 
 a_{i_1\ldots i_n} =\frac{1}{2^n} \text{tr } (A \,  \sigma_{i_1}\otimes \ldots  \otimes\sigma_{i_n})
 \end{equation} \]</div>
 <p>Por lo tanto, para hallar el valor esperado de un operador <span class="math notranslate nohighlight">\(A\)</span>, solo tenemos que hallar los valores esperados de las cadenas de Pauli</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c918e8a-4990-46d0-b0ab-37ad7aff2286">
-<span class="eqno">(8.5)<a class="headerlink" href="#equation-9c918e8a-4990-46d0-b0ab-37ad7aff2286" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2d310b13-96d5-41a5-acb6-1b4eb3de0582">
+<span class="eqno">(8.5)<a class="headerlink" href="#equation-2d310b13-96d5-41a5-acb6-1b4eb3de0582" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle A \rangle_{\psi} =  \sum_{i_1,...,i_n=0}^3 a_{i_1\ldots i_n} \langle \sigma_{i_1}\otimes \ldots   \otimes\sigma_{i_n}\rangle
 \end{equation}\]</div>
 <div class="attention admonition">
-<p class="admonition-title">Jupyter Notebook (04-Medidas_II seccion 3)</p>
-<p>Ver la sección 3 del notebook <b>04-Medidas_II</b>.</p>
+<p class="admonition-title">Jupyter Notebook (<a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_05-Medidas_II_myst.html">5 - Medidas II</a></p>
+<p>Ver la sección <a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_05-Medidas_II_myst.html#valor-esperado-de-una-cadena-de-pauli">5.3. Valor esperado de una cadena de Pauli</a> del notebook <a class="reference external" href="https://www.scbi.uma.es/web/wp-content/uploads/Jupyterbook/CICC_UMA/Notebooks/html/docs/Part_01/Chapter_05-Medidas_II_myst.html">5 - Medidas II</a></p>
+<p>El Notebook puede descargarse de <a class="reference external" href="https://github.com/davidcb98/CICC_UMA/blob/master/Notebooks/Part_01/Chapter_05-Medidas_II.ipynb">Github</a>.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio</p>
 <p>Calcula el valor esperado de <span class="math notranslate nohighlight">\(\langle X\otimes Y\otimes Z\rangle_\Psi\)</span>, donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0870597-9a2d-4a9f-a31a-7cdd4942838f">
-<span class="eqno">(8.6)<a class="headerlink" href="#equation-a0870597-9a2d-4a9f-a31a-7cdd4942838f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-78702251-63d9-4179-80f5-9870029a20a8">
+<span class="eqno">(8.6)<a class="headerlink" href="#equation-78702251-63d9-4179-80f5-9870029a20a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ket{\psi} = \frac{i}{4} \ket{000}+\frac{1}{\sqrt{8}} \ket{001}+\frac{1+i}{4} \ket{010}+
 \frac{1+2i}{\sqrt{8}}\ket{101}+\frac{1}{4} \ket{110}
 \end{equation}\]</div>
@@ -704,7 +656,7 @@ valor esperado de la energía <span class="math notranslate nohighlight">\(E = \
     {
         requestKernel: true,
         binderOptions: {
-            repo: "davidcb98/JupyterBook_plantilla",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -766,7 +718,7 @@ valor esperado de la energía <span class="math notranslate nohighlight">\(E = \
   <div class="footer-item">
     
 <p class="component-author">
-By Javier Mas Solé
+By David Castaño Bandín
 </p>
 
   </div>
