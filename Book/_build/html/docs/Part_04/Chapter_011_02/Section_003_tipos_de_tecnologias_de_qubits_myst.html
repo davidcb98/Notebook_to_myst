@@ -1,0 +1,921 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10.3. Tipos de Tecnologías de qubits. &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "davidcb98/CICC_UMA");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="10.4. Pulso de microondas" href="Section_004_pulso_de_microondas_myst.html" />
+    <link rel="prev" title="10.2. Estructura del Hardware de un Ordenador Cuántico" href="Section_002_estructura_del_hardware_de_un_ordenador_cuantico_myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/Logo_UMA.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/Logo_UMA.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">1. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">1.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">1.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">1.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">1.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">1.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">2. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">2.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">2.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">2.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">2.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">2.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">3. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">3.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">3.2. El estado de un qubit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">4. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">4.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">4.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">4.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">5. Medidas, Parte I: Medida de 1 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">5.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">5.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">5.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">5.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">6. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">6.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">6.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">6.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">6.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">6.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">6.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">7. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">7.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">7.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">7.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_test_de_hadamard_myst.html">7.4. Test de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">8. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">8.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">8.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">8.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">8.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">8.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_decoherencia_y_desfase_myst.html">9. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">9.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">9.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_resumen_myst.html">9.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware de Computación Cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_011_01_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">10. Breve introducción sobre Hardware de Computación Cuántica</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Section_001_modelos_de_computacion_cuantica_myst.html">10.1. Modelos de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_estructura_del_hardware_de_un_ordenador_cuantico_myst.html">10.2. Estructura del Hardware de un Ordenador Cuántico</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.3. Tipos de Tecnologías de qubits.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_004_pulso_de_microondas_myst.html">10.4. Pulso de microondas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_005_conceptos_erroneos_sobre_el_hardware_de_computacion_cuantica_myst.html">10.5. Conceptos Erróneos sobre el Hardware de Computación Cuántica.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_006_algunos_roadmaps_publicos_myst.html">10.6. Algunos Roadmaps públicos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_012_01_computacion_cuantica_con_iones_atrapados_trapped_ions__myst.html">11. Computación Cuántica con Iones Atrapados (Trapped Ions)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_001_produccion_de_iones_myst.html">11.1. Producción de iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_002_trampas_de_iones_myst.html">11.2. Trampas de iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_003_enfriamiento_de_iones_por_laser__myst.html">11.3. Enfriamiento de iones por láser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_004_manipulando_iones_individuales_puertas_simples__myst.html">11.4. Manipulando iones individuales: puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_005_manipulacion_de_multiples_iones_myst.html">11.5. Manipulación de múltiples iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_006_lectura_del_estado_de_los_iones_myst.html">11.6. Lectura del estado de los iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_007_puertas_multiqubit_con_iones__myst.html">11.7. Puertas multiqubit con iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_012_02/Section_008_conclusiones_pros_y_contras_myst.html">11.8. Conclusiones: pros y contras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_013_01_computacion_cuantica_con_qubits_superconductores__myst.html">12. Computación Cuántica con qubits Superconductores</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_001_conceptos_basicos_sobre_superconductividad_myst.html">12.1. Conceptos básicos sobre Superconductividad.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_002_tipos_de_qubits_superconductores_myst.html">12.2. Tipos de qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_003_fisica_de_los_qubits_superconductores__myst.html">12.3. Física de los qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_004_operaciones_con_qubits_superconductores_myst.html">12.4. Operaciones con qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_013_02/Section_005_retos_con_qubits_superconductores_myst.html">12.5. Retos con qubits superconductores</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_014_01_tecnicas_de_control_y_computacion_en_rmn_myst.html">13. Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_001_introduccion_myst.html">13.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_002_el_espin_nuclear__myst.html">13.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_003_qubits_de_rmn_myst.html">13.3. qubits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_014_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">13.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_015_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">14. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_001_circuitos_myst.html">14.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">14.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_003_circuitos_equivalentes_myst.html">14.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_004_operadores_de_clifford_myst.html">14.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">14.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_015_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">14.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_016_01_estado_inicial_y_oraculos_myst.html">15. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_016_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">15.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_016_02/Section_002_oraculos_funciones_digitales_myst.html">15.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_017_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">16. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_017_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">16.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_017_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">16.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_017_02/Section_003_algoritmo_de_simon_myst.html">16.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_018_01_qft_quantum_fourier_transform__myst.html">17. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_018_02/Section_001_la_qft_en_computacion_cuantica_myst.html">17.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_018_02/Section_002_intuicion_myst.html">17.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_018_02/Section_003_circuito_que_implementa_la_qft_myst.html">17.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_018_02/Section_004_comentarios_sobre_la_implementacion_myst.html">17.4. comentarios sobre la implementación.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_019_01_qpe_estimacion_de_fase_cuantica__myst.html">18. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_019_02/Section_001_introduccion_myst.html">18.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_019_02/Section_002_circuito_myst.html">18.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_019_02/Section_003_formulacion_matematica_myst.html">18.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_019_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">18.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_020_01_algoritmo_de_shor_periodicity_finding__myst.html">19. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_020_02/Section_001_introduccion_myst.html">19.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_020_02/Section_002_formalismo_matematico__myst.html">19.2. Formalismo matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_020_02/Section_003_hallar_del_periodo_de_una_funcion_period_finding_myst.html">19.3. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_020_02/Section_004_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">19.4. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_021_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">20. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_021_02/Section_001_la_idea__myst.html">20.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_021_02/Section_002_explicacion_desgranada_myst.html">20.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_021_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">20.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_021_02/Section_004_implementacion_de_las_swap_controladas_myst.html">20.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_022_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">21. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_001_diccionario_de_notaciones_myst.html">21.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_002_introduccion_myst.html">21.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">21.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_004_numero_conocido_de_soluciones__myst.html">21.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_005_numero_desconocido_de_soluciones__myst.html">21.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">21.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">21.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">21.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_022_02/Section_009_implementaciones_con_qiskit_myst.html">21.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_05/Chapter_023_01_criptografia_y_quantum_key_distribution_qkd__myst.html">22. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_023_02/Section_001_introduccion_myst.html">22.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_023_02/Section_002_fundamentos_de_qkd_myst.html">22.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_05/Chapter_023_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">22.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_06/Chapter_024_01_recopilacion_de_los_ejercicios_myst.html">23. Recopilación de los ejercicios</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_001_formalismos_matematico_myst.html">23.1. Formalismos matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_002_fundamentos_de_mecanica_cuantica_myst.html">23.2. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_003_qubits_myst.html">23.3. Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_004_puertas_simples_myst.html">23.4. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_005_medidad%2C_parte_i_medida_de_1_qubit_myst.html">23.5. Medidad, Parte I: Medida de 1 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_006_multi-qubit_definiciones_y_puertas_myst.html">23.6. Multi-qubit: definiciones y puertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_007_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">23.7. Medidas, Parte II: Medida de estados multi-Qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_008_entrelazamiento_en_accion_myst.html">23.8. Entrelazamiento en acción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_009_decoherencia_y_desfase_myst.html">23.9. Decoherencia y desfase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_010_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">23.10. Breve introducción sobre Hardware de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_011_computacion_cuantica_con_iones_atrapados_trepped_ions_myst.html">23.11. Computación Cuántica con Iones Atrapados (Trepped Ions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_012_computacion_cuantica_con_qubits_superconductores_myst.html">23.12. Computación Cuántica con qubits Superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_013_tecnicas_de_control_y_computacion_en_rnm_myst.html">23.13. Técnicas de control y computación en RNM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_014_elementos_basicos_de_los_algoritmo_cuantico_myst.html">23.14. Elementos básicos de los algoritmo cuántico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_015_estado_incial_y_oraculo_myst.html">23.15. Estado incial y oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_016_primeros_algoritmos_algoritmos_del_oraculo_myst.html">23.16. Primeros algoritmos: algoritmos del oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_017_qft_quantum_fourier_transform_myst.html">23.17. QFT: Quantum Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_018_qpe_estimacion_de_fase_cuantica_myst.html">23.18. QPE: Estimación de Fase Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_019_algoritmo_de_shor_periodicity_finding_myst.html">23.19. Algoritmo de Shor (Periodicity Finding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_020_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">23.20. Algoritmo de Shor: Implementación con 2n+3 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_021_algoritmo_de_grover_amplificacion_de_la_amplitud_myst.html">23.21. Algoritmo de Grover (Amplificación de la amplitud)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_022_criptografia_y_quantum_key_distribution_qkd_myst.html">23.22. Criptografía y Quantum Key Distribution (QKD)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA/edit/master/Book/docs/Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tipos de Tecnologías de qubits.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-divicenzo">10.3.1. Criterio de Divicenzo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iones-atrapados-trapped-ion-qubits">10.3.2. Iones Atrapados (Trapped Ion Qubits)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-superconductores">10.3.3. Qubits Superconductores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-cuantica-con-fotones">10.3.4. Computación cuántica con fotones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-con-semiconductores">10.3.5. Qubits con semiconductores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-con-atomos-neutros">10.3.6. Qubits con átomos neutros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-topologicos">10.3.7. Qubits topológicos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Sep 27, 2024 | 10 min read</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi13.png"><img alt="../../../_images/Fig_logo_UMA_scbi13.png" class="align-center" src="../../../_images/Fig_logo_UMA_scbi13.png" style="width: 2000px;" /></a>
+<a href="https://www.scbi.uma.es/web/es/computacion-cuantica/">
+    <button class="rounded" style="float: right;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="var(--fill, white)"
+        d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4l1.7 3.6c.2.4 0 .8-.4
+            1l-2.8 1.3c-.1.1-.2.1-.3.1c-.3 0-.6-.2-.7-.4L11.2
+            18l-1.9 1.5c-.1.1-.3.2-.5.2c-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8c.2 0
+            .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1
+            1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z" />
+    </svg>
+    Volver a SCBI - Computación Cuantica
+    </button>
+</a>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tipos-de-tecnologias-de-qubits">
+<h1><span class="section-number">10.3. </span>Tipos de Tecnologías de qubits.<a class="headerlink" href="#tipos-de-tecnologias-de-qubits" title="Permalink to this heading">#</a></h1>
+<p>En la Fig.  <a class="reference internal" href="#fig-hardware-qubit-tecnologies"><span class="std std-numref">10.2</span></a> podemos ver el estado del arte (hasta enero de 2022) de las diferentes tecnologías de qubits. En esta sección vamos a hacer un pequeño resumen de algunas de las más importantes.</p>
+<figure class="align-center" id="fig-hardware-qubit-tecnologies">
+<a class="reference internal image-reference" href="../../../_images/Fig_Hardware_qubit_tecnologies.png"><img alt="../../../_images/Fig_Hardware_qubit_tecnologies.png" src="../../../_images/Fig_Hardware_qubit_tecnologies.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Diferentes tecnologías de qubits de diferentes empresas, con su número máximo de qubits (hasta enero de 2022). Los números en <b>amarillo</b> representan ordenadores universales y los <b>naranjas</b> ordenadores no-universales. Figura tomada del vídeo <a class="reference external" href="https://www.youtube.com/watch?v=gcbMKt079l8">Who Has The Best Quantum Computer?</a></span><a class="headerlink" href="#fig-hardware-qubit-tecnologies" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="criterio-de-divicenzo">
+<span id="sec-criterio-divicenzo"></span><h2><span class="section-number">10.3.1. </span>Criterio de Divicenzo<a class="headerlink" href="#criterio-de-divicenzo" title="Permalink to this heading">#</a></h2>
+<p>Para poder implementar de forma satisfactoria un ordenador cuántico, el montaje experimental (el ordenador cuántico) debe satisfacer las siete condiciones del criterio de DiVincenzo <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id73" title="David P. DiVincenzo. The physical implementation of quantum computation. Fortschritte der Physik, 48(9–11):771–783, September 2000. URL: http://dx.doi.org/10.1002/1521-3978(200009)48:9/11&lt;771::AID-PROP771&gt;3.0.CO;2-E, doi:10.1002/1521-3978(200009)48:9/11&lt;771::aid-prop771&gt;3.0.co;2-e.">26</a>]</span>. Las cinco primeras son para ordenadores cuánticos:</p>
+<ul class="simple">
+<li><p>(a) Los qubits deben estar bien caracterizados y ser fáciles de producir. (b) El sistema debe ser escalable, es decir, debe poder gestionar un número arbitrario de qubits.</p></li>
+<li><p>La capacidad de inicializar el estado de los qubits a un estado fiducial simple, como por ejemplo <span class="math notranslate nohighlight">\(\ket{00\dots}\)</span>.</p></li>
+<li><p>Tiempos de decoherencia relevantes largos, mucho más largos que el tiempo de funcionamiento de la puerta. Es decir, un qubit debe ser estable en escalas de tiempo mayores que el tiempo típico necesario para operar con él.</p></li>
+<li><p>Debe de ser posible implementar un conjunto universal de puertas.</p></li>
+<li><p>Debe existir un procedimiento fiable para leer el estado de cada qubit por separado.</p></li>
+</ul>
+<p>Los dos restantes son necesarios para la comunicación cuántica:</p>
+<ul class="simple">
+<li><p>La capacidad de interconvertir qubits estacionarios y voladores.</p></li>
+<li><p>La capacidad de transmitir fielmente qubits voladores entre ubicaciones específicas.</p></li>
+</ul>
+</section>
+<section id="iones-atrapados-trapped-ion-qubits">
+<h2><span class="section-number">10.3.2. </span>Iones Atrapados (Trapped Ion Qubits)<a class="headerlink" href="#iones-atrapados-trapped-ion-qubits" title="Permalink to this heading">#</a></h2>
+<p>La primera puerta lógica cuántica se demostró en 1995 utilizando iones atómicos atrapados <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id81" title="C. Monroe, D. M. Meekhof, B. E. King, W. M. Itano, and D. J. Wineland. Demonstration of a fundamental quantum logic gate. Phys. Rev. Lett., 75:4714–4717, Dec 1995. URL: https://link.aps.org/doi/10.1103/PhysRevLett.75.4714, doi:10.1103/PhysRevLett.75.4714.">52</a>]</span>, tras una propuesta teórica de ese mismo año <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id82" title="J. I. Cirac and P. Zoller. Quantum computations with cold trapped ions. Phys. Rev. Lett., 74:4091–4094, May 1995. URL: https://link.aps.org/doi/10.1103/PhysRevLett.74.4091, doi:10.1103/PhysRevLett.74.4091.">20</a>]</span>. Desde la demostración original, los avances técnicos en el control de qubits han permitido la demostración experimental de procesadores totalmente funcionales a pequeña escala y la implementación de una amplia gama de algoritmos cuánticos sencillos.</p>
+<p>A pesar del éxito de las demostraciones a pequeña escala, la tarea de construir ordenadores cuánticos escalables y considerados viables según los estándares actuales de la industria informática a partir de iones atrapados sigue siendo un reto importante.  La construcción de un ordenador cuántico basado en qubits de iones atrapados requiere la integración de tecnologías de una amplia gama de dominios, incluidos los sistemas de vacío, láser y ópticos, la tecnología de radiofrecuencia (RF) y microondas, y los controladores electrónicos coherentes. El camino hacia un ordenador cuántico viable debe abordar estos retos de integración.</p>
+<p>Un plano de datos cuánticos de iones atrapados comprende los iones que sirven de qubits y una “trampa” que los mantiene en lugares específicos. El plano de control y medición incluye una fuente láser (o de microondas) muy precisa que puede dirigirse a un ion específico para afectar a su estado cuántico, otro láser para “enfriar” y permitir la medición de los iones, y un conjunto de detectores de fotones para “medir” el estado de los iones mediante la detección de los fotones que dispersan.</p>
+<p>Para más información sobre esta tecnología, consultar el Capitulo  <a class="reference internal" href="../Chapter_012_01_computacion_cuantica_con_iones_atrapados_trapped_ions__myst.html#sec-chapter-hw-iones"><span class="std std-numref">11</span></a>.</p>
+</section>
+<section id="qubits-superconductores">
+<h2><span class="section-number">10.3.3. </span>Qubits Superconductores<a class="headerlink" href="#qubits-superconductores" title="Permalink to this heading">#</a></h2>
+<p>Al igual que los actuales circuitos integrados de silicio, los qubits superconductores son circuitos electrónicos definidos litográficamente. Cuando se enfrían a temperaturas de mili-Kelvin, presentan niveles de energía cuantizados (debido a estados cuantizados de carga electrónica o flujo magnético, por ejemplo), por lo que a veces se les denomina “átomos artificiales”.</p>
+<p>Su compatibilidad con la electrónica de control de microondas, su capacidad para operar en escalas de tiempo de nanosegundos, la mejora continua de los tiempos de coherencia y el potencial para aprovechar la escala litográfica, convergen para situar a los qubits superconductores en la vanguardia de las modalidades de qubits que se están considerando tanto para la computación cuántica digital como para el anneling cuántico.</p>
+<p>Para más información sobre esta tecnología, consultar el Capitulo  <a class="reference internal" href="../Chapter_013_01_computacion_cuantica_con_qubits_superconductores__myst.html#sec-chapter-hw-scq"><span class="std std-numref">12</span></a>.</p>
+</section>
+<section id="computacion-cuantica-con-fotones">
+<h2><span class="section-number">10.3.4. </span>Computación cuántica con fotones<a class="headerlink" href="#computacion-cuantica-con-fotones" title="Permalink to this heading">#</a></h2>
+<p>Los fotones tienen una serie de propiedades que los convierten en una tecnología atractiva para los ordenadores cuánticos: son partículas cuánticas que interactúan débilmente con su entorno y entre sí. Este aislamiento natural del entorno los convierte en un enfoque obvio para la comunicación cuántica. Esta utilidad básica para la comunicación, combinada con excelentes puertas de un solo qubit de alta fidelidad, hace que muchos de los primeros experimentos cuánticos se realizaran con fotones.</p>
+<p>Un reto clave de los ordenadores cuánticos fotónicos es cómo crear puertas robustas de dos qubits. Los investigadores trabajan actualmente en dos enfoques para este problema.</p>
+<ul class="simple">
+<li><p>En la <b>computación cuántica de óptica lineal</b>, se crea una interacción fuerte efectiva mediante una combinación de operaciones y mediciones monofotónicas, que puede utilizarse para implementar una puerta probabilística de dos qubits, que anuncia cuándo ha tenido éxito.</p></li>
+<li><p>Un segundo enfoque utiliza pequeñas estructuras en cristales semiconductores para la interacción de fotones, y también puede considerarse un tipo de ordenador cuántico semiconductor. Estas estructuras pueden ser naturales, llamadas <b>“defectos ópticamente activos”</b>, o artificiales, que suelen ser una estructura llamada <b>“quantum dot”</b>.</p></li>
+</ul>
+<p>Los trabajos para construir ordenadores fotónicos lineales a pequeña escala han tenido éxito, y hay varios grupos que intentan aumentar el tamaño de estas máquinas. Uno de los principales problemas es el “tamaño” del qubit fotónico. Dado que los fotones utilizados en la computación cuántica fotónica suelen tener longitudes de onda de alrededor de una micra, y que los fotones se mueven a la velocidad de la luz y suelen dirigirse a lo largo de una dimensión del chip óptico, aumentar el número de fotones, y por tanto el número de qubits, hasta cifras extremadamente grandes en un dispositivo fotónico es aún más difícil que en sistemas con qubits que pueden localizarse en el espacio. Sin embargo, se espera que sea posible crear matrices con muchos miles de qubits.</p>
+</section>
+<section id="qubits-con-semiconductores">
+<h2><span class="section-number">10.3.5. </span>Qubits con semiconductores<a class="headerlink" href="#qubits-con-semiconductores" title="Permalink to this heading">#</a></h2>
+<p>Los qubits semiconductores pueden dividirse en dos tipos según utilicen fotones o señales eléctricas para controlar los qubits y sus interacciones.</p>
+<ul class="simple">
+<li><p>Los qubits semiconductores controlados ópticamente suelen utilizar <b>defectos ópticamente activos</b> o <b>quantum dots</b> que inducen fuertes acoplamientos efectivos entre fotones.
+El escalado de los qubits con puertas óptica requiere una mejor uniformidad y la eliminación de la necesidad de tratar ópticamente cada qubit de forma individual.</p></li>
+<li><p>Los qubits semiconductores controlados eléctricamente utilizan voltajes aplicados a puertas metálicas definidas litográficamente para confinar y manipular los electrones que forman los qubits. Este enfoque es más similar al utilizado en la electrónica clásica actual, lo que podría permitir que las grandes inversiones que han hecho posible la enorme escalabilidad de la electrónica clásica faciliten el escalado de los procesadores de información cuántica.
+Los qubits con activación eléctrica son potencialmente muy densos. Aunque la alta densidad puede permitir integrar un gran número de qubits en el chip, agrava el problema de construir un plano de control y medición para este tipo de qubits: proporcionar el cableado necesario y evitar al mismo tiempo interferencias entre las señales de control será extremadamente difícil.</p></li>
+</ul>
+</section>
+<section id="qubits-con-atomos-neutros">
+<h2><span class="section-number">10.3.6. </span>Qubits con átomos neutros<a class="headerlink" href="#qubits-con-atomos-neutros" title="Permalink to this heading">#</a></h2>
+<p>Los átomos neutros son otro método para crear qubits muy similar al de los iones atrapados, pero en lugar de utilizar átomos ionizados y aprovechar su carga para mantener los qubits en su sitio, se emplean átomos neutros y pinzas láser. Al igual que los qubits de iones atrapados, se utilizan pulsos ópticos y de microondas para manipular los qubits, y también se emplean láseres para enfriar los átomos antes del cálculo.</p>
+<p>Gracias a los recientes avances en la tecnología de pinzas ópticas, los átomos neutros pueden utilizarse como qubits robustos y versátiles. En 2022, una colaboración entre QuEra y varias instituciones académicas produjo un dispositivo de átomos neutros con 256 qubits <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id83" title="QuEra. Aquila, our 256-qubit quantum processor. May 2023. URL: https://www.quera.com/aquila.">78</a>]</span> (analógico, no de puertas). En el sector privado esta tecnología es usada por empresas emergentes como Pasqal, QuEra y Atom Computing.</p>
+<p>En la computación cuántica con átomos neutros se usan <b>átomos de Rydberg</b>. Un átomo de Rydberg es un átomo excitado con uno o más electrones que tienen un número cuántico principal, <span class="math notranslate nohighlight">\(n\)</span>, muy alto. Cuanto mayor es el valor de <span class="math notranslate nohighlight">\(n\)</span>, más lejos está el electrón del núcleo, por término medio. Los átomos de Rydberg tienen una serie de propiedades peculiares, como una gran sensibilidad a los campos eléctricos y magnéticos, largos periodos de desintegración y funciones de onda de los electrones que se aproximan, en algunas condiciones, a las órbitas clásicas de los electrones alrededor de los núcleos. Los electrones del núcleo protegen al electrón exterior del campo eléctrico del núcleo, de forma que, desde la distancia, el potencial eléctrico parece idéntico al que experimenta el electrón en un átomo de hidrógeno.</p>
+</section>
+<section id="qubits-topologicos">
+<h2><span class="section-number">10.3.7. </span>Qubits topológicos<a class="headerlink" href="#qubits-topologicos" title="Permalink to this heading">#</a></h2>
+<p>El último enfoque de la computación cuántica que vamos a ver es el que utiliza qubits topológicos.</p>
+<p>La topología es la rama de las matemáticas que se ocupa de las propiedades de un objeto geométrico que se conservan bajo deformaciones continuas, como estirarse, retorcerse, arrugarse y doblarse; es decir, sin cerrarse agujeros, abrirse huecos, rasgarse, pegarse o atravesarse.</p>
+<p>Un ejemplo clásico es que una taza y una rosquilla (técnicamente, un toroide) son topológicamente equivalente, pues los dos presentan un agujero (en la taza, es el del asa). Es decir, desde un punto de vista geométrico, una taza y una rosquilla son objetos muy diferentes, mientras que desde un punto de vista topológico, son el mismo (ver Fig.  <a class="reference internal" href="#fig-hw-map-of-tqc"><span class="std std-numref">10.3</span></a>).</p>
+<p>Otro ejemplo son una cinta de papel y una banda de Möbius (ver Fig.  <a class="reference internal" href="#fig-hw-map-of-tqc"><span class="std std-numref">10.3</span></a>). A primera vista parecen similares (por ejemplo, solo tiene un agujero), pero topológicamente son diferentes, pues un cinta de papel tiene dos lados y la banda de Möbius solo tiene uno. Es decir, no podemos deformar de forma continua uno de ellos para convertirlo en el otro.</p>
+<p>Pensando por ejemplo en la banda de Möbius, podemos hacerla con una tira de papel y un celo. Podemos coger ahora con la manos esta banda y deformarla, en el sentido de estirar desde dos extremos, darle la vuelta,… Estas deformaciones cambian la forma o la posición de la banda, pero mientras sean lo suficientemente débiles como para no romperla, <b>no cambian sus propiedades topolígicas</b>. Pasa lo mismo con, por ejemplo, una bandera. Cuando le da el viento la bandera ondula, se deforma, se enrolla sobre si misma, …, pero topológicamante sigue siendo un plano (a no ser que algo la desgarre). Es decir, las propiedades topológicas están protegidas ante deformaciones suaves.</p>
+<p>Los qubits topológicos usan estados topológicos. Estos qubits están protegidos de forma natural de la decoherencia por las propiedades topológicas. Además, las operaciones sobre los qubits físicos tienen fidelidades extremadamente altas porque están protegidas por la simetría topológica implementada a nivel microscópico: la corrección de errores la realiza el propio qubit. Esto reducirá y posiblemente eliminará la sobrecarga de realizar una corrección de errores cuántica explícita.</p>
+<p>En el planteamiento de los qubits topológicos se usan las denominadas <b>partículas de Majorana</b>. Las particulas de Majorana son teóricas, en el sentido de que nunca se han observado así que no se sabe si existen o no. Sin embargo, bajo ciertas condiciones un material puede presentar un comportamiento colectivo que se identifica con una <b>cuasiparticula</b> que presenta las propiedades de una partícula de Majorana. El término cuasipaticula hace referencia a que no es una partícula de verdad, sino un comportamiento colectivo que se comporta como un partícula (como los huecos de electrones en un material). Es decir, una cuasipartícula es una propiedad emergente. Lo que se intenta usar en computación cuántica son estas cuasipartículas de Majorana.</p>
+<p>Aunque sería un avance asombroso, los qubits topológicos son la plataforma tecnológica menos desarrollada, hasta el punto de ser prácticamente teóricos. Hay que dar muchos pasos no triviales para demostrar la existencia de un qubit topológico, incluida la observación experimental de la estructura básica que subyace a estos qubits (los modos cero de Majorana). Una vez que estas estructuras se construyan y controlen en el laboratorio, las propiedades de resistencia a errores de este enfoque podrían permitirle escalar más rápido que los otros enfoques.</p>
+<p>En el mundo de las grandes empresas, Microsoft está haciendo una gran apuesta por esta tecnología. En 2023, investigadores de Microsoft publicaron un artículo en Physical Review que describía un nuevo dispositivo que puede representar un qubit lógico con estabilidad de hardware, midiendo una fase de la materia consistente con la observación de la superconductividad topológica y los modos cero de Majorana <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id84" title="Morteza Aghaee, Arun Akkala, Zulfi Alam, Rizwan Ali, Alejandro Alcaraz Ramirez, Mariusz Andrzejczuk, Andrey E. Antipov, Pavel Aseev, Mikhail Astafev, Bela Bauer, Jonathan Becker, Srini Boddapati, Frenk Boekhout, Jouri Bommer, Tom Bosma, Leo Bourdet, Samuel Boutin, Philippe Caroff, Lucas Casparis, Maja Cassidy, Sohail Chatoor, Anna Wulf Christensen, Noah Clay, William S. Cole, Fabiano Corsetti, Ajuan Cui, Paschalis Dalampiras, Anand Dokania, Gijs de Lange, Michiel de Moor, Juan Carlos Estrada Saldaña, Saeed Fallahi, Zahra Heidarnia Fathabad, John Gamble, Geoff Gardner, Deshan Govender, Flavio Griggio, Ruben Grigoryan, Sergei Gronin, Jan Gukelberger, Esben Bork Hansen, Sebastian Heedt, Jesús Herranz Zamorano, Samantha Ho, Ulrik Laurens Holgaard, Henrik Ingerslev, Linda Johansson, Jeffrey Jones, Ray Kallaher, Farhad Karimi, Torsten Karzig, Evelyn King, Maren Elisabeth Kloster, Christina Knapp, Dariusz Kocon, Jonne Koski, Pasi Kostamo, Peter Krogstrup, Mahesh Kumar, Tom Laeven, Thorvald Larsen, Kongyi Li, Tyler Lindemann, Julie Love, Roman Lutchyn, Morten Hannibal Madsen, Michael Manfra, Signe Markussen, Esteban Martinez, Robert McNeil, Elvedin Memisevic, Trevor Morgan, Andrew Mullally, Chetan Nayak, Jens Nielsen, William Hvidtfelt Padkær Nielsen, Bas Nijholt, Anne Nurmohamed, Eoin O'Farrell, Keita Otani, Sebastian Pauka, Karl Petersson, Luca Petit, Dmitry I. Pikulin, Frank Preiss, Marina Quintero-Perez, Mohana Rajpalke, Katrine Rasmussen, Davydas Razmadze, Outi Reentila, David Reilly, Richard Rouse, Ivan Sadovskyy, Lauri Sainiemi, Sydney Schreppler, Vadim Sidorkin, Amrita Singh, Shilpi Singh, Sarat Sinha, Patrick Sohr, Toma\ifmmode  \check s\else  š\fi  Stankevi\ifmmode  \check c\else  č\fi , Lieuwe Stek, Henri Suominen, Judith Suter, Vicky Svidenko, Sam Teicher, Mine Temuerhan, Nivetha Thiyagarajah, Raj Tholapi, Mason Thomas, Emily Toomey, Shivendra Upadhyay, Ivan Urban, Saulius Vaitiek\ifmmode  \dot e\else  ė\fi nas, Kevin Van Hoogdalem, David Van Woerkom, Dmitrii V. Viazmitinov, Dominik Vogel, Steven Waddy, John Watson, Joseph Weston, Georg W. Winkler, Chung Kai Yang, Sean Yau, Daniel Yi, Emrah Yucelen, Alex Webster, Roland Zeisel, and Ruichen Zhao. Inas-al hybrid devices passing the topological gap protocol. Phys. Rev. B, 107:245423, Jun 2023. URL: https://link.aps.org/doi/10.1103/PhysRevB.107.245423, doi:10.1103/PhysRevB.107.245423.">5</a>]</span>.</p>
+<p>Para más información sobre qubits topológicos puede verse el video de YouTube <a class="reference external" href="https://www.youtube.com/watch?v=ihZXl33t8So">The Radical Map of Topological Quantum Computing</a>, del youtuber Domain of Science.</p>
+<figure class="align-center" id="fig-hw-map-of-tqc">
+<a class="reference internal image-reference" href="../../../_images/Fig_hw_map_of_tqc.png"><img alt="../../../_images/Fig_hw_map_of_tqc.png" src="../../../_images/Fig_hw_map_of_tqc.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Resumen de Computación Cuántica con Qubits topológicos de Dominuc Walliman. Figura toma del vídeo <a class="reference external" href="https://www.youtube.com/watch?v=ihZXl33t8So">The Radical Map of Topological Quantum Computing</a></span><a class="headerlink" href="#fig-hw-map-of-tqc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Buscar los chips más punteros de las principales empresas de cada tipo de tecnología de qubit (un par de empresas como mucho por tecnología).</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejercicio</p>
+<p>Pequeño trabajo (un par de carillas como mucho) sobre alguna tecnología de qubits que no sean superconductores o iones atrapados. Citar todas las fuentes de información usadas.</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_04/Chapter_011_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Section_002_estructura_del_hardware_de_un_ordenador_cuantico_myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>Estructura del Hardware de un Ordenador Cuántico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_004_pulso_de_microondas_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.4. </span>Pulso de microondas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-divicenzo">10.3.1. Criterio de Divicenzo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iones-atrapados-trapped-ion-qubits">10.3.2. Iones Atrapados (Trapped Ion Qubits)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-superconductores">10.3.3. Qubits Superconductores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-cuantica-con-fotones">10.3.4. Computación cuántica con fotones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-con-semiconductores">10.3.5. Qubits con semiconductores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-con-atomos-neutros">10.3.6. Qubits con átomos neutros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-topologicos">10.3.7. Qubits topológicos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Castaño Bandín
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

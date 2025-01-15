@@ -1,0 +1,937 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>22.1. Introducción &#8212; Curso de Introducción a la Computación Cuántica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfile.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "davidcb98/CICC_UMA");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Part_05/Chapter_023_02/Section_001_introduccion_myst';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="22.2. Fundamentos de QKD" href="Section_002_fundamentos_de_qkd_myst.html" />
+    <link rel="prev" title="22. Criptografía y Quantum Key Distribution (QKD)" href="../Chapter_023_01_criptografia_y_quantum_key_distribution_qkd__myst.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/Logo_UMA.png" class="logo__image only-light" alt="Curso de Introducción a la Computación Cuántica - Home"/>
+    <script>document.write(`<img src="../../../_static/Logo_UMA.png" class="logo__image only-dark" alt="Curso de Introducción a la Computación Cuántica - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_002_01_formalismo_matematico__myst.html">1. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">1.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_002_vectores_myst.html">1.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_003_operadores_myst.html">1.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_004_tensores_myst.html">1.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">1.5. Probabilidades</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">2. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_001_axiomas_myst.html">2.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">2.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">2.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">2.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">2.5. Estados Mezcla y Matriz Densidad</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_004_01_qubits_myst.html">3. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">3.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">3.2. El estado de un qubit y la esfera de Bloch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_005_01_puertas_simples_myst.html">4. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">4.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">4.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">4.3. Circuitos Cuánticos (1 qubit)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">5. Medidas, Parte I: Medida de 1 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">5.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">5.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">5.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">5.4. Valores esperados.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">6. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">6.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">6.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">6.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">6.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">6.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">6.6. Puertas multicontroladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">7. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">7.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">7.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">7.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_008_02/Section_004_test_de_hadamard_myst.html">7.4. Test de Hadamard</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">8. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">8.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">8.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">8.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">8.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">8.5. Teorema de no-clonación</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_03/Chapter_010_01_decoherencia_y_desfase_myst.html">9. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_001_introduccion_myst.html">9.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">9.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_03/Chapter_010_02/Section_003_resumen_myst.html">9.3. Resumen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_011_01_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">10. Breve introducción sobre Hardware de Computación Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_001_modelos_de_computacion_cuantica_myst.html">10.1. Modelos de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_002_estructura_del_hardware_de_un_ordenador_cuantico_myst.html">10.2. Estructura del Hardware de un Ordenador Cuántico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst.html">10.3. Tipos de Tecnologías de qubits.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_004_pulso_de_microondas_myst.html">10.4. Pulso de microondas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_005_conceptos_erroneos_sobre_el_hardware_de_computacion_cuantica_myst.html">10.5. Conceptos Erróneos sobre el Hardware de Computación Cuántica.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_011_02/Section_006_algunos_roadmaps_publicos_myst.html">10.6. Algunos Roadmaps públicos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_012_01_computacion_cuantica_con_iones_atrapados_trapped_ions__myst.html">11. Computación Cuántica con Iones Atrapados (Trapped Ions)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_001_produccion_de_iones_myst.html">11.1. Producción de iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_002_trampas_de_iones_myst.html">11.2. Trampas de iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_003_enfriamiento_de_iones_por_laser__myst.html">11.3. Enfriamiento de iones por láser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_004_manipulando_iones_individuales_puertas_simples__myst.html">11.4. Manipulando iones individuales: puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_005_manipulacion_de_multiples_iones_myst.html">11.5. Manipulación de múltiples iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_006_lectura_del_estado_de_los_iones_myst.html">11.6. Lectura del estado de los iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_007_puertas_multiqubit_con_iones__myst.html">11.7. Puertas multiqubit con iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_012_02/Section_008_conclusiones_pros_y_contras_myst.html">11.8. Conclusiones: pros y contras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_013_01_computacion_cuantica_con_qubits_superconductores__myst.html">12. Computación Cuántica con qubits Superconductores</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_001_conceptos_basicos_sobre_superconductividad_myst.html">12.1. Conceptos básicos sobre Superconductividad.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_002_tipos_de_qubits_superconductores_myst.html">12.2. Tipos de qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_003_fisica_de_los_qubits_superconductores__myst.html">12.3. Física de los qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_004_operaciones_con_qubits_superconductores_myst.html">12.4. Operaciones con qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_013_02/Section_005_retos_con_qubits_superconductores_myst.html">12.5. Retos con qubits superconductores</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_04/Chapter_014_01_tecnicas_de_control_y_computacion_en_rmn_myst.html">13. Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_001_introduccion_myst.html">13.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_002_el_espin_nuclear__myst.html">13.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_003_qubits_de_rmn_myst.html">13.3. qubits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_04/Chapter_014_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">13.4. Técnicas de pulsos elementales.</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_015_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">14. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_001_circuitos_myst.html">14.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">14.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_003_circuitos_equivalentes_myst.html">14.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_004_operadores_de_clifford_myst.html">14.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">14.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_015_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">14.6. Medidas de calidad de un Circuitos.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_016_01_estado_inicial_y_oraculos_myst.html">15. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">15.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_016_02/Section_002_oraculos_funciones_digitales_myst.html">15.2. Oráculos (funciones digitales)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_017_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">16. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">16.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">16.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_017_02/Section_003_algoritmo_de_simon_myst.html">16.3. Algoritmo de Simon</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_018_01_qft_quantum_fourier_transform__myst.html">17. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_001_la_qft_en_computacion_cuantica_myst.html">17.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_002_intuicion_myst.html">17.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_003_circuito_que_implementa_la_qft_myst.html">17.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_018_02/Section_004_comentarios_sobre_la_implementacion_myst.html">17.4. comentarios sobre la implementación.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_019_01_qpe_estimacion_de_fase_cuantica__myst.html">18. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_001_introduccion_myst.html">18.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_002_circuito_myst.html">18.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_003_formulacion_matematica_myst.html">18.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_019_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">18.4. ¿Y si no conocemos el autoestado?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_020_01_algoritmo_de_shor_periodicity_finding__myst.html">19. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_001_introduccion_myst.html">19.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_002_formalismo_matematico__myst.html">19.2. Formalismo matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_003_hallar_del_periodo_de_una_funcion_period_finding_myst.html">19.3. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_020_02/Section_004_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">19.4. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_021_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">20. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_021_02/Section_001_la_idea__myst.html">20.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_021_02/Section_002_explicacion_desgranada_myst.html">20.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_021_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">20.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_021_02/Section_004_implementacion_de_las_swap_controladas_myst.html">20.4. Implementación de las SWAP controladas</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter_022_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">21. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_001_diccionario_de_notaciones_myst.html">21.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_002_introduccion_myst.html">21.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">21.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_004_numero_conocido_de_soluciones__myst.html">21.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_005_numero_desconocido_de_soluciones__myst.html">21.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">21.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">21.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">21.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter_022_02/Section_009_implementaciones_con_qiskit_myst.html">21.9. Implementaciones con qiskit.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter_023_01_criptografia_y_quantum_key_distribution_qkd__myst.html">22. Criptografía y Quantum Key Distribution (QKD)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">22.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_002_fundamentos_de_qkd_myst.html">22.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Section_003_protocolos_de_qkd_tres_familias_myst.html">22.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Part_06/Chapter_024_01_recopilacion_de_los_ejercicios_myst.html">23. Recopilación de los ejercicios</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_001_formalismos_matematico_myst.html">23.1. Formalismos matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_002_fundamentos_de_mecanica_cuantica_myst.html">23.2. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_003_qubits_myst.html">23.3. Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_004_puertas_simples_myst.html">23.4. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_005_medidad%2C_parte_i_medida_de_1_qubit_myst.html">23.5. Medidad, Parte I: Medida de 1 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_006_multi-qubit_definiciones_y_puertas_myst.html">23.6. Multi-qubit: definiciones y puertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_007_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">23.7. Medidas, Parte II: Medida de estados multi-Qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_008_entrelazamiento_en_accion_myst.html">23.8. Entrelazamiento en acción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_009_decoherencia_y_desfase_myst.html">23.9. Decoherencia y desfase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_010_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">23.10. Breve introducción sobre Hardware de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_011_computacion_cuantica_con_iones_atrapados_trepped_ions_myst.html">23.11. Computación Cuántica con Iones Atrapados (Trepped Ions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_012_computacion_cuantica_con_qubits_superconductores_myst.html">23.12. Computación Cuántica con qubits Superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_013_tecnicas_de_control_y_computacion_en_rnm_myst.html">23.13. Técnicas de control y computación en RNM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_014_elementos_basicos_de_los_algoritmo_cuantico_myst.html">23.14. Elementos básicos de los algoritmo cuántico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_015_estado_incial_y_oraculo_myst.html">23.15. Estado incial y oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_016_primeros_algoritmos_algoritmos_del_oraculo_myst.html">23.16. Primeros algoritmos: algoritmos del oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_017_qft_quantum_fourier_transform_myst.html">23.17. QFT: Quantum Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_018_qpe_estimacion_de_fase_cuantica_myst.html">23.18. QPE: Estimación de Fase Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_019_algoritmo_de_shor_periodicity_finding_myst.html">23.19. Algoritmo de Shor (Periodicity Finding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_020_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">23.20. Algoritmo de Shor: Implementación con 2n+3 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_021_algoritmo_de_grover_amplificacion_de_la_amplitud_myst.html">23.21. Algoritmo de Grover (Amplificación de la amplitud)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Part_06/Chapter_024_02/Section_022_criptografia_y_quantum_key_distribution_qkd_myst.html">23.22. Criptografía y Quantum Key Distribution (QKD)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Chapter_Bibliografia_myst.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA/edit/master/Book/docs/Part_05/Chapter_023_02/Section_001_introduccion_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/davidcb98/CICC_UMA/issues/new?title=Issue%20on%20page%20%2Fdocs/Part_05/Chapter_023_02/Section_001_introduccion_myst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/Part_05/Chapter_023_02/Section_001_introduccion_myst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia">22.1.1. Criptografía</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-de-clave-privada">22.1.2. Criptografía de clave privada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cifrado-de-vernam-one-time-pad">22.1.2.1. Cifrado de Vernam (One time pad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-secreta-de-claves">22.1.2.2. Distribución secreta de claves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-de-clave-publica">22.1.3. Criptografía de clave pública</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-protocolo-rsa">22.1.3.1. El protocolo RSA</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <blockquote>
+<div><p>Sep 27, 2024 | 9 min read</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../../_images/Fig_logo_UMA_scbi26.png"><img alt="../../../_images/Fig_logo_UMA_scbi26.png" class="align-center" src="../../../_images/Fig_logo_UMA_scbi26.png" style="width: 2000px;" /></a>
+<a href="https://www.scbi.uma.es/web/es/computacion-cuantica/">
+    <button class="rounded" style="float: right;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="var(--fill, white)"
+        d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4l1.7 3.6c.2.4 0 .8-.4
+            1l-2.8 1.3c-.1.1-.2.1-.3.1c-.3 0-.6-.2-.7-.4L11.2
+            18l-1.9 1.5c-.1.1-.3.2-.5.2c-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8c.2 0
+            .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1
+            1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z" />
+    </svg>
+    Volver a SCBI - Computación Cuantica
+    </button>
+</a>
+<p><span class="math notranslate nohighlight">\( \newcommand{\bra}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ket}[1]{|#1\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\branew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketnew}[1]{\langle #1|} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\braket}[2]{\langle #1|#2\rangle} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\ketbra}[2]{| #1\rangle \langle #2 |} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\i}{{\color{blue} i}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Hil}{{\cal H}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\cg}[1]{{\rm C}#1} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lp}{\left(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rp}{\right)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lc}{\left[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rc}{\right]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\lch}{\left\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rch}{\right\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lp}{\Bigl(} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rp}{\Bigr)} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lc}{\Bigl[} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rc}{\Bigr]} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Lch}{\Bigl\{} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\Rch}{\Bigr\}} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\rqa}{\quad \Rightarrow \quad} \)</span>
+<span class="math notranslate nohighlight">\( \newcommand{\bm}{\boldsymbol}\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><span class="section-number">22.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>Desde los orígenes de la escritura ya se tenía claro que no existen canales de comunicación seguros. Por ejemplo, si se envía un jinete con un mensaje, este puede ser interceptado por el enemigo, asaltándolo y robándole el mensaje. La única solución viable es <b>encriptar el mensaje</b>, para que en caso de que se  interceptado no puedan leerlo.
+Los orígenes de la criptografía se remontan a la antigüedad Babilónica donde el mensaje se enrollaba
+en un cilindro de un radio adecuado que permitía que las letras se alineasen de manera correcta. La
+<b>clave</b>, por tanto, era el radio del cilindro. Sólamente el poseedor del cilindro correcto podía descifrar el
+mensaje. En el imperio romano se usaron las llamadas <i>reglas de sustitución</i>, en las que todas la letras se
+remplazaban por otras de acuerdo con una regla secreta (cifrado del Cesar). Por ejemplo la letra siguiente
+del abecedario, o a una cierta distancia fija. La regla de sustitución se denomina <b>clave criptográfica</b> y la
+sustitución directa en inversa se conocen como <b>cifrado</b> y <b>descifrado</b>. Las correlaciones que existen entre el
+mensaje original y el cifrado permiten casi siempre adivinar la regla de sustitución, lo que se denomina
+<b>romper un código</b>. Notar que éste método requiere <b>compartir una clave secreta</b>. A partir de ahí, los
+mensajes se pueden compartir por un <b>canal inseguro</b>.</p>
+<p>Esto que parece tan lejano, en realidad muy común a día de hoy para nosotros con las telecomunicaciones: en Internet es imposible enviar un mensaje sin que este sea susceptible de ser interceptado por una tercera persona. Además, estos mensajes pueden contener información muy sensible, como por ejemplo las claves de acceso a la aplicación del banco. Es decir, con la aparición de Internet, la criptografía se convirtió en pan de cada día.</p>
+<p>Cuando hablamos de <b>Quantum Key Distribution (QKD)</b> hablamos del hecho de usar la física cuántica para enviar las claves criptográficas entre los dos participantes de la conversación. La gracia aquí está en que las leyes de la física cuántica nos ayudan ha saber cuando la clave ha sido interceptada, pudiendo así abortar el protocolo y e probar otra vez a enviar las claves. Una vez que los dos participantes tiene las claves, ya pueden empezar a comunicarse por un canal inseguro.</p>
+<p>Cuando hablamos de criptografía, siempre se suelen usar tres personajes ficticios: Alice, Bob y Eve. Alice quiere enviarle un mensaje a Bob, mientras que Eve intenta leer el mensaje.</p>
+<p>Este capitulo se basa en gran medida en el artículo recopilatorio <span id="id1">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id40" title="Valerio Scarani, Helle Bechmann-Pasquinucci, Nicolas J. Cerf, Miloslav Du\ifmmode  \check s\else  š\fi ek, Norbert Lütkenhaus, and Momtchil Peev. The security of practical quantum key distribution. Rev. Mod. Phys., 81:1301–1350, Sep 2009. URL: https://link.aps.org/doi/10.1103/RevModPhys.81.1301, doi:10.1103/RevModPhys.81.1301.">60</a>]</span> de 2009, así como en la sección 12.6.3 del Nielsen-Chuang <span id="id2">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id9" title="Michael A. Nielsen and Isaac L. Chuang. Quantum Computation and Quantum Information: 10th Anniversary Edition. Cambridge University Press, 2010. doi:10.1017/CBO9780511976667.">55</a>]</span>.</p>
+<section id="criptografia">
+<h2><span class="section-number">22.1.1. </span>Criptografía<a class="headerlink" href="#criptografia" title="Permalink to this heading">#</a></h2>
+<p>La <b>criptografía</b> es un campo de aplicaciones que proporciona privacidad, autenticación y confidencialidad a los usuarios. Un subcampo importante es el de la <b>comunicación segura</b>, cuyo objetivo es permitir la comunicación confidencial entre distintas partes de forma que ninguna parte no autorizada tenga acceso al contenido de los mensajes. Este campo tiene una larga historia de éxitos y fracasos, ya que a lo largo de los siglos surgieron muchos métodos para codificar mensajes, y los códigos siempre se rompían tiempo después.</p>
+<p>Sin embargo, la historia no tiene por qué repetirse eternamente. En 1917, Vernam inventó el llamado cifrado <i>one time pad</i>, que utiliza una clave secreta simétrica y aleatoria compartida entre emisor y receptor <span id="id3">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id41" title="G. S. Vernam. Cipher printing telegraph systems: for secret wire and radio telegraphic communications. Journal of the A.I.E.E., 45(2):109-115, 1926. doi:10.1109/JAIEE.1926.6534724.">70</a>]</span>. En principio, este esquema no puede romperse, siempre que las partes no reutilicen su clave. Tres décadas más tarde, Shannon demostró que el esquema Vernam es óptimo: no existe ningún método de cifrado que requiera menos clave <span id="id4">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id42" title="C. E. Shannon. Communication theory of secrecy systems. The Bell System Technical Journal, 28(4):656-715, 1949. doi:10.1002/j.1538-7305.1949.tb00928.x.">61</a>]</span>. Esto significa que la clave se agota en el proceso. Para emplear este esquema, por tanto, las partes comunicantes deben disponer de un método seguro para compartir una clave que sea tan larga como el texto que se desea cifrar. Debido a esta limitación, que se agrava cuando hay que transmitir grandes cantidades de información de forma segura, la mayoría de las aplicaciones criptográficas actuales se basan en otros esquemas, cuya seguridad no puede demostrarse en principio, sino que se basa más bien en nuestra experiencia de que algunos problemas son difíciles de resolver. En otras palabras, estos esquemas pueden romperse, pero con una cantidad sustancial de potencia de cálculo.</p>
+</section>
+<section id="criptografia-de-clave-privada">
+<h2><span class="section-number">22.1.2. </span>Criptografía de clave privada<a class="headerlink" href="#criptografia-de-clave-privada" title="Permalink to this heading">#</a></h2>
+<p>Hasta la invención de la <b>criptografía de clave pública</b> en los años 70, todos los criptosistemas funcionaban según un principio diferente, conocido ahora como <b>criptografía de clave privada</b>. En un criptosistema de clave privada, si Alice desea enviar mensajes a Bob, debe tener una <b>clave de codificación</b>, que le permita cifrar su mensaje, y Bob debe tener una <b>clave de descodificación</b> equivalente, que le permita descifrar el mensaje cifrado. Un criptosistema de clave privada sencillo pero muy eficaz es el <b>cifrado de Vernam</b>, a veces llamado <i>one time pad</i>. Alice y Bob comienzan con cadenas de claves secretas de n bits, que son idénticas. Alice codifica su mensaje de n bits sumando el mensaje y la clave, y Bob descodifica restando para invertir la codificación.</p>
+<p>La gran característica de este sistema es que, mientras las cadenas de claves sean realmente secretas, es <b>demostrablemente seguro</b>. Es decir, cuando el protocolo utilizado por Alice y Bob tiene éxito, lo hace con una probabilidad arbitrariamente alta.  Y para cualquier estrategia de escucha empleada por Eve, Alice y Bob pueden garantizar que la información mutua de Eve con su mensaje no codificado puede hacerse tan pequeña como se desee. Por el contrario, la seguridad de la criptografía de clave pública se basa en <i>suposiciones matemáticas no demostradas sobre la dificultad de resolver ciertos problemas</i> como la factorización (¡con ordenadores clásicos!), a pesar de ser ampliamente utilizada y más conveniente.</p>
+<p>La principal dificultad de los criptosistemas de clave privada es la <b>distribución segura de los bits de clave</b>. En concreto, el cifrado de Vernam sólo es seguro si el número de bits de clave es al menos tan grande como el tamaño del mensaje que se codifica, y los bits de clave no pueden reutilizarse. Por tanto, la gran cantidad de bits de clave necesarios hace que estos sistemas sean poco prácticos para el uso general. Además, los bits clave deben entregarse con antelación, custodiarse asíduamente hasta su uso y destruirse después; de lo contrario, en principio, esa información clásica puede copiarse sin alterar los originales, lo que compromete la seguridad de todo el protocolo. A pesar de estos inconvenientes, los criptosistemas de clave privada como el cifrado de Vernam siguen utilizándose por su seguridad demostrable, con material clave entregado mediante reuniones clandestinas, mensajeros de confianza o enlaces de comunicación privados y seguros.</p>
+<section id="cifrado-de-vernam-one-time-pad">
+<h3><span class="section-number">22.1.2.1. </span>Cifrado de Vernam (One time pad)<a class="headerlink" href="#cifrado-de-vernam-one-time-pad" title="Permalink to this heading">#</a></h3>
+<p>El cifrado de Vernam es un protocolo en tres pasos</p>
+<ol class="arabic simple">
+<li><p>El mensaje se codifica en forma de un número binario <span class="math notranslate nohighlight">\(s_i = 0100101110\)</span>.</p></li>
+<li><p>La clave secreta es una secuencia binaria aleatoria de longitud al menos tan grande como el mensaje <span class="math notranslate nohighlight">\(c_i = 0101111001\)</span>. La codificación consiste en la suma módulo dos de ambas secuencias:
+<span class="math notranslate nohighlight">\(\tilde{s}_i = s_i \oplus c_i = 0001010111\)</span>.</p></li>
+<li><p>La de-codificación consiste en la suma módulo dos de nuevo de la clave compartida con el mensaje cifrado <span class="math notranslate nohighlight">\(s_i = \tilde{s}_i \oplus c_i = si \oplus 2c_i = 0001010111\)</span>.</p></li>
+</ol>
+<p>Por un lado, el texto cifrado es indescifrable porque la clave es aleatoria. Por tanto no transmite ninguna correlación entre los dígitos del mensaje original.</p>
+</section>
+<section id="distribucion-secreta-de-claves">
+<h3><span class="section-number">22.1.2.2. </span>Distribución secreta de claves<a class="headerlink" href="#distribucion-secreta-de-claves" title="Permalink to this heading">#</a></h3>
+<p>El (cifrado de Vernam) fue inventado por el matemático Gilbert Vernam en 1917 <span id="id5">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id41" title="G. S. Vernam. Cipher printing telegraph systems: for secret wire and radio telegraphic communications. Journal of the A.I.E.E., 45(2):109-115, 1926. doi:10.1109/JAIEE.1926.6534724.">70</a>]</span>, y es el primer ejemplo
+de código irrompible. La prueba de su inviolabilidad se debe a Claude Shannon treinta años más tarde <span id="id6">[<a class="reference internal" href="../../Chapter_Bibliografia_myst.html#id42" title="C. E. Shannon. Communication theory of secrecy systems. The Bell System Technical Journal, 28(4):656-715, 1949. doi:10.1002/j.1538-7305.1949.tb00928.x.">61</a>]</span>,
+y depende crucialmente de tres detalles: 1) que la clave sea aleatoria, 2) que la clave sea secreta (sólo
+conocida por Bob y Alice), y 3) que la clave sólo se utilice una vez (one-time pad).</p>
+<p>Sólo cuando exista la seguridad absoluta de que la clave no ha sido interceptada por un tercer agente
+(Eve), Alice y Bob pueden confiar en la imposibilidad de nadie para descifrar su mensaje. Desde un
+punto de vista práctico, Alice y Bob poseen un banco de claves secretas que han intercambiado en algún
+momento del pasado, y van gastándolas a razón de una por cada mensaje. En este sentido, el cifrado de
+Vernam, cambia el centro de gravedad del problema de la transmisión segura, a la \textbf{distribución segura de
+claves}. Este es precisamente el punto donde entran los algoritmos de QKD.</p>
+</section>
+</section>
+<section id="criptografia-de-clave-publica">
+<h2><span class="section-number">22.1.3. </span>Criptografía de clave pública<a class="headerlink" href="#criptografia-de-clave-publica" title="Permalink to this heading">#</a></h2>
+<p>El criptosistema de clave pública requiere una función tipo puerta trampa, <span class="math notranslate nohighlight">\(f\)</span> , fácil pero que tenga una inversa, <span class="math notranslate nohighlight">\(f^{-1}\)</span>, difícil de calcular. Fácil y difícil se refieren al nivel de complejidad computacional requerido. En general diremos que un problema es fácil si el tiempo de cálculo escala polinómicamente (clase P), como <span class="math notranslate nohighlight">\(n^a\)</span> con el número <span class="math notranslate nohighlight">\(n\)</span> de letras del mensaje. Un problema difícil lo hace de manera no-polinómica (clase NP). Como ya se ha comentado, la seguridad de los protocolos de clave pública no se puede demostrar, sino que simplemente se basa en la dificulta a la hora de invertir la función.</p>
+<p>En el sistema de clave pública Alice y Bob no intercambian ningúna clave. Bob tiene dos claves, una para encriptar y otra para desencriptar. Publica la primera, y Alice con ella encripta su mensaje.
+Una vez recibido, Bob usa la clave de desencriptar para averiguar el contenido. Quien no posea la clave privada de Bob, aún puede intentar averiguar la operación inversa a la encriptación que efectuó Alice con la clave pública. Este proceso debe ser muy costoso en términos de tiempo para que la clave sea considerada segura (es decir, lo que comentamos de calcular <span class="math notranslate nohighlight">\(f^{-1}\)</span>)</p>
+<section id="el-protocolo-rsa">
+<h3><span class="section-number">22.1.3.1. </span>El protocolo RSA<a class="headerlink" href="#el-protocolo-rsa" title="Permalink to this heading">#</a></h3>
+<p>El protocolo RSA es el criptosistema más utilizado en transacciones comerciales, o para la verificación de identidad. Inventado en 1977 por Rivest, Shamir y Adleman. Funciona con el siguiente conjunto de pasos</p>
+<ol class="arabic">
+<li><p>Bob escoge dos numeros primos <span class="math notranslate nohighlight">\(p\)</span> y <span class="math notranslate nohighlight">\(q\)</span> y calcula <span class="math notranslate nohighlight">\(N = pq\)</span> y <span class="math notranslate nohighlight">\(L = (p - 1)(q - 1)\)</span>.</p></li>
+<li><p>Escoge <span class="math notranslate nohighlight">\(e\)</span> (de encriptación), un número impar pequeño, coprimo con <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+<li><p>Calcula <span class="math notranslate nohighlight">\(d\)</span> (de desencriptación), el inverso módulo <span class="math notranslate nohighlight">\(L\)</span> de <span class="math notranslate nohighlight">\(e\)</span>. Es decir</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2ef3b84-0a60-46ac-885d-49c39660ae09">
+<span class="eqno">(22.1)<a class="headerlink" href="#equation-d2ef3b84-0a60-46ac-885d-49c39660ae09" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    e \cdot d \text{mod }L = 1
+    \end{equation}\]</div>
+<p>Esta tarea es fácil, conociendo <span class="math notranslate nohighlight">\(e\)</span> y <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</li>
+<li></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- La clave pública es ($e$, $N$) y cualquiera puede usarla para mandar mensajes a Bob.
+
+- La clave privada es ($d$, $N$) y, a priori, sólo es conocida por Bob.
+</pre></div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Para encriptar, Alice divide su mensaje en bloques, <span class="math notranslate nohighlight">\(i = 1, 2, \dots,\)</span> de manera que cada bloque pueda ser identificado por un número <span class="math notranslate nohighlight">\(m_i &lt; N\)</span>. La clave permite una <i>regla de sustitución</i></p>
+<div class="amsmath math notranslate nohighlight" id="equation-59383735-7264-4453-871f-21c225677e33">
+<span class="eqno">(22.2)<a class="headerlink" href="#equation-59383735-7264-4453-871f-21c225677e33" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    m_i \rightarrow \tilde{m}_i = (m_i)^e \text{mod } N
+    \end{equation}\]</div>
+<p>es decir el resto mod<span class="math notranslate nohighlight">\((N)\)</span> de exponenciar <span class="math notranslate nohighlight">\(m_i\)</span> a las potencia <span class="math notranslate nohighlight">\(e\)</span>.</p>
+</li>
+<li><p>Para desencriptar, Bob realiza la operación inversa sobre <span class="math notranslate nohighlight">\(\tilde{m}_i\)</span>. Se puede probar que <span class="math notranslate nohighlight">\((m_i)^{ed}|_{\text{mod }N} = m_i\)</span>. Por tanto la operación que realiza Bob es simplemente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fc3e9f0e-f006-4fb1-857a-62797268a85f">
+<span class="eqno">(22.3)<a class="headerlink" href="#equation-fc3e9f0e-f006-4fb1-857a-62797268a85f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \tilde{m}_i = (\tilde{m}_i)^d (\text{mod }N)
+    \end{equation}\]</div>
+</li>
+</ol>
+<p>Las dos ventajas principales del sistema criptográfico público son</p>
+<ul class="simple">
+<li><p>No necesitan de una distribución secreta de clave.</p></li>
+<li><p>Se puede reutilizar la misma clave repetidamente.</p></li>
+</ul>
+<p>La fortaleza de la clave RSA crece con la magnitud del número <span class="math notranslate nohighlight">\(N\)</span>. El código puede romperse si alguien obtiene los factores primos <span class="math notranslate nohighlight">\(pq = N\)</span>. Ello permite hallar <span class="math notranslate nohighlight">\(L = (p - 1)(q - 1)\)</span> y, como <span class="math notranslate nohighlight">\(e\)</span> es público, obtener
+<span class="math notranslate nohighlight">\(d\)</span> fácilmente. La fiabilidad del sistema reside en la inexistencia de métodos para hallar <span class="math notranslate nohighlight">\(p\)</span> y <span class="math notranslate nohighlight">\(q\)</span> tarea en un tiempo polinómico en <span class="math notranslate nohighlight">\(n = log_2 N\)</span>. El más eficiente, método de criba, y requiere un tiempo que crece como <span class="math notranslate nohighlight">\(\exp( n^{1/3} (log n)^{2/3})\)</span>. El algoritmo de Shor permite resolver el problema en un tiempo polinómico <span class="math notranslate nohighlight">\(\mathcal{O}(n^c)\)</span>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png"><img alt="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" src="https://quantumspain-project.es/wp-content/uploads/2022/11/Logo_QS_EspanaDigital.png" style="width: 2000px;" /></a>
+</figure>
+<center>
+<img align="left" src="https://quantumspain-project.es/wp-content/uploads/2024/02/Banner-QS_GOB_v2.png" width="1000px" />
+</center></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/Part_05/Chapter_023_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter_023_01_criptografia_y_quantum_key_distribution_qkd__myst.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Criptografía y Quantum Key Distribution (QKD)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Section_002_fundamentos_de_qkd_myst.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">22.2. </span>Fundamentos de QKD</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia">22.1.1. Criptografía</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-de-clave-privada">22.1.2. Criptografía de clave privada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cifrado-de-vernam-one-time-pad">22.1.2.1. Cifrado de Vernam (One time pad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-secreta-de-claves">22.1.2.2. Distribución secreta de claves</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criptografia-de-clave-publica">22.1.3. Criptografía de clave pública</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-protocolo-rsa">22.1.3.1. El protocolo RSA</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Castaño Bandín
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

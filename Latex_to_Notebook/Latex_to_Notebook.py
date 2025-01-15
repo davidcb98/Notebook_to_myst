@@ -90,7 +90,7 @@ from LtN_replaces_and_others import ErrorGenerico
 ## Archivo tex
 
 try:
-    file_name  = sys.argv[1:][0] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+    file_name  = sys.argv[1:][0] # Obtenemos el nombre del archivo del primer argumento de la llamada
 except:
     print("\033[91m[ERROR]: No se ha pasado ningún argumento\033[0m")
     help_message()
@@ -99,7 +99,7 @@ except:
 ## Carpeta figuras
 
 try:
-    Figures_folder  = sys.argv[1:][1] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+    Figures_folder  = sys.argv[1:][1] # Obtenemos el nombre de la carpeta de figuras del segundo algumento de la llamada
     find_Fig_folder = True
 except:
     find_Fig_folder = False
@@ -108,7 +108,7 @@ except:
 ## Archivo .bib
 
 try:
-    bib_file  = sys.argv[1:][2] # Obtenemos el nombre del archivo bib del segundo algumento de la llamada
+    bib_file  = sys.argv[1:][2] # Obtenemos el nombre del archivo bib del cercer algumento de la llamada
     find_bib_file = True
 except:
     find_bib_file = False
@@ -244,6 +244,7 @@ with open(file_name, 'r') as f:
     i_chapter         = []
     i_section         = []
     titles_part_list  = []
+    titles_part_dic   = {}
     labels_part_list  = []
 
     last_line = None
@@ -266,7 +267,7 @@ with open(file_name, 'r') as f:
                  ]
 
         finds_2 = [find_itemize,
-                   find_itemize_2,]
+                   find_itemize_2]
 
         ###############################################################################################################
         ## Cogemos solo lo que hay entre el \\begin{document} y el \\end{document}
@@ -295,6 +296,8 @@ with open(file_name, 'r') as f:
         elif "% == End_omitir_en_Notebook" in line:
             omitir_en_Notebook = False
 
+        if line == "":
+            line = "\n"
 
         if line[0] == "%" or omitir_en_Notebook == True:
             continue
@@ -400,6 +403,8 @@ with open(file_name, 'r') as f:
 
             titles_part_list.append(title_part)
             labels_part_list.append(label_part)
+            titles_part_dic[label_part] = title_part
+            #print(title_part, label_part, titles_part_dic[label_part])
 
 
         elif "\\\\SubsubiIt{" in line:
@@ -683,7 +688,10 @@ with open(file_name, 'r') as f:
         ############################ Referencias #############################
 
         if "\\\\ref{" in line:
+            #print({line})
             line = reemplazo_ref(line)
+            #print({line})
+            #wait = input("Press Enter to continue.")
 
         ############################### href #################################
 
@@ -840,6 +848,16 @@ with open(file_name, 'r') as f:
         i +=1
         last_line = line
 
+
+#######################################################################################################################
+# Arreglamos las referencias a las Partes sustituyendolas por el Titulo de las Partes
+
+for i in range(len(f_data)):
+    if "\\\\ref{" in f_data[i]:
+        print("----------" +f_data[i])
+        f_data[i] = reemplazo_ref(f_data[i], titles_part_dic)
+        print("----------" +f_data[i])
+        print("")
 
 #######################################################################################################################
 ### Creamos el Bibliografia.ipynb

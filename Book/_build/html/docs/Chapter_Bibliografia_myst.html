@@ -104,7 +104,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="20.3. Protocolos de QKD: Tres familias" href="Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html" />
+    <link rel="prev" title="23.22. Criptografía y Quantum Key Distribution (QKD)" href="Part_06/Chapter_024_02/Section_022_criptografia_y_quantum_key_distribution_qkd_myst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,150 +212,210 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Part_01/Chapter_001_01_introduccion_myst.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Part_01/Chapter_001_01_introduccion_myst.html">Introducción</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos básicos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_02/Chapter_002_01_formalismo_matematico__myst.html">2. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">2.1. Números complejos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_002_vectores_myst.html">2.2. Vectores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_003_operadores_myst.html">2.3. Operadores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_004_tensores_myst.html">2.4. Tensores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">2.5. Probabilidades</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_02/Chapter_002_01_formalismo_matematico__myst.html">1. Formalismo matemático</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_001_numeros_complejos_myst.html">1.1. Números complejos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_002_vectores_myst.html">1.2. Vectores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_003_operadores_myst.html">1.3. Operadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_004_tensores_myst.html">1.4. Tensores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_002_02/Section_005_probabilidades_myst.html">1.5. Probabilidades</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">3. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_001_axiomas_myst.html">3.1. Axiomas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">3.2. Bases ortogonales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">3.3. Medidas Estadísticas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">3.4. Evolución temporal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">3.5. Estados Mezcla y Matriz Densidad</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_02/Chapter_003_01_fundamentos_de_mecanica_cuantica__myst.html">2. Fundamentos de Mecánica Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_001_axiomas_myst.html">2.1. Axiomas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_002_bases_ortogonales_myst.html">2.2. Bases ortogonales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_003_medidas_estadisticas_myst.html">2.3. Medidas Estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_004_evolucion_temporal_myst.html">2.4. Evolución temporal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_02/Chapter_003_02/Section_005_estados_mezcla_y_matriz_densidad_myst.html">2.5. Estados Mezcla y Matriz Densidad</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentos de Computación Cuántica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_004_01_qubits_myst.html">4. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">4.1. Definición y bases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">4.2. El estado de un qúbit y la esfera de Bloch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_004_01_qubits_myst.html">3. Qubits</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_004_02/Section_001_definicion_y_bases_myst.html">3.1. Definición y bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_004_02/Section_002_el_estado_de_un_qubit_y_la_esfera_de_bloch_myst.html">3.2. El estado de un qubit y la esfera de Bloch</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_005_01_puertas_simples_myst.html">5. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">5.1. Rotaciones en la esfera de Bloch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">5.2. Puertas simples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">5.3. Circuitos Cuánticos (1 qubit)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_005_01_puertas_simples_myst.html">4. Puertas simples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_001_rotaciones_en_la_esfera_de_bloch_myst.html">4.1. Rotaciones en la esfera de Bloch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_002_puertas_simples_myst.html">4.2. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_005_02/Section_003_circuitos_cuanticos_1_qubit_myst.html">4.3. Circuitos Cuánticos (1 qubit)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">6. Medidas, Parte I: Medida de 1 qúbit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">6.1. En la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">6.2. La moneda cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">6.3. Medidas en una base general</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">6.4. Valores esperados.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_006_01_medidas%2C_parte_i_medida_de_1_qubit_myst.html">5. Medidas, Parte I: Medida de 1 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_001_en_la_base_computacional_myst.html">5.1. En la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_002_la_moneda_cuantica_myst.html">5.2. La moneda cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_003_medidas_en_una_base_general_myst.html">5.3. Medidas en una base general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_006_02/Section_004_valores_esperados_myst.html">5.4. Valores esperados.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">7. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">7.1. Algunas definiciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">7.2. Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">7.3. Circuitos Multiqubit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">7.4. Puertas (multi-qubit) no controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">7.5. Puertas controladas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">7.6. Puertas multicontroladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_007_01_multi-qubit_definiciones_y_puertas_myst.html">6. Multi-qubit: definiciones y puertas.</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_001_algunas_definiciones_myst.html">6.1. Algunas definiciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_002_entrelazamiento_myst.html">6.2. Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_003_circuitos_multiqubit_myst.html">6.3. Circuitos Multiqubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_004_puertas_multi-qubit_no_controladas_myst.html">6.4. Puertas (multi-qubit) no controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_005_puertas_controladas_myst.html">6.5. Puertas controladas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_007_02/Section_006_puertas_multicontroladas_myst.html">6.6. Puertas multicontroladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">8. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">8.1. Medidas en la base computacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">8.2. Medidas en bases generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">8.3. Valores esperados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_004_medida_de_hadamard_myst.html">8.4. Medida de Hadamard</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_008_01_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">7. Medidas, Parte II: Medida de estados multi-Qubit</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_001_medidas_en_la_base_computacional_myst.html">7.1. Medidas en la base computacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_002_medidas_en_bases_generales_myst.html">7.2. Medidas en bases generales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_003_valores_esperados_myst.html">7.3. Valores esperados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_008_02/Section_004_test_de_hadamard_myst.html">7.4. Test de Hadamard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">9. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">9.1. Desigualdades de Bell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">9.2. Experimento GHZ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">9.3. Teleportación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">9.4. Intercambio de Entrelazamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">9.5. Teorema de no-clonación</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_009_01_entrelazamiento_en_accion_myst.html">8. Entrelazamiento en acción</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_001_desigualdades_de_bell_myst.html">8.1. Desigualdades de Bell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_002_experimento_ghz_myst.html">8.2. Experimento GHZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_003_teleportacion_myst.html">8.3. Teleportación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_004_intercambio_de_entrelazamiento_myst.html">8.4. Intercambio de Entrelazamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_009_02/Section_005_teorema_de_no-clonacion__myst.html">8.5. Teorema de no-clonación</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_010_01_hardware_tecnicas_de_control_y_computacion_en_rmn_myst.html">10. Hardware: Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_001_introduccion_myst.html">10.1. Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_002_el_espin_nuclear__myst.html">10.2. El espín nuclear</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_003_qubits_de_rmn_myst.html">10.3. Qúbits de RMN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">10.4. Técnicas de pulsos elementales.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_010_01_decoherencia_y_desfase_myst.html">9. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_001_introduccion_myst.html">9.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">9.2. Decoherencia y las ecuaciones de Bloch.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_010_02/Section_003_resumen_myst.html">9.3. Resumen</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_03/Chapter_011_01_decoherencia_y_desfase_myst.html">11. Decoherencia y desfase</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_011_02/Section_001_introduccion_myst.html">11.1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_011_02/Section_002_decoherencia_y_las_ecuaciones_de_bloch_myst.html">11.2. Decoherencia y las ecuaciones de Bloch.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_03/Chapter_011_02/Section_003_resumen_myst.html">11.3. Resumen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware de Computación Cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_011_01_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">10. Breve introducción sobre Hardware de Computación Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_001_modelos_de_computacion_cuantica_myst.html">10.1. Modelos de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_002_estructura_del_hardware_de_un_ordenador_cuantico_myst.html">10.2. Estructura del Hardware de un Ordenador Cuántico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_003_tipos_de_tecnologias_de_qubits_myst.html">10.3. Tipos de Tecnologías de qubits.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_004_pulso_de_microondas_myst.html">10.4. Pulso de microondas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_005_conceptos_erroneos_sobre_el_hardware_de_computacion_cuantica_myst.html">10.5. Conceptos Erróneos sobre el Hardware de Computación Cuántica.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_011_02/Section_006_algunos_roadmaps_publicos_myst.html">10.6. Algunos Roadmaps públicos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_012_01_computacion_cuantica_con_iones_atrapados_trapped_ions__myst.html">11. Computación Cuántica con Iones Atrapados (Trapped Ions)</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_001_produccion_de_iones_myst.html">11.1. Producción de iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_002_trampas_de_iones_myst.html">11.2. Trampas de iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_003_enfriamiento_de_iones_por_laser__myst.html">11.3. Enfriamiento de iones por láser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_004_manipulando_iones_individuales_puertas_simples__myst.html">11.4. Manipulando iones individuales: puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_005_manipulacion_de_multiples_iones_myst.html">11.5. Manipulación de múltiples iones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_006_lectura_del_estado_de_los_iones_myst.html">11.6. Lectura del estado de los iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_007_puertas_multiqubit_con_iones__myst.html">11.7. Puertas multiqubit con iones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_008_conclusiones_pros_y_contras_myst.html">11.8. Conclusiones: pros y contras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_013_01_computacion_cuantica_con_qubits_superconductores__myst.html">12. Computación Cuántica con qubits Superconductores</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_001_conceptos_basicos_sobre_superconductividad_myst.html">12.1. Conceptos básicos sobre Superconductividad.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_002_tipos_de_qubits_superconductores_myst.html">12.2. Tipos de qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_003_fisica_de_los_qubits_superconductores__myst.html">12.3. Física de los qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_004_operaciones_con_qubits_superconductores_myst.html">12.4. Operaciones con qubits superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_005_retos_con_qubits_superconductores_myst.html">12.5. Retos con qubits superconductores</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_014_01_tecnicas_de_control_y_computacion_en_rmn_myst.html">13. Técnicas de control y computación en RMN.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_001_introduccion_myst.html">13.1. Introducción.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_002_el_espin_nuclear__myst.html">13.2. El espín nuclear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_003_qubits_de_rmn_myst.html">13.3. qubits de RMN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_004_tecnicas_de_pulsos_elementales__myst.html">13.4. Técnicas de pulsos elementales.</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algoritmos Cuánticos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_012_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">12. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_001_circuitos_myst.html">12.1. Circuitos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">12.2. Retroceso de fase (Phase kickback)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_003_circuitos_equivalentes_myst.html">12.3. Circuitos equivalentes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_004_operadores_de_clifford_myst.html">12.4. Operadores de Clifford</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">12.5. Universalidad de la computación cuántica con puertas.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_012_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">12.6. Medidas de calidad de un Circuitos.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_015_01_elementos_basicos_de_los_algoritmos_cuanticos_myst.html">14. Elementos básicos de los algoritmos cuánticos</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_001_circuitos_myst.html">14.1. Circuitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_002_retroceso_de_fase_phase_kickback_myst.html">14.2. Retroceso de fase (Phase kickback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_003_circuitos_equivalentes_myst.html">14.3. Circuitos equivalentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_004_operadores_de_clifford_myst.html">14.4. Operadores de Clifford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_005_universalidad_de_la_computacion_cuantica_con_puertas__myst.html">14.5. Universalidad de la computación cuántica con puertas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_015_02/Section_006_medidas_de_calidad_de_un_circuitos_myst.html">14.6. Medidas de calidad de un Circuitos.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_013_01_estado_inicial_y_oraculos_myst.html">13. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">13.1. Preparación de un estado inicial genérico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_013_02/Section_002_oraculos_funciones_digitales_myst.html">13.2. Oráculos (funciones digitales)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_016_01_estado_inicial_y_oraculos_myst.html">15. Estado inicial y oráculos</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_016_02/Section_001_preparacion_de_un_estado_inicial_generico_myst.html">15.1. Preparación de un estado inicial genérico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_016_02/Section_002_oraculos_funciones_digitales_myst.html">15.2. Oráculos (funciones digitales)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_014_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">14. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">14.1. Algoritmo de Deutsch-Jozsa.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">14.2. Algoritmo de Bernstein-Vazirani</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_014_02/Section_003_algoritmo_de_simon_myst.html">14.3. Algoritmo de Simon</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_017_01_primeros_algoritmos_algoritmos_del_oraculo_myst.html">16. Primeros algoritmos: algoritmos del oráculo.</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_017_02/Section_001_algoritmo_de_deutsch-jozsa_myst.html">16.1. Algoritmo de Deutsch-Jozsa.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_017_02/Section_002_algoritmo_de_bernstein-vazirani_myst.html">16.2. Algoritmo de Bernstein-Vazirani</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_017_02/Section_003_algoritmo_de_simon_myst.html">16.3. Algoritmo de Simon</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_015_01_qft_quantum_fourier_transform__myst.html">15. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_015_02/Section_001_la_qft_en_computacion_cuantica_myst.html">15.1. La QFT en computación cuántica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_015_02/Section_002_intuicion_myst.html">15.2. Intuición</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_015_02/Section_003_circuito_que_implementa_la_qft_myst.html">15.3. Circuito que implementa la QFT.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_015_02/Section_004_complegidad_y_qft_aproximada_myst.html">15.4. Complegidad y QFT aproximada</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_018_01_qft_quantum_fourier_transform__myst.html">17. QFT: Quantum Fourier Transform</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_018_02/Section_001_la_qft_en_computacion_cuantica_myst.html">17.1. La QFT en computación cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_018_02/Section_002_intuicion_myst.html">17.2. Intuición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_018_02/Section_003_circuito_que_implementa_la_qft_myst.html">17.3. Circuito que implementa la QFT.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_018_02/Section_004_comentarios_sobre_la_implementacion_myst.html">17.4. comentarios sobre la implementación.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_016_01_qpe_estimacion_de_fase_cuantica__myst.html">16. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_016_02/Section_001_introduccion_myst.html">16.1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_016_02/Section_002_circuito_myst.html">16.2. Circuito</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_016_02/Section_003_formulacion_matematica_myst.html">16.3. Formulación matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_016_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">16.4. ¿Y si no conocemos el autoestado?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_019_01_qpe_estimacion_de_fase_cuantica__myst.html">18. QPE: Estimación de Fase Cuántica</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_019_02/Section_001_introduccion_myst.html">18.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_019_02/Section_002_circuito_myst.html">18.2. Circuito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_019_02/Section_003_formulacion_matematica_myst.html">18.3. Formulación matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_019_02/Section_004_y_si_no_conocemos_el_autoestado_myst.html">18.4. ¿Y si no conocemos el autoestado?</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_017_01_algoritmo_de_shor_periodicity_finding__myst.html">17. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_017_02/Section_001_introduccion_myst.html">17.1. Introducción.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_017_02/Section_002_hallar_del_periodo_de_una_funcion_period_finding_myst.html">17.2. Hallar del periodo de una función (Period Finding)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_017_02/Section_003_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">17.3. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_020_01_algoritmo_de_shor_periodicity_finding__myst.html">19. Algoritmo de Shor (Periodicity Finding)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_020_02/Section_001_introduccion_myst.html">19.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_020_02/Section_002_formalismo_matematico__myst.html">19.2. Formalismo matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_020_02/Section_003_hallar_del_periodo_de_una_funcion_period_finding_myst.html">19.3. Hallar del periodo de una función (Period Finding)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_020_02/Section_004_implementacion_ad_hoc_en_qiskit_para_n%3D15_myst.html">19.4. Implementación (ad hoc) en Qiskit para <span class="math notranslate nohighlight">\(N=15\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_018_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">18. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_018_02/Section_001_la_idea__myst.html">18.1. La idea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_018_02/Section_002_explicacion_desgranada_myst.html">18.2. Explicación desgranada</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_018_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">18.3. Implementación aproximada de la QFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_018_02/Section_004_implementacion_de_las_swap_controladas_myst.html">18.4. Implementación de las SWAP controladas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_021_01_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">20. Algoritmo de Shor: Implementación con 2n+3 qubit</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_021_02/Section_001_la_idea__myst.html">20.1. La idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_021_02/Section_002_explicacion_desgranada_myst.html">20.2. Explicación desgranada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_021_02/Section_003_implementacion_aproximada_de_la_qft_myst.html">20.3. Implementación aproximada de la QFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_021_02/Section_004_implementacion_de_las_swap_controladas_myst.html">20.4. Implementación de las SWAP controladas</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_019_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">19. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_001_diccionario_de_notaciones_myst.html">19.1. Diccionario de notaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_002_introduccion_myst.html">19.2. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">19.3. Explicación geométrica del algoritmo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_004_numero_conocido_de_soluciones__myst.html">19.4. Número conocido de soluciones.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_005_numero_desconocido_de_soluciones__myst.html">19.5. Número desconocido de soluciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">19.6. Conteo de soluciones (Quantum counting)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">19.7. Consideraciones sobre la implementacion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">19.8. Distribución de probababilidad inicial aleatoria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_019_02/Section_009_implementaciones_con_qiskit_myst.html">19.9. Implementaciones con qiskit.</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_022_01_algoritmo_de_grover_amplificacion_de_amplitud__myst.html">21. Algoritmo de Grover (Amplificación de amplitud)</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_001_diccionario_de_notaciones_myst.html">21.1. Diccionario de notaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_002_introduccion_myst.html">21.2. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_003_explicacion_geometrica_del_algoritmo__myst.html">21.3. Explicación geométrica del algoritmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_004_numero_conocido_de_soluciones__myst.html">21.4. Número conocido de soluciones.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_005_numero_desconocido_de_soluciones__myst.html">21.5. Número desconocido de soluciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_006_conteo_de_soluciones_quantum_counting__myst.html">21.6. Conteo de soluciones (Quantum counting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_007_consideraciones_sobre_la_implementacion__myst.html">21.7. Consideraciones sobre la implementacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_008_distribucion_de_probababilidad_inicial_aleatoria__myst.html">21.8. Distribución de probababilidad inicial aleatoria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_022_02/Section_009_implementaciones_con_qiskit_myst.html">21.9. Implementaciones con qiskit.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Part_04/Chapter_020_01_criptografia_y_quantum_key_distribution_qkd__myst.html">20. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_020_02/Section_001_introduccion_myst.html">20.1. Introducción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_020_02/Section_002_fundamentos_de_qkd_myst.html">20.2. Fundamentos de QKD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">20.3. Protocolos de QKD: Tres familias</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_05/Chapter_023_01_criptografia_y_quantum_key_distribution_qkd__myst.html">22. Criptografía y Quantum Key Distribution (QKD)</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_023_02/Section_001_introduccion_myst.html">22.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_023_02/Section_002_fundamentos_de_qkd_myst.html">22.2. Fundamentos de QKD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_05/Chapter_023_02/Section_003_protocolos_de_qkd_tres_familias_myst.html">22.3. Protocolos de QKD: Tres familias</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Part_06/Chapter_024_01_recopilacion_de_los_ejercicios_myst.html">23. Recopilación de los ejercicios</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_001_formalismos_matematico_myst.html">23.1. Formalismos matemático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_002_fundamentos_de_mecanica_cuantica_myst.html">23.2. Fundamentos de Mecánica Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_003_qubits_myst.html">23.3. Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_004_puertas_simples_myst.html">23.4. Puertas simples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_005_medidad%2C_parte_i_medida_de_1_qubit_myst.html">23.5. Medidad, Parte I: Medida de 1 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_006_multi-qubit_definiciones_y_puertas_myst.html">23.6. Multi-qubit: definiciones y puertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_007_medidas%2C_parte_ii_medida_de_estados_multi-qubit_myst.html">23.7. Medidas, Parte II: Medida de estados multi-Qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_008_entrelazamiento_en_accion_myst.html">23.8. Entrelazamiento en acción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_009_decoherencia_y_desfase_myst.html">23.9. Decoherencia y desfase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_010_breve_introduccion_sobre_hardware_de_computacion_cuantica_myst.html">23.10. Breve introducción sobre Hardware de Computación Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_011_computacion_cuantica_con_iones_atrapados_trepped_ions_myst.html">23.11. Computación Cuántica con Iones Atrapados (Trepped Ions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_012_computacion_cuantica_con_qubits_superconductores_myst.html">23.12. Computación Cuántica con qubits Superconductores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_013_tecnicas_de_control_y_computacion_en_rnm_myst.html">23.13. Técnicas de control y computación en RNM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_014_elementos_basicos_de_los_algoritmo_cuantico_myst.html">23.14. Elementos básicos de los algoritmo cuántico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_015_estado_incial_y_oraculo_myst.html">23.15. Estado incial y oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_016_primeros_algoritmos_algoritmos_del_oraculo_myst.html">23.16. Primeros algoritmos: algoritmos del oráculo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_017_qft_quantum_fourier_transform_myst.html">23.17. QFT: Quantum Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_018_qpe_estimacion_de_fase_cuantica_myst.html">23.18. QPE: Estimación de Fase Cuántica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_019_algoritmo_de_shor_periodicity_finding_myst.html">23.19. Algoritmo de Shor (Periodicity Finding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_020_algoritmo_de_shor_implementacion_con_2n%2B3_qubit_myst.html">23.20. Algoritmo de Shor: Implementación con 2n+3 qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_021_algoritmo_de_grover_amplificacion_de_la_amplitud_myst.html">23.21. Algoritmo de Grover (Amplificación de la amplitud)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Part_06/Chapter_024_02/Section_022_criptografia_y_quantum_key_distribution_qkd_myst.html">23.22. Criptografía y Quantum Key Distribution (QKD)</a></li>
 </ul>
 </li>
 </ul>
@@ -592,194 +652,239 @@ document.write(`
 <dt class="label" id="id61"><span class="brackets">4</span></dt>
 <dd><p>Antonio Ac\'ın, Nicolas Gisin, and Valerio Scarani. Coherent-pulse implementations of quantum cryptography protocols resistant to photon-number-splitting attacks. <em>Phys. Rev. A</em>, 69:012309, Jan 2004. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.69.012309">https://link.aps.org/doi/10.1103/PhysRevA.69.012309</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.69.012309">doi:10.1103/PhysRevA.69.012309</a>.</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets">5</span></dt>
+<dt class="label" id="id84"><span class="brackets">5</span></dt>
+<dd><p>Morteza Aghaee, Arun Akkala, Zulfi Alam, Rizwan Ali, Alejandro Alcaraz Ramirez, Mariusz Andrzejczuk, Andrey E. Antipov, Pavel Aseev, Mikhail Astafev, Bela Bauer, Jonathan Becker, Srini Boddapati, Frenk Boekhout, Jouri Bommer, Tom Bosma, Leo Bourdet, Samuel Boutin, Philippe Caroff, Lucas Casparis, Maja Cassidy, Sohail Chatoor, Anna Wulf Christensen, Noah Clay, William S. Cole, Fabiano Corsetti, Ajuan Cui, Paschalis Dalampiras, Anand Dokania, Gijs de Lange, Michiel de Moor, Juan Carlos Estrada Saldaña, Saeed Fallahi, Zahra Heidarnia Fathabad, John Gamble, Geoff Gardner, Deshan Govender, Flavio Griggio, Ruben Grigoryan, Sergei Gronin, Jan Gukelberger, Esben Bork Hansen, Sebastian Heedt, Jesús Herranz Zamorano, Samantha Ho, Ulrik Laurens Holgaard, Henrik Ingerslev, Linda Johansson, Jeffrey Jones, Ray Kallaher, Farhad Karimi, Torsten Karzig, Evelyn King, Maren Elisabeth Kloster, Christina Knapp, Dariusz Kocon, Jonne Koski, Pasi Kostamo, Peter Krogstrup, Mahesh Kumar, Tom Laeven, Thorvald Larsen, Kongyi Li, Tyler Lindemann, Julie Love, Roman Lutchyn, Morten Hannibal Madsen, Michael Manfra, Signe Markussen, Esteban Martinez, Robert McNeil, Elvedin Memisevic, Trevor Morgan, Andrew Mullally, Chetan Nayak, Jens Nielsen, William Hvidtfelt Padkær Nielsen, Bas Nijholt, Anne Nurmohamed, Eoin O'Farrell, Keita Otani, Sebastian Pauka, Karl Petersson, Luca Petit, Dmitry I. Pikulin, Frank Preiss, Marina Quintero-Perez, Mohana Rajpalke, Katrine Rasmussen, Davydas Razmadze, Outi Reentila, David Reilly, Richard Rouse, Ivan Sadovskyy, Lauri Sainiemi, Sydney Schreppler, Vadim Sidorkin, Amrita Singh, Shilpi Singh, Sarat Sinha, Patrick Sohr, Toma\ifmmode  \check s\else  š\fi  Stankevi\ifmmode  \check c\else  č\fi , Lieuwe Stek, Henri Suominen, Judith Suter, Vicky Svidenko, Sam Teicher, Mine Temuerhan, Nivetha Thiyagarajah, Raj Tholapi, Mason Thomas, Emily Toomey, Shivendra Upadhyay, Ivan Urban, Saulius Vaitiek\ifmmode  \dot e\else  ė\fi nas, Kevin Van Hoogdalem, David Van Woerkom, Dmitrii V. Viazmitinov, Dominik Vogel, Steven Waddy, John Watson, Joseph Weston, Georg W. Winkler, Chung Kai Yang, Sean Yau, Daniel Yi, Emrah Yucelen, Alex Webster, Roland Zeisel, and Ruichen Zhao. Inas-al hybrid devices passing the topological gap protocol. <em>Phys. Rev. B</em>, 107:245423, Jun 2023. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevB.107.245423">https://link.aps.org/doi/10.1103/PhysRevB.107.245423</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevB.107.245423">doi:10.1103/PhysRevB.107.245423</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">6</span></dt>
 <dd><p>Alain Aspect, Jean Dalibard, and Gérard Roger. Experimental test of bell's inequalities using time-varying analyzers. <em>Phys. Rev. Lett.</em>, 49:1804–1807, Dec 1982. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.49.1804">https://link.aps.org/doi/10.1103/PhysRevLett.49.1804</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.49.1804">doi:10.1103/PhysRevLett.49.1804</a>.</p>
 </dd>
-<dt class="label" id="id22"><span class="brackets">6</span></dt>
+<dt class="label" id="id76"><span class="brackets">7</span></dt>
+<dd><p>G.F. Bassani, G. Liedl, and P. Wyder. <em>Encyclopedia of Condensed Matter Physics</em>. Elsevier Science, 2005. ISBN 9780122276101. URL: <a class="reference external" href="https://www.sciencedirect.com/referencework/9780123694010/encyclopedia-of-condensed-matter-physics">https://www.sciencedirect.com/referencework/9780123694010/encyclopedia-of-condensed-matter-physics</a>.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets">8</span></dt>
 <dd><p>Stephane Beauregard. Circuit for shor's algorithm using 2n+3 qubits. <em>arXiv preprint quant-ph/0205095</em>, 2002. URL: <a class="reference external" href="https://arxiv.org/abs/quant-ph/0205095">https://arxiv.org/abs/quant-ph/0205095</a>, <a class="reference external" href="https://doi.org/10.48550/ARXIV.QUANT-PH/0205095">doi:10.48550/ARXIV.QUANT-PH/0205095</a>.</p>
 </dd>
-<dt class="label" id="id64"><span class="brackets">7</span></dt>
+<dt class="label" id="id64"><span class="brackets">9</span></dt>
 <dd><p>H. Bechmann-Pasquinucci and N. Gisin. Incoherent and coherent eavesdropping in the six-state protocol of quantum cryptography. <em>Phys. Rev. A</em>, 59:4238–4248, Jun 1999. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.59.4238">https://link.aps.org/doi/10.1103/PhysRevA.59.4238</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.59.4238">doi:10.1103/PhysRevA.59.4238</a>.</p>
 </dd>
-<dt class="label" id="id11"><span class="brackets">8</span></dt>
-<dd><p>J. S. Bell. On the einstein podolsky rosen paradox. <em>Physics Physique Fizika</em>, 1:195–200, Nov 1964. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysicsPhysiqueFizika.1.195">https://link.aps.org/doi/10.1103/PhysicsPhysiqueFizika.1.195</a>, <a class="reference external" href="https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195">doi:10.1103/PhysicsPhysiqueFizika.1.195</a>.</p>
+<dt class="label" id="id11"><span class="brackets">10</span></dt>
+<dd><p>J. S. Bell. On the Einstein Podolsky Rosen paradox. <em>Physics Physique Fizika</em>, 1:195–200, Nov 1964. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysicsPhysiqueFizika.1.195">https://link.aps.org/doi/10.1103/PhysicsPhysiqueFizika.1.195</a>, <a class="reference external" href="https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195">doi:10.1103/PhysicsPhysiqueFizika.1.195</a>.</p>
 </dd>
-<dt class="label" id="id48"><span class="brackets">9</span></dt>
+<dt class="label" id="id48"><span class="brackets">11</span></dt>
 <dd><p>C.H. Bennett, G. Brassard, C. Crepeau, and U.M. Maurer. Generalized privacy amplification. <em>IEEE Transactions on Information Theory</em>, 41(6):1915–1923, 1995. <a class="reference external" href="https://doi.org/10.1109/18.476316">doi:10.1109/18.476316</a>.</p>
 </dd>
-<dt class="label" id="id46"><span class="brackets">10</span></dt>
+<dt class="label" id="id46"><span class="brackets">12</span></dt>
 <dd><p>Charles H. Bennett. Quantum cryptography using any two nonorthogonal states. <em>Phys. Rev. Lett.</em>, 68:3121–3124, May 1992. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.68.3121">https://link.aps.org/doi/10.1103/PhysRevLett.68.3121</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.68.3121">doi:10.1103/PhysRevLett.68.3121</a>.</p>
 </dd>
-<dt class="label" id="id47"><span class="brackets">11</span></dt>
+<dt class="label" id="id47"><span class="brackets">13</span></dt>
 <dd><p>Charles H. Bennett, François Bessette, Gilles Brassard, Louis Salvail, and John A. Smolin. Experimental quantum cryptography. <em>J. Cryptology</em>, 5:3–28, 1992. <a class="reference external" href="https://doi.org/10.1007/BF00191318">doi:10.1007/BF00191318</a>.</p>
 </dd>
-<dt class="label" id="id45"><span class="brackets">12</span></dt>
+<dt class="label" id="id45"><span class="brackets">14</span></dt>
 <dd><p>Charles H. Bennett, Gilles Brassard, and N. David Mermin. Quantum cryptography without bell's theorem. <em>Phys. Rev. Lett.</em>, 68:557–559, Feb 1992. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.68.557">https://link.aps.org/doi/10.1103/PhysRevLett.68.557</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.68.557">doi:10.1103/PhysRevLett.68.557</a>.</p>
 </dd>
-<dt class="label" id="id43"><span class="brackets">13</span></dt>
+<dt class="label" id="id85"><span class="brackets">15</span></dt>
+<dd><p>Francesco Bernardini, Abhijit Chakraborty, and Carlos R Ordóñez. Quantum computing with trapped ions: a beginner’s guide. <em>European Journal of Physics</em>, 45(1):013001, nov 2023. URL: <a class="reference external" href="https://dx.doi.org/10.1088/1361-6404/ad06be">https://dx.doi.org/10.1088/1361-6404/ad06be</a>, <a class="reference external" href="https://doi.org/10.1088/1361-6404/ad06be">doi:10.1088/1361-6404/ad06be</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets">16</span></dt>
 <dd><p>G Brassard and Charles H Bennett. Quantum cryptography: public key distribution and coin tossing. In <em>International conference on computers, systems and signal processing</em>, 175–179. 1984.</p>
 </dd>
-<dt class="label" id="id35"><span class="brackets">14</span></dt>
+<dt class="label" id="id35"><span class="brackets">17</span></dt>
 <dd><p>Gilles Brassard, Peter HØyer, and Alain Tapp. Quantum counting. In <em>Automata, Languages and Programming</em>, pages 820–831. Springer Berlin Heidelberg, 1998. URL: <a class="reference external" href="https://doi.org/10.1007%2Fbfb0055105">https://doi.org/10.1007%2Fbfb0055105</a>, <a class="reference external" href="https://doi.org/10.1007/bfb0055105">doi:10.1007/bfb0055105</a>.</p>
 </dd>
-<dt class="label" id="id63"><span class="brackets">15</span></dt>
+<dt class="label" id="id63"><span class="brackets">18</span></dt>
 <dd><p>Dagmar Bruß. Optimal eavesdropping in quantum cryptography with six states. <em>Phys. Rev. Lett.</em>, 81:3018–3021, Oct 1998. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.81.3018">https://link.aps.org/doi/10.1103/PhysRevLett.81.3018</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.81.3018">doi:10.1103/PhysRevLett.81.3018</a>.</p>
 </dd>
-<dt class="label" id="id51"><span class="brackets">16</span></dt>
+<dt class="label" id="id51"><span class="brackets">19</span></dt>
 <dd><p>N. J. Cerf, M. Lévy, and G. Van Assche. Quantum distribution of gaussian keys using squeezed states. <em>Phys. Rev. A</em>, 63:052311, Apr 2001. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.63.052311">https://link.aps.org/doi/10.1103/PhysRevA.63.052311</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.63.052311">doi:10.1103/PhysRevA.63.052311</a>.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets">17</span></dt>
+<dt class="label" id="id82"><span class="brackets">20</span></dt>
+<dd><p>J. I. Cirac and P. Zoller. Quantum computations with cold trapped ions. <em>Phys. Rev. Lett.</em>, 74:4091–4094, May 1995. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.74.4091">https://link.aps.org/doi/10.1103/PhysRevLett.74.4091</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.74.4091">doi:10.1103/PhysRevLett.74.4091</a>.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">21</span></dt>
 <dd><p>John F. Clauser, Michael A. Horne, Abner Shimony, and Richard A. Holt. Proposed experiment to test local hidden-variable theories. <em>Phys. Rev. Lett.</em>, 23:880–884, Oct 1969. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.23.880">https://link.aps.org/doi/10.1103/PhysRevLett.23.880</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.23.880">doi:10.1103/PhysRevLett.23.880</a>.</p>
 </dd>
-<dt class="label" id="id3"><span class="brackets">18</span></dt>
+<dt class="label" id="id3"><span class="brackets">22</span></dt>
 <dd><p><strong>missing year in bib_Claude</strong></p>
 </dd>
-<dt class="label" id="id32"><span class="brackets">19</span></dt>
+<dt class="label" id="id32"><span class="brackets">23</span></dt>
 <dd><p>D. Coppersmith. An approximate fourier transform useful in quantum factoring. 2002. URL: <a class="reference external" href="https://arxiv.org/abs/quant-ph/0201067">https://arxiv.org/abs/quant-ph/0201067</a>, <a class="reference external" href="https://doi.org/10.48550/ARXIV.QUANT-PH/0201067">doi:10.48550/ARXIV.QUANT-PH/0201067</a>.</p>
 </dd>
-<dt class="label" id="id72"><span class="brackets">20</span></dt>
+<dt class="label" id="id72"><span class="brackets">24</span></dt>
 <dd><p>Eleni Diamanti, Hiroki Takesue, Carsten Langrock, M. M. Fejer, and Yoshihisa Yamamoto. 100 km differential phase shift quantum key distribution experiment with low jitter up-conversion detectors. <em>Opt. Express</em>, 14(26):13073–13082, Dec 2006. URL: <a class="reference external" href="https://opg.optica.org/oe/abstract.cfm?URI=oe-14-26-13073">https://opg.optica.org/oe/abstract.cfm?URI=oe-14-26-13073</a>, <a class="reference external" href="https://doi.org/10.1364/OE.14.013073">doi:10.1364/OE.14.013073</a>.</p>
 </dd>
-<dt class="label" id="id38"><span class="brackets">21</span></dt>
+<dt class="label" id="id38"><span class="brackets">25</span></dt>
 <dd><p>D. Dieks. Communication by epr devices. <em>Physics Letters A</em>, 92(6):271–272, 1982. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0375960182900846">https://www.sciencedirect.com/science/article/pii/0375960182900846</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/0375-9601(82)90084-6">doi:https://doi.org/10.1016/0375-9601(82)90084-6</a>.</p>
 </dd>
-<dt class="label" id="id28"><span class="brackets">22</span></dt>
+<dt class="label" id="id73"><span class="brackets">26</span></dt>
+<dd><p>David P. DiVincenzo. The physical implementation of quantum computation. <em>Fortschritte der Physik</em>, 48(9–11):771–783, September 2000. URL: <a class="reference external" href="http://dx.doi.org/10.1002/1521-3978(200009)48:9/11&lt;771::AID-PROP771&gt;3.0.CO;2-E">http://dx.doi.org/10.1002/1521-3978(200009)48:9/11&lt;771::AID-PROP771&gt;3.0.CO;2-E</a>, <a class="reference external" href="https://doi.org/10.1002/1521-3978(200009)48:9/11&lt;771::aid-prop771&gt;3.0.co;2-e">doi:10.1002/1521-3978(200009)48:9/11&lt;771::aid-prop771&gt;3.0.co;2-e</a>.</p>
+</dd>
+<dt class="label" id="id28"><span class="brackets">27</span></dt>
 <dd><p>Thomas G. Draper. Addition on a quantum computer. 2000. URL: <a class="reference external" href="https://arxiv.org/abs/quant-ph/0008033">https://arxiv.org/abs/quant-ph/0008033</a>, <a class="reference external" href="https://doi.org/10.48550/ARXIV.QUANT-PH/0008033">doi:10.48550/ARXIV.QUANT-PH/0008033</a>.</p>
 </dd>
-<dt class="label" id="id44"><span class="brackets">23</span></dt>
+<dt class="label" id="id44"><span class="brackets">28</span></dt>
 <dd><p>Artur K. Ekert. Quantum cryptography based on bell's theorem. <em>Phys. Rev. Lett.</em>, 67:661–663, Aug 1991. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.67.661">https://link.aps.org/doi/10.1103/PhysRevLett.67.661</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.67.661">doi:10.1103/PhysRevLett.67.661</a>.</p>
 </dd>
-<dt class="label" id="id6"><span class="brackets">24</span></dt>
+<dt class="label" id="id74"><span class="brackets">29</span></dt>
+<dd><p>Olivier Ezratty. Perspective on superconducting qubit quantum computing. <em>The European Physical Journal A</em>, 59(5):94, 2023. <a class="reference external" href="https://doi.org/https://doi.org/10.1140/epja/s10050-023-01006-7">doi:https://doi.org/10.1140/epja/s10050-023-01006-7</a>.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">30</span></dt>
 <dd><p>Moses Fayngold and Vadim Fayngold. <em>Quantum mechanics and quantum information</em>. Wiley-VCH, 1982.</p>
 </dd>
-<dt class="label" id="id59"><span class="brackets">25</span></dt>
+<dt class="label" id="id75"><span class="brackets">31</span></dt>
+<dd><p>Richard Phillips Feynman, Robert Benjamin Leighton, and Matthew Sands. <em>The Feynman lectures on physics; New millennium ed.</em> Basic Books, New York, NY, 2010. Originally published 1963-1965. URL: <a class="reference external" href="https://cds.cern.ch/record/1494701">https://cds.cern.ch/record/1494701</a>.</p>
+</dd>
+<dt class="label" id="id59"><span class="brackets">32</span></dt>
 <dd><p>Nicolas Gisin, Gregoire Ribordy, Hugo Zbinden, Damien Stucki, Nicolas Brunner, and Valerio Scarani. Towards practical and fast quantum cryptography. 2004. <a class="reference external" href="https://arxiv.org/abs/quant-ph/0411022">arXiv:quant-ph/0411022</a>.</p>
 </dd>
-<dt class="label" id="id52"><span class="brackets">26</span></dt>
+<dt class="label" id="id52"><span class="brackets">33</span></dt>
 <dd><p>Daniel Gottesman and John Preskill. Secure quantum key distribution using squeezed states. <em>Phys. Rev. A</em>, 63:022309, Jan 2001. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.63.022309">https://link.aps.org/doi/10.1103/PhysRevA.63.022309</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.63.022309">doi:10.1103/PhysRevA.63.022309</a>.</p>
 </dd>
-<dt class="label" id="id10"><span class="brackets">27</span></dt>
+<dt class="label" id="id88"><span class="brackets">34</span></dt>
+<dd><p>Daniel M Greenberger, Michael A Horne, Abner Shimony, and Anton Zeilinger. Bell’s theorem without inequalities. <em>American Journal of Physics</em>, 58(12):1131–1143, 1990.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">35</span></dt>
 <dd><p>David J. Griffiths and Darrell F. Schroeter. <em>Introduction to Quantum Mechanics</em>. Cambridge University Press, 3 edition, 2018. <a class="reference external" href="https://doi.org/10.1017/9781316995433">doi:10.1017/9781316995433</a>.</p>
 </dd>
-<dt class="label" id="id53"><span class="brackets">28</span></dt>
+<dt class="label" id="id53"><span class="brackets">36</span></dt>
 <dd><p>Frédéric Grosshans and Philippe Grangier. Continuous variable quantum cryptography using coherent states. <em>Phys. Rev. Lett.</em>, 88:057902, Jan 2002. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.88.057902">https://link.aps.org/doi/10.1103/PhysRevLett.88.057902</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.88.057902">doi:10.1103/PhysRevLett.88.057902</a>.</p>
 </dd>
-<dt class="label" id="id37"><span class="brackets">29</span></dt>
+<dt class="label" id="id37"><span class="brackets">37</span></dt>
 <dd><p>Lov K. Grover. Quantum computers can search rapidly by using almost any transformation. <em>Phys. Rev. Lett.</em>, 80:4329–4332, May 1998. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.80.4329">https://link.aps.org/doi/10.1103/PhysRevLett.80.4329</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.80.4329">doi:10.1103/PhysRevLett.80.4329</a>.</p>
 </dd>
-<dt class="label" id="id50"><span class="brackets">30</span></dt>
+<dt class="label" id="id86"><span class="brackets">38</span></dt>
+<dd><p>H. Haken. <em>Laser Theory</em>, pages 1–304. Springer Berlin Heidelberg, Berlin, Heidelberg, 1970. URL: <a class="reference external" href="https://doi.org/10.1007/978-3-662-22091-7_1">https://doi.org/10.1007/978-3-662-22091-7_1</a>, <a class="reference external" href="https://doi.org/10.1007/978-3-662-22091-7_1">doi:10.1007/978-3-662-22091-7_1</a>.</p>
+</dd>
+<dt class="label" id="id50"><span class="brackets">39</span></dt>
 <dd><p>Mark Hillery. Quantum cryptography with squeezed states. <em>Phys. Rev. A</em>, 61:022309, Jan 2000. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.61.022309">https://link.aps.org/doi/10.1103/PhysRevA.61.022309</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.61.022309">doi:10.1103/PhysRevA.61.022309</a>.</p>
 </dd>
-<dt class="label" id="id18"><span class="brackets">31</span></dt>
+<dt class="label" id="id18"><span class="brackets">40</span></dt>
 <dd><p>XUEDONG HU, ROGERIO DE SOUSA, and S. DAS SARMA. DECOHERENCE AND DEPHASING IN SPIN-BASED SOLID STATE QUANTUM COMPUTERS. In <em>Foundations of Quantum Mechanics in the Light of New Technology</em>. WORLD SCIENTIFIC, oct 2002. URL: <a class="reference external" href="https://doi.org/10.1142%2F9789812776716_0001">https://doi.org/10.1142%2F9789812776716_0001</a>, <a class="reference external" href="https://doi.org/10.1142/9789812776716_0001">doi:10.1142/9789812776716_0001</a>.</p>
 </dd>
-<dt class="label" id="id57"><span class="brackets">32</span></dt>
+<dt class="label" id="id57"><span class="brackets">41</span></dt>
 <dd><p>K. Inoue, E. Waks, and Y. Yamamoto. Differential-phase-shift quantum key distribution using coherent light. <em>Phys. Rev. A</em>, 68:022317, Aug 2003. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.68.022317">https://link.aps.org/doi/10.1103/PhysRevA.68.022317</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.68.022317">doi:10.1103/PhysRevA.68.022317</a>.</p>
 </dd>
-<dt class="label" id="id56"><span class="brackets">33</span></dt>
+<dt class="label" id="id56"><span class="brackets">42</span></dt>
 <dd><p>Kyo Inoue, Edo Waks, and Yoshihisa Yamamoto. Differential phase shift quantum key distribution. <em>Phys. Rev. Lett.</em>, 89:037902, Jun 2002. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.89.037902">https://link.aps.org/doi/10.1103/PhysRevLett.89.037902</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.89.037902">doi:10.1103/PhysRevLett.89.037902</a>.</p>
 </dd>
-<dt class="label" id="id17"><span class="brackets">34</span></dt>
+<dt class="label" id="id17"><span class="brackets">43</span></dt>
 <dd><p>J.A. Jones and E. Knill. Efficient refocusing of one-spin and two-spin interactions for nmr quantum computation. <em>Journal of Magnetic Resonance</em>, 141(2):322–325, 1999. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1090780799918906">https://www.sciencedirect.com/science/article/pii/S1090780799918906</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1006/jmre.1999.1890">doi:https://doi.org/10.1006/jmre.1999.1890</a>.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets">35</span></dt>
+<dt class="label" id="id77"><span class="brackets">44</span></dt>
+<dd><p>B.D. Josephson. Possible new effects in superconductive tunnelling. <em>Physics Letters</em>, 1(7):251–253, 1962. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0031916362913690">https://www.sciencedirect.com/science/article/pii/0031916362913690</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/0031-9163(62)91369-0">doi:https://doi.org/10.1016/0031-9163(62)91369-0</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">45</span></dt>
 <dd><p>Sumeet Khatri and Mark M. Wilde. Principles of quantum communication theory: a modern approach (notes in progress. 2020. <a class="reference external" href="https://arxiv.org/abs/2011.04672">arXiv:2011.04672</a>.</p>
 </dd>
-<dt class="label" id="id36"><span class="brackets">36</span></dt>
+<dt class="label" id="id36"><span class="brackets">46</span></dt>
 <dd><p>A. Yu. Kitaev. Quantum measurements and the abelian stabilizer problem. 1995. <a class="reference external" href="https://arxiv.org/abs/quant-ph/9511026">arXiv:quant-ph/9511026</a>.</p>
 </dd>
-<dt class="label" id="id68"><span class="brackets">37</span></dt>
+<dt class="label" id="id68"><span class="brackets">47</span></dt>
 <dd><p>Masato Koashi. Unconditional security of coherent-state quantum key distribution with a strong phase-reference pulse. <em>Phys. Rev. Lett.</em>, 93:120501, Sep 2004. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.93.120501">https://link.aps.org/doi/10.1103/PhysRevLett.93.120501</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.93.120501">doi:10.1103/PhysRevLett.93.120501</a>.</p>
 </dd>
-<dt class="label" id="id8"><span class="brackets">38</span></dt>
+<dt class="label" id="id8"><span class="brackets">48</span></dt>
 <dd><p>Kenneth S Krane. <em>Introductory nuclear physics</em>. Wiley, New York, NY, 1988. URL: <a class="reference external" href="https://cds.cern.ch/record/359790">https://cds.cern.ch/record/359790</a>.</p>
 </dd>
-<dt class="label" id="id4"><span class="brackets">39</span></dt>
+<dt class="label" id="id4"><span class="brackets">49</span></dt>
 <dd><p>Michel Le Bellac. <em>Quantum Physics</em>. Cambridge University Press, 2006. <a class="reference external" href="https://doi.org/10.1017/CBO9780511616471">doi:10.1017/CBO9780511616471</a>.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets">40</span></dt>
+<dt class="label" id="id16"><span class="brackets">50</span></dt>
 <dd><p>Debbie W. Leung, Isaac L. Chuang, Fumiko Yamaguchi, and Yoshihisa Yamamoto. Efficient implementation of coupled logic gates for quantum computation. <em>Phys. Rev. A</em>, 61:042310, Mar 2000. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.61.042310">https://link.aps.org/doi/10.1103/PhysRevA.61.042310</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.61.042310">doi:10.1103/PhysRevA.61.042310</a>.</p>
 </dd>
-<dt class="label" id="id65"><span class="brackets">41</span></dt>
+<dt class="label" id="id65"><span class="brackets">51</span></dt>
 <dd><p>Hoi-Kwong Lo. Proof of unconditional security of six-state quantum key distribution scheme. <em>arXiv preprint quant-ph/0102138</em>, 2001.</p>
 </dd>
-<dt class="label" id="id29"><span class="brackets">42</span></dt>
+<dt class="label" id="id81"><span class="brackets">52</span></dt>
+<dd><p>C. Monroe, D. M. Meekhof, B. E. King, W. M. Itano, and D. J. Wineland. Demonstration of a fundamental quantum logic gate. <em>Phys. Rev. Lett.</em>, 75:4714–4717, Dec 1995. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.75.4714">https://link.aps.org/doi/10.1103/PhysRevLett.75.4714</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.75.4714">doi:10.1103/PhysRevLett.75.4714</a>.</p>
+</dd>
+<dt class="label" id="id29"><span class="brackets">53</span></dt>
 <dd><p>Michele Mosca and Artur Ekert. The hidden subgroup problem and eigenvalue estimation on a quantum computer. 1999. URL: <a class="reference external" href="https://arxiv.org/abs/quant-ph/9903071">https://arxiv.org/abs/quant-ph/9903071</a>, <a class="reference external" href="https://doi.org/10.48550/ARXIV.QUANT-PH/9903071">doi:10.48550/ARXIV.QUANT-PH/9903071</a>.</p>
 </dd>
-<dt class="label" id="id21"><span class="brackets">43</span></dt>
+<dt class="label" id="id21"><span class="brackets">54</span></dt>
 <dd><p>Michael A Nielsen and Isaac Chuang. Quantum computation and quantum information. 2002.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets">44</span></dt>
+<dt class="label" id="id9"><span class="brackets">55</span></dt>
 <dd><p>Michael A. Nielsen and Isaac L. Chuang. <em>Quantum Computation and Quantum Information: 10th Anniversary Edition</em>. Cambridge University Press, 2010. <a class="reference external" href="https://doi.org/10.1017/CBO9780511976667">doi:10.1017/CBO9780511976667</a>.</p>
 </dd>
-<dt class="label" id="id31"><span class="brackets">45</span></dt>
+<dt class="label" id="id31"><span class="brackets">56</span></dt>
 <dd><p>S. Parker and M. B. Plenio. Efficient factorization with a single pure qubit and $\mathrm log\mathit N$ mixed qubits. <em>Phys. Rev. Lett.</em>, 85:3049–3052, Oct 2000. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.85.3049">https://link.aps.org/doi/10.1103/PhysRevLett.85.3049</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.85.3049">doi:10.1103/PhysRevLett.85.3049</a>.</p>
 </dd>
-<dt class="label" id="id49"><span class="brackets">46</span></dt>
+<dt class="label" id="id49"><span class="brackets">57</span></dt>
 <dd><p>T. C. Ralph. Continuous variable quantum cryptography. <em>Phys. Rev. A</em>, 61:010303, Dec 1999. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.61.010303">https://link.aps.org/doi/10.1103/PhysRevA.61.010303</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.61.010303">doi:10.1103/PhysRevA.61.010303</a>.</p>
 </dd>
-<dt class="label" id="id55"><span class="brackets">47</span></dt>
+<dt class="label" id="id55"><span class="brackets">58</span></dt>
 <dd><p>M. D. Reid. Quantum cryptography with a predetermined key, using continuous-variable einstein-podolsky-rosen correlations. <em>Phys. Rev. A</em>, 62:062308, Nov 2000. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.62.062308">https://link.aps.org/doi/10.1103/PhysRevA.62.062308</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.62.062308">doi:10.1103/PhysRevA.62.062308</a>.</p>
 </dd>
-<dt class="label" id="id62"><span class="brackets">48</span></dt>
+<dt class="label" id="id62"><span class="brackets">59</span></dt>
 <dd><p>Valerio Scarani, Antonio Ac\'ın, Grégoire Ribordy, and Nicolas Gisin. Quantum cryptography protocols robust against photon number splitting attacks for weak laser pulse implementations. <em>Phys. Rev. Lett.</em>, 92:057901, Feb 2004. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.92.057901">https://link.aps.org/doi/10.1103/PhysRevLett.92.057901</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.92.057901">doi:10.1103/PhysRevLett.92.057901</a>.</p>
 </dd>
-<dt class="label" id="id40"><span class="brackets">49</span></dt>
+<dt class="label" id="id40"><span class="brackets">60</span></dt>
 <dd><p>Valerio Scarani, Helle Bechmann-Pasquinucci, Nicolas J. Cerf, Miloslav Du\ifmmode  \check s\else  š\fi ek, Norbert Lütkenhaus, and Momtchil Peev. The security of practical quantum key distribution. <em>Rev. Mod. Phys.</em>, 81:1301–1350, Sep 2009. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/RevModPhys.81.1301">https://link.aps.org/doi/10.1103/RevModPhys.81.1301</a>, <a class="reference external" href="https://doi.org/10.1103/RevModPhys.81.1301">doi:10.1103/RevModPhys.81.1301</a>.</p>
 </dd>
-<dt class="label" id="id42"><span class="brackets">50</span></dt>
+<dt class="label" id="id42"><span class="brackets">61</span></dt>
 <dd><p>C. E. Shannon. Communication theory of secrecy systems. <em>The Bell System Technical Journal</em>, 28(4):656–715, 1949. <a class="reference external" href="https://doi.org/10.1002/j.1538-7305.1949.tb00928.x">doi:10.1002/j.1538-7305.1949.tb00928.x</a>.</p>
 </dd>
-<dt class="label" id="id54"><span class="brackets">51</span></dt>
+<dt class="label" id="id54"><span class="brackets">62</span></dt>
 <dd><p>Ch. Silberhorn, T. C. Ralph, N. Lütkenhaus, and G. Leuchs. Continuous variable quantum cryptography: beating the 3 db loss limit. <em>Phys. Rev. Lett.</em>, 89:167901, Sep 2002. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.89.167901">https://link.aps.org/doi/10.1103/PhysRevLett.89.167901</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.89.167901">doi:10.1103/PhysRevLett.89.167901</a>.</p>
 </dd>
-<dt class="label" id="id58"><span class="brackets">52</span></dt>
+<dt class="label" id="id58"><span class="brackets">63</span></dt>
 <dd><p>Damien Stucki, Nicolas Brunner, Nicolas Gisin, Valerio Scarani, and Hugo Zbinden. Fast and simple one-way quantum key distribution. <em>Applied Physics Letters</em>, 87(19):194108, 11 2005. URL: <a class="reference external" href="https://doi.org/10.1063/1.2126792">https://doi.org/10.1063/1.2126792</a>, <a class="reference external" href="https://arxiv.org/abs/https://pubs.aip.org/aip/apl/article-pdf/doi/10.1063/1.2126792/14651015/194108\_1\_online.pdf">arXiv:https://pubs.aip.org/aip/apl/article-pdf/doi/10.1063/1.2126792/14651015/194108\_1\_online.pdf</a>, <a class="reference external" href="https://doi.org/10.1063/1.2126792">doi:10.1063/1.2126792</a>.</p>
 </dd>
-<dt class="label" id="id70"><span class="brackets">53</span></dt>
+<dt class="label" id="id70"><span class="brackets">64</span></dt>
 <dd><p>H Takesue, E Diamanti, T Honjo, C Langrock, M M Fejer, K Inoue, and Y Yamamoto. Differential phase shift quantum key distribution experiment over 105\hspace 0.167emkm fibre. <em>New Journal of Physics</em>, 7:232–232, nov 2005. URL: <a class="reference external" href="https://doi.org/10.1088%2F1367-2630%2F7%2F1%2F232">https://doi.org/10.1088%2F1367-2630%2F7%2F1%2F232</a>, <a class="reference external" href="https://doi.org/10.1088/1367-2630/7/1/232">doi:10.1088/1367-2630/7/1/232</a>.</p>
 </dd>
-<dt class="label" id="id71"><span class="brackets">54</span></dt>
+<dt class="label" id="id71"><span class="brackets">65</span></dt>
 <dd><p>Hiroki Takesue, Sae Woo Nam, Qiang Zhang, Robert H. Hadfield, Toshimori Honjo, Kiyoshi Tamaki, and Yoshihisa Yamamoto. Quantum key distribution over a 40-dB channel loss using superconducting single-photon detectors. <em>Nature Photonics</em>, 1(6):343–348, jun 2007. URL: <a class="reference external" href="https://doi.org/10.1038%2Fnphoton.2007.75">https://doi.org/10.1038%2Fnphoton.2007.75</a>, <a class="reference external" href="https://doi.org/10.1038/nphoton.2007.75">doi:10.1038/nphoton.2007.75</a>.</p>
 </dd>
-<dt class="label" id="id66"><span class="brackets">55</span></dt>
+<dt class="label" id="id66"><span class="brackets">66</span></dt>
 <dd><p>Kiyoshi Tamaki, Masato Koashi, and Nobuyuki Imoto. Unconditionally secure key distribution based on two nonorthogonal states. <em>Phys. Rev. Lett.</em>, 90:167904, Apr 2003. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.90.167904">https://link.aps.org/doi/10.1103/PhysRevLett.90.167904</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.90.167904">doi:10.1103/PhysRevLett.90.167904</a>.</p>
 </dd>
-<dt class="label" id="id67"><span class="brackets">56</span></dt>
+<dt class="label" id="id67"><span class="brackets">67</span></dt>
 <dd><p>Kiyoshi Tamaki and Norbert Lütkenhaus. Unconditional security of the bennett 1992 quantum key-distribution protocol over a lossy and noisy channel. <em>Phys. Rev. A</em>, 69:032316, Mar 2004. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevA.69.032316">https://link.aps.org/doi/10.1103/PhysRevA.69.032316</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevA.69.032316">doi:10.1103/PhysRevA.69.032316</a>.</p>
 </dd>
-<dt class="label" id="id69"><span class="brackets">57</span></dt>
+<dt class="label" id="id69"><span class="brackets">68</span></dt>
 <dd><p>Kiyoshi Tamaki, Norbert Lütkenhaus, Masato Koashi, and Jamie Batuwantudawe. Unconditional security of the bennett 1992 quantum-key-distribution scheme with a strong reference pulse. <em>Physical Review A</em>, sep 2009. URL: <a class="reference external" href="https://doi.org/10.1103%2Fphysreva.80.032302">https://doi.org/10.1103%2Fphysreva.80.032302</a>, <a class="reference external" href="https://doi.org/10.1103/physreva.80.032302">doi:10.1103/physreva.80.032302</a>.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets">58</span></dt>
+<dt class="label" id="id7"><span class="brackets">69</span></dt>
 <dd><p>L. M. K. Vandersypen and I. L. Chuang. Nmr techniques for quantum control and computation. <em>Rev. Mod. Phys.</em>, 76:1037–1069, Jan 2005. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/RevModPhys.76.1037">https://link.aps.org/doi/10.1103/RevModPhys.76.1037</a>, <a class="reference external" href="https://doi.org/10.1103/RevModPhys.76.1037">doi:10.1103/RevModPhys.76.1037</a>.</p>
 </dd>
-<dt class="label" id="id41"><span class="brackets">59</span></dt>
+<dt class="label" id="id41"><span class="brackets">70</span></dt>
 <dd><p>G. S. Vernam. Cipher printing telegraph systems: for secret wire and radio telegraphic communications. <em>Journal of the A.I.E.E.</em>, 45(2):109–115, 1926. <a class="reference external" href="https://doi.org/10.1109/JAIEE.1926.6534724">doi:10.1109/JAIEE.1926.6534724</a>.</p>
 </dd>
-<dt class="label" id="id60"><span class="brackets">60</span></dt>
+<dt class="label" id="id78"><span class="brackets">71</span></dt>
+<dd><p>J R Waldram. The josephson effects in weakly coupled superconductors. <em>Reports on Progress in Physics</em>, 39(8):751, aug 1976. URL: <a class="reference external" href="https://dx.doi.org/10.1088/0034-4885/39/8/002">https://dx.doi.org/10.1088/0034-4885/39/8/002</a>, <a class="reference external" href="https://doi.org/10.1088/0034-4885/39/8/002">doi:10.1088/0034-4885/39/8/002</a>.</p>
+</dd>
+<dt class="label" id="id60"><span class="brackets">72</span></dt>
 <dd><p>Stephen Wiesner. Conjugate coding. <em>SIGACT News</em>, 15(1):78–88, jan 1983. URL: <a class="reference external" href="https://doi.org/10.1145/1008908.1008920">https://doi.org/10.1145/1008908.1008920</a>, <a class="reference external" href="https://doi.org/10.1145/1008908.1008920">doi:10.1145/1008908.1008920</a>.</p>
 </dd>
-<dt class="label" id="id39"><span class="brackets">61</span></dt>
+<dt class="label" id="id39"><span class="brackets">73</span></dt>
 <dd><p>William K Wootters and Wojciech H Zurek. A single quantum cannot be cloned. <em>Nature</em>, 299(5886):802–803, 1982.</p>
 </dd>
-<dt class="label" id="id30"><span class="brackets">62</span></dt>
+<dt class="label" id="id30"><span class="brackets">74</span></dt>
 <dd><p>Christof Zalka. Fast versions of shor's quantum factoring algorithm. 1998. URL: <a class="reference external" href="https://arxiv.org/abs/quant-ph/9806084">https://arxiv.org/abs/quant-ph/9806084</a>, <a class="reference external" href="https://doi.org/10.48550/ARXIV.QUANT-PH/9806084">doi:10.48550/ARXIV.QUANT-PH/9806084</a>.</p>
 </dd>
-<dt class="label" id="id15"><span class="brackets">63</span></dt>
+<dt class="label" id="id15"><span class="brackets">75</span></dt>
 <dd><p>IONQ. Getting started with native gates, <a class="reference external" href="https://ionq.com/docs/getting-started-with-native-gates">https://ionq.com/docs/getting-started-with-native-gates</a>. 6 de abril de 2023. URL: <a class="reference external" href="https://ionq.com/docs/getting-started-with-native-gates">https://ionq.com/docs/getting-started-with-native-gates</a>.</p>
 </dd>
-<dt class="label" id="id2"><span class="brackets">64</span></dt>
-<dd><p>Javier Mas Sole. Curso de formación interna del proyecto de quantumspain. 2022.</p>
+<dt class="label" id="id2"><span class="brackets">76</span></dt>
+<dd><p>Javier Mas Sole. Curso básico de computación cuántica (<a class="reference external" href="https://talentq-es.github.io/TalentQ-CICC/docs/index.html">https://talentq-es.github.io/TalentQ-CICC/docs/index.html</a>). TalentQ (<a class="reference external" href="https://www.talentq.es/es_es/">https://www.talentq.es/es_es/</a>), 2024.</p>
 </dd>
-<dt class="label" id="id33"><span class="brackets">65</span></dt>
+<dt class="label" id="id80"><span class="brackets">77</span></dt>
+<dd><p>National Academies of Sciences, Engineering and Medicine. <em>Quantum Computing: Progress and Prospects</em>. The National Academies Press, Washington, DC, 2019. ISBN 978-0-309-47969-1. URL: <a class="reference external" href="https://nap.nationalacademies.org/catalog/25196/quantum-computing-progress-and-prospects">https://nap.nationalacademies.org/catalog/25196/quantum-computing-progress-and-prospects</a>, <a class="reference external" href="https://doi.org/10.17226/25196">doi:10.17226/25196</a>.</p>
+</dd>
+<dt class="label" id="id83"><span class="brackets">78</span></dt>
+<dd><p>QuEra. Aquila, our 256-qubit quantum processor. May 2023. URL: <a class="reference external" href="https://www.quera.com/aquila">https://www.quera.com/aquila</a>.</p>
+</dd>
+<dt class="label" id="id33"><span class="brackets">79</span></dt>
 <dd><p>Textbook de Qiskit (IBM). Grover's algorithm. 2021. URL: <a class="reference external" href="https://qiskit.org/textbook/ch-algorithms/grover.html">https://qiskit.org/textbook/ch-algorithms/grover.html</a>.</p>
 </dd>
-<dt class="label" id="id20"><span class="brackets">66</span></dt>
+<dt class="label" id="id20"><span class="brackets">80</span></dt>
 <dd><p>Wikipedia contributors. Gram–schmidt process — Wikipedia, the free encyclopedia. 2023. [Online; accessed 12-November-2023]. URL: <a class="reference external" href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process</a>.</p>
 </dd>
-<dt class="label" id="id19"><span class="brackets">67</span></dt>
+<dt class="label" id="id19"><span class="brackets">81</span></dt>
 <dd><p>Wikipedia contributors. Kronecker product — Wikipedia, the free encyclopedia. 2023. [Online; accessed 15-June-2023]. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Kronecker_product&amp;oldid=1160216148">https://en.wikipedia.org/w/index.php?title=Kronecker_product&amp;oldid=1160216148</a>.</p>
+</dd>
+<dt class="label" id="id87"><span class="brackets">82</span></dt>
+<dd><p>Wikipedia contributors. Quantum harmonic oscillator — Wikipedia, the free encyclopedia. 2024. [Online; accessed 12-September-2024]. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Quantum_harmonic_oscillator&amp;oldid=1242936583">https://en.wikipedia.org/w/index.php?title=Quantum_harmonic_oscillator&amp;oldid=1242936583</a>.</p>
 </dd>
 </dl>
 </div>
@@ -816,12 +921,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Part_04/Chapter_020_02/Section_003_protocolos_de_qkd_tres_familias_myst.html"
+       href="Part_06/Chapter_024_02/Section_022_criptografia_y_quantum_key_distribution_qkd_myst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">20.3. </span>Protocolos de QKD: Tres familias</p>
+        <p class="prev-next-title"><span class="section-number">23.22. </span>Criptografía y Quantum Key Distribution (QKD)</p>
       </div>
     </a>
 </div>

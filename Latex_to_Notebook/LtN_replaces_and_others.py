@@ -327,7 +327,7 @@ def reemplazo_href(line):
 # =============================================================================
 ## Reemplazar \ref{}
 
-def reemplazo_ref(line):
+def reemplazo_ref(line,titles_part_dic = None):
 
     def reemplazo_ref_aux(match):
         palabra_previa = match.group(1) or ""
@@ -347,6 +347,10 @@ def reemplazo_ref(line):
                 return "{prf:ref}`"+label +"`)"
             else:
                 return "{prf:ref}`"+label +"`"
+        elif label_lw.startswith("part_") and titles_part_dic != None:
+            return palabra_previa + '\\"' +titles_part_dic[label]+'\\"'
+        elif label_lw.startswith("part_") and titles_part_dic == None:
+            return palabra_previa + " \\\\ref{" + label +"}"
 
         else:
             if par_abierto == "" and par_cerrado !="":
@@ -363,7 +367,9 @@ def reemplazo_ref(line):
     #patron_ref = r"(\b\w+\.\s*|\b\w+\s*)?(\()?(\\\\ref\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})+)\})(\))?"
 
     # Usar re.sub con la función auxiliar
-
+    #if label_lw.startswith("part_") and titles_part_dic == None:
+    #    return line
+    #else:
     return re.sub(patron_ref, reemplazo_ref_aux, line)
 
 """
